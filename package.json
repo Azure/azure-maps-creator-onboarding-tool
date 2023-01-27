@@ -1,0 +1,70 @@
+{
+  "name": "manifest-tool",
+  "version": "0.1.0",
+  "dependencies": {
+    "@emotion/css": "^11.10.0",
+    "@fluentui/react": "^8.97.1",
+    "@turf/turf": "^6.5.0",
+    "azure-maps-control": "^2.2.0",
+    "file-saver": "^2.0.5",
+    "i18next": "^21.9.2",
+    "i18next-browser-languagedetector": "^6.1.5",
+    "react": "^17.0.2",
+    "react-azure-maps": "^0.4.4",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.18.6",
+    "react-json-view": "^1.21.3",
+    "react-router-dom": "^6.4.1",
+    "zustand": "^4.1.1"
+  },
+  "devDependencies": {
+    "@emotion/jest": "^11.10.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.4.3",
+    "cypress": "^12.4.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "flush-promises": "^1.0.2",
+    "jest-junit": "^14.0.1",
+    "madge": "^5.0.1",
+    "proj4": "^2.8.0",
+    "prop-types": "^15.8.1",
+    "react-scripts": "^5.0.1",
+    "webpack-bundle-analyzer": "^4.7.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "@emotion/jest/serializer"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@fluentui/react)"
+    ],
+    "moduleNameMapper": {
+      "react-azure-maps": "<rootDir>/src/common/mocks/react-azure-maps.js",
+      "azure-maps-control": "<rootDir>/src/common/mocks/azure-maps-control.js"
+    }
+  },
+  "scripts": {
+    "analyze": "webpack-bundle-analyzer build/bundle-stats.json",
+    "start": "react-scripts start",
+    "build": "react-scripts build --stats",
+    "cycle:deps": "node madge.js",
+    "test:ci": "react-scripts test --ci --reporters=default --reporters=jest-junit --watchAll=false",
+    "test": "react-scripts test",
+    "test:e2e": "cypress open",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
