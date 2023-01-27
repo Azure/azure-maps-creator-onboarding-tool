@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.855ac518.js",
-    "index.html": "/index.html",
-    "main.855ac518.js.map": "/static/js/main.855ac518.js.map"
+    "main.js": "/Azure-Maps-Creator-Onboarding-Tool/static/js/main.855ac518.js",
+    "index.html": "/Azure-Maps-Creator-Onboarding-Tool/index.html",
+    "main.855ac518.js.map": "/Azure-Maps-Creator-Onboarding-Tool/static/js/main.855ac518.js.map"
   },
   "entrypoints": [
     "static/js/main.855ac518.js"
