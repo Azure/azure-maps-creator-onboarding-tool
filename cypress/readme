@@ -1,0 +1,9 @@
+To run cypress tests you need to provide two env variables - baseUrl and subscriptionKey.
+A good way to set them locally would be to create cypress.env.json file in the root of the project:
+
+{
+  "baseUrl": "http://localhost:3000/",
+  "subscriptionKey": "my-subscription-key"
+}
+
+More information on env variables can be found here https://docs.cypress.io/guides/guides/environment-variables

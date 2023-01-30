@@ -1,0 +1,69 @@
+{
+  "version": "2.0",
+  "buildingLevels": {
+    "levels": [
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_01.dwg",
+        "levelName": "Ground level",
+        "ordinal": 1
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_02.dwg",
+        "levelName": "Next level",
+        "ordinal": 22
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_03.dwg",
+        "levelName": "Nivel tres",
+        "ordinal": 333
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_04.dwg",
+        "levelName": "Niveau quatre",
+        "ordinal": 4
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_05.dwg",
+        "levelName": "第五級",
+        "ordinal": 5
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_06.dwg",
+        "levelName": "Уровень шесть",
+        "ordinal": 6
+      },
+      {
+        "filename": "PUGET SOUND_ADVANTA-A_07.dwg",
+        "levelName": "المستوى السابع",
+        "ordinal": 7
+      }
+    ]
+  },
+  "georeference": {
+    "lat": 47.60291492,
+    "lon": -122.33076527,
+    "angle": 100
+  },
+  "featureClasses": {
+    "exterior": {
+      "dwgLayers": [
+        "A-BOMA",
+        "A-FURN-FREE-EXST"
+      ],
+      "new_prop_7": [
+        "RM$TXT",
+        "GROS$TXT"
+      ]
+    },
+    "new_feature_class_12b": {
+      "dwgLayers": [
+        "A-GLAZ-EXST",
+        "A-WALL-CORE-EXST"
+      ],
+      "new_prop_8": [
+        "AK-ROOM-LABL",
+        "A-EQPM-EXST"
+      ]
+    }
+  }
+}

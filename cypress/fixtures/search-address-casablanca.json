@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "query": "casablanca",
+    "queryType": "NON_NEAR",
+    "queryTime": 58,
+    "numResults": 1,
+    "offset": 0,
+    "totalResults": 315,
+    "fuzzyLevel": 1
+  },
+  "results": [
+    {
+      "type": "Geography",
+      "id": "MA/GEO/p0/4825",
+      "score": 2.6589369774,
+      "entityType": "Municipality",
+      "matchConfidence": {
+        "score": 0.9511938767411313
+      },
+      "address": {
+        "municipality": "Casablanca",
+        "countrySecondarySubdivision": "Casablanca",
+        "countrySubdivision": "Grand Casablanca",
+        "countryCode": "MA",
+        "country": "Morocco",
+        "countryCodeISO3": "MAR",
+        "freeformAddress": "Casablanca"
+      },
+      "position": {
+        "lat": 33.59646,
+        "lon": -7.61548
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 33.6382,
+          "lon": -7.75189
+        },
+        "btmRightPoint": {
+          "lat": 33.49323,
+          "lon": -7.45143
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 33.6382,
+          "lon": -7.75189
+        },
+        "btmRightPoint": {
+          "lat": 33.49323,
+          "lon": -7.45143
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "f558af08-7804-48a2-928b-282b44d2efa7"
+        }
+      }
+    }
+  ]
+}

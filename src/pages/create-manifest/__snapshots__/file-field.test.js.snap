@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileField should render component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-1 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-1:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-2 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  width: 100%;
+}
+
+.emotion-4 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-4:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-6 {
+  display: none;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          foobar
+        </div>
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="foobar"
+                  aria-required="true"
+                  class="ms-TextField-field field-112"
+                  data-testid="file-name-field"
+                  id="TextField0"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            class="emotion-4"
+            for="wootwoot"
+          >
+            <span
+              class="emotion-5"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-6"
+            data-testid="wootwoot"
+            id="wootwoot"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-1 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-1:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-2 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  width: 100%;
+}
+
+.emotion-4 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-4:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-6 {
+  display: none;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        foobar
+      </div>
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                aria-label="foobar"
+                aria-required="true"
+                class="ms-TextField-field field-112"
+                data-testid="file-name-field"
+                id="TextField0"
+                readonly=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <label
+          class="emotion-4"
+          for="wootwoot"
+        >
+          <span
+            class="emotion-5"
+          >
+            browse
+          </span>
+        </label>
+        <input
+          class="emotion-6"
+          data-testid="wootwoot"
+          id="wootwoot"
+          type="file"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

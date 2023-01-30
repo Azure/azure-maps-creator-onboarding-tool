@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field Error should render component when text is provided 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  margin-right: 0.25rem;
+  font-size: 0.813rem;
+}
+
+<div>
+  <span
+    class="emotion-0"
+  >
+    <i
+      aria-hidden="true"
+      class="emotion-1 root-106"
+      data-icon-name="StatusErrorFull"
+    >
+      
+    </i>
+    Sweden has 267,570 islands, the most of any country in the world.
+  </span>
+</div>
+`;

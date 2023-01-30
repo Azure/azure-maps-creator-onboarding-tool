@@ -1,0 +1,1815 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Control should render Control 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-1:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-2 {
+  background-color: white;
+  font-size: 0.813rem;
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+}
+
+.emotion-3 {
+  font-weight: 600;
+  padding: 0.3125rem 0.5rem 0.3125rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
+
+.emotion-4:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-4:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-5 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+}
+
+.emotion-6 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 {
+  width: 6rem;
+}
+
+.emotion-12 {
+  padding: 0.7rem 0.875rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-15 {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.emotion-16 {
+  width: 3rem;
+  margin-left: 0.25rem;
+  text-align: center;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          aria-label="hide.control"
+          class="ms-Button ms-Button--icon emotion-1 root-110"
+          data-is-focusable="true"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-111"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-label="hide.control"
+              class="root-120"
+              data-icon-name="Search"
+              role="img"
+            >
+              
+            </i>
+          </span>
+        </button>
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            <span>
+              position.building.footprint
+            </span>
+            <button
+              aria-label="toggle.control"
+              class="ms-Button ms-Button--icon emotion-4 root-110"
+              data-is-focusable="true"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-111"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="root-123"
+                  data-icon-name="BackToWindow"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <div
+              class="emotion-6"
+            >
+              search.by.building.address
+            </div>
+            <div
+              class="ms-TextField root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-126"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="ms-TextField-field field-127"
+                    id="TextField60"
+                    placeholder="search.address"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <div
+              class="emotion-6"
+            >
+              search.by.lon.lat
+            </div>
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="ms-TextField emotion-10 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="ms-TextField-field field-137"
+                      id="TextField65"
+                      placeholder="longitude"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-10 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="ms-TextField-field field-137"
+                      id="TextField70"
+                      placeholder="latitude"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-12"
+          >
+            <div
+              class="emotion-6"
+            >
+              rotation.in.degrees
+            </div>
+            <div
+              class="emotion-14"
+            >
+              <div
+                class="emotion-15"
+              >
+                <div
+                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                >
+                  <label
+                    class="ms-Label titleLabel-149"
+                    for="Slider75"
+                  />
+                  <div
+                    class="ms-Slider-container container-140"
+                  >
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="360"
+                      aria-valuemin="0"
+                      aria-valuenow="111"
+                      aria-valuetext="111"
+                      class="ms-Slider-slideBox slideBox-141"
+                      data-is-focusable="true"
+                      id="Slider75"
+                      role="slider"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ms-Slider-line line-143"
+                      >
+                        <span
+                          class="ms-Slider-thumb thumb-142"
+                          style="left: 30.833333333333336%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          style="width: 0%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-active activeSection-145"
+                          style="width: 30.833333333333336%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          style="width: 69.16666666666666%;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-16 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="rotation.in.degrees"
+                      autocomplete="off"
+                      class="ms-TextField-field field-150"
+                      id="TextField76"
+                      type="text"
+                      value="111"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-1:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-2 {
+  background-color: white;
+  font-size: 0.813rem;
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+}
+
+.emotion-3 {
+  font-weight: 600;
+  padding: 0.3125rem 0.5rem 0.3125rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
+
+.emotion-4:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-4:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-5 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+}
+
+.emotion-6 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 {
+  width: 6rem;
+}
+
+.emotion-12 {
+  padding: 0.7rem 0.875rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-15 {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.emotion-16 {
+  width: 3rem;
+  margin-left: 0.25rem;
+  text-align: center;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <button
+        aria-label="hide.control"
+        class="ms-Button ms-Button--icon emotion-1 root-110"
+        data-is-focusable="true"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-111"
+          data-automationid="splitbuttonprimary"
+        >
+          <i
+            aria-label="hide.control"
+            class="root-120"
+            data-icon-name="Search"
+            role="img"
+          >
+            
+          </i>
+        </span>
+      </button>
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <span>
+            position.building.footprint
+          </span>
+          <button
+            aria-label="toggle.control"
+            class="ms-Button ms-Button--icon emotion-4 root-110"
+            data-is-focusable="true"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-111"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="root-123"
+                data-icon-name="BackToWindow"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            search.by.building.address
+          </div>
+          <div
+            class="ms-TextField root-125"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-126"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-127"
+                  id="TextField60"
+                  placeholder="search.address"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            search.by.lon.lat
+          </div>
+          <div
+            class="emotion-9"
+          >
+            <div
+              class="ms-TextField emotion-10 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="ms-TextField-field field-137"
+                    id="TextField65"
+                    placeholder="longitude"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="ms-TextField emotion-10 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="ms-TextField-field field-137"
+                    id="TextField70"
+                    placeholder="latitude"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-6"
+          >
+            rotation.in.degrees
+          </div>
+          <div
+            class="emotion-14"
+          >
+            <div
+              class="emotion-15"
+            >
+              <div
+                class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+              >
+                <label
+                  class="ms-Label titleLabel-149"
+                  for="Slider75"
+                />
+                <div
+                  class="ms-Slider-container container-140"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-valuemax="360"
+                    aria-valuemin="0"
+                    aria-valuenow="111"
+                    aria-valuetext="111"
+                    class="ms-Slider-slideBox slideBox-141"
+                    data-is-focusable="true"
+                    id="Slider75"
+                    role="slider"
+                    tabindex="0"
+                  >
+                    <div
+                      class="ms-Slider-line line-143"
+                    >
+                      <span
+                        class="ms-Slider-thumb thumb-142"
+                        style="left: 30.833333333333336%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        style="width: 0%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-active activeSection-145"
+                        style="width: 30.833333333333336%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        style="width: 69.16666666666666%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ms-TextField emotion-16 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="rotation.in.degrees"
+                    autocomplete="off"
+                    class="ms-TextField-field field-150"
+                    id="TextField76"
+                    type="text"
+                    value="111"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Control should show error message 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-1:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-2 {
+  background-color: white;
+  font-size: 0.813rem;
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+}
+
+.emotion-3 {
+  font-weight: 600;
+  padding: 0.3125rem 0.5rem 0.3125rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
+
+.emotion-4:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-4:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-5 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+}
+
+.emotion-6 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 {
+  width: 6rem;
+}
+
+.emotion-12 {
+  padding: 0.7rem 0.875rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-15 {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.emotion-16 {
+  width: 3rem;
+  margin-left: 0.25rem;
+  text-align: center;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          aria-label="hide.control"
+          class="ms-Button ms-Button--icon emotion-1 root-110"
+          data-is-focusable="true"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-111"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-label="hide.control"
+              class="root-120"
+              data-icon-name="Search"
+              role="img"
+            >
+              
+            </i>
+          </span>
+        </button>
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            <span>
+              position.building.footprint
+            </span>
+            <button
+              aria-label="toggle.control"
+              class="ms-Button ms-Button--icon emotion-4 root-110"
+              data-is-focusable="true"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-111"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="root-123"
+                  data-icon-name="BackToWindow"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <div
+              class="emotion-6"
+            >
+              search.by.building.address
+            </div>
+            <div
+              class="ms-TextField root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-157"
+                >
+                  <input
+                    aria-describedby="TextFieldDescription142"
+                    aria-invalid="true"
+                    class="ms-TextField-field field-127"
+                    id="TextField141"
+                    placeholder="search.address"
+                    type="text"
+                    value="742 Evergreen Terrace"
+                  />
+                </div>
+              </div>
+              <span
+                id="TextFieldDescription142"
+              >
+                <div
+                  role="alert"
+                />
+              </span>
+            </div>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <div
+              class="emotion-6"
+            >
+              search.by.lon.lat
+            </div>
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="ms-TextField emotion-10 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="ms-TextField-field field-137"
+                      id="TextField146"
+                      placeholder="longitude"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-10 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="ms-TextField-field field-137"
+                      id="TextField151"
+                      placeholder="latitude"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-12"
+          >
+            <div
+              class="emotion-6"
+            >
+              rotation.in.degrees
+            </div>
+            <div
+              class="emotion-14"
+            >
+              <div
+                class="emotion-15"
+              >
+                <div
+                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                >
+                  <label
+                    class="ms-Label titleLabel-149"
+                    for="Slider156"
+                  />
+                  <div
+                    class="ms-Slider-container container-140"
+                  >
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="360"
+                      aria-valuemin="0"
+                      aria-valuenow="111"
+                      aria-valuetext="111"
+                      class="ms-Slider-slideBox slideBox-141"
+                      data-is-focusable="true"
+                      id="Slider156"
+                      role="slider"
+                      tabindex="0"
+                    >
+                      <div
+                        class="ms-Slider-line line-143"
+                      >
+                        <span
+                          class="ms-Slider-thumb thumb-142"
+                          style="left: 30.833333333333336%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          style="width: 0%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-active activeSection-145"
+                          style="width: 30.833333333333336%;"
+                        />
+                        <span
+                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          style="width: 69.16666666666666%;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-16 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-136"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="rotation.in.degrees"
+                      autocomplete="off"
+                      class="ms-TextField-field field-150"
+                      id="TextField157"
+                      type="text"
+                      value="111"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-1:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-2 {
+  background-color: white;
+  font-size: 0.813rem;
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+}
+
+.emotion-3 {
+  font-weight: 600;
+  padding: 0.3125rem 0.5rem 0.3125rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
+
+.emotion-4:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-4:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-5 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+}
+
+.emotion-6 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 {
+  width: 6rem;
+}
+
+.emotion-12 {
+  padding: 0.7rem 0.875rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-15 {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.emotion-16 {
+  width: 3rem;
+  margin-left: 0.25rem;
+  text-align: center;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <button
+        aria-label="hide.control"
+        class="ms-Button ms-Button--icon emotion-1 root-110"
+        data-is-focusable="true"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-111"
+          data-automationid="splitbuttonprimary"
+        >
+          <i
+            aria-label="hide.control"
+            class="root-120"
+            data-icon-name="Search"
+            role="img"
+          >
+            
+          </i>
+        </span>
+      </button>
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <span>
+            position.building.footprint
+          </span>
+          <button
+            aria-label="toggle.control"
+            class="ms-Button ms-Button--icon emotion-4 root-110"
+            data-is-focusable="true"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-111"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="root-123"
+                data-icon-name="BackToWindow"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            search.by.building.address
+          </div>
+          <div
+            class="ms-TextField root-125"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-157"
+              >
+                <input
+                  aria-describedby="TextFieldDescription142"
+                  aria-invalid="true"
+                  class="ms-TextField-field field-127"
+                  id="TextField141"
+                  placeholder="search.address"
+                  type="text"
+                  value="742 Evergreen Terrace"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription142"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            search.by.lon.lat
+          </div>
+          <div
+            class="emotion-9"
+          >
+            <div
+              class="ms-TextField emotion-10 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="ms-TextField-field field-137"
+                    id="TextField146"
+                    placeholder="longitude"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="ms-TextField emotion-10 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="ms-TextField-field field-137"
+                    id="TextField151"
+                    placeholder="latitude"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-6"
+          >
+            rotation.in.degrees
+          </div>
+          <div
+            class="emotion-14"
+          >
+            <div
+              class="emotion-15"
+            >
+              <div
+                class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+              >
+                <label
+                  class="ms-Label titleLabel-149"
+                  for="Slider156"
+                />
+                <div
+                  class="ms-Slider-container container-140"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-valuemax="360"
+                    aria-valuemin="0"
+                    aria-valuenow="111"
+                    aria-valuetext="111"
+                    class="ms-Slider-slideBox slideBox-141"
+                    data-is-focusable="true"
+                    id="Slider156"
+                    role="slider"
+                    tabindex="0"
+                  >
+                    <div
+                      class="ms-Slider-line line-143"
+                    >
+                      <span
+                        class="ms-Slider-thumb thumb-142"
+                        style="left: 30.833333333333336%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        style="width: 0%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-active activeSection-145"
+                        style="width: 30.833333333333336%;"
+                      />
+                      <span
+                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        style="width: 69.16666666666666%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ms-TextField emotion-16 root-125"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="rotation.in.degrees"
+                    autocomplete="off"
+                    class="ms-TextField-field field-150"
+                    id="TextField157"
+                    type="text"
+                    value="111"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`GeoreferenceControl class onAdd should return container 1`] = `
+.emotion-0 {
+  position: relative;
+}
+
+.emotion-1 {
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-1:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-2 {
+  background-color: white;
+  font-size: 0.813rem;
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+}
+
+.emotion-3 {
+  font-weight: 600;
+  padding: 0.3125rem 0.5rem 0.3125rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
+
+.emotion-4:hover {
+  background-color: white;
+  color: black;
+}
+
+.emotion-4:active {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.emotion-5 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
+}
+
+.emotion-6 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-10 {
+  width: 6rem;
+}
+
+.emotion-12 {
+  padding: 0.7rem 0.875rem;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-15 {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+.emotion-16 {
+  width: 3rem;
+  margin-left: 0.25rem;
+  text-align: center;
+}
+
+<div
+  class="azure-maps-control-container"
+>
+  <div
+    class="emotion-0"
+  >
+    <button
+      aria-label="hide.control"
+      class="ms-Button ms-Button--icon emotion-1 root-110"
+      data-is-focusable="true"
+      type="button"
+    >
+      <span
+        class="ms-Button-flexContainer flexContainer-111"
+        data-automationid="splitbuttonprimary"
+      >
+        <i
+          aria-label="hide.control"
+          class="root-120"
+          data-icon-name="Search"
+          role="img"
+        >
+          
+        </i>
+      </span>
+    </button>
+    <div
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span>
+          position.building.footprint
+        </span>
+        <button
+          aria-label="toggle.control"
+          class="ms-Button ms-Button--icon emotion-4 root-110"
+          data-is-focusable="true"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-111"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden="true"
+              class="root-123"
+              data-icon-name="BackToWindow"
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <div
+          class="emotion-6"
+        >
+          search.by.building.address
+        </div>
+        <div
+          class="ms-TextField root-125"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-126"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-127"
+                id="TextField6"
+                placeholder="search.address"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <div
+          class="emotion-6"
+        >
+          search.by.lon.lat
+        </div>
+        <div
+          class="emotion-9"
+        >
+          <div
+            class="ms-TextField emotion-10 root-125"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-136"
+              >
+                <input
+                  aria-invalid="false"
+                  autocomplete="off"
+                  class="ms-TextField-field field-137"
+                  id="TextField11"
+                  placeholder="longitude"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-10 root-125"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-136"
+              >
+                <input
+                  aria-invalid="false"
+                  autocomplete="off"
+                  class="ms-TextField-field field-137"
+                  id="TextField16"
+                  placeholder="latitude"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-12"
+      >
+        <div
+          class="emotion-6"
+        >
+          rotation.in.degrees
+        </div>
+        <div
+          class="emotion-14"
+        >
+          <div
+            class="emotion-15"
+          >
+            <div
+              class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+            >
+              <label
+                class="ms-Label titleLabel-149"
+                for="Slider21"
+              />
+              <div
+                class="ms-Slider-container container-140"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="360"
+                  aria-valuemin="0"
+                  aria-valuenow="111"
+                  aria-valuetext="111"
+                  class="ms-Slider-slideBox slideBox-141"
+                  data-is-focusable="true"
+                  id="Slider21"
+                  role="slider"
+                  tabindex="0"
+                >
+                  <div
+                    class="ms-Slider-line line-143"
+                  >
+                    <span
+                      class="ms-Slider-thumb thumb-142"
+                      style="left: 30.833333333333336%;"
+                    />
+                    <span
+                      class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                      style="width: 0%;"
+                    />
+                    <span
+                      class="lineContainer-144 ms-Slider-active activeSection-145"
+                      style="width: 30.833333333333336%;"
+                    />
+                    <span
+                      class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                      style="width: 69.16666666666666%;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-16 root-125"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-136"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="rotation.in.degrees"
+                  autocomplete="off"
+                  class="ms-TextField-field field-150"
+                  id="TextField22"
+                  type="text"
+                  value="111"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
