@@ -1,0 +1,2870 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateManifestPage should render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-19 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          aria-describedby="MessageBar0"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          role="region"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="ErrorBadge"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar0"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+                data-testid="error-bar"
+              />
+            </div>
+            <div
+              class="ms-MessageBar-dismissSingleLine"
+            >
+              <button
+                aria-label="close"
+                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+                data-is-focusable="true"
+                title="close"
+                type="button"
+              >
+                <span
+                  class="ms-Button-flexContainer flexContainer-122"
+                  data-automationid="splitbuttonprimary"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                    data-icon-name="Clear"
+                    style="font-family: \\"FabricMDL2Icons\\";"
+                  >
+                    
+                  </i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="emotion-3"
+        >
+          upload.file
+        </h2>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-5"
+          >
+            geography
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-Dropdown-container emotion-7"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="upload.geography"
+                class="ms-Dropdown dropdown-131"
+                data-is-focusable="true"
+                data-ktp-target="true"
+                id="Dropdown4"
+                role="combobox"
+                tabindex="0"
+              >
+                <span
+                  aria-invalid="false"
+                  class="ms-Dropdown-title title-171"
+                  id="Dropdown4-option"
+                >
+                  geography.unitedstates
+                </span>
+                <span
+                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Dropdown-caretDown caretDown-149"
+                    data-icon-name="ChevronDown"
+                  >
+                    
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            subscription.key
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="subscription.key"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="subscription-key-field"
+                    id="TextField5"
+                    type="password"
+                    value=""
+                  />
+                  <button
+                    aria-pressed="false"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                    type="button"
+                  >
+                    <span
+                      class="revealSpan-160"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="revealIcon-164"
+                        data-icon-name="RedEye"
+                      >
+                        
+                      </i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            dwg.zip.package
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="dwg.zip.package"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="file-name-field"
+                    id="TextField10"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <label
+              class="emotion-16"
+              for="file-upload-field"
+            >
+              <span
+                class="emotion-17"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-18"
+              data-testid="file-upload-field"
+              id="file-upload-field"
+              type="file"
+            />
+          </div>
+        </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-19 root-165"
+          data-is-focusable="false"
+          data-testid="upload-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-167"
+                id="id__15"
+              >
+                upload
+              </span>
+            </span>
+          </span>
+        </button>
+        <button
+          class="ms-Button ms-Button--default emotion-20 root-169"
+          data-is-focusable="true"
+          data-testid="cancel-button"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-170"
+                id="id__18"
+              >
+                cancel
+              </span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-19 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        aria-describedby="MessageBar0"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        role="region"
+      >
+        <div
+          class="ms-MessageBar-content content-110"
+        >
+          <div
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-120"
+              data-icon-name="ErrorBadge"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="assertive"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar0"
+            role="alert"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-114"
+              data-testid="error-bar"
+            />
+          </div>
+          <div
+            class="ms-MessageBar-dismissSingleLine"
+          >
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="emotion-3"
+      >
+        upload.file
+      </h2>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+        >
+          geography
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-Dropdown-container emotion-7"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="upload.geography"
+              class="ms-Dropdown dropdown-131"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown4"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="false"
+                class="ms-Dropdown-title title-171"
+                id="Dropdown4-option"
+              >
+                geography.unitedstates
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-149"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          subscription.key
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="subscription.key"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="subscription-key-field"
+                  id="TextField5"
+                  type="password"
+                  value=""
+                />
+                <button
+                  aria-pressed="false"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                  type="button"
+                >
+                  <span
+                    class="revealSpan-160"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="revealIcon-164"
+                      data-icon-name="RedEye"
+                    >
+                      
+                    </i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          dwg.zip.package
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="dwg.zip.package"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="file-name-field"
+                  id="TextField10"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            class="emotion-16"
+            for="file-upload-field"
+          >
+            <span
+              class="emotion-17"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-18"
+            data-testid="file-upload-field"
+            id="file-upload-field"
+            type="file"
+          />
+        </div>
+      </div>
+      <button
+        aria-disabled="true"
+        class="ms-Button ms-Button--primary is-disabled emotion-19 root-165"
+        data-is-focusable="false"
+        data-testid="upload-button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-167"
+              id="id__15"
+            >
+              upload
+            </span>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ms-Button ms-Button--default emotion-20 root-169"
+        data-is-focusable="true"
+        data-testid="cancel-button"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-170"
+              id="id__18"
+            >
+              cancel
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CreateManifestPage should render correctly with allowEdit prop 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-26 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          aria-describedby="MessageBar21"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          role="region"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="ErrorBadge"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar21"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+                data-testid="error-bar"
+              />
+            </div>
+            <div
+              class="ms-MessageBar-dismissSingleLine"
+            >
+              <button
+                aria-label="close"
+                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+                data-is-focusable="true"
+                title="close"
+                type="button"
+              >
+                <span
+                  class="ms-Button-flexContainer flexContainer-122"
+                  data-automationid="splitbuttonprimary"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                    data-icon-name="Clear"
+                    style="font-family: \\"FabricMDL2Icons\\";"
+                  >
+                    
+                  </i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="emotion-3"
+        >
+          upload.file
+        </h2>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-5"
+          >
+            geography
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-Dropdown-container emotion-7"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="upload.geography"
+                class="ms-Dropdown dropdown-131"
+                data-is-focusable="true"
+                data-ktp-target="true"
+                id="Dropdown25"
+                role="combobox"
+                tabindex="0"
+              >
+                <span
+                  aria-invalid="false"
+                  class="ms-Dropdown-title title-171"
+                  id="Dropdown25-option"
+                >
+                  geography.unitedstates
+                </span>
+                <span
+                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Dropdown-caretDown caretDown-149"
+                    data-icon-name="ChevronDown"
+                  >
+                    
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            subscription.key
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="subscription.key"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="subscription-key-field"
+                    id="TextField26"
+                    type="password"
+                    value=""
+                  />
+                  <button
+                    aria-pressed="false"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                    type="button"
+                  >
+                    <span
+                      class="revealSpan-160"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="revealIcon-164"
+                        data-icon-name="RedEye"
+                      >
+                        
+                      </i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            dwg.zip.package
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="dwg.zip.package"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="file-name-field"
+                    id="TextField31"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <label
+              class="emotion-16"
+              for="file-upload-field"
+            >
+              <span
+                class="emotion-17"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-18"
+              data-testid="file-upload-field"
+              id="file-upload-field"
+              type="file"
+            />
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            manifest.file
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="manifest.file"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="file-name-field"
+                    id="TextField36"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <label
+              class="emotion-16"
+              for="manifest-upload-field"
+            >
+              <span
+                class="emotion-17"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-18"
+              data-testid="manifest-upload-field"
+              id="manifest-upload-field"
+              type="file"
+            />
+          </div>
+        </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-26 root-165"
+          data-is-focusable="false"
+          data-testid="upload-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-167"
+                id="id__41"
+              >
+                upload
+              </span>
+            </span>
+          </span>
+        </button>
+        <button
+          class="ms-Button ms-Button--default emotion-27 root-169"
+          data-is-focusable="true"
+          data-testid="cancel-button"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-170"
+                id="id__44"
+              >
+                cancel
+              </span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-26 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        aria-describedby="MessageBar21"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        role="region"
+      >
+        <div
+          class="ms-MessageBar-content content-110"
+        >
+          <div
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-120"
+              data-icon-name="ErrorBadge"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="assertive"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar21"
+            role="alert"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-114"
+              data-testid="error-bar"
+            />
+          </div>
+          <div
+            class="ms-MessageBar-dismissSingleLine"
+          >
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="emotion-3"
+      >
+        upload.file
+      </h2>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+        >
+          geography
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-Dropdown-container emotion-7"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="upload.geography"
+              class="ms-Dropdown dropdown-131"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown25"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="false"
+                class="ms-Dropdown-title title-171"
+                id="Dropdown25-option"
+              >
+                geography.unitedstates
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-149"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          subscription.key
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="subscription.key"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="subscription-key-field"
+                  id="TextField26"
+                  type="password"
+                  value=""
+                />
+                <button
+                  aria-pressed="false"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                  type="button"
+                >
+                  <span
+                    class="revealSpan-160"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="revealIcon-164"
+                      data-icon-name="RedEye"
+                    >
+                      
+                    </i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          dwg.zip.package
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="dwg.zip.package"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="file-name-field"
+                  id="TextField31"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            class="emotion-16"
+            for="file-upload-field"
+          >
+            <span
+              class="emotion-17"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-18"
+            data-testid="file-upload-field"
+            id="file-upload-field"
+            type="file"
+          />
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          manifest.file
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="manifest.file"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="file-name-field"
+                  id="TextField36"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            class="emotion-16"
+            for="manifest-upload-field"
+          >
+            <span
+              class="emotion-17"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-18"
+            data-testid="manifest-upload-field"
+            id="manifest-upload-field"
+            type="file"
+          />
+        </div>
+      </div>
+      <button
+        aria-disabled="true"
+        class="ms-Button ms-Button--primary is-disabled emotion-26 root-165"
+        data-is-focusable="false"
+        data-testid="upload-button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-167"
+              id="id__41"
+            >
+              upload
+            </span>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ms-Button ms-Button--default emotion-27 root-169"
+        data-is-focusable="true"
+        data-testid="cancel-button"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-170"
+              id="id__44"
+            >
+              cancel
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CreateManifestPage should show error when subKey contains invalid chars 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-19 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<body
+    class=""
+  >
+    <div
+      id="fluent-default-layer-host"
+      style="position: fixed; z-index: 1000000;"
+    />
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          aria-describedby="MessageBar193"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          role="region"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="ErrorBadge"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar193"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+                data-testid="error-bar"
+              >
+                <span>
+                  some err
+                </span>
+              </span>
+            </div>
+            <div
+              class="ms-MessageBar-dismissSingleLine"
+            >
+              <button
+                aria-label="close"
+                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+                data-is-focusable="true"
+                title="close"
+                type="button"
+              >
+                <span
+                  class="ms-Button-flexContainer flexContainer-122"
+                  data-automationid="splitbuttonprimary"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                    data-icon-name="Clear"
+                    style="font-family: \\"FabricMDL2Icons\\";"
+                  >
+                    
+                  </i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <h2
+          class="emotion-3"
+        >
+          upload.file
+        </h2>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-5"
+          >
+            geography
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-Dropdown-container emotion-7"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="upload.geography"
+                class="ms-Dropdown dropdown-131"
+                data-is-focusable="true"
+                data-ktp-target="true"
+                id="Dropdown197"
+                role="combobox"
+                tabindex="0"
+              >
+                <span
+                  aria-invalid="false"
+                  class="ms-Dropdown-title title-171"
+                  id="Dropdown197-option"
+                >
+                  geography.europe
+                </span>
+                <span
+                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="ms-Dropdown-caretDown caretDown-149"
+                    data-icon-name="ChevronDown"
+                  >
+                    
+                  </i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            subscription.key
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="subscription.key"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="subscription-key-field"
+                    id="TextField198"
+                    type="password"
+                    value="subscription_key!"
+                  />
+                  <button
+                    aria-pressed="false"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                    type="button"
+                  >
+                    <span
+                      class="revealSpan-160"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="revealIcon-164"
+                        data-icon-name="RedEye"
+                      >
+                        
+                      </i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-9"
+          >
+            dwg.zip.package
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="ms-TextField emotion-7 root-151"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-152"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="dwg.zip.package"
+                    aria-required="true"
+                    class="ms-TextField-field field-153"
+                    data-testid="file-name-field"
+                    id="TextField203"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <label
+              class="emotion-16"
+              for="file-upload-field"
+            >
+              <span
+                class="emotion-17"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-18"
+              data-testid="file-upload-field"
+              id="file-upload-field"
+              type="file"
+            />
+          </div>
+        </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-19 root-165"
+          data-is-focusable="false"
+          data-testid="upload-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-167"
+                id="id__208"
+              >
+                upload
+              </span>
+            </span>
+          </span>
+        </button>
+        <button
+          class="ms-Button ms-Button--default emotion-20 root-169"
+          data-is-focusable="true"
+          data-testid="cancel-button"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-122"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-123"
+            >
+              <span
+                class="ms-Button-label label-170"
+                id="id__211"
+              >
+                cancel
+              </span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45.5rem;
+  margin: auto;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  height: 3.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.emotion-5 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  width: 100%;
+}
+
+.emotion-9 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-9:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-16 {
+  outline: transparent;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 1rem;
+}
+
+.emotion-16:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.emotion-18 {
+  display: none;
+}
+
+.emotion-19 {
+  margin-right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        aria-describedby="MessageBar193"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        role="region"
+      >
+        <div
+          class="ms-MessageBar-content content-110"
+        >
+          <div
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-120"
+              data-icon-name="ErrorBadge"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="assertive"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar193"
+            role="alert"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-114"
+              data-testid="error-bar"
+            >
+              <span>
+                some err
+              </span>
+            </span>
+          </div>
+          <div
+            class="ms-MessageBar-dismissSingleLine"
+          >
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2
+        class="emotion-3"
+      >
+        upload.file
+      </h2>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+        >
+          geography
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-Dropdown-container emotion-7"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="upload.geography"
+              class="ms-Dropdown dropdown-131"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown197"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="false"
+                class="ms-Dropdown-title title-171"
+                id="Dropdown197-option"
+              >
+                geography.europe
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-149"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          subscription.key
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="subscription.key"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="subscription-key-field"
+                  id="TextField198"
+                  type="password"
+                  value="subscription_key!"
+                />
+                <button
+                  aria-pressed="false"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                  type="button"
+                >
+                  <span
+                    class="revealSpan-160"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="revealIcon-164"
+                      data-icon-name="RedEye"
+                    >
+                      
+                    </i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-9"
+        >
+          dwg.zip.package
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="ms-TextField emotion-7 root-151"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-152"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="dwg.zip.package"
+                  aria-required="true"
+                  class="ms-TextField-field field-153"
+                  data-testid="file-name-field"
+                  id="TextField203"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            class="emotion-16"
+            for="file-upload-field"
+          >
+            <span
+              class="emotion-17"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-18"
+            data-testid="file-upload-field"
+            id="file-upload-field"
+            type="file"
+          />
+        </div>
+      </div>
+      <button
+        aria-disabled="true"
+        class="ms-Button ms-Button--primary is-disabled emotion-19 root-165"
+        data-is-focusable="false"
+        data-testid="upload-button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-167"
+              id="id__208"
+            >
+              upload
+            </span>
+          </span>
+        </span>
+      </button>
+      <button
+        class="ms-Button ms-Button--default emotion-20 root-169"
+        data-is-focusable="true"
+        data-testid="cancel-button"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-122"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-123"
+          >
+            <span
+              class="ms-Button-label label-170"
+              id="id__211"
+            >
+              cancel
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Georeference should render georeference page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  width: 100%;
+  max-width: 31.25rem;
+  margin-bottom: 1rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.813rem;
+  -webkit-box-flex-flow: wrap;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.emotion-2 {
+  margin-right: 1.25rem;
+  max-width: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-4 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="ErrorBadge"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar0"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              anchor.point.longitude
+            </div>
+            <div
+              class="ms-TextField is-disabled emotion-5 root-122"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-123"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="anchor.point.longitude"
+                    class="ms-TextField-field field-124"
+                    disabled=""
+                    id="TextField1"
+                    readonly=""
+                    type="text"
+                    value="40"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              anchor.point.latitude
+            </div>
+            <div
+              class="ms-TextField is-disabled emotion-5 root-122"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-123"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="anchor.point.latitude"
+                    class="ms-TextField-field field-124"
+                    disabled=""
+                    id="TextField6"
+                    readonly=""
+                    type="text"
+                    value="60"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              anchor.point.angle
+            </div>
+            <div
+              class="ms-TextField is-disabled emotion-5 root-122"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-123"
+                >
+                  <input
+                    aria-invalid="false"
+                    aria-label="anchor.point.angle"
+                    class="ms-TextField-field field-124"
+                    disabled=""
+                    id="TextField11"
+                    readonly=""
+                    type="text"
+                    value="89"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          it's map
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  width: 100%;
+  max-width: 31.25rem;
+  margin-bottom: 1rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.813rem;
+  -webkit-box-flex-flow: wrap;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+}
+
+.emotion-2 {
+  margin-right: 1.25rem;
+  max-width: 100%;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-4 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline root-109"
+      >
+        <div
+          class="ms-MessageBar-content content-110"
+        >
+          <div
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-120"
+              data-icon-name="ErrorBadge"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="assertive"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar0"
+            role="alert"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-114"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            anchor.point.longitude
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-5 root-122"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-123"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="anchor.point.longitude"
+                  class="ms-TextField-field field-124"
+                  disabled=""
+                  id="TextField1"
+                  readonly=""
+                  type="text"
+                  value="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            anchor.point.latitude
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-5 root-122"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-123"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="anchor.point.latitude"
+                  class="ms-TextField-field field-124"
+                  disabled=""
+                  id="TextField6"
+                  readonly=""
+                  type="text"
+                  value="60"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            anchor.point.angle
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-5 root-122"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-123"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="anchor.point.angle"
+                  class="ms-TextField-field field-124"
+                  disabled=""
+                  id="TextField11"
+                  readonly=""
+                  type="text"
+                  value="89"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        it's map
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

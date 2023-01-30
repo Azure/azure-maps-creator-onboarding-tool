@@ -1,0 +1,1108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Level component should render component 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            file.name
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField0"
+                  readonly=""
+                  type="text"
+                  value="kitchen.dwg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            level.name
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-121"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="level.name.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField5"
+                  type="text"
+                  value="Kitchen"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            ordinal
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-121"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="ordinal.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField10"
+                  type="text"
+                  value="5"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          file.name
+        </div>
+        <div
+          class="ms-TextField is-disabled emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField0"
+                readonly=""
+                type="text"
+                value="kitchen.dwg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          level.name
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-121"
+            >
+              <input
+                aria-invalid="false"
+                aria-label="level.name.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField5"
+                type="text"
+                value="Kitchen"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          ordinal
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-121"
+            >
+              <input
+                aria-invalid="false"
+                aria-label="ordinal.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField10"
+                type="text"
+                value="5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Level component should show error message when level name contains invalid chars 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            file.name
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField60"
+                  readonly=""
+                  type="text"
+                  value="filename"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            level.name
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-126"
+              >
+                <input
+                  aria-describedby="TextFieldDescription66"
+                  aria-invalid="true"
+                  aria-label="level.name.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField65"
+                  type="text"
+                  value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription66"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            ordinal
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-126"
+              >
+                <input
+                  aria-describedby="TextFieldDescription71"
+                  aria-invalid="true"
+                  aria-label="ordinal.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField70"
+                  type="text"
+                  value="5"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription71"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          file.name
+        </div>
+        <div
+          class="ms-TextField is-disabled emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField60"
+                readonly=""
+                type="text"
+                value="filename"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          level.name
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-126"
+            >
+              <input
+                aria-describedby="TextFieldDescription66"
+                aria-invalid="true"
+                aria-label="level.name.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField65"
+                type="text"
+                value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription66"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          ordinal
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-126"
+            >
+              <input
+                aria-describedby="TextFieldDescription71"
+                aria-invalid="true"
+                aria-label="ordinal.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField70"
+                type="text"
+                value="5"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription71"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Level component should show error message when ordinal is not unique 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            file.name
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField45"
+                  readonly=""
+                  type="text"
+                  value="kitchen.dwg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            level.name
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-121"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-label="level.name.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField50"
+                  type="text"
+                  value="Kitchen"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            ordinal
+          </div>
+          <div
+            class="ms-TextField emotion-3 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-126"
+              >
+                <input
+                  aria-describedby="TextFieldDescription56"
+                  aria-invalid="true"
+                  aria-label="ordinal.of.file"
+                  class="ms-TextField-field field-122"
+                  id="TextField55"
+                  type="text"
+                  value="5"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription56"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.emotion-2 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 7rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+  width: 15.625rem;
+}
+
+.emotion-2:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          file.name
+        </div>
+        <div
+          class="ms-TextField is-disabled emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField45"
+                readonly=""
+                type="text"
+                value="kitchen.dwg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          level.name
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-121"
+            >
+              <input
+                aria-invalid="false"
+                aria-label="level.name.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField50"
+                type="text"
+                value="Kitchen"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          ordinal
+        </div>
+        <div
+          class="ms-TextField emotion-3 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-126"
+            >
+              <input
+                aria-describedby="TextFieldDescription56"
+                aria-invalid="true"
+                aria-label="ordinal.of.file"
+                class="ms-TextField-field field-122"
+                id="TextField55"
+                type="text"
+                value="5"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription56"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

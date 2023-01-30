@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "query": "seattle",
+    "queryType": "NON_NEAR",
+    "queryTime": 42,
+    "numResults": 1,
+    "offset": 0,
+    "totalResults": 272,
+    "fuzzyLevel": 1
+  },
+  "results": [
+    {
+      "type": "Geography",
+      "id": "US/GEO/p0/83643",
+      "score": 2.5831725597,
+      "entityType": "Municipality",
+      "matchConfidence": {
+        "score": 1
+      },
+      "address": {
+        "municipality": "Seattle",
+        "countrySecondarySubdivision": "King",
+        "countrySubdivision": "WA",
+        "countrySubdivisionName": "Washington",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "Seattle, WA"
+      },
+      "position": {
+        "lat": 47.60323,
+        "lon": -122.33028
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 47.7364,
+          "lon": -122.4594
+        },
+        "btmRightPoint": {
+          "lat": 47.35069,
+          "lon": -122.21866
+        }
+      },
+      "boundingBox": {
+        "topLeftPoint": {
+          "lat": 47.7364,
+          "lon": -122.4594
+        },
+        "btmRightPoint": {
+          "lat": 47.35069,
+          "lon": -122.21866
+        }
+      },
+      "dataSources": {
+        "geometry": {
+          "id": "00005557-4100-3c00-0000-0000596ae44e"
+        }
+      }
+    }
+  ]
+}

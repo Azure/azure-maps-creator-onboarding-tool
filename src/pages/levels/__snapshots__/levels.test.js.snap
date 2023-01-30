@@ -1,0 +1,601 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Levels component should render component with 1 level 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          style="width: 500px;"
+        >
+          <div
+            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          >
+            <div
+              class="ms-MessageBar-content content-110"
+            >
+              <div
+                aria-hidden="true"
+                class="ms-MessageBar-icon iconContainer-111"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-120"
+                  data-icon-name="Warning"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="assertive"
+                class="ms-MessageBar-text text-113"
+                id="MessageBar0"
+                role="alert"
+              >
+                <span
+                  class="ms-MessageBar-innerText innerText-114"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        style="width: 500px;"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="Warning"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar0"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Levels component should render component with 2 levels 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          style="width: 500px;"
+        >
+          <div
+            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          >
+            <div
+              class="ms-MessageBar-content content-110"
+            >
+              <div
+                aria-hidden="true"
+                class="ms-MessageBar-icon iconContainer-111"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-120"
+                  data-icon-name="Warning"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="assertive"
+                class="ms-MessageBar-text text-113"
+                id="MessageBar1"
+                role="alert"
+              >
+                <span
+                  class="ms-MessageBar-innerText innerText-114"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+        </div>
+        <div>
+          {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        style="width: 500px;"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="Warning"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar1"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+      </div>
+      <div>
+        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Levels component should render component with 3 levels 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          style="width: 500px;"
+        >
+          <div
+            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          >
+            <div
+              class="ms-MessageBar-content content-110"
+            >
+              <div
+                aria-hidden="true"
+                class="ms-MessageBar-icon iconContainer-111"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-120"
+                  data-icon-name="Warning"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="assertive"
+                class="ms-MessageBar-text text-113"
+                id="MessageBar2"
+                role="alert"
+              >
+                <span
+                  class="ms-MessageBar-innerText innerText-114"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+        </div>
+        <div>
+          {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+        </div>
+        <div>
+          {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        style="width: 500px;"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="Warning"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar2"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+      </div>
+      <div>
+        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+      </div>
+      <div>
+        {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Levels component should render component with 4 levels 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          style="width: 500px;"
+        >
+          <div
+            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          >
+            <div
+              class="ms-MessageBar-content content-110"
+            >
+              <div
+                aria-hidden="true"
+                class="ms-MessageBar-icon iconContainer-111"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-120"
+                  data-icon-name="Warning"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="assertive"
+                class="ms-MessageBar-text text-113"
+                id="MessageBar3"
+                role="alert"
+              >
+                <span
+                  class="ms-MessageBar-innerText innerText-114"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+        </div>
+        <div>
+          {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+        </div>
+        <div>
+          {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+        </div>
+        <div>
+          {"level":{"filename":"level_2.dwg","levelName":"Level 2","ordinal":21}}
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        style="width: 500px;"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="Warning"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="assertive"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar3"
+              role="alert"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+      </div>
+      <div>
+        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+      </div>
+      <div>
+        {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+      </div>
+      <div>
+        {"level":{"filename":"level_2.dwg","levelName":"Level 2","ordinal":21}}
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
