@@ -1,14 +1,75 @@
-# Project
+# Azure Maps Manifest Tool
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+The Azure Maps Manifest Tool allows to interactively generate manifest files required for using the Creator Conversion Service.
 
-As the maintainer of this project, please make a few updates:
+## Getting Started
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+1. Download the latest [Node.js LTS](https://nodejs.org/en/download/) and install Node.js, if you don't have it already installed.
+2. To install dependencies, run `npm install`.
+
+## Available commands
+
+In the project directory, you also can run:
+
+### `npm start`
+
+Runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see lint errors in the console.
+
+### `npm test`
+
+(Unit Tests)\
+Launches Jest test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run test:e2e`
+
+(End-to-end Tests)\
+Launches the Cypress client.\
+See the section about [End-to-End Testing](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## API
+
+For client<->server communication we use only two requests:
+- POST `uploadFile` request to upload a file
+- GET `fetchStatus` request to fetch current status of the file processing on the server
+
+There is also `fetchAddress` request to public API to search coordinates by address.
+
+All API requests live in `src/common/api/index.js`.
+
+## Map interactions.
+
+For map interactions we use following libraries:
+- [azure-maps-control](https://www.npmjs.com/package/azure-maps-control)
+- [react-azure-maps](https://github.com/Azure/react-azure-maps), usage examples [here](https://github.com/Azure/react-azure-maps-playground/tree/master/src/examples)
+- [turf.js](http://turfjs.org/)
+- [proj4](http://proj4js.org/)
+
+More info on map calculations in src/common/store/geometry.store.readme.md.
 
 ## Contributing
 
