@@ -1,5 +1,6 @@
 {
   "name": "manifest-tool",
+  "homepage": "https://azure.github.io/azure-maps-creator-onboarding-tool/",
   "version": "0.1.0",
   "dependencies": {
     "@emotion/css": "^11.10.0",
@@ -7,6 +8,7 @@
     "@turf/turf": "^6.5.0",
     "azure-maps-control": "^2.2.0",
     "file-saver": "^2.0.5",
+    "gh-pages": "^5.0.0",
     "i18next": "^21.9.2",
     "i18next-browser-languagedetector": "^6.1.5",
     "react": "^17.0.2",
@@ -46,6 +48,8 @@
     }
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "analyze": "webpack-bundle-analyzer build/bundle-stats.json",
     "start": "react-scripts start",
     "build": "react-scripts build --stats",
