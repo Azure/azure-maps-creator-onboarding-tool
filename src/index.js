@@ -11,6 +11,8 @@ initializeIcons();
 
 render(
   <React.StrictMode>
-    <RouterProvider router={createBrowserRouter(routes)} />
+    <RouterProvider router={createBrowserRouter(routes, {
+        basename: '/azure-maps-creator-onboarding-tool',
+    })} />
   </React.StrictMode>
   , document.getElementById('root'));
