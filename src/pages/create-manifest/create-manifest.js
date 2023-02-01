@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
 import { DefaultButton, Dropdown, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
-import { shallow } from'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
 import { CONSTANTS, PATHS } from 'common';
