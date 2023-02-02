@@ -1,6 +1,6 @@
 {
   "name": "manifest-tool",
-  "homepage": "https://sturdy-giggle-694y5v3.pages.github.io",
+  "homepage": "https://azure.github.io/azure-maps-creator-onboarding-tool",
   "version": "0.1.0",
   "dependencies": {
     "@emotion/css": "^11.10.0",
