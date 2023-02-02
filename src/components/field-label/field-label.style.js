@@ -5,7 +5,6 @@ import { color, fontSize } from 'common/styles';
 export const labelStyle = css`
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -21,4 +20,10 @@ export const requiredField = css`
     color: ${color.darkRed};
     white-space: pre;
   }
+`;
+
+export const toolTipContainer = css`
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
 `;

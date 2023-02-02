@@ -21,6 +21,7 @@ export const fieldsRow = css`
 
 export const fieldLabel = css`
   width: 15.625rem;
+  display: flex;
 `;
 
 export const inputClass = css`

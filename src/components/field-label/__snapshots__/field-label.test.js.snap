@@ -6,7 +6,6 @@ Object {
   "baseElement": .emotion-0 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -34,7 +33,6 @@ Object {
   "container": .emotion-0 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;

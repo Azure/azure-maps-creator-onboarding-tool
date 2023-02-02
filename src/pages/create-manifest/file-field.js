@@ -29,7 +29,7 @@ const fileTypes = {
   json: ['application/json'],
 };
 
-const FileField = ({ id, label, onFileSelect, fileType, onError }) => {
+const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
   const { t } = useTranslation();
   const [filename, setFilename] = useState('');
 
@@ -71,7 +71,7 @@ const FileField = ({ id, label, onFileSelect, fileType, onError }) => {
 
   return (
     <div className={formRowStyle}>
-      <FieldLabel required>{label}</FieldLabel>
+      <FieldLabel required tooltip={tooltip}>{label}</FieldLabel>
       <div className={fieldStyle}>
         <TextField value={filename} className={textFieldStyle} data-testid='file-name-field'
                    ariaLabel={label} aria-required readOnly styles={inputStyles}
@@ -92,6 +92,7 @@ FileField.propTypes = {
   onFileSelect: PropTypes.func.isRequired,
   fileType: PropTypes.oneOf(['zip', 'json']).isRequired,
   onError: PropTypes.func.isRequired,
+  tooltip: PropTypes.string,
 };
 
 export default FileField;

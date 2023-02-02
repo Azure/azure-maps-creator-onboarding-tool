@@ -23,5 +23,4 @@ export const imageStyle = css`
 export const paneStyle = css`
   flex-direction: column;
   max-width: 300px;
-  margin: auto;
 `;

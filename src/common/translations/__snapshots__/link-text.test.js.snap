@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkText should render component 1`] = `
+<div>
+  <a
+    href="https://www.pure-truth.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    I am a nobody. Nobody is perfect. Therefore, I am perfect.
+  </a>
+</div>
+`;

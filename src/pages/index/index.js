@@ -1,8 +1,10 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { containerStyle, mainDescriptionStyle, paneSectionStyle } from './index.style';
 import Card from './card/card';
-import { strings } from 'common/styles';
+import LinkText from 'common/translations/link-text';
+
+const linkToKnowledgeBase = 'https://aka.ms/howtoconversionv2drawingpackage';
 
 const Index = () => {
   const { t } = useTranslation();
@@ -10,7 +12,11 @@ const Index = () => {
   return (
     <div className={containerStyle}>
       <h2>{t('maps.creator.manifest.tool')}</h2>
-      <p className={mainDescriptionStyle}>{strings.loremIpsum}</p>
+      <p className={mainDescriptionStyle}>
+        <Trans i18nKey='home.page.description' components={[
+          <LinkText href={linkToKnowledgeBase} />
+        ]} />
+      </p>
       <div className={paneSectionStyle}>
         <Card type='create' />
         <Card type='edit' />

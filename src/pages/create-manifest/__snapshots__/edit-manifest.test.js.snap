@@ -29,6 +29,10 @@ Object {
 }
 
 .emotion-4 {
+  margin: 0 0 1.5rem 0;
+}
+
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43,10 +47,9 @@ Object {
   margin-bottom: 1rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -62,7 +65,13 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-6 {
+.emotion-7 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-8 {
   width: 30rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -70,14 +79,13 @@ Object {
   display: flex;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
 }
 
-.emotion-9 {
+.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -93,13 +101,13 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-9:after {
+.emotion-11:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-16 {
+.emotion-20 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -124,12 +132,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-16:hover {
+.emotion-20:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-17 {
+.emotion-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -150,18 +158,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-18 {
+.emotion-22 {
   display: none;
 }
 
-.emotion-26 {
+.emotion-31 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-27 {
+.emotion-32 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -233,46 +241,75 @@ Object {
         <h2
           class="emotion-3"
         >
-          upload.file
+          process.file
         </h2>
-        <div
+        <p
           class="emotion-4"
         >
-          <div
-            class="emotion-5"
-          >
-            geography
-          </div>
+          create.new.manifest.page.description
+        </p>
+        <div
+          class="emotion-5"
+        >
           <div
             class="emotion-6"
           >
+            geography
+            <span
+              class="emotion-7"
+            >
+              <div
+                class="ms-TooltipHost root-131"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-132"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip4"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.geography
+                </div>
+              </div>
+            </span>
+          </div>
+          <div
+            class="emotion-8"
+          >
             <div
-              class="ms-Dropdown-container emotion-7"
+              class="ms-Dropdown-container emotion-9"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="upload.geography"
-                class="ms-Dropdown dropdown-131"
+                class="ms-Dropdown dropdown-133"
                 data-is-focusable="true"
                 data-ktp-target="true"
-                id="Dropdown4"
+                id="Dropdown5"
                 role="combobox"
                 tabindex="0"
               >
                 <span
                   aria-invalid="false"
-                  class="ms-Dropdown-title title-171"
-                  id="Dropdown4-option"
+                  class="ms-Dropdown-title title-173"
+                  id="Dropdown5-option"
                 >
                   geography.unitedstates
                 </span>
                 <span
-                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-135"
                 >
                   <i
                     aria-hidden="true"
-                    class="ms-Dropdown-caretDown caretDown-149"
+                    class="ms-Dropdown-caretDown caretDown-151"
                     data-icon-name="ChevronDown"
                   >
                     
@@ -283,46 +320,70 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <div
-            class="emotion-9"
+            class="emotion-11"
           >
             subscription.key
+            <span
+              class="emotion-7"
+            >
+              <div
+                class="ms-TooltipHost root-131"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-132"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip6"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.subKey
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-6"
+            class="emotion-8"
           >
             <div
-              class="ms-TextField emotion-7 root-151"
+              class="ms-TextField emotion-9 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-152"
+                  class="ms-TextField-fieldGroup fieldGroup-154"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="subscription.key"
                     aria-required="true"
-                    class="ms-TextField-field field-153"
+                    class="ms-TextField-field field-155"
                     data-testid="subscription-key-field"
-                    id="TextField5"
+                    id="TextField7"
                     type="password"
                     value=""
                   />
                   <button
                     aria-pressed="false"
-                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-161"
                     type="button"
                   >
                     <span
-                      class="revealSpan-160"
+                      class="revealSpan-162"
                     >
                       <i
                         aria-hidden="true"
-                        class="revealIcon-164"
+                        class="revealIcon-166"
                         data-icon-name="RedEye"
                       >
                         
@@ -335,32 +396,56 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <div
-            class="emotion-9"
+            class="emotion-11"
           >
             dwg.zip.package
+            <span
+              class="emotion-7"
+            >
+              <div
+                class="ms-TooltipHost root-131"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-132"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip12"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.dwg.zip.package
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-6"
+            class="emotion-8"
           >
             <div
-              class="ms-TextField emotion-7 root-151"
+              class="ms-TextField emotion-9 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-152"
+                  class="ms-TextField-fieldGroup fieldGroup-154"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="dwg.zip.package"
                     aria-required="true"
-                    class="ms-TextField-field field-153"
+                    class="ms-TextField-field field-155"
                     data-testid="file-name-field"
-                    id="TextField10"
+                    id="TextField13"
                     readonly=""
                     type="text"
                     value=""
@@ -369,17 +454,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-16"
+              class="emotion-20"
               for="file-upload-field"
             >
               <span
-                class="emotion-17"
+                class="emotion-21"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-18"
+              class="emotion-22"
               data-testid="file-upload-field"
               id="file-upload-field"
               type="file"
@@ -387,32 +472,56 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <div
-            class="emotion-9"
+            class="emotion-11"
           >
             manifest.file
+            <span
+              class="emotion-7"
+            >
+              <div
+                class="ms-TooltipHost root-131"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-132"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip18"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.manifest.file
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-6"
+            class="emotion-8"
           >
             <div
-              class="ms-TextField emotion-7 root-151"
+              class="ms-TextField emotion-9 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-152"
+                  class="ms-TextField-fieldGroup fieldGroup-154"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="manifest.file"
                     aria-required="true"
-                    class="ms-TextField-field field-153"
+                    class="ms-TextField-field field-155"
                     data-testid="file-name-field"
-                    id="TextField15"
+                    id="TextField19"
                     readonly=""
                     type="text"
                     value=""
@@ -421,17 +530,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-16"
+              class="emotion-20"
               for="manifest-upload-field"
             >
               <span
-                class="emotion-17"
+                class="emotion-21"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-18"
+              class="emotion-22"
               data-testid="manifest-upload-field"
               id="manifest-upload-field"
               type="file"
@@ -440,7 +549,7 @@ Object {
         </div>
         <button
           aria-disabled="true"
-          class="ms-Button ms-Button--primary is-disabled emotion-26 root-165"
+          class="ms-Button ms-Button--primary is-disabled emotion-31 root-167"
           data-is-focusable="false"
           data-testid="upload-button"
           disabled=""
@@ -454,16 +563,16 @@ Object {
               class="ms-Button-textContainer textContainer-123"
             >
               <span
-                class="ms-Button-label label-167"
-                id="id__20"
+                class="ms-Button-label label-169"
+                id="id__24"
               >
-                upload
+                process
               </span>
             </span>
           </span>
         </button>
         <button
-          class="ms-Button ms-Button--default emotion-27 root-169"
+          class="ms-Button ms-Button--default emotion-32 root-171"
           data-is-focusable="true"
           data-testid="cancel-button"
           type="button"
@@ -476,8 +585,8 @@ Object {
               class="ms-Button-textContainer textContainer-123"
             >
               <span
-                class="ms-Button-label label-170"
-                id="id__23"
+                class="ms-Button-label label-172"
+                id="id__27"
               >
                 cancel
               </span>
@@ -513,6 +622,10 @@ Object {
 }
 
 .emotion-4 {
+  margin: 0 0 1.5rem 0;
+}
+
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -527,10 +640,9 @@ Object {
   margin-bottom: 1rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -546,7 +658,13 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-6 {
+.emotion-7 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-8 {
   width: 30rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -554,14 +672,13 @@ Object {
   display: flex;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
 }
 
-.emotion-9 {
+.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -577,13 +694,13 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-9:after {
+.emotion-11:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-16 {
+.emotion-20 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -608,12 +725,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-16:hover {
+.emotion-20:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-17 {
+.emotion-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -634,18 +751,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-18 {
+.emotion-22 {
   display: none;
 }
 
-.emotion-26 {
+.emotion-31 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-27 {
+.emotion-32 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -716,46 +833,75 @@ Object {
       <h2
         class="emotion-3"
       >
-        upload.file
+        process.file
       </h2>
-      <div
+      <p
         class="emotion-4"
       >
-        <div
-          class="emotion-5"
-        >
-          geography
-        </div>
+        create.new.manifest.page.description
+      </p>
+      <div
+        class="emotion-5"
+      >
         <div
           class="emotion-6"
         >
+          geography
+          <span
+            class="emotion-7"
+          >
+            <div
+              class="ms-TooltipHost root-131"
+              role="none"
+            >
+              <i
+                aria-label="Tooltip"
+                class="root-132"
+                data-icon-name="Info"
+                role="img"
+              >
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip4"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.geography
+              </div>
+            </div>
+          </span>
+        </div>
+        <div
+          class="emotion-8"
+        >
           <div
-            class="ms-Dropdown-container emotion-7"
+            class="ms-Dropdown-container emotion-9"
           >
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="upload.geography"
-              class="ms-Dropdown dropdown-131"
+              class="ms-Dropdown dropdown-133"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown4"
+              id="Dropdown5"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-171"
-                id="Dropdown4-option"
+                class="ms-Dropdown-title title-173"
+                id="Dropdown5-option"
               >
                 geography.unitedstates
               </span>
               <span
-                class="ms-Dropdown-caretDownWrapper caretDownWrapper-133"
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-135"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Dropdown-caretDown caretDown-149"
+                  class="ms-Dropdown-caretDown caretDown-151"
                   data-icon-name="ChevronDown"
                 >
                   
@@ -766,46 +912,70 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
         <div
-          class="emotion-9"
+          class="emotion-11"
         >
           subscription.key
+          <span
+            class="emotion-7"
+          >
+            <div
+              class="ms-TooltipHost root-131"
+              role="none"
+            >
+              <i
+                aria-label="Tooltip"
+                class="root-132"
+                data-icon-name="Info"
+                role="img"
+              >
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip6"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.subKey
+              </div>
+            </div>
+          </span>
         </div>
         <div
-          class="emotion-6"
+          class="emotion-8"
         >
           <div
-            class="ms-TextField emotion-7 root-151"
+            class="ms-TextField emotion-9 root-153"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-152"
+                class="ms-TextField-fieldGroup fieldGroup-154"
               >
                 <input
                   aria-invalid="false"
                   aria-label="subscription.key"
                   aria-required="true"
-                  class="ms-TextField-field field-153"
+                  class="ms-TextField-field field-155"
                   data-testid="subscription-key-field"
-                  id="TextField5"
+                  id="TextField7"
                   type="password"
                   value=""
                 />
                 <button
                   aria-pressed="false"
-                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-159"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-161"
                   type="button"
                 >
                   <span
-                    class="revealSpan-160"
+                    class="revealSpan-162"
                   >
                     <i
                       aria-hidden="true"
-                      class="revealIcon-164"
+                      class="revealIcon-166"
                       data-icon-name="RedEye"
                     >
                       
@@ -818,32 +988,56 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
         <div
-          class="emotion-9"
+          class="emotion-11"
         >
           dwg.zip.package
+          <span
+            class="emotion-7"
+          >
+            <div
+              class="ms-TooltipHost root-131"
+              role="none"
+            >
+              <i
+                aria-label="Tooltip"
+                class="root-132"
+                data-icon-name="Info"
+                role="img"
+              >
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip12"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.dwg.zip.package
+              </div>
+            </div>
+          </span>
         </div>
         <div
-          class="emotion-6"
+          class="emotion-8"
         >
           <div
-            class="ms-TextField emotion-7 root-151"
+            class="ms-TextField emotion-9 root-153"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-152"
+                class="ms-TextField-fieldGroup fieldGroup-154"
               >
                 <input
                   aria-invalid="false"
                   aria-label="dwg.zip.package"
                   aria-required="true"
-                  class="ms-TextField-field field-153"
+                  class="ms-TextField-field field-155"
                   data-testid="file-name-field"
-                  id="TextField10"
+                  id="TextField13"
                   readonly=""
                   type="text"
                   value=""
@@ -852,17 +1046,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-16"
+            class="emotion-20"
             for="file-upload-field"
           >
             <span
-              class="emotion-17"
+              class="emotion-21"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-18"
+            class="emotion-22"
             data-testid="file-upload-field"
             id="file-upload-field"
             type="file"
@@ -870,32 +1064,56 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
         <div
-          class="emotion-9"
+          class="emotion-11"
         >
           manifest.file
+          <span
+            class="emotion-7"
+          >
+            <div
+              class="ms-TooltipHost root-131"
+              role="none"
+            >
+              <i
+                aria-label="Tooltip"
+                class="root-132"
+                data-icon-name="Info"
+                role="img"
+              >
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip18"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.manifest.file
+              </div>
+            </div>
+          </span>
         </div>
         <div
-          class="emotion-6"
+          class="emotion-8"
         >
           <div
-            class="ms-TextField emotion-7 root-151"
+            class="ms-TextField emotion-9 root-153"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-152"
+                class="ms-TextField-fieldGroup fieldGroup-154"
               >
                 <input
                   aria-invalid="false"
                   aria-label="manifest.file"
                   aria-required="true"
-                  class="ms-TextField-field field-153"
+                  class="ms-TextField-field field-155"
                   data-testid="file-name-field"
-                  id="TextField15"
+                  id="TextField19"
                   readonly=""
                   type="text"
                   value=""
@@ -904,17 +1122,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-16"
+            class="emotion-20"
             for="manifest-upload-field"
           >
             <span
-              class="emotion-17"
+              class="emotion-21"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-18"
+            class="emotion-22"
             data-testid="manifest-upload-field"
             id="manifest-upload-field"
             type="file"
@@ -923,7 +1141,7 @@ Object {
       </div>
       <button
         aria-disabled="true"
-        class="ms-Button ms-Button--primary is-disabled emotion-26 root-165"
+        class="ms-Button ms-Button--primary is-disabled emotion-31 root-167"
         data-is-focusable="false"
         data-testid="upload-button"
         disabled=""
@@ -937,16 +1155,16 @@ Object {
             class="ms-Button-textContainer textContainer-123"
           >
             <span
-              class="ms-Button-label label-167"
-              id="id__20"
+              class="ms-Button-label label-169"
+              id="id__24"
             >
-              upload
+              process
             </span>
           </span>
         </span>
       </button>
       <button
-        class="ms-Button ms-Button--default emotion-27 root-169"
+        class="ms-Button ms-Button--default emotion-32 root-171"
         data-is-focusable="true"
         data-testid="cancel-button"
         type="button"
@@ -959,8 +1177,8 @@ Object {
             class="ms-Button-textContainer textContainer-123"
           >
             <span
-              class="ms-Button-label label-170"
-              id="id__23"
+              class="ms-Button-label label-172"
+              id="id__27"
             >
               cancel
             </span>

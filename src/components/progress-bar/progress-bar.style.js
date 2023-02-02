@@ -8,7 +8,7 @@ export const errorContainer = css`
 `;
 
 export const progressBarContainer = css`
-  margin-bottom: 1.875rem;
+  margin-bottom: 1rem;
 `;
 
 export const iconStyle = css`

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { IconButton, Slider, TextField } from '@fluentui/react';
-import { shallow } from'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { data } from 'azure-maps-control';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@fluentui/react/lib/Icon';

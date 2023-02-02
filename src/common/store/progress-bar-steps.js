@@ -1,4 +1,4 @@
-import { shallow } from'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { create } from 'zustand';
 
 import { PATHS } from '../constants';
@@ -14,7 +14,7 @@ export const progressBarStepsByKey = {
 export const progressBarSteps = [
     {
         key: progressBarStepsByKey.levels,
-        name: 'building.levels',
+        name: 'facility.levels',
         href: PATHS.LEVELS,
     },
     {
