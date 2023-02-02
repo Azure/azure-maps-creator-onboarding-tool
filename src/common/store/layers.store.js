@@ -17,9 +17,9 @@ export const useLayersStore = create(
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
     setLayerNames: (layerNames, polygonLayerNames, textLayerNames) => set(() => ({
-      layerNames,
-      polygonLayerNames,
-      textLayerNames,
+      layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
+      polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
+      textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
     })),
     setLayerFromManifestJson: (layers = {}) => {
       const { convertedLayers, newLayerIdCounter } = convertLayersFromManifestJson(
