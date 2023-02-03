@@ -1,3 +1,3 @@
-import { color, fontSize, fontWeight, strings } from './styles';
+import { color, fontSize, fontWeight } from './styles';
 
-export { color, fontSize, fontWeight, strings };
+export { color, fontSize, fontWeight };

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import CreateSvg from 'common/assets/create.svg';
 import { buttonLabelStyle, buttonStyle, imageStyle, paneStyle } from './card.style';
-import { strings } from 'common/styles';
 import { PATHS } from 'common';
 
 const CreateCard = () => {
@@ -21,7 +20,6 @@ const CreateCard = () => {
     <div className={paneStyle}>
       <Image className={imageStyle} src={CreateSvg} />
       <h3>{t('create.new.manifest')}</h3>
-      <p>{strings.loremIpsum}</p>
       <PrimaryButton styles={buttonLabelStyle} className={buttonStyle} text={t('create')}
                      onClick={onClick} />
     </div>

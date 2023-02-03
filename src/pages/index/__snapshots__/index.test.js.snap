@@ -21,7 +21,6 @@ Object {
 .emotion-1 {
   max-width: 560px;
   text-align: center;
-  margin: 0 0 1rem 0;
 }
 
 .emotion-2 {
@@ -42,7 +41,6 @@ Object {
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 300px;
-  margin: auto;
 }
 
 .emotion-4 {
@@ -68,7 +66,9 @@ Object {
         <p
           class="emotion-1"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
+          <div>
+            home.page.description
+          </div>
         </p>
         <div
           class="emotion-2"
@@ -87,9 +87,6 @@ Object {
             <h3>
               create.new.manifest
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-            </p>
             <button
               class="ms-Button ms-Button--primary emotion-5 root-110"
               data-is-focusable="true"
@@ -126,9 +123,6 @@ Object {
             <h3>
               edit.existing.manifest
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-            </p>
             <button
               class="ms-Button ms-Button--primary emotion-5 root-110"
               data-is-focusable="true"
@@ -173,7 +167,6 @@ Object {
 .emotion-1 {
   max-width: 560px;
   text-align: center;
-  margin: 0 0 1rem 0;
 }
 
 .emotion-2 {
@@ -194,7 +187,6 @@ Object {
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 300px;
-  margin: auto;
 }
 
 .emotion-4 {
@@ -219,7 +211,9 @@ Object {
       <p
         class="emotion-1"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
+        <div>
+          home.page.description
+        </div>
       </p>
       <div
         class="emotion-2"
@@ -238,9 +232,6 @@ Object {
           <h3>
             create.new.manifest
           </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-          </p>
           <button
             class="ms-Button ms-Button--primary emotion-5 root-110"
             data-is-focusable="true"
@@ -277,9 +268,6 @@ Object {
           <h3>
             edit.existing.manifest
           </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-          </p>
           <button
             class="ms-Button ms-Button--primary emotion-5 root-110"
             data-is-focusable="true"

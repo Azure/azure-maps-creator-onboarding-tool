@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { center } from '@turf/turf';
 import { create } from 'zustand';
-import { shallow } from'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { math } from 'azure-maps-control';
 
 import { useLayersStore } from './layers.store';

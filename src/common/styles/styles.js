@@ -31,7 +31,3 @@ export const fontWeight = {
   semibold: 600,
   bold: 700
 };
-
-export const strings = {
-  loremIpsum: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.',
-};

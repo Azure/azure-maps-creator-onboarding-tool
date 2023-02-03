@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import EditSvg from 'common/assets/edit.svg';
 import { buttonLabelStyle, buttonStyle, imageStyle, paneStyle } from './card.style';
-import { strings } from 'common/styles';
 import { PATHS } from 'common';
 
 const EditCard = () => {
@@ -21,7 +20,6 @@ const EditCard = () => {
     <div className={paneStyle}>
       <Image className={imageStyle} src={EditSvg} />
       <h3>{t('edit.existing.manifest')}</h3>
-      <p>{strings.loremIpsum}</p>
       <PrimaryButton styles={buttonLabelStyle} className={buttonStyle} text={t('edit')}
                      onClick={onClick} />
     </div>

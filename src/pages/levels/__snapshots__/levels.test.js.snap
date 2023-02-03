@@ -3,14 +3,19 @@
 exports[`Levels component should render component with 1 level 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<body>
     <div>
       <div>
         <div
-          style="width: 500px;"
+          class="emotion-0"
         >
           <div
-            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+            class="ms-MessageBar ms-MessageBar-multiline root-109"
           >
             <div
               class="ms-MessageBar-content content-110"
@@ -22,16 +27,16 @@ Object {
                 <i
                   aria-hidden="true"
                   class="icon-120"
-                  data-icon-name="Warning"
+                  data-icon-name="Info"
                 >
-                  
+                  
                 </i>
               </div>
               <div
-                aria-live="assertive"
+                aria-live="polite"
                 class="ms-MessageBar-text text-113"
                 id="MessageBar0"
-                role="alert"
+                role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
@@ -46,13 +51,18 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<div>
     <div>
       <div
-        style="width: 500px;"
+        class="emotion-0"
       >
         <div
-          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          class="ms-MessageBar ms-MessageBar-multiline root-109"
         >
           <div
             class="ms-MessageBar-content content-110"
@@ -64,16 +74,16 @@ Object {
               <i
                 aria-hidden="true"
                 class="icon-120"
-                data-icon-name="Warning"
+                data-icon-name="Info"
               >
-                
+                
               </i>
             </div>
             <div
-              aria-live="assertive"
+              aria-live="polite"
               class="ms-MessageBar-text text-113"
               id="MessageBar0"
-              role="alert"
+              role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
@@ -144,14 +154,19 @@ Object {
 exports[`Levels component should render component with 2 levels 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<body>
     <div>
       <div>
         <div
-          style="width: 500px;"
+          class="emotion-0"
         >
           <div
-            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+            class="ms-MessageBar ms-MessageBar-multiline root-109"
           >
             <div
               class="ms-MessageBar-content content-110"
@@ -163,16 +178,16 @@ Object {
                 <i
                   aria-hidden="true"
                   class="icon-120"
-                  data-icon-name="Warning"
+                  data-icon-name="Info"
                 >
-                  
+                  
                 </i>
               </div>
               <div
-                aria-live="assertive"
+                aria-live="polite"
                 class="ms-MessageBar-text text-113"
                 id="MessageBar1"
-                role="alert"
+                role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
@@ -190,13 +205,18 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<div>
     <div>
       <div
-        style="width: 500px;"
+        class="emotion-0"
       >
         <div
-          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          class="ms-MessageBar ms-MessageBar-multiline root-109"
         >
           <div
             class="ms-MessageBar-content content-110"
@@ -208,16 +228,16 @@ Object {
               <i
                 aria-hidden="true"
                 class="icon-120"
-                data-icon-name="Warning"
+                data-icon-name="Info"
               >
-                
+                
               </i>
             </div>
             <div
-              aria-live="assertive"
+              aria-live="polite"
               class="ms-MessageBar-text text-113"
               id="MessageBar1"
-              role="alert"
+              role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
@@ -291,14 +311,19 @@ Object {
 exports[`Levels component should render component with 3 levels 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<body>
     <div>
       <div>
         <div
-          style="width: 500px;"
+          class="emotion-0"
         >
           <div
-            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+            class="ms-MessageBar ms-MessageBar-multiline root-109"
           >
             <div
               class="ms-MessageBar-content content-110"
@@ -310,16 +335,16 @@ Object {
                 <i
                   aria-hidden="true"
                   class="icon-120"
-                  data-icon-name="Warning"
+                  data-icon-name="Info"
                 >
-                  
+                  
                 </i>
               </div>
               <div
-                aria-live="assertive"
+                aria-live="polite"
                 class="ms-MessageBar-text text-113"
                 id="MessageBar2"
-                role="alert"
+                role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
@@ -340,13 +365,18 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<div>
     <div>
       <div
-        style="width: 500px;"
+        class="emotion-0"
       >
         <div
-          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          class="ms-MessageBar ms-MessageBar-multiline root-109"
         >
           <div
             class="ms-MessageBar-content content-110"
@@ -358,16 +388,16 @@ Object {
               <i
                 aria-hidden="true"
                 class="icon-120"
-                data-icon-name="Warning"
+                data-icon-name="Info"
               >
-                
+                
               </i>
             </div>
             <div
-              aria-live="assertive"
+              aria-live="polite"
               class="ms-MessageBar-text text-113"
               id="MessageBar2"
-              role="alert"
+              role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
@@ -444,14 +474,19 @@ Object {
 exports[`Levels component should render component with 4 levels 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<body>
     <div>
       <div>
         <div
-          style="width: 500px;"
+          class="emotion-0"
         >
           <div
-            class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+            class="ms-MessageBar ms-MessageBar-multiline root-109"
           >
             <div
               class="ms-MessageBar-content content-110"
@@ -463,16 +498,16 @@ Object {
                 <i
                   aria-hidden="true"
                   class="icon-120"
-                  data-icon-name="Warning"
+                  data-icon-name="Info"
                 >
-                  
+                  
                 </i>
               </div>
               <div
-                aria-live="assertive"
+                aria-live="polite"
                 class="ms-MessageBar-text text-113"
                 id="MessageBar3"
-                role="alert"
+                role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
@@ -496,13 +531,18 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<div>
     <div>
       <div
-        style="width: 500px;"
+        class="emotion-0"
       >
         <div
-          class="ms-MessageBar ms-MessageBar--severeWarning ms-MessageBar-singleline root-109"
+          class="ms-MessageBar ms-MessageBar-multiline root-109"
         >
           <div
             class="ms-MessageBar-content content-110"
@@ -514,16 +554,16 @@ Object {
               <i
                 aria-hidden="true"
                 class="icon-120"
-                data-icon-name="Warning"
+                data-icon-name="Info"
               >
-                
+                
               </i>
             </div>
             <div
-              aria-live="assertive"
+              aria-live="polite"
               class="ms-MessageBar-text text-113"
               id="MessageBar3"
-              role="alert"
+              role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"

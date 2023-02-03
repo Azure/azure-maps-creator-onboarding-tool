@@ -8,7 +8,6 @@ Object {
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 300px;
-  margin: auto;
 }
 
 .emotion-1 {
@@ -39,9 +38,6 @@ Object {
         <h3>
           edit.existing.manifest
         </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-        </p>
         <button
           class="ms-Button ms-Button--primary emotion-2 root-110"
           data-is-focusable="true"
@@ -71,7 +67,6 @@ Object {
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 300px;
-  margin: auto;
 }
 
 .emotion-1 {
@@ -101,9 +96,6 @@ Object {
       <h3>
         edit.existing.manifest
       </h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed velit interdum, auctor felis et, maximus tellus.
-      </p>
       <button
         class="ms-Button ms-Button--primary emotion-2 root-110"
         data-is-focusable="true"

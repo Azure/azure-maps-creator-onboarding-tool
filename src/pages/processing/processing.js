@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
 import { shallow } from 'zustand/shallow';
 
-import { containerStyle } from './processing.style';
+import { containerStyle, progressIndicatorStyles } from './processing.style';
 import { PATHS } from 'common';
 import { useResponseStore, useUserStore } from 'common/store';
 import { LRO_STATUS } from 'common/store/response.store';
@@ -14,8 +14,6 @@ export const PAGE_REFRESH_INTERVAL = 1;
 
 const LABEL = {
   UPLOADING: 'processing.label.uploading',
-  UPLOADED: 'processing.label.uploaded',
-  ACCEPTED: 'processing.label.processing.accepted',
   RUNNING: 'processing.label.processing',
 };
 
@@ -52,11 +50,7 @@ const ProcessingPage = () => {
         setLabel(LABEL.UPLOADING);
         break;
       case LRO_STATUS.UPLOADED:
-        setLabel(LABEL.UPLOADED);
-        break;
       case LRO_STATUS.ACCEPTED:
-        setLabel(LABEL.ACCEPTED);
-        break;
       case LRO_STATUS.RUNNING:
         setLabel(LABEL.RUNNING);
         break;
@@ -86,7 +80,8 @@ const ProcessingPage = () => {
 
   return (
     <div className={containerStyle}>
-      <ProgressIndicator label={t(label)} description={t('processing.last.checked', { seconds: lastUpdated })} />
+      <ProgressIndicator label={<div>{t(label)}</div>} styles={progressIndicatorStyles}
+                         description={t('processing.last.checked', { seconds: lastUpdated })} />
     </div>
   );
 };

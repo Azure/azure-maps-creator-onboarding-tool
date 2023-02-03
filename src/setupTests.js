@@ -9,7 +9,8 @@ import { onMessage } from 'common/store/geometry.store.worker';
 initializeIcons();
 
 jest.mock('react-i18next', () => ({
-  useTranslation: () => ({t: key => key})
+  useTranslation: () => ({t: key => key}),
+  Trans: (props) => <div>{props.i18nKey}</div>,
 }));
 jest.mock('common/translations/i18n', () => ({
   t: key => key,

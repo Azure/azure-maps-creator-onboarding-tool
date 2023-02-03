@@ -3,8 +3,47 @@
 exports[`Layers should render Layers component 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<body>
     <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="ms-MessageBar ms-MessageBar-multiline root-109"
+        >
+          <div
+            class="ms-MessageBar-content content-110"
+          >
+            <div
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-120"
+                data-icon-name="Info"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="polite"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar0"
+              role="status"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-114"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         {"id":0,"name":"exterior","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","exterior"],"required":true,"isDraft":false}
       </div>
@@ -16,7 +55,46 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="ms-MessageBar ms-MessageBar-multiline root-109"
+      >
+        <div
+          class="ms-MessageBar-content content-110"
+        >
+          <div
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-120"
+              data-icon-name="Info"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="polite"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar0"
+            role="status"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-114"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
       {"id":0,"name":"exterior","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","exterior"],"required":true,"isDraft":false}
     </div>

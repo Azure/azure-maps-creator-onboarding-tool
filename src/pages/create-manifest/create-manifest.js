@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
 import { DefaultButton, Dropdown, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
-import { shallow } from'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
 import { CONSTANTS, PATHS } from 'common';
@@ -14,6 +14,7 @@ import {
   buttonLabelStyle,
   containerStyle,
   defaultButtonStyle,
+  descriptionStyle,
   dropdownStyle,
   errorBannerHidden,
   errorBannerStyle,
@@ -108,9 +109,10 @@ const CreateManifestPage = ({ allowEdit }) => {
                   data-testid={TEST_ID.ERROR_BAR}>
         {errorMessage}
       </MessageBar>
-      <h2 className={headerStyle}>{t('upload.file')}</h2>
+      <h2 className={headerStyle}>{t('process.file')}</h2>
+      <p className={descriptionStyle}>{t('create.new.manifest.page.description')}</p>
       <div className={formRowStyle}>
-        <FieldLabel>{t('geography')}</FieldLabel>
+        <FieldLabel tooltip={t('tooltip.geography')}>{t('geography')}</FieldLabel>
         <div className={fieldStyle}>
           <Dropdown className={textFieldStyle} ariaLabel={t('upload.geography')}
                     options={environmentOptions} styles={dropdownStyle} onChange={updateGeo}
@@ -118,7 +120,7 @@ const CreateManifestPage = ({ allowEdit }) => {
         </div>
       </div>
       <div className={formRowStyle}>
-        <FieldLabel required>{t('subscription.key')}</FieldLabel>
+        <FieldLabel required tooltip={t('tooltip.subKey')}>{t('subscription.key')}</FieldLabel>
         <div className={fieldStyle}>
           <TextField className={textFieldStyle} ariaLabel={t('subscription.key')} value={subKey}
                      type={'password'} data-testid={TEST_ID.SUBSCRIPTION_KEY_FIELD} aria-required
@@ -126,11 +128,11 @@ const CreateManifestPage = ({ allowEdit }) => {
         </div>
       </div>
       <FileField label={t('dwg.zip.package')} id={TEST_ID.FILE_UPLOAD_FIELD} onFileSelect={setFile}
-                 fileType='zip' onError={setErrorMessage} />
+                 fileType='zip' onError={setErrorMessage} tooltip={t('tooltip.dwg.zip.package')} />
       {allowEdit && <FileField label={t('manifest.file')} id={TEST_ID.MANIFEST_UPLOAD_FIELD}
                                onFileSelect={saveManifestFileData} fileType='json'
-                               onError={setErrorMessage} />}
-      <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} text={t('upload')}
+                               tooltip={t('tooltip.manifest.file')} onError={setErrorMessage} />}
+      <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} text={t('process')}
                      className={primaryButtonStyle} data-testid={TEST_ID.UPLOAD_BUTTON} />
       <DefaultButton styles={buttonLabelStyle} className={defaultButtonStyle} text={t('cancel')}
                      onClick={navigateHome} data-testid={TEST_ID.CANCEL_BUTTON} />
