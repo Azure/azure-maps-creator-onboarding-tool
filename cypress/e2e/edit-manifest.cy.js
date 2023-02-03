@@ -43,7 +43,7 @@ describe('edit manifest scenario', () => {
     cy.get('[data-testid="subscription-key-field"]').type(Cypress.env('subscriptionKey'));
     cy.get('input[type=file]').eq(0).selectFile('src/common/mocks/contoso.zip', {force: true});
     cy.get('input[type=file]').eq(1).selectFile('cypress/fixtures/manifest.json', {force: true});
-    cy.get('button').contains('Upload').click();
+    cy.get('button').contains('Process').click();
 
     // processing page
     cy.wait('@getStatus', {
@@ -67,8 +67,8 @@ describe('edit manifest scenario', () => {
     cy.get('input[aria-label="Rotation in degrees"]').clear().type('###15asc5al!!@#sh5634dlkjh');
 
     // Review manifest
-    cy.get('button').contains('Review').click();
-    cy.get('button').contains('Download').click();
+    cy.get('button').contains('Review + Download').click();
+    cy.get('button[data-test-id="download-manifest-button"]').contains('Download').click();
 
     // should download correct file
     cy.fixture('edited-manifest').then((expectedManifestJSon) => {

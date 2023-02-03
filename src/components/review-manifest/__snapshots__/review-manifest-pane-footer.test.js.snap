@@ -23,6 +23,7 @@ Object {
         <button
           class="ms-Button ms-Button--primary emotion-1 root-109"
           data-is-focusable="true"
+          data-test-id="download-manifest-button"
           type="button"
         >
           <span
@@ -84,6 +85,7 @@ Object {
       <button
         class="ms-Button ms-Button--primary emotion-1 root-109"
         data-is-focusable="true"
+        data-test-id="download-manifest-button"
         type="button"
       >
         <span

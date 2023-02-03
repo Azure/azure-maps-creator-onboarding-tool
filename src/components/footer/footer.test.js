@@ -70,7 +70,7 @@ describe('footer on pages where it should be rendered', () => {
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1' }]});
 
     render(<Footer />);
-    const reviewBtn = screen.getByText('review');
+    const reviewBtn = screen.getByText('review.download');
     fireEvent.click(reviewBtn);
     expect(spy).toHaveBeenCalled();
   });

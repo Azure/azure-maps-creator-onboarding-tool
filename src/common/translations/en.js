@@ -78,7 +78,7 @@ const en = {
     'processing.label.processing': 'Processing your DWG files... This may take up to a couple minutes depending on the size of your files.',
     'processing.label.uploading': 'Uploading your DWG ZIP package...',
     'processing.last.checked': 'Last checked {{seconds}} secs ago',
-    'review': 'Review',
+    'review.download': 'Review + Download',
     'review.manifest': 'Review Manifest',
     'request.failed': 'Request failed. Please try again.',
     'rotation.in.degrees': 'Rotation in degrees',
