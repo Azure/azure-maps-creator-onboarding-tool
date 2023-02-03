@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { initializeIcons } from '@fluentui/react/lib/Icons';
 
 import { routes } from 'pages/routes';
@@ -11,8 +11,6 @@ initializeIcons();
 
 render(
   <React.StrictMode>
-    <RouterProvider router={createBrowserRouter(routes, {
-      basename: '/azure-maps-creator-onboarding-tool',
-    })} />
+    <RouterProvider router={createHashRouter(routes)} />
   </React.StrictMode>
   , document.getElementById('root'));
