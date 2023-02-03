@@ -9,6 +9,10 @@ export const containerStyle = css`
   margin-top: 1rem;
 `;
 
+export const descriptionStyle = css`
+  margin: 0 0 1.5rem 0;
+`;
+
 export const headerStyle = css`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;

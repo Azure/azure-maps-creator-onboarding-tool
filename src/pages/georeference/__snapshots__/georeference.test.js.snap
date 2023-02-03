@@ -10,6 +10,11 @@ Object {
 }
 
 .emotion-1 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,12 +26,12 @@ Object {
   flex-flow: wrap;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin-right: 1.25rem;
   max-width: 100%;
 }
 
-.emotion-3 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,10 +39,9 @@ Object {
   margin-bottom: 1.25rem;
 }
 
-.emotion-4 {
+.emotion-5 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -57,7 +61,7 @@ Object {
   height: 1.5rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
 }
 
@@ -101,31 +105,65 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-2"
+          class="ms-MessageBar ms-MessageBar-multiline root-121"
         >
           <div
-            class="emotion-3"
+            class="ms-MessageBar-content content-110"
           >
             <div
-              class="emotion-4"
+              aria-hidden="true"
+              class="ms-MessageBar-icon iconContainer-111"
+            >
+              <i
+                aria-hidden="true"
+                class="icon-127"
+                data-icon-name="Info"
+              >
+                
+              </i>
+            </div>
+            <div
+              aria-live="polite"
+              class="ms-MessageBar-text text-113"
+              id="MessageBar1"
+              role="status"
+            >
+              <span
+                class="ms-MessageBar-innerText innerText-123"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            <div
+              class="emotion-5"
             >
               anchor.point.longitude
             </div>
             <div
-              class="ms-TextField is-disabled emotion-5 root-122"
+              class="ms-TextField is-disabled emotion-6 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.longitude"
-                    class="ms-TextField-field field-124"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField1"
+                    id="TextField2"
                     readonly=""
                     type="text"
                     value="40"
@@ -135,28 +173,28 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <div
-              class="emotion-4"
+              class="emotion-5"
             >
               anchor.point.latitude
             </div>
             <div
-              class="ms-TextField is-disabled emotion-5 root-122"
+              class="ms-TextField is-disabled emotion-6 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.latitude"
-                    class="ms-TextField-field field-124"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField6"
+                    id="TextField7"
                     readonly=""
                     type="text"
                     value="60"
@@ -166,28 +204,28 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <div
-              class="emotion-4"
+              class="emotion-5"
             >
               anchor.point.angle
             </div>
             <div
-              class="ms-TextField is-disabled emotion-5 root-122"
+              class="ms-TextField is-disabled emotion-6 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.angle"
-                    class="ms-TextField-field field-124"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField11"
+                    id="TextField12"
                     readonly=""
                     type="text"
                     value="89"
@@ -210,6 +248,11 @@ Object {
 }
 
 .emotion-1 {
+  margin-bottom: 1rem;
+  max-width: 31.25rem;
+}
+
+.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -221,12 +264,12 @@ Object {
   flex-flow: wrap;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin-right: 1.25rem;
   max-width: 100%;
 }
 
-.emotion-3 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,10 +277,9 @@ Object {
   margin-bottom: 1.25rem;
 }
 
-.emotion-4 {
+.emotion-5 {
   height: 1.5rem;
   line-height: 1.5rem;
-  min-width: 7rem;
   max-width: 15rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -257,7 +299,7 @@ Object {
   height: 1.5rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
 }
 
@@ -300,31 +342,65 @@ Object {
       class="emotion-1"
     >
       <div
-        class="emotion-2"
+        class="ms-MessageBar ms-MessageBar-multiline root-121"
       >
         <div
-          class="emotion-3"
+          class="ms-MessageBar-content content-110"
         >
           <div
-            class="emotion-4"
+            aria-hidden="true"
+            class="ms-MessageBar-icon iconContainer-111"
+          >
+            <i
+              aria-hidden="true"
+              class="icon-127"
+              data-icon-name="Info"
+            >
+              
+            </i>
+          </div>
+          <div
+            aria-live="polite"
+            class="ms-MessageBar-text text-113"
+            id="MessageBar1"
+            role="status"
+          >
+            <span
+              class="ms-MessageBar-innerText innerText-123"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-4"
+        >
+          <div
+            class="emotion-5"
           >
             anchor.point.longitude
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-122"
+            class="ms-TextField is-disabled emotion-6 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.longitude"
-                  class="ms-TextField-field field-124"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField1"
+                  id="TextField2"
                   readonly=""
                   type="text"
                   value="40"
@@ -334,28 +410,28 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <div
-            class="emotion-4"
+            class="emotion-5"
           >
             anchor.point.latitude
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-122"
+            class="ms-TextField is-disabled emotion-6 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.latitude"
-                  class="ms-TextField-field field-124"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField6"
+                  id="TextField7"
                   readonly=""
                   type="text"
                   value="60"
@@ -365,28 +441,28 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <div
-            class="emotion-4"
+            class="emotion-5"
           >
             anchor.point.angle
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-122"
+            class="ms-TextField is-disabled emotion-6 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.angle"
-                  class="ms-TextField-field field-124"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField11"
+                  id="TextField12"
                   readonly=""
                   type="text"
                   value="89"

@@ -14,6 +14,7 @@ import {
 } from './georeference.style';
 import CheckedMap from './checked-map';
 import MapError from './map-error';
+import PageDescription from 'components/page-description/page-description';
 
 const anchorPointSelector = (s) => [s.anchorPoint.coordinates, s.anchorPoint.angle];
 
@@ -24,6 +25,7 @@ function Georeference() {
   return (
     <>
       <MapError />
+      <PageDescription description={t('page.description.georeference')} />
       <div className={container}>
         <div className={textFieldColumn}>
           <div className={textFieldRow}>

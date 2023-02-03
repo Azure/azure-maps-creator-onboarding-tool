@@ -44,13 +44,17 @@ const Level = ({ level }) => {
                    value={level.filename} />
       </div>
       <div className={fieldsRow}>
-        <FieldLabel className={fieldLabel} required>{t('level.name')}</FieldLabel>
+        <div className={fieldLabel}>
+          <FieldLabel required tooltip={t('tooltip.level.name')}>{t('level.name')}</FieldLabel>
+        </div>
         <TextField ariaLabel={t('level.name.of.file', { filename: level.filename })}
                    onChange={onLevelNameChange} styles={inputStyles} className={inputClass}
                    value={level.levelName} errorMessage={levelNameErrorMsg} />
       </div>
       <div className={fieldsRow}>
-        <FieldLabel className={fieldLabel} required>{t('ordinal')}</FieldLabel>
+        <div className={fieldLabel}>
+          <FieldLabel tooltip={t('tooltip.ordinal')} required>{t('ordinal')}</FieldLabel>
+        </div>
         <TextField className={inputClass} value={level.ordinal} onChange={onOrdinalChange}
                    ariaLabel={t('ordinal.of.file', { filename: level.filename })}
                    errorMessage={ordinalErrorMsg} styles={inputStyles} />

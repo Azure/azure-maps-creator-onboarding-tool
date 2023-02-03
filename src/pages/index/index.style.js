@@ -10,7 +10,6 @@ export const containerStyle = css`
 export const mainDescriptionStyle = css`
   max-width: 560px;
   text-align: center;
-  margin: 0 0 1rem 0;
 `;
 
 export const paneSectionStyle = css`
