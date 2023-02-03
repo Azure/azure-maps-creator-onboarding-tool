@@ -30,10 +30,11 @@ export const inputClass = css`
 `;
 
 export const inputStyles = {
-  fieldGroup: [{
-    height: '1.5rem',
-  }],
-  field: [{
-    fontSize: fontSize.sm,
-  }]
+  fieldGroup: [{ height: '1.5rem' }],
+  field: [{ fontSize: fontSize.sm }]
+};
+
+export const readOnlyInput = {
+  fieldGroup: [{ height: '1.5rem', borderColor: `${color.grayBorder}` }],
+  field: [{ fontSize: fontSize.sm }]
 };

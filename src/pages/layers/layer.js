@@ -14,6 +14,7 @@ import {
   flexContainer,
   layerRow,
   layerNameInputStyles,
+  disabledLayerNameInput,
 } from './layers.style';
 import DeleteIcon from './delete-icon';
 
@@ -73,12 +74,15 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
     }
     return '';
   }, [isDraft, t]);
+  const textFieldStyles = useMemo(() => (
+    required ? disabledLayerNameInput : layerNameInputStyles
+  ), [required]);
 
   return (
     <div className={layerRow}>
       <div className={flexContainer}>
         <TextField disabled={required} className={fieldLabel} value={name} onChange={onChangeName}
-                   styles={layerNameInputStyles} errorMessage={layerNameError}
+                   styles={textFieldStyles} errorMessage={layerNameError}
                    placeholder={placeholder} />
         <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect
                   onChange={onChangeLayersSelection} options={options}  styles={dropdownStyles} />

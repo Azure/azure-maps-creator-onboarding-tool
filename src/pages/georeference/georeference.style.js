@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 
-import { fontSize } from 'common/styles';
+import { color, fontSize } from 'common/styles';
 
 export const container = css`
   display: flex;
@@ -39,6 +39,7 @@ export const textInputStyles = {
     {
       height: '1.5rem',
       fontSize: fontSize.sm,
+      borderColor: `${color.grayBorder}`,
     },
   ],
 };
