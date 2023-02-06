@@ -80,6 +80,12 @@ export const primaryButtonStyle = css`
   ${defaultButtonStyle};
 `;
 
+export const primaryButtonDisabledStyles = {
+  labelDisabled: {
+    color: '#666', // added this cause default color does not provide enough contrast for accessibility (4.5)
+  },
+};
+
 export const buttonLabelStyle = {
   label: {
     lineHeight: 'unset',

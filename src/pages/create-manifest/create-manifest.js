@@ -22,6 +22,7 @@ import {
   formRowStyle,
   headerStyle,
   inputStyles,
+  primaryButtonDisabledStyles,
   primaryButtonStyle,
   textFieldStyle,
 } from './create-manifest.style';
@@ -132,8 +133,8 @@ const CreateManifestPage = ({ allowEdit }) => {
       {allowEdit && <FileField label={t('manifest.file')} id={TEST_ID.MANIFEST_UPLOAD_FIELD}
                                onFileSelect={saveManifestFileData} fileType='json'
                                tooltip={t('tooltip.manifest.file')} onError={setErrorMessage} />}
-      <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} text={t('process')}
-                     className={primaryButtonStyle} data-testid={TEST_ID.UPLOAD_BUTTON} />
+      <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} data-testid={TEST_ID.UPLOAD_BUTTON}
+                     className={primaryButtonStyle} text={t('process')} styles={primaryButtonDisabledStyles} />
       <DefaultButton styles={buttonLabelStyle} className={defaultButtonStyle} text={t('cancel')}
                      onClick={navigateHome} data-testid={TEST_ID.CANCEL_BUTTON} />
     </div>
