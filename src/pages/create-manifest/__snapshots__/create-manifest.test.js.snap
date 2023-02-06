@@ -47,12 +47,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -65,24 +59,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -97,16 +73,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -131,12 +141,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -157,18 +167,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-23 {
+.emotion-26 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-24 {
+.emotion-27 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -253,9 +263,13 @@ Object {
           <div
             class="emotion-6"
           >
-            geography
-            <span
+            <div
               class="emotion-7"
+            >
+              geography
+            </div>
+            <span
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -280,10 +294,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-Dropdown-container emotion-9"
+              class="ms-Dropdown-container emotion-10"
             >
               <div
                 aria-expanded="false"
@@ -322,11 +336,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            subscription.key
+            <div
+              class="emotion-13"
+            >
+              subscription.key
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -351,10 +369,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -398,11 +416,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            dwg.zip.package
+            <div
+              class="emotion-13"
+            >
+              dwg.zip.package
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -427,10 +449,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -453,17 +475,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-20"
+              class="emotion-23"
               for="file-upload-field"
             >
               <span
-                class="emotion-21"
+                class="emotion-24"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-22"
+              class="emotion-25"
               data-testid="file-upload-field"
               id="file-upload-field"
               type="file"
@@ -472,7 +494,7 @@ Object {
         </div>
         <button
           aria-disabled="true"
-          class="ms-Button ms-Button--primary is-disabled emotion-23 root-167"
+          class="ms-Button ms-Button--primary is-disabled emotion-26 root-167"
           data-is-focusable="false"
           data-testid="upload-button"
           disabled=""
@@ -495,7 +517,7 @@ Object {
           </span>
         </button>
         <button
-          class="ms-Button ms-Button--default emotion-24 root-171"
+          class="ms-Button ms-Button--default emotion-27 root-171"
           data-is-focusable="true"
           data-testid="cancel-button"
           type="button"
@@ -563,12 +585,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -581,24 +597,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -613,16 +611,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -647,12 +679,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -673,18 +705,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-23 {
+.emotion-26 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-24 {
+.emotion-27 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -768,9 +800,13 @@ Object {
         <div
           class="emotion-6"
         >
-          geography
-          <span
+          <div
             class="emotion-7"
+          >
+            geography
+          </div>
+          <span
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -795,10 +831,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-Dropdown-container emotion-9"
+            class="ms-Dropdown-container emotion-10"
           >
             <div
               aria-expanded="false"
@@ -837,11 +873,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          subscription.key
+          <div
+            class="emotion-13"
+          >
+            subscription.key
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -866,10 +906,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -913,11 +953,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          dwg.zip.package
+          <div
+            class="emotion-13"
+          >
+            dwg.zip.package
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -942,10 +986,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -968,17 +1012,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-20"
+            class="emotion-23"
             for="file-upload-field"
           >
             <span
-              class="emotion-21"
+              class="emotion-24"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-22"
+            class="emotion-25"
             data-testid="file-upload-field"
             id="file-upload-field"
             type="file"
@@ -987,7 +1031,7 @@ Object {
       </div>
       <button
         aria-disabled="true"
-        class="ms-Button ms-Button--primary is-disabled emotion-23 root-167"
+        class="ms-Button ms-Button--primary is-disabled emotion-26 root-167"
         data-is-focusable="false"
         data-testid="upload-button"
         disabled=""
@@ -1010,7 +1054,7 @@ Object {
         </span>
       </button>
       <button
-        class="ms-Button ms-Button--default emotion-24 root-171"
+        class="ms-Button ms-Button--default emotion-27 root-171"
         data-is-focusable="true"
         data-testid="cancel-button"
         type="button"
@@ -1134,12 +1178,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1152,24 +1190,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1184,16 +1204,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -1218,12 +1272,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1244,18 +1298,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-31 {
+.emotion-35 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-32 {
+.emotion-36 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -1340,9 +1394,13 @@ Object {
           <div
             class="emotion-6"
           >
-            geography
-            <span
+            <div
               class="emotion-7"
+            >
+              geography
+            </div>
+            <span
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -1367,10 +1425,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-Dropdown-container emotion-9"
+              class="ms-Dropdown-container emotion-10"
             >
               <div
                 aria-expanded="false"
@@ -1409,11 +1467,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            subscription.key
+            <div
+              class="emotion-13"
+            >
+              subscription.key
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -1438,10 +1500,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -1485,11 +1547,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            dwg.zip.package
+            <div
+              class="emotion-13"
+            >
+              dwg.zip.package
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -1514,10 +1580,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -1540,17 +1606,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-20"
+              class="emotion-23"
               for="file-upload-field"
             >
               <span
-                class="emotion-21"
+                class="emotion-24"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-22"
+              class="emotion-25"
               data-testid="file-upload-field"
               id="file-upload-field"
               type="file"
@@ -1561,11 +1627,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            manifest.file
+            <div
+              class="emotion-13"
+            >
+              manifest.file
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -1590,10 +1660,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -1616,17 +1686,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-20"
+              class="emotion-23"
               for="manifest-upload-field"
             >
               <span
-                class="emotion-21"
+                class="emotion-24"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-22"
+              class="emotion-25"
               data-testid="manifest-upload-field"
               id="manifest-upload-field"
               type="file"
@@ -1635,7 +1705,7 @@ Object {
         </div>
         <button
           aria-disabled="true"
-          class="ms-Button ms-Button--primary is-disabled emotion-31 root-167"
+          class="ms-Button ms-Button--primary is-disabled emotion-35 root-167"
           data-is-focusable="false"
           data-testid="upload-button"
           disabled=""
@@ -1658,7 +1728,7 @@ Object {
           </span>
         </button>
         <button
-          class="ms-Button ms-Button--default emotion-32 root-171"
+          class="ms-Button ms-Button--default emotion-36 root-171"
           data-is-focusable="true"
           data-testid="cancel-button"
           type="button"
@@ -1726,12 +1796,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1744,24 +1808,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1776,16 +1822,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -1810,12 +1890,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1836,18 +1916,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-31 {
+.emotion-35 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-32 {
+.emotion-36 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -1931,9 +2011,13 @@ Object {
         <div
           class="emotion-6"
         >
-          geography
-          <span
+          <div
             class="emotion-7"
+          >
+            geography
+          </div>
+          <span
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -1958,10 +2042,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-Dropdown-container emotion-9"
+            class="ms-Dropdown-container emotion-10"
           >
             <div
               aria-expanded="false"
@@ -2000,11 +2084,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          subscription.key
+          <div
+            class="emotion-13"
+          >
+            subscription.key
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -2029,10 +2117,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2076,11 +2164,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          dwg.zip.package
+          <div
+            class="emotion-13"
+          >
+            dwg.zip.package
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -2105,10 +2197,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2131,17 +2223,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-20"
+            class="emotion-23"
             for="file-upload-field"
           >
             <span
-              class="emotion-21"
+              class="emotion-24"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-22"
+            class="emotion-25"
             data-testid="file-upload-field"
             id="file-upload-field"
             type="file"
@@ -2152,11 +2244,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          manifest.file
+          <div
+            class="emotion-13"
+          >
+            manifest.file
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -2181,10 +2277,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2207,17 +2303,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-20"
+            class="emotion-23"
             for="manifest-upload-field"
           >
             <span
-              class="emotion-21"
+              class="emotion-24"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-22"
+            class="emotion-25"
             data-testid="manifest-upload-field"
             id="manifest-upload-field"
             type="file"
@@ -2226,7 +2322,7 @@ Object {
       </div>
       <button
         aria-disabled="true"
-        class="ms-Button ms-Button--primary is-disabled emotion-31 root-167"
+        class="ms-Button ms-Button--primary is-disabled emotion-35 root-167"
         data-is-focusable="false"
         data-testid="upload-button"
         disabled=""
@@ -2249,7 +2345,7 @@ Object {
         </span>
       </button>
       <button
-        class="ms-Button ms-Button--default emotion-32 root-171"
+        class="ms-Button ms-Button--default emotion-36 root-171"
         data-is-focusable="true"
         data-testid="cancel-button"
         type="button"
@@ -2373,12 +2469,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2391,24 +2481,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -2423,16 +2495,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -2457,12 +2563,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2483,18 +2589,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-23 {
+.emotion-26 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-24 {
+.emotion-27 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -2589,9 +2695,13 @@ Object {
           <div
             class="emotion-6"
           >
-            geography
-            <span
+            <div
               class="emotion-7"
+            >
+              geography
+            </div>
+            <span
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -2616,10 +2726,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-Dropdown-container emotion-9"
+              class="ms-Dropdown-container emotion-10"
             >
               <div
                 aria-expanded="false"
@@ -2658,11 +2768,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            subscription.key
+            <div
+              class="emotion-13"
+            >
+              subscription.key
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -2687,10 +2801,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -2734,11 +2848,15 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-11"
+            class="emotion-6"
           >
-            dwg.zip.package
+            <div
+              class="emotion-13"
+            >
+              dwg.zip.package
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
                 class="ms-TooltipHost root-131"
@@ -2763,10 +2881,10 @@ Object {
             </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-9 root-153"
+              class="ms-TextField emotion-10 root-153"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -2789,17 +2907,17 @@ Object {
               </div>
             </div>
             <label
-              class="emotion-20"
+              class="emotion-23"
               for="file-upload-field"
             >
               <span
-                class="emotion-21"
+                class="emotion-24"
               >
                 browse
               </span>
             </label>
             <input
-              class="emotion-22"
+              class="emotion-25"
               data-testid="file-upload-field"
               id="file-upload-field"
               type="file"
@@ -2808,7 +2926,7 @@ Object {
         </div>
         <button
           aria-disabled="true"
-          class="ms-Button ms-Button--primary is-disabled emotion-23 root-167"
+          class="ms-Button ms-Button--primary is-disabled emotion-26 root-167"
           data-is-focusable="false"
           data-testid="upload-button"
           disabled=""
@@ -2831,7 +2949,7 @@ Object {
           </span>
         </button>
         <button
-          class="ms-Button ms-Button--default emotion-24 root-171"
+          class="ms-Button ms-Button--default emotion-27 root-171"
           data-is-focusable="true"
           data-testid="cancel-button"
           type="button"
@@ -2899,12 +3017,6 @@ Object {
 }
 
 .emotion-6 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2917,24 +3029,6 @@ Object {
 }
 
 .emotion-7 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-8 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-9 {
-  width: 100%;
-}
-
-.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -2949,16 +3043,50 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-11:after {
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 30rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-10 {
+  width: 100%;
+}
+
+.emotion-13 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-13:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-20 {
+.emotion-23 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -2983,12 +3111,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-20:hover {
+.emotion-23:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3009,18 +3137,18 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-25 {
   display: none;
 }
 
-.emotion-23 {
+.emotion-26 {
   margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
 }
 
-.emotion-24 {
+.emotion-27 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -3108,9 +3236,13 @@ Object {
         <div
           class="emotion-6"
         >
-          geography
-          <span
+          <div
             class="emotion-7"
+          >
+            geography
+          </div>
+          <span
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -3135,10 +3267,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-Dropdown-container emotion-9"
+            class="ms-Dropdown-container emotion-10"
           >
             <div
               aria-expanded="false"
@@ -3177,11 +3309,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          subscription.key
+          <div
+            class="emotion-13"
+          >
+            subscription.key
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -3206,10 +3342,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -3253,11 +3389,15 @@ Object {
         class="emotion-5"
       >
         <div
-          class="emotion-11"
+          class="emotion-6"
         >
-          dwg.zip.package
+          <div
+            class="emotion-13"
+          >
+            dwg.zip.package
+          </div>
           <span
-            class="emotion-7"
+            class="emotion-8"
           >
             <div
               class="ms-TooltipHost root-131"
@@ -3282,10 +3422,10 @@ Object {
           </span>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-9 root-153"
+            class="ms-TextField emotion-10 root-153"
           >
             <div
               class="ms-TextField-wrapper"
@@ -3308,17 +3448,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-20"
+            class="emotion-23"
             for="file-upload-field"
           >
             <span
-              class="emotion-21"
+              class="emotion-24"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-22"
+            class="emotion-25"
             data-testid="file-upload-field"
             id="file-upload-field"
             type="file"
@@ -3327,7 +3467,7 @@ Object {
       </div>
       <button
         aria-disabled="true"
-        class="ms-Button ms-Button--primary is-disabled emotion-23 root-167"
+        class="ms-Button ms-Button--primary is-disabled emotion-26 root-167"
         data-is-focusable="false"
         data-testid="upload-button"
         disabled=""
@@ -3350,7 +3490,7 @@ Object {
         </span>
       </button>
       <button
-        class="ms-Button ms-Button--default emotion-24 root-171"
+        class="ms-Button ms-Button--default emotion-27 root-171"
         data-is-focusable="true"
         data-testid="cancel-button"
         type="button"

@@ -26,6 +26,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -40,7 +52,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,18 +59,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -67,7 +78,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -82,16 +93,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -108,10 +118,14 @@ Object {
           <div
             class="emotion-2"
           >
-            file.name
+            <div
+              class="emotion-3"
+            >
+              file.name
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-3 root-110"
+            class="ms-TextField is-disabled emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -136,14 +150,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              level.name
+              <div
+                class="emotion-8"
+              >
+                level.name
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -169,7 +187,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -193,14 +211,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              ordinal
+              <div
+                class="emotion-8"
+              >
+                ordinal
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -226,7 +248,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -272,6 +294,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -286,7 +320,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -294,18 +327,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -313,7 +346,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -328,16 +361,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -353,10 +385,14 @@ Object {
         <div
           class="emotion-2"
         >
-          file.name
+          <div
+            class="emotion-3"
+          >
+            file.name
+          </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-3 root-110"
+          class="ms-TextField is-disabled emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -381,14 +417,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            level.name
+            <div
+              class="emotion-8"
+            >
+              level.name
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -414,7 +454,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -438,14 +478,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            ordinal
+            <div
+              class="emotion-8"
+            >
+              ordinal
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -471,7 +515,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -573,6 +617,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -587,7 +643,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -595,18 +650,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -614,7 +669,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -629,16 +684,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -655,10 +709,14 @@ Object {
           <div
             class="emotion-2"
           >
-            file.name
+            <div
+              class="emotion-3"
+            >
+              file.name
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-3 root-110"
+            class="ms-TextField is-disabled emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -683,14 +741,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              level.name
+              <div
+                class="emotion-8"
+              >
+                level.name
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -716,7 +778,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -748,14 +810,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              ordinal
+              <div
+                class="emotion-8"
+              >
+                ordinal
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -781,7 +847,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -835,6 +901,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -849,7 +927,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -857,18 +934,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -876,7 +953,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -891,16 +968,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -916,10 +992,14 @@ Object {
         <div
           class="emotion-2"
         >
-          file.name
+          <div
+            class="emotion-3"
+          >
+            file.name
+          </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-3 root-110"
+          class="ms-TextField is-disabled emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -944,14 +1024,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            level.name
+            <div
+              class="emotion-8"
+            >
+              level.name
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -977,7 +1061,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1009,14 +1093,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            ordinal
+            <div
+              class="emotion-8"
+            >
+              ordinal
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -1042,7 +1130,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1152,6 +1240,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1166,7 +1266,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1174,18 +1273,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1193,7 +1292,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1208,16 +1307,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -1234,10 +1332,14 @@ Object {
           <div
             class="emotion-2"
           >
-            file.name
+            <div
+              class="emotion-3"
+            >
+              file.name
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-3 root-110"
+            class="ms-TextField is-disabled emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1262,14 +1364,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              level.name
+              <div
+                class="emotion-8"
+              >
+                level.name
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -1295,7 +1401,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1319,14 +1425,18 @@ Object {
           class="emotion-1"
         >
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <div
-              class="emotion-6"
+              class="emotion-2"
             >
-              ordinal
+              <div
+                class="emotion-8"
+              >
+                ordinal
+              </div>
               <span
-                class="emotion-7"
+                class="emotion-9"
               >
                 <div
                   class="ms-TooltipHost root-121"
@@ -1352,7 +1462,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1406,6 +1516,18 @@ Object {
 }
 
 .emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1420,7 +1542,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1428,18 +1549,18 @@ Object {
   display: flex;
 }
 
-.emotion-2:after {
+.emotion-3:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
   max-width: 30rem;
 }
 
-.emotion-5 {
+.emotion-6 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1447,7 +1568,7 @@ Object {
   display: flex;
 }
 
-.emotion-6 {
+.emotion-8 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1462,16 +1583,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-6:after {
+.emotion-8:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-9 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
@@ -1487,10 +1607,14 @@ Object {
         <div
           class="emotion-2"
         >
-          file.name
+          <div
+            class="emotion-3"
+          >
+            file.name
+          </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-3 root-110"
+          class="ms-TextField is-disabled emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1515,14 +1639,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            level.name
+            <div
+              class="emotion-8"
+            >
+              level.name
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -1548,7 +1676,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1572,14 +1700,18 @@ Object {
         class="emotion-1"
       >
         <div
-          class="emotion-5"
+          class="emotion-6"
         >
           <div
-            class="emotion-6"
+            class="emotion-2"
           >
-            ordinal
+            <div
+              class="emotion-8"
+            >
+              ordinal
+            </div>
             <span
-              class="emotion-7"
+              class="emotion-9"
             >
               <div
                 class="ms-TooltipHost root-121"
@@ -1605,7 +1737,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"

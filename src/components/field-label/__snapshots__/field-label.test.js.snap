@@ -4,6 +4,18 @@ exports[`FieldLabel should render default 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-1 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -18,7 +30,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
 <body>
@@ -26,11 +37,27 @@ Object {
       <div
         class="emotion-0"
       >
-        The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.
+        <div
+          class="emotion-1"
+        >
+          The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.
+        </div>
       </div>
     </div>
   </body>,
   "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-1 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -45,14 +72,17 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
 <div>
     <div
       class="emotion-0"
     >
-      The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.
+      <div
+        class="emotion-1"
+      >
+        The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.
+      </div>
     </div>
   </div>,
   "debug": [Function],
