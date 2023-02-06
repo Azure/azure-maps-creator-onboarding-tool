@@ -220,7 +220,7 @@ export const useLayersStore = create(
 
 export function getDefaultState() {
   return {
-    newLayerIdCounter: 3,
+    newLayerIdCounter: 2,
     layerNames: [],
     polygonLayers: [],
     polygonLayerNames: [],
@@ -230,12 +230,7 @@ export function getDefaultState() {
         id: 0,
         name: exteriorLayerName,
         value: [],
-        props: [{
-          id: 2,
-          name: '',
-          isDraft: true,
-          value: [],
-        }],
+        props: [],
         required: true,
         isDraft: false,
       },
@@ -286,9 +281,7 @@ export function convertLayersFromManifestJson(layers, allowedPolygonLayerNames, 
         if (propName === 'dwgLayers') {
           convertedLayers[0].value = propValue.filter((dwgLayer) => allowedPolygonLayerNames.includes(dwgLayer));
         } else {
-          // using splice in this function to insert items in arrays before the last element
-          // this way draft item (isDraft: true), will always be last
-          convertedLayers[0].props.splice(convertedLayers[0].props.length - 1, 0, {
+          convertedLayers[0].props.push({
             id: newLayerIdCounter,
             name: propName,
             value: propValue.filter((dwgLayer) => allowedTextLayerNames.includes(dwgLayer)),
