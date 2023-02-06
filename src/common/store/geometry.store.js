@@ -50,7 +50,7 @@ export const useDissolvedExterior = () => {
     if (mergedMultiPolygons === null) return;
 
     const centerPoint = center(mergedMultiPolygons).geometry.coordinates;
-    const fixedAngle = anchorPoint.angle > 0 ? anchorPoint.angle : 360;
+    const fixedAngle = fixAngle(anchorPoint.angle);
     const rotated = mergedMultiPolygons.type === 'Polygon'
       ? mergedMultiPolygons.coordinates.map((coordinates) => (
         math.rotatePositions(coordinates, centerPoint, fixedAngle)
@@ -106,3 +106,13 @@ export const useDissolvedExterior = () => {
 
   return output;
 };
+
+export function fixAngle(angle) {
+  if (angle === -360 || angle === 0) {
+    return 360;
+  }
+  if (angle < 0) {
+    return angle + 360;
+  }
+  return angle;
+}

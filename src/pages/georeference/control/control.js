@@ -124,10 +124,10 @@ function Control({ map }) {
           <div className={sectionTitle}>{t('rotation.in.degrees')}</div>
           <div className={sliderContainerOuter}>
             <div className={sliderContainerInner}>
-              <Slider min={0} max={360} step={1} showValue={false} snapToStep value={anchorPointAngle}
+              <Slider min={-360} max={360} step={1} showValue={false} snapToStep value={anchorPointAngle}
                       onChange={sliderOnChange} />
             </div>
-            <NumberInput value={anchorPointAngle} className={angleInputStyles} max={360} min={0}
+            <NumberInput value={anchorPointAngle} className={angleInputStyles} max={360} min={-360}
                          align={'center'} onChange={onAngleChange} precision={2}
                          ariaLabel={t('rotation.in.degrees')} />
           </div>
