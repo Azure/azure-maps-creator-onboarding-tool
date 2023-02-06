@@ -280,7 +280,7 @@ Object {
                     <div
                       aria-disabled="false"
                       aria-valuemax="360"
-                      aria-valuemin="0"
+                      aria-valuemin="-360"
                       aria-valuenow="111"
                       aria-valuetext="111"
                       class="ms-Slider-slideBox slideBox-141"
@@ -294,7 +294,7 @@ Object {
                       >
                         <span
                           class="ms-Slider-thumb thumb-142"
-                          style="left: 30.833333333333336%;"
+                          style="left: 65.41666666666667%;"
                         />
                         <span
                           class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
@@ -302,11 +302,11 @@ Object {
                         />
                         <span
                           class="lineContainer-144 ms-Slider-active activeSection-145"
-                          style="width: 30.833333333333336%;"
+                          style="width: 65.41666666666667%;"
                         />
                         <span
                           class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
-                          style="width: 69.16666666666666%;"
+                          style="width: 34.58333333333333%;"
                         />
                       </div>
                     </div>
@@ -616,7 +616,7 @@ Object {
                   <div
                     aria-disabled="false"
                     aria-valuemax="360"
-                    aria-valuemin="0"
+                    aria-valuemin="-360"
                     aria-valuenow="111"
                     aria-valuetext="111"
                     class="ms-Slider-slideBox slideBox-141"
@@ -630,7 +630,7 @@ Object {
                     >
                       <span
                         class="ms-Slider-thumb thumb-142"
-                        style="left: 30.833333333333336%;"
+                        style="left: 65.41666666666667%;"
                       />
                       <span
                         class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
@@ -638,11 +638,11 @@ Object {
                       />
                       <span
                         class="lineContainer-144 ms-Slider-active activeSection-145"
-                        style="width: 30.833333333333336%;"
+                        style="width: 65.41666666666667%;"
                       />
                       <span
                         class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
-                        style="width: 69.16666666666666%;"
+                        style="width: 34.58333333333333%;"
                       />
                     </div>
                   </div>
@@ -1017,7 +1017,7 @@ Object {
                     <div
                       aria-disabled="false"
                       aria-valuemax="360"
-                      aria-valuemin="0"
+                      aria-valuemin="-360"
                       aria-valuenow="111"
                       aria-valuetext="111"
                       class="ms-Slider-slideBox slideBox-141"
@@ -1031,7 +1031,7 @@ Object {
                       >
                         <span
                           class="ms-Slider-thumb thumb-142"
-                          style="left: 30.833333333333336%;"
+                          style="left: 65.41666666666667%;"
                         />
                         <span
                           class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
@@ -1039,11 +1039,11 @@ Object {
                         />
                         <span
                           class="lineContainer-144 ms-Slider-active activeSection-145"
-                          style="width: 30.833333333333336%;"
+                          style="width: 65.41666666666667%;"
                         />
                         <span
                           class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
-                          style="width: 69.16666666666666%;"
+                          style="width: 34.58333333333333%;"
                         />
                       </div>
                     </div>
@@ -1361,7 +1361,7 @@ Object {
                   <div
                     aria-disabled="false"
                     aria-valuemax="360"
-                    aria-valuemin="0"
+                    aria-valuemin="-360"
                     aria-valuenow="111"
                     aria-valuetext="111"
                     class="ms-Slider-slideBox slideBox-141"
@@ -1375,7 +1375,7 @@ Object {
                     >
                       <span
                         class="ms-Slider-thumb thumb-142"
-                        style="left: 30.833333333333336%;"
+                        style="left: 65.41666666666667%;"
                       />
                       <span
                         class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
@@ -1383,11 +1383,11 @@ Object {
                       />
                       <span
                         class="lineContainer-144 ms-Slider-active activeSection-145"
-                        style="width: 30.833333333333336%;"
+                        style="width: 65.41666666666667%;"
                       />
                       <span
                         class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
-                        style="width: 69.16666666666666%;"
+                        style="width: 34.58333333333333%;"
                       />
                     </div>
                   </div>
@@ -1753,7 +1753,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                 <div
                   aria-disabled="false"
                   aria-valuemax="360"
-                  aria-valuemin="0"
+                  aria-valuemin="-360"
                   aria-valuenow="111"
                   aria-valuetext="111"
                   class="ms-Slider-slideBox slideBox-141"
@@ -1767,7 +1767,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   >
                     <span
                       class="ms-Slider-thumb thumb-142"
-                      style="left: 30.833333333333336%;"
+                      style="left: 65.41666666666667%;"
                     />
                     <span
                       class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
@@ -1775,11 +1775,11 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                     />
                     <span
                       class="lineContainer-144 ms-Slider-active activeSection-145"
-                      style="width: 30.833333333333336%;"
+                      style="width: 65.41666666666667%;"
                     />
                     <span
                       class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
-                      style="width: 69.16666666666666%;"
+                      style="width: 34.58333333333333%;"
                     />
                   </div>
                 </div>
