@@ -15,18 +15,18 @@ describe('layers store', () => {
       ['A-EQPM-EXST', 'AK-ROOM']);
     expect(res).toEqual({
       'convertedLayers': [
-        {'isDraft': false, 'id': 0, 'name': 'exterior', 'props': [{'id': 3, 'name': 'ffff', 'value': ['0', 'RM$TXT']}, {'id': 2, 'isDraft': true, 'name': '', 'value': []}], 'required': true, 'value': ['AK-FLOR-EXTR', 'AK-WALL']},
-        {'isDraft': false, 'id': 4, 'name': 'qwe', 'props': [{'id': 5, 'isDraft': true, 'name': '', 'value': []}], 'required': false, 'value': ['A-EQPM-EXST']},
-        {'isDraft': false, 'id': 6, 'name': 'asd', 'props': [{'id': 8, 'name': 'zzz', 'value': ['A-FURN-SYTM-EXST', 'A-EQPM-EXST']}, {'id': 7, 'isDraft': true, 'name': '', 'value': []}], 'required': false, 'value': ['AK-ROOM']},
+        {'isDraft': false, 'id': 0, 'name': 'exterior', 'props': [{'id': 2, 'name': 'ffff', 'value': ['0', 'RM$TXT']}], 'required': true, 'value': ['AK-FLOR-EXTR', 'AK-WALL']},
+        {'isDraft': false, 'id': 3, 'name': 'qwe', 'props': [{'id': 4, 'isDraft': true, 'name': '', 'value': []}], 'required': false, 'value': ['A-EQPM-EXST']},
+        {'isDraft': false, 'id': 5, 'name': 'asd', 'props': [{'id': 7, 'name': 'zzz', 'value': ['A-FURN-SYTM-EXST', 'A-EQPM-EXST']}, {'id': 6, 'isDraft': true, 'name': '', 'value': []}], 'required': false, 'value': ['AK-ROOM']},
         {'isDraft': true, 'id': 1, 'name': '', 'props': [], 'required': false, 'value': []},
       ],
-      'newLayerIdCounter': 9,
+      'newLayerIdCounter': 8,
     });
   });
 
   it('should return default state', () => {
     expect(getDefaultState()).toEqual({
-      newLayerIdCounter: 3,
+      newLayerIdCounter: 2,
       layerNames: [],
       polygonLayers: [],
       polygonLayerNames: [],
@@ -35,12 +35,7 @@ describe('layers store', () => {
         id: 0,
         name: 'exterior',
         value: [],
-        props: [{
-          id: 2,
-          isDraft: true,
-          name: '',
-          value: [],
-        }],
+        props: [],
         required: true,
         isDraft: false,
       }, {
