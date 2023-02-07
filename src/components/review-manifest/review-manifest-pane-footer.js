@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <div className={reviewManifestFooter}>
-      <PrimaryButton className={buttonStyle} onClick={saveFile}>
+      <PrimaryButton className={buttonStyle} onClick={saveFile} data-test-id='download-manifest-button'>
         {t('download')}
       </PrimaryButton>
       <DefaultButton className={buttonStyle} onClick={hidePane}>

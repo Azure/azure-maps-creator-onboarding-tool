@@ -42,7 +42,7 @@ describe('create manifest scenario', () => {
     // create manifest page
     cy.get('[data-testid="subscription-key-field"]').type(Cypress.env('subscriptionKey'));
     cy.get('input[type=file]').selectFile('src/common/mocks/contoso.zip', {force: true});
-    cy.get('button').contains('Upload').click();
+    cy.get('button').contains('Process').click();
 
     // processing page
     cy.wait('@getStatus', {
@@ -124,8 +124,8 @@ describe('create manifest scenario', () => {
     cy.get('input[aria-label="Rotation in degrees"]').type('100');
 
     // Review manifest
-    cy.get('button').contains('Review').click();
-    cy.get('button').contains('Download').click();
+    cy.get('button').contains('Review + Download').click();
+    cy.get('button[data-test-id="download-manifest-button"]').contains('Download').click();
 
     // should download correct file
     cy.fixture('manifest').then((expectedManifestJSon) => {

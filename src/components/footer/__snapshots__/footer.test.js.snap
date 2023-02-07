@@ -39,7 +39,7 @@ Object {
                 class="ms-Button-label label-113"
                 id="id__0"
               >
-                review
+                review.download
               </span>
             </span>
           </span>
@@ -126,7 +126,7 @@ Object {
               class="ms-Button-label label-113"
               id="id__0"
             >
-              review
+              review.download
             </span>
           </span>
         </span>
@@ -270,7 +270,7 @@ Object {
                 class="ms-Button-label label-113"
                 id="id__9"
               >
-                review
+                review.download
               </span>
             </span>
           </span>
@@ -357,7 +357,7 @@ Object {
               class="ms-Button-label label-113"
               id="id__9"
             >
-              review
+              review.download
             </span>
           </span>
         </span>

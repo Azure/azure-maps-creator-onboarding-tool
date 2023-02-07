@@ -25,7 +25,7 @@ export const useLevelsStore = create((set, get) => ({
         return {
           filename: level.filename,
           levelName: typeof levelsByFilename[level.filename].levelName === 'string' ? levelsByFilename[level.filename].levelName : '',
-          ordinal: typeof levelsByFilename[level.filename].ordinal === 'string' ? levelsByFilename[level.filename].ordinal : '',
+          ordinal: typeof levelsByFilename[level.filename].ordinal === 'number' ? levelsByFilename[level.filename].ordinal.toString() : '',
         };
       })
     }));

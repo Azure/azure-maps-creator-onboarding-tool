@@ -49,7 +49,7 @@ export const Footer = () => {
   return (
       <div className={footerContainerStyle}>
         <PrimaryButton className={buttonStyle} onClick={onReview}>
-          {t('review')}
+          {t('review.download')}
         </PrimaryButton>
         <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
           {t('previous')}
