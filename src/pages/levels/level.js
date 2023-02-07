@@ -7,7 +7,7 @@ import FieldLabel from 'components/field-label';
 import { useLevelsStore } from 'common/store';
 import FieldError from 'components/field-error';
 
-import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles } from './levels.style';
+import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
 const selector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid];
 
@@ -40,7 +40,7 @@ const Level = ({ level }) => {
     <div className={fileContainer}>
       <div className={fieldsRow}>
         <FieldLabel className={fieldLabel} required>{t('file.name')}</FieldLabel>
-        <TextField readOnly styles={inputStyles} className={inputClass} disabled
+        <TextField readOnly styles={readOnlyInput} className={inputClass} disabled
                    value={level.filename} />
       </div>
       <div className={fieldsRow}>

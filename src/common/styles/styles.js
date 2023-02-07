@@ -10,6 +10,7 @@ export const color = {
   gray: '#E1DFDD',
   lightGray: '#F3F2F1',
   darkGray: '#ccc',
+  grayBorder: '#A19F9D',
   lightRed: '#f37474',
 };
 
