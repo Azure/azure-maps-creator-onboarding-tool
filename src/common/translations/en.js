@@ -21,6 +21,7 @@ const en = {
     'edit.existing.manifest': 'Edit an existing manifest',
     'enter.feature.class.name': 'Enter Feature Class Name',
     'enter.property.name': 'Enter Property Name',
+    'error.empty.dropdown': 'DWG file does not contain any text entities',
     'error.file.size.exceeded': 'The file is too big.',
     'error.file.type.incorrect': 'Please upload a {{type}} file.',
     'error.invalid.level.name': 'Level name cannot be longer than 100 characters.',
