@@ -40,6 +40,18 @@ Object {
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -54,14 +66,13 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   max-width: none;
   line-height: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-6 {
+.emotion-7 {
   width: 15.625rem;
 }
 
@@ -147,10 +158,14 @@ Object {
             <div
               class="emotion-5"
             >
-              anchor.point.longitude
+              <div
+                class="emotion-6"
+              >
+                anchor.point.longitude
+              </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-6 root-129"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -178,10 +193,14 @@ Object {
             <div
               class="emotion-5"
             >
-              anchor.point.latitude
+              <div
+                class="emotion-6"
+              >
+                anchor.point.latitude
+              </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-6 root-129"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -209,10 +228,14 @@ Object {
             <div
               class="emotion-5"
             >
-              anchor.point.angle
+              <div
+                class="emotion-6"
+              >
+                anchor.point.angle
+              </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-6 root-129"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -278,6 +301,18 @@ Object {
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-6 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -292,14 +327,13 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
   width: 15.625rem;
   max-width: none;
   line-height: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-6 {
+.emotion-7 {
   width: 15.625rem;
 }
 
@@ -384,10 +418,14 @@ Object {
           <div
             class="emotion-5"
           >
-            anchor.point.longitude
+            <div
+              class="emotion-6"
+            >
+              anchor.point.longitude
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-6 root-129"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"
@@ -415,10 +453,14 @@ Object {
           <div
             class="emotion-5"
           >
-            anchor.point.latitude
+            <div
+              class="emotion-6"
+            >
+              anchor.point.latitude
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-6 root-129"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"
@@ -446,10 +488,14 @@ Object {
           <div
             class="emotion-5"
           >
-            anchor.point.angle
+            <div
+              class="emotion-6"
+            >
+              anchor.point.angle
+            </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-6 root-129"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"

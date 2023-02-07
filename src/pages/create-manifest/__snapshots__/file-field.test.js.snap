@@ -19,6 +19,18 @@ Object {
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-2 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -33,16 +45,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-1:after {
+.emotion-2:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-2 {
+.emotion-3 {
   width: 30rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -50,11 +61,11 @@ Object {
   display: flex;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
 }
 
-.emotion-4 {
+.emotion-5 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -79,12 +90,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-4:hover {
+.emotion-5:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -105,7 +116,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: none;
 }
 
@@ -117,13 +128,17 @@ Object {
         <div
           class="emotion-1"
         >
-          foobar
+          <div
+            class="emotion-2"
+          >
+            foobar
+          </div>
         </div>
         <div
-          class="emotion-2"
+          class="emotion-3"
         >
           <div
-            class="ms-TextField emotion-3 root-110"
+            class="ms-TextField emotion-4 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -146,17 +161,17 @@ Object {
             </div>
           </div>
           <label
-            class="emotion-4"
+            class="emotion-5"
             for="wootwoot"
           >
             <span
-              class="emotion-5"
+              class="emotion-6"
             >
               browse
             </span>
           </label>
           <input
-            class="emotion-6"
+            class="emotion-7"
             data-testid="wootwoot"
             id="wootwoot"
             type="file"
@@ -181,6 +196,18 @@ Object {
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-2 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -195,16 +222,15 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 0.813rem;
 }
 
-.emotion-1:after {
+.emotion-2:after {
   content: " *";
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-2 {
+.emotion-3 {
   width: 30rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -212,11 +238,11 @@ Object {
   display: flex;
 }
 
-.emotion-3 {
+.emotion-4 {
   width: 100%;
 }
 
-.emotion-4 {
+.emotion-5 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
@@ -241,12 +267,12 @@ Object {
   margin-left: 1rem;
 }
 
-.emotion-4:hover {
+.emotion-5:hover {
   background-color: rgb(243, 242, 241);
   color: rgb(32, 31, 30);
 }
 
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -267,7 +293,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: none;
 }
 
@@ -278,13 +304,17 @@ Object {
       <div
         class="emotion-1"
       >
-        foobar
+        <div
+          class="emotion-2"
+        >
+          foobar
+        </div>
       </div>
       <div
-        class="emotion-2"
+        class="emotion-3"
       >
         <div
-          class="ms-TextField emotion-3 root-110"
+          class="ms-TextField emotion-4 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -307,17 +337,17 @@ Object {
           </div>
         </div>
         <label
-          class="emotion-4"
+          class="emotion-5"
           for="wootwoot"
         >
           <span
-            class="emotion-5"
+            class="emotion-6"
           >
             browse
           </span>
         </label>
         <input
-          class="emotion-6"
+          class="emotion-7"
           data-testid="wootwoot"
           id="wootwoot"
           type="file"
