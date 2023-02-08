@@ -11,7 +11,7 @@ const en = {
     'create': 'Create',
     'create.manifest': 'Create manifest',
     'create.new.manifest': 'Create a new manifest',
-    'create.new.manifest.page.description': 'You will need to first submit your DWG files for processing to begin the manifest tool creation process.',
+    'create.new.manifest.page.description': 'You will need to first submit your DWG files for processing to begin the onboarding process.',
     'delete.layer': 'Delete layer {{layerName}}',
     'delete.property': 'Delete property {{propertyName}}',
     'download': 'Download',
@@ -93,7 +93,7 @@ const en = {
     'tooltip.subKey': 'Your Azure Maps subscription key.',
     'tooltip.dwg.zip.package': 'A ZIP archive that contains all your Facility DWG drawing files.',
     'tooltip.level.name': 'Descriptive level name. For example: Floor 1, Lobby, Blue Parking, or Basement.',
-    'tooltip.manifest.file': 'An existing manifest created using the DWG ZIP Package.',
+    'tooltip.manifest.file': 'An existing manifest created using the DWG ZIP package.',
     'tooltip.ordinal': 'Determines the vertical order of levels. Every facility must have a level with ordinal 0. For example, the ground floor or first floor would be ordinal 0 and an underground parking garage would be ordinal -1.',
     'upload': 'Upload',
   }
