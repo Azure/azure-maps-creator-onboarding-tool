@@ -38,22 +38,34 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
     getLayerNameError,
   ] = useLayersStore(layerSelector, shallow);
 
+  const optionNames = useMemo(() => (
+    required ? polygonLayerNames : layerNames
+  ), [layerNames, polygonLayerNames, required]);
+
   const options = useMemo(() => {
-    const optionNames = required ? polygonLayerNames : layerNames;
+    if (optionNames.length === 0) {
+      return [{
+        key: null,
+        text: t('error.empty.dropdown'),
+      }];
+    }
     return optionNames.map((layer) => ({
       key: layer,
       text: layer,
     }));
-  }, [layerNames, polygonLayerNames, required]);
+  }, [t, optionNames]);
   const deleteThisLayer = useCallback(() => {
     deleteLayer(id);
   }, [deleteLayer, id]);
   const onChangeLayersSelection = useCallback((e, item) => {
+    if (optionNames.length === 0) {
+      return;
+    }
     const updatedValue = item.selected ? [...value, item.text] : value.filter(layer => layer !== item.text);
     updateLayer(id, {
       value: updatedValue,
     });
-  }, [updateLayer, id, value]);
+  }, [updateLayer, id, value, optionNames]);
   const onChangeName = useCallback((e) => {
     updateLayer(id, {
       name: e.target.value,
@@ -84,8 +96,8 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
         <TextField disabled={required} className={fieldLabel} value={name} onChange={onChangeName}
                    styles={textFieldStyles} errorMessage={layerNameError}
                    placeholder={placeholder} />
-        <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect
-                  onChange={onChangeLayersSelection} options={options}  styles={dropdownStyles} />
+        <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={optionNames.length !== 0}
+                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles} />
         <DeleteIcon required={required} isDraft={isDraft} onDelete={deleteThisLayer}
                     title={t('delete.layer', { layerName: name })} />
       </div>
