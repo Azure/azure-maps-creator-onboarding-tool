@@ -53,6 +53,8 @@ describe('Control', () => {
     };
     render(<Control map={map} />);
 
+    const coordinatesRadioOption = screen.getByLabelText('search.by.lon.lat');
+    fireEvent.click(coordinatesRadioOption);
     const lngInput = screen.getByPlaceholderText('longitude');
     const latInput = screen.getByPlaceholderText('latitude');
 

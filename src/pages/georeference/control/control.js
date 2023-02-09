@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { IconButton, Slider, TextField } from '@fluentui/react';
+import { useState, useCallback, useMemo } from 'react';
+import { PrimaryButton, IconButton, Slider, TextField, ChoiceGroup } from '@fluentui/react';
 import { shallow } from 'zustand/shallow';
 import { data } from 'azure-maps-control';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,8 @@ import NumberInput from 'components/number-input';
 
 import {
   angleInputStyles,
+  buttonDisabledStyles,
+  buttonStyle,
   collapseButton,
   controlContainer,
   controlCoordinatesContainer,
@@ -19,6 +21,7 @@ import {
   controls,
   controlSliderSection, hiddenControls,
   iconClass,
+  radioButtonsContainer,
   searchAddressContainer,
   searchAddressInput,
   sectionTitle,
@@ -32,6 +35,11 @@ import { fetchAddress } from 'common/api';
 const anchorPointSelector = (state) => [state.anchorPoint.angle, state.updateAnchorPoint];
 const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
 
+const radioKeys = {
+  address: 'address',
+  coordinates: 'coordinates',
+};
+
 function Control({ map }) {
   const { t } = useTranslation();
   const [anchorPointAngle, updateAnchorPoint] = useGeometryStore(anchorPointSelector, shallow);
@@ -43,6 +51,7 @@ function Control({ map }) {
   const [isFetchingAddress, setIsFetchingAddress] = useState(false);
   const [isControlsShown, setIsControlsShown] = useState(true);
   const [searchAddressErrorMsg, setSearchAddressErrorMsg] = useState('');
+  const [selectedRadioKey, setSelectedRadioKey] = useState(radioKeys.address);
 
   const sliderOnChange = useCallback((degrees) => {
     updateAnchorPoint({
@@ -67,8 +76,8 @@ function Control({ map }) {
     setIsControlsShown(!isControlsShown);
   }, [setIsControlsShown, isControlsShown]);
   const onAddressChange = useCallback((e) => setAddress(e.target.value), [setAddress]);
-  const searchAddress = useCallback((e) => {
-    if (e.code !== 'Enter' || !address) {
+  const searchAddress = useCallback(() => {
+    if (!address) {
       return;
     }
 
@@ -92,10 +101,23 @@ function Control({ map }) {
       setIsFetchingAddress(false);
     });
   }, [address, geography, map, setIsFetchingAddress, subscriptionKey, t]);
+  const onAddressKeyPress = useCallback((e) => {
+    if (e.code === 'Enter') {
+      searchAddress();
+    }
+  }, [searchAddress]);
+  const radioOptions = useMemo(() => [
+    { key: radioKeys.address, text: t('search.by.building.address') },
+    { key: radioKeys.coordinates, text: t('search.by.lon.lat') },
+  ], [t]);
+  const onRadioChange = useCallback((e, option) => {
+    setSelectedRadioKey(option.key);
+  }, []);
 
   return (
     <div className={controlContainer}>
-      <IconButton className={toggleButton} onClick={toggle} ariaLabel={t('hide.control')}>
+      <IconButton className={cx(toggleButton, { [hiddenControls]: isControlsShown })} onClick={toggle}
+                  ariaLabel={t('hide.control')}>
         <Icon iconName='Search' className={iconClass} ariaLabel={t('hide.control')} />
       </IconButton>
       <div className={cx(controls, { [hiddenControls]: !isControlsShown })}>
@@ -105,21 +127,34 @@ function Control({ map }) {
             <Icon iconName='BackToWindow' className={iconClass} />
           </IconButton>
         </div>
-        <div className={searchAddressContainer}>
-          <div className={sectionTitle}>{t('search.by.building.address')}</div>
-          <TextField placeholder={t('search.address')} styles={searchAddressInput} value={address}
-                     onChange={onAddressChange} onKeyPress={searchAddress} disabled={isFetchingAddress}
-                     errorMessage={searchAddressErrorMsg} />
+        <div className={cx(searchAddressContainer, radioButtonsContainer)}>
+          <ChoiceGroup selectedKey={selectedRadioKey} options={radioOptions} onChange={onRadioChange} />
         </div>
-        <div className={searchAddressContainer}>
-          <div className={sectionTitle}>{t('search.by.lon.lat')}</div>
-          <div className={controlCoordinatesContainer}>
-            <NumberInput placeholder={t('longitude')} value={lng} max={180} min={-180} precision={8}
-                       onChange={setLng} onSubmit={updateCamera} className={controlInputStyles} />
-            <NumberInput placeholder={t('latitude')} value={lat} max={90} min={-90} precision={8}
-                       onChange={setLat} onSubmit={updateCamera} className={controlInputStyles} />
+        {selectedRadioKey === radioKeys.address && (
+          <div className={searchAddressContainer}>
+            <TextField placeholder={t('search.address')} styles={searchAddressInput} value={address}
+                       onChange={onAddressChange} onKeyPress={onAddressKeyPress} disabled={isFetchingAddress}
+                       errorMessage={searchAddressErrorMsg} />
+            <PrimaryButton className={buttonStyle} onClick={searchAddress} styles={buttonDisabledStyles}
+                           disabled={address.length === 0}>
+              {t('search')}
+            </PrimaryButton>
           </div>
-        </div>
+        )}
+        {selectedRadioKey === radioKeys.coordinates && (
+          <div className={searchAddressContainer}>
+            <div className={controlCoordinatesContainer}>
+              <NumberInput placeholder={t('longitude')} value={lng} max={180} min={-180} precision={8}
+                           onChange={setLng} onSubmit={updateCamera} className={controlInputStyles} />
+              <NumberInput placeholder={t('latitude')} value={lat} max={90} min={-90} precision={8}
+                           onChange={setLat} onSubmit={updateCamera} className={controlInputStyles} />
+            </div>
+            <PrimaryButton className={buttonStyle} onClick={updateCamera} styles={buttonDisabledStyles}
+                           disabled={lat === null || lng === null}>
+              {t('search')}
+            </PrimaryButton>
+          </div>
+        )}
         <div className={controlSliderSection}>
           <div className={sectionTitle}>{t('rotation.in.degrees')}</div>
           <div className={sliderContainerOuter}>
