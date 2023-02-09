@@ -59,7 +59,7 @@ const en = {
     'level.name.of.file': 'Level name of {{filename}}',
     'longitude': 'Longitude',
     'manifest.file': 'Manifest file',
-    'maps.creator.manifest.tool': 'Azure Maps Creator Manifest Tool',
+    'maps.creator.manifest.tool': 'Azure Maps Creator Onboarding Tool',
     'more.links': 'More links',
     'next': 'Next',
     'new.feature.class.name': 'New feature class name',
