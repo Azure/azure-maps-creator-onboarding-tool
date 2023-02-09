@@ -32,6 +32,7 @@ const en = {
     'error.layer.name.contains.illegal.characters': 'Feature class name contains restricted characters.',
     'error.layer.name.not.allowed': 'Restricted name. Please choose something else.',
     'error.layer.name.should.begin.with.letter': 'Feature class name should begin with a letter.',
+    'error.no.polygonLayerNames': 'DWG file(s) submitted must include a closed polygon entity representing the floor exterior.',
     'error.ordinal.not.valid': 'The value must be a valid number between –1000 and 1000.',
     'error.prop.name.cannot.be.empty': 'Property name can not be empty.',
     'error.prop.name.must.be.unique': 'Property name must be unique.',
