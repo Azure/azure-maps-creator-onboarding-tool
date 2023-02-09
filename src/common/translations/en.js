@@ -84,6 +84,7 @@ const en = {
     'request.failed': 'Request failed. Please try again.',
     'rotation.in.degrees': 'Rotation in degrees',
     'save': 'Save',
+    'search': 'Search',
     'search.address': 'Search Address',
     'search.by.building.address': 'Search by building address',
     'search.by.lon.lat': 'Search by longitude and latitude',

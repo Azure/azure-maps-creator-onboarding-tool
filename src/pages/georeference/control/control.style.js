@@ -6,9 +6,6 @@ import { color, fontSize, fontWeight } from 'common/styles';
 export const controls = css`
   background-color: white;
   font-size: ${fontSize.sm};
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 `;
 
 export const hiddenControls = css`
@@ -36,6 +33,12 @@ export const controlCoordinatesContainer = css`
 export const searchAddressContainer = css`
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid ${color.lightGray};
+  display: flex;
+  flex-direction: column;
+`;
+
+export const radioButtonsContainer = css`
+  padding-top: 0;
 `;
 
 export const searchAddressInput = {
@@ -114,3 +117,16 @@ export const collapseButton = css`
     color: black;
   }
 `;
+
+export const buttonStyle = css`
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: ${fontSize.sm};
+  align-self: flex-end;
+`;
+
+export const buttonDisabledStyles = {
+  labelDisabled: {
+    color: '#666', // added this cause default color does not provide enough contrast for accessibility (4.5)
+  },
+};

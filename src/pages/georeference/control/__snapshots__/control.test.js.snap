@@ -16,6 +16,7 @@ Object {
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
   cursor: pointer;
+  display: none;
 }
 
 .emotion-1:hover {
@@ -31,9 +32,6 @@ Object {
 .emotion-2 {
   background-color: white;
   font-size: 0.813rem;
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 }
 
 .emotion-3 {
@@ -73,43 +71,58 @@ Object {
 .emotion-5 {
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 0;
 }
 
 .emotion-6 {
-  margin-bottom: 0.2rem;
-}
-
-.emotion-9 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.emotion-10 {
-  width: 6rem;
+.emotion-7 {
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.813rem;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
 }
 
-.emotion-12 {
+.emotion-8 {
   padding: 0.7rem 0.875rem;
 }
 
-.emotion-14 {
+.emotion-9 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-15 {
+.emotion-11 {
   width: 10rem;
   height: 1.5rem;
 }
 
-.emotion-16 {
+.emotion-12 {
   width: 3rem;
   margin-left: 0.25rem;
   text-align: center;
@@ -173,23 +186,85 @@ Object {
             class="emotion-5"
           >
             <div
-              class="emotion-6"
+              class="ms-ChoiceFieldGroup root-124"
             >
-              search.by.building.address
+              <div
+                role="radiogroup"
+              >
+                <div
+                  class="ms-ChoiceFieldGroup-flexContainer"
+                >
+                  <div
+                    class="ms-ChoiceField root-125"
+                  >
+                    <div
+                      class="ms-ChoiceField-wrapper"
+                    >
+                      <input
+                        checked=""
+                        class="ms-ChoiceField-input input-126"
+                        id="ChoiceGroup50-address"
+                        name="ChoiceGroup50"
+                        type="radio"
+                      />
+                      <label
+                        class="ms-ChoiceField-field is-checked field-127"
+                        for="ChoiceGroup50-address"
+                      >
+                        <span
+                          class="ms-ChoiceFieldLabel"
+                          id="ChoiceGroupLabel51-address"
+                        >
+                          search.by.building.address
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="ms-ChoiceField root-125"
+                  >
+                    <div
+                      class="ms-ChoiceField-wrapper"
+                    >
+                      <input
+                        class="ms-ChoiceField-input input-126"
+                        id="ChoiceGroup50-coordinates"
+                        name="ChoiceGroup50"
+                        type="radio"
+                      />
+                      <label
+                        class="ms-ChoiceField-field field-132"
+                        for="ChoiceGroup50-coordinates"
+                      >
+                        <span
+                          class="ms-ChoiceFieldLabel"
+                          id="ChoiceGroupLabel51-coordinates"
+                        >
+                          search.by.lon.lat
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div
+            class="emotion-6"
+          >
             <div
-              class="ms-TextField root-125"
+              class="ms-TextField root-136"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-126"
+                  class="ms-TextField-fieldGroup fieldGroup-137"
                 >
                   <input
                     aria-invalid="false"
-                    class="ms-TextField-field field-127"
-                    id="TextField60"
+                    class="ms-TextField-field field-138"
+                    id="TextField52"
                     placeholder="search.address"
                     type="text"
                     value=""
@@ -197,85 +272,53 @@ Object {
                 </div>
               </div>
             </div>
+            <button
+              aria-disabled="true"
+              class="ms-Button ms-Button--primary is-disabled emotion-7 root-147"
+              data-is-focusable="false"
+              disabled=""
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-111"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Button-textContainer textContainer-112"
+                >
+                  <span
+                    class="ms-Button-label label-149"
+                    id="id__57"
+                  >
+                    search
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-8"
           >
-            <div
-              class="emotion-6"
-            >
-              search.by.lon.lat
-            </div>
             <div
               class="emotion-9"
-            >
-              <div
-                class="ms-TextField emotion-10 root-125"
-              >
-                <div
-                  class="ms-TextField-wrapper"
-                >
-                  <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
-                  >
-                    <input
-                      aria-invalid="false"
-                      autocomplete="off"
-                      class="ms-TextField-field field-137"
-                      id="TextField65"
-                      placeholder="longitude"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ms-TextField emotion-10 root-125"
-              >
-                <div
-                  class="ms-TextField-wrapper"
-                >
-                  <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
-                  >
-                    <input
-                      aria-invalid="false"
-                      autocomplete="off"
-                      class="ms-TextField-field field-137"
-                      id="TextField70"
-                      placeholder="latitude"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="emotion-12"
-          >
-            <div
-              class="emotion-6"
             >
               rotation.in.degrees
             </div>
             <div
-              class="emotion-14"
+              class="emotion-10"
             >
               <div
-                class="emotion-15"
+                class="emotion-11"
               >
                 <div
-                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-151"
                 >
                   <label
-                    class="ms-Label titleLabel-149"
-                    for="Slider75"
+                    class="ms-Label titleLabel-162"
+                    for="Slider60"
                   />
                   <div
-                    class="ms-Slider-container container-140"
+                    class="ms-Slider-container container-153"
                   >
                     <div
                       aria-disabled="false"
@@ -283,29 +326,29 @@ Object {
                       aria-valuemin="-360"
                       aria-valuenow="111"
                       aria-valuetext="111"
-                      class="ms-Slider-slideBox slideBox-141"
+                      class="ms-Slider-slideBox slideBox-154"
                       data-is-focusable="true"
-                      id="Slider75"
+                      id="Slider60"
                       role="slider"
                       tabindex="0"
                     >
                       <div
-                        class="ms-Slider-line line-143"
+                        class="ms-Slider-line line-156"
                       >
                         <span
-                          class="ms-Slider-thumb thumb-142"
+                          class="ms-Slider-thumb thumb-155"
                           style="left: 65.41666666666667%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                           style="width: 0%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-active activeSection-145"
+                          class="lineContainer-157 ms-Slider-active activeSection-158"
                           style="width: 65.41666666666667%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                           style="width: 34.58333333333333%;"
                         />
                       </div>
@@ -314,20 +357,20 @@ Object {
                 </div>
               </div>
               <div
-                class="ms-TextField emotion-16 root-125"
+                class="ms-TextField emotion-12 root-136"
               >
                 <div
                   class="ms-TextField-wrapper"
                 >
                   <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
+                    class="ms-TextField-fieldGroup fieldGroup-163"
                   >
                     <input
                       aria-invalid="false"
                       aria-label="rotation.in.degrees"
                       autocomplete="off"
-                      class="ms-TextField-field field-150"
-                      id="TextField76"
+                      class="ms-TextField-field field-164"
+                      id="TextField61"
                       type="text"
                       value="111"
                     />
@@ -353,6 +396,7 @@ Object {
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
   cursor: pointer;
+  display: none;
 }
 
 .emotion-1:hover {
@@ -368,9 +412,6 @@ Object {
 .emotion-2 {
   background-color: white;
   font-size: 0.813rem;
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 }
 
 .emotion-3 {
@@ -410,43 +451,58 @@ Object {
 .emotion-5 {
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 0;
 }
 
 .emotion-6 {
-  margin-bottom: 0.2rem;
-}
-
-.emotion-9 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.emotion-10 {
-  width: 6rem;
+.emotion-7 {
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.813rem;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
 }
 
-.emotion-12 {
+.emotion-8 {
   padding: 0.7rem 0.875rem;
 }
 
-.emotion-14 {
+.emotion-9 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-15 {
+.emotion-11 {
   width: 10rem;
   height: 1.5rem;
 }
 
-.emotion-16 {
+.emotion-12 {
   width: 3rem;
   margin-left: 0.25rem;
   text-align: center;
@@ -509,23 +565,85 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-6"
+            class="ms-ChoiceFieldGroup root-124"
           >
-            search.by.building.address
+            <div
+              role="radiogroup"
+            >
+              <div
+                class="ms-ChoiceFieldGroup-flexContainer"
+              >
+                <div
+                  class="ms-ChoiceField root-125"
+                >
+                  <div
+                    class="ms-ChoiceField-wrapper"
+                  >
+                    <input
+                      checked=""
+                      class="ms-ChoiceField-input input-126"
+                      id="ChoiceGroup50-address"
+                      name="ChoiceGroup50"
+                      type="radio"
+                    />
+                    <label
+                      class="ms-ChoiceField-field is-checked field-127"
+                      for="ChoiceGroup50-address"
+                    >
+                      <span
+                        class="ms-ChoiceFieldLabel"
+                        id="ChoiceGroupLabel51-address"
+                      >
+                        search.by.building.address
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  class="ms-ChoiceField root-125"
+                >
+                  <div
+                    class="ms-ChoiceField-wrapper"
+                  >
+                    <input
+                      class="ms-ChoiceField-input input-126"
+                      id="ChoiceGroup50-coordinates"
+                      name="ChoiceGroup50"
+                      type="radio"
+                    />
+                    <label
+                      class="ms-ChoiceField-field field-132"
+                      for="ChoiceGroup50-coordinates"
+                    >
+                      <span
+                        class="ms-ChoiceFieldLabel"
+                        id="ChoiceGroupLabel51-coordinates"
+                      >
+                        search.by.lon.lat
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div
+          class="emotion-6"
+        >
           <div
-            class="ms-TextField root-125"
+            class="ms-TextField root-136"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-126"
+                class="ms-TextField-fieldGroup fieldGroup-137"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-127"
-                  id="TextField60"
+                  class="ms-TextField-field field-138"
+                  id="TextField52"
                   placeholder="search.address"
                   type="text"
                   value=""
@@ -533,85 +651,53 @@ Object {
               </div>
             </div>
           </div>
+          <button
+            aria-disabled="true"
+            class="ms-Button ms-Button--primary is-disabled emotion-7 root-147"
+            data-is-focusable="false"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-111"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Button-textContainer textContainer-112"
+              >
+                <span
+                  class="ms-Button-label label-149"
+                  id="id__57"
+                >
+                  search
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-8"
         >
-          <div
-            class="emotion-6"
-          >
-            search.by.lon.lat
-          </div>
           <div
             class="emotion-9"
-          >
-            <div
-              class="ms-TextField emotion-10 root-125"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
-                >
-                  <input
-                    aria-invalid="false"
-                    autocomplete="off"
-                    class="ms-TextField-field field-137"
-                    id="TextField65"
-                    placeholder="longitude"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-10 root-125"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
-                >
-                  <input
-                    aria-invalid="false"
-                    autocomplete="off"
-                    class="ms-TextField-field field-137"
-                    id="TextField70"
-                    placeholder="latitude"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-12"
-        >
-          <div
-            class="emotion-6"
           >
             rotation.in.degrees
           </div>
           <div
-            class="emotion-14"
+            class="emotion-10"
           >
             <div
-              class="emotion-15"
+              class="emotion-11"
             >
               <div
-                class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                class="ms-Slider ms-Slider-enabled ms-Slider-row root-151"
               >
                 <label
-                  class="ms-Label titleLabel-149"
-                  for="Slider75"
+                  class="ms-Label titleLabel-162"
+                  for="Slider60"
                 />
                 <div
-                  class="ms-Slider-container container-140"
+                  class="ms-Slider-container container-153"
                 >
                   <div
                     aria-disabled="false"
@@ -619,29 +705,29 @@ Object {
                     aria-valuemin="-360"
                     aria-valuenow="111"
                     aria-valuetext="111"
-                    class="ms-Slider-slideBox slideBox-141"
+                    class="ms-Slider-slideBox slideBox-154"
                     data-is-focusable="true"
-                    id="Slider75"
+                    id="Slider60"
                     role="slider"
                     tabindex="0"
                   >
                     <div
-                      class="ms-Slider-line line-143"
+                      class="ms-Slider-line line-156"
                     >
                       <span
-                        class="ms-Slider-thumb thumb-142"
+                        class="ms-Slider-thumb thumb-155"
                         style="left: 65.41666666666667%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                         style="width: 0%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-active activeSection-145"
+                        class="lineContainer-157 ms-Slider-active activeSection-158"
                         style="width: 65.41666666666667%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                         style="width: 34.58333333333333%;"
                       />
                     </div>
@@ -650,20 +736,20 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-16 root-125"
+              class="ms-TextField emotion-12 root-136"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
+                  class="ms-TextField-fieldGroup fieldGroup-163"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="rotation.in.degrees"
                     autocomplete="off"
-                    class="ms-TextField-field field-150"
-                    id="TextField76"
+                    class="ms-TextField-field field-164"
+                    id="TextField61"
                     type="text"
                     value="111"
                   />
@@ -745,6 +831,7 @@ Object {
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
   cursor: pointer;
+  display: none;
 }
 
 .emotion-1:hover {
@@ -760,9 +847,6 @@ Object {
 .emotion-2 {
   background-color: white;
   font-size: 0.813rem;
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 }
 
 .emotion-3 {
@@ -802,43 +886,58 @@ Object {
 .emotion-5 {
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 0;
 }
 
 .emotion-6 {
-  margin-bottom: 0.2rem;
-}
-
-.emotion-9 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.emotion-10 {
-  width: 6rem;
+.emotion-7 {
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.813rem;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
 }
 
-.emotion-12 {
+.emotion-8 {
   padding: 0.7rem 0.875rem;
 }
 
-.emotion-14 {
+.emotion-9 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-15 {
+.emotion-11 {
   width: 10rem;
   height: 1.5rem;
 }
 
-.emotion-16 {
+.emotion-12 {
   width: 3rem;
   margin-left: 0.25rem;
   text-align: center;
@@ -902,24 +1001,86 @@ Object {
             class="emotion-5"
           >
             <div
-              class="emotion-6"
+              class="ms-ChoiceFieldGroup root-124"
             >
-              search.by.building.address
+              <div
+                role="radiogroup"
+              >
+                <div
+                  class="ms-ChoiceFieldGroup-flexContainer"
+                >
+                  <div
+                    class="ms-ChoiceField root-125"
+                  >
+                    <div
+                      class="ms-ChoiceField-wrapper"
+                    >
+                      <input
+                        checked=""
+                        class="ms-ChoiceField-input input-126"
+                        id="ChoiceGroup129-address"
+                        name="ChoiceGroup129"
+                        type="radio"
+                      />
+                      <label
+                        class="ms-ChoiceField-field is-checked field-127"
+                        for="ChoiceGroup129-address"
+                      >
+                        <span
+                          class="ms-ChoiceFieldLabel"
+                          id="ChoiceGroupLabel130-address"
+                        >
+                          search.by.building.address
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="ms-ChoiceField root-125"
+                  >
+                    <div
+                      class="ms-ChoiceField-wrapper"
+                    >
+                      <input
+                        class="ms-ChoiceField-input input-126"
+                        id="ChoiceGroup129-coordinates"
+                        name="ChoiceGroup129"
+                        type="radio"
+                      />
+                      <label
+                        class="ms-ChoiceField-field field-132"
+                        for="ChoiceGroup129-coordinates"
+                      >
+                        <span
+                          class="ms-ChoiceFieldLabel"
+                          id="ChoiceGroupLabel130-coordinates"
+                        >
+                          search.by.lon.lat
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div
+            class="emotion-6"
+          >
             <div
-              class="ms-TextField root-125"
+              class="ms-TextField root-136"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-157"
+                  class="ms-TextField-fieldGroup fieldGroup-174"
                 >
                   <input
-                    aria-describedby="TextFieldDescription142"
+                    aria-describedby="TextFieldDescription132"
                     aria-invalid="true"
-                    class="ms-TextField-field field-127"
-                    id="TextField141"
+                    class="ms-TextField-field field-138"
+                    id="TextField131"
                     placeholder="search.address"
                     type="text"
                     value="742 Evergreen Terrace"
@@ -927,92 +1088,58 @@ Object {
                 </div>
               </div>
               <span
-                id="TextFieldDescription142"
+                id="TextFieldDescription132"
               >
                 <div
                   role="alert"
                 />
               </span>
             </div>
+            <button
+              class="ms-Button ms-Button--primary emotion-7 root-166"
+              data-is-focusable="true"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-111"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Button-textContainer textContainer-112"
+                >
+                  <span
+                    class="ms-Button-label label-167"
+                    id="id__136"
+                  >
+                    search
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-8"
           >
-            <div
-              class="emotion-6"
-            >
-              search.by.lon.lat
-            </div>
             <div
               class="emotion-9"
-            >
-              <div
-                class="ms-TextField emotion-10 root-125"
-              >
-                <div
-                  class="ms-TextField-wrapper"
-                >
-                  <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
-                  >
-                    <input
-                      aria-invalid="false"
-                      autocomplete="off"
-                      class="ms-TextField-field field-137"
-                      id="TextField146"
-                      placeholder="longitude"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ms-TextField emotion-10 root-125"
-              >
-                <div
-                  class="ms-TextField-wrapper"
-                >
-                  <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
-                  >
-                    <input
-                      aria-invalid="false"
-                      autocomplete="off"
-                      class="ms-TextField-field field-137"
-                      id="TextField151"
-                      placeholder="latitude"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="emotion-12"
-          >
-            <div
-              class="emotion-6"
             >
               rotation.in.degrees
             </div>
             <div
-              class="emotion-14"
+              class="emotion-10"
             >
               <div
-                class="emotion-15"
+                class="emotion-11"
               >
                 <div
-                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                  class="ms-Slider ms-Slider-enabled ms-Slider-row root-151"
                 >
                   <label
-                    class="ms-Label titleLabel-149"
-                    for="Slider156"
+                    class="ms-Label titleLabel-162"
+                    for="Slider139"
                   />
                   <div
-                    class="ms-Slider-container container-140"
+                    class="ms-Slider-container container-153"
                   >
                     <div
                       aria-disabled="false"
@@ -1020,29 +1147,29 @@ Object {
                       aria-valuemin="-360"
                       aria-valuenow="111"
                       aria-valuetext="111"
-                      class="ms-Slider-slideBox slideBox-141"
+                      class="ms-Slider-slideBox slideBox-154"
                       data-is-focusable="true"
-                      id="Slider156"
+                      id="Slider139"
                       role="slider"
                       tabindex="0"
                     >
                       <div
-                        class="ms-Slider-line line-143"
+                        class="ms-Slider-line line-156"
                       >
                         <span
-                          class="ms-Slider-thumb thumb-142"
+                          class="ms-Slider-thumb thumb-155"
                           style="left: 65.41666666666667%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                           style="width: 0%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-active activeSection-145"
+                          class="lineContainer-157 ms-Slider-active activeSection-158"
                           style="width: 65.41666666666667%;"
                         />
                         <span
-                          class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                          class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                           style="width: 34.58333333333333%;"
                         />
                       </div>
@@ -1051,20 +1178,20 @@ Object {
                 </div>
               </div>
               <div
-                class="ms-TextField emotion-16 root-125"
+                class="ms-TextField emotion-12 root-136"
               >
                 <div
                   class="ms-TextField-wrapper"
                 >
                   <div
-                    class="ms-TextField-fieldGroup fieldGroup-136"
+                    class="ms-TextField-fieldGroup fieldGroup-163"
                   >
                     <input
                       aria-invalid="false"
                       aria-label="rotation.in.degrees"
                       autocomplete="off"
-                      class="ms-TextField-field field-150"
-                      id="TextField157"
+                      class="ms-TextField-field field-164"
+                      id="TextField140"
                       type="text"
                       value="111"
                     />
@@ -1090,6 +1217,7 @@ Object {
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
   cursor: pointer;
+  display: none;
 }
 
 .emotion-1:hover {
@@ -1105,9 +1233,6 @@ Object {
 .emotion-2 {
   background-color: white;
   font-size: 0.813rem;
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 }
 
 .emotion-3 {
@@ -1147,43 +1272,58 @@ Object {
 .emotion-5 {
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 0;
 }
 
 .emotion-6 {
-  margin-bottom: 0.2rem;
-}
-
-.emotion-9 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.emotion-10 {
-  width: 6rem;
+.emotion-7 {
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.813rem;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
 }
 
-.emotion-12 {
+.emotion-8 {
   padding: 0.7rem 0.875rem;
 }
 
-.emotion-14 {
+.emotion-9 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-15 {
+.emotion-11 {
   width: 10rem;
   height: 1.5rem;
 }
 
-.emotion-16 {
+.emotion-12 {
   width: 3rem;
   margin-left: 0.25rem;
   text-align: center;
@@ -1246,24 +1386,86 @@ Object {
           class="emotion-5"
         >
           <div
-            class="emotion-6"
+            class="ms-ChoiceFieldGroup root-124"
           >
-            search.by.building.address
+            <div
+              role="radiogroup"
+            >
+              <div
+                class="ms-ChoiceFieldGroup-flexContainer"
+              >
+                <div
+                  class="ms-ChoiceField root-125"
+                >
+                  <div
+                    class="ms-ChoiceField-wrapper"
+                  >
+                    <input
+                      checked=""
+                      class="ms-ChoiceField-input input-126"
+                      id="ChoiceGroup129-address"
+                      name="ChoiceGroup129"
+                      type="radio"
+                    />
+                    <label
+                      class="ms-ChoiceField-field is-checked field-127"
+                      for="ChoiceGroup129-address"
+                    >
+                      <span
+                        class="ms-ChoiceFieldLabel"
+                        id="ChoiceGroupLabel130-address"
+                      >
+                        search.by.building.address
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  class="ms-ChoiceField root-125"
+                >
+                  <div
+                    class="ms-ChoiceField-wrapper"
+                  >
+                    <input
+                      class="ms-ChoiceField-input input-126"
+                      id="ChoiceGroup129-coordinates"
+                      name="ChoiceGroup129"
+                      type="radio"
+                    />
+                    <label
+                      class="ms-ChoiceField-field field-132"
+                      for="ChoiceGroup129-coordinates"
+                    >
+                      <span
+                        class="ms-ChoiceFieldLabel"
+                        id="ChoiceGroupLabel130-coordinates"
+                      >
+                        search.by.lon.lat
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div
+          class="emotion-6"
+        >
           <div
-            class="ms-TextField root-125"
+            class="ms-TextField root-136"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-157"
+                class="ms-TextField-fieldGroup fieldGroup-174"
               >
                 <input
-                  aria-describedby="TextFieldDescription142"
+                  aria-describedby="TextFieldDescription132"
                   aria-invalid="true"
-                  class="ms-TextField-field field-127"
-                  id="TextField141"
+                  class="ms-TextField-field field-138"
+                  id="TextField131"
                   placeholder="search.address"
                   type="text"
                   value="742 Evergreen Terrace"
@@ -1271,92 +1473,58 @@ Object {
               </div>
             </div>
             <span
-              id="TextFieldDescription142"
+              id="TextFieldDescription132"
             >
               <div
                 role="alert"
               />
             </span>
           </div>
+          <button
+            class="ms-Button ms-Button--primary emotion-7 root-166"
+            data-is-focusable="true"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-111"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Button-textContainer textContainer-112"
+              >
+                <span
+                  class="ms-Button-label label-167"
+                  id="id__136"
+                >
+                  search
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-8"
         >
-          <div
-            class="emotion-6"
-          >
-            search.by.lon.lat
-          </div>
           <div
             class="emotion-9"
-          >
-            <div
-              class="ms-TextField emotion-10 root-125"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
-                >
-                  <input
-                    aria-invalid="false"
-                    autocomplete="off"
-                    class="ms-TextField-field field-137"
-                    id="TextField146"
-                    placeholder="longitude"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-10 root-125"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
-                >
-                  <input
-                    aria-invalid="false"
-                    autocomplete="off"
-                    class="ms-TextField-field field-137"
-                    id="TextField151"
-                    placeholder="latitude"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-12"
-        >
-          <div
-            class="emotion-6"
           >
             rotation.in.degrees
           </div>
           <div
-            class="emotion-14"
+            class="emotion-10"
           >
             <div
-              class="emotion-15"
+              class="emotion-11"
             >
               <div
-                class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+                class="ms-Slider ms-Slider-enabled ms-Slider-row root-151"
               >
                 <label
-                  class="ms-Label titleLabel-149"
-                  for="Slider156"
+                  class="ms-Label titleLabel-162"
+                  for="Slider139"
                 />
                 <div
-                  class="ms-Slider-container container-140"
+                  class="ms-Slider-container container-153"
                 >
                   <div
                     aria-disabled="false"
@@ -1364,29 +1532,29 @@ Object {
                     aria-valuemin="-360"
                     aria-valuenow="111"
                     aria-valuetext="111"
-                    class="ms-Slider-slideBox slideBox-141"
+                    class="ms-Slider-slideBox slideBox-154"
                     data-is-focusable="true"
-                    id="Slider156"
+                    id="Slider139"
                     role="slider"
                     tabindex="0"
                   >
                     <div
-                      class="ms-Slider-line line-143"
+                      class="ms-Slider-line line-156"
                     >
                       <span
-                        class="ms-Slider-thumb thumb-142"
+                        class="ms-Slider-thumb thumb-155"
                         style="left: 65.41666666666667%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                         style="width: 0%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-active activeSection-145"
+                        class="lineContainer-157 ms-Slider-active activeSection-158"
                         style="width: 65.41666666666667%;"
                       />
                       <span
-                        class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                        class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                         style="width: 34.58333333333333%;"
                       />
                     </div>
@@ -1395,20 +1563,20 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-16 root-125"
+              class="ms-TextField emotion-12 root-136"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-136"
+                  class="ms-TextField-fieldGroup fieldGroup-163"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="rotation.in.degrees"
                     autocomplete="off"
-                    class="ms-TextField-field field-150"
-                    id="TextField157"
+                    class="ms-TextField-field field-164"
+                    id="TextField140"
                     type="text"
                     value="111"
                   />
@@ -1488,6 +1656,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
   border-radius: 2px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
   cursor: pointer;
+  display: none;
 }
 
 .emotion-1:hover {
@@ -1503,9 +1672,6 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
 .emotion-2 {
   background-color: white;
   font-size: 0.813rem;
-  position: absolute;
-  top: 0;
-  right: 2.5rem;
 }
 
 .emotion-3 {
@@ -1545,43 +1711,58 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
 .emotion-5 {
   padding: 0.7rem 0.875rem;
   border-bottom: 1px solid #F3F2F1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 0;
 }
 
 .emotion-6 {
-  margin-bottom: 0.2rem;
-}
-
-.emotion-9 {
+  padding: 0.7rem 0.875rem;
+  border-bottom: 1px solid #F3F2F1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.emotion-10 {
-  width: 6rem;
+.emotion-7 {
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  font-size: 0.813rem;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
 }
 
-.emotion-12 {
+.emotion-8 {
   padding: 0.7rem 0.875rem;
 }
 
-.emotion-14 {
+.emotion-9 {
+  margin-bottom: 0.2rem;
+}
+
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-15 {
+.emotion-11 {
   width: 10rem;
   height: 1.5rem;
 }
 
-.emotion-16 {
+.emotion-12 {
   width: 3rem;
   margin-left: 0.25rem;
   text-align: center;
@@ -1646,23 +1827,85 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
         class="emotion-5"
       >
         <div
-          class="emotion-6"
+          class="ms-ChoiceFieldGroup root-124"
         >
-          search.by.building.address
+          <div
+            role="radiogroup"
+          >
+            <div
+              class="ms-ChoiceFieldGroup-flexContainer"
+            >
+              <div
+                class="ms-ChoiceField root-125"
+              >
+                <div
+                  class="ms-ChoiceField-wrapper"
+                >
+                  <input
+                    checked=""
+                    class="ms-ChoiceField-input input-126"
+                    id="ChoiceGroup6-address"
+                    name="ChoiceGroup6"
+                    type="radio"
+                  />
+                  <label
+                    class="ms-ChoiceField-field is-checked field-127"
+                    for="ChoiceGroup6-address"
+                  >
+                    <span
+                      class="ms-ChoiceFieldLabel"
+                      id="ChoiceGroupLabel7-address"
+                    >
+                      search.by.building.address
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="ms-ChoiceField root-125"
+              >
+                <div
+                  class="ms-ChoiceField-wrapper"
+                >
+                  <input
+                    class="ms-ChoiceField-input input-126"
+                    id="ChoiceGroup6-coordinates"
+                    name="ChoiceGroup6"
+                    type="radio"
+                  />
+                  <label
+                    class="ms-ChoiceField-field field-132"
+                    for="ChoiceGroup6-coordinates"
+                  >
+                    <span
+                      class="ms-ChoiceFieldLabel"
+                      id="ChoiceGroupLabel7-coordinates"
+                    >
+                      search.by.lon.lat
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div
+        class="emotion-6"
+      >
         <div
-          class="ms-TextField root-125"
+          class="ms-TextField root-136"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-126"
+              class="ms-TextField-fieldGroup fieldGroup-137"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-127"
-                id="TextField6"
+                class="ms-TextField-field field-138"
+                id="TextField8"
                 placeholder="search.address"
                 type="text"
                 value=""
@@ -1670,85 +1913,53 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
             </div>
           </div>
         </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-7 root-147"
+          data-is-focusable="false"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-111"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-112"
+            >
+              <span
+                class="ms-Button-label label-149"
+                id="id__13"
+              >
+                search
+              </span>
+            </span>
+          </span>
+        </button>
       </div>
       <div
-        class="emotion-5"
+        class="emotion-8"
       >
-        <div
-          class="emotion-6"
-        >
-          search.by.lon.lat
-        </div>
         <div
           class="emotion-9"
-        >
-          <div
-            class="ms-TextField emotion-10 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-136"
-              >
-                <input
-                  aria-invalid="false"
-                  autocomplete="off"
-                  class="ms-TextField-field field-137"
-                  id="TextField11"
-                  placeholder="longitude"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-10 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-136"
-              >
-                <input
-                  aria-invalid="false"
-                  autocomplete="off"
-                  class="ms-TextField-field field-137"
-                  id="TextField16"
-                  placeholder="latitude"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-12"
-      >
-        <div
-          class="emotion-6"
         >
           rotation.in.degrees
         </div>
         <div
-          class="emotion-14"
+          class="emotion-10"
         >
           <div
-            class="emotion-15"
+            class="emotion-11"
           >
             <div
-              class="ms-Slider ms-Slider-enabled ms-Slider-row root-138"
+              class="ms-Slider ms-Slider-enabled ms-Slider-row root-151"
             >
               <label
-                class="ms-Label titleLabel-149"
-                for="Slider21"
+                class="ms-Label titleLabel-162"
+                for="Slider16"
               />
               <div
-                class="ms-Slider-container container-140"
+                class="ms-Slider-container container-153"
               >
                 <div
                   aria-disabled="false"
@@ -1756,29 +1967,29 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   aria-valuemin="-360"
                   aria-valuenow="111"
                   aria-valuetext="111"
-                  class="ms-Slider-slideBox slideBox-141"
+                  class="ms-Slider-slideBox slideBox-154"
                   data-is-focusable="true"
-                  id="Slider21"
+                  id="Slider16"
                   role="slider"
                   tabindex="0"
                 >
                   <div
-                    class="ms-Slider-line line-143"
+                    class="ms-Slider-line line-156"
                   >
                     <span
-                      class="ms-Slider-thumb thumb-142"
+                      class="ms-Slider-thumb thumb-155"
                       style="left: 65.41666666666667%;"
                     />
                     <span
-                      class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                      class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                       style="width: 0%;"
                     />
                     <span
-                      class="lineContainer-144 ms-Slider-active activeSection-145"
+                      class="lineContainer-157 ms-Slider-active activeSection-158"
                       style="width: 65.41666666666667%;"
                     />
                     <span
-                      class="lineContainer-144 ms-Slider-inactive inactiveSection-146"
+                      class="lineContainer-157 ms-Slider-inactive inactiveSection-159"
                       style="width: 34.58333333333333%;"
                     />
                   </div>
@@ -1787,20 +1998,20 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
             </div>
           </div>
           <div
-            class="ms-TextField emotion-16 root-125"
+            class="ms-TextField emotion-12 root-136"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-136"
+                class="ms-TextField-fieldGroup fieldGroup-163"
               >
                 <input
                   aria-invalid="false"
                   aria-label="rotation.in.degrees"
                   autocomplete="off"
-                  class="ms-TextField-field field-150"
-                  id="TextField22"
+                  class="ms-TextField-field field-164"
+                  id="TextField17"
                   type="text"
                   value="111"
                 />
