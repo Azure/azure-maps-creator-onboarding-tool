@@ -142,6 +142,10 @@ export const useResponseStore = create((set, get) => ({
             drawing.textLayers.forEach(name => textLayerNames.add(name));
           });
 
+          if (polygonLayerNames.size === 0) {
+            throw new Error(i18next.t('error.no.polygonLayerNames'));
+          }
+
           useGeometryStore.getState().updateAnchorPoint({
             coordinates: parsed.anchorPoint,
           });
