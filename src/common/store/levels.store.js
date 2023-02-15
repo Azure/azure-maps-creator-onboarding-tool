@@ -60,7 +60,7 @@ export const useLevelsStore = create((set, get) => ({
       return 'error.ordinal.not.valid';
     }
     if (!get().isOrdinalUnique(ordinal)) {
-      return 'ordinal.must.be.unique';
+      return 'error.ordinal.must.be.unique';
     }
     return null;
   },
