@@ -5,6 +5,7 @@
 import '@testing-library/jest-dom';
 import { initializeIcons } from '@fluentui/react/lib/Icons';
 import { onMessage } from 'common/store/geometry.store.worker';
+import { useState as mockUseThrottle } from 'react';
 
 initializeIcons();
 
@@ -16,6 +17,9 @@ jest.mock('common/translations/i18n', () => ({
   t: key => key,
 }));
 jest.mock('common/store/geometry.store.worker-builder', () => () => new MockWorker());
+jest.mock('@react-hook/throttle', () => ({
+  useThrottle: mockUseThrottle,
+}));
 
 global.fetch = jest.fn();
 

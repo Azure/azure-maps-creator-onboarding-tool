@@ -40,8 +40,8 @@
     ]
   },
   "georeference": {
-    "lat": 33.59614525,
-    "lon": -7.61586588,
+    "lat": 33.59687769,
+    "lon": -7.61527254,
     "angle": 155
   },
   "featureClasses": {
@@ -49,10 +49,6 @@
       "dwgLayers": [
         "A-BOMA",
         "A-FURN-FREE-EXST"
-      ],
-      "new_prop_7": [
-        "RM$TXT",
-        "GROS$TXT"
       ]
     }
   }
