@@ -31,7 +31,7 @@ export function onMessage(data) {
 
   const geometriesByType = splitPolygons(filteredPolygonLayers, anchorPoint.coordinates);
   const combinedPolygons = combinePolygons(geometriesByType.polygons);
-  return unionMultiPolygons(geometriesByType.multiPolygons.concat(combinedPolygons));
+  return [unionMultiPolygons(geometriesByType.multiPolygons.concat(combinedPolygons)), anchorPoint];
 }
 
 function splitPolygons(polygons, [lon, lat]) {

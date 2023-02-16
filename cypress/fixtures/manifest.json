@@ -40,8 +40,8 @@
     ]
   },
   "georeference": {
-    "lat": 47.60291492,
-    "lon": -122.33076527,
+    "lat": 47.60360733,
+    "lon": -122.33066704,
     "angle": 100
   },
   "featureClasses": {
@@ -49,16 +49,16 @@
       "dwgLayers": [
         "A-BOMA",
         "A-FURN-FREE-EXST"
-      ],
-      "new_prop_7": [
-        "RM$TXT",
-        "GROS$TXT"
       ]
     },
     "new_feature_class_12b": {
       "dwgLayers": [
         "A-GLAZ-EXST",
         "A-WALL-CORE-EXST"
+      ],
+      "new_prop_7": [
+        "RM$TXT",
+        "GROS$TXT"
       ],
       "new_prop_8": [
         "AK-ROOM-LABL",

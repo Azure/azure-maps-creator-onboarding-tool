@@ -8,7 +8,7 @@ describe('useDissolvedExterior', () => {
   it('should return hook data', () => {
     useLayersStore.setState({
       polygonLayers: mockPolygonLayers,
-      layers: [{ id: 0, value: ['OUTLINE'] }],
+      layers: [{ id: 0, value: ['WALLS'] }],
     });
     const { result } = renderHook(() => useDissolvedExterior());
     expect(result.current).toEqual(expectedUseDissolvedExteriorResult);
@@ -20,7 +20,7 @@ describe('useDissolvedExterior', () => {
       layers: [{ id: 0, value: [] }],
     });
     const { result } = renderHook(() => useDissolvedExterior());
-    expect(result.current).toEqual([null, null, null]);
+    expect(result.current).toEqual([null, null]);
   });
 });
 
@@ -39,7 +39,10 @@ describe('fixAngle', () => {
   });
 
   it('should return as is', () => {
-    expect(fixAngle(50000)).toBe(50000);
+    expect(fixAngle(50000)).toBe(320);
+    expect(fixAngle(719)).toBe(359);
+    expect(fixAngle(500)).toBe(140);
+    expect(fixAngle(400)).toBe(40);
     expect(fixAngle(360)).toBe(360);
     expect(fixAngle(359)).toBe(359);
     expect(fixAngle(270)).toBe(270);

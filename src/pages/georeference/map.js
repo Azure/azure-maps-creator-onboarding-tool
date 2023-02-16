@@ -7,11 +7,9 @@ import {
   AzureMapsProvider
 } from 'react-azure-maps';
 import { shallow } from 'zustand/shallow';
-import { math } from 'azure-maps-control';
 
 import { color } from 'common/styles';
 import { getDomain, useGeometryStore, useUserStore } from 'common/store';
-import { TRUNCATE_FRACTION_DIGITS } from 'common/constants';
 import { mapContainerStyle } from './georeference.style';
 import GeoreferenceControl from './control/controlClass';
 
@@ -37,12 +35,11 @@ const azureMapsLayerProviderOptions = {
   fillColor: color.lightRed,
 };
 
-const anchorPointSelector = (state) => [state.updateAnchorPoint, state.check];
+const anchorPointSelector = (s) => [s.updateAnchorPointViaMapCenter, s.check];
 const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
-const formatCoordinates = (coordinate) => parseFloat(coordinate.toFixed(TRUNCATE_FRACTION_DIGITS));
 
-const Map = ({ exteriorCenter, dissolvedExterior, anchorPointHeading, anchorPointDistance }) => {
-  const [updateAnchorPoint, check] = useGeometryStore(anchorPointSelector, shallow);
+const Map = ({ exteriorCenter, dissolvedExterior }) => {
+  const [updateAnchorPointViaMapCenter, check] = useGeometryStore(anchorPointSelector, shallow);
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
   const azureMapOptions = useMemo(() => ({
@@ -69,14 +66,7 @@ const Map = ({ exteriorCenter, dissolvedExterior, anchorPointHeading, anchorPoin
   }, [dissolvedExterior]);
 
   const move = useCallback((e) => {
-    const newAnchorPoint = math.getDestination(e.map.getCamera().center, anchorPointHeading, anchorPointDistance, 'meters');
-
-    updateAnchorPoint({
-      coordinates: [
-        formatCoordinates(newAnchorPoint[0]),
-        formatCoordinates(newAnchorPoint[1]),
-      ],
-    });
+    updateAnchorPointViaMapCenter(e.map.getCamera().center);
     // once this function is passed down to AzureMap component, it will be saved there and never update
     // with empty array of deps here I just wanted to make it explicit that this function isn't going to change after the first render
     // eslint-disable-next-line react-hooks/exhaustive-deps

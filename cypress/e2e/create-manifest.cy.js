@@ -90,7 +90,7 @@ describe('create manifest scenario', () => {
 
     // back to DWG layers page
     // select layers of created feature class
-    cy.get('span.ms-Dropdown-title').eq(2).click();
+    cy.get('span.ms-Dropdown-title').eq(1).click();
     cy.get('span').contains('A-GLAZ-EXST').click();
     cy.get('span').contains('A-WALL-CORE-EXST').click();
     cy.get('span').contains('A-GLAZ-EXST, A-WALL-CORE-EXST').click();
@@ -103,16 +103,16 @@ describe('create manifest scenario', () => {
     cy.get('input[placeholder="Enter Property Name"]').eq(0).type('new_prop_7');
 
     // select value for created prop
-    cy.get('span.ms-Dropdown-title').eq(1).click();
+    cy.get('span.ms-Dropdown-title').eq(2).click();
     cy.get('span').contains('RM$TXT').click();
     cy.get('span').contains('GROS$TXT').click();
     cy.get('span').contains('RM$TXT, GROS$TXT').click();
 
     // add another prop
-    cy.get('input[placeholder="Enter Property Name"]').eq(1).type('new_prop_8');
+    cy.get('input[placeholder="Enter Property Name"]').eq(0).type('new_prop_8');
 
     // select value for created prop
-    cy.get('span.ms-Dropdown-title').eq(4).click();
+    cy.get('span.ms-Dropdown-title').eq(3).click();
     cy.get('span').contains('AK-ROOM-LABL').click();
     cy.get('span').contains('A-EQPM-EXST').click();
     cy.get('span').contains('AK-ROOM-LABL, A-EQPM-EXST').click();

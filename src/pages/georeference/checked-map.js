@@ -2,16 +2,14 @@ import { useDissolvedExterior } from 'common/store/geometry.store';
 import Map from './map';
 
 const CheckedMap = () => {
-  const [exteriorCenter, dissolvedExterior, centerToAnchorPointDestination] = useDissolvedExterior();
+  const [exteriorCenter, dissolvedExterior] = useDissolvedExterior();
 
-  if (!exteriorCenter || !dissolvedExterior || !centerToAnchorPointDestination) {
+  if (!exteriorCenter || !dissolvedExterior) {
     return null;
   }
 
   return (
-    <Map dissolvedExterior={dissolvedExterior} exteriorCenter={exteriorCenter}
-         anchorPointDistance={centerToAnchorPointDestination[0]}
-         anchorPointHeading={centerToAnchorPointDestination[1]} />
+    <Map dissolvedExterior={dissolvedExterior} exteriorCenter={exteriorCenter} />
   );
 };
 

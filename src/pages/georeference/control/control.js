@@ -32,7 +32,7 @@ import {
 import { useGeometryStore, useUserStore } from 'common/store';
 import { fetchAddress } from 'common/api';
 
-const anchorPointSelector = (state) => [state.anchorPoint.angle, state.updateAnchorPoint];
+const anchorPointSelector = (s) => [s.anchorPoint.angle, s.updateAngle];
 const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
 
 const radioKeys = {
@@ -42,7 +42,7 @@ const radioKeys = {
 
 function Control({ map }) {
   const { t } = useTranslation();
-  const [anchorPointAngle, updateAnchorPoint] = useGeometryStore(anchorPointSelector, shallow);
+  const [anchorPointAngle, updateAngle] = useGeometryStore(anchorPointSelector, shallow);
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
   const [lat, setLat] = useState(null);
@@ -54,15 +54,11 @@ function Control({ map }) {
   const [selectedRadioKey, setSelectedRadioKey] = useState(radioKeys.address);
 
   const sliderOnChange = useCallback((degrees) => {
-    updateAnchorPoint({
-      angle: degrees,
-    });
-  }, [updateAnchorPoint]);
+    updateAngle(degrees);
+  }, [updateAngle]);
   const onAngleChange = useCallback((angle) => {
-    updateAnchorPoint({
-      angle: angle !== null ? angle : 0,
-    });
-  }, [updateAnchorPoint]);
+    updateAngle(angle !== null ? angle : 0);
+  }, [updateAngle]);
   const updateCamera = useCallback(() => {
     if (lat !== null && lng !== null) {
       setAddress('');
