@@ -17,6 +17,7 @@ export const fileContainer = css`
 export const fieldsRow = css`
   display: flex;
   margin-bottom: 1.25rem;
+  align-items: flex-start;
 `;
 
 export const fieldLabel = css`

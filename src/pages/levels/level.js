@@ -9,11 +9,11 @@ import FieldError from 'components/field-error';
 
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
-const selector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid];
+const selector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError];
 
 const Level = ({ level }) => {
   const { t } = useTranslation();
-  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid] = useLevelsStore(selector, shallow);
+  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError] = useLevelsStore(selector, shallow);
 
   const onOrdinalChange = useCallback((e) => {
     setOrdinal(level.filename, e.target.value);
@@ -21,6 +21,16 @@ const Level = ({ level }) => {
   const onLevelNameChange = useCallback((e) => {
     setLevelName(level.filename, e.target.value);
   }, [setLevelName, level]);
+  const onVerticalExtentChange = useCallback((e) => {
+    setVerticalExtent(level.filename, e.target.value);
+  }, [setVerticalExtent, level]);
+  const verticalExtentErrorMsg = useMemo(() => {
+    const verticalExtentError = getVerticalExtentError(level.verticalExtent);
+    if (verticalExtentError === null) {
+      return '';
+    }
+    return <FieldError text={t(verticalExtentError)} />;
+  }, [getVerticalExtentError, level, t]);
   const ordinalErrorMsg = useMemo(() => {
     const ordinalError = getOrdinalError(level.ordinal);
     if (ordinalError === null) {
@@ -58,6 +68,14 @@ const Level = ({ level }) => {
         <TextField className={inputClass} value={level.ordinal} onChange={onOrdinalChange}
                    ariaLabel={t('ordinal.of.file', { filename: level.filename })}
                    errorMessage={ordinalErrorMsg} styles={inputStyles} />
+      </div>
+      <div className={fieldsRow}>
+        <div className={fieldLabel}>
+          <FieldLabel tooltip={t('tooltip.vertical.extent')}>{t('vertical.extent')}</FieldLabel>
+        </div>
+        <TextField className={inputClass} value={level.verticalExtent} onChange={onVerticalExtentChange}
+                   ariaLabel={t('vertical.extent.of.file', { filename: level.filename })}
+                   errorMessage={verticalExtentErrorMsg} styles={inputStyles} />
       </div>
     </div>
   );
