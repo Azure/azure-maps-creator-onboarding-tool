@@ -7,6 +7,9 @@ The Azure Maps Manifest Tool allows to interactively generate manifest files req
 1. Download the latest [Node.js LTS](https://nodejs.org/en/download/) and install Node.js, if you don't have it already installed.
 2. To install dependencies, run `npm install`.
 
+After installing deps you may see concerning security messages like `6 high severity vulnerabilities`. Please don't try to fix it by running `npm audit fix --force` as it may break your build. \
+These vulnerabilities can be safely ignored as affected packages are only used in dev. To check production dependencies you may run `npm audit --production`, which should return `found 0 vulnerabilities`. 
+
 ## Available commands
 
 In the project directory, you also can run:
