@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/azure-maps-creator-onboarding-tool/static/css/main.14e73e01.css",
-    "main.js": "/azure-maps-creator-onboarding-tool/static/js/main.0f767513.js",
+    "main.js": "/azure-maps-creator-onboarding-tool/static/js/main.14762f17.js",
     "static/js/585.64af5d6c.chunk.js": "/azure-maps-creator-onboarding-tool/static/js/585.64af5d6c.chunk.js",
     "static/js/845.acb838ff.chunk.js": "/azure-maps-creator-onboarding-tool/static/js/845.acb838ff.chunk.js",
     "static/media/edit.svg": "/azure-maps-creator-onboarding-tool/static/media/edit.410698d081bf37703ef5a48cbe064985.svg",
     "static/media/create.svg": "/azure-maps-creator-onboarding-tool/static/media/create.fccff6a7dba52044c309d6a7ebc61e43.svg",
     "index.html": "/azure-maps-creator-onboarding-tool/index.html",
     "main.14e73e01.css.map": "/azure-maps-creator-onboarding-tool/static/css/main.14e73e01.css.map",
-    "main.0f767513.js.map": "/azure-maps-creator-onboarding-tool/static/js/main.0f767513.js.map",
+    "main.14762f17.js.map": "/azure-maps-creator-onboarding-tool/static/js/main.14762f17.js.map",
     "585.64af5d6c.chunk.js.map": "/azure-maps-creator-onboarding-tool/static/js/585.64af5d6c.chunk.js.map",
     "845.acb838ff.chunk.js.map": "/azure-maps-creator-onboarding-tool/static/js/845.acb838ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.14e73e01.css",
-    "static/js/main.0f767513.js"
+    "static/js/main.14762f17.js"
   ]
 }
