@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import { isNumeric, isVerticalExtentEmpty } from '../functions';
+
 const MAX_LEVEL_NAME_LENGTH = 100;
 
 export const useLevelsStore = create((set, get) => ({
@@ -9,6 +11,7 @@ export const useLevelsStore = create((set, get) => ({
       filename,
       levelName: '',
       ordinal: '',
+      verticalExtent: '',
     }))
   }),
   updateLevels: (levels = []) => {
@@ -26,6 +29,7 @@ export const useLevelsStore = create((set, get) => ({
           filename: level.filename,
           levelName: typeof levelsByFilename[level.filename].levelName === 'string' ? levelsByFilename[level.filename].levelName : '',
           ordinal: typeof levelsByFilename[level.filename].ordinal === 'number' ? levelsByFilename[level.filename].ordinal.toString() : '',
+          verticalExtent: typeof levelsByFilename[level.filename].verticalExtent === 'string' ? levelsByFilename[level.filename].verticalExtent : '',
         };
       })
     }));
@@ -52,6 +56,23 @@ export const useLevelsStore = create((set, get) => ({
       };
     }),
   })),
+  setVerticalExtent: (filename, verticalExtent) => set((state) => ({
+    levels: state.levels.map((level) => {
+      if (level.filename !== filename) {
+        return level;
+      }
+      return {
+        ...level,
+        verticalExtent,
+      };
+    }),
+  })),
+  getVerticalExtentError: (verticalExtent) => {
+    if (isVerticalExtentEmpty(verticalExtent) || isNumeric(verticalExtent)) {
+      return null;
+    }
+    return 'error.vertical.extent.not.valid';
+  },
   getOrdinalError: (ordinal) => {
     if (get().isOrdinalEmpty(ordinal)) {
       return null;

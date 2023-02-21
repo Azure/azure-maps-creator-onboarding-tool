@@ -44,6 +44,7 @@ const en = {
     'error.upload.file': 'Unable to upload the file successfully. Please try again.',
     'error.upload.file.processing': 'Processing your package has failed. Please try again.',
     'error.validation.failed.missing.info': 'Validation failed. Required information is missing or not valid.',
+    'error.vertical.extent.not.valid': 'Vertical extent must be a valid number.',
     'exterior.layer.not.selected.error': 'Please select \'exterior\' layer(s) on \'DWG Layers\' tab to georeference your Facility',
     'facility.levels': 'Facility Levels',
     'geography': 'Geography',
@@ -98,8 +99,11 @@ const en = {
     'tooltip.level.name': 'Descriptive level name. For example: Floor 1, Lobby, Blue Parking, or Basement.',
     'tooltip.manifest.file': 'An existing manifest created using the DWG ZIP package.',
     'tooltip.ordinal': 'Determines the vertical order of levels. Every facility must have a level with ordinal 0. For example, the ground floor or first floor would be ordinal 0 and an underground parking garage would be ordinal -1.',
+    'tooltip.vertical.extent': 'Floor-to-ceiling height (thickness) of the level in meters.',
     'upload': 'Upload',
-  }
+    'vertical.extent': 'Vertical Extent',
+    'vertical.extent.of.file': 'Vertical Extent of {{filename}}',
+  },
 };
 
 export default en;
