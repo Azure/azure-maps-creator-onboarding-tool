@@ -1737,3 +1737,670 @@ Object {
   "unmount": [Function],
 }
 `;
+
+exports[`Layer component should show error 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  width: 100%;
+  max-width: 47rem;
+  border-top: 1px solid #bbb;
+  padding: 1rem 0;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-2 {
+  min-width: 6rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: calc(50% - 2rem);
+  margin-right: 1.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 47rem;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+.emotion-4 {
+  min-width: 6rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: calc(50% - 2rem);
+  margin-right: 1.25rem;
+  max-width: calc(50% - 4rem);
+  padding-left: 0.5rem;
+}
+
+.emotion-5 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-6 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-6:hover {
+  color: black;
+}
+
+<body
+    class=""
+  >
+    <div
+      id="fluent-default-layer-host"
+      style="position: fixed; z-index: 1000000;"
+    />
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="ms-TextField is-disabled emotion-2 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField63"
+                  placeholder=""
+                  type="text"
+                  value="exterior"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ms-Dropdown-container root-121"
+          >
+            <div
+              aria-describedby="Dropdown68-errorMessage"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="ms-Dropdown dropdown-122"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown68"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="true"
+                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-193"
+                id="Dropdown68-option"
+              >
+                select.layers
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-142"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+            <div
+              class="errorMessage-126"
+              id="Dropdown68-errorMessage"
+              role="alert"
+            >
+              error.field.is.required
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-143"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-144"
+                  id="TextField69"
+                  placeholder=""
+                  type="text"
+                  value="prop1"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ms-Dropdown-container root-121"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="ms-Dropdown dropdown-122"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown74"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="false"
+                class="ms-Dropdown-title title-158"
+                id="Dropdown74-option"
+              >
+                textLayer11
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-142"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <button
+              aria-label="delete.property"
+              class="ms-Button ms-Button--icon emotion-6 root-148"
+              data-is-focusable="true"
+              data-testid="delete-icon"
+              title="delete.property"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-149"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                  data-icon-name="StatusCircleErrorX"
+                  style="font-family: \\"FabricMDL2Icons-9\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-143"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-144"
+                  id="TextField78"
+                  placeholder=""
+                  type="text"
+                  value="prop2"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ms-Dropdown-container root-121"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="ms-Dropdown dropdown-122"
+              data-is-focusable="true"
+              data-ktp-target="true"
+              id="Dropdown83"
+              role="combobox"
+              tabindex="0"
+            >
+              <span
+                aria-invalid="false"
+                class="ms-Dropdown-title title-158"
+                id="Dropdown83-option"
+              >
+                textLayer12
+              </span>
+              <span
+                class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Dropdown-caretDown caretDown-142"
+                  data-icon-name="ChevronDown"
+                >
+                  
+                </i>
+              </span>
+            </div>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <button
+              aria-label="delete.property"
+              class="ms-Button ms-Button--icon emotion-6 root-148"
+              data-is-focusable="true"
+              data-testid="delete-icon"
+              title="delete.property"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-149"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                  data-icon-name="StatusCircleErrorX"
+                  style="font-family: \\"FabricMDL2Icons-9\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  width: 100%;
+  max-width: 47rem;
+  border-top: 1px solid #bbb;
+  padding: 1rem 0;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-2 {
+  min-width: 6rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: calc(50% - 2rem);
+  margin-right: 1.25rem;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 47rem;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+.emotion-4 {
+  min-width: 6rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: calc(50% - 2rem);
+  margin-right: 1.25rem;
+  max-width: calc(50% - 4rem);
+  padding-left: 0.5rem;
+}
+
+.emotion-5 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-6 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-6:hover {
+  color: black;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="ms-TextField is-disabled emotion-2 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField63"
+                placeholder=""
+                type="text"
+                value="exterior"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ms-Dropdown-container root-121"
+        >
+          <div
+            aria-describedby="Dropdown68-errorMessage"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            class="ms-Dropdown dropdown-122"
+            data-is-focusable="true"
+            data-ktp-target="true"
+            id="Dropdown68"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              aria-invalid="true"
+              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-193"
+              id="Dropdown68-option"
+            >
+              select.layers
+            </span>
+            <span
+              class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Dropdown-caretDown caretDown-142"
+                data-icon-name="ChevronDown"
+              >
+                
+              </i>
+            </span>
+          </div>
+          <div
+            class="errorMessage-126"
+            id="Dropdown68-errorMessage"
+            role="alert"
+          >
+            error.field.is.required
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-143"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-144"
+                id="TextField69"
+                placeholder=""
+                type="text"
+                value="prop1"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ms-Dropdown-container root-121"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            class="ms-Dropdown dropdown-122"
+            data-is-focusable="true"
+            data-ktp-target="true"
+            id="Dropdown74"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              aria-invalid="false"
+              class="ms-Dropdown-title title-158"
+              id="Dropdown74-option"
+            >
+              textLayer11
+            </span>
+            <span
+              class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Dropdown-caretDown caretDown-142"
+                data-icon-name="ChevronDown"
+              >
+                
+              </i>
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <button
+            aria-label="delete.property"
+            class="ms-Button ms-Button--icon emotion-6 root-148"
+            data-is-focusable="true"
+            data-testid="delete-icon"
+            title="delete.property"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-149"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                data-icon-name="StatusCircleErrorX"
+                style="font-family: \\"FabricMDL2Icons-9\\";"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-143"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-144"
+                id="TextField78"
+                placeholder=""
+                type="text"
+                value="prop2"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="ms-Dropdown-container root-121"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            class="ms-Dropdown dropdown-122"
+            data-is-focusable="true"
+            data-ktp-target="true"
+            id="Dropdown83"
+            role="combobox"
+            tabindex="0"
+          >
+            <span
+              aria-invalid="false"
+              class="ms-Dropdown-title title-158"
+              id="Dropdown83-option"
+            >
+              textLayer12
+            </span>
+            <span
+              class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Dropdown-caretDown caretDown-142"
+                data-icon-name="ChevronDown"
+              >
+                
+              </i>
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <button
+            aria-label="delete.property"
+            class="ms-Button ms-Button--icon emotion-6 root-148"
+            data-is-focusable="true"
+            data-testid="delete-icon"
+            title="delete.property"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-149"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                data-icon-name="StatusCircleErrorX"
+                style="font-family: \\"FabricMDL2Icons-9\\";"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

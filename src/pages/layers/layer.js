@@ -5,7 +5,7 @@ import { shallow } from 'zustand/shallow';
 import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { TextField } from '@fluentui/react';
 
-import { useLayersStore } from 'common/store';
+import { useLayersStore, useProgressBarStore } from 'common/store';
 import FieldError from 'components/field-error';
 import Property from './property';
 import {
@@ -26,6 +26,7 @@ const layerSelector = (s) => [
   s.updateLayer,
   s.getLayerNameError,
 ];
+const progressBarSelector = (s) => s.isErrorShown;
 
 export const Layer = ({ id, name, value, props, required, isDraft }) => {
   const { t } = useTranslation();
@@ -37,6 +38,7 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
     updateLayer,
     getLayerNameError,
   ] = useLayersStore(layerSelector, shallow);
+  const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const optionNames = useMemo(() => (
     required ? polygonLayerNames : layerNames
@@ -89,6 +91,12 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
   const textFieldStyles = useMemo(() => (
     required ? disabledLayerNameInput : layerNameInputStyles
   ), [required]);
+  const dropDownErrorMsg = useMemo(() => {
+    if (required && isProgressBarErrorShown && value.length === 0) {
+      return t('error.field.is.required');
+    }
+    return null;
+  }, [required, t, isProgressBarErrorShown, value]);
 
   return (
     <div className={layerRow}>
@@ -97,7 +105,8 @@ export const Layer = ({ id, name, value, props, required, isDraft }) => {
                    styles={textFieldStyles} errorMessage={layerNameError}
                    placeholder={placeholder} />
         <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={optionNames.length !== 0}
-                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles} />
+                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles}
+                  errorMessage={dropDownErrorMsg} />
         <DeleteIcon required={required} isDraft={isDraft} onDelete={deleteThisLayer}
                     title={t('delete.layer', { layerName: name })} />
       </div>

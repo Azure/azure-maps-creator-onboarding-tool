@@ -22,6 +22,7 @@ const en = {
     'enter.feature.class.name': 'Enter Feature Class Name',
     'enter.property.name': 'Enter Property Name',
     'error.empty.dropdown': 'DWG file does not contain any text entities',
+    'error.field.is.required': 'This field is required.',
     'error.file.size.exceeded': 'The file is too big.',
     'error.file.type.incorrect': 'Please upload a {{type}} file.',
     'error.invalid.level.name': 'Level name cannot exceed 100 characters.',

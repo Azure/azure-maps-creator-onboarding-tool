@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import Layer from './layer';
-import { useLayersStore } from 'common/store';
+import { useLayersStore, useProgressBarStore } from 'common/store';
 
 const props = [
   {
@@ -28,6 +28,9 @@ describe('Layer component', () => {
       polygonLayerNames: ['polygonLayer21', 'polygonLayer22'],
       layerNames: ['layer31', 'layer32'],
       layers: [layer1, layer2],
+    });
+    useProgressBarStore.setState({
+      isErrorShown: false,
     });
   });
 
@@ -57,5 +60,18 @@ describe('Layer component', () => {
     const deleteBtn = screen.getByLabelText('delete.layer');
     fireEvent.click(deleteBtn);
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('should show error', () => {
+    useProgressBarStore.setState({
+      isErrorShown: true,
+    });
+
+    const view = render(
+      <Layer id={layer1.id} value={[]} name={layer1.name} required={layer1.required}
+             props={layer1.props} isDraft={layer1.isDraft} />
+    );
+
+    expect(view).toMatchSnapshot();
   });
 });
