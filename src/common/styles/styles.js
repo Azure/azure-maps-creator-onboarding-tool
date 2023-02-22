@@ -6,6 +6,7 @@ export const color = {
   },
   shadow: '#888888',
   darkRed: '#A4262C',
+  redError: '#A80000',
   green: '#57A300',
   gray: '#E1DFDD',
   lightGray: '#F3F2F1',

@@ -771,7 +771,1613 @@ Object {
 }
 `;
 
+exports[`Level component should show error 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-4 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-6 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-8 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-9 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-3"
+            >
+              file.name
+            </div>
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField23"
+                  readonly=""
+                  type="text"
+                  value="kitchen.dwg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-8"
+              >
+                level.name
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip28"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.level.name
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription30"
+                  aria-invalid="true"
+                  aria-label="level.name.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField29"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription30"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-8"
+              >
+                ordinal
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip34"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.ordinal
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription36"
+                  aria-invalid="true"
+                  aria-label="ordinal.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField35"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription36"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-20"
+              >
+                vertical.extent
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip40"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.vertical.extent
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription42"
+                  aria-invalid="true"
+                  aria-label="vertical.extent.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField41"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription42"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-4 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-6 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-8 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-9 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            file.name
+          </div>
+        </div>
+        <div
+          class="ms-TextField is-disabled emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField23"
+                readonly=""
+                type="text"
+                value="kitchen.dwg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-8"
+            >
+              level.name
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip28"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.level.name
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription30"
+                aria-invalid="true"
+                aria-label="level.name.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField29"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription30"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-8"
+            >
+              ordinal
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip34"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.ordinal
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription36"
+                aria-invalid="true"
+                aria-label="ordinal.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField35"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription36"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-20"
+            >
+              vertical.extent
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip40"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.vertical.extent
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription42"
+                aria-invalid="true"
+                aria-label="vertical.extent.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField41"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription42"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`Level component should show error message when level name contains invalid chars 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-4 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-6 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-8 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-9 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-3"
+            >
+              file.name
+            </div>
+          </div>
+          <div
+            class="ms-TextField is-disabled emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-111"
+              >
+                <input
+                  aria-invalid="false"
+                  class="ms-TextField-field field-112"
+                  disabled=""
+                  id="TextField115"
+                  readonly=""
+                  type="text"
+                  value="filename"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-8"
+              >
+                level.name
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip120"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.level.name
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription122"
+                  aria-invalid="true"
+                  aria-label="level.name.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField121"
+                  type="text"
+                  value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription122"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-8"
+              >
+                ordinal
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip126"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.ordinal
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription128"
+                  aria-invalid="true"
+                  aria-label="ordinal.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField127"
+                  type="text"
+                  value="5"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription128"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-6"
+          >
+            <div
+              class="emotion-2"
+            >
+              <div
+                class="emotion-20"
+              >
+                vertical.extent
+              </div>
+              <span
+                class="emotion-9"
+              >
+                <div
+                  class="ms-TooltipHost root-121"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-124"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip132"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.vertical.extent
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-4 root-110"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription134"
+                  aria-invalid="true"
+                  aria-label="vertical.extent.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField133"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription134"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  max-width: 45rem;
+  border-bottom: 1px solid #ccc;
+  padding-top: 1.25rem;
+}
+
+.emotion-0:first-child {
+  padding-top: 0;
+}
+
+.emotion-0:last-child {
+  border-bottom: none;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.25rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-4 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-6 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-8 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8:after {
+  content: " *";
+  color: #A4262C;
+  white-space: pre;
+}
+
+.emotion-9 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-20 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            file.name
+          </div>
+        </div>
+        <div
+          class="ms-TextField is-disabled emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-111"
+            >
+              <input
+                aria-invalid="false"
+                class="ms-TextField-field field-112"
+                disabled=""
+                id="TextField115"
+                readonly=""
+                type="text"
+                value="filename"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-8"
+            >
+              level.name
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip120"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.level.name
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription122"
+                aria-invalid="true"
+                aria-label="level.name.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField121"
+                type="text"
+                value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription122"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-8"
+            >
+              ordinal
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip126"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.ordinal
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription128"
+                aria-invalid="true"
+                aria-label="ordinal.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField127"
+                type="text"
+                value="5"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription128"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-6"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-20"
+            >
+              vertical.extent
+            </div>
+            <span
+              class="emotion-9"
+            >
+              <div
+                class="ms-TooltipHost root-121"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-124"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip132"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.vertical.extent
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-4 root-110"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription134"
+                aria-invalid="true"
+                aria-label="vertical.extent.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField133"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription134"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Level component should show error message when ordinal is not unique 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
@@ -932,7 +2538,7 @@ Object {
                   id="TextField92"
                   readonly=""
                   type="text"
-                  value="filename"
+                  value="kitchen.dwg"
                 />
               </div>
             </div>
@@ -985,26 +2591,18 @@ Object {
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
+                class="ms-TextField-fieldGroup fieldGroup-125"
               >
                 <input
-                  aria-describedby="TextFieldDescription99"
-                  aria-invalid="true"
+                  aria-invalid="false"
                   aria-label="level.name.of.file"
                   class="ms-TextField-field field-126"
                   id="TextField98"
                   type="text"
-                  value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+                  value="Kitchen"
                 />
               </div>
             </div>
-            <span
-              id="TextFieldDescription99"
-            >
-              <div
-                role="alert"
-              />
-            </span>
           </div>
         </div>
         <div
@@ -1305,7 +2903,7 @@ Object {
                 id="TextField92"
                 readonly=""
                 type="text"
-                value="filename"
+                value="kitchen.dwg"
               />
             </div>
           </div>
@@ -1358,26 +2956,18 @@ Object {
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-130"
+              class="ms-TextField-fieldGroup fieldGroup-125"
             >
               <input
-                aria-describedby="TextFieldDescription99"
-                aria-invalid="true"
+                aria-invalid="false"
                 aria-label="level.name.of.file"
                 class="ms-TextField-field field-126"
                 id="TextField98"
                 type="text"
-                value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
+                value="Kitchen"
               />
             </div>
           </div>
-          <span
-            id="TextFieldDescription99"
-          >
-            <div
-              role="alert"
-            />
-          </span>
         </div>
       </div>
       <div
@@ -1511,793 +3101,6 @@ Object {
           </div>
           <span
             id="TextFieldDescription111"
-          >
-            <div
-              role="alert"
-            />
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`Level component should show error message when ordinal is not unique 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": .emotion-0 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
-}
-
-.emotion-0:last-child {
-  border-bottom: none;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-3 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-4 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-6 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-8 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-8:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-9 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-20 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-<body>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              file.name
-            </div>
-          </div>
-          <div
-            class="ms-TextField is-disabled emotion-4 root-110"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-111"
-              >
-                <input
-                  aria-invalid="false"
-                  class="ms-TextField-field field-112"
-                  disabled=""
-                  id="TextField69"
-                  readonly=""
-                  type="text"
-                  value="kitchen.dwg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-2"
-            >
-              <div
-                class="emotion-8"
-              >
-                level.name
-              </div>
-              <span
-                class="emotion-9"
-              >
-                <div
-                  class="ms-TooltipHost root-121"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-124"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip74"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    tooltip.level.name
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-4 root-110"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-125"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="level.name.of.file"
-                  class="ms-TextField-field field-126"
-                  id="TextField75"
-                  type="text"
-                  value="Kitchen"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-2"
-            >
-              <div
-                class="emotion-8"
-              >
-                ordinal
-              </div>
-              <span
-                class="emotion-9"
-              >
-                <div
-                  class="ms-TooltipHost root-121"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-124"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip80"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    tooltip.ordinal
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-4 root-110"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
-              >
-                <input
-                  aria-describedby="TextFieldDescription82"
-                  aria-invalid="true"
-                  aria-label="ordinal.of.file"
-                  class="ms-TextField-field field-126"
-                  id="TextField81"
-                  type="text"
-                  value="5"
-                />
-              </div>
-            </div>
-            <span
-              id="TextFieldDescription82"
-            >
-              <div
-                role="alert"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-2"
-            >
-              <div
-                class="emotion-20"
-              >
-                vertical.extent
-              </div>
-              <span
-                class="emotion-9"
-              >
-                <div
-                  class="ms-TooltipHost root-121"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-124"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip86"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    tooltip.vertical.extent
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-4 root-110"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
-              >
-                <input
-                  aria-describedby="TextFieldDescription88"
-                  aria-invalid="true"
-                  aria-label="vertical.extent.of.file"
-                  class="ms-TextField-field field-126"
-                  id="TextField87"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-            <span
-              id="TextFieldDescription88"
-            >
-              <div
-                role="alert"
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
-}
-
-.emotion-0:last-child {
-  border-bottom: none;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-3 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-4 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-6 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-8 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-8:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-9 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-20 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-<div>
-    <div
-      class="emotion-0"
-    >
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            file.name
-          </div>
-        </div>
-        <div
-          class="ms-TextField is-disabled emotion-4 root-110"
-        >
-          <div
-            class="ms-TextField-wrapper"
-          >
-            <div
-              class="ms-TextField-fieldGroup fieldGroup-111"
-            >
-              <input
-                aria-invalid="false"
-                class="ms-TextField-field field-112"
-                disabled=""
-                id="TextField69"
-                readonly=""
-                type="text"
-                value="kitchen.dwg"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-8"
-            >
-              level.name
-            </div>
-            <span
-              class="emotion-9"
-            >
-              <div
-                class="ms-TooltipHost root-121"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-124"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip74"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.level.name
-                </div>
-              </div>
-            </span>
-          </div>
-        </div>
-        <div
-          class="ms-TextField emotion-4 root-110"
-        >
-          <div
-            class="ms-TextField-wrapper"
-          >
-            <div
-              class="ms-TextField-fieldGroup fieldGroup-125"
-            >
-              <input
-                aria-invalid="false"
-                aria-label="level.name.of.file"
-                class="ms-TextField-field field-126"
-                id="TextField75"
-                type="text"
-                value="Kitchen"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-8"
-            >
-              ordinal
-            </div>
-            <span
-              class="emotion-9"
-            >
-              <div
-                class="ms-TooltipHost root-121"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-124"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip80"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.ordinal
-                </div>
-              </div>
-            </span>
-          </div>
-        </div>
-        <div
-          class="ms-TextField emotion-4 root-110"
-        >
-          <div
-            class="ms-TextField-wrapper"
-          >
-            <div
-              class="ms-TextField-fieldGroup fieldGroup-130"
-            >
-              <input
-                aria-describedby="TextFieldDescription82"
-                aria-invalid="true"
-                aria-label="ordinal.of.file"
-                class="ms-TextField-field field-126"
-                id="TextField81"
-                type="text"
-                value="5"
-              />
-            </div>
-          </div>
-          <span
-            id="TextFieldDescription82"
-          >
-            <div
-              role="alert"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-20"
-            >
-              vertical.extent
-            </div>
-            <span
-              class="emotion-9"
-            >
-              <div
-                class="ms-TooltipHost root-121"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-124"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip86"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.vertical.extent
-                </div>
-              </div>
-            </span>
-          </div>
-        </div>
-        <div
-          class="ms-TextField emotion-4 root-110"
-        >
-          <div
-            class="ms-TextField-wrapper"
-          >
-            <div
-              class="ms-TextField-fieldGroup fieldGroup-130"
-            >
-              <input
-                aria-describedby="TextFieldDescription88"
-                aria-invalid="true"
-                aria-label="vertical.extent.of.file"
-                class="ms-TextField-field field-126"
-                id="TextField87"
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <span
-            id="TextFieldDescription88"
           >
             <div
               role="alert"

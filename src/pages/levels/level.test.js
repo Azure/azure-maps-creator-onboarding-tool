@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import Level from './level';
-import { useLevelsStore } from 'common/store';
+import { useLevelsStore, useProgressBarStore } from 'common/store';
 
 const mockLevel = {
   filename: 'kitchen.dwg',
@@ -10,8 +10,24 @@ const mockLevel = {
 };
 
 describe('Level component', () => {
+  beforeEach(() => {
+    useProgressBarStore.setState({
+      isErrorShown: false,
+    });
+  });
+
   it('should render component', () => {
     const view = render(<Level level={mockLevel} />);
+    expect(view).toMatchSnapshot();
+  });
+
+  it('should show error', () => {
+    const emptyLevel = { filename: 'kitchen.dwg', levelName: '', ordinal: '' };
+    useProgressBarStore.setState({
+      isErrorShown: true,
+    });
+
+    const view = render(<Level level={emptyLevel} />);
     expect(view).toMatchSnapshot();
   });
 

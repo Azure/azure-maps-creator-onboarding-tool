@@ -55,7 +55,6 @@ export const dropdownStyles = {
   },
   root: {
     maxWidth: 'calc(50% - 1.5rem)',
-    height: '1.5rem',
     flexGrow: 1,
   },
   title: {

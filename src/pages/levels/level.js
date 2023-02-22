@@ -4,16 +4,18 @@ import { TextField } from '@fluentui/react';
 import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
-import { useLevelsStore } from 'common/store';
+import { useLevelsStore, useProgressBarStore } from 'common/store';
 import FieldError from 'components/field-error';
 
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
-const selector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError];
+const levelsSelector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError];
+const progressBarSelector = (s) => s.isErrorShown;
 
 const Level = ({ level }) => {
   const { t } = useTranslation();
-  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError] = useLevelsStore(selector, shallow);
+  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError] = useLevelsStore(levelsSelector, shallow);
+  const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const onOrdinalChange = useCallback((e) => {
     setOrdinal(level.filename, e.target.value);
@@ -34,17 +36,23 @@ const Level = ({ level }) => {
   const ordinalErrorMsg = useMemo(() => {
     const ordinalError = getOrdinalError(level.ordinal);
     if (ordinalError === null) {
+      if (isProgressBarErrorShown && level.ordinal === '') {
+        return <FieldError text={t('error.field.is.required')} />;
+      }
       return '';
     }
     return <FieldError text={t(ordinalError)} />;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [levels]);
+  }, [levels, isProgressBarErrorShown, level, getOrdinalError, t]);
   const levelNameErrorMsg = useMemo(() => {
     if (level.levelName.length === 0 || isLevelNameValid(level.levelName)) {
+      if (level.levelName.length === 0 && isProgressBarErrorShown) {
+        return <FieldError text={t('error.field.is.required')} />;
+      }
       return '';
     }
     return <FieldError text={t('error.invalid.level.name')} />;
-  }, [isLevelNameValid, level, t]);
+  }, [isLevelNameValid, level, t, isProgressBarErrorShown]);
 
   return (
     <div className={fileContainer}>

@@ -12,29 +12,33 @@ export const progressBarContainer = css`
 `;
 
 export const iconStyle = css`
-    color: ${color.gray};
-    font-size: ${fontSize.xl};
-    margin-right: 0.5rem;
+  color: ${color.gray};
+  font-size: ${fontSize.xl};
+  margin-right: 0.5rem;
 `;
 
 export const iconCompletedStyle = css`
-    color: ${color.green};
+  color: ${color.green};
+`;
+
+export const iconErrorStyle = css`
+  color: ${color.redError};
 `;
 
 export const stepStyle = css`
-    font-size: ${fontSize.md};
-    height: 2.25rem;
-    display: inline-flex;
-    align-items: center;
-    margin-right: 1rem;
-    text-decoration: none;
+  font-size: ${fontSize.md};
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+  &:hover {
     color: inherit;
-    &:hover {
-      color: inherit;
-    }
+  }
 `;
 
 export const activeStepStyle = css`
-    font-weight: ${fontWeight.semibold};
-    border-bottom: 2px solid ${color.accent.primary};
+  font-weight: ${fontWeight.semibold};
+  border-bottom: 2px solid ${color.accent.primary};
 `;

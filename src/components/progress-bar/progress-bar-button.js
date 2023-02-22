@@ -2,12 +2,12 @@ import { useCallback, useMemo } from 'react';
 import { ActionButton } from '@fluentui/react';
 import PropTypes from 'prop-types';
 import { cx } from '@emotion/css';
-import { Icon } from '@fluentui/react/lib/Icon';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { useCompletedSteps } from 'common/store';
-import { activeStepStyle, iconCompletedStyle, iconStyle, stepStyle } from './progress-bar.style';
+import { activeStepStyle, stepStyle } from './progress-bar.style';
+import ProgressBarIcon from './progress-bar-icon';
 
 const ProgressBarButton = ({ step }) => {
   const completedSteps = useCompletedSteps();
@@ -28,9 +28,7 @@ const ProgressBarButton = ({ step }) => {
   return (
     <ActionButton className={cx(stepStyle, { [activeStepStyle]: isActiveStep })}
                   key={step.key} disabled={isActiveStep} onClick={onClick}>
-      <Icon iconName='SkypeCircleCheck' ariaLabel={t(step.name)}
-            className={cx(iconStyle, { [iconCompletedStyle]: isCompletedStep })}
-      />
+      <ProgressBarIcon label={t(step.name)} isCompletedStep={isCompletedStep} />
       {t(step.name)}
     </ActionButton>
   );

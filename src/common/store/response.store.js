@@ -5,6 +5,7 @@ import i18next from 'common/translations/i18n';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
+import { useProgressBarStore } from './progress-bar-steps';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const STATUS_CODES_WITH_MEANINGFUL_ERRORS = [
@@ -124,6 +125,7 @@ export const useResponseStore = create((set, get) => ({
             parsed = {};
           }
 
+          useProgressBarStore.getState().hideError();
           useLayersStore.getState().reset();
           useGeometryStore.getState().reset();
 
