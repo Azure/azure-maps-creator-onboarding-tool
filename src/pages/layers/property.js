@@ -81,10 +81,10 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
 };
 
 Property.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(PropTypes.string).isRequired,
-  parentId: PropTypes.number.isRequired,
+  parentId: PropTypes.string.isRequired,
 };
 
 export default Property;

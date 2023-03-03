@@ -9,12 +9,12 @@ import FieldError from 'components/field-error';
 
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
-const levelsSelector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError];
+const levelsSelector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError, s.isOrdinalEmpty];
 const progressBarSelector = (s) => s.isErrorShown;
 
 const Level = ({ level }) => {
   const { t } = useTranslation();
-  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError] = useLevelsStore(levelsSelector, shallow);
+  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError, isOrdinalEmpty] = useLevelsStore(levelsSelector, shallow);
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const onOrdinalChange = useCallback((e) => {
@@ -36,7 +36,7 @@ const Level = ({ level }) => {
   const ordinalErrorMsg = useMemo(() => {
     const ordinalError = getOrdinalError(level.ordinal);
     if (ordinalError === null) {
-      if (isProgressBarErrorShown && level.ordinal === '') {
+      if (isProgressBarErrorShown && isOrdinalEmpty(level.ordinal)) {
         return <FieldError text={t('error.field.is.required')} />;
       }
       return '';

@@ -22,8 +22,8 @@ self.onmessage = function({ data }) { // eslint-disable-line no-restricted-globa
 };
 
 export function onMessage(data) {
-  const { exteriorLayer, polygonLayers, anchorPoint } = data;
-  const filteredPolygonLayers = polygonLayers.filter((layer) => exteriorLayer.value.includes(layer.name));
+  const { dwgLayers, polygonLayers, anchorPoint } = data;
+  const filteredPolygonLayers = polygonLayers.filter((layer) => dwgLayers.includes(layer.name));
 
   if (filteredPolygonLayers.length === 0) {
     return null;

@@ -3,76 +3,10 @@
 exports[`CheckedMap should render map 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
-}
-
-<body>
-    <div>
-      <div>
-        <div
-          class="emotion-0"
-        >
-          <div
-            controls=""
-            events="[object Object]"
-            options="[object Object]"
-          >
-            <div
-              id="OutlineMapDataSourceProvider"
-            >
-              <div
-                id="OutlineLayerProvider"
-                options="[object Object]"
-                type="PolygonLayer"
-              />
-              <div
-                coordinates="0,0,0.00000565,0,0.00000565,0.00000572,0,0.00000573,0,0"
-                id="OutlineMapFeature"
-                type="Polygon"
-                variant="shape"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  "baseElement": <body>
+    <div />
   </body>,
-  "container": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
-}
-
-<div>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          controls=""
-          events="[object Object]"
-          options="[object Object]"
-        >
-          <div
-            id="OutlineMapDataSourceProvider"
-          >
-            <div
-              id="OutlineLayerProvider"
-              options="[object Object]"
-              type="PolygonLayer"
-            />
-            <div
-              coordinates="0,0,0.00000565,0,0.00000565,0.00000572,0,0.00000573,0,0"
-              id="OutlineMapFeature"
-              type="Polygon"
-              variant="shape"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
+  "container": <div />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],

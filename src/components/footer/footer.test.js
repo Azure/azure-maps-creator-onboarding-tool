@@ -65,8 +65,8 @@ describe('footer on pages where it should be rendered', () => {
   it('show open review manifest pane when review button is clicked', () => {
     const state = useReviewManifestStore.getState();
     const spy = jest.spyOn(state, 'showPane');
-    useGeometryStore.setState({ checkedByUser: true });
-    useLayersStore.setState({ layers: [{ id: 0, name: 'exterior', value: ['OUTLINE'], props: [] }] });
+    useGeometryStore.setState({ dwgLayers: ['layer1'] });
+    useLayersStore.setState({ visited: true, layers: [] });
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1' }]});
 
     render(<Footer />);

@@ -74,11 +74,11 @@ Object {
       style="position: fixed; z-index: 1000000;"
     >
       <div
-        class="ms-Layer ms-Layer--fixed root-175"
+        class="ms-Layer ms-Layer--fixed root-170"
         data-portal-element="true"
       >
         <div
-          class="ms-Fabric ms-Layer-content content-177"
+          class="ms-Fabric ms-Layer-content content-172"
         >
           <div
             aria-modal="true"
@@ -88,13 +88,13 @@ Object {
           >
             <div
               aria-hidden="false"
-              class="ms-Panel is-open ms-Panel--hasCloseButton root-163"
+              class="ms-Panel is-open ms-Panel--hasCloseButton root-158"
             >
               <div
-                class="ms-Overlay overlay-179"
+                class="ms-Overlay overlay-174"
               />
               <div
-                class="ms-Panel-main main-165"
+                class="ms-Panel-main main-160"
               >
                 <div
                   aria-hidden="true"
@@ -104,34 +104,34 @@ Object {
                   tabindex="0"
                 />
                 <div
-                  class="ms-Panel-contentInner contentInner-168"
+                  class="ms-Panel-contentInner contentInner-163"
                 >
                   <div
-                    class="ms-Panel-scrollableContent scrollableContent-171"
+                    class="ms-Panel-scrollableContent scrollableContent-166"
                     data-is-scrollable="true"
                   >
                     <div
-                      class="ms-Panel-commands commands-166"
+                      class="ms-Panel-commands commands-161"
                       data-is-visible="true"
                     >
                       <div
-                        class="ms-Panel-navigation navigation-167"
+                        class="ms-Panel-navigation navigation-162"
                       >
                         <button
                           aria-label="Close"
-                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-180"
+                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-175"
                           data-is-focusable="true"
                           data-is-visible="true"
                           title="Close"
                           type="button"
                         >
                           <span
-                            class="ms-Button-flexContainer flexContainer-149"
+                            class="ms-Button-flexContainer flexContainer-144"
                             data-automationid="splitbuttonprimary"
                           >
                             <i
                               aria-hidden="true"
-                              class="ms-Icon root-105 emotion-1 ms-Button-icon icon-151"
+                              class="ms-Icon root-105 emotion-1 ms-Button-icon icon-146"
                               data-icon-name="Cancel"
                               style="font-family: \\"FabricMDL2Icons\\";"
                             >
@@ -142,7 +142,7 @@ Object {
                       </div>
                     </div>
                     <div
-                      class="ms-Panel-content content-172"
+                      class="ms-Panel-content content-167"
                     >
                       <div
                         class="dropdownItemsWrapper-128"
@@ -151,37 +151,37 @@ Object {
                         <div
                           aria-multiselectable="true"
                           class="ms-FocusZone emotion-2 ms-Dropdown-items dropdownItems-129"
-                          data-focuszone-id="FocusZone62"
-                          id="Dropdown35-list"
+                          data-focuszone-id="FocusZone65"
+                          id="Dropdown38-list"
                           role="listbox"
                         >
                           <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-189"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-177"
                           >
                             <input
                               aria-posinset="1"
                               aria-selected="false"
                               aria-setsize="2"
-                              class="input-183"
+                              class="input-178"
                               data-index="0"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
-                              id="Dropdown35-list0"
+                              id="Dropdown38-list0"
                               role="option"
                               tabindex="0"
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-184"
-                              for="Dropdown35-list0"
+                              class="ms-Checkbox-label label-179"
+                              for="Dropdown38-list0"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-190"
+                                class="ms-Checkbox-checkbox checkbox-180"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-192"
+                                  class="ms-Checkbox-checkmark checkmark-183"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -195,28 +195,28 @@ Object {
                             </label>
                           </div>
                           <div
-                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-182"
+                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-185"
                           >
                             <input
                               aria-posinset="2"
                               aria-selected="true"
                               aria-setsize="2"
                               checked=""
-                              class="input-183"
+                              class="input-178"
                               data-index="1"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
-                              id="Dropdown35-list1"
+                              id="Dropdown38-list1"
                               role="option"
                               tabindex="-1"
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-184"
-                              for="Dropdown35-list1"
+                              class="ms-Checkbox-label label-179"
+                              for="Dropdown38-list1"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-185"
+                                class="ms-Checkbox-checkbox checkbox-186"
                                 data-ktp-target="true"
                               >
                                 <i
@@ -268,12 +268,12 @@ Object {
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField30"
+                  class="ms-TextField-field field-112"
+                  id="TextField33"
                   placeholder=""
                   type="text"
                   value="int"
@@ -282,24 +282,24 @@ Object {
             </div>
           </div>
           <div
-            aria-owns="Dropdown35-list"
+            aria-owns="Dropdown38-list"
             class="ms-Dropdown-container root-121"
           >
             <div
-              aria-controls="Dropdown35-list"
+              aria-controls="Dropdown38-list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              class="ms-Dropdown is-open dropdown-159"
+              class="ms-Dropdown is-open dropdown-154"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown35"
+              id="Dropdown38"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-160"
-                id="Dropdown35-option"
+                class="ms-Dropdown-title title-184"
+                id="Dropdown38-option"
               >
                 layer32
               </span>
@@ -324,19 +324,19 @@ Object {
           >
             <button
               aria-label="delete.layer"
-              class="ms-Button ms-Button--icon emotion-7 root-148"
+              class="ms-Button ms-Button--icon emotion-7 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.layer"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -356,12 +356,12 @@ Object {
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField39"
+                  class="ms-TextField-field field-112"
+                  id="TextField42"
                   placeholder=""
                   type="text"
                   value="prop1"
@@ -378,14 +378,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown44"
+              id="Dropdown47"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown44-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown47-option"
               >
                 textLayer11
               </span>
@@ -407,19 +407,19 @@ Object {
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-7 root-148"
+              class="ms-Button ms-Button--icon emotion-7 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -439,12 +439,12 @@ Object {
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField48"
+                  class="ms-TextField-field field-112"
+                  id="TextField51"
                   placeholder=""
                   type="text"
                   value="prop2"
@@ -461,14 +461,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown53"
+              id="Dropdown56"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown53-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown56-option"
               >
                 textLayer12
               </span>
@@ -490,19 +490,19 @@ Object {
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-7 root-148"
+              class="ms-Button ms-Button--icon emotion-7 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -594,12 +594,12 @@ Object {
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField30"
+                class="ms-TextField-field field-112"
+                id="TextField33"
                 placeholder=""
                 type="text"
                 value="int"
@@ -608,24 +608,24 @@ Object {
           </div>
         </div>
         <div
-          aria-owns="Dropdown35-list"
+          aria-owns="Dropdown38-list"
           class="ms-Dropdown-container root-121"
         >
           <div
-            aria-controls="Dropdown35-list"
+            aria-controls="Dropdown38-list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            class="ms-Dropdown is-open dropdown-159"
+            class="ms-Dropdown is-open dropdown-154"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown35"
+            id="Dropdown38"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-160"
-              id="Dropdown35-option"
+              class="ms-Dropdown-title title-184"
+              id="Dropdown38-option"
             >
               layer32
             </span>
@@ -650,19 +650,19 @@ Object {
         >
           <button
             aria-label="delete.layer"
-            class="ms-Button ms-Button--icon emotion-4 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.layer"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -682,12 +682,12 @@ Object {
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField39"
+                class="ms-TextField-field field-112"
+                id="TextField42"
                 placeholder=""
                 type="text"
                 value="prop1"
@@ -704,14 +704,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown44"
+            id="Dropdown47"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown44-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown47-option"
             >
               textLayer11
             </span>
@@ -733,19 +733,19 @@ Object {
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-4 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -765,12 +765,12 @@ Object {
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField48"
+                class="ms-TextField-field field-112"
+                id="TextField51"
                 placeholder=""
                 type="text"
                 value="prop2"
@@ -787,14 +787,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown53"
+            id="Dropdown56"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown53-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown56-option"
             >
               textLayer12
             </span>
@@ -816,19 +816,19 @@ Object {
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-4 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -922,6 +922,22 @@ Object {
 }
 
 .emotion-4 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-5 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-5:hover {
+  color: black;
+}
+
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -932,7 +948,7 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-5 {
+.emotion-8 {
   min-width: 6rem;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -942,22 +958,6 @@ Object {
   margin-right: 1.25rem;
   max-width: calc(50% - 4rem);
   padding-left: 0.5rem;
-}
-
-.emotion-6 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-7 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-7:hover {
-  color: black;
 }
 
 <body
@@ -973,7 +973,7 @@ Object {
           class="emotion-2"
         >
           <div
-            class="ms-TextField is-disabled emotion-3 root-110"
+            class="ms-TextField emotion-3 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -984,7 +984,6 @@ Object {
                 <input
                   aria-invalid="false"
                   class="ms-TextField-field field-112"
-                  disabled=""
                   id="TextField0"
                   placeholder=""
                   type="text"
@@ -1001,7 +1000,7 @@ Object {
               aria-controls="Dropdown5-list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              class="ms-Dropdown is-open dropdown-159"
+              class="ms-Dropdown is-open dropdown-154"
               data-is-focusable="true"
               data-ktp-target="true"
               id="Dropdown5"
@@ -1010,10 +1009,10 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-160"
+                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-155"
                 id="Dropdown5-option"
               >
-                polygonLayer21
+                select.layers
               </span>
               <span
                 class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
@@ -1031,23 +1030,49 @@ Object {
               class="ms-layer"
             />
           </div>
+          <div
+            class="emotion-4"
+          >
+            <button
+              aria-label="delete.layer"
+              class="ms-Button ms-Button--icon emotion-5 root-143"
+              data-is-focusable="true"
+              data-testid="delete-icon"
+              title="delete.layer"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-144"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-6 ms-Button-icon icon-146"
+                  data-icon-name="StatusCircleErrorX"
+                  style="font-family: \\"FabricMDL2Icons-9\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
+          </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-7"
         >
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-8 root-110"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField6"
+                  class="ms-TextField-field field-112"
+                  id="TextField9"
                   placeholder=""
                   type="text"
                   value="prop1"
@@ -1064,14 +1089,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown11"
+              id="Dropdown14"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown11-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown14-option"
               >
                 textLayer11
               </span>
@@ -1089,23 +1114,23 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-6"
+            class="emotion-4"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-7 root-148"
+              class="ms-Button ms-Button--icon emotion-5 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-6 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1116,21 +1141,21 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-7"
         >
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-8 root-110"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField15"
+                  class="ms-TextField-field field-112"
+                  id="TextField18"
                   placeholder=""
                   type="text"
                   value="prop2"
@@ -1147,14 +1172,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown20"
+              id="Dropdown23"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown20-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown23-option"
               >
                 textLayer12
               </span>
@@ -1172,23 +1197,23 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-6"
+            class="emotion-4"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-7 root-148"
+              class="ms-Button ms-Button--icon emotion-5 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-8 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-6 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1205,11 +1230,11 @@ Object {
       style="position: fixed; z-index: 1000000;"
     >
       <div
-        class="ms-Layer ms-Layer--fixed root-175"
+        class="ms-Layer ms-Layer--fixed root-170"
         data-portal-element="true"
       >
         <div
-          class="ms-Fabric ms-Layer-content content-177"
+          class="ms-Fabric ms-Layer-content content-172"
         >
           <div
             aria-modal="true"
@@ -1219,13 +1244,13 @@ Object {
           >
             <div
               aria-hidden="false"
-              class="ms-Panel is-open ms-Panel--hasCloseButton root-163"
+              class="ms-Panel is-open ms-Panel--hasCloseButton root-158"
             >
               <div
-                class="ms-Overlay overlay-179"
+                class="ms-Overlay overlay-174"
               />
               <div
-                class="ms-Panel-main main-165"
+                class="ms-Panel-main main-160"
               >
                 <div
                   aria-hidden="true"
@@ -1235,34 +1260,34 @@ Object {
                   tabindex="0"
                 />
                 <div
-                  class="ms-Panel-contentInner contentInner-168"
+                  class="ms-Panel-contentInner contentInner-163"
                 >
                   <div
-                    class="ms-Panel-scrollableContent scrollableContent-171"
+                    class="ms-Panel-scrollableContent scrollableContent-166"
                     data-is-scrollable="true"
                   >
                     <div
-                      class="ms-Panel-commands commands-166"
+                      class="ms-Panel-commands commands-161"
                       data-is-visible="true"
                     >
                       <div
-                        class="ms-Panel-navigation navigation-167"
+                        class="ms-Panel-navigation navigation-162"
                       >
                         <button
                           aria-label="Close"
-                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-180"
+                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-175"
                           data-is-focusable="true"
                           data-is-visible="true"
                           title="Close"
                           type="button"
                         >
                           <span
-                            class="ms-Button-flexContainer flexContainer-149"
+                            class="ms-Button-flexContainer flexContainer-144"
                             data-automationid="splitbuttonprimary"
                           >
                             <i
                               aria-hidden="true"
-                              class="ms-Icon root-105 emotion-14 ms-Button-icon icon-151"
+                              class="ms-Icon root-105 emotion-17 ms-Button-icon icon-146"
                               data-icon-name="Cancel"
                               style="font-family: \\"FabricMDL2Icons\\";"
                             >
@@ -1273,7 +1298,7 @@ Object {
                       </div>
                     </div>
                     <div
-                      class="ms-Panel-content content-172"
+                      class="ms-Panel-content content-167"
                     >
                       <div
                         class="dropdownItemsWrapper-128"
@@ -1281,20 +1306,19 @@ Object {
                       >
                         <div
                           aria-multiselectable="true"
-                          class="ms-FocusZone emotion-15 ms-Dropdown-items dropdownItems-129"
-                          data-focuszone-id="FocusZone29"
+                          class="ms-FocusZone emotion-18 ms-Dropdown-items dropdownItems-129"
+                          data-focuszone-id="FocusZone32"
                           id="Dropdown5-list"
                           role="listbox"
                         >
                           <div
-                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-182"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-177"
                           >
                             <input
                               aria-posinset="1"
-                              aria-selected="true"
+                              aria-selected="false"
                               aria-setsize="2"
-                              checked=""
-                              class="input-183"
+                              class="input-178"
                               data-index="0"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -1304,16 +1328,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-184"
+                              class="ms-Checkbox-label label-179"
                               for="Dropdown5-list0"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-185"
+                                class="ms-Checkbox-checkbox checkbox-180"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-188"
+                                  class="ms-Checkbox-checkmark checkmark-183"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -1322,18 +1346,18 @@ Object {
                               <span
                                 class="ms-Dropdown-optionText dropdownOptionText-137"
                               >
-                                polygonLayer21
+                                layer31
                               </span>
                             </label>
                           </div>
                           <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-189"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-177"
                           >
                             <input
                               aria-posinset="2"
                               aria-selected="false"
                               aria-setsize="2"
-                              class="input-183"
+                              class="input-178"
                               data-index="1"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -1343,16 +1367,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-184"
+                              class="ms-Checkbox-label label-179"
                               for="Dropdown5-list1"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-190"
+                                class="ms-Checkbox-checkbox checkbox-180"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-192"
+                                  class="ms-Checkbox-checkmark checkmark-183"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -1361,7 +1385,7 @@ Object {
                               <span
                                 class="ms-Dropdown-optionText dropdownOptionText-137"
                               >
-                                polygonLayer22
+                                layer32
                               </span>
                             </label>
                           </div>
@@ -1409,6 +1433,22 @@ Object {
 }
 
 .emotion-3 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-4 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-4:hover {
+  color: black;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1419,7 +1459,7 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-4 {
+.emotion-7 {
   min-width: 6rem;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -1429,22 +1469,6 @@ Object {
   margin-right: 1.25rem;
   max-width: calc(50% - 4rem);
   padding-left: 0.5rem;
-}
-
-.emotion-5 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-6 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-6:hover {
-  color: black;
 }
 
 <div
@@ -1457,7 +1481,7 @@ Object {
         class="emotion-1"
       >
         <div
-          class="ms-TextField is-disabled emotion-2 root-110"
+          class="ms-TextField emotion-2 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1468,7 +1492,6 @@ Object {
               <input
                 aria-invalid="false"
                 class="ms-TextField-field field-112"
-                disabled=""
                 id="TextField0"
                 placeholder=""
                 type="text"
@@ -1485,7 +1508,7 @@ Object {
             aria-controls="Dropdown5-list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            class="ms-Dropdown is-open dropdown-159"
+            class="ms-Dropdown is-open dropdown-154"
             data-is-focusable="true"
             data-ktp-target="true"
             id="Dropdown5"
@@ -1494,10 +1517,10 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-160"
+              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-155"
               id="Dropdown5-option"
             >
-              polygonLayer21
+              select.layers
             </span>
             <span
               class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
@@ -1515,23 +1538,49 @@ Object {
             class="ms-layer"
           />
         </div>
+        <div
+          class="emotion-3"
+        >
+          <button
+            aria-label="delete.layer"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
+            data-is-focusable="true"
+            data-testid="delete-icon"
+            title="delete.layer"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-144"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
+                data-icon-name="StatusCircleErrorX"
+                style="font-family: \\"FabricMDL2Icons-9\\";"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-6"
       >
         <div
-          class="ms-TextField emotion-4 root-110"
+          class="ms-TextField emotion-7 root-110"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField6"
+                class="ms-TextField-field field-112"
+                id="TextField9"
                 placeholder=""
                 type="text"
                 value="prop1"
@@ -1548,14 +1597,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown11"
+            id="Dropdown14"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown11-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown14-option"
             >
               textLayer11
             </span>
@@ -1573,23 +1622,23 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-3"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -1600,21 +1649,21 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-6"
       >
         <div
-          class="ms-TextField emotion-4 root-110"
+          class="ms-TextField emotion-7 root-110"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField15"
+                class="ms-TextField-field field-112"
+                id="TextField18"
                 placeholder=""
                 type="text"
                 value="prop2"
@@ -1631,14 +1680,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown20"
+            id="Dropdown23"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown20-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown23-option"
             >
               textLayer12
             </span>
@@ -1656,23 +1705,23 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-3"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -1766,6 +1815,22 @@ Object {
 }
 
 .emotion-3 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-4 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-4:hover {
+  color: black;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1776,7 +1841,7 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-4 {
+.emotion-7 {
   min-width: 6rem;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -1786,22 +1851,6 @@ Object {
   margin-right: 1.25rem;
   max-width: calc(50% - 4rem);
   padding-left: 0.5rem;
-}
-
-.emotion-5 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-6 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-6:hover {
-  color: black;
 }
 
 <body
@@ -1819,7 +1868,7 @@ Object {
           class="emotion-1"
         >
           <div
-            class="ms-TextField is-disabled emotion-2 root-110"
+            class="ms-TextField emotion-2 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1830,8 +1879,7 @@ Object {
                 <input
                   aria-invalid="false"
                   class="ms-TextField-field field-112"
-                  disabled=""
-                  id="TextField63"
+                  id="TextField66"
                   placeholder=""
                   type="text"
                   value="exterior"
@@ -1843,20 +1891,20 @@ Object {
             class="ms-Dropdown-container root-121"
           >
             <div
-              aria-describedby="Dropdown68-errorMessage"
+              aria-describedby="Dropdown71-errorMessage"
               aria-expanded="false"
               aria-haspopup="listbox"
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown68"
+              id="Dropdown71"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="true"
-                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-193"
-                id="Dropdown68-option"
+                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-189"
+                id="Dropdown71-option"
               >
                 select.layers
               </span>
@@ -1874,29 +1922,55 @@ Object {
             </div>
             <div
               class="errorMessage-126"
-              id="Dropdown68-errorMessage"
+              id="Dropdown71-errorMessage"
               role="alert"
             >
-              error.field.is.required
+              error.field.cannot.be.empty
             </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <button
+              aria-label="delete.layer"
+              class="ms-Button ms-Button--icon emotion-4 root-143"
+              data-is-focusable="true"
+              data-testid="delete-icon"
+              title="delete.layer"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-144"
+                data-automationid="splitbuttonprimary"
+              >
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
+                  data-icon-name="StatusCircleErrorX"
+                  style="font-family: \\"FabricMDL2Icons-9\\";"
+                >
+                  
+                </i>
+              </span>
+            </button>
           </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-6"
         >
           <div
-            class="ms-TextField emotion-4 root-110"
+            class="ms-TextField emotion-7 root-110"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField69"
+                  class="ms-TextField-field field-112"
+                  id="TextField75"
                   placeholder=""
                   type="text"
                   value="prop1"
@@ -1913,14 +1987,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown74"
+              id="Dropdown80"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown74-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown80-option"
               >
                 textLayer11
               </span>
@@ -1938,23 +2012,23 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-3"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-6 root-148"
+              class="ms-Button ms-Button--icon emotion-4 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1965,21 +2039,21 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-6"
         >
           <div
-            class="ms-TextField emotion-4 root-110"
+            class="ms-TextField emotion-7 root-110"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-143"
+                class="ms-TextField-fieldGroup fieldGroup-111"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-144"
-                  id="TextField78"
+                  class="ms-TextField-field field-112"
+                  id="TextField84"
                   placeholder=""
                   type="text"
                   value="prop2"
@@ -1996,14 +2070,14 @@ Object {
               class="ms-Dropdown dropdown-122"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown83"
+              id="Dropdown89"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-158"
-                id="Dropdown83-option"
+                class="ms-Dropdown-title title-153"
+                id="Dropdown89-option"
               >
                 textLayer12
               </span>
@@ -2021,23 +2095,23 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-3"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-6 root-148"
+              class="ms-Button ms-Button--icon emotion-4 root-143"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-149"
+                class="ms-Button-flexContainer flexContainer-144"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                  class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -2075,6 +2149,22 @@ Object {
 }
 
 .emotion-3 {
+  width: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.emotion-4 {
+  color: black;
+  font-size: 0.813rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.emotion-4:hover {
+  color: black;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2085,7 +2175,7 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-4 {
+.emotion-7 {
   min-width: 6rem;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -2097,22 +2187,6 @@ Object {
   padding-left: 0.5rem;
 }
 
-.emotion-5 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-6 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-6:hover {
-  color: black;
-}
-
 <div>
     <div
       class="emotion-0"
@@ -2121,7 +2195,7 @@ Object {
         class="emotion-1"
       >
         <div
-          class="ms-TextField is-disabled emotion-2 root-110"
+          class="ms-TextField emotion-2 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2132,8 +2206,7 @@ Object {
               <input
                 aria-invalid="false"
                 class="ms-TextField-field field-112"
-                disabled=""
-                id="TextField63"
+                id="TextField66"
                 placeholder=""
                 type="text"
                 value="exterior"
@@ -2145,20 +2218,20 @@ Object {
           class="ms-Dropdown-container root-121"
         >
           <div
-            aria-describedby="Dropdown68-errorMessage"
+            aria-describedby="Dropdown71-errorMessage"
             aria-expanded="false"
             aria-haspopup="listbox"
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown68"
+            id="Dropdown71"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="true"
-              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-193"
-              id="Dropdown68-option"
+              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder ms-Dropdown-title--hasError title-189"
+              id="Dropdown71-option"
             >
               select.layers
             </span>
@@ -2176,29 +2249,55 @@ Object {
           </div>
           <div
             class="errorMessage-126"
-            id="Dropdown68-errorMessage"
+            id="Dropdown71-errorMessage"
             role="alert"
           >
-            error.field.is.required
+            error.field.cannot.be.empty
           </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <button
+            aria-label="delete.layer"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
+            data-is-focusable="true"
+            data-testid="delete-icon"
+            title="delete.layer"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-144"
+              data-automationid="splitbuttonprimary"
+            >
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
+                data-icon-name="StatusCircleErrorX"
+                style="font-family: \\"FabricMDL2Icons-9\\";"
+              >
+                
+              </i>
+            </span>
+          </button>
         </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-6"
       >
         <div
-          class="ms-TextField emotion-4 root-110"
+          class="ms-TextField emotion-7 root-110"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField69"
+                class="ms-TextField-field field-112"
+                id="TextField75"
                 placeholder=""
                 type="text"
                 value="prop1"
@@ -2215,14 +2314,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown74"
+            id="Dropdown80"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown74-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown80-option"
             >
               textLayer11
             </span>
@@ -2240,23 +2339,23 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-3"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -2267,21 +2366,21 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-6"
       >
         <div
-          class="ms-TextField emotion-4 root-110"
+          class="ms-TextField emotion-7 root-110"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-143"
+              class="ms-TextField-fieldGroup fieldGroup-111"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-144"
-                id="TextField78"
+                class="ms-TextField-field field-112"
+                id="TextField84"
                 placeholder=""
                 type="text"
                 value="prop2"
@@ -2298,14 +2397,14 @@ Object {
             class="ms-Dropdown dropdown-122"
             data-is-focusable="true"
             data-ktp-target="true"
-            id="Dropdown83"
+            id="Dropdown89"
             role="combobox"
             tabindex="0"
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-158"
-              id="Dropdown83-option"
+              class="ms-Dropdown-title title-153"
+              id="Dropdown89-option"
             >
               textLayer12
             </span>
@@ -2323,23 +2422,23 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-3"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-148"
+            class="ms-Button ms-Button--icon emotion-4 root-143"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-149"
+              class="ms-Button-flexContainer flexContainer-144"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-151"
+                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
