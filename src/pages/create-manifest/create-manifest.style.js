@@ -133,8 +133,9 @@ export const browseButtonContentStyle = css`
 `;
 
 export const errorBannerStyle = css`
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
 `;
 

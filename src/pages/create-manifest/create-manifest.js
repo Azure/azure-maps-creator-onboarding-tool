@@ -106,8 +106,7 @@ const CreateManifestPage = ({ allowEdit }) => {
     <div className={containerStyle}>
       <MessageBar className={cx(errorBannerStyle, { [errorBannerHidden]: errorMessage === '' })}
                   messageBarType={MessageBarType.error} onDismiss={() => setErrorMessage('')}
-                  isMultiline={false} dismissButtonAriaLabel={t('close')}
-                  data-testid={TEST_ID.ERROR_BAR}>
+                  dismissButtonAriaLabel={t('close')} data-testid={TEST_ID.ERROR_BAR}>
         {errorMessage}
       </MessageBar>
       <h2 className={headerStyle}>{t('process.file')}</h2>
