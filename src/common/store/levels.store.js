@@ -5,6 +5,10 @@ import { isNumeric, isVerticalExtentEmpty } from '../functions';
 const MAX_LEVEL_NAME_LENGTH = 100;
 
 export const useLevelsStore = create((set, get) => ({
+  reset: () => set({
+    facilityName: '',
+    levels: [],
+  }),
   facilityName: '',
   setFacilityName: (facilityName = '') => set({
     facilityName,

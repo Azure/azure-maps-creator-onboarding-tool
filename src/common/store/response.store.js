@@ -128,6 +128,7 @@ export const useResponseStore = create((set, get) => ({
           useProgressBarStore.getState().hideError();
           useLayersStore.getState().reset();
           useGeometryStore.getState().reset();
+          useLevelsStore.getState().reset();
 
           // Compute and store useful response data
           const layerNames = new Set();
