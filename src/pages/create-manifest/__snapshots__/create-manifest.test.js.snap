@@ -11,11 +11,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -191,7 +194,7 @@ Object {
       >
         <div
           aria-describedby="MessageBar0"
-          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
           <div
@@ -220,31 +223,27 @@ Object {
                 data-testid="error-bar"
               />
             </div>
-            <div
-              class="ms-MessageBar-dismissSingleLine"
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
             >
-              <button
-                aria-label="close"
-                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-                data-is-focusable="true"
-                title="close"
-                type="button"
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-122"
-                  data-automationid="splitbuttonprimary"
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                    data-icon-name="Clear"
-                    style="font-family: \\"FabricMDL2Icons\\";"
-                  >
-                    
-                  </i>
-                </span>
-              </button>
-            </div>
+                  
+                </i>
+              </span>
+            </button>
           </div>
         </div>
         <h2
@@ -549,11 +548,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -728,7 +730,7 @@ Object {
     >
       <div
         aria-describedby="MessageBar0"
-        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
         <div
@@ -757,31 +759,27 @@ Object {
               data-testid="error-bar"
             />
           </div>
-          <div
-            class="ms-MessageBar-dismissSingleLine"
+          <button
+            aria-label="close"
+            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+            data-is-focusable="true"
+            title="close"
+            type="button"
           >
-            <button
-              aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-              data-is-focusable="true"
-              title="close"
-              type="button"
+            <span
+              class="ms-Button-flexContainer flexContainer-122"
+              data-automationid="splitbuttonprimary"
             >
-              <span
-                class="ms-Button-flexContainer flexContainer-122"
-                data-automationid="splitbuttonprimary"
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                data-icon-name="Clear"
+                style="font-family: \\"FabricMDL2Icons\\";"
               >
-                <i
-                  aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                  data-icon-name="Clear"
-                  style="font-family: \\"FabricMDL2Icons\\";"
-                >
-                  
-                </i>
-              </span>
-            </button>
-          </div>
+                
+              </i>
+            </span>
+          </button>
         </div>
       </div>
       <h2
@@ -1142,11 +1140,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1322,7 +1323,7 @@ Object {
       >
         <div
           aria-describedby="MessageBar24"
-          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
           <div
@@ -1351,31 +1352,27 @@ Object {
                 data-testid="error-bar"
               />
             </div>
-            <div
-              class="ms-MessageBar-dismissSingleLine"
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
             >
-              <button
-                aria-label="close"
-                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-                data-is-focusable="true"
-                title="close"
-                type="button"
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-122"
-                  data-automationid="splitbuttonprimary"
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                    data-icon-name="Clear"
-                    style="font-family: \\"FabricMDL2Icons\\";"
-                  >
-                    
-                  </i>
-                </span>
-              </button>
-            </div>
+                  
+                </i>
+              </span>
+            </button>
           </div>
         </div>
         <h2
@@ -1760,11 +1757,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1939,7 +1939,7 @@ Object {
     >
       <div
         aria-describedby="MessageBar24"
-        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
         <div
@@ -1968,31 +1968,27 @@ Object {
               data-testid="error-bar"
             />
           </div>
-          <div
-            class="ms-MessageBar-dismissSingleLine"
+          <button
+            aria-label="close"
+            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+            data-is-focusable="true"
+            title="close"
+            type="button"
           >
-            <button
-              aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-              data-is-focusable="true"
-              title="close"
-              type="button"
+            <span
+              class="ms-Button-flexContainer flexContainer-122"
+              data-automationid="splitbuttonprimary"
             >
-              <span
-                class="ms-Button-flexContainer flexContainer-122"
-                data-automationid="splitbuttonprimary"
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                data-icon-name="Clear"
+                style="font-family: \\"FabricMDL2Icons\\";"
               >
-                <i
-                  aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                  data-icon-name="Clear"
-                  style="font-family: \\"FabricMDL2Icons\\";"
-                >
-                  
-                </i>
-              </span>
-            </button>
-          </div>
+                
+              </i>
+            </span>
+          </button>
         </div>
       </div>
       <h2
@@ -2433,11 +2429,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -2619,7 +2618,7 @@ Object {
       >
         <div
           aria-describedby="MessageBar219"
-          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
           <div
@@ -2652,31 +2651,27 @@ Object {
                 </span>
               </span>
             </div>
-            <div
-              class="ms-MessageBar-dismissSingleLine"
+            <button
+              aria-label="close"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              data-is-focusable="true"
+              title="close"
+              type="button"
             >
-              <button
-                aria-label="close"
-                class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-                data-is-focusable="true"
-                title="close"
-                type="button"
+              <span
+                class="ms-Button-flexContainer flexContainer-122"
+                data-automationid="splitbuttonprimary"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-122"
-                  data-automationid="splitbuttonprimary"
+                <i
+                  aria-hidden="true"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  data-icon-name="Clear"
+                  style="font-family: \\"FabricMDL2Icons\\";"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                    data-icon-name="Clear"
-                    style="font-family: \\"FabricMDL2Icons\\";"
-                  >
-                    
-                  </i>
-                </span>
-              </button>
-            </div>
+                  
+                </i>
+              </span>
+            </button>
           </div>
         </div>
         <h2
@@ -2981,11 +2976,14 @@ Object {
 }
 
 .emotion-1 {
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -3160,7 +3158,7 @@ Object {
     >
       <div
         aria-describedby="MessageBar219"
-        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-singleline ms-MessageBar-dismissalSingleLine emotion-1 root-109"
+        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
         <div
@@ -3193,31 +3191,27 @@ Object {
               </span>
             </span>
           </div>
-          <div
-            class="ms-MessageBar-dismissSingleLine"
+          <button
+            aria-label="close"
+            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+            data-is-focusable="true"
+            title="close"
+            type="button"
           >
-            <button
-              aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-              data-is-focusable="true"
-              title="close"
-              type="button"
+            <span
+              class="ms-Button-flexContainer flexContainer-122"
+              data-automationid="splitbuttonprimary"
             >
-              <span
-                class="ms-Button-flexContainer flexContainer-122"
-                data-automationid="splitbuttonprimary"
+              <i
+                aria-hidden="true"
+                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                data-icon-name="Clear"
+                style="font-family: \\"FabricMDL2Icons\\";"
               >
-                <i
-                  aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                  data-icon-name="Clear"
-                  style="font-family: \\"FabricMDL2Icons\\";"
-                >
-                  
-                </i>
-              </span>
-            </button>
-          </div>
+                
+              </i>
+            </span>
+          </button>
         </div>
       </div>
       <h2
