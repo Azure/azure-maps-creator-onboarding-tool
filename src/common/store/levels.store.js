@@ -5,6 +5,14 @@ import { isNumeric, isVerticalExtentEmpty } from '../functions';
 const MAX_LEVEL_NAME_LENGTH = 100;
 
 export const useLevelsStore = create((set, get) => ({
+  reset: () => set({
+    facilityName: '',
+    levels: [],
+  }),
+  facilityName: '',
+  setFacilityName: (facilityName = '') => set({
+    facilityName,
+  }),
   levels: [],
   setLevels: (filenames) => set({
     levels: filenames.map((filename) => ({
@@ -29,7 +37,7 @@ export const useLevelsStore = create((set, get) => ({
           filename: level.filename,
           levelName: typeof levelsByFilename[level.filename].levelName === 'string' ? levelsByFilename[level.filename].levelName : '',
           ordinal: typeof levelsByFilename[level.filename].ordinal === 'number' ? levelsByFilename[level.filename].ordinal.toString() : '',
-          verticalExtent: typeof levelsByFilename[level.filename].verticalExtent === 'string' ? levelsByFilename[level.filename].verticalExtent : '',
+          verticalExtent: typeof levelsByFilename[level.filename].verticalExtent === 'number' ? levelsByFilename[level.filename].verticalExtent.toString() : '',
         };
       })
     }));

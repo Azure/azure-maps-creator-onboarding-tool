@@ -11,6 +11,13 @@ import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
 export const useGeometryStore = create(
   (set, get) => ({
+    dwgLayers: [],
+    addDwgLayer: (dwgLayer) => set({
+      dwgLayers: get().dwgLayers.concat(dwgLayer),
+    }),
+    removeDwgLayer: (dwgLayer) => set({
+      dwgLayers: get().dwgLayers.filter((layer) => layer !== dwgLayer),
+    }),
     anchorPoint: {
       coordinates: [0,0],
       angle: 0,
@@ -20,7 +27,8 @@ export const useGeometryStore = create(
         coordinates: [0,0],
         angle: 0,
       },
-      checkedByUser: false,
+      dwgLayers: [],
+      centerToAnchorPointDestination: {},
     }),
     centerToAnchorPointDestination: {},
     setCenterToAnchorPointDestination: (centerToAnchorPointDestination) => set({
@@ -67,19 +75,15 @@ export const useGeometryStore = create(
         ...anchorPoint,
       },
     })),
-    checkedByUser: false,
-    check: () => set({
-      checkedByUser: true,
-    }),
   })
 );
 
-const geometrySelector = (s) => [s.anchorPoint, s.setCenterToAnchorPointDestination];
-const layersSelector = (s) => [s.layers.find((layer) => layer.id === 0), s.polygonLayers];
+const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.setCenterToAnchorPointDestination];
+const layersSelector = (s) => s.polygonLayers;
 
 export const useDissolvedExterior = () => {
-  const [exteriorLayer, polygonLayers] = useLayersStore(layersSelector, shallow);
-  const [anchorPoint, setCenterToAnchorPointDestination] = useGeometryStore(geometrySelector, shallow);
+  const polygonLayers = useLayersStore(layersSelector);
+  const [dwgLayers, anchorPoint, setCenterToAnchorPointDestination] = useGeometryStore(geometrySelector, shallow);
   const [output, setOutput] = useState([null, null]);
   const [worker, setWorker] = useState(null);
   const [centerToAnchorHasBeenUpdated, setCenterToAnchorHasBeenUpdated] = useState(false);
@@ -87,7 +91,10 @@ export const useDissolvedExterior = () => {
   const [anchorPointForRendering, setAnchorPointForRendering] = useThrottle(null);
 
   useEffect(() => {
-    if (mergedMultiPolygons === null) return;
+    if (mergedMultiPolygons === null) {
+      setOutput([null, null]);
+      return;
+    }
 
     const polygon = mergedMultiPolygons[0];
     const anchorPointOfThisPolygon = mergedMultiPolygons[1];
@@ -127,11 +134,11 @@ export const useDissolvedExterior = () => {
       return;
     }
     worker.postMessage({
-      exteriorLayer,
+      dwgLayers,
       polygonLayers,
       anchorPoint: anchorPointForRendering,
     });
-  }, [anchorPointForRendering]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [anchorPointForRendering, dwgLayers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // this was added to utilize throttling and prevent coordinates from re-calculating too often
   useEffect(() => {

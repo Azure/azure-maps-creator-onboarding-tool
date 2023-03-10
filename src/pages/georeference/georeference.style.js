@@ -14,11 +14,11 @@ export const mapContainerStyle = css`
 `;
 
 export const textFieldStyle = css`
-  width: 15.625rem;
+  width: 18.25rem;
 `;
 
 export const textFieldLabelStyle = css`
-  width: 15.625rem;
+  width: 13rem;
   max-width: none;
   line-height: 1.5rem;
   height: 1.5rem;
@@ -49,3 +49,35 @@ export const errorContainer = css`
   max-width: 31.25rem;
   margin-bottom: 1rem;
 `;
+
+export const dropdownStyles = {
+  dropdown: {
+    height: '1.5rem',
+    fontSize: fontSize.sm,
+  },
+  root: {
+    maxWidth: '18.25rem',
+    flexGrow: 1,
+  },
+  title: {
+    height: '1.5rem',
+    lineHeight: '1.5rem',
+  },
+  dropdownItem: {
+    height: '1.5rem',
+    lineHeight: '1.5rem',
+    minHeight: 'auto',
+  },
+  dropdownOptionText: {
+    fontSize: fontSize.sm,
+  },
+  dropdownItemSelected: {
+    height: '1.5rem',
+    lineHeight: '1.5rem',
+    minHeight: 'auto',
+  },
+  caretDownWrapper: {
+    height: '1.5rem',
+    lineHeight: '1.5rem',
+  },
+};

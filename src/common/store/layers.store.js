@@ -1,8 +1,8 @@
 import { create } from 'zustand';
+import nextId from 'react-id-generator';
 
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
-const exteriorLayerName = 'exterior';
 const systemReservedLayerNames = ['facility', 'level'];
 const systemReservedPropNames = ['levelid', 'levelordinal', 'layername', 'id'];
 const featureClassNameAllowedSymbols = new RegExp(/^[0-9a-z_]+$/i);
@@ -13,6 +13,9 @@ export const useLayersStore = create(
     reset: () => set({
       ...getDefaultState(),
     }),
+    setVisited: () => set({
+      visited: true,
+    }),
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
@@ -22,16 +25,14 @@ export const useLayersStore = create(
       textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
     })),
     setLayerFromManifestJson: (layers = {}) => {
-      const { convertedLayers, newLayerIdCounter } = convertLayersFromManifestJson(
+      const convertedLayers = convertLayersFromManifestJson(
         layers,
-        get().polygonLayerNames,
         get().textLayerNames,
         get().layerNames,
       );
 
       set({
         layers: convertedLayers,
-        newLayerIdCounter,
       });
     },
     updateLayer: (id, data) => set((state) => {
@@ -51,7 +52,7 @@ export const useLayersStore = create(
 
           if (isUpdatingDraft) {
             updatedLayer.props = [{
-              id: state.newLayerIdCounter,
+              id: nextId(),
               name: '',
               isDraft: true,
               value: [],
@@ -64,14 +65,12 @@ export const useLayersStore = create(
 
       if (isUpdatingDraft) {
         updatedState.layers.push({
-          id: state.newLayerIdCounter + 1,
+          id: nextId(),
           name: '',
           value: [],
           props: [],
-          required: false,
           isDraft: true,
         });
-        updatedState.newLayerIdCounter = state.newLayerIdCounter + 2;
       }
 
       return updatedState;
@@ -112,7 +111,7 @@ export const useLayersStore = create(
 
           if (isUpdatingDraft) {
             updatedProps.push({
-              id: state.newLayerIdCounter,
+              id: nextId(),
               name: '',
               isDraft: true,
               value: [],
@@ -125,10 +124,6 @@ export const useLayersStore = create(
           };
         }),
       };
-
-      if (isUpdatingDraft) {
-        updatedState.newLayerIdCounter = state.newLayerIdCounter + 1;
-      }
 
       return updatedState;
     }),
@@ -201,9 +196,6 @@ export const useLayersStore = create(
         if (getLayerNameError(layer.name) !== null) {
           return false;
         }
-        if (layer.name === exteriorLayerName && layer.value.length === 0) {
-          return false;
-        }
         if (layer.props.length > 0) {
           return layer.props.every((prop) => {
             if (prop.isDraft) {
@@ -220,26 +212,17 @@ export const useLayersStore = create(
 
 export function getDefaultState() {
   return {
-    newLayerIdCounter: 2,
     layerNames: [],
     polygonLayers: [],
     polygonLayerNames: [],
     textLayerNames: [],
+    visited: false,
     layers: [
       {
-        id: 0,
-        name: exteriorLayerName,
-        value: [],
-        props: [],
-        required: true,
-        isDraft: false,
-      },
-      {
-        id: 1,
+        id: nextId(),
         name: '',
         value: [],
         props: [],
-        required: false,
         isDraft: true,
       }
     ],
@@ -270,57 +253,28 @@ function truncateRecursively(coordinates) {
   return coordinates.map(truncateRecursively);
 }
 
-export function convertLayersFromManifestJson(layers, allowedPolygonLayerNames, allowedTextLayerNames, allowedLayerNames) {
-  const defaultState = getDefaultState();
-  let newLayerIdCounter = defaultState.newLayerIdCounter;
-  const convertedLayers = defaultState.layers;
-
-  for (const [layerName, layer] of Object.entries(layers)) {
-    if (layerName === exteriorLayerName) {
-      for (const [propName, propValue] of Object.entries(layer)) {
-        if (propName === 'dwgLayers') {
-          convertedLayers[0].value = propValue.filter((dwgLayer) => allowedPolygonLayerNames.includes(dwgLayer));
-        } else {
-          convertedLayers[0].props.push({
-            id: newLayerIdCounter,
-            name: propName,
-            value: propValue.filter((dwgLayer) => allowedTextLayerNames.includes(dwgLayer)),
-          });
-          newLayerIdCounter++;
-        }
-      }
-    } else {
-      const newLayer = {
-        id: newLayerIdCounter,
-        name: layerName,
-        value: [],
-        props: [{
-          id: newLayerIdCounter + 1,
-          name: '',
-          isDraft: true,
-          value: [],
-        }],
-        required: false,
-        isDraft: false,
-      };
-      newLayerIdCounter += 2;
-
-      for (const [propName, propValue] of Object.entries(layer)) {
-        if (propName === 'dwgLayers') {
-          newLayer.value = propValue.filter((dwgLayer) => allowedLayerNames.includes(dwgLayer));
-        } else {
-          newLayer.props.splice(newLayer.props.length - 1, 0, {
-            id: newLayerIdCounter,
-            name: propName,
-            value: propValue.filter((dwgLayer) => allowedTextLayerNames.includes(dwgLayer)),
-          });
-          newLayerIdCounter++;
-        }
-      }
-
-      convertedLayers.splice(convertedLayers.length - 1, 0, newLayer);
-    }
-  }
-
-  return { convertedLayers, newLayerIdCounter };
+export function convertLayersFromManifestJson(layers, allowedTextLayerNames, allowedLayerNames) {
+  return layers.map(({ featureClassName, dwgLayers, featureClassProperties = [] }) => ({
+    id: nextId(),
+    name: featureClassName,
+    isDraft: false,
+    props: featureClassProperties.map(({ featureClassPropertyName, dwgLayers }) => ({
+      id: nextId(),
+      name: featureClassPropertyName,
+      isDraft: false,
+      value: dwgLayers.filter((layer) => allowedTextLayerNames.includes(layer)),
+    })).concat({
+      id: nextId(),
+      name: '',
+      isDraft: true,
+      value: [],
+    }),
+    value: dwgLayers.filter((layer) => allowedLayerNames.includes(layer)),
+  })).concat({
+    id: nextId(),
+    name: '',
+    value: [],
+    props: [],
+    isDraft: true,
+  });
 }

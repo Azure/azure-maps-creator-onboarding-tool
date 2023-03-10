@@ -39,24 +39,24 @@ export const useProgressBarStore = create((set) => ({
     }),
 }));
 
-const geometrySelector = s => s.checkedByUser;
-const levelsSelector = s => [s.allLevelsCompleted, s.levels];
-const layersSelector = s => [s.allLayersValid, s.layers];
+const geometrySelector = s => s.dwgLayers;
+const levelsSelector = s => [s.allLevelsCompleted, s.levels, s.facilityName, s.isLevelNameValid];
+const layersSelector = s => [s.allLayersValid, s.layers, s.visited];
 
 export const useCompletedSteps = () => {
-    const georeferenceCheckedByUser = useGeometryStore(geometrySelector);
-    const [allLayersValid, layers] = useLayersStore(layersSelector);
-    const [allLevelsCompleted, levels] = useLevelsStore(levelsSelector, shallow);
+    const dwgLayers = useGeometryStore(geometrySelector);
+    const [allLayersValid, layers, layersPageVisited] = useLayersStore(layersSelector);
+    const [allLevelsCompleted, levels, facilityName, isLevelNameValid] = useLevelsStore(levelsSelector, shallow);
 
     const completedSteps = [];
 
-    if (georeferenceCheckedByUser) {
+    if (dwgLayers.length > 0) {
         completedSteps.push(progressBarStepsByKey.createGeoreference);
     }
-    if (allLayersValid(layers)) {
+    if (layersPageVisited && allLayersValid(layers)) {
         completedSteps.push(progressBarStepsByKey.layers);
     }
-    if (allLevelsCompleted(levels)) {
+    if (allLevelsCompleted(levels) && isLevelNameValid(facilityName)) {
         completedSteps.push(progressBarStepsByKey.levels);
     }
 

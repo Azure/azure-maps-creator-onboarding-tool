@@ -74,17 +74,16 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
                  onChange={onChangeName} placeholder={placeholder} errorMessage={propertyNameError} />
       <Dropdown placeholder={t('select.layers')} selectedKeys={value} onChange={onChangeValue}
                 multiSelect={textLayerNames.length !== 0} options={options} styles={dropdownStyles} />
-      <DeleteIcon required={false} isDraft={isDraft} onDelete={onDelete}
-                  title={t('delete.property', { propertyName: name })} />
+      <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
     </div>
   );
 };
 
 Property.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(PropTypes.string).isRequired,
-  parentId: PropTypes.number.isRequired,
+  parentId: PropTypes.string.isRequired,
 };
 
 export default Property;

@@ -57,7 +57,7 @@ describe('edit manifest scenario', () => {
     cy.get('button').contains('Next').click();
 
     // DWG Layers page
-    cy.get('button[aria-label="Delete layer new_feature_class_12b"]').click();
+    cy.get('button[aria-label="Delete layer my_class_1"]').click();
 
     cy.get('button').contains('Next').click();
 
