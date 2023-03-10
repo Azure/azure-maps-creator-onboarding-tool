@@ -45,7 +45,7 @@ Object {
         </div>
       </div>
       <div>
-        {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
+        {"id":0,"name":"exterior","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","exterior"],"isDraft":false}
       </div>
       <div>
         {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
@@ -96,7 +96,7 @@ Object {
       </div>
     </div>
     <div>
-      {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
+      {"id":0,"name":"exterior","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","exterior"],"isDraft":false}
     </div>
     <div>
       {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}

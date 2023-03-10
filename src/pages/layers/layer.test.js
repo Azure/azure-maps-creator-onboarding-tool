@@ -18,8 +18,8 @@ const props = [
   }
 ];
 
-const layer1 = { id: 1, value: ['polygonLayer21'], name: 'base layer', isDraft: false, props };
-const layer2 = { id: 2, value: ['layer32'], name: 'int', isDraft: false, props };
+const layer1 = { id: 1, value: ['polygonLayer21'], name: 'exterior', required: true, isDraft: false, props };
+const layer2 = { id: 2, value: ['layer32'], name: 'int', required: false, isDraft: false, props };
 
 describe('Layer component', () => {
   beforeEach(() => {
@@ -36,7 +36,8 @@ describe('Layer component', () => {
 
   it('should render component', () => {
     const view = render(
-      <Layer id={layer1.id} value={layer1.value} name={layer1.name} props={layer1.props} isDraft={layer1.isDraft} />
+      <Layer id={layer1.id} value={layer1.value} name={layer1.name} required={layer1.required}
+             props={layer1.props} isDraft={layer1.isDraft} />
     );
     const dropdown = screen.getAllByRole('combobox');
     fireEvent.click(dropdown[0]);
@@ -48,7 +49,8 @@ describe('Layer component', () => {
     const spy = jest.spyOn(state, 'deleteLayer');
     spy.mockReturnValue();
     const view = render(
-      <Layer id={layer2.id} value={layer2.value} name={layer2.name} props={layer2.props} isDraft={layer2.isDraft} />
+      <Layer id={layer2.id} value={layer2.value} name={layer2.name} required={layer2.required}
+             props={layer2.props} isDraft={layer2.isDraft} />
     );
 
     const dropdown = screen.getAllByRole('combobox');
@@ -66,7 +68,8 @@ describe('Layer component', () => {
     });
 
     const view = render(
-      <Layer id={layer1.id} value={[]} name={layer1.name} props={layer1.props} isDraft={layer1.isDraft} />
+      <Layer id={layer1.id} value={[]} name={layer1.name} required={layer1.required}
+             props={layer1.props} isDraft={layer1.isDraft} />
     );
 
     expect(view).toMatchSnapshot();

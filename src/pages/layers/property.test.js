@@ -10,7 +10,8 @@ describe('Property component', () => {
       layers: [{
         id: 12,
         value: ['polygonLayer21'],
-        name: 'base layer',
+        name: 'exterior',
+        required: true,
         isDraft: false,
         props: [{
           id: 11,

@@ -5,7 +5,7 @@ import { shallow } from 'zustand/shallow';
 import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { TextField } from '@fluentui/react';
 
-import { useLayersStore } from 'common/store';
+import { useLayersStore, useProgressBarStore } from 'common/store';
 import FieldError from 'components/field-error';
 import Property from './property';
 import {
@@ -24,6 +24,7 @@ const layerSelector = (s) => [
   s.updateLayer,
   s.getLayerNameError,
 ];
+const progressBarSelector = (s) => s.isErrorShown;
 
 export const Layer = ({ id, name, value, props, isDraft }) => {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     updateLayer,
     getLayerNameError,
   ] = useLayersStore(layerSelector, shallow);
+  const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const options = useMemo(() => {
     if (layerNames.length === 0) {
@@ -79,6 +81,12 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     }
     return '';
   }, [isDraft, t]);
+  const dropDownErrorMsg = useMemo(() => {
+    if (isProgressBarErrorShown && value.length === 0) {
+      return t('error.field.cannot.be.empty');
+    }
+    return null;
+  }, [t, isProgressBarErrorShown, value]);
 
   return (
     <div className={layerRow}>
@@ -87,7 +95,8 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
                    styles={layerNameInputStyles} errorMessage={layerNameError}
                    placeholder={placeholder} />
         <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={layerNames.length !== 0}
-                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles} />
+                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles}
+                  errorMessage={dropDownErrorMsg} />
         <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer}
                     title={t('delete.layer', { layerName: name })} />
       </div>

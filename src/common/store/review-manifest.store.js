@@ -68,7 +68,7 @@ export const useReviewManifestJson = () => {
       }, {}),
   };
 
-  if (facilityName.replace(/\s/g, '').length !== 0) {
+  if (facilityName !== '') {
     json.facilityName = facilityName;
   }
 

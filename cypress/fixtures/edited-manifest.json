@@ -1,65 +1,55 @@
 {
   "version": "2.0",
   "buildingLevels": {
-    "dwgLayers": ["AK-FLOR-EXTR", "AK-WALL"],
     "levels": [
       {
         "filename": "PUGET SOUND_ADVANTA-A_01.dwg",
         "levelName": "Ground level",
-        "ordinal": 1,
-        "verticalExtent": 1.5
+        "ordinal": 1
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_02.dwg",
         "levelName": "Next level",
-        "ordinal": 22,
-        "verticalExtent": -2.5
+        "ordinal": 22
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_03.dwg",
         "levelName": "Nivel tres",
-        "ordinal": 333,
-        "verticalExtent": 0
+        "ordinal": 333
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_04.dwg",
         "levelName": "La France remportera la coupe du monde ce dimanche",
-        "ordinal": 4,
-        "verticalExtent": 0
+        "ordinal": 4
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_05.dwg",
         "levelName": "第五級",
-        "ordinal": 5,
-        "verticalExtent": 0.55
+        "ordinal": 5
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_06.dwg",
         "levelName": "Уровень шесть",
-        "ordinal": 6,
-        "verticalExtent": -0.55
+        "ordinal": 6
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_07.dwg",
         "levelName": "المستوى السابع",
-        "ordinal": 773,
-        "verticalExtent": 55
+        "ordinal": 773
       }
     ]
   },
   "georeference": {
-    "lat": 33.5968537,
-    "lon": -7.61528415,
+    "lat": 33.59687769,
+    "lon": -7.61527254,
     "angle": 155
   },
-  "featureClasses": [
-    {
-      "featureClassName": "my_class_2",
+  "featureClasses": {
+    "exterior": {
       "dwgLayers": [
-        "A-GLAZ-EXST",
-        "A-WALL-CORE-EXST"
+        "A-BOMA",
+        "A-FURN-FREE-EXST"
       ]
     }
-  ],
-  "facilityName": "perfect circle"
+  }
 }

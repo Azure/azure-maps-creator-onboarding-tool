@@ -45,9 +45,8 @@ const Level = ({ level }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [levels, isProgressBarErrorShown, level, getOrdinalError, t]);
   const levelNameErrorMsg = useMemo(() => {
-    const isLevelNameEmpty = level.levelName.replace(/\s/g, '').length === 0;
-    if (isLevelNameEmpty || isLevelNameValid(level.levelName)) {
-      if (isLevelNameEmpty && isProgressBarErrorShown) {
+    if (level.levelName.length === 0 || isLevelNameValid(level.levelName)) {
+      if (level.levelName.length === 0 && isProgressBarErrorShown) {
         return <FieldError text={t('error.field.is.required')} />;
       }
       return '';
