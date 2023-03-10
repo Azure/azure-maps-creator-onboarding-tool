@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo, useEffect } from 'react';
 import {
   AzureMap,
   AzureMapDataSourceProvider,
@@ -35,11 +35,11 @@ const azureMapsLayerProviderOptions = {
   fillColor: color.lightRed,
 };
 
-const anchorPointSelector = (s) => s.updateAnchorPointViaMapCenter;
+const anchorPointSelector = (s) => [s.updateAnchorPointViaMapCenter, s.check];
 const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
 
 const Map = ({ exteriorCenter, dissolvedExterior }) => {
-  const updateAnchorPointViaMapCenter = useGeometryStore(anchorPointSelector);
+  const [updateAnchorPointViaMapCenter, check] = useGeometryStore(anchorPointSelector, shallow);
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
   const azureMapOptions = useMemo(() => ({
@@ -72,6 +72,10 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // this page has no required fields as anchor point data comes from API and already prefilled.
+  // so just the fact of loading this page is enough to mark it checked in progress-bar
+  useEffect(() => { check(); }, [check]);
+
   return (
     <AzureMapsProvider>
       <div className={mapContainerStyle}>
@@ -87,13 +91,7 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
               options={azureMapsLayerProviderOptions}
               type='PolygonLayer'
             />
-            {/*
-              Added key attribute here to remount this component whenever type changes.
-              It is only set once inside AzureMapFeature on component mount https://github.com/Azure/react-azure-maps/blob/master/src/components/AzureMapFeature/AzureMapFeature.tsx#L18
-              and due to this the feature is not rendered properly when type changes from polygon to multipolygon or vice-versa
-            */}
             <AzureMapFeature
-              key={dissolvedExterior.type}
               variant='shape'
               id='OutlineMapFeature'
               {...featureProps}

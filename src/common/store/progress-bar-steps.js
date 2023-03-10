@@ -39,21 +39,21 @@ export const useProgressBarStore = create((set) => ({
     }),
 }));
 
-const geometrySelector = s => s.dwgLayers;
+const geometrySelector = s => s.checkedByUser;
 const levelsSelector = s => [s.allLevelsCompleted, s.levels];
-const layersSelector = s => [s.allLayersValid, s.layers, s.visited];
+const layersSelector = s => [s.allLayersValid, s.layers];
 
 export const useCompletedSteps = () => {
-    const dwgLayers = useGeometryStore(geometrySelector);
-    const [allLayersValid, layers, layersPageVisited] = useLayersStore(layersSelector);
+    const georeferenceCheckedByUser = useGeometryStore(geometrySelector);
+    const [allLayersValid, layers] = useLayersStore(layersSelector);
     const [allLevelsCompleted, levels] = useLevelsStore(levelsSelector, shallow);
 
     const completedSteps = [];
 
-    if (dwgLayers.length > 0) {
+    if (georeferenceCheckedByUser) {
         completedSteps.push(progressBarStepsByKey.createGeoreference);
     }
-    if (layersPageVisited && allLayersValid(layers)) {
+    if (allLayersValid(layers)) {
         completedSteps.push(progressBarStepsByKey.layers);
     }
     if (allLevelsCompleted(levels)) {

@@ -9,7 +9,6 @@ import { useGeometryStore } from './geometry.store';
 describe('useReviewManifestJson', () => {
   beforeEach(() => {
     useGeometryStore.setState({
-      dwgLayers: ['exteriorLayer1', 'exteriorLayer2'],
       anchorPoint: {
         angle: 150,
         coordinates: [50, 100],
@@ -21,7 +20,6 @@ describe('useReviewManifestJson', () => {
           filename: 'file 1.dwg',
           levelName: 'level 1',
           ordinal: 11,
-          verticalExtent: -1.55,
         },
         {
           filename: 'file 222.dwg',
@@ -61,7 +59,6 @@ describe('useReviewManifestJson', () => {
     expect(result.current).toEqual({
       version:'2.0',
       buildingLevels: {
-        dwgLayers: ['exteriorLayer1', 'exteriorLayer2'],
         levels: [
           { filename: 'file 1.dwg', levelName: 'level 1', ordinal: 11 },
           { filename: 'file 222.dwg', levelName: 'last level', ordinal: 99 },
@@ -72,26 +69,16 @@ describe('useReviewManifestJson', () => {
         lon: 50,
         angle: 150,
       },
-      featureClasses: [
-        {
-          featureClassName: 'first layer',
+      featureClasses: {
+        'first layer': {
           dwgLayers: ['val 1','val 2'],
-          featureClassProperties: [
-            {
-              featureClassPropertyName: 'first prop',
-              dwgLayers: [ 'prop val 1', 'prop val N' ],
-            },
-            {
-              dwgLayers: ['Crows often hold grudges against specific people.'],
-              featureClassPropertyName: 'second prop',
-            },
-          ],
+          'first prop': ['prop val 1','prop val N'],
+          'second prop': ['Crows often hold grudges against specific people.'],
         },
-        {
-          featureClassName: 'last layer',
+        'last layer': {
           dwgLayers: ['val val val','lav lav lav'],
-        }
-      ],
+        },
+      },
     });
   });
 });

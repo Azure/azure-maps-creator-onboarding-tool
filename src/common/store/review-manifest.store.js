@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { shallow } from 'zustand/shallow';
 
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
@@ -16,19 +15,18 @@ export const useReviewManifestStore = create((set) => ({
   })),
 }));
 
-const geometryStoreSelector = (s) => [s.anchorPoint, s.dwgLayers];
-const levelsStoreSelector = (s) => [s.levels, s.facilityName];
+const geometryStoreSelector = (s) => s.anchorPoint;
+const levelsStoreSelector = (s) => s.levels;
 const layersStoreSelector = (s) => s.layers;
 
 export const useReviewManifestJson = () => {
   const layers = useLayersStore(layersStoreSelector);
-  const [levels, facilityName] = useLevelsStore(levelsStoreSelector, shallow);
-  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
+  const levels = useLevelsStore(levelsStoreSelector);
+  const anchorPoint = useGeometryStore(geometryStoreSelector);
 
-  const json = {
+  return {
     version: '2.0',
     buildingLevels: {
-      dwgLayers,
       levels: levels.map((level) => {
         const formattedLevel = {
           ...level,
@@ -47,30 +45,27 @@ export const useReviewManifestJson = () => {
       lon: anchorPoint.coordinates[0],
       angle: anchorPoint.angle,
     },
-    featureClasses: layers
-      .filter((layer) => !layer.isDraft)
-      .map((layer) => {
-        const featureClass = {
-          featureClassName: layer.name,
+    featureClasses: layers.reduce((acc, layer) => {
+      if (layer.isDraft) {
+        return acc;
+      }
+
+      const featureClass = {
+        [layer.name]: {
           dwgLayers: layer.value,
-        };
-
-        const props = layer.props.filter((prop) => !prop.isDraft);
-
-        if (props.length !== 0) {
-          featureClass.featureClassProperties = props.map((prop) => ({
-            featureClassPropertyName: prop.name,
-            dwgLayers: prop.value,
-          }));
         }
+      };
 
-        return featureClass;
-      }, {}),
+      layer.props.forEach((prop) => {
+        if (!prop.isDraft) {
+          featureClass[layer.name][prop.name] = prop.value;
+        }
+      });
+
+      return {
+        ...acc,
+        ...featureClass,
+      };
+    }, {}),
   };
-
-  if (facilityName !== '') {
-    json.facilityName = facilityName;
-  }
-
-  return json;
 };

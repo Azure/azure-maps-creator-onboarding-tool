@@ -1,98 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layers Delete Icon should render Delete Icon 1`] = `
+exports[`Layers Delete Icon should render nothing when isDraft is true 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .emotion-0 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-1 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-1:hover {
-  color: black;
-}
-
-<body>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <button
-          aria-label="Foo"
-          class="ms-Button ms-Button--icon emotion-1 root-108"
-          data-is-focusable="true"
-          data-testid="delete-icon"
-          title="Foo"
-          type="button"
-        >
-          <span
-            class="ms-Button-flexContainer flexContainer-109"
-            data-automationid="splitbuttonprimary"
-          >
-            <i
-              aria-hidden="true"
-              class="ms-Icon root-101 emotion-2 ms-Button-icon icon-111"
-              data-icon-name="StatusCircleErrorX"
-              style="font-family: \\"FabricMDL2Icons-9\\";"
-            >
-              
-            </i>
-          </span>
-        </button>
-      </div>
-    </div>
+  "baseElement": <body>
+    <div />
   </body>,
-  "container": .emotion-0 {
-  width: 1.5rem;
-  margin-left: 0.25rem;
-}
-
-.emotion-1 {
-  color: black;
-  font-size: 0.813rem;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-1:hover {
-  color: black;
-}
-
-<div>
-    <div
-      class="emotion-0"
-    >
-      <button
-        aria-label="Foo"
-        class="ms-Button ms-Button--icon emotion-1 root-108"
-        data-is-focusable="true"
-        data-testid="delete-icon"
-        title="Foo"
-        type="button"
-      >
-        <span
-          class="ms-Button-flexContainer flexContainer-109"
-          data-automationid="splitbuttonprimary"
-        >
-          <i
-            aria-hidden="true"
-            class="ms-Icon root-101 emotion-2 ms-Button-icon icon-111"
-            data-icon-name="StatusCircleErrorX"
-            style="font-family: \\"FabricMDL2Icons-9\\";"
-          >
-            
-          </i>
-        </span>
-      </button>
-    </div>
-  </div>,
+  "container": <div />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
@@ -147,7 +61,7 @@ Object {
 }
 `;
 
-exports[`Layers Delete Icon should render nothing when isDraft is true 1`] = `
+exports[`Layers Delete Icon should render nothing when required is true 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

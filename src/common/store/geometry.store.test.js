@@ -1,16 +1,14 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { expectedUseDissolvedExteriorResult, mockPolygonLayers } from './geometry.store.mock';
-import { useDissolvedExterior, fixAngle, useGeometryStore } from './geometry.store';
+import { useDissolvedExterior, fixAngle } from './geometry.store';
 import { useLayersStore } from './layers.store';
 
 describe('useDissolvedExterior', () => {
   it('should return hook data', () => {
     useLayersStore.setState({
       polygonLayers: mockPolygonLayers,
-    });
-    useGeometryStore.setState({
-      dwgLayers: ['WALLS'],
+      layers: [{ id: 0, value: ['WALLS'] }],
     });
     const { result } = renderHook(() => useDissolvedExterior());
     expect(result.current).toEqual(expectedUseDissolvedExteriorResult);
@@ -19,9 +17,7 @@ describe('useDissolvedExterior', () => {
   it('should return null when no exterior layers selected', () => {
     useLayersStore.setState({
       polygonLayers: mockPolygonLayers,
-    });
-    useGeometryStore.setState({
-      dwgLayers: [],
+      layers: [{ id: 0, value: [] }],
     });
     const { result } = renderHook(() => useDissolvedExterior());
     expect(result.current).toEqual([null, null]);

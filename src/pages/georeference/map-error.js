@@ -2,15 +2,15 @@ import { MessageBar, MessageBarType } from '@fluentui/react';
 import { useTranslation } from 'react-i18next';
 
 import { errorContainer } from './georeference.style';
-import { useGeometryStore } from 'common/store';
+import { useLayersStore } from 'common/store';
 
-const dwgLayersSelector = (s) => s.dwgLayers;
+const layersSelector = (s) => s.layers.find((layer) => layer.id === 0);
 
 const MapError = () => {
   const { t } = useTranslation();
-  const dwgLayers = useGeometryStore(dwgLayersSelector);
+  const exteriorLayer = useLayersStore(layersSelector);
 
-  if (dwgLayers.length > 0) {
+  if (exteriorLayer.value.length > 0) {
     return null;
   }
 

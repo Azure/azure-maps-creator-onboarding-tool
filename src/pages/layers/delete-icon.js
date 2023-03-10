@@ -2,8 +2,8 @@ import { IconButton } from '@fluentui/react/lib/Button';
 
 import { deleteIconContainer, layerIcon } from './layers.style';
 
-const DeleteIcon = ({ isDraft, title, onDelete }) => {
-  if (isDraft) {
+const DeleteIcon = ({ required, isDraft, title, onDelete }) => {
+  if (required || isDraft) {
     return null;
   }
   return (

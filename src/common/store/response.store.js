@@ -163,13 +163,8 @@ export const useResponseStore = create((set, get) => ({
           const existingManifestJson = get().existingManifestJson;
 
           if (existingManifestJson !== null) {
-            useLevelsStore.getState().updateLevels(existingManifestJson.buildingLevels.levels);
-            useLevelsStore.getState().setFacilityName(existingManifestJson.facilityName);
+            useLevelsStore.getState().updateLevels(existingManifestJson.buildingLevels?.levels);
             useLayersStore.getState().setLayerFromManifestJson(existingManifestJson.featureClasses);
-            useLayersStore.getState().setVisited();
-            useGeometryStore.setState({
-              dwgLayers: existingManifestJson.buildingLevels.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
-            });
             useGeometryStore.getState().updateAnchorPoint({
               coordinates: [
                 existingManifestJson.georeference?.lon ?? 0,
@@ -177,6 +172,7 @@ export const useResponseStore = create((set, get) => ({
               ],
               angle: existingManifestJson.georeference?.angle ?? 0,
             });
+            useGeometryStore.getState().check();
           }
 
           set(() => ({

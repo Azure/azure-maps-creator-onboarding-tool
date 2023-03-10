@@ -7,14 +7,19 @@ import { useLevelsStore } from './levels.store';
 
 describe('progress-bar-steps hook', () => {
   beforeEach(() => {
-    useLevelsStore.setState({
-      levels: [],
-    });
+    useLevelsStore.getState().levels = [];
     useGeometryStore.setState({
-      dwgLayers: [],
+      checkedByUser: false,
     });
     useLayersStore.setState({
-      visited: false,
+      layers: [{
+        id: 0,
+        name: 'exterior',
+        value: [],
+        props: [],
+        required: true,
+        isDraft: false,
+      }],
     });
   });
 
@@ -25,7 +30,7 @@ describe('progress-bar-steps hook', () => {
 
   it('should contain georeference', () => {
     useGeometryStore.setState({
-      dwgLayers: ['layer123'],
+      checkedByUser: true,
     });
     const { result } = renderHook(() => useCompletedSteps());
     expect(result.current).toStrictEqual(['createGeoreference']);
@@ -86,7 +91,14 @@ describe('progress-bar-steps hook', () => {
 
   it('should contain layers', () => {
     useLayersStore.setState({
-      visited: true,
+      layers: [{
+        id: 0,
+        name: 'exterior',
+        value: ['someVal'],
+        props: [],
+        required: true,
+        isDraft: false,
+      }],
     });
     const { result } = renderHook(() => useCompletedSteps());
     expect(result.current).toStrictEqual(['layers']);

@@ -14,6 +14,7 @@ import {
   flexContainer,
   layerRow,
   layerNameInputStyles,
+  disabledLayerNameInput,
 } from './layers.style';
 import DeleteIcon from './delete-icon';
 
@@ -21,53 +22,59 @@ const layerSelector = (s) => [
   s.layers,
   s.deleteLayer,
   s.layerNames,
+  s.polygonLayerNames,
   s.updateLayer,
   s.getLayerNameError,
 ];
 const progressBarSelector = (s) => s.isErrorShown;
 
-export const Layer = ({ id, name, value, props, isDraft }) => {
+export const Layer = ({ id, name, value, props, required, isDraft }) => {
   const { t } = useTranslation();
   const [
     layers,
     deleteLayer,
     layerNames,
+    polygonLayerNames,
     updateLayer,
     getLayerNameError,
   ] = useLayersStore(layerSelector, shallow);
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
+  const optionNames = useMemo(() => (
+    required ? polygonLayerNames : layerNames
+  ), [layerNames, polygonLayerNames, required]);
+
   const options = useMemo(() => {
-    if (layerNames.length === 0) {
+    if (optionNames.length === 0) {
       return [{
         key: null,
         text: t('error.empty.dropdown'),
       }];
     }
-    return layerNames.map((layer) => ({
+    return optionNames.map((layer) => ({
       key: layer,
       text: layer,
     }));
-  }, [t, layerNames]);
+  }, [t, optionNames]);
   const deleteThisLayer = useCallback(() => {
     deleteLayer(id);
   }, [deleteLayer, id]);
   const onChangeLayersSelection = useCallback((e, item) => {
-    if (layerNames.length === 0) {
+    if (optionNames.length === 0) {
       return;
     }
     const updatedValue = item.selected ? [...value, item.text] : value.filter(layer => layer !== item.text);
     updateLayer(id, {
       value: updatedValue,
     });
-  }, [updateLayer, id, value, layerNames]);
+  }, [updateLayer, id, value, optionNames]);
   const onChangeName = useCallback((e) => {
     updateLayer(id, {
       name: e.target.value,
     });
   }, [updateLayer, id]);
   const layerNameError = useMemo(() => {
-    if (isDraft) return '';
+    if (required || isDraft) return '';
     const error = getLayerNameError(name);
     if (error === null) {
       return '';
@@ -81,23 +88,26 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     }
     return '';
   }, [isDraft, t]);
+  const textFieldStyles = useMemo(() => (
+    required ? disabledLayerNameInput : layerNameInputStyles
+  ), [required]);
   const dropDownErrorMsg = useMemo(() => {
-    if (isProgressBarErrorShown && value.length === 0) {
-      return t('error.field.cannot.be.empty');
+    if (required && isProgressBarErrorShown && value.length === 0) {
+      return t('error.field.is.required');
     }
     return null;
-  }, [t, isProgressBarErrorShown, value]);
+  }, [required, t, isProgressBarErrorShown, value]);
 
   return (
     <div className={layerRow}>
       <div className={flexContainer}>
-        <TextField className={fieldLabel} value={name} onChange={onChangeName}
-                   styles={layerNameInputStyles} errorMessage={layerNameError}
+        <TextField disabled={required} className={fieldLabel} value={name} onChange={onChangeName}
+                   styles={textFieldStyles} errorMessage={layerNameError}
                    placeholder={placeholder} />
-        <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={layerNames.length !== 0}
+        <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={optionNames.length !== 0}
                   onChange={onChangeLayersSelection} options={options} styles={dropdownStyles}
                   errorMessage={dropDownErrorMsg} />
-        <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer}
+        <DeleteIcon required={required} isDraft={isDraft} onDelete={deleteThisLayer}
                     title={t('delete.layer', { layerName: name })} />
       </div>
       {props.map((property) => (
@@ -109,14 +119,15 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
 };
 
 Layer.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(PropTypes.string).isRequired,
   props: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.arrayOf(PropTypes.string).isRequired,
   })).isRequired,
+  required: PropTypes.bool.isRequired,
   isDraft: PropTypes.bool.isRequired,
 };
 

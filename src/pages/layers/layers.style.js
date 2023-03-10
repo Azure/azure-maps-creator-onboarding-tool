@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 
-import { fontSize } from 'common/styles';
+import { color, fontSize } from 'common/styles';
 
 export const layerRow = css`
   width: 100%;
@@ -116,5 +116,13 @@ export const deleteIconContainer = css`
 
 export const layerNameInputStyles = {
   fieldGroup: [{ height: '1.5rem' }],
+  field: [{ fontSize: fontSize.sm }],
+};
+
+export const disabledLayerNameInput = {
+  fieldGroup: [{
+    height: '1.5rem',
+    borderColor: `${color.grayBorder}`,
+  }],
   field: [{ fontSize: fontSize.sm }],
 };

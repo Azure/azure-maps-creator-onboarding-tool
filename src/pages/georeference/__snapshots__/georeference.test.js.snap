@@ -66,14 +66,14 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 13rem;
+  width: 15.625rem;
   max-width: none;
   line-height: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-10 {
-  width: 18.25rem;
+.emotion-7 {
+  width: 15.625rem;
 }
 
 <body>
@@ -161,70 +161,24 @@ Object {
               <div
                 class="emotion-6"
               >
-                exterior
-              </div>
-            </div>
-            <div
-              class="ms-Dropdown-container root-128"
-            >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                class="ms-Dropdown dropdown-129"
-                data-is-focusable="true"
-                data-ktp-target="true"
-                id="Dropdown2"
-                role="combobox"
-                tabindex="0"
-              >
-                <span
-                  aria-invalid="false"
-                  class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-130"
-                  id="Dropdown2-option"
-                >
-                  select.layers
-                </span>
-                <span
-                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-131"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="ms-Dropdown-caretDown caretDown-147"
-                    data-icon-name="ChevronDown"
-                  >
-                    
-                  </i>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="emotion-4"
-          >
-            <div
-              class="emotion-5"
-            >
-              <div
-                class="emotion-6"
-              >
                 anchor.point.longitude
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-10 root-149"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-150"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.longitude"
-                    class="ms-TextField-field field-151"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField3"
+                    id="TextField2"
                     readonly=""
                     type="text"
                     value="40"
@@ -246,20 +200,20 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-10 root-149"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-150"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.latitude"
-                    class="ms-TextField-field field-151"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField8"
+                    id="TextField7"
                     readonly=""
                     type="text"
                     value="60"
@@ -281,20 +235,20 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-10 root-149"
+              class="ms-TextField is-disabled emotion-7 root-129"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-150"
+                  class="ms-TextField-fieldGroup fieldGroup-130"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.angle"
-                    class="ms-TextField-field field-151"
+                    class="ms-TextField-field field-131"
                     disabled=""
-                    id="TextField13"
+                    id="TextField12"
                     readonly=""
                     type="text"
                     value="89"
@@ -373,14 +327,14 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 13rem;
+  width: 15.625rem;
   max-width: none;
   line-height: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-10 {
-  width: 18.25rem;
+.emotion-7 {
+  width: 15.625rem;
 }
 
 <div>
@@ -467,70 +421,24 @@ Object {
             <div
               class="emotion-6"
             >
-              exterior
-            </div>
-          </div>
-          <div
-            class="ms-Dropdown-container root-128"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              class="ms-Dropdown dropdown-129"
-              data-is-focusable="true"
-              data-ktp-target="true"
-              id="Dropdown2"
-              role="combobox"
-              tabindex="0"
-            >
-              <span
-                aria-invalid="false"
-                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-130"
-                id="Dropdown2-option"
-              >
-                select.layers
-              </span>
-              <span
-                class="ms-Dropdown-caretDownWrapper caretDownWrapper-131"
-              >
-                <i
-                  aria-hidden="true"
-                  class="ms-Dropdown-caretDown caretDown-147"
-                  data-icon-name="ChevronDown"
-                >
-                  
-                </i>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-4"
-        >
-          <div
-            class="emotion-5"
-          >
-            <div
-              class="emotion-6"
-            >
               anchor.point.longitude
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-10 root-149"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-150"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.longitude"
-                  class="ms-TextField-field field-151"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField3"
+                  id="TextField2"
                   readonly=""
                   type="text"
                   value="40"
@@ -552,20 +460,20 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-10 root-149"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-150"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.latitude"
-                  class="ms-TextField-field field-151"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField8"
+                  id="TextField7"
                   readonly=""
                   type="text"
                   value="60"
@@ -587,20 +495,20 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-10 root-149"
+            class="ms-TextField is-disabled emotion-7 root-129"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-150"
+                class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.angle"
-                  class="ms-TextField-field field-151"
+                  class="ms-TextField-field field-131"
                   disabled=""
-                  id="TextField13"
+                  id="TextField12"
                   readonly=""
                   type="text"
                   value="89"

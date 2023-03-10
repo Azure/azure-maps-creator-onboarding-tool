@@ -1,27 +1,21 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 
 import { useLayersStore } from 'common/store';
 import Layer from './layer';
 import PageDescription from 'components/page-description/page-description';
 
-const layersSelector = (s) => [s.layers, s.setVisited];
+const layersSelector = (s) => s.layers;
 
 export const Layers = () => {
   const { t } = useTranslation();
-  const [layers, setVisited] = useLayersStore(layersSelector, shallow);
-
-  useEffect(() => {
-    // this page does not have any required fields, so the only requirement is to visit it once.
-    setVisited();
-  }, [setVisited]);
+  const layers = useLayersStore(layersSelector);
 
   return (
     <>
       <PageDescription description={t('page.description.layers')} />
-      {layers.map(({id, name, props, value, isDraft}) => (
-        <Layer id={id} name={name} props={props} value={value} key={id} isDraft={isDraft} />
+      {layers.map(({id, name, props, value, required, isDraft}) => (
+        <Layer id={id} name={name} props={props} value={value} key={id} required={required}
+               isDraft={isDraft} />
       ))}
     </>
   );

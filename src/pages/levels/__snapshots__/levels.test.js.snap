@@ -8,74 +8,6 @@ Object {
   max-width: 31.25rem;
 }
 
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
-}
-
 <body>
     <div>
       <div>
@@ -113,47 +45,6 @@ Object {
             </div>
           </div>
         </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              <div
-                class="emotion-4"
-              >
-                <div
-                  class="emotion-5"
-                >
-                  facility.name
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-6 root-122"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="facility.name"
-                    class="ms-TextField-field field-124"
-                    id="TextField1"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div>
           {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
         </div>
@@ -163,74 +54,6 @@ Object {
   "container": .emotion-0 {
   margin-bottom: 1rem;
   max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
 }
 
 <div>
@@ -265,47 +88,6 @@ Object {
               <span
                 class="ms-MessageBar-innerText innerText-114"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-6 root-122"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-124"
-                  id="TextField1"
-                  type="text"
-                  value=""
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -377,74 +159,6 @@ Object {
   max-width: 31.25rem;
 }
 
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
-}
-
 <body>
     <div>
       <div>
@@ -472,53 +186,12 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar6"
+                id="MessageBar1"
                 role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              <div
-                class="emotion-4"
-              >
-                <div
-                  class="emotion-5"
-                >
-                  facility.name
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-6 root-122"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="facility.name"
-                    class="ms-TextField-field field-124"
-                    id="TextField7"
-                    type="text"
-                    value=""
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -535,74 +208,6 @@ Object {
   "container": .emotion-0 {
   margin-bottom: 1rem;
   max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
 }
 
 <div>
@@ -631,53 +236,12 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar6"
+              id="MessageBar1"
               role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-6 root-122"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-124"
-                  id="TextField7"
-                  type="text"
-                  value=""
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -752,74 +316,6 @@ Object {
   max-width: 31.25rem;
 }
 
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
-}
-
 <body>
     <div>
       <div>
@@ -847,53 +343,12 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar12"
+                id="MessageBar2"
                 role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              <div
-                class="emotion-4"
-              >
-                <div
-                  class="emotion-5"
-                >
-                  facility.name
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-6 root-122"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="facility.name"
-                    class="ms-TextField-field field-124"
-                    id="TextField13"
-                    type="text"
-                    value=""
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -913,74 +368,6 @@ Object {
   "container": .emotion-0 {
   margin-bottom: 1rem;
   max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
 }
 
 <div>
@@ -1009,53 +396,12 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar12"
+              id="MessageBar2"
               role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-6 root-122"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-124"
-                  id="TextField13"
-                  type="text"
-                  value=""
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -1133,74 +479,6 @@ Object {
   max-width: 31.25rem;
 }
 
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
-}
-
 <body>
     <div>
       <div>
@@ -1228,53 +506,12 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar18"
+                id="MessageBar3"
                 role="status"
               >
                 <span
                   class="ms-MessageBar-innerText innerText-114"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              <div
-                class="emotion-4"
-              >
-                <div
-                  class="emotion-5"
-                >
-                  facility.name
-                </div>
-              </div>
-            </div>
-            <div
-              class="ms-TextField emotion-6 root-122"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-123"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="facility.name"
-                    class="ms-TextField-field field-124"
-                    id="TextField19"
-                    type="text"
-                    value=""
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -1297,74 +534,6 @@ Object {
   "container": .emotion-0 {
   margin-bottom: 1rem;
   max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  width: 100%;
-  max-width: 30rem;
 }
 
 <div>
@@ -1393,53 +562,12 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar18"
+              id="MessageBar3"
               role="status"
             >
               <span
                 class="ms-MessageBar-innerText innerText-114"
               />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-6 root-122"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-123"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-124"
-                  id="TextField19"
-                  type="text"
-                  value=""
-                />
-              </div>
             </div>
           </div>
         </div>
