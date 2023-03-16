@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { inputStyles, inputStylesCentered } from './number-input.style';
 
-const allowedKeys = ['Digit0', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Minus', 'Period'];
+const allowedKeys = '0123456789-.';
 const enterKeyCode = 'Enter';
 const decimalNumber = /^-?\d{1,}(\.\d{0,})?$/;
 
@@ -21,7 +21,18 @@ const NumberInput = ({ value, onChange, placeholder, onSubmit, max, min, classNa
   }, [value]); // eslint-disable-line react-hooks/exhaustive-deps -- only want this effect to run when value changes
 
   const updateStringValue = useCallback((e) => {
-    const value = e.target.value;
+    let value = e.target.value[0] === '+' ? e.target.value.substring(1) : e.target.value;
+    const numberOfDots = value.split('.').length - 1;
+
+    if (numberOfDots > 1) {
+      return;
+    }
+    if (precision && numberOfDots === 1) {
+      const dotPosition = value.indexOf('.');
+      if (value.length > dotPosition + precision + 1) {
+        value = value.substring(0, dotPosition + precision + 1);
+      }
+    }
 
     if (value === '' || (value === '-' && !positiveOnly)) {
       setStringVal(value);
@@ -50,7 +61,7 @@ const NumberInput = ({ value, onChange, placeholder, onSubmit, max, min, classNa
     if (e.code === enterKeyCode && onSubmit) {
       onSubmit(e);
     }
-    if (!allowedKeys.includes(e.code)) {
+    if (!allowedKeys.includes(e.key)) {
       e.preventDefault();
     }
   }, [onSubmit]);

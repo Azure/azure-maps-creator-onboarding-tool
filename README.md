@@ -63,6 +63,7 @@ For client<->server communication we use only two requests:
 There is also `fetchAddress` request to public API to search coordinates by address.
 
 All API requests live in `src/common/api/index.js`.
+API is designed to be used only by the onboarding tool and is not supported for any other use.
 
 ## Map interactions.
 
