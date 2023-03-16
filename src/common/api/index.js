@@ -1,3 +1,4 @@
+// The following API is designed to be used only by the onboarding tool and is not supported for any other use.
 import { CONSTANTS } from 'common';
 
 export const HTTP_STATUS_CODE = {
