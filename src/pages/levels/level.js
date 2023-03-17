@@ -10,7 +10,7 @@ import FieldError from 'components/field-error';
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
 const levelsSelector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError, s.isOrdinalEmpty];
-const progressBarSelector = (s) => s.isErrorShown;
+const progressBarSelector = (s) => s.isMissingDataErrorShown;
 
 const Level = ({ level }) => {
   const { t } = useTranslation();

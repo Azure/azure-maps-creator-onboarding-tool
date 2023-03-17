@@ -24,7 +24,11 @@ export const useLayersStore = create(
       polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
       textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
     })),
-    setLayerFromManifestJson: (layers = {}) => {
+    setLayerFromManifestJson: (layers = []) => {
+      if (!checkIfLayersValid(layers)) {
+        return;
+      }
+
       const convertedLayers = convertLayersFromManifestJson(
         layers,
         get().textLayerNames,
@@ -209,6 +213,25 @@ export const useLayersStore = create(
     },
   }),
 );
+
+export function checkIfLayersValid(layers) {
+  if (!Array.isArray(layers)) {
+    return false;
+  }
+  return layers.every((layer) => {
+    if (typeof layer.featureClassName !== 'string' || !Array.isArray(layer.dwgLayers)) {
+      return false;
+    }
+    if (!Array.isArray(layer.featureClassProperties) && layer.featureClassProperties !== undefined) {
+      return false;
+    }
+    if (Array.isArray(layer.featureClassProperties)
+      && !layer.featureClassProperties.every((prop) => typeof prop.featureClassPropertyName === 'string' && Array.isArray(prop.dwgLayers))) {
+      return false;
+    }
+    return true;
+  });
+}
 
 export function getDefaultState() {
   return {

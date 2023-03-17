@@ -5,7 +5,7 @@ import { Icon } from '@fluentui/react/lib/Icon';
 import { iconCompletedStyle, iconErrorStyle, iconStyle } from './progress-bar.style';
 import { useProgressBarStore } from 'common/store';
 
-const progressBarSelector = (s) => s.isErrorShown;
+const progressBarSelector = (s) => s.isMissingDataErrorShown;
 
 const ProgressBarIcon = ({isCompletedStep, label}) => {
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);

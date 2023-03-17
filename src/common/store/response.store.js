@@ -125,7 +125,9 @@ export const useResponseStore = create((set, get) => ({
             parsed = {};
           }
 
-          useProgressBarStore.getState().hideError();
+          useProgressBarStore.getState().hideIncorrectManifestVersionError();
+          useProgressBarStore.getState().hideInvalidManifestError();
+          useProgressBarStore.getState().hideMissingDataError();
           useLayersStore.getState().reset();
           useGeometryStore.getState().reset();
           useLevelsStore.getState().reset();
@@ -164,20 +166,30 @@ export const useResponseStore = create((set, get) => ({
           const existingManifestJson = get().existingManifestJson;
 
           if (existingManifestJson !== null) {
-            useLevelsStore.getState().updateLevels(existingManifestJson.buildingLevels.levels);
-            useLevelsStore.getState().setFacilityName(existingManifestJson.facilityName);
-            useLayersStore.getState().setLayerFromManifestJson(existingManifestJson.featureClasses);
-            useLayersStore.getState().setVisited();
-            useGeometryStore.setState({
-              dwgLayers: existingManifestJson.buildingLevels.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
-            });
-            useGeometryStore.getState().updateAnchorPoint({
-              coordinates: [
-                existingManifestJson.georeference?.lon ?? 0,
-                existingManifestJson.georeference?.lat ?? 0,
-              ],
-              angle: existingManifestJson.georeference?.angle ?? 0,
-            });
+            const manifestVersion = parseInt(existingManifestJson.version);
+            const jsonData = parseManifestJson(existingManifestJson);
+
+            if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
+              useProgressBarStore.getState().showIncorrectManifestVersionError();
+            } else if (jsonData === null) {
+              useProgressBarStore.getState().showInvalidManifestError();
+            } else {
+              useLevelsStore.getState().updateLevels(jsonData.levels);
+              useLevelsStore.getState().setFacilityName(jsonData.facilityName);
+              useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
+              useLayersStore.getState().setVisited();
+              useGeometryStore.setState({
+                dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
+              });
+              useGeometryStore.getState().updateAnchorPoint({
+                coordinates: [
+                  jsonData.georeference.lon,
+                  jsonData.georeference.lat,
+                ],
+                angle: jsonData.georeference.angle,
+              });
+            }
+
           }
 
           set(() => ({
@@ -193,6 +205,35 @@ export const useResponseStore = create((set, get) => ({
       });
   },
 }));
+
+export function parseManifestJson(json) {
+  if (typeof json !== 'object' || json === null) {
+    return null;
+  }
+  if (!Array.isArray(json.buildingLevels?.levels)) {
+    return null;
+  }
+  if (!Array.isArray(json.buildingLevels?.dwgLayers)) {
+    return null;
+  }
+  if (typeof json.facilityName !== 'string' && typeof json.facilityName !== 'undefined') {
+    return null;
+  }
+  if (!Array.isArray(json.featureClasses)) {
+    return null;
+  }
+  if (typeof json.georeference?.lon !== 'number' || typeof json.georeference?.lat !== 'number' || typeof json.georeference?.angle !== 'number') {
+    return null;
+  }
+
+  return {
+    dwgLayers: json.buildingLevels.dwgLayers,
+    facilityName: json.facilityName ?? '',
+    featureClasses: json.featureClasses,
+    levels: json.buildingLevels.levels,
+    georeference: json.georeference,
+  };
+}
 
 export function getFirstMeaningfulError(data) {
   const details = data?.error?.details ?? [];

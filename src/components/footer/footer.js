@@ -9,14 +9,14 @@ import { useCompletedSteps, progressBarSteps, useProgressBarStore } from 'common
 import { useReviewManifestStore } from 'common/store/review-manifest.store';
 
 const reviewManifestSelector = (s) => s.showPane;
-const progressBarStoreSelector = (s) => [s.showError, s.hideError];
+const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const completedSteps = useCompletedSteps();
-  const [showError, hideError] = useProgressBarStore(progressBarStoreSelector, shallow);
+  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
   const showReviewManifestPane = useReviewManifestStore(reviewManifestSelector);
   const order = progressBarSteps.findIndex(route => route.href === pathname);
 
@@ -35,12 +35,12 @@ export const Footer = () => {
   }, [navigate, prevScreenLink]);
   const onReview = useCallback(() => {
     if (allStepsCompleted) {
-      hideError();
+      hideMissingDataError();
       showReviewManifestPane();
     } else {
-      showError();
+      showMissingDataError();
     }
-  }, [allStepsCompleted, hideError, showReviewManifestPane, showError]);
+  }, [allStepsCompleted, hideMissingDataError, showReviewManifestPane, showMissingDataError]);
 
   if (order === -1) {
     return null;
