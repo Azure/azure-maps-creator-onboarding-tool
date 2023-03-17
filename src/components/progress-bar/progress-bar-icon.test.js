@@ -6,13 +6,13 @@ import { useProgressBarStore } from 'common/store';
 describe('ProgressBarIcon', () => {
   beforeEach(() => {
     useProgressBarStore.setState({
-      isErrorShown: false,
+      isMissingDataErrorShown: false,
     });
   });
 
   it('should render error icon', () => {
     useProgressBarStore.setState({
-      isErrorShown: true,
+      isMissingDataErrorShown: true,
     });
     const view = render(<ProgressBarIcon label={'foo'} isCompletedStep={false} />);
     expect(view).toMatchSnapshot();

@@ -67,6 +67,14 @@ Object {
   "baseElement": .emotion-0 {
   max-width: 31.25rem;
   margin: 0.9375rem 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .emotion-1 {
@@ -199,6 +207,14 @@ Object {
   "container": .emotion-0 {
   max-width: 31.25rem;
   margin: 0.9375rem 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .emotion-1 {

@@ -8,23 +8,37 @@ import { progressBarSteps, useCompletedSteps, useProgressBarStore } from 'common
 import { errorContainer, progressBarContainer } from './progress-bar.style';
 import ProgressBarButton from './progress-bar-button';
 
-const progressBarStoreSelector = (s) => [s.isErrorShown, s.hideError];
+const progressBarStoreSelector = (s) => [
+  s.isIncorrectManifestVersionErrorShown,
+  s.hideIncorrectManifestVersionError,
+  s.isInvalidManifestErrorShown,
+  s.hideInvalidManifestError,
+  s.isMissingDataErrorShown,
+  s.hideMissingDataError,
+];
 
 export const ProgressBar = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const completedSteps = useCompletedSteps();
-  const [isErrorShown, hideError] = useProgressBarStore(progressBarStoreSelector, shallow);
+  const [
+    isIncorrectManifestVersionErrorShown,
+    hideIncorrectManifestVersionError,
+    isInvalidManifestErrorShown,
+    hideInvalidManifestError,
+    isMissingDataErrorShown,
+    hideMissingDataError,
+  ] = useProgressBarStore(progressBarStoreSelector, shallow);
 
   const shouldShowProgressBar = useMemo(() => (
     progressBarSteps.some((step) => step.href === pathname)
   ), [pathname]);
 
   useEffect(() => {
-    if (completedSteps.length === progressBarSteps.length && isErrorShown) {
-      hideError();
+    if (completedSteps.length === progressBarSteps.length && isMissingDataErrorShown) {
+      hideMissingDataError();
     }
-  }, [completedSteps, isErrorShown, hideError]);
+  }, [completedSteps, isMissingDataErrorShown, hideMissingDataError]);
 
   if (!shouldShowProgressBar) {
     return null;
@@ -33,8 +47,18 @@ export const ProgressBar = () => {
   return (
     <>
       <div className={errorContainer}>
-        {isErrorShown && (
-          <MessageBar messageBarType={MessageBarType.error} isMultiline={false}>
+        {isIncorrectManifestVersionErrorShown && (
+          <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideIncorrectManifestVersionError}>
+            {t('error.manifest.incorrect.version')}
+          </MessageBar>
+        )}
+        {isInvalidManifestErrorShown && (
+          <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideInvalidManifestError}>
+            {t('error.manifest.invalid')}
+          </MessageBar>
+        )}
+        {isMissingDataErrorShown && (
+          <MessageBar messageBarType={MessageBarType.error} isMultiline>
             {t('error.validation.failed.missing.info')}
           </MessageBar>
         )}

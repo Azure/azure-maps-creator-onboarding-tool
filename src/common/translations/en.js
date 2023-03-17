@@ -34,6 +34,8 @@ const en = {
     'error.layer.name.contains.illegal.characters': 'Feature class name cannot include invalid characters. Valid characters are: lower case characters (a-z), upper case characters (A-Z), numbers (0-9), and underscore character (\'_\').',
     'error.layer.name.not.allowed': 'Reserved feature class name. Please choose a different name.',
     'error.layer.name.should.begin.with.letter': 'Feature class name must begin with an upper case or lower case character.',
+    'error.manifest.incorrect.version': 'Existing manifest provided is not supported. Only manifest version 2.0 or later is supported.',
+    'error.manifest.invalid': 'Existing manifest provided is invalid.',
     'error.no.polygonLayerNames': 'DWG file(s) submitted must include a closed polygon entity representing the floor exterior.',
     'error.ordinal.must.be.unique': 'Ordinal value must be unique.',
     'error.ordinal.not.valid': 'The value must be a valid number between –1000 and 1000.',

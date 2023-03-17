@@ -30,12 +30,26 @@ export const progressBarSteps = [
 ];
 
 export const useProgressBarStore = create((set) => ({
-    isErrorShown: false,
-    showError: () => set({
-        isErrorShown: true,
+    isMissingDataErrorShown: false,
+    isIncorrectManifestVersionErrorShown: false,
+    isInvalidManifestErrorShown: false,
+    showIncorrectManifestVersionError: () => set({
+        isIncorrectManifestVersionErrorShown: true,
     }),
-    hideError: () => set({
-        isErrorShown: false,
+    hideIncorrectManifestVersionError: () => set({
+        isIncorrectManifestVersionErrorShown: false,
+    }),
+    showInvalidManifestError: () => set({
+        isInvalidManifestErrorShown: true,
+    }),
+    hideInvalidManifestError: () => set({
+        isInvalidManifestErrorShown: false,
+    }),
+    showMissingDataError: () => set({
+        isMissingDataErrorShown: true,
+    }),
+    hideMissingDataError: () => set({
+        isMissingDataErrorShown: false,
     }),
 }));
 

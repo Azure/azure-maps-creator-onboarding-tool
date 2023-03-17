@@ -5,6 +5,9 @@ import { color, fontSize, fontWeight } from 'common/styles';
 export const errorContainer = css`
   max-width: 31.25rem;
   margin: 0.9375rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const progressBarContainer = css`

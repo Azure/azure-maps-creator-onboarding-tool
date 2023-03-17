@@ -23,7 +23,8 @@ export const useLevelsStore = create((set, get) => ({
     }))
   }),
   updateLevels: (levels = []) => {
-    const levelsByFilename = levels.reduce((acc, val) => ({
+    const levelsByFilename = levels.filter((level) => typeof level === 'object' && level !== null)
+      .reduce((acc, val) => ({
       ...acc,
       [val.filename]: val,
     }), {});
@@ -35,9 +36,9 @@ export const useLevelsStore = create((set, get) => ({
         }
         return {
           filename: level.filename,
-          levelName: typeof levelsByFilename[level.filename].levelName === 'string' ? levelsByFilename[level.filename].levelName : '',
-          ordinal: typeof levelsByFilename[level.filename].ordinal === 'number' ? levelsByFilename[level.filename].ordinal.toString() : '',
-          verticalExtent: typeof levelsByFilename[level.filename].verticalExtent === 'number' ? levelsByFilename[level.filename].verticalExtent.toString() : '',
+          levelName: typeof levelsByFilename[level.filename].levelName === 'string' ? levelsByFilename[level.filename].levelName : level.levelName,
+          ordinal: typeof levelsByFilename[level.filename].ordinal === 'number' ? levelsByFilename[level.filename].ordinal.toString() : level.ordinal,
+          verticalExtent: typeof levelsByFilename[level.filename].verticalExtent === 'number' ? levelsByFilename[level.filename].verticalExtent.toString() : level.verticalExtent,
         };
       })
     }));

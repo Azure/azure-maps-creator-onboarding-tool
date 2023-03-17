@@ -30,7 +30,7 @@ describe('Layer component', () => {
       layers: [layer1, layer2],
     });
     useProgressBarStore.setState({
-      isErrorShown: false,
+      isMissingDataErrorShown: false,
     });
   });
 
@@ -62,7 +62,7 @@ describe('Layer component', () => {
 
   it('should show error', () => {
     useProgressBarStore.setState({
-      isErrorShown: true,
+      isMissingDataErrorShown: true,
     });
 
     const view = render(

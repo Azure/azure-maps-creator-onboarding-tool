@@ -12,7 +12,7 @@ const mockLevel = {
 describe('Level component', () => {
   beforeEach(() => {
     useProgressBarStore.setState({
-      isErrorShown: false,
+      isMissingDataErrorShown: false,
     });
   });
 
@@ -24,7 +24,7 @@ describe('Level component', () => {
   it('should show error', () => {
     const emptyLevel = { filename: 'kitchen.dwg', levelName: '', ordinal: '' };
     useProgressBarStore.setState({
-      isErrorShown: true,
+      isMissingDataErrorShown: true,
     });
 
     const view = render(<Level level={emptyLevel} />);
