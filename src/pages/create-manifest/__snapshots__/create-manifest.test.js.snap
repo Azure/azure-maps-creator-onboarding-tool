@@ -2617,7 +2617,7 @@ Object {
         class="emotion-0"
       >
         <div
-          aria-describedby="MessageBar219"
+          aria-describedby="MessageBar216"
           class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
@@ -2639,7 +2639,7 @@ Object {
             <div
               aria-live="assertive"
               class="ms-MessageBar-text text-113"
-              id="MessageBar219"
+              id="MessageBar216"
               role="alert"
             >
               <span
@@ -2712,7 +2712,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip223"
+                  id="tooltip220"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.geography
@@ -2733,14 +2733,14 @@ Object {
                 class="ms-Dropdown dropdown-133"
                 data-is-focusable="true"
                 data-ktp-target="true"
-                id="Dropdown224"
+                id="Dropdown221"
                 role="combobox"
                 tabindex="0"
               >
                 <span
                   aria-invalid="false"
                   class="ms-Dropdown-title title-173"
-                  id="Dropdown224-option"
+                  id="Dropdown221-option"
                 >
                   geography.europe
                 </span>
@@ -2787,7 +2787,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip225"
+                  id="tooltip222"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.subKey
@@ -2813,7 +2813,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-155"
                     data-testid="subscription-key-field"
-                    id="TextField226"
+                    id="TextField223"
                     type="password"
                     value="subscription_key!"
                   />
@@ -2867,7 +2867,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip231"
+                  id="tooltip228"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.dwg.zip.package
@@ -2893,7 +2893,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-155"
                     data-testid="file-name-field"
-                    id="TextField232"
+                    id="TextField229"
                     readonly=""
                     type="text"
                     value=""
@@ -2936,7 +2936,7 @@ Object {
             >
               <span
                 class="ms-Button-label label-169"
-                id="id__237"
+                id="id__234"
               >
                 process
               </span>
@@ -2958,7 +2958,7 @@ Object {
             >
               <span
                 class="ms-Button-label label-172"
-                id="id__240"
+                id="id__237"
               >
                 cancel
               </span>
@@ -3157,7 +3157,7 @@ Object {
       class="emotion-0"
     >
       <div
-        aria-describedby="MessageBar219"
+        aria-describedby="MessageBar216"
         class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
@@ -3179,7 +3179,7 @@ Object {
           <div
             aria-live="assertive"
             class="ms-MessageBar-text text-113"
-            id="MessageBar219"
+            id="MessageBar216"
             role="alert"
           >
             <span
@@ -3252,7 +3252,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip223"
+                id="tooltip220"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.geography
@@ -3273,14 +3273,14 @@ Object {
               class="ms-Dropdown dropdown-133"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown224"
+              id="Dropdown221"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
                 class="ms-Dropdown-title title-173"
-                id="Dropdown224-option"
+                id="Dropdown221-option"
               >
                 geography.europe
               </span>
@@ -3327,7 +3327,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip225"
+                id="tooltip222"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.subKey
@@ -3353,7 +3353,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-155"
                   data-testid="subscription-key-field"
-                  id="TextField226"
+                  id="TextField223"
                   type="password"
                   value="subscription_key!"
                 />
@@ -3407,7 +3407,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip231"
+                id="tooltip228"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.dwg.zip.package
@@ -3433,7 +3433,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-155"
                   data-testid="file-name-field"
-                  id="TextField232"
+                  id="TextField229"
                   readonly=""
                   type="text"
                   value=""
@@ -3476,7 +3476,7 @@ Object {
           >
             <span
               class="ms-Button-label label-169"
-              id="id__237"
+              id="id__234"
             >
               process
             </span>
@@ -3498,7 +3498,7 @@ Object {
           >
             <span
               class="ms-Button-label label-172"
-              id="id__240"
+              id="id__237"
             >
               cancel
             </span>
