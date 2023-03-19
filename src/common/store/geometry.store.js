@@ -86,6 +86,7 @@ export const useDissolvedExterior = () => {
   const [dwgLayers, anchorPoint, setCenterToAnchorPointDestination] = useGeometryStore(geometrySelector, shallow);
   const [output, setOutput] = useState([null, null]);
   const [worker, setWorker] = useState(null);
+  const [calcInProgress, setCalcInProgress] = useState(false);
   const [centerToAnchorHasBeenUpdated, setCenterToAnchorHasBeenUpdated] = useState(false);
   const [mergedMultiPolygons, setMergedMultiPolygons] = useState(null);
   const [anchorPointForRendering, setAnchorPointForRendering] = useThrottle(null);
@@ -125,20 +126,22 @@ export const useDissolvedExterior = () => {
     const newWorker = buildWorker();
     setWorker(newWorker);
     newWorker.onmessage = (message) => {
+      setCalcInProgress(false);
       setMergedMultiPolygons(message.data);
     };
   }, []);
 
   useEffect(() => {
-    if (anchorPointForRendering === null || worker === null) {
+    if (anchorPointForRendering === null || worker === null || calcInProgress) {
       return;
     }
+    setCalcInProgress(true);
     worker.postMessage({
       dwgLayers,
       polygonLayers,
       anchorPoint: anchorPointForRendering,
     });
-  }, [anchorPointForRendering, dwgLayers]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [anchorPointForRendering, dwgLayers, calcInProgress]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // this was added to utilize throttling and prevent coordinates from re-calculating too often
   useEffect(() => {
