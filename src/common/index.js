@@ -1,3 +1,3 @@
-import { CONSTANTS, PATHS, ROUTE_NAME_BY_PATH } from './constants';
+import { PATHS, ROUTE_NAME_BY_PATH } from './constants';
 
-export { CONSTANTS, PATHS, ROUTE_NAME_BY_PATH };
+export { PATHS, ROUTE_NAME_BY_PATH };

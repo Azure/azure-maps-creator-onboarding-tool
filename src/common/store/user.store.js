@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 
-import { CONSTANTS } from 'common';
+import { getEnvs } from 'common/functions';
 
 export const useUserStore = create((set) => ({
   subscriptionKey: '',
   setSubscriptionKey: (key) => set(() => ({ subscriptionKey: key })),
-  geography: Object.keys(CONSTANTS.GEO)[0],
+  geography: Object.keys(getEnvs())[0],
   setGeography: (geo) => set(() => ({ geography: geo })),
 }));
 
 export const getDomain = (geography) => {
-  return CONSTANTS.GEO[geography].URL;
+  return getEnvs()[geography].URL;
 };

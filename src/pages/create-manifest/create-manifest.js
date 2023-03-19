@@ -7,7 +7,8 @@ import { DefaultButton, Dropdown, MessageBar, MessageBarType, PrimaryButton, Tex
 import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
-import { CONSTANTS, PATHS } from 'common';
+import { PATHS } from 'common';
+import { getEnvs } from 'common/functions';
 import { useUserStore, useResponseStore } from 'common/store';
 import FileField from './file-field';
 import {
@@ -52,9 +53,9 @@ const CreateManifestPage = ({ allowEdit }) => {
   const [acknowledgeApiError, apiErrorMessage, uploadFile, setExistingManifestJson] = useResponseStore(responseStoreSelector, shallow);
 
   const environmentOptions = useMemo(() => (
-    Object.keys(CONSTANTS.GEO).map((geography) => ({
+    Object.keys(getEnvs()).map((geography) => ({
       key: geography,
-      text: t(CONSTANTS.GEO[geography].TEXT),
+      text: t(getEnvs()[geography].TEXT),
     }))
   ), [t]);
 

@@ -35,3 +35,29 @@ export function isNumeric(str) {
 export function isVerticalExtentEmpty(verticalExtent) {
   return verticalExtent === '' || verticalExtent === '-';
 }
+
+const defaultEnvs = {
+  US: {
+    TEXT: 'geography.unitedstates',
+    URL: 'https://us.atlas.microsoft.com',
+  },
+  EU: {
+    TEXT: 'geography.europe',
+    URL: 'https://eu.atlas.microsoft.com',
+  }
+};
+
+export const getEnvs = () => {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  const showTestEndpoint = params.hasOwnProperty('testMdp');
+  return {
+    ...defaultEnvs,
+    ...(showTestEndpoint ? {
+      US_TEST: {
+        TEXT: 'geography.unitedstates.test',
+        URL: 'https://us.t-azmaps.azurelbs.com',
+      },
+    }: {}),
+  };
+};

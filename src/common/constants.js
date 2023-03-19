@@ -20,22 +20,4 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.INVALID_PATH]: 'redirect',
 };
 
-export const CONSTANTS = {
-  GEO: {
-    US: {
-      TEXT: 'geography.unitedstates',
-      URL: 'https://us.atlas.microsoft.com',
-    },
-    // remove before moving to github
-    US_TEST: {
-      TEXT: 'geography.unitedstates.test',
-      URL: 'https://us.t-azmaps.azurelbs.com',
-    },
-    EU: {
-      TEXT: 'geography.europe',
-      URL: 'https://eu.atlas.microsoft.com',
-    }
-  }
-};
-
 export const TRUNCATE_FRACTION_DIGITS = 8;
