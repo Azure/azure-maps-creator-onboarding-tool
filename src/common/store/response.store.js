@@ -71,8 +71,9 @@ export const useResponseStore = create((set, get) => ({
         operationLocation: r.headers.get(OPERATION_LOCATION),
       }));
     })
-    .catch((e) => {
-      set(() => ({ errorMessage: e.message }));
+    .catch(({ message }) => {
+      const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+      set(() => ({ errorMessage: errorMsg }));
     });
   },
 
@@ -197,9 +198,10 @@ export const useResponseStore = create((set, get) => ({
           }));
         }
       })
-      .catch((e) => {
+      .catch(({ message }) => {
+        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
         set(() => ({
-          errorMessage: e.message,
+          errorMessage: errorMsg,
           lroStatus: LRO_STATUS.FAILED,
         }));
       });
