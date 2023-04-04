@@ -36,7 +36,7 @@ const en = {
     'error.layer.name.should.begin.with.letter': 'Feature class name must begin with an upper case or lower case character.',
     'error.manifest.incorrect.version': 'Existing manifest provided is not supported. Only manifest version 2.0 or later is supported.',
     'error.manifest.invalid': 'Existing manifest provided is invalid.',
-    'error.network.issue.cors': 'There is probably a network issue, or your Azure Maps account is missing CORS rules for this tool.',
+    'error.network.issue.cors': 'Unable to process your request due to a network issue or CORS is enabled for your Azure Maps account and a rule needs to be added for this tool.',
     'error.no.polygonLayerNames': 'DWG file(s) submitted must include a closed polygon entity representing the floor exterior.',
     'error.ordinal.must.be.unique': 'Ordinal value must be unique.',
     'error.ordinal.not.valid': 'The value must be a valid number between –1000 and 1000.',
