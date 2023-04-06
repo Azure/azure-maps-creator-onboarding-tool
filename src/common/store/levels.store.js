@@ -77,8 +77,14 @@ export const useLevelsStore = create((set, get) => ({
     }),
   })),
   getVerticalExtentError: (verticalExtent) => {
-    if (isVerticalExtentEmpty(verticalExtent) || isNumeric(verticalExtent)) {
+    if (isVerticalExtentEmpty(verticalExtent)) {
       return null;
+    }
+    if (isNumeric(verticalExtent)) {
+      const verticalExtentNumber = parseFloat(verticalExtent);
+      if (verticalExtentNumber > 0 && verticalExtentNumber <= 100) {
+        return null;
+      }
     }
     return 'error.vertical.extent.not.valid';
   },
