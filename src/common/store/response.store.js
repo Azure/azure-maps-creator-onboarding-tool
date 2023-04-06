@@ -142,9 +142,10 @@ export const useResponseStore = create((set, get) => ({
           // drawing = {filename, layer[]}
           // layer = {name, geometry[]}
           parsed.drawings.forEach(drawing => {
+            const validPolygonLayers = drawing.polygonLayers.filter((polygonLayer) => isPolygonLayerComplete(polygonLayer));
             drawing.layers.forEach(layer => layerNames.add(layer));
-            drawing.polygonLayers.forEach(layer => polygonLayerNames.add(layer.name));
-            useLayersStore.getState().addPolygonLayers(drawing.polygonLayers);
+            validPolygonLayers.forEach(layer => polygonLayerNames.add(layer.name));
+            useLayersStore.getState().addPolygonLayers(validPolygonLayers);
             drawing.textLayers.forEach(name => textLayerNames.add(name));
           });
 
@@ -248,4 +249,13 @@ export function getFirstMeaningfulError(data) {
   }
 
   return null;
+}
+
+export function isPolygonLayerComplete(polygonLayer = {}) {
+  if (typeof polygonLayer !== 'object' || polygonLayer === null) {
+    return false;
+  }
+  const { name, geometry } = polygonLayer;
+  return typeof name === 'string' && typeof geometry === 'object' && geometry !== null
+    && typeof geometry.type === 'string' && Array.isArray(geometry.coordinates);
 }
