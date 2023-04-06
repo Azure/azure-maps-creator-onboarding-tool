@@ -37,16 +37,19 @@ describe('progress-bar-steps hook', () => {
         filename: 'file1',
         levelName: 'lvl1',
         ordinal: '1',
+        verticalExtent: '',
       },
       {
         filename: 'file2',
         levelName: 'lvl2',
         ordinal: null,
+        verticalExtent: '',
       },
       {
         filename: 'file3',
         levelName: 'lvl3',
         ordinal: '3',
+        verticalExtent: '',
       },
     ];
 
@@ -63,16 +66,19 @@ describe('progress-bar-steps hook', () => {
         filename: 'file1',
         levelName: '',
         ordinal: '1',
+        verticalExtent: '',
       },
       {
         filename: 'file2',
         levelName: 'lvl2',
         ordinal: '2',
+        verticalExtent: '',
       },
       {
         filename: 'file3',
         levelName: 'lvl3',
         ordinal: '3',
+        verticalExtent: '',
       },
     ];
 
@@ -81,6 +87,39 @@ describe('progress-bar-steps hook', () => {
     useLevelsStore.getState().levels[0].levelName = longName;
     expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
     useLevelsStore.getState().levels[0].levelName = 'lvl1';
+    expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual(['levels']);
+  });
+
+  it('should not contain levels when vertical extent is invalid', () => {
+    useLevelsStore.getState().levels = [
+      {
+        filename: 'file1',
+        levelName: 'lvl1',
+        ordinal: '1',
+        verticalExtent: '-0.1',
+      },
+      {
+        filename: 'file2',
+        levelName: 'lvl2',
+        ordinal: '2',
+        verticalExtent: '',
+      },
+      {
+        filename: 'file3',
+        levelName: 'lvl3',
+        ordinal: '3',
+        verticalExtent: '50',
+      },
+    ];
+
+    expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
+    useLevelsStore.getState().levels[0].verticalExtent = '100.000000001';
+    expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
+    useLevelsStore.getState().levels[0].verticalExtent = '1O0';
+    expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
+    useLevelsStore.getState().levels[0].verticalExtent = NaN;
+    expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
+    useLevelsStore.getState().levels[0].verticalExtent = '100';
     expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual(['levels']);
   });
 
