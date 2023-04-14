@@ -67,7 +67,7 @@ describe('footer on pages where it should be rendered', () => {
     const spy = jest.spyOn(state, 'showPane');
     useGeometryStore.setState({ dwgLayers: ['layer1'] });
     useLayersStore.setState({ visited: true, layers: [] });
-    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1' }]});
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }]});
 
     render(<Footer />);
     const reviewBtn = screen.getByText('review.download');
