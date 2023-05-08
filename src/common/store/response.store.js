@@ -286,6 +286,6 @@ export function isPolygonLayerComplete(polygonLayer = {}) {
     && typeof geometry.type === 'string' && Array.isArray(geometry.coordinates);
 }
 
-function isGeometryPolygon(geometry) {
+function isGeometryPolygon(geometry = {}) {
   return geometry.type === 'MultiPolygon' || geometry.type === 'Polygon';
 }

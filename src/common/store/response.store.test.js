@@ -92,17 +92,19 @@ describe('parseManifestJson', () => {
 });
 
 describe('isPolygonLayerComplete', () => {
-  expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon', coordinates: []}})).toBe(true);
-  expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon', coordinates: {}}})).toBe(false);
-  expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 15, coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon'}})).toBe(false);
-  expect(isPolygonLayerComplete({name: undefined, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete({name: false, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete({name: null, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete({geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete({name: 'layer', geometry: { type: {}, coordinates: []}})).toBe(false);
-  expect(isPolygonLayerComplete()).toBe(false);
-  expect(isPolygonLayerComplete('')).toBe(false);
-  expect(isPolygonLayerComplete(null)).toBe(false);
-  expect(isPolygonLayerComplete(false)).toBe(false);
+  it('should test isPolygonLayerComplete', () => {
+    expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon', coordinates: []}})).toBe(true);
+    expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon', coordinates: {}}})).toBe(false);
+    expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 15, coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete({name: 'layer', geometry: { type: 'Polygon'}})).toBe(false);
+    expect(isPolygonLayerComplete({name: undefined, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete({name: false, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete({name: null, geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete({geometry: { type: 'Polygon', coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete({name: 'layer', geometry: { type: {}, coordinates: []}})).toBe(false);
+    expect(isPolygonLayerComplete()).toBe(false);
+    expect(isPolygonLayerComplete('')).toBe(false);
+    expect(isPolygonLayerComplete(null)).toBe(false);
+    expect(isPolygonLayerComplete(false)).toBe(false);
+  });
 });

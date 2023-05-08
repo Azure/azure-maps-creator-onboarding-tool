@@ -13,19 +13,19 @@
         "filename": "PUGET SOUND_ADVANTA-A_02.dwg",
         "levelName": "Next level",
         "ordinal": 22,
-        "verticalExtent": -2.5
+        "verticalExtent": 2.5
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_03.dwg",
         "levelName": "Nivel tres",
         "ordinal": 333,
-        "verticalExtent": 0
+        "verticalExtent": 0.0001
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_04.dwg",
         "levelName": "La France remportera la coupe du monde ce dimanche",
         "ordinal": 4,
-        "verticalExtent": 0
+        "verticalExtent": 1
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_05.dwg",
@@ -37,7 +37,7 @@
         "filename": "PUGET SOUND_ADVANTA-A_06.dwg",
         "levelName": "Уровень шесть",
         "ordinal": 6,
-        "verticalExtent": -0.55
+        "verticalExtent": 99.55
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_07.dwg",
@@ -48,8 +48,8 @@
     ]
   },
   "georeference": {
-    "lat": 33.5968537,
-    "lon": -7.61528415,
+    "lat": 33.5968536,
+    "lon": -7.61528416,
     "angle": 155
   },
   "featureClasses": [

@@ -4,14 +4,12 @@ import { useLayersStore } from 'common/store';
 
 import Layers from './layers';
 
+jest.mock('./preview', () => () => 'Layer Preview');
+
 const defaultLayers = [
   { id: 0, name: 'base layer', props: [{ id: 2, name: '', isDraft: false, value: [], }], value: ['this','is','my','fav','layer'], isDraft: false },
   { id: 1, name: 'interior', props: [{ id: 4, name: '', isDraft: true, value: [], }], value: ['walls','ratatata'], isDraft: false },
   { id: 3, name: '', props: [], value: [], isDraft: true },
-];
-
-const dwgLayers = [
-
 ];
 
 jest.mock('./layer', () => (props) => (

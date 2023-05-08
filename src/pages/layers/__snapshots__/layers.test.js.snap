@@ -8,6 +8,22 @@ Object {
   max-width: 31.25rem;
 }
 
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: wrap;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+  gap: 1rem;
+}
+
+.emotion-2 {
+  width: 47rem;
+}
+
 <body>
     <div>
       <div
@@ -44,20 +60,45 @@ Object {
           </div>
         </div>
       </div>
-      <div>
-        {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
-      </div>
-      <div>
-        {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
-      </div>
-      <div>
-        {"id":3,"name":"","props":[],"value":[],"isDraft":true}
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div>
+            {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
+          </div>
+          <div>
+            {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
+          </div>
+          <div>
+            {"id":3,"name":"","props":[],"value":[],"isDraft":true}
+          </div>
+        </div>
+        Layer Preview
       </div>
     </div>
   </body>,
   "container": .emotion-0 {
   margin-bottom: 1rem;
   max-width: 31.25rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-flow: wrap;
+  -webkit-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-flow: wrap;
+  gap: 1rem;
+}
+
+.emotion-2 {
+  width: 47rem;
 }
 
 <div>
@@ -95,14 +136,23 @@ Object {
         </div>
       </div>
     </div>
-    <div>
-      {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
-    </div>
-    <div>
-      {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
-    </div>
-    <div>
-      {"id":3,"name":"","props":[],"value":[],"isDraft":true}
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div>
+          {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
+        </div>
+        <div>
+          {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
+        </div>
+        <div>
+          {"id":3,"name":"","props":[],"value":[],"isDraft":true}
+        </div>
+      </div>
+      Layer Preview
     </div>
   </div>,
   "debug": [Function],
