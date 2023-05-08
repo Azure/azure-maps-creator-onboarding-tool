@@ -10,6 +10,10 @@ const defaultLayers = [
   { id: 3, name: '', props: [], value: [], isDraft: true },
 ];
 
+const dwgLayers = [
+
+];
+
 jest.mock('./layer', () => (props) => (
   <div>{JSON.stringify(props)}</div>
 ));

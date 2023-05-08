@@ -31,7 +31,7 @@ function Georeference() {
     if (polygonLayers.length === 0) {
       return [{
         key: null,
-        text: t('error.empty.dropdown'),
+        text: t('error.empty.layers.dropdown'),
       }];
     }
     return polygonLayers.map((layer) => ({
@@ -56,7 +56,7 @@ function Georeference() {
         <div className={textFieldColumn}>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('exterior')}</FieldLabel>
-            <Dropdown placeholder={t('select.layers')} selectedKeys={dwgLayers} multiSelect={options.length !== 0}
+            <Dropdown placeholder={t('select.layers')} selectedKeys={dwgLayers} multiSelect={polygonLayers.length !== 0}
                       onChange={onExteriorLayersSelect} options={options} styles={dropdownStyles} />
           </div>
           <div className={textFieldRow}>

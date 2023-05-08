@@ -10,7 +10,7 @@ export const HTTP_STATUS_CODE = {
   TOO_MANY_REQUESTS: 429,
 };
 
-const API_VERSION = '1.0';
+const API_VERSION = '2.0';
 
 export const uploadFile = (file, geography, subscriptionKey) => {
   const url = `${getEnvs()[geography].URL}/manifest?api-version=${API_VERSION}&subscription-key=${subscriptionKey}`;
@@ -31,7 +31,19 @@ export const fetchStatus = (operationLocation, subscriptionKey) => {
   });
 };
 
+export const fetchManifestData = (fetchUrl, subscriptionKey) => {
+  return fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
+    method: 'GET',
+  }).then((re) => re.json());
+};
+
+export const deleteManifestData = (fetchUrl, subscriptionKey) => {
+  return fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
+    method: 'DELETE',
+  });
+};
+
 export const fetchAddress = (address, geography, subscriptionKey) => (
-  fetch(`${getEnvs()[geography].URL}/search/address/json?subscription-key=${subscriptionKey}&api-version=${API_VERSION}&query=${address}&limit=1`)
+  fetch(`${getEnvs()[geography].URL}/search/address/json?subscription-key=${subscriptionKey}&api-version=1.0&query=${address}&limit=1`)
     .then((res) => res.json())
 );

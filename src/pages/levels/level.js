@@ -58,7 +58,9 @@ const Level = ({ level }) => {
   return (
     <div className={fileContainer}>
       <div className={fieldsRow}>
-        <FieldLabel className={fieldLabel} required>{t('file.name')}</FieldLabel>
+        <div className={fieldLabel}>
+          <FieldLabel required>{t('file.name')}</FieldLabel>
+        </div>
         <TextField readOnly styles={readOnlyInput} className={inputClass} disabled
                    value={level.filename} />
       </div>

@@ -39,7 +39,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     if (layerNames.length === 0) {
       return [{
         key: null,
-        text: t('error.empty.dropdown'),
+        text: t('error.empty.layers.dropdown'),
       }];
     }
     return layerNames.map((layer) => ({
