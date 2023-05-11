@@ -14,14 +14,18 @@ export const dropdownContainer = css`
   display: flex;
   font-size: ${fontSize.sm};
   align-items: center;
-  height: 1.5rem;
   margin-bottom: 1rem;
   gap: 1rem;
+  width: 100%;
 `;
 
 export const previewDropdownStyles = {
   ...dropdownStyles,
   root: {
-    width: '15rem',
+    maxWidth: '15rem',
   },
 };
+
+export const previewSelectContainer = css`
+  width: 50%;
+`;

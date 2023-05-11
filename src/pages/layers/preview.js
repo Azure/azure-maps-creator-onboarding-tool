@@ -4,7 +4,12 @@ import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { useTranslation } from 'react-i18next';
 
 import { useLayersStore } from 'common/store';
-import { previewDropdownStyles, previewContainerStyles, dropdownContainer } from './preview.style';
+import {
+  previewDropdownStyles,
+  previewContainerStyles,
+  dropdownContainer,
+  previewSelectContainer,
+} from './preview.style';
 
 const layersSelector = (s) => [s.dwgLayers, s.getAllValidLayers];
 const canvasSide = 500;
@@ -12,8 +17,18 @@ const canvasSide = 500;
 const Preview = () => {
   const { t } = useTranslation();
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
-  const [allLayers, getAllValidLayers] = useLayersStore(layersSelector, shallow);
+  const [unselectedDrawings, setUnselectedDrawings] = useState([]);
+  const [dwgLayers, getAllValidLayers] = useLayersStore(layersSelector, shallow);
 
+  const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
+  const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
+  const allLayers = useMemo(() => Object.keys(dwgLayers).reduce((acc, dwgLayer) => {
+    if (unselectedDrawings.includes(dwgLayer)) {
+      return acc;
+    }
+    return acc.concat(dwgLayers[dwgLayer]);
+  }, []), [dwgLayers, unselectedDrawings]);
+  const selectedDrawings = drawings.filter((drawing) => !unselectedDrawings.includes(drawing));
   const featureClasses = getAllValidLayers();
   const selectedFeatureClasses = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
@@ -22,8 +37,10 @@ const Preview = () => {
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
     .reduce((acc, fClass) => acc.concat(fClass.value), []);
   const layers = allLayers.filter((layer) => dwgLayersToShow.includes(layer.name));
-
-  const midPoints = useMemo(() => getMidPointsFromLayers(allLayers), [allLayers]);
+  const levelDropdownOptions = useMemo(() => drawings.map((drawing) => ({
+    key: drawing,
+    text: drawing,
+  })), [drawings]);
   const dropdownOptions = useMemo(() => {
     if (featureClasses.length === 0) {
       return [{
@@ -40,6 +57,9 @@ const Preview = () => {
   const onChange = useCallback((e, item) => {
     setUnselectedFeatureClasses(!item.selected ? unselectedFeatureClasses.concat(item.key) : unselectedFeatureClasses.filter((key) => key !== item.key));
   }, [setUnselectedFeatureClasses, unselectedFeatureClasses]);
+  const onLevelsChange = useCallback((e, item) => {
+    setUnselectedDrawings(!item.selected ? unselectedDrawings.concat(item.key) : unselectedDrawings.filter((key) => key !== item.key));
+  }, [setUnselectedDrawings, unselectedDrawings]);
 
   useEffect(() => {
     const canvas = document.getElementById('canvas');
@@ -116,9 +136,16 @@ const Preview = () => {
   return (
     <div className={previewContainerStyles}>
       <div className={dropdownContainer}>
-        {t('layers.preview')}:
-        <Dropdown placeholder={'Select feature class for preview'} selectedKeys={selectedFeatureClasses} multiSelect={featureClasses.length !== 0}
-                  onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
+        <div className={previewSelectContainer}>
+          {t('levels.preview')}:
+          <Dropdown placeholder={t('select.levels.preview')} selectedKeys={selectedDrawings} multiSelect={drawings.length > 1}
+                    onChange={onLevelsChange} options={levelDropdownOptions} styles={previewDropdownStyles} />
+        </div>
+        <div className={previewSelectContainer}>
+          {t('layers.preview')}:
+          <Dropdown placeholder={t('select.feature.class.preview')} selectedKeys={selectedFeatureClasses} multiSelect={featureClasses.length !== 0}
+                    onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
+        </div>
       </div>
       <canvas id='canvas' width={canvasSide} height={canvasSide} style={{maxWidth: '100%'}} />
     </div>
@@ -127,7 +154,8 @@ const Preview = () => {
 
 export default Preview;
 
-function getMidPointsFromLayers(allLayers) {
+function getMidPointsFromLayers(dwgLayers) {
+  const allLayers = Object.keys(dwgLayers).reduce((acc, dwgLayer) => acc.concat(dwgLayers[dwgLayer]), []);
   let minX = null;
   let maxX = null;
   let minY = null;

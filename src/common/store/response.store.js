@@ -151,7 +151,7 @@ export const useResponseStore = create((set, get) => ({
       // drawing = {filename, layer[]}
       // layer = {name, geometry[]}
       data.drawings.forEach(drawing => {
-        useLayersStore.getState().addDwgLayers(drawing.layers);
+        useLayersStore.getState().addDwgLayers(drawing.layers, drawing.fileName);
         drawing.layers.forEach(layer => {
           const polygonLayers = [];
           layerNames.add(layer.name);

@@ -5,7 +5,7 @@ import { fontSize } from 'common/styles';
 export const layersWithPreview = css`
   display: flex;
   flex-flow: wrap;
-  gap: 1rem;
+  gap: 3rem;
 `;
 
 export const layersContainer = css`

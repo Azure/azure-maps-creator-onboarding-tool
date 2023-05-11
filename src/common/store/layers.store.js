@@ -19,9 +19,12 @@ export const useLayersStore = create(
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
-    dwgLayers: [],
-    addDwgLayers: (dwgLayers) => set((state) => ({
-      dwgLayers: state.dwgLayers.concat(dwgLayers),
+    dwgLayers: {},
+    addDwgLayers: (dwgLayers, fileName) => set((state) => ({
+      dwgLayers: {
+        ...state.dwgLayers,
+        [fileName]: dwgLayers,
+      },
     })),
     setLayerNames: (layerNames, polygonLayerNames, textLayerNames) => set(() => ({
       layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
