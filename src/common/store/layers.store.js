@@ -19,6 +19,13 @@ export const useLayersStore = create(
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
+    dwgLayers: {},
+    addDwgLayers: (dwgLayers, fileName) => set((state) => ({
+      dwgLayers: {
+        ...state.dwgLayers,
+        [fileName]: dwgLayers,
+      },
+    })),
     setLayerNames: (layerNames, polygonLayerNames, textLayerNames) => set(() => ({
       layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
       polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
@@ -96,7 +103,7 @@ export const useLayersStore = create(
     updateProperty: (parentId, id, data) => set((state) => {
       let isUpdatingDraft;
 
-      const updatedState = {
+      return {
         layers: state.layers.map((layer) => {
           if (layer.id !== parentId) {
             return layer;
@@ -128,8 +135,6 @@ export const useLayersStore = create(
           };
         }),
       };
-
-      return updatedState;
     }),
     getLayerNameError: (layerName) => {
       if (!layerName) {
@@ -210,6 +215,10 @@ export const useLayersStore = create(
         }
         return true;
       });
+    },
+    getAllValidLayers: () => {
+      const { getLayerNameError, layers } = get();
+      return layers.filter(layer => !layer.isDraft && getLayerNameError(layer.name) === null);
     },
   }),
 );

@@ -5,6 +5,8 @@ import { shallow } from 'zustand/shallow';
 import { useLayersStore } from 'common/store';
 import Layer from './layer';
 import PageDescription from 'components/page-description/page-description';
+import Preview from './preview';
+import { layersContainer, layersWithPreview } from './layers.style';
 
 const layersSelector = (s) => [s.layers, s.setVisited];
 
@@ -20,9 +22,14 @@ export const Layers = () => {
   return (
     <>
       <PageDescription description={t('page.description.layers')} />
-      {layers.map(({id, name, props, value, isDraft}) => (
-        <Layer id={id} name={name} props={props} value={value} key={id} isDraft={isDraft} />
-      ))}
+      <div className={layersWithPreview}>
+        <div className={layersContainer}>
+          {layers.map(({id, name, props, value, isDraft}) => (
+            <Layer id={id} name={name} props={props} value={value} key={id} isDraft={isDraft} />
+          ))}
+        </div>
+        <Preview />
+      </div>
     </>
   );
 };

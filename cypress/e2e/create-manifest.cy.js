@@ -10,14 +10,27 @@ describe('create manifest scenario', () => {
       delayMs: 500,
     });
 
-    cy.fixture('advanta').then((json) => {
+    cy.intercept({
+      method: 'GET',
+      url: '**/very-secret-operation-location*'
+    }, {
+      statusCode: 200,
+      headers: {
+        'Resource-Location': 'fetch-manifest-url',
+      },
+      body: {
+        status: 'Succeeded',
+      },
+    });
+
+    cy.fixture('layer_preview').then((json) => {
       cy.intercept({
         method: 'GET',
-        url: '**/very-secret-operation-location*'
+        url: '**/fetch-manifest-url*'
       }, {
         statusCode: 200,
         body: json,
-      }).as('getStatus');
+      }).as('getManifest');
     });
 
     cy.fixture('search-address-seattle').then((json) => {
@@ -45,7 +58,7 @@ describe('create manifest scenario', () => {
     cy.get('button').contains('Process').click();
 
     // processing page
-    cy.wait('@getStatus', {
+    cy.wait('@getManifest', {
       timeout: 11000,
     });
 
@@ -58,15 +71,15 @@ describe('create manifest scenario', () => {
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_02.dwg"]').type('Next level');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_02.dwg"]').type('22');
-    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_02.dwg"]').type('-2.5');
+    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_02.dwg"]').type('2.5');
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_03.dwg"]').type('Nivel tres');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_03.dwg"]').type('3');
-    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_03.dwg"]').type('0');
+    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_03.dwg"]').type('0.0001');
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_04.dwg"]').type('Niveau quatre');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_04.dwg"]').type('4');
-    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_04.dwg"]').type('-0');
+    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_04.dwg"]').type('1');
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_05.dwg"]').type('第五級');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_05.dwg"]').type('5');
@@ -74,7 +87,7 @@ describe('create manifest scenario', () => {
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_06.dwg"]').type('Уровень шесть');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_06.dwg"]').type('6');
-    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_06.dwg"]').type('-.55');
+    cy.get('input[aria-label="Vertical Extent of PUGET SOUND_ADVANTA-A_06.dwg"]').type('99.55');
 
     cy.get('input[aria-label="Level name of PUGET SOUND_ADVANTA-A_07.dwg"]').type('المستوى السابع');
     cy.get('input[aria-label="Ordinal of PUGET SOUND_ADVANTA-A_07.dwg"]').type('7');
@@ -114,9 +127,9 @@ describe('create manifest scenario', () => {
 
     // select value for created prop
     cy.get('span.ms-Dropdown-title').eq(2).click();
-    cy.get('span').contains('LMS_INFO').click();
+    cy.get('span').contains('LMS_LOCATION').click();
     cy.get('span').contains('GROS$TXT').click();
-    cy.get('span').contains('LMS_INFO, GROS$TXT').click();
+    cy.get('span').contains('LMS_LOCATION, GROS$TXT').click();
 
     // add another prop
     cy.get('input[placeholder="Enter Property Name"]').eq(0).type('new_prop_8');

@@ -1,14 +1,10 @@
-import { fetchAddress, fetchStatus, uploadFile } from './index';
+import { fetchAddress, fetchStatus, uploadFile, fetchManifestData, deleteManifestData } from './index';
 
 describe('api', () => {
-  beforeAll(() => {
-    jest.clearAllMocks();
-  });
-
   it('should call uploadFile request', () => {
     uploadFile('myFile', 'EU', 'subKeeeeeeey');
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://eu.atlas.microsoft.com/manifest?api-version=1.0&subscription-key=subKeeeeeeey',
+      'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey',
       {'body': 'myFile', 'headers': {'Content-Type': 'application/zip'}, 'method': 'POST'},
     );
   });
@@ -26,6 +22,23 @@ describe('api', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'operation-1-location-2&subscription-key=uno-dos-tres',
       {'method': 'GET'},
+    );
+  });
+
+  it('should call fetchManifestData request', () => {
+    global.fetch.mockImplementationOnce(() => Promise.resolve({ json: () => {} }));
+    fetchManifestData('https://www.msft.com/fetch/manifest/data', 'uno-dos-tres');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://www.msft.com/fetch/manifest/data&subscription-key=uno-dos-tres',
+      {'method': 'GET'},
+    );
+  });
+
+  it('should call deleteManifestData request', () => {
+    deleteManifestData('https://www.msft.com/fetch/manifest/data', 'uno-dos-tres');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://www.msft.com/fetch/manifest/data&subscription-key=uno-dos-tres',
+      {'method': 'DELETE'},
     );
   });
 });

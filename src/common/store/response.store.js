@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { fetchStatus, HTTP_STATUS_CODE, uploadFile } from 'common/api';
+import { fetchStatus, HTTP_STATUS_CODE, uploadFile, fetchManifestData, deleteManifestData } from 'common/api';
 import i18next from 'common/translations/i18n';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
@@ -8,6 +8,7 @@ import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
 
 const OPERATION_LOCATION = 'Operation-Location';
+const RESOURCE_LOCATION = 'Resource-Location';
 const STATUS_CODES_WITH_MEANINGFUL_ERRORS = [
   HTTP_STATUS_CODE.BAD_REQUEST,
   HTTP_STATUS_CODE.UNAUTHORIZED,
@@ -87,9 +88,9 @@ export const useResponseStore = create((set, get) => ({
 
     fetchStatus(operationLocation, subscriptionKey)
       .then(async (r) => {
+        const data = await r.json();
         if (r.status !== HTTP_STATUS_CODE.OK) {
           if (STATUS_CODES_WITH_MEANINGFUL_ERRORS.includes(r.status)) {
-            const data = await r.json();
             const errorMessage = data?.error?.message;
             if (errorMessage) {
               throw new Error(errorMessage);
@@ -98,7 +99,10 @@ export const useResponseStore = create((set, get) => ({
           throw new Error(i18next.t('error.upload.file.processing'));
         }
 
-        return r.json();
+        return {
+          ...data,
+          fetchUrl: r.headers.get(RESOURCE_LOCATION),
+        };
       })
       .then((data) => {
         if (!data || !data.status) {
@@ -117,86 +121,7 @@ export const useResponseStore = create((set, get) => ({
         }
 
         if (data.status === LRO_STATUS.SUCCEEDED) {
-          // If successful, the server should return manifestToolSupportingData object
-          // We should always assume that the server will return the data in the same format
-          let parsed;
-          try {
-            parsed = JSON.parse(data.properties.manifestToolSupportingData);
-          } catch {
-            parsed = {};
-          }
-
-          useProgressBarStore.getState().hideIncorrectManifestVersionError();
-          useProgressBarStore.getState().hideInvalidManifestError();
-          useProgressBarStore.getState().hideMissingDataError();
-          useLayersStore.getState().reset();
-          useGeometryStore.getState().reset();
-          useLevelsStore.getState().reset();
-
-          // Compute and store useful response data
-          const layerNames = new Set();
-          const polygonLayerNames = new Set();
-          const textLayerNames = new Set();
-
-          // parsed.drawings = drawing[]
-          // drawing = {filename, layer[]}
-          // layer = {name, geometry[]}
-          parsed.drawings.forEach(drawing => {
-            const validPolygonLayers = drawing.polygonLayers.filter((polygonLayer) => isPolygonLayerComplete(polygonLayer));
-            drawing.layers.forEach(layer => layerNames.add(layer));
-            validPolygonLayers.forEach(layer => polygonLayerNames.add(layer.name));
-            useLayersStore.getState().addPolygonLayers(validPolygonLayers);
-            drawing.textLayers.forEach(name => textLayerNames.add(name));
-          });
-
-          if (polygonLayerNames.size === 0) {
-            throw new Error(i18next.t('error.no.polygonLayerNames'));
-          }
-
-          useGeometryStore.getState().updateAnchorPoint({
-            coordinates: parsed.anchorPoint,
-          });
-
-          useLayersStore.getState().setLayerNames(
-            Array.from(layerNames),
-            Array.from(polygonLayerNames),
-            Array.from(textLayerNames)
-          );
-
-          useLevelsStore.getState().setLevels(parsed.drawings.map(drawing => drawing.fileName));
-
-          const existingManifestJson = get().existingManifestJson;
-
-          if (existingManifestJson !== null) {
-            const manifestVersion = parseInt(existingManifestJson.version);
-            const jsonData = parseManifestJson(existingManifestJson);
-
-            if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
-              useProgressBarStore.getState().showIncorrectManifestVersionError();
-            } else if (jsonData === null) {
-              useProgressBarStore.getState().showInvalidManifestError();
-            } else {
-              useLevelsStore.getState().updateLevels(jsonData.levels);
-              useLevelsStore.getState().setFacilityName(jsonData.facilityName);
-              useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
-              useLayersStore.getState().setVisited();
-              useGeometryStore.setState({
-                dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
-              });
-              useGeometryStore.getState().updateAnchorPoint({
-                coordinates: [
-                  jsonData.georeference.lon,
-                  jsonData.georeference.lat,
-                ],
-                angle: jsonData.georeference.angle,
-              });
-            }
-
-          }
-
-          set(() => ({
-            lroStatus: LRO_STATUS.SUCCEEDED,
-          }));
+          get().fetchManifestData(data.fetchUrl, subscriptionKey);
         }
       })
       .catch(({ message }) => {
@@ -206,6 +131,104 @@ export const useResponseStore = create((set, get) => ({
           lroStatus: LRO_STATUS.FAILED,
         }));
       });
+  },
+
+  fetchManifestData: (fetchUrl, subscriptionKey) => {
+    fetchManifestData(fetchUrl, subscriptionKey).then((data) => {
+      useProgressBarStore.getState().hideIncorrectManifestVersionError();
+      useProgressBarStore.getState().hideInvalidManifestError();
+      useProgressBarStore.getState().hideMissingDataError();
+      useLayersStore.getState().reset();
+      useGeometryStore.getState().reset();
+      useLevelsStore.getState().reset();
+
+      // Compute and store useful response data
+      const layerNames = new Set();
+      const polygonLayerNames = new Set();
+      const textLayerNames = new Set();
+
+      // data.drawings = drawing[]
+      // drawing = {filename, layer[]}
+      // layer = {name, geometry[]}
+      data.drawings.forEach(drawing => {
+        useLayersStore.getState().addDwgLayers(drawing.layers, drawing.fileName);
+        drawing.layers.forEach(layer => {
+          const polygonLayers = [];
+          layerNames.add(layer.name);
+          if (layer.geometry === undefined) {
+            return;
+          }
+          if (isPolygonLayerComplete(layer)) {
+            polygonLayerNames.add(layer.name);
+            polygonLayers.push(layer);
+          }
+          if (layer.geometry.type === 'GeometryCollection') {
+            layer.geometry.geometries.forEach((geometry) => {
+              if (isGeometryPolygon(geometry)) {
+                polygonLayerNames.add(layer.name);
+                polygonLayers.push({
+                  name: layer.name,
+                  geometry,
+                });
+              }
+            });
+          }
+          useLayersStore.getState().addPolygonLayers(polygonLayers);
+        });
+        drawing.textLayers.forEach(name => textLayerNames.add(name));
+      });
+
+      if (polygonLayerNames.size === 0) {
+        throw new Error(i18next.t('error.no.polygonLayerNames'));
+      }
+
+      useGeometryStore.getState().updateAnchorPoint({
+        coordinates: data.anchorPoint,
+      });
+
+      useLayersStore.getState().setLayerNames(
+        Array.from(layerNames),
+        Array.from(polygonLayerNames),
+        Array.from(textLayerNames)
+      );
+
+      useLevelsStore.getState().setLevels(data.drawings.map(drawing => drawing.fileName));
+
+      const existingManifestJson = get().existingManifestJson;
+
+      if (existingManifestJson !== null) {
+        const manifestVersion = parseInt(existingManifestJson.version);
+        const jsonData = parseManifestJson(existingManifestJson);
+
+        if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
+          useProgressBarStore.getState().showIncorrectManifestVersionError();
+        } else if (jsonData === null) {
+          useProgressBarStore.getState().showInvalidManifestError();
+        } else {
+          useLevelsStore.getState().updateLevels(jsonData.levels);
+          useLevelsStore.getState().setFacilityName(jsonData.facilityName);
+          useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
+          useLayersStore.getState().setVisited();
+          useGeometryStore.setState({
+            dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
+          });
+          useGeometryStore.getState().updateAnchorPoint({
+            coordinates: [
+              jsonData.georeference.lon,
+              jsonData.georeference.lat,
+            ],
+            angle: jsonData.georeference.angle,
+          });
+        }
+
+      }
+
+      set(() => ({
+        lroStatus: LRO_STATUS.SUCCEEDED,
+      }));
+
+      deleteManifestData(fetchUrl, subscriptionKey);
+    });
   },
 }));
 
@@ -256,6 +279,13 @@ export function isPolygonLayerComplete(polygonLayer = {}) {
     return false;
   }
   const { name, geometry } = polygonLayer;
+  if (!isGeometryPolygon(geometry)) {
+    return false;
+  }
   return typeof name === 'string' && typeof geometry === 'object' && geometry !== null
     && typeof geometry.type === 'string' && Array.isArray(geometry.coordinates);
+}
+
+function isGeometryPolygon(geometry = {}) {
+  return geometry.type === 'MultiPolygon' || geometry.type === 'Polygon';
 }

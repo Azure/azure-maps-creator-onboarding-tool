@@ -10,14 +10,27 @@ describe('edit manifest scenario', () => {
       delayMs: 500,
     });
 
-    cy.fixture('advanta').then((json) => {
+    cy.intercept({
+      method: 'GET',
+      url: '**/very-secret-operation-location*'
+    }, {
+      statusCode: 200,
+      headers: {
+        'Resource-Location': 'fetch-manifest-url',
+      },
+      body: {
+        status: 'Succeeded',
+      },
+    });
+
+    cy.fixture('layer_preview').then((json) => {
       cy.intercept({
         method: 'GET',
-        url: '**/very-secret-operation-location*'
+        url: '**/fetch-manifest-url*'
       }, {
         statusCode: 200,
         body: json,
-      }).as('getStatus');
+      }).as('getManifest');
     });
 
     cy.fixture('search-address-casablanca').then((json) => {
@@ -46,7 +59,7 @@ describe('edit manifest scenario', () => {
     cy.get('button').contains('Process').click();
 
     // processing page
-    cy.wait('@getStatus', {
+    cy.wait('@getManifest', {
       timeout: 11000,
     });
 

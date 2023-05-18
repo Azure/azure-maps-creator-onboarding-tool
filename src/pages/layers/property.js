@@ -26,7 +26,7 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
     if (textLayerNames.length === 0) {
       return [{
         key: null,
-        text: t('error.empty.dropdown'),
+        text: t('error.empty.text.layers.dropdown'),
       }];
     }
     return textLayerNames.map((layer) => ({

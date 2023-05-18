@@ -2,6 +2,16 @@ import { css } from '@emotion/css';
 
 import { fontSize } from 'common/styles';
 
+export const layersWithPreview = css`
+  display: flex;
+  flex-flow: wrap;
+  gap: 3rem;
+`;
+
+export const layersContainer = css`
+  width: 47rem;
+`;
+
 export const layerRow = css`
   width: 100%;
   max-width: 47rem;

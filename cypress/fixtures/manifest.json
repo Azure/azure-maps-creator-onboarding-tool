@@ -13,19 +13,19 @@
         "filename": "PUGET SOUND_ADVANTA-A_02.dwg",
         "levelName": "Next level",
         "ordinal": 22,
-        "verticalExtent": -2.5
+        "verticalExtent": 2.5
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_03.dwg",
         "levelName": "Nivel tres",
         "ordinal": 333,
-        "verticalExtent": 0
+        "verticalExtent": 0.0001
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_04.dwg",
         "levelName": "Niveau quatre",
         "ordinal": 4,
-        "verticalExtent": 0
+        "verticalExtent": 1
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_05.dwg",
@@ -37,7 +37,7 @@
         "filename": "PUGET SOUND_ADVANTA-A_06.dwg",
         "levelName": "Уровень шесть",
         "ordinal": 6,
-        "verticalExtent": -0.55
+        "verticalExtent": 99.55
       },
       {
         "filename": "PUGET SOUND_ADVANTA-A_07.dwg",
@@ -48,8 +48,8 @@
     ]
   },
   "georeference": {
-    "lat": 47.60360414,
-    "lon": -122.33065958,
+    "lat": 47.60360412,
+    "lon": -122.33065936,
     "angle": 100
   },
   "featureClasses": [
@@ -67,7 +67,7 @@
         {
           "featureClassPropertyName": "new_prop_7",
           "dwgLayers": [
-            "LMS_INFO",
+            "LMS_LOCATION",
             "GROS$TXT"
           ]
         },
