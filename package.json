@@ -7,6 +7,7 @@
     "@fluentui/react": "^8.97.1",
     "@react-hook/throttle": "^2.2.0",
     "@turf/turf": "^6.5.0",
+    "@zip.js/zip.js": "^2.7.9",
     "azure-maps-control": "^2.2.0",
     "file-saver": "^2.0.5",
     "i18next": "^21.9.2",
