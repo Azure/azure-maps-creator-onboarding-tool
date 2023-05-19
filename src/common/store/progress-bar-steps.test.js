@@ -4,6 +4,7 @@ import { useCompletedSteps } from './progress-bar-steps';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
+import { useReviewManifestStore } from './review-manifest.store';
 
 describe('progress-bar-steps hook', () => {
   beforeEach(() => {
@@ -15,6 +16,9 @@ describe('progress-bar-steps hook', () => {
     });
     useLayersStore.setState({
       visited: false,
+    });
+    useReviewManifestStore.setState({
+      canBeDownloaded: false,
     });
   });
 
@@ -29,6 +33,14 @@ describe('progress-bar-steps hook', () => {
     });
     const { result } = renderHook(() => useCompletedSteps());
     expect(result.current).toStrictEqual(['createGeoreference']);
+  });
+
+  it('should contain reviewCreate', () => {
+    useReviewManifestStore.setState({
+      canBeDownloaded: true,
+    });
+    const { result } = renderHook(() => useCompletedSteps());
+    expect(result.current).toStrictEqual(['reviewCreate']);
   });
 
   it('should not contain levels when some ordinals are null or not unique', () => {

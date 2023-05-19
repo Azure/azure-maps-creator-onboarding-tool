@@ -7,12 +7,13 @@ import { useGeometryStore } from './geometry.store';
 import { isNumeric } from '../functions';
 
 export const useReviewManifestStore = create((set) => ({
-  isPaneShown: false,
-  showPane: () => set(() => ({
-    isPaneShown: true,
+  canBeDownloaded: false,
+  originalPackage: null,
+  setOriginalPackage: (originalPackage) => set(() => ({
+    originalPackage,
   })),
-  hidePane: () => set(() => ({
-    isPaneShown: false,
+  setCanBeDownloaded: (canBeDownloaded) => set(() => ({
+    canBeDownloaded,
   })),
 }));
 

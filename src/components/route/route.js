@@ -7,7 +7,6 @@ import BreadCrumbNav from '../bread-crumb-nav/bread-crumb-nav';
 import Footer from '../footer/footer';
 import TopBar from '../top-bar/top-bar';
 import ProgressBar from '../progress-bar/progress-bar';
-import ReviewManifestPane from '../review-manifest/';
 import { routeStyle } from './route.style';
 import { useResponseStore, LRO_STATUS } from 'common/store/response.store';
 import { PATHS } from 'common';
@@ -30,24 +29,24 @@ const Route = ({ title, component: Component, dataRequired }) => {
       <TopBar />
       <div className={routeStyle}>
         <BreadCrumbNav />
-        <h1>{t(title)}</h1>
+        {title && <h1>{t(title)}</h1>}
         <ProgressBar />
         <Component />
       </div>
       <Footer />
-      <ReviewManifestPane />
     </>
   );
 };
 
 Route.propTypes = {
   component: PropTypes.elementType.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   dataRequired: PropTypes.bool,
 };
 
 Route.defaultProps = {
   dataRequired: false,
+  title: '',
 };
 
 export default Route;

@@ -6,6 +6,7 @@ import { uploadFile } from 'common/api';
 import { useResponseStore } from 'common/store';
 
 const mockNavigate = jest.fn();
+const mockSetOriginalPackage = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
@@ -13,6 +14,9 @@ jest.mock('react-router-dom', () => ({
 jest.mock('common/api', () => ({
   ...jest.requireActual('common/api'),
   uploadFile: jest.fn(),
+}));
+jest.mock('common/store/review-manifest.store', () => ({
+  useReviewManifestStore: () => mockSetOriginalPackage,
 }));
 
 describe('CreateManifestPage', () => {
@@ -51,6 +55,7 @@ describe('CreateManifestPage', () => {
 
   it('should upload file correctly', () => {
     expect(uploadFileSpy).not.toHaveBeenCalled();
+    expect(mockSetOriginalPackage).not.toHaveBeenCalled();
     expect(setExistingManifestJsonSpy).not.toHaveBeenCalled();
     render(<CreateManifestPage />);
     const fileInput = screen.getByTestId(TEST_ID.FILE_UPLOAD_FIELD);
@@ -74,10 +79,12 @@ describe('CreateManifestPage', () => {
 
     expect(uploadFileSpy).toBeCalledWith(file, 'US', 'Sonic the Hedgehog isnt his fullname');
     expect(setExistingManifestJsonSpy).toBeCalledWith(null);
+    expect(mockSetOriginalPackage).toHaveBeenCalledWith(file);
   });
 
   it('should upload file correctly with allowEdit true', async () => {
     expect(uploadFileSpy).not.toHaveBeenCalled();
+    expect(mockSetOriginalPackage).not.toHaveBeenCalled();
     expect(setExistingManifestJsonSpy).not.toHaveBeenCalled();
     render(<CreateManifestPage allowEdit />);
     const fileInput = screen.getByTestId(TEST_ID.FILE_UPLOAD_FIELD);
@@ -109,6 +116,7 @@ describe('CreateManifestPage', () => {
 
     expect(uploadFileSpy).toBeCalledWith(file, 'US', 'Sonic the Hedgehog isnt his fullname');
     expect(setExistingManifestJsonSpy).toBeCalledWith({ foo: 'bar' });
+    expect(mockSetOriginalPackage).toHaveBeenCalledWith(file);
   });
 
   it('should show an error when the file is too big',  async () => {

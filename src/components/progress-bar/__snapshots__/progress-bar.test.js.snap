@@ -201,6 +201,26 @@ Object {
             georeference
           </span>
         </button>
+        <button
+          class="ms-Button ms-Button--action ms-Button--command emotion-4 root-120"
+          data-is-focusable="true"
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-110"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-label="review.plus.create"
+              class="emotion-3 root-119"
+              data-icon-name="SkypeCircleCheck"
+              role="img"
+            >
+              
+            </i>
+            review.plus.create
+          </span>
+        </button>
       </div>
     </div>
   </body>,
@@ -338,6 +358,26 @@ Object {
             
           </i>
           georeference
+        </span>
+      </button>
+      <button
+        class="ms-Button ms-Button--action ms-Button--command emotion-4 root-120"
+        data-is-focusable="true"
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-110"
+          data-automationid="splitbuttonprimary"
+        >
+          <i
+            aria-label="review.plus.create"
+            class="emotion-3 root-119"
+            data-icon-name="SkypeCircleCheck"
+            role="img"
+          >
+            
+          </i>
+          review.plus.create
         </span>
       </button>
     </div>

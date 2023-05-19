@@ -9,7 +9,7 @@ import { shallow } from 'zustand/shallow';
 import FieldLabel from 'components/field-label';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
-import { useUserStore, useResponseStore } from 'common/store';
+import { useUserStore, useResponseStore, useReviewManifestStore } from 'common/store';
 import FileField from './file-field';
 import {
   buttonLabelStyle,
@@ -40,6 +40,7 @@ export const TEST_ID = {
 
 const userStoreSelector = (s) => [s.setGeography, s.geography, s.setSubscriptionKey, s.subscriptionKey];
 const responseStoreSelector = (s) => [s.acknowledgeError, s.errorMessage, s.uploadFile, s.setExistingManifestJson];
+const reviewManifestSelector = (s) => s.setOriginalPackage;
 
 const CreateManifestPage = ({ allowEdit }) => {
   const { t } = useTranslation();
@@ -51,6 +52,7 @@ const CreateManifestPage = ({ allowEdit }) => {
 
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
   const [acknowledgeApiError, apiErrorMessage, uploadFile, setExistingManifestJson] = useResponseStore(responseStoreSelector, shallow);
+  const setOriginalPackage = useReviewManifestStore(reviewManifestSelector);
 
   const environmentOptions = useMemo(() => (
     Object.keys(getEnvs()).map((geography) => ({
@@ -78,8 +80,9 @@ const CreateManifestPage = ({ allowEdit }) => {
     }
 
     uploadFile(file, geo, subKey);
+    setOriginalPackage(file);
     navigate(PATHS.PROCESSING);
-  }, [allowEdit, file, geo, navigate, subKey, setExistingManifestJson, uploadFile]);
+  }, [allowEdit, file, geo, navigate, subKey, setExistingManifestJson, uploadFile, setOriginalPackage]);
 
   const navigateHome = useCallback(() => navigate(PATHS.INDEX), [navigate]);
   const updateSubKey = useCallback((e) => setSubKey(e.target.value), [setSubKey]);

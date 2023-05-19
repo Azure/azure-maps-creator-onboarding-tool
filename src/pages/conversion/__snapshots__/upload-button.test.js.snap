@@ -1,0 +1,379 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`conversion upload button should render upload button 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  margin-right: 0.5rem;
+}
+
+.emotion-3 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <i
+            aria-label="package.conversion"
+            class="emotion-2 root-106"
+            data-icon-name="StatusCircleRing"
+            role="img"
+          >
+            
+          </i>
+          package.upload
+        </div>
+        <span
+          class="emotion-3"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  margin-right: 0.5rem;
+}
+
+.emotion-3 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <i
+          aria-label="package.conversion"
+          class="emotion-2 root-106"
+          data-icon-name="StatusCircleRing"
+          role="img"
+        >
+          
+        </i>
+        package.upload
+      </div>
+      <span
+        class="emotion-3"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`conversion upload button should render upload button with selected class 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": .emotion-0 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  background-color: #E1DFDD;
+  font-weight: 700;
+}
+
+.emotion-0:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  margin-right: 0.5rem;
+}
+
+.emotion-3 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+<body>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-1"
+        >
+          <i
+            aria-label="package.conversion"
+            class="emotion-2 root-106"
+            data-icon-name="StatusCircleRing"
+            role="img"
+          >
+            
+          </i>
+          package.upload
+        </div>
+        <span
+          class="emotion-3"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  background-color: #E1DFDD;
+  font-weight: 700;
+}
+
+.emotion-0:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  margin-right: 0.5rem;
+}
+
+.emotion-3 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <i
+          aria-label="package.conversion"
+          class="emotion-2 root-106"
+          data-icon-name="StatusCircleRing"
+          role="img"
+        >
+          
+        </i>
+        package.upload
+      </div>
+      <span
+        class="emotion-3"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,46 +1,59 @@
-import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DefaultButton, PrimaryButton } from '@fluentui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
+import { saveAs } from 'file-saver';
 
 import { buttonStyle, footerContainerStyle } from './footer.style';
-import { useCompletedSteps, progressBarSteps, useProgressBarStore } from 'common/store';
-import { useReviewManifestStore } from 'common/store/review-manifest.store';
+import {
+  progressBarSteps,
+  useProgressBarStore,
+  useReviewManifestJson,
+  useReviewManifestStore,
+  useConversionStore,
+  useUserStore,
+} from 'common/store';
+import { createPackageWithJson } from './zip';
+import { PATHS } from 'common';
 
-const reviewManifestSelector = (s) => s.showPane;
+const reviewManifestSelector = (s) => [s.canBeDownloaded, s.originalPackage];
 const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
+const conversionSelector = (s) => [s.reset, s.uploadPackage];
+const userStoreSelector = (s) => [s.subscriptionKey, s.geography];
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const completedSteps = useCompletedSteps();
+  const json = useReviewManifestJson();
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
-  const showReviewManifestPane = useReviewManifestStore(reviewManifestSelector);
-  const order = progressBarSteps.findIndex(route => route.href === pathname);
+  const [canBeDownloaded, originalPackage] = useReviewManifestStore(reviewManifestSelector, shallow);
+  const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
+  const [subscriptionKey, geography] = useUserStore(userStoreSelector, shallow);
 
-  const allStepsCompleted = useMemo(() => {
-    return completedSteps.length === progressBarSteps.length;
-  }, [completedSteps]);
+  const order = progressBarSteps.findIndex(route => route.href === pathname);
 
   const nextScreenLink = progressBarSteps[order + 1] !== undefined ? progressBarSteps[order + 1].href : null;
   const prevScreenLink = progressBarSteps[order - 1] !== undefined ? progressBarSteps[order - 1].href : null;
 
-  const goNext = useCallback(() => {
-    navigate(nextScreenLink);
-  }, [navigate, nextScreenLink]);
-  const goPrev = useCallback(() => {
-    navigate(prevScreenLink);
-  }, [navigate, prevScreenLink]);
-  const onReview = useCallback(() => {
-    if (allStepsCompleted) {
+  const goNext = () => navigate(nextScreenLink);
+  const goPrev = () => navigate(prevScreenLink);
+  const onReview = () => {
+    if (canBeDownloaded) {
+      resetConversion();
       hideMissingDataError();
-      showReviewManifestPane();
+      createPackageWithJson(originalPackage, json).then((file) => {
+        uploadConversion(file, geography, subscriptionKey);
+        saveAs(
+          file,
+          'manifest.zip',
+        );
+        navigate(PATHS.CONVERSION);
+      });
     } else {
       showMissingDataError();
     }
-  }, [allStepsCompleted, hideMissingDataError, showReviewManifestPane, showMissingDataError]);
+  };
 
   if (order === -1) {
     return null;
@@ -49,7 +62,7 @@ export const Footer = () => {
   return (
       <div className={footerContainerStyle}>
         <PrimaryButton className={buttonStyle} onClick={onReview}>
-          {t('review.download')}
+          {t('create.download')}
         </PrimaryButton>
         <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
           {t('previous')}

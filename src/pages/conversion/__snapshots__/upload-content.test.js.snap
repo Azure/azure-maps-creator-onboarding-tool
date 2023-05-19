@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReviewManifest should not render anything when isPaneShown is false 1`] = `
+exports[`conversion upload content should render nothing when selected is not set 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -61,19 +61,59 @@ Object {
 }
 `;
 
-exports[`ReviewManifest should render review manifest pane when isPaneShown is true 1`] = `
+exports[`conversion upload content should render upload content 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div>
-        This is review manifest pane
+        <div>
+          <h3>
+            meta.data
+          </h3>
+          <div>
+            operationId: 
+            super-operation-id
+          </div>
+          <div>
+            udid: 
+            some-upload-id-hello
+          </div>
+        </div>
+        <div>
+          <h3>
+            operation.log
+          </h3>
+          <pre>
+            operation log here
+          </pre>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      This is review manifest pane
+      <div>
+        <h3>
+          meta.data
+        </h3>
+        <div>
+          operationId: 
+          super-operation-id
+        </div>
+        <div>
+          udid: 
+          some-upload-id-hello
+        </div>
+      </div>
+      <div>
+        <h3>
+          operation.log
+        </h3>
+        <pre>
+          operation log here
+        </pre>
+      </div>
     </div>
   </div>,
   "debug": [Function],

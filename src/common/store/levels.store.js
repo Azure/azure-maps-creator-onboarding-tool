@@ -4,16 +4,19 @@ import { isNumeric, isVerticalExtentEmpty } from '../functions';
 
 const MAX_LEVEL_NAME_LENGTH = 100;
 
-export const useLevelsStore = create((set, get) => ({
-  reset: () => set({
-    facilityName: '',
-    levels: [],
-  }),
+const getDefaultState = () => ({
   facilityName: '',
+  levels: [],
+});
+
+export const useLevelsStore = create((set, get) => ({
+  ...getDefaultState(),
+  reset: () => set({
+    ...getDefaultState(),
+  }),
   setFacilityName: (facilityName = '') => set({
     facilityName,
   }),
-  levels: [],
   setLevels: (filenames) => set({
     levels: filenames.map((filename) => ({
       filename,

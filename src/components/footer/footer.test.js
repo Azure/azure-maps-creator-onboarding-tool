@@ -1,10 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { saveAs } from 'file-saver';
 
-import { useReviewManifestStore } from 'common/store/review-manifest.store';
-import { useGeometryStore } from 'common/store/geometry.store';
-import { useLayersStore } from 'common/store/layers.store';
-import { useLevelsStore } from 'common/store/levels.store';
 import Footer from './footer';
+import {
+  useGeometryStore,
+  useLayersStore,
+  useLevelsStore,
+  useConversionStore,
+  useReviewManifestStore,
+} from 'common/store';
+import flushPromises from 'flush-promises';
 
 const mockNavigate = jest.fn();
 let mockCurrentPathname = '/screen1';
@@ -40,14 +45,15 @@ describe('footer on pages where it should be rendered', () => {
   it('should render footer with prev button disabled', () => {
     mockCurrentPathname = '/levels';
     useGeometryStore.setState({ checkedByUser: true });
-    useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'] }] });
-    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: 1 }]});    const view = render(<Footer />);
+    useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'], props: [] }] });
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: 1 }]});
+    const view = render(<Footer />);
     expect(view).toMatchSnapshot();
   });
 
   it('should navigate to next page when next button is clicked', () => {
     mockCurrentPathname = '/layers';
-    useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'] }] });
+    useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'], props: [] }] });
     render(<Footer />);
     const nextBtn = screen.getByText('next');
     fireEvent.click(nextBtn);
@@ -62,16 +68,24 @@ describe('footer on pages where it should be rendered', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/levels');
   });
 
-  it('show open review manifest pane when review button is clicked', () => {
-    const state = useReviewManifestStore.getState();
-    const spy = jest.spyOn(state, 'showPane');
+  it('show navigate to conversion page when create+download is clicked', async () => {
+    useReviewManifestStore.setState({
+      canBeDownloaded: true,
+    });
+    const conversionState = useConversionStore.getState();
+    const resetSpy = jest.spyOn(conversionState, 'reset');
+    const uploadPackageSpy = jest.spyOn(conversionState, 'uploadPackage').mockImplementation(() => {});
     useGeometryStore.setState({ dwgLayers: ['layer1'] });
     useLayersStore.setState({ visited: true, layers: [] });
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }]});
 
     render(<Footer />);
-    const reviewBtn = screen.getByText('review.download');
-    fireEvent.click(reviewBtn);
-    expect(spy).toHaveBeenCalled();
+    const createDownloadBtn = screen.getByText('create.download');
+    fireEvent.click(createDownloadBtn);
+    await flushPromises();
+
+    expect(resetSpy).toHaveBeenCalled();
+    expect(uploadPackageSpy).toHaveBeenCalled();
+    expect(saveAs).toHaveBeenCalled();
   });
 });

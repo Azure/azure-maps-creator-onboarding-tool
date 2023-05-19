@@ -20,6 +20,26 @@ jest.mock('common/store/geometry.store.worker-builder', () => () => new MockWork
 jest.mock('@react-hook/throttle', () => ({
   useThrottle: mockUseThrottle,
 }));
+jest.mock('file-saver', () => ({
+  saveAs: jest.fn(),
+}));
+jest.mock( '@zip.js/zip.js', () => ({
+  BlobWriter: class {},
+  BlobReader: class {},
+  ZipWriter: class {
+    add() {
+      return Promise.resolve();
+    }
+    close() {
+      return Promise.resolve();
+    }
+  },
+  ZipReader: class {
+    getEntries() {
+      return Promise.resolve([]);
+    }
+  },
+}));
 
 global.fetch = jest.fn();
 
