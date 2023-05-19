@@ -6,6 +6,7 @@ import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
+import { resetStores } from './index';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
@@ -135,12 +136,7 @@ export const useResponseStore = create((set, get) => ({
 
   fetchManifestData: (fetchUrl, subscriptionKey) => {
     fetchManifestData(fetchUrl, subscriptionKey).then((data) => {
-      useProgressBarStore.getState().hideIncorrectManifestVersionError();
-      useProgressBarStore.getState().hideInvalidManifestError();
-      useProgressBarStore.getState().hideMissingDataError();
-      useLayersStore.getState().reset();
-      useGeometryStore.getState().reset();
-      useLevelsStore.getState().reset();
+      resetStores();
 
       // Compute and store useful response data
       const layerNames = new Set();

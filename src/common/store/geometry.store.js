@@ -9,28 +9,27 @@ import { useLayersStore } from './layers.store';
 import buildWorker from './geometry.store.worker-builder';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
+const getDefaultState = () => ({
+  anchorPoint: {
+    coordinates: [0, 0],
+    angle: 0,
+  },
+  dwgLayers: [],
+  centerToAnchorPointDestination: {},
+});
+
 export const useGeometryStore = create(
   (set, get) => ({
-    dwgLayers: [],
+    ...getDefaultState(),
+    reset: () => set({
+      ...getDefaultState(),
+    }),
     addDwgLayer: (dwgLayer) => set({
       dwgLayers: get().dwgLayers.concat(dwgLayer),
     }),
     removeDwgLayer: (dwgLayer) => set({
       dwgLayers: get().dwgLayers.filter((layer) => layer !== dwgLayer),
     }),
-    anchorPoint: {
-      coordinates: [0,0],
-      angle: 0,
-    },
-    reset: () => set({
-      anchorPoint: {
-        coordinates: [0,0],
-        angle: 0,
-      },
-      dwgLayers: [],
-      centerToAnchorPointDestination: {},
-    }),
-    centerToAnchorPointDestination: {},
     setCenterToAnchorPointDestination: (centerToAnchorPointDestination) => set({
       centerToAnchorPointDestination,
     }),

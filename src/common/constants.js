@@ -4,6 +4,9 @@ export const PATHS = {
   EDIT_MANIFEST: '/edit-manifest',
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
+  REVIEW_CREATE: '/review-create',
+  PREPARE_PACKAGE: '/prepare-package',
+  CONVERSION: '/prepare-package/conversion',
   LAYERS: '/layers',
   LEVELS: '/levels',
   INVALID_PATH: '/*',
@@ -18,6 +21,9 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.LAYERS]: 'create',
   [PATHS.LEVELS]: 'create',
   [PATHS.INVALID_PATH]: 'redirect',
+  [PATHS.REVIEW_CREATE]: 'create',
+  [PATHS.PREPARE_PACKAGE]: 'prepare.drawing.package',
+  [PATHS.CONVERSION]: 'create.indoor.map',
 };
 
 export const TRUNCATE_FRACTION_DIGITS = 8;

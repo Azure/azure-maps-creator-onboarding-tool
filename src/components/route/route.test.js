@@ -7,7 +7,6 @@ jest.mock('../bread-crumb-nav/bread-crumb-nav', () => () => <div>BreadCrumbNav</
 jest.mock('../footer/footer', () => () => <div>Footer</div>);
 jest.mock('../top-bar/top-bar', () => () => <div>TopBar</div>);
 jest.mock('../progress-bar/progress-bar', () => () => <div>ProgressBar</div>);
-jest.mock('../review-manifest/', () => () => <div>ReviewManifestPane</div>);
 
 const mockNavigate = jest.fn();
 

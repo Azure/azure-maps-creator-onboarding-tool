@@ -8,15 +8,18 @@ export const color = {
   darkRed: '#A4262C',
   redError: '#A80000',
   green: '#57A300',
+  greenIcon: '#107c10',
+  blueIcon: '#0078d4',
   gray: '#E1DFDD',
   lightGray: '#F3F2F1',
   darkGray: '#ccc',
   grayBorder: '#A19F9D',
   lightRed: '#f37474',
+  granite: '#605e5c',
 };
 
 export const fontSize = {
-  '2xs': '0.5rem', // 8px
+  xxs: '0.6875rem', // 11px
   xs: '0.75rem', // 12px
   sm: '0.813rem', // 13px, (body - default)
   md: '0.875rem', // 14px, (component)

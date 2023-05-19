@@ -39,7 +39,7 @@ Object {
                 class="ms-Button-label label-113"
                 id="id__0"
               >
-                review.download
+                create.download
               </span>
             </span>
           </span>
@@ -66,10 +66,8 @@ Object {
           </span>
         </button>
         <button
-          aria-disabled="true"
-          class="ms-Button ms-Button--default is-disabled emotion-1 root-118"
-          data-is-focusable="false"
-          disabled=""
+          class="ms-Button ms-Button--default emotion-1 root-117"
+          data-is-focusable="true"
           type="button"
         >
           <span
@@ -126,7 +124,7 @@ Object {
               class="ms-Button-label label-113"
               id="id__0"
             >
-              review.download
+              create.download
             </span>
           </span>
         </span>
@@ -153,10 +151,8 @@ Object {
         </span>
       </button>
       <button
-        aria-disabled="true"
-        class="ms-Button ms-Button--default is-disabled emotion-1 root-118"
-        data-is-focusable="false"
-        disabled=""
+        class="ms-Button ms-Button--default emotion-1 root-117"
+        data-is-focusable="true"
         type="button"
       >
         <span
@@ -270,7 +266,7 @@ Object {
                 class="ms-Button-label label-113"
                 id="id__9"
               >
-                review.download
+                create.download
               </span>
             </span>
           </span>
@@ -357,7 +353,7 @@ Object {
               class="ms-Button-label label-113"
               id="id__9"
             >
-              review.download
+              create.download
             </span>
           </span>
         </span>

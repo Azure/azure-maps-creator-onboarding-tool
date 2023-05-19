@@ -32,9 +32,6 @@ Object {
       <div>
         Footer
       </div>
-      <div>
-        ReviewManifestPane
-      </div>
     </div>
   </body>,
   "container": .emotion-0 {
@@ -64,9 +61,6 @@ Object {
     </div>
     <div>
       Footer
-    </div>
-    <div>
-      ReviewManifestPane
     </div>
   </div>,
   "debug": [Function],

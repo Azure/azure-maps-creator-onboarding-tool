@@ -4,7 +4,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { breadcrumbStyle } from './bread-crumb-nav.style';
 import { getSplitPaths } from 'common/functions';
-import { ROUTE_NAME_BY_PATH } from 'common/constants';
+import { PATHS, ROUTE_NAME_BY_PATH } from 'common/constants';
+
+const routesConfirmationRequiredBeforeLeaving = [
+  PATHS.CONVERSION,
+];
 
 const BreadCrumbNav = () => {
   const { t } = useTranslation();
@@ -16,7 +20,18 @@ const BreadCrumbNav = () => {
 
   splitPaths.forEach((path) => {
     if (ROUTE_NAME_BY_PATH.hasOwnProperty(path)) {
-      itemsWithHeading.push({ text: t(ROUTE_NAME_BY_PATH[path]), key: ROUTE_NAME_BY_PATH[path], onClick: () => navigate(path) });
+      itemsWithHeading.push({ text: t(ROUTE_NAME_BY_PATH[path]), key: ROUTE_NAME_BY_PATH[path], onClick: () => {
+        if (pathname === path) {
+          return;
+        }
+        if (routesConfirmationRequiredBeforeLeaving.includes(pathname)) {
+          if (window.confirm(t('progress.will.be.lost'))) {
+            navigate(path);
+          }
+        } else {
+          navigate(path);
+        }
+      }});
     }
   });
 
