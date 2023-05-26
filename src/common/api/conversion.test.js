@@ -1,6 +1,6 @@
 import { uploadConversion, startConversion } from './conversion';
 
-jest.mock('../store', () => ({
+jest.mock('../store/user.store', () => ({
   useUserStore: {
     getState: () => ({
       geography: 'EU',
