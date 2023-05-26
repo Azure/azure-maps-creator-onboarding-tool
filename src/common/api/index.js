@@ -1,6 +1,6 @@
 // The following API is designed to be used only by the onboarding tool and is not supported for any other use.
 import { getEnvs } from 'common/functions';
-import { useUserStore } from '../store';
+import { useUserStore } from '../store/user.store';
 
 export const uploadFile = (file) => {
   const { geography, subscriptionKey } = useUserStore.getState();

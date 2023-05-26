@@ -7,7 +7,7 @@ import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
-import { resetStores } from './index';
+import { resetStores } from './reset';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';

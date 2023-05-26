@@ -1,5 +1,5 @@
 import { getEnvs } from 'common/functions';
-import { useUserStore } from '../store';
+import { useUserStore } from '../store/user.store';
 
 const uploadApiVersion = '2.0';
 const dataFormat = 'dwgzippackage';
