@@ -11,7 +11,7 @@ export { useDissolvedExterior, useGeometryStore } from './geometry.store';
 export { useLayersStore } from './layers.store';
 export { useLevelsStore } from './levels.store';
 export { useReviewManifestJson, useReviewManifestStore } from './review-manifest.store';
-export { useConversionStore } from './conversion.store';
+export { useConversionStore, conversionSteps } from './conversion.store';
 
 export function resetStores() {
   useProgressBarStore.getState().reset();

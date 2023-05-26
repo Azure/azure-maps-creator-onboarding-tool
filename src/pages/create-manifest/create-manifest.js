@@ -79,10 +79,10 @@ const CreateManifestPage = ({ allowEdit }) => {
       setExistingManifestJson(null);
     }
 
-    uploadFile(file, geo, subKey);
+    uploadFile(file);
     setOriginalPackage(file);
     navigate(PATHS.PROCESSING);
-  }, [allowEdit, file, geo, navigate, subKey, setExistingManifestJson, uploadFile, setOriginalPackage]);
+  }, [allowEdit, file, navigate, subKey, setExistingManifestJson, uploadFile, setOriginalPackage]);
 
   const navigateHome = useCallback(() => navigate(PATHS.INDEX), [navigate]);
   const updateSubKey = useCallback((e) => setSubKey(e.target.value), [setSubKey]);

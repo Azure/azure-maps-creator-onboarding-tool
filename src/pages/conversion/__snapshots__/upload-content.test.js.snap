@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`conversion upload content should render nothing when selected is not set 1`] = `
+exports[`upload content should render nothing when not selected 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -61,10 +61,14 @@ Object {
 }
 `;
 
-exports[`conversion upload content should render upload content 1`] = `
+exports[`upload content should render upload content 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  overflow-x: auto;
+}
+
+<body>
     <div>
       <div>
         <div>
@@ -73,25 +77,34 @@ Object {
           </h3>
           <div>
             operationId: 
-            super-operation-id
+            operation-id-id-operation
           </div>
           <div>
             udid: 
-            some-upload-id-hello
+            zxcv-asdf-zxcvzxcv-asdf-dgfh
           </div>
         </div>
         <div>
           <h3>
             operation.log
           </h3>
-          <pre>
-            operation log here
+          <pre
+            class="emotion-0"
+          >
+            {
+    "foo": "bar",
+    "baz": "blee blue blah blueberry dee"
+}
           </pre>
         </div>
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .emotion-0 {
+  overflow-x: auto;
+}
+
+<div>
     <div>
       <div>
         <h3>
@@ -99,19 +112,24 @@ Object {
         </h3>
         <div>
           operationId: 
-          super-operation-id
+          operation-id-id-operation
         </div>
         <div>
           udid: 
-          some-upload-id-hello
+          zxcv-asdf-zxcvzxcv-asdf-dgfh
         </div>
       </div>
       <div>
         <h3>
           operation.log
         </h3>
-        <pre>
-          operation log here
+        <pre
+          class="emotion-0"
+        >
+          {
+    "foo": "bar",
+    "baz": "blee blue blah blueberry dee"
+}
         </pre>
       </div>
     </div>

@@ -9,13 +9,28 @@ jest.mock('../top-bar/top-bar', () => () => <div>TopBar</div>);
 jest.mock('../progress-bar/progress-bar', () => () => <div>ProgressBar</div>);
 
 const mockNavigate = jest.fn();
+let mockPathname = '/';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
+  useLocation: () => ({
+    pathname: mockPathname,
+  }),
 }));
 
 describe('Route', () => {
+  beforeEach(() => {
+    mockPathname = '/';
+  });
+
   it('should render route', () => {
+    const view = render(<Route title='Route 66' component={() => <div>My awesome component</div>} />);
+    expect(view).toMatchSnapshot();
+    expect(mockNavigate).not.toHaveBeenCalledWith('/');
+  });
+
+  it('should render route with footerPadding', () => {
+    mockPathname = '/layers';
     const view = render(<Route title='Route 66' component={() => <div>My awesome component</div>} />);
     expect(view).toMatchSnapshot();
     expect(mockNavigate).not.toHaveBeenCalledWith('/');

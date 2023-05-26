@@ -11,7 +11,6 @@ import {
   useReviewManifestJson,
   useReviewManifestStore,
   useConversionStore,
-  useUserStore,
 } from 'common/store';
 import { createPackageWithJson } from './zip';
 import { PATHS } from 'common';
@@ -19,7 +18,6 @@ import { PATHS } from 'common';
 const reviewManifestSelector = (s) => [s.canBeDownloaded, s.originalPackage];
 const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = (s) => [s.reset, s.uploadPackage];
-const userStoreSelector = (s) => [s.subscriptionKey, s.geography];
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -29,7 +27,6 @@ export const Footer = () => {
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
   const [canBeDownloaded, originalPackage] = useReviewManifestStore(reviewManifestSelector, shallow);
   const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
-  const [subscriptionKey, geography] = useUserStore(userStoreSelector, shallow);
 
   const order = progressBarSteps.findIndex(route => route.href === pathname);
 
@@ -43,7 +40,7 @@ export const Footer = () => {
       resetConversion();
       hideMissingDataError();
       createPackageWithJson(originalPackage, json).then((file) => {
-        uploadConversion(file, geography, subscriptionKey);
+        uploadConversion(file);
         saveAs(
           file,
           'manifest.zip',

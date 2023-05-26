@@ -1,15 +1,16 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { useConversionStore } from 'common/store';
+import { conversionSteps, useConversionStore } from 'common/store';
+import { logsContainer } from './style';
 
-const conversionStoreSelector = (s) => [s.uploadOperationLog, s.uploadUdId, s.uploadOperationId];
+const conversionStoreSelector = (s) => [s.uploadOperationLog, s.uploadUdId, s.uploadOperationId, s.selectedStep];
 
-const UploadContent = ({ selected }) => {
+const UploadContent = () => {
   const { t } = useTranslation();
-  const [uploadOperationLog, uploadUdId, uploadOperationId] = useConversionStore(conversionStoreSelector, shallow);
+  const [uploadOperationLog, uploadUdId, uploadOperationId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
-  if (!selected) {
+  if (selectedStep !== conversionSteps.upload) {
     return null;
   }
 
@@ -22,7 +23,7 @@ const UploadContent = ({ selected }) => {
       </div>
       <div>
         <h3>{t('operation.log')}</h3>
-        <pre>{uploadOperationLog}</pre>
+        <pre className={logsContainer}>{uploadOperationLog}</pre>
       </div>
     </div>
   );

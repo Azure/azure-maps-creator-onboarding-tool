@@ -266,9 +266,27 @@ Object {
 exports[`conversion icon should render inProgress icon 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .emotion-0 {
+  "baseElement": @keyframes animation-0 {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
   margin-right: 0.5rem;
   color: #0078d4;
+  -webkit-animation: animation-0 2s linear infinite;
+  animation: animation-0 2s linear infinite;
 }
 
 <body>
@@ -283,9 +301,27 @@ Object {
       </i>
     </div>
   </body>,
-  "container": .emotion-0 {
+  "container": @keyframes animation-0 {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
   margin-right: 0.5rem;
   color: #0078d4;
+  -webkit-animation: animation-0 2s linear infinite;
+  animation: animation-0 2s linear infinite;
 }
 
 <div>

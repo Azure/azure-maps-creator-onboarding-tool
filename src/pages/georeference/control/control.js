@@ -29,11 +29,10 @@ import {
   sliderContainerOuter,
   toggleButton,
 } from './control.style';
-import { useGeometryStore, useUserStore } from 'common/store';
+import { useGeometryStore } from 'common/store';
 import { fetchAddress } from 'common/api';
 
 const anchorPointSelector = (s) => [s.anchorPoint.angle, s.updateAngle];
-const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
 
 const radioKeys = {
   address: 'address',
@@ -43,7 +42,6 @@ const radioKeys = {
 function Control({ map }) {
   const { t } = useTranslation();
   const [anchorPointAngle, updateAngle] = useGeometryStore(anchorPointSelector, shallow);
-  const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
@@ -81,7 +79,7 @@ function Control({ map }) {
     setLat(null);
     setIsFetchingAddress(true);
 
-    fetchAddress(address, geography, subscriptionKey)
+    fetchAddress(address)
       .then((re) => {
         if (re.results.length) {
           const {position} = re.results[0];
@@ -96,7 +94,7 @@ function Control({ map }) {
     }).finally(() => {
       setIsFetchingAddress(false);
     });
-  }, [address, geography, map, setIsFetchingAddress, subscriptionKey, t]);
+  }, [address, map, setIsFetchingAddress, t]);
   const onAddressKeyPress = useCallback((e) => {
     if (e.code === 'Enter') {
       searchAddress();

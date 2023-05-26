@@ -147,7 +147,8 @@ const Preview = () => {
                     onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
         </div>
       </div>
-      <canvas id='canvas' width={canvasSide} height={canvasSide} style={{maxWidth: '100%'}} />
+      <canvas style={{maxWidth: '100%', display: selectedFeatureClasses.length ? 'block' : 'none' }}
+              id='canvas' width={canvasSide} height={canvasSide} />
     </div>
   );
 };
