@@ -56,13 +56,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## API
 
-For client<->server communication we use only two requests:
-- POST `uploadFile` request to upload a file
-- GET `fetchStatus` request to fetch current status of the file processing on the server
-
-There is also `fetchAddress` request to public API to search coordinates by address.
-
-All API requests live in `src/common/api/index.js`.
+All API requests live under `src/common/api/`.
 API is designed to be used only by the onboarding tool and is not supported for any other use.
 
 ## Map interactions.
