@@ -12,6 +12,9 @@ export const container = css`
 export const stepsContainer = css`
   width: 15rem;
   border-right: 1px solid ${color.gray};
+  @media (max-width: 600px) {
+    width: 9rem;
+  }
 `;
 
 export const step = css`
@@ -77,6 +80,9 @@ export const stepTimer = css`
 export const content = css`
   padding: 0 1rem;
   width: calc(100% - 18rem);
+  @media (max-width: 600px) {
+    width: calc(100% - 9rem);
+  }
 `;
 
 export const logsContainer = css`
@@ -85,4 +91,9 @@ export const logsContainer = css`
 
 export const diagnosticDescription = css`
   margin: 0.5rem 0;
+`;
+
+export const mapContainer = css`
+  width: 100%;
+  height: 500px;
 `;

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { startConversion, uploadConversion } from 'common/api/conversion';
+import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { fetchFromLocation } from 'common/api';
 import { HTTP_STATUS_CODE } from 'common/constants';
 import { LRO_STATUS } from './response.store';
@@ -39,6 +39,20 @@ const getDefaultState = () => ({
   conversionOperationLog: null,
   conversionId: null,
   diagnosticPackageLocation: null,
+  datasetStepStatus: conversionStatuses.empty,
+  datasetStartTime: null,
+  datasetEndTime: null,
+  datasetOperationId: null,
+  datasetOperationLog: null,
+  datasetId: null,
+  tilesetStepStatus: conversionStatuses.empty,
+  tilesetStartTime: null,
+  tilesetEndTime: null,
+  tilesetOperationId: null,
+  tilesetOperationLog: null,
+  tilesetId: null,
+  mapConfigurationId: null,
+  bbox: null,
 });
 
 const defaultErrorMessage = 'Operation failed.';
@@ -190,6 +204,7 @@ export const useConversionStore = create((set, get) => ({
               set({
                 conversionId: data.conversionId,
               });
+              get().startDataset(data.conversionId);
             });
         } else {
           throw new Error(JSON.stringify(data, null, 4));
@@ -200,6 +215,159 @@ export const useConversionStore = create((set, get) => ({
           conversionStepStatus: conversionStatuses.failed,
           conversionOperationLog: e.message || defaultErrorMessage,
           conversionEndTime: Date.now(),
+        });
+      });
+  },
+  startDataset: (conversionId) => {
+    set({
+      datasetStartTime: Date.now(),
+      datasetStepStatus: conversionStatuses.inProgress,
+    });
+    startDataset(conversionId).then((res) => {
+      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+        res.json().then((data) => {
+          set({
+            datasetStepStatus: conversionStatuses.failed,
+            datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+            datasetEndTime: Date.now(),
+          });
+        });
+      } else {
+        get().fetchDatasetStatus(res.headers.get(OPERATION_LOCATION));
+      }
+    }).catch((e) => {
+      set({
+        datasetStepStatus: conversionStatuses.failed,
+        datasetOperationLog: e.message || defaultErrorMessage,
+        datasetEndTime: Date.now(),
+      });
+    });
+  },
+  fetchDatasetStatus: (location) => {
+    fetchFromLocation(location)
+      .then(async (res) => {
+        if (res.status !== HTTP_STATUS_CODE.OK) {
+          throw new Error();
+        }
+
+        const data = await res.json();
+
+        if (data.status === LRO_STATUS.FAILED) {
+          set({
+            datasetStepStatus: conversionStatuses.failed,
+            datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+            datasetEndTime: Date.now(),
+          });
+        } else if (data.status === LRO_STATUS.RUNNING) {
+          set(() => ({
+            datasetOperationId: data.operationId,
+            datasetOperationLog: JSON.stringify(data, null, 4),
+          }));
+          setTimeout(() => {
+            get().fetchDatasetStatus(location);
+          }, fetchTimeout);
+        } else if (data.status === LRO_STATUS.SUCCEEDED) {
+          set({
+            datasetStepStatus: conversionStatuses.finishedSuccessfully,
+            datasetOperationLog: JSON.stringify(data, null, 4),
+            datasetOperationId: data.operationId,
+            datasetEndTime: Date.now(),
+          });
+
+          fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
+            .then((res) => res.json())
+            .then((data) => {
+              set({
+                datasetId: data.datasetId,
+              });
+              get().startTileset(data.datasetId);
+            });
+        } else {
+          throw new Error(JSON.stringify(data, null, 4));
+        }
+      })
+      .catch((e) => {
+        set({
+          datasetStepStatus: conversionStatuses.failed,
+          datasetOperationLog: e.message || defaultErrorMessage,
+          datasetEndTime: Date.now(),
+        });
+      });
+  },
+  startTileset: (datasetId) => {
+    set({
+      tilesetStartTime: Date.now(),
+      tilesetStepStatus: conversionStatuses.inProgress,
+    });
+    startTileset(datasetId).then((res) => {
+      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+        res.json().then((data) => {
+          set({
+            tilesetStepStatus: conversionStatuses.failed,
+            tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+            tilesetEndTime: Date.now(),
+          });
+        });
+      } else {
+        get().fetchTilesetStatus(res.headers.get(OPERATION_LOCATION));
+      }
+    }).catch((e) => {
+      set({
+        tilesetStepStatus: conversionStatuses.failed,
+        tilesetOperationLog: e.message || defaultErrorMessage,
+        tilesetEndTime: Date.now(),
+      });
+    });
+  },
+  fetchTilesetStatus: (location) => {
+    fetchFromLocation(location)
+      .then(async (res) => {
+        if (res.status !== HTTP_STATUS_CODE.OK) {
+          throw new Error();
+        }
+
+        const data = await res.json();
+
+        if (data.status === LRO_STATUS.FAILED) {
+          set({
+            tilesetStepStatus: conversionStatuses.failed,
+            tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+            tilesetEndTime: Date.now(),
+          });
+        } else if (data.status === LRO_STATUS.RUNNING) {
+          set(() => ({
+            tilesetOperationId: data.operationId,
+            tilesetOperationLog: JSON.stringify(data, null, 4),
+          }));
+          setTimeout(() => {
+            get().fetchTilesetStatus(location);
+          }, fetchTimeout);
+        } else if (data.status === LRO_STATUS.SUCCEEDED) {
+          set({
+            tilesetStepStatus: conversionStatuses.finishedSuccessfully,
+            tilesetOperationLog: JSON.stringify(data, null, 4),
+            tilesetOperationId: data.operationId,
+            tilesetEndTime: Date.now(),
+          });
+
+          fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
+            .then((res) => res.json())
+            .then((data) => {
+              set({
+                tilesetId: data.tilesetId,
+                mapConfigurationId: data.defaultMapConfigurationId,
+                bbox: data.bbox,
+              });
+            });
+        } else {
+          throw new Error(JSON.stringify(data, null, 4));
+        }
+      })
+      .catch((e) => {
+        set({
+          tilesetStepStatus: conversionStatuses.failed,
+          tilesetOperationLog: e.message || defaultErrorMessage,
+          tilesetEndTime: Date.now(),
         });
       });
   },

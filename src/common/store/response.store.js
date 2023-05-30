@@ -254,9 +254,16 @@ export function getFirstMeaningfulError(data) {
   const details = data?.error?.details ?? [];
 
   for (let i = 0; i < details.length; i++) {
-    const meaningfulError = details[0].details.find((error) => ERROR_CODES_WITH_MEANINGFUL_ERRORS.includes(error.code));
-    if (meaningfulError) {
-      return meaningfulError;
+    if (Array.isArray(details[i].details)) {
+      const meaningfulError = details[i].details.find((error) => ERROR_CODES_WITH_MEANINGFUL_ERRORS.includes(error.code));
+      if (meaningfulError) {
+        return meaningfulError;
+      }
+    } else {
+      const { code, message } = details[i];
+      if (ERROR_CODES_WITH_MEANINGFUL_ERRORS.includes(code)) {
+        return message;
+      }
     }
   }
 

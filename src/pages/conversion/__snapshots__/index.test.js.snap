@@ -20,6 +20,12 @@ Object {
   border-right: 1px solid #E1DFDD;
 }
 
+@media (max-width: 600px) {
+  .emotion-1 {
+    width: 9rem;
+  }
+}
+
 .emotion-2 {
   height: 2.75rem;
   display: -webkit-box;
@@ -90,12 +96,18 @@ Object {
   background-color: #F3F2F1;
 }
 
-.emotion-10 {
+.emotion-18 {
   padding: 0 1rem;
   width: calc(100% - 18rem);
 }
 
-.emotion-11 {
+@media (max-width: 600px) {
+  .emotion-18 {
+    width: calc(100% - 9rem);
+  }
+}
+
+.emotion-19 {
   overflow-x: auto;
 }
 
@@ -149,9 +161,51 @@ Object {
               class="emotion-5"
             />
           </button>
+          <button
+            aria-label="select.dataset.step"
+            class="emotion-6"
+          >
+            <div
+              class="emotion-3"
+            >
+              <i
+                aria-label="package.conversion"
+                class="emotion-4 root-111"
+                data-icon-name="StatusCircleRing"
+                role="img"
+              >
+                
+              </i>
+              dataset.creation
+            </div>
+            <span
+              class="emotion-5"
+            />
+          </button>
+          <button
+            aria-label="select.tileset.step"
+            class="emotion-6"
+          >
+            <div
+              class="emotion-3"
+            >
+              <i
+                aria-label="package.conversion"
+                class="emotion-4 root-111"
+                data-icon-name="StatusCircleRing"
+                role="img"
+              >
+                
+              </i>
+              tileset.creation
+            </div>
+            <span
+              class="emotion-5"
+            />
+          </button>
         </div>
         <div
-          class="emotion-10"
+          class="emotion-18"
         >
           <div>
             <div>
@@ -172,7 +226,7 @@ Object {
                 operation.log
               </h3>
               <pre
-                class="emotion-11"
+                class="emotion-19"
               />
             </div>
           </div>
@@ -195,6 +249,12 @@ Object {
 .emotion-1 {
   width: 15rem;
   border-right: 1px solid #E1DFDD;
+}
+
+@media (max-width: 600px) {
+  .emotion-1 {
+    width: 9rem;
+  }
 }
 
 .emotion-2 {
@@ -267,12 +327,18 @@ Object {
   background-color: #F3F2F1;
 }
 
-.emotion-10 {
+.emotion-18 {
   padding: 0 1rem;
   width: calc(100% - 18rem);
 }
 
-.emotion-11 {
+@media (max-width: 600px) {
+  .emotion-18 {
+    width: calc(100% - 9rem);
+  }
+}
+
+.emotion-19 {
   overflow-x: auto;
 }
 
@@ -325,9 +391,51 @@ Object {
             class="emotion-5"
           />
         </button>
+        <button
+          aria-label="select.dataset.step"
+          class="emotion-6"
+        >
+          <div
+            class="emotion-3"
+          >
+            <i
+              aria-label="package.conversion"
+              class="emotion-4 root-111"
+              data-icon-name="StatusCircleRing"
+              role="img"
+            >
+              
+            </i>
+            dataset.creation
+          </div>
+          <span
+            class="emotion-5"
+          />
+        </button>
+        <button
+          aria-label="select.tileset.step"
+          class="emotion-6"
+        >
+          <div
+            class="emotion-3"
+          >
+            <i
+              aria-label="package.conversion"
+              class="emotion-4 root-111"
+              data-icon-name="StatusCircleRing"
+              role="img"
+            >
+              
+            </i>
+            tileset.creation
+          </div>
+          <span
+            class="emotion-5"
+          />
+        </button>
       </div>
       <div
-        class="emotion-10"
+        class="emotion-18"
       >
         <div>
           <div>
@@ -348,7 +456,7 @@ Object {
               operation.log
             </h3>
             <pre
-              class="emotion-11"
+              class="emotion-19"
             />
           </div>
         </div>

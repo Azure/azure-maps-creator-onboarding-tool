@@ -1,20 +1,67 @@
-import { container, content, stepsContainer } from './style';
-import UploadButton from './upload-button';
-import UploadContent from './upload-content';
-import ConversionButton from './conversion-button';
-import ConversionContent from './conversion-content';
+import { shallow } from 'zustand/shallow';
+import { useTranslation } from 'react-i18next';
 
-const Conversion = () => (
-  <div className={container}>
-    <div className={stepsContainer}>
-      <UploadButton />
-      <ConversionButton />
+import { container, content, stepsContainer } from './style';
+import UploadContent from './upload-content';
+import ConversionContent from './conversion-content';
+import DatasetContent from './dataset-content';
+import TilesetContent from './tileset-content';
+import StepButton from './step-button';
+import { conversionSteps, useConversionStore } from 'common/store';
+
+const conversionStoreSelector = (s) => [
+  s.uploadStepStatus,
+  s.uploadStartTime,
+  s.uploadEndTime,
+  s.conversionStepStatus,
+  s.conversionStartTime,
+  s.conversionEndTime,
+  s.datasetStepStatus,
+  s.datasetStartTime,
+  s.datasetEndTime,
+  s.tilesetStepStatus,
+  s.tilesetStartTime,
+  s.tilesetEndTime,
+];
+
+const Conversion = () => {
+  const { t } = useTranslation();
+
+  const [
+    uploadStepStatus,
+    uploadStartTime,
+    uploadEndTime,
+    conversionStepStatus,
+    conversionStartTime,
+    conversionEndTime,
+    datasetStepStatus,
+    datasetStartTime,
+    datasetEndTime,
+    tilesetStepStatus,
+    tilesetStartTime,
+    tilesetEndTime,
+  ] = useConversionStore(conversionStoreSelector, shallow);
+
+  return (
+    <div className={container}>
+      <div className={stepsContainer}>
+        <StepButton endTime={uploadEndTime} label={t('select.upload.step')} status={uploadStepStatus}
+                    startTime={uploadStartTime} step={conversionSteps.upload} title={t('package.upload')} />
+        <StepButton endTime={conversionEndTime} label={t('select.conversion.step')} status={conversionStepStatus}
+                    startTime={conversionStartTime} step={conversionSteps.conversion} title={t('package.conversion')} />
+        <StepButton endTime={datasetEndTime} label={t('select.dataset.step')} status={datasetStepStatus}
+                    startTime={datasetStartTime} step={conversionSteps.dataset} title={t('dataset.creation')} />
+        <StepButton endTime={tilesetEndTime} label={t('select.tileset.step')} status={tilesetStepStatus}
+                    startTime={tilesetStartTime} step={conversionSteps.tileset} title={t('tileset.creation')} />
+      </div>
+      <div className={content}>
+        <UploadContent />
+        <ConversionContent />
+        <DatasetContent />
+        <TilesetContent />
+      </div>
     </div>
-    <div className={content}>
-      <UploadContent />
-      <ConversionContent />
-    </div>
-  </div>
-);
+  );
+};
 
 export default Conversion;
