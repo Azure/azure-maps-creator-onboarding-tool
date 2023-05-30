@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 
-import { fetchStatus, HTTP_STATUS_CODE, uploadFile, fetchManifestData, deleteManifestData } from 'common/api';
+import { uploadFile, deleteFromLocation, fetchFromLocation } from 'common/api';
+import { HTTP_STATUS_CODE } from 'common/constants';
 import i18next from 'common/translations/i18n';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
-import { resetStores } from './index';
+import { resetStores } from './reset';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
@@ -32,29 +33,19 @@ export const useResponseStore = create((set, get) => ({
   setExistingManifestJson: (json) => set(() => ({
     existingManifestJson: json,
   })),
-  // Operation-Location header from the uploadFile() response, used to poll for the status of the operation
   operationLocation: '',
-
-  // LRO status from the fetchStatus() response
   lroStatus: '',
-
-  // Error message to display to the user if an error occurs during API calls
   errorMessage: '',
-
   acknowledgeError: () => set({
     errorMessage: ''
   }),
-
-  // Submit the zip package for processing on the backend
-  uploadFile: async (file, geography, subscriptionKey) => {
+  uploadFile: (file) => {
     set(() => ({
-      // Reset the error message, since upload is the first step in the process
       errorMessage: '',
       lroStatus: LRO_STATUS.UPLOADING,
     }));
 
-    // Upload the zip package to the backend
-    uploadFile(file, geography, subscriptionKey)
+    uploadFile(file)
     .then(async (r) => {
       if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
         if (STATUS_CODES_WITH_MEANINGFUL_ERRORS.includes(r.status)) {
@@ -81,13 +72,13 @@ export const useResponseStore = create((set, get) => ({
 
   // Poll the backend for the status of the upload operation
   // Uses the operationLocation set by uploadFile()
-  refreshStatus: async (subscriptionKey) => {
+  refreshStatus: () => {
     const operationLocation = get().operationLocation;
     if (operationLocation === '') {
       return;
     }
 
-    fetchStatus(operationLocation, subscriptionKey)
+    fetchFromLocation(operationLocation)
       .then(async (r) => {
         const data = await r.json();
         if (r.status !== HTTP_STATUS_CODE.OK) {
@@ -122,7 +113,7 @@ export const useResponseStore = create((set, get) => ({
         }
 
         if (data.status === LRO_STATUS.SUCCEEDED) {
-          get().fetchManifestData(data.fetchUrl, subscriptionKey);
+          get().fetchManifestData(data.fetchUrl);
         }
       })
       .catch(({ message }) => {
@@ -134,8 +125,10 @@ export const useResponseStore = create((set, get) => ({
       });
   },
 
-  fetchManifestData: (fetchUrl, subscriptionKey) => {
-    fetchManifestData(fetchUrl, subscriptionKey).then((data) => {
+  fetchManifestData: (fetchUrl) => {
+    fetchFromLocation(fetchUrl)
+      .then((re) => re.json())
+      .then((data) => {
       resetStores();
 
       // Compute and store useful response data
@@ -223,7 +216,7 @@ export const useResponseStore = create((set, get) => ({
         lroStatus: LRO_STATUS.SUCCEEDED,
       }));
 
-      deleteManifestData(fetchUrl, subscriptionKey);
+      deleteFromLocation(fetchUrl);
     });
   },
 }));

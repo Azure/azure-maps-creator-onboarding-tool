@@ -1,7 +1,7 @@
 import { Icon } from '@fluentui/react/lib/Icon';
 import { useTranslation } from 'react-i18next';
 
-import { defaultIcon, failedIcon, inProgressIcon, successIcon } from './conversion.style';
+import { defaultIcon, failedIcon, inProgressIcon, successIcon } from './style';
 import { conversionStatuses } from 'common/store/conversion.store';
 
 const StepIcon = ({ status }) => {

@@ -1,19 +1,10 @@
 // The following API is designed to be used only by the onboarding tool and is not supported for any other use.
 import { getEnvs } from 'common/functions';
+import { useUserStore } from '../store/user.store';
 
-export const HTTP_STATUS_CODE = {
-  ACCEPTED: 202,
-  OK: 200,
-  BAD_REQUEST: 400,
-  UNAUTHORIZED: 401,
-  FORBIDDEN: 403,
-  TOO_MANY_REQUESTS: 429,
-};
-
-const API_VERSION = '2.0';
-
-export const uploadFile = (file, geography, subscriptionKey) => {
-  const url = `${getEnvs()[geography].URL}/manifest?api-version=${API_VERSION}&subscription-key=${subscriptionKey}`;
+export const uploadFile = (file) => {
+  const { geography, subscriptionKey } = useUserStore.getState();
+  const url = `${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`;
 
   return fetch(url, {
     method: 'POST',
@@ -24,26 +15,22 @@ export const uploadFile = (file, geography, subscriptionKey) => {
   });
 };
 
-export const fetchStatus = (operationLocation, subscriptionKey) => {
-  operationLocation += `&subscription-key=${subscriptionKey}`;
-  return fetch(operationLocation, {
+export const fetchFromLocation = (location) => {
+  const { subscriptionKey } = useUserStore.getState();
+  return fetch(`${location}&subscription-key=${subscriptionKey}`, {
     method: 'GET',
   });
 };
 
-export const fetchManifestData = (fetchUrl, subscriptionKey) => {
-  return fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
-    method: 'GET',
-  }).then((re) => re.json());
-};
-
-export const deleteManifestData = (fetchUrl, subscriptionKey) => {
-  return fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
+export const deleteFromLocation = (fetchUrl) => {
+  const { subscriptionKey } = useUserStore.getState();
+  fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
     method: 'DELETE',
   });
 };
 
-export const fetchAddress = (address, geography, subscriptionKey) => (
-  fetch(`${getEnvs()[geography].URL}/search/address/json?subscription-key=${subscriptionKey}&api-version=1.0&query=${address}&limit=1`)
-    .then((res) => res.json())
-);
+export const fetchAddress = (address) => {
+  const { geography, subscriptionKey } = useUserStore.getState();
+  return fetch(`${getEnvs()[geography].URL}/search/address/json?subscription-key=${subscriptionKey}&api-version=1.0&query=${address}&limit=1`)
+    .then((res) => res.json());
+};

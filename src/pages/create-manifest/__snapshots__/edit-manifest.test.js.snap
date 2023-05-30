@@ -5,7 +5,10 @@ Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
   max-width: 45.5rem;
-  margin: auto;
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   font-size: 0.813rem;
   margin-top: 1rem;
 }
@@ -623,7 +626,10 @@ Object {
   </body>,
   "container": .emotion-0 {
   max-width: 45.5rem;
-  margin: auto;
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   font-size: 0.813rem;
   margin-top: 1rem;
 }

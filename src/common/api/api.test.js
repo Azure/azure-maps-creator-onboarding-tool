@@ -1,8 +1,16 @@
-import { fetchAddress, fetchStatus, uploadFile, fetchManifestData, deleteManifestData } from './index';
+import { fetchAddress, fetchFromLocation, uploadFile, deleteFromLocation } from './index';
+import { useUserStore } from '../store';
 
 describe('api', () => {
+  beforeEach(() => {
+    useUserStore.setState({
+      geography: 'EU',
+      subscriptionKey: 'subKeeeeeeey',
+    });
+  });
+
   it('should call uploadFile request', () => {
-    uploadFile('myFile', 'EU', 'subKeeeeeeey');
+    uploadFile('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey',
       {'body': 'myFile', 'headers': {'Content-Type': 'application/zip'}, 'method': 'POST'},
@@ -11,34 +19,26 @@ describe('api', () => {
 
   it('should call fetchAddress request', () => {
     global.fetch.mockReturnValue(Promise.resolve({ json: () => {} }));
-    fetchAddress('Rose Alley, Big Blue Building next to the old oak', 'EU', 'hola');
+    fetchAddress('Rose Alley, Big Blue Building next to the old oak');
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://eu.atlas.microsoft.com/search/address/json?subscription-key=hola&api-version=1.0&query=Rose Alley, Big Blue Building next to the old oak&limit=1'
+      'https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKeeeeeeey&api-version=1.0&query=Rose Alley, Big Blue Building next to the old oak&limit=1'
     );
   });
 
-  it('should call fetchStatus request', () => {
-    fetchStatus('operation-1-location-2', 'uno-dos-tres');
+  it('should call deleteFromLocation request', () => {
+    deleteFromLocation('https://www.msft.com/fetch/manifest/data');
     expect(global.fetch).toHaveBeenCalledWith(
-      'operation-1-location-2&subscription-key=uno-dos-tres',
-      {'method': 'GET'},
-    );
-  });
-
-  it('should call fetchManifestData request', () => {
-    global.fetch.mockImplementationOnce(() => Promise.resolve({ json: () => {} }));
-    fetchManifestData('https://www.msft.com/fetch/manifest/data', 'uno-dos-tres');
-    expect(global.fetch).toHaveBeenCalledWith(
-      'https://www.msft.com/fetch/manifest/data&subscription-key=uno-dos-tres',
-      {'method': 'GET'},
-    );
-  });
-
-  it('should call deleteManifestData request', () => {
-    deleteManifestData('https://www.msft.com/fetch/manifest/data', 'uno-dos-tres');
-    expect(global.fetch).toHaveBeenCalledWith(
-      'https://www.msft.com/fetch/manifest/data&subscription-key=uno-dos-tres',
+      'https://www.msft.com/fetch/manifest/data&subscription-key=subKeeeeeeey',
       {'method': 'DELETE'},
+    );
+  });
+
+
+  it('should call fetchFromLocation request', () => {
+    fetchFromLocation('operation-1-location-2');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'operation-1-location-2&subscription-key=subKeeeeeeey',
+      { 'method': 'GET' },
     );
   });
 });

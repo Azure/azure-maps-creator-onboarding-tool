@@ -4,7 +4,8 @@ import { fontSize, fontWeight } from 'common/styles';
 
 export const containerStyle = css`
   max-width: 45.5rem;
-  margin: auto;
+  width: 100%;
+  align-self: center;
   font-size: ${fontSize.sm};
   margin-top: 1rem;
 `;

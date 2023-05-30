@@ -77,7 +77,7 @@ describe('CreateManifestPage', () => {
     });
     fireEvent.click(uploadButton);
 
-    expect(uploadFileSpy).toBeCalledWith(file, 'US', 'Sonic the Hedgehog isnt his fullname');
+    expect(uploadFileSpy).toBeCalledWith(file);
     expect(setExistingManifestJsonSpy).toBeCalledWith(null);
     expect(mockSetOriginalPackage).toHaveBeenCalledWith(file);
   });
@@ -114,7 +114,7 @@ describe('CreateManifestPage', () => {
 
     fireEvent.click(uploadButton);
 
-    expect(uploadFileSpy).toBeCalledWith(file, 'US', 'Sonic the Hedgehog isnt his fullname');
+    expect(uploadFileSpy).toBeCalledWith(file);
     expect(setExistingManifestJsonSpy).toBeCalledWith({ foo: 'bar' });
     expect(mockSetOriginalPackage).toHaveBeenCalledWith(file);
   });

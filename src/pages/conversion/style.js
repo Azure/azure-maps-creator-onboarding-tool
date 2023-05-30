@@ -1,8 +1,8 @@
-import { css } from '@emotion/css';
+import { css, keyframes } from '@emotion/css';
 
 import { color, fontSize, fontWeight } from 'common/styles';
 
-export const conversionContainer = css`
+export const container = css`
   display: flex;
   flex: 1;
   font-size: ${fontSize.sm};
@@ -21,6 +21,8 @@ export const step = css`
   justify-content: space-between;
   padding: 0 0.5rem;
   cursor: pointer;
+  border: none;
+  width: 100%;
   
   &:hover {
     color: ${color.accent.primary};
@@ -43,9 +45,19 @@ export const successIcon = css`
   color: ${color.greenIcon};
 `;
 
+const spin = keyframes`
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+`;
+
 export const inProgressIcon = css`
   margin-right: 0.5rem;
   color: ${color.blueIcon};
+  animation: ${spin} 2s linear infinite;
 `;
 
 export const defaultIcon = css`
@@ -62,6 +74,15 @@ export const stepTimer = css`
   font-size: ${fontSize.xxs};
 `;
 
-export const logsContainer = css`
+export const content = css`
   padding: 0 1rem;
+  width: calc(100% - 18rem);
+`;
+
+export const logsContainer = css`
+  overflow-x: auto;
+`;
+
+export const diagnosticDescription = css`
+  margin: 0.5rem 0;
 `;

@@ -35,6 +35,8 @@ Object {
   justify-content: space-between;
   padding: 0 0.5rem;
   cursor: pointer;
+  border: none;
+  width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
 }
@@ -65,7 +67,36 @@ Object {
 }
 
 .emotion-6 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+.emotion-6:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-10 {
   padding: 0 1rem;
+  width: calc(100% - 18rem);
+}
+
+.emotion-11 {
+  overflow-x: auto;
 }
 
 <body>
@@ -76,7 +107,8 @@ Object {
         <div
           class="emotion-1"
         >
-          <div
+          <button
+            aria-label="select.upload.step"
             class="emotion-2"
           >
             <div
@@ -84,7 +116,7 @@ Object {
             >
               <i
                 aria-label="package.conversion"
-                class="emotion-4 root-106"
+                class="emotion-4 root-111"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -95,10 +127,31 @@ Object {
             <span
               class="emotion-5"
             />
-          </div>
+          </button>
+          <button
+            aria-label="select.conversion.step"
+            class="emotion-6"
+          >
+            <div
+              class="emotion-3"
+            >
+              <i
+                aria-label="package.conversion"
+                class="emotion-4 root-111"
+                data-icon-name="StatusCircleRing"
+                role="img"
+              >
+                
+              </i>
+              package.conversion
+            </div>
+            <span
+              class="emotion-5"
+            />
+          </button>
         </div>
         <div
-          class="emotion-6"
+          class="emotion-10"
         >
           <div>
             <div>
@@ -118,7 +171,9 @@ Object {
               <h3>
                 operation.log
               </h3>
-              <pre />
+              <pre
+                class="emotion-11"
+              />
             </div>
           </div>
         </div>
@@ -157,6 +212,8 @@ Object {
   justify-content: space-between;
   padding: 0 0.5rem;
   cursor: pointer;
+  border: none;
+  width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
 }
@@ -187,7 +244,36 @@ Object {
 }
 
 .emotion-6 {
+  height: 2.75rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+.emotion-6:hover {
+  color: #0078d4;
+  background-color: #F3F2F1;
+}
+
+.emotion-10 {
   padding: 0 1rem;
+  width: calc(100% - 18rem);
+}
+
+.emotion-11 {
+  overflow-x: auto;
 }
 
 <div>
@@ -197,7 +283,8 @@ Object {
       <div
         class="emotion-1"
       >
-        <div
+        <button
+          aria-label="select.upload.step"
           class="emotion-2"
         >
           <div
@@ -205,7 +292,7 @@ Object {
           >
             <i
               aria-label="package.conversion"
-              class="emotion-4 root-106"
+              class="emotion-4 root-111"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -216,10 +303,31 @@ Object {
           <span
             class="emotion-5"
           />
-        </div>
+        </button>
+        <button
+          aria-label="select.conversion.step"
+          class="emotion-6"
+        >
+          <div
+            class="emotion-3"
+          >
+            <i
+              aria-label="package.conversion"
+              class="emotion-4 root-111"
+              data-icon-name="StatusCircleRing"
+              role="img"
+            >
+              
+            </i>
+            package.conversion
+          </div>
+          <span
+            class="emotion-5"
+          />
+        </button>
       </div>
       <div
-        class="emotion-6"
+        class="emotion-10"
       >
         <div>
           <div>
@@ -239,7 +347,9 @@ Object {
             <h3>
               operation.log
             </h3>
-            <pre />
+            <pre
+              class="emotion-11"
+            />
           </div>
         </div>
       </div>

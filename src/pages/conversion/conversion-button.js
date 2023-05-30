@@ -8,10 +8,10 @@ import Icon from './icon';
 import { useConversionStore, conversionSteps } from 'common/store';
 import { formatProgressTime } from './format-time';
 
-const conversionStoreSelector = (s) => [s.uploadStepStatus, s.uploadStartTime, s.uploadEndTime, s.setStep, s.selectedStep];
+const conversionStoreSelector = (s) => [s.conversionStepStatus, s.conversionStartTime, s.conversionEndTime, s.setStep, s.selectedStep];
 let intervalId = null;
 
-const UploadButton = () => {
+const ConversionButton = () => {
   const { t } = useTranslation();
   const [elapsedTime, setElapsedTime] = useState('');
   const [status, startTime, endTime, setStep, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
@@ -29,18 +29,18 @@ const UploadButton = () => {
     return () => clearInterval(intervalId);
   }, [startTime, endTime]);
 
-  const onClick = useCallback(() => setStep(conversionSteps.upload), [setStep]);
+  const onClick = useCallback(() => setStep(conversionSteps.conversion), [setStep]);
 
   return (
-    <button className={cx(step, { [selectedStepStyle]: selectedStep === conversionSteps.upload })} onClick={onClick}
-            aria-label={t('select.upload.step')}>
+    <button className={cx(step, { [selectedStepStyle]: selectedStep === conversionSteps.conversion })} onClick={onClick}
+            aria-label={t('select.conversion.step')}>
       <div className={stepTitle}>
         <Icon status={status} />
-        {t('package.upload')}
+        {t('package.conversion')}
       </div>
       <span className={stepTimer}>{elapsedTime}</span>
     </button>
   );
 };
 
-export default UploadButton;
+export default ConversionButton;
