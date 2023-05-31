@@ -31,3 +31,5 @@ junit.xml
 
 # IDEs, IntelliJ
 /.idea
+
+test.js
