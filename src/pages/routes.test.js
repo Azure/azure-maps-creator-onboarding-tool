@@ -1,8 +1,6 @@
 import { routes } from './routes';
 
-jest.mock('./index/index', () => () => {});
 jest.mock('./create-manifest', () => () => {});
-jest.mock('./create-manifest/edit-manifest', () => () => {});
 jest.mock('./processing', () => () => {});
 jest.mock('./georeference', () => () => {});
 jest.mock('./layers', () => () => {});

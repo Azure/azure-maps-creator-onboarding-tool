@@ -8,6 +8,7 @@ import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
 import { resetStores } from './reset';
+import { useReviewManifestStore } from './review-manifest.store';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
@@ -29,10 +30,6 @@ export const LRO_STATUS = {
 };
 
 export const useResponseStore = create((set, get) => ({
-  existingManifestJson: null,
-  setExistingManifestJson: (json) => set(() => ({
-    existingManifestJson: json,
-  })),
   operationLocation: '',
   lroStatus: '',
   errorMessage: '',
@@ -44,6 +41,8 @@ export const useResponseStore = create((set, get) => ({
       errorMessage: '',
       lroStatus: LRO_STATUS.UPLOADING,
     }));
+
+    useReviewManifestStore.getState().setOriginalPackage(file);
 
     uploadFile(file)
     .then(async (r) => {
@@ -128,7 +127,7 @@ export const useResponseStore = create((set, get) => ({
   fetchManifestData: (fetchUrl) => {
     fetchFromLocation(fetchUrl)
       .then((re) => re.json())
-      .then((data) => {
+      .then(async (data) => {
       resetStores();
 
       // Compute and store useful response data
@@ -183,7 +182,7 @@ export const useResponseStore = create((set, get) => ({
 
       useLevelsStore.getState().setLevels(data.drawings.map(drawing => drawing.fileName));
 
-      const existingManifestJson = get().existingManifestJson;
+      const existingManifestJson = await useReviewManifestStore.getState().getOriginalManifestJson();
 
       if (existingManifestJson !== null) {
         const manifestVersion = parseInt(existingManifestJson.version);

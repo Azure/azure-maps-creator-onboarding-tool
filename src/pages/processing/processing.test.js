@@ -24,7 +24,6 @@ describe('ProcessingPage', () => {
     useResponseStore.setState({
       errorMessage: '',
       lroStatus: 'Uploading',
-      existingManifestJson: null,
     });
   });
 
@@ -58,12 +57,6 @@ describe('ProcessingPage', () => {
   it('should navigate to create manifest page in case of error', () => {
     useResponseStore.setState({ errorMessage: 'erreur!' });
     render(<ProcessingPage />);
-    expect(mockNavigate).toHaveBeenCalledWith('/create-manifest');
-  });
-
-  it('should navigate to edit manifest page in case of error', () => {
-    useResponseStore.setState({ errorMessage: 'erreur!', existingManifestJson: {} });
-    render(<ProcessingPage />);
-    expect(mockNavigate).toHaveBeenCalledWith('/edit-manifest');
+    expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 });

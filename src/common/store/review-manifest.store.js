@@ -1,14 +1,44 @@
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
+import * as zip from '@zip.js/zip.js';
 
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 import { isNumeric } from '../functions';
 
-export const useReviewManifestStore = create((set) => ({
+export const useReviewManifestStore = create((set, get) => ({
   canBeDownloaded: false,
   originalPackage: null,
+  getOriginalManifestJson: async () => {
+    const { originalPackage } = get();
+
+    if (originalPackage === null) {
+      return null;
+    }
+
+    try {
+      const zipFileReader = new zip.BlobReader(originalPackage);
+      const zipReader = new zip.ZipReader(zipFileReader);
+
+      const entries = await zipReader.getEntries();
+
+      for (let i = 0; i < entries.length; i++) {
+        const file = entries[i];
+        if (file.filename.toLowerCase() === 'manifest.json') {
+          const data = await file.getData(new zip.BlobWriter());
+          return JSON.parse(await data.text());
+        }
+      }
+    } catch(e) {
+      console.warn('manifest.json in DWG ZIP archive was not read correctly. ', e);
+    }
+    return null;
+  },
+  createPackageWithJson: (json) => {
+    const { originalPackage } = get();
+    return createPackageWithJson(originalPackage, json);
+  },
   setOriginalPackage: (originalPackage) => set(() => ({
     originalPackage,
   })),
@@ -75,3 +105,29 @@ export const useReviewManifestJson = () => {
 
   return json;
 };
+
+export async function createPackageWithJson(originalPackage, json) {
+  const zipFileReader = new zip.BlobReader(originalPackage);
+  const zipReader = new zip.ZipReader(zipFileReader);
+
+  const newFile = new Blob([JSON.stringify(json, null, 2)], {
+    type: 'application/json',
+  });
+
+  const blobWriter = new zip.BlobWriter('application/zip');
+  const writer = new zip.ZipWriter(blobWriter);
+
+  await writer.add('manifest.json', new zip.BlobReader(newFile));
+
+  const entries = await zipReader.getEntries();
+
+  for (let i = 0; i < entries.length; i++) {
+    const file = entries[i];
+    if (file.filename.endsWith('.dwg')) {
+      const data = await file.getData(new zip.BlobWriter());
+      await writer.add(file.filename, new zip.BlobReader(data));
+    }
+  }
+
+  return await writer.close();
+}

@@ -17,7 +17,7 @@ const LABEL = {
   RUNNING: 'processing.label.processing',
 };
 
-const responseStoreSelector = (s) => [s.errorMessage, s.lroStatus, s.refreshStatus, s.existingManifestJson];
+const responseStoreSelector = (s) => [s.errorMessage, s.lroStatus, s.refreshStatus];
 const subKeySelector = (s) => s.subscriptionKey;
 
 const ProcessingPage = () => {
@@ -28,7 +28,7 @@ const ProcessingPage = () => {
   const [label, setLabel] = useState();
 
   const subscriptionKey = useUserStore(subKeySelector);
-  const [errorMessage, lroStatus, refreshStatus, existingManifestJson] = useResponseStore(responseStoreSelector, shallow);
+  const [errorMessage, lroStatus, refreshStatus] = useResponseStore(responseStoreSelector, shallow);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,11 +70,7 @@ const ProcessingPage = () => {
     if (errorMessage === '') {
       return;
     }
-    if (existingManifestJson === null) {
-      navigate(PATHS.CREATE_MANIFEST);
-    } else {
-      navigate(PATHS.EDIT_MANIFEST);
-    }
+    navigate(PATHS.INDEX);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessage]);
 
