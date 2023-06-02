@@ -6,6 +6,7 @@ import { initializeIcons } from '@fluentui/react/lib/Icons';
 import { routes } from 'pages/routes';
 import 'common/translations/i18n';
 import './index.css';
+import 'azure-maps-control/dist/atlas.min.css';
 
 initializeIcons();
 
