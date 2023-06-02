@@ -1135,1301 +1135,6 @@ Object {
 }
 `;
 
-exports[`CreateManifestPage should render correctly with allowEdit prop 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": .emotion-0 {
-  max-width: 45.5rem;
-  width: 100%;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-size: 0.813rem;
-  margin-top: 1rem;
-}
-
-.emotion-1 {
-  min-height: 3.125rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.emotion-4 {
-  margin: 0 0 1.5rem 0;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex-flow: row wrap;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.emotion-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-7 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-8 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-9 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-10 {
-  width: 100%;
-}
-
-.emotion-13 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-13:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-23 {
-  outline: transparent;
-  position: relative;
-  font-size: 0.875rem;
-  font-weight: 400;
-  box-sizing: border-box;
-  border: 1px solid rgb(138, 136, 134);
-  display: inline-block;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  padding: 0 1rem;
-  border-radius: 2px;
-  min-width: 5rem;
-  height: 1.5rem;
-  background-color: rgb(255, 255, 255);
-  color: rgb(50, 49, 48);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-left: 1rem;
-}
-
-.emotion-23:hover {
-  background-color: rgb(243, 242, 241);
-  color: rgb(32, 31, 30);
-}
-
-.emotion-24 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  -webkit-box-flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-weight: 600;
-}
-
-.emotion-25 {
-  display: none;
-}
-
-.emotion-35 {
-  margin-right: 1rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
-.emotion-36 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
-<body>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          aria-describedby="MessageBar24"
-          class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
-          role="region"
-        >
-          <div
-            class="ms-MessageBar-content content-110"
-          >
-            <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
-            >
-              <i
-                aria-hidden="true"
-                class="icon-120"
-                data-icon-name="ErrorBadge"
-              >
-                
-              </i>
-            </div>
-            <div
-              aria-live="assertive"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar24"
-              role="alert"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-                data-testid="error-bar"
-              />
-            </div>
-            <button
-              aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-              data-is-focusable="true"
-              title="close"
-              type="button"
-            >
-              <span
-                class="ms-Button-flexContainer flexContainer-122"
-                data-automationid="splitbuttonprimary"
-              >
-                <i
-                  aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                  data-icon-name="Clear"
-                  style="font-family: \\"FabricMDL2Icons\\";"
-                >
-                  
-                </i>
-              </span>
-            </button>
-          </div>
-        </div>
-        <h2
-          class="emotion-3"
-        >
-          process.file
-        </h2>
-        <p
-          class="emotion-4"
-        >
-          create.new.manifest.page.description
-        </p>
-        <div
-          class="emotion-5"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-7"
-            >
-              geography
-            </div>
-            <span
-              class="emotion-8"
-            >
-              <div
-                class="ms-TooltipHost root-131"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-132"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip28"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.geography
-                </div>
-              </div>
-            </span>
-          </div>
-          <div
-            class="emotion-9"
-          >
-            <div
-              class="ms-Dropdown-container emotion-10"
-            >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-label="upload.geography"
-                class="ms-Dropdown dropdown-133"
-                data-is-focusable="true"
-                data-ktp-target="true"
-                id="Dropdown29"
-                role="combobox"
-                tabindex="0"
-              >
-                <span
-                  aria-invalid="false"
-                  class="ms-Dropdown-title title-173"
-                  id="Dropdown29-option"
-                >
-                  geography.unitedstates
-                </span>
-                <span
-                  class="ms-Dropdown-caretDownWrapper caretDownWrapper-135"
-                >
-                  <i
-                    aria-hidden="true"
-                    class="ms-Dropdown-caretDown caretDown-151"
-                    data-icon-name="ChevronDown"
-                  >
-                    
-                  </i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-5"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-13"
-            >
-              subscription.key
-            </div>
-            <span
-              class="emotion-8"
-            >
-              <div
-                class="ms-TooltipHost root-131"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-132"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip30"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.subKey
-                </div>
-              </div>
-            </span>
-          </div>
-          <div
-            class="emotion-9"
-          >
-            <div
-              class="ms-TextField emotion-10 root-153"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-154"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="subscription.key"
-                    aria-required="true"
-                    class="ms-TextField-field field-155"
-                    data-testid="subscription-key-field"
-                    id="TextField31"
-                    type="password"
-                    value=""
-                  />
-                  <button
-                    aria-pressed="false"
-                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-161"
-                    type="button"
-                  >
-                    <span
-                      class="revealSpan-162"
-                    >
-                      <i
-                        aria-hidden="true"
-                        class="revealIcon-166"
-                        data-icon-name="RedEye"
-                      >
-                        
-                      </i>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="emotion-5"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-13"
-            >
-              dwg.zip.package
-            </div>
-            <span
-              class="emotion-8"
-            >
-              <div
-                class="ms-TooltipHost root-131"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-132"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip36"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.dwg.zip.package
-                </div>
-              </div>
-            </span>
-          </div>
-          <div
-            class="emotion-9"
-          >
-            <div
-              class="ms-TextField emotion-10 root-153"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-154"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="dwg.zip.package"
-                    aria-required="true"
-                    class="ms-TextField-field field-155"
-                    data-testid="file-name-field"
-                    id="TextField37"
-                    readonly=""
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <label
-              class="emotion-23"
-              for="file-upload-field"
-            >
-              <span
-                class="emotion-24"
-              >
-                browse
-              </span>
-            </label>
-            <input
-              class="emotion-25"
-              data-testid="file-upload-field"
-              id="file-upload-field"
-              type="file"
-            />
-          </div>
-        </div>
-        <div
-          class="emotion-5"
-        >
-          <div
-            class="emotion-6"
-          >
-            <div
-              class="emotion-13"
-            >
-              manifest.file
-            </div>
-            <span
-              class="emotion-8"
-            >
-              <div
-                class="ms-TooltipHost root-131"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-132"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip42"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.manifest.file
-                </div>
-              </div>
-            </span>
-          </div>
-          <div
-            class="emotion-9"
-          >
-            <div
-              class="ms-TextField emotion-10 root-153"
-            >
-              <div
-                class="ms-TextField-wrapper"
-              >
-                <div
-                  class="ms-TextField-fieldGroup fieldGroup-154"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-label="manifest.file"
-                    aria-required="true"
-                    class="ms-TextField-field field-155"
-                    data-testid="file-name-field"
-                    id="TextField43"
-                    readonly=""
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <label
-              class="emotion-23"
-              for="manifest-upload-field"
-            >
-              <span
-                class="emotion-24"
-              >
-                browse
-              </span>
-            </label>
-            <input
-              class="emotion-25"
-              data-testid="manifest-upload-field"
-              id="manifest-upload-field"
-              type="file"
-            />
-          </div>
-        </div>
-        <button
-          aria-disabled="true"
-          class="ms-Button ms-Button--primary is-disabled emotion-35 root-167"
-          data-is-focusable="false"
-          data-testid="upload-button"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="ms-Button-flexContainer flexContainer-122"
-            data-automationid="splitbuttonprimary"
-          >
-            <span
-              class="ms-Button-textContainer textContainer-123"
-            >
-              <span
-                class="ms-Button-label label-169"
-                id="id__48"
-              >
-                process
-              </span>
-            </span>
-          </span>
-        </button>
-        <button
-          class="ms-Button ms-Button--default emotion-36 root-171"
-          data-is-focusable="true"
-          data-testid="cancel-button"
-          type="button"
-        >
-          <span
-            class="ms-Button-flexContainer flexContainer-122"
-            data-automationid="splitbuttonprimary"
-          >
-            <span
-              class="ms-Button-textContainer textContainer-123"
-            >
-              <span
-                class="ms-Button-label label-172"
-                id="id__51"
-              >
-                cancel
-              </span>
-            </span>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  max-width: 45.5rem;
-  width: 100%;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-size: 0.813rem;
-  margin-top: 1rem;
-}
-
-.emotion-1 {
-  min-height: 3.125rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.emotion-4 {
-  margin: 0 0 1.5rem 0;
-}
-
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex-flow: row wrap;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.emotion-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-7 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-8 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-9 {
-  width: 30rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-10 {
-  width: 100%;
-}
-
-.emotion-13 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-13:after {
-  content: " *";
-  color: #A4262C;
-  white-space: pre;
-}
-
-.emotion-23 {
-  outline: transparent;
-  position: relative;
-  font-size: 0.875rem;
-  font-weight: 400;
-  box-sizing: border-box;
-  border: 1px solid rgb(138, 136, 134);
-  display: inline-block;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  padding: 0 1rem;
-  border-radius: 2px;
-  min-width: 5rem;
-  height: 1.5rem;
-  background-color: rgb(255, 255, 255);
-  color: rgb(50, 49, 48);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-left: 1rem;
-}
-
-.emotion-23:hover {
-  background-color: rgb(243, 242, 241);
-  color: rgb(32, 31, 30);
-}
-
-.emotion-24 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  -webkit-box-flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-weight: 600;
-}
-
-.emotion-25 {
-  display: none;
-}
-
-.emotion-35 {
-  margin-right: 1rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
-.emotion-36 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
-<div>
-    <div
-      class="emotion-0"
-    >
-      <div
-        aria-describedby="MessageBar24"
-        class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
-        role="region"
-      >
-        <div
-          class="ms-MessageBar-content content-110"
-        >
-          <div
-            aria-hidden="true"
-            class="ms-MessageBar-icon iconContainer-111"
-          >
-            <i
-              aria-hidden="true"
-              class="icon-120"
-              data-icon-name="ErrorBadge"
-            >
-              
-            </i>
-          </div>
-          <div
-            aria-live="assertive"
-            class="ms-MessageBar-text text-113"
-            id="MessageBar24"
-            role="alert"
-          >
-            <span
-              class="ms-MessageBar-innerText innerText-114"
-              data-testid="error-bar"
-            />
-          </div>
-          <button
-            aria-label="close"
-            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
-            data-is-focusable="true"
-            title="close"
-            type="button"
-          >
-            <span
-              class="ms-Button-flexContainer flexContainer-122"
-              data-automationid="splitbuttonprimary"
-            >
-              <i
-                aria-hidden="true"
-                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
-                data-icon-name="Clear"
-                style="font-family: \\"FabricMDL2Icons\\";"
-              >
-                
-              </i>
-            </span>
-          </button>
-        </div>
-      </div>
-      <h2
-        class="emotion-3"
-      >
-        process.file
-      </h2>
-      <p
-        class="emotion-4"
-      >
-        create.new.manifest.page.description
-      </p>
-      <div
-        class="emotion-5"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-7"
-          >
-            geography
-          </div>
-          <span
-            class="emotion-8"
-          >
-            <div
-              class="ms-TooltipHost root-131"
-              role="none"
-            >
-              <i
-                aria-label="Tooltip"
-                class="root-132"
-                data-icon-name="Info"
-                role="img"
-              >
-                
-              </i>
-              <div
-                hidden=""
-                id="tooltip28"
-                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-              >
-                tooltip.geography
-              </div>
-            </div>
-          </span>
-        </div>
-        <div
-          class="emotion-9"
-        >
-          <div
-            class="ms-Dropdown-container emotion-10"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="upload.geography"
-              class="ms-Dropdown dropdown-133"
-              data-is-focusable="true"
-              data-ktp-target="true"
-              id="Dropdown29"
-              role="combobox"
-              tabindex="0"
-            >
-              <span
-                aria-invalid="false"
-                class="ms-Dropdown-title title-173"
-                id="Dropdown29-option"
-              >
-                geography.unitedstates
-              </span>
-              <span
-                class="ms-Dropdown-caretDownWrapper caretDownWrapper-135"
-              >
-                <i
-                  aria-hidden="true"
-                  class="ms-Dropdown-caretDown caretDown-151"
-                  data-icon-name="ChevronDown"
-                >
-                  
-                </i>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-5"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-13"
-          >
-            subscription.key
-          </div>
-          <span
-            class="emotion-8"
-          >
-            <div
-              class="ms-TooltipHost root-131"
-              role="none"
-            >
-              <i
-                aria-label="Tooltip"
-                class="root-132"
-                data-icon-name="Info"
-                role="img"
-              >
-                
-              </i>
-              <div
-                hidden=""
-                id="tooltip30"
-                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-              >
-                tooltip.subKey
-              </div>
-            </div>
-          </span>
-        </div>
-        <div
-          class="emotion-9"
-        >
-          <div
-            class="ms-TextField emotion-10 root-153"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-154"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="subscription.key"
-                  aria-required="true"
-                  class="ms-TextField-field field-155"
-                  data-testid="subscription-key-field"
-                  id="TextField31"
-                  type="password"
-                  value=""
-                />
-                <button
-                  aria-pressed="false"
-                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-161"
-                  type="button"
-                >
-                  <span
-                    class="revealSpan-162"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="revealIcon-166"
-                      data-icon-name="RedEye"
-                    >
-                      
-                    </i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-5"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-13"
-          >
-            dwg.zip.package
-          </div>
-          <span
-            class="emotion-8"
-          >
-            <div
-              class="ms-TooltipHost root-131"
-              role="none"
-            >
-              <i
-                aria-label="Tooltip"
-                class="root-132"
-                data-icon-name="Info"
-                role="img"
-              >
-                
-              </i>
-              <div
-                hidden=""
-                id="tooltip36"
-                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-              >
-                tooltip.dwg.zip.package
-              </div>
-            </div>
-          </span>
-        </div>
-        <div
-          class="emotion-9"
-        >
-          <div
-            class="ms-TextField emotion-10 root-153"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-154"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="dwg.zip.package"
-                  aria-required="true"
-                  class="ms-TextField-field field-155"
-                  data-testid="file-name-field"
-                  id="TextField37"
-                  readonly=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <label
-            class="emotion-23"
-            for="file-upload-field"
-          >
-            <span
-              class="emotion-24"
-            >
-              browse
-            </span>
-          </label>
-          <input
-            class="emotion-25"
-            data-testid="file-upload-field"
-            id="file-upload-field"
-            type="file"
-          />
-        </div>
-      </div>
-      <div
-        class="emotion-5"
-      >
-        <div
-          class="emotion-6"
-        >
-          <div
-            class="emotion-13"
-          >
-            manifest.file
-          </div>
-          <span
-            class="emotion-8"
-          >
-            <div
-              class="ms-TooltipHost root-131"
-              role="none"
-            >
-              <i
-                aria-label="Tooltip"
-                class="root-132"
-                data-icon-name="Info"
-                role="img"
-              >
-                
-              </i>
-              <div
-                hidden=""
-                id="tooltip42"
-                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-              >
-                tooltip.manifest.file
-              </div>
-            </div>
-          </span>
-        </div>
-        <div
-          class="emotion-9"
-        >
-          <div
-            class="ms-TextField emotion-10 root-153"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-154"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="manifest.file"
-                  aria-required="true"
-                  class="ms-TextField-field field-155"
-                  data-testid="file-name-field"
-                  id="TextField43"
-                  readonly=""
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <label
-            class="emotion-23"
-            for="manifest-upload-field"
-          >
-            <span
-              class="emotion-24"
-            >
-              browse
-            </span>
-          </label>
-          <input
-            class="emotion-25"
-            data-testid="manifest-upload-field"
-            id="manifest-upload-field"
-            type="file"
-          />
-        </div>
-      </div>
-      <button
-        aria-disabled="true"
-        class="ms-Button ms-Button--primary is-disabled emotion-35 root-167"
-        data-is-focusable="false"
-        data-testid="upload-button"
-        disabled=""
-        type="button"
-      >
-        <span
-          class="ms-Button-flexContainer flexContainer-122"
-          data-automationid="splitbuttonprimary"
-        >
-          <span
-            class="ms-Button-textContainer textContainer-123"
-          >
-            <span
-              class="ms-Button-label label-169"
-              id="id__48"
-            >
-              process
-            </span>
-          </span>
-        </span>
-      </button>
-      <button
-        class="ms-Button ms-Button--default emotion-36 root-171"
-        data-is-focusable="true"
-        data-testid="cancel-button"
-        type="button"
-      >
-        <span
-          class="ms-Button-flexContainer flexContainer-122"
-          data-automationid="splitbuttonprimary"
-        >
-          <span
-            class="ms-Button-textContainer textContainer-123"
-          >
-            <span
-              class="ms-Button-label label-172"
-              id="id__51"
-            >
-              cancel
-            </span>
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
 exports[`CreateManifestPage should show error when subKey contains invalid chars 1`] = `
 Object {
   "asFragment": [Function],
@@ -2632,7 +1337,7 @@ Object {
         class="emotion-0"
       >
         <div
-          aria-describedby="MessageBar216"
+          aria-describedby="MessageBar156"
           class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
@@ -2654,7 +1359,7 @@ Object {
             <div
               aria-live="assertive"
               class="ms-MessageBar-text text-113"
-              id="MessageBar216"
+              id="MessageBar156"
               role="alert"
             >
               <span
@@ -2727,7 +1432,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip220"
+                  id="tooltip160"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.geography
@@ -2748,14 +1453,14 @@ Object {
                 class="ms-Dropdown dropdown-133"
                 data-is-focusable="true"
                 data-ktp-target="true"
-                id="Dropdown221"
+                id="Dropdown161"
                 role="combobox"
                 tabindex="0"
               >
                 <span
                   aria-invalid="false"
                   class="ms-Dropdown-title title-173"
-                  id="Dropdown221-option"
+                  id="Dropdown161-option"
                 >
                   geography.europe
                 </span>
@@ -2802,7 +1507,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip222"
+                  id="tooltip162"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.subKey
@@ -2828,7 +1533,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-155"
                     data-testid="subscription-key-field"
-                    id="TextField223"
+                    id="TextField163"
                     type="password"
                     value="subscription_key!"
                   />
@@ -2882,7 +1587,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip228"
+                  id="tooltip168"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.dwg.zip.package
@@ -2908,7 +1613,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-155"
                     data-testid="file-name-field"
-                    id="TextField229"
+                    id="TextField169"
                     readonly=""
                     type="text"
                     value=""
@@ -2951,7 +1656,7 @@ Object {
             >
               <span
                 class="ms-Button-label label-169"
-                id="id__234"
+                id="id__174"
               >
                 process
               </span>
@@ -2973,7 +1678,7 @@ Object {
             >
               <span
                 class="ms-Button-label label-172"
-                id="id__237"
+                id="id__177"
               >
                 cancel
               </span>
@@ -3175,7 +1880,7 @@ Object {
       class="emotion-0"
     >
       <div
-        aria-describedby="MessageBar216"
+        aria-describedby="MessageBar156"
         class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
@@ -3197,7 +1902,7 @@ Object {
           <div
             aria-live="assertive"
             class="ms-MessageBar-text text-113"
-            id="MessageBar216"
+            id="MessageBar156"
             role="alert"
           >
             <span
@@ -3270,7 +1975,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip220"
+                id="tooltip160"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.geography
@@ -3291,14 +1996,14 @@ Object {
               class="ms-Dropdown dropdown-133"
               data-is-focusable="true"
               data-ktp-target="true"
-              id="Dropdown221"
+              id="Dropdown161"
               role="combobox"
               tabindex="0"
             >
               <span
                 aria-invalid="false"
                 class="ms-Dropdown-title title-173"
-                id="Dropdown221-option"
+                id="Dropdown161-option"
               >
                 geography.europe
               </span>
@@ -3345,7 +2050,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip222"
+                id="tooltip162"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.subKey
@@ -3371,7 +2076,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-155"
                   data-testid="subscription-key-field"
-                  id="TextField223"
+                  id="TextField163"
                   type="password"
                   value="subscription_key!"
                 />
@@ -3425,7 +2130,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip228"
+                id="tooltip168"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.dwg.zip.package
@@ -3451,7 +2156,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-155"
                   data-testid="file-name-field"
-                  id="TextField229"
+                  id="TextField169"
                   readonly=""
                   type="text"
                   value=""
@@ -3494,7 +2199,7 @@ Object {
           >
             <span
               class="ms-Button-label label-169"
-              id="id__234"
+              id="id__174"
             >
               process
             </span>
@@ -3516,7 +2221,7 @@ Object {
           >
             <span
               class="ms-Button-label label-172"
-              id="id__237"
+              id="id__177"
             >
               cancel
             </span>

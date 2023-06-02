@@ -1,7 +1,5 @@
 export const PATHS = {
   INDEX: '/',
-  CREATE_MANIFEST: '/create-manifest',
-  EDIT_MANIFEST: '/edit-manifest',
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
@@ -14,8 +12,6 @@ export const PATHS = {
 
 export const ROUTE_NAME_BY_PATH = {
   [PATHS.INDEX]: 'home',
-  [PATHS.CREATE_MANIFEST]: 'create',
-  [PATHS.EDIT_MANIFEST]: 'edit',
   [PATHS.PROCESSING]: 'processing',
   [PATHS.CREATE_GEOREFERENCE]: 'create',
   [PATHS.LAYERS]: 'create',
