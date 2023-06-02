@@ -140,29 +140,19 @@ export const useResponseStore = create((set, get) => ({
       // layer = {name, geometry[]}
       data.drawings.forEach(drawing => {
         useLayersStore.getState().addDwgLayers(drawing.layers, drawing.fileName);
+        const polygonLayers = [];
         drawing.layers.forEach(layer => {
-          const polygonLayers = [];
           layerNames.add(layer.name);
-          if (layer.geometry === undefined) {
+          if (layer.geometrySimplified === undefined) {
             return;
           }
-          if (isPolygonLayerComplete(layer)) {
-            polygonLayerNames.add(layer.name);
-            polygonLayers.push(layer);
-          }
-          if (layer.geometry.type === 'GeometryCollection') {
-            layer.geometry.geometries.forEach((geometry) => {
-              if (isGeometryPolygon(geometry)) {
-                polygonLayerNames.add(layer.name);
-                polygonLayers.push({
-                  name: layer.name,
-                  geometry,
-                });
-              }
-            });
-          }
-          useLayersStore.getState().addPolygonLayers(polygonLayers);
+          polygonLayerNames.add(layer.name);
+          polygonLayers.push({
+            name: layer.name,
+            geometry: layer.geometrySimplified,
+          });
         });
+        useLayersStore.getState().addPolygonLayers(polygonLayers);
         drawing.textLayers.forEach(name => textLayerNames.add(name));
       });
 
@@ -267,20 +257,4 @@ export function getFirstMeaningfulError(data) {
   }
 
   return null;
-}
-
-export function isPolygonLayerComplete(polygonLayer = {}) {
-  if (typeof polygonLayer !== 'object' || polygonLayer === null) {
-    return false;
-  }
-  const { name, geometry } = polygonLayer;
-  if (!isGeometryPolygon(geometry)) {
-    return false;
-  }
-  return typeof name === 'string' && typeof geometry === 'object' && geometry !== null
-    && typeof geometry.type === 'string' && Array.isArray(geometry.coordinates);
-}
-
-function isGeometryPolygon(geometry = {}) {
-  return geometry.type === 'MultiPolygon' || geometry.type === 'Polygon';
 }
