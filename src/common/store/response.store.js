@@ -128,85 +128,92 @@ export const useResponseStore = create((set, get) => ({
     fetchFromLocation(fetchUrl)
       .then((re) => re.json())
       .then(async (data) => {
-      resetStores();
+        resetStores();
 
-      // Compute and store useful response data
-      const layerNames = new Set();
-      const polygonLayerNames = new Set();
-      const textLayerNames = new Set();
+        // Compute and store useful response data
+        const layerNames = new Set();
+        const polygonLayerNames = new Set();
+        const textLayerNames = new Set();
 
-      // data.drawings = drawing[]
-      // drawing = {filename, layer[]}
-      // layer = {name, geometry[]}
-      data.drawings.forEach(drawing => {
-        useLayersStore.getState().addDwgLayers(drawing.layers, drawing.fileName);
-        const polygonLayers = [];
-        drawing.layers.forEach(layer => {
-          layerNames.add(layer.name);
-          if (layer.geometrySimplified === undefined) {
-            return;
-          }
-          polygonLayerNames.add(layer.name);
-          polygonLayers.push({
-            name: layer.name,
-            geometry: layer.geometrySimplified,
+        // data.drawings = drawing[]
+        // drawing = {filename, layer[]}
+        // layer = {name, geometry[]}
+        data.drawings.forEach(drawing => {
+          useLayersStore.getState().addDwgLayers(drawing.layers, drawing.fileName);
+          const polygonLayers = [];
+          drawing.layers.forEach(layer => {
+            layerNames.add(layer.name);
+            if (layer.geometrySimplified === undefined) {
+              return;
+            }
+            polygonLayerNames.add(layer.name);
+            polygonLayers.push({
+              name: layer.name,
+              geometry: layer.geometrySimplified,
+            });
           });
+          useLayersStore.getState().addPolygonLayers(polygonLayers);
+          drawing.textLayers.forEach(name => textLayerNames.add(name));
         });
-        useLayersStore.getState().addPolygonLayers(polygonLayers);
-        drawing.textLayers.forEach(name => textLayerNames.add(name));
-      });
 
-      if (polygonLayerNames.size === 0) {
-        throw new Error(i18next.t('error.no.polygonLayerNames'));
-      }
-
-      useGeometryStore.getState().updateAnchorPoint({
-        coordinates: data.anchorPoint,
-      });
-
-      useLayersStore.getState().setLayerNames(
-        Array.from(layerNames),
-        Array.from(polygonLayerNames),
-        Array.from(textLayerNames)
-      );
-
-      useLevelsStore.getState().setLevels(data.drawings.map(drawing => drawing.fileName));
-
-      const existingManifestJson = await useReviewManifestStore.getState().getOriginalManifestJson();
-
-      if (existingManifestJson !== null) {
-        const manifestVersion = parseInt(existingManifestJson.version);
-        const jsonData = parseManifestJson(existingManifestJson);
-
-        if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
-          useProgressBarStore.getState().showIncorrectManifestVersionError();
-        } else if (jsonData === null) {
-          useProgressBarStore.getState().showInvalidManifestError();
-        } else {
-          useLevelsStore.getState().updateLevels(jsonData.levels);
-          useLevelsStore.getState().setFacilityName(jsonData.facilityName);
-          useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
-          useLayersStore.getState().setVisited();
-          useGeometryStore.setState({
-            dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
-          });
-          useGeometryStore.getState().updateAnchorPoint({
-            coordinates: [
-              jsonData.georeference.lon,
-              jsonData.georeference.lat,
-            ],
-            angle: jsonData.georeference.angle,
-          });
+        if (polygonLayerNames.size === 0) {
+          throw new Error(i18next.t('error.no.polygonLayerNames'));
         }
 
-      }
+        useGeometryStore.getState().updateAnchorPoint({
+          coordinates: data.anchorPoint,
+        });
 
-      set(() => ({
-        lroStatus: LRO_STATUS.SUCCEEDED,
-      }));
+        useLayersStore.getState().setLayerNames(
+          Array.from(layerNames),
+          Array.from(polygonLayerNames),
+          Array.from(textLayerNames)
+        );
 
-      deleteFromLocation(fetchUrl);
-    });
+        useLevelsStore.getState().setLevels(data.drawings.map(drawing => drawing.fileName));
+
+        const existingManifestJson = await useReviewManifestStore.getState().getOriginalManifestJson();
+
+        if (existingManifestJson !== null) {
+          const manifestVersion = parseInt(existingManifestJson.version);
+          const jsonData = parseManifestJson(existingManifestJson);
+
+          if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
+            useProgressBarStore.getState().showIncorrectManifestVersionError();
+          } else if (jsonData === null) {
+            useProgressBarStore.getState().showInvalidManifestError();
+          } else {
+            useLevelsStore.getState().updateLevels(jsonData.levels);
+            useLevelsStore.getState().setFacilityName(jsonData.facilityName);
+            useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
+            useLayersStore.getState().setVisited();
+            useGeometryStore.setState({
+              dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
+            });
+            useGeometryStore.getState().updateAnchorPoint({
+              coordinates: [
+                jsonData.georeference.lon,
+                jsonData.georeference.lat,
+              ],
+              angle: jsonData.georeference.angle,
+            });
+          }
+
+        }
+
+        set(() => ({
+          lroStatus: LRO_STATUS.SUCCEEDED,
+        }));
+
+        deleteFromLocation(fetchUrl);
+      })
+      .catch(({ message }) => {
+        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+        set(() => ({
+          errorMessage: errorMsg,
+          lroStatus: LRO_STATUS.FAILED,
+        }));
+      });
   },
 }));
 
