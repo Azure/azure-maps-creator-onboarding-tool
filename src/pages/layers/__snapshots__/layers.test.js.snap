@@ -22,6 +22,7 @@ Object {
 
 .emotion-2 {
   width: 47rem;
+  max-width: 100%;
 }
 
 <body>
@@ -99,6 +100,7 @@ Object {
 
 .emotion-2 {
   width: 47rem;
+  max-width: 100%;
 }
 
 <div>

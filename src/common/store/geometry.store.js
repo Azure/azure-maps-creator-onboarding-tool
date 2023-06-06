@@ -79,6 +79,7 @@ export const useGeometryStore = create(
 const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.setCenterToAnchorPointDestination];
 const layersSelector = (s) => s.polygonLayers;
 let lastProcessedAnchorPoint = null;
+let lastProcessedDwgLayers = null;
 
 export const useDissolvedExterior = () => {
   const polygonLayers = useLayersStore(layersSelector);
@@ -88,7 +89,6 @@ export const useDissolvedExterior = () => {
   const [calcInProgress, setCalcInProgress] = useState(false);
   const [centerToAnchorHasBeenUpdated, setCenterToAnchorHasBeenUpdated] = useState(false);
   const [mergedMultiPolygons, setMergedMultiPolygons] = useState(null);
-  const [anchorPointForRendering, setAnchorPointForRendering] = useState(null);
 
   useEffect(() => {
     if (mergedMultiPolygons === null) {
@@ -131,23 +131,19 @@ export const useDissolvedExterior = () => {
   }, []);
 
   useEffect(() => {
-    if (anchorPointForRendering === null || dwgLayers.length === 0 || worker === null || calcInProgress || anchorPointForRendering === lastProcessedAnchorPoint) {
+    if (worker === null || calcInProgress || (anchorPoint === lastProcessedAnchorPoint && dwgLayers === lastProcessedDwgLayers)) {
       return;
     }
     setCalcInProgress(true);
-    lastProcessedAnchorPoint = anchorPointForRendering;
+    lastProcessedAnchorPoint = anchorPoint;
+    lastProcessedDwgLayers = dwgLayers;
     worker.postMessage({
       dwgLayers,
       polygonLayers,
-      anchorPoint: anchorPointForRendering,
+      anchorPoint,
     });
-  }, [anchorPointForRendering, dwgLayers, calcInProgress]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // this was added to prevent coordinates from re-calculating too often
-  useEffect(() => {
-    setAnchorPointForRendering(anchorPoint);
-  // worker was added to deps here to ensure the initial run after worker was set
-  }, [anchorPoint, worker, setAnchorPointForRendering]);
+    // worker was added to deps here to ensure the initial run after worker was set
+  }, [anchorPoint, worker, dwgLayers, calcInProgress]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return output;
 };

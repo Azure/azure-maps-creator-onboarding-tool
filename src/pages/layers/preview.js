@@ -3,19 +3,23 @@ import { shallow } from 'zustand/shallow';
 import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { useTranslation } from 'react-i18next';
 
-import { useLayersStore } from 'common/store';
+import { useGeometryStore, useLayersStore } from 'common/store';
 import {
   previewDropdownStyles,
   previewContainerStyles,
   dropdownContainer,
   previewSelectContainer,
+  previewTitle,
+  previewSelectTitle,
 } from './preview.style';
 
+const geometrySelector = (s) => s.dwgLayers;
 const layersSelector = (s) => [s.dwgLayers, s.getAllValidLayers];
 const canvasSide = 500;
 
 const Preview = () => {
   const { t } = useTranslation();
+  const exteriorLayers = useGeometryStore(geometrySelector, shallow);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [unselectedDrawings, setUnselectedDrawings] = useState([]);
   const [dwgLayers, getAllValidLayers] = useLayersStore(layersSelector, shallow);
@@ -27,7 +31,7 @@ const Preview = () => {
       return acc;
     }
     return acc.concat(dwgLayers[dwgLayer]);
-  }, []), [dwgLayers, unselectedDrawings]);
+  }, exteriorLayers), [exteriorLayers, dwgLayers, unselectedDrawings]);
   const selectedDrawings = drawings.filter((drawing) => !unselectedDrawings.includes(drawing));
   const featureClasses = getAllValidLayers();
   const selectedFeatureClasses = featureClasses
@@ -35,7 +39,7 @@ const Preview = () => {
     .map((fClass) => fClass.id);
   const dwgLayersToShow = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
-    .reduce((acc, fClass) => acc.concat(fClass.value), []);
+    .reduce((acc, fClass) => acc.concat(fClass.value), exteriorLayers);
   const layers = allLayers.filter((layer) => dwgLayersToShow.includes(layer.name));
   const levelDropdownOptions = useMemo(() => drawings.map((drawing) => ({
     key: drawing,
@@ -135,14 +139,15 @@ const Preview = () => {
 
   return (
     <div className={previewContainerStyles}>
+      <div className={previewTitle}>Preview</div>
       <div className={dropdownContainer}>
         <div className={previewSelectContainer}>
-          {t('levels.preview')}:
+          <div className={previewSelectTitle}>Level</div>
           <Dropdown placeholder={t('select.levels.preview')} selectedKeys={selectedDrawings} multiSelect={drawings.length > 1}
                     onChange={onLevelsChange} options={levelDropdownOptions} styles={previewDropdownStyles} />
         </div>
         <div className={previewSelectContainer}>
-          {t('layers.preview')}:
+          <div className={previewSelectTitle}>Layer</div>
           <Dropdown placeholder={t('select.feature.class.preview')} selectedKeys={selectedFeatureClasses} multiSelect={featureClasses.length !== 0}
                     onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
         </div>
