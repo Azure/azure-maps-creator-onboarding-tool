@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { center } from '@turf/turf';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
@@ -78,10 +78,10 @@ export const useGeometryStore = create(
 
 const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.setCenterToAnchorPointDestination];
 const layersSelector = (s) => s.polygonLayers;
-let lastProcessedAnchorPoint = null;
-let lastProcessedDwgLayers = null;
 
 export const useDissolvedExterior = () => {
+  const lastProcessedAnchorPoint = useRef(null);
+  const lastProcessedDwgLayers = useRef(null);
   const polygonLayers = useLayersStore(layersSelector);
   const [dwgLayers, anchorPoint, setCenterToAnchorPointDestination] = useGeometryStore(geometrySelector, shallow);
   const [output, setOutput] = useState([null, null]);
@@ -131,12 +131,15 @@ export const useDissolvedExterior = () => {
   }, []);
 
   useEffect(() => {
-    if (worker === null || calcInProgress || (anchorPoint === lastProcessedAnchorPoint && dwgLayers === lastProcessedDwgLayers)) {
+    if (
+      worker === null
+      || calcInProgress
+      || (anchorPoint === lastProcessedAnchorPoint.current && dwgLayers === lastProcessedDwgLayers.current)) {
       return;
     }
     setCalcInProgress(true);
-    lastProcessedAnchorPoint = anchorPoint;
-    lastProcessedDwgLayers = dwgLayers;
+    lastProcessedAnchorPoint.current = anchorPoint;
+    lastProcessedDwgLayers.current = dwgLayers;
     worker.postMessage({
       dwgLayers,
       polygonLayers,

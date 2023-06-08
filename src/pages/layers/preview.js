@@ -14,7 +14,7 @@ import {
 } from './preview.style';
 
 const geometrySelector = (s) => s.dwgLayers;
-const layersSelector = (s) => [s.dwgLayers, s.getAllValidLayers];
+const layersSelector = (s) => [s.dwgLayers, s.layers, s.getLayerNameError];
 const canvasSide = 500;
 
 const Preview = () => {
@@ -22,8 +22,11 @@ const Preview = () => {
   const exteriorLayers = useGeometryStore(geometrySelector, shallow);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [unselectedDrawings, setUnselectedDrawings] = useState([]);
-  const [dwgLayers, getAllValidLayers] = useLayersStore(layersSelector, shallow);
+  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError] = useLayersStore(layersSelector, shallow);
 
+  const allValidFeatureClasses = useMemo(() => (
+    allUserCreatedFeatureClasses.filter(featureClass => !featureClass.isDraft && getLayerNameError(featureClass.name) === null)
+  ), [allUserCreatedFeatureClasses, getLayerNameError]);
   const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
   const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
   const allLayers = useMemo(() => Object.keys(dwgLayers).reduce((acc, dwgLayer) => {
@@ -31,16 +34,26 @@ const Preview = () => {
       return acc;
     }
     return acc.concat(dwgLayers[dwgLayer]);
-  }, exteriorLayers), [exteriorLayers, dwgLayers, unselectedDrawings]);
+  }, []), [dwgLayers, unselectedDrawings]);
   const selectedDrawings = drawings.filter((drawing) => !unselectedDrawings.includes(drawing));
-  const featureClasses = getAllValidLayers();
+  const featureClasses = useMemo(() => [
+      ...(exteriorLayers.length > 0 ? [{
+      id: 'exterior',
+      name: 'Exterior',
+      value: exteriorLayers,
+    }] : []),
+    ...allValidFeatureClasses,
+  ], [exteriorLayers, allValidFeatureClasses]);
   const selectedFeatureClasses = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
     .map((fClass) => fClass.id);
   const dwgLayersToShow = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
-    .reduce((acc, fClass) => acc.concat(fClass.value), exteriorLayers);
-  const layers = allLayers.filter((layer) => dwgLayersToShow.includes(layer.name));
+    .reduce((acc, fClass) => acc.concat(fClass.value), []);
+  const layers = useMemo(
+    () => allLayers.filter((layer) => dwgLayersToShow.includes(layer.name)),
+    [allLayers, dwgLayersToShow]
+  );
   const levelDropdownOptions = useMemo(() => drawings.map((drawing) => ({
     key: drawing,
     text: drawing,

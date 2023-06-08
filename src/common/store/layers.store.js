@@ -216,10 +216,6 @@ export const useLayersStore = create(
         return true;
       });
     },
-    getAllValidLayers: () => {
-      const { getLayerNameError, layers } = get();
-      return layers.filter(layer => !layer.isDraft && getLayerNameError(layer.name) === null);
-    },
   }),
 );
 
