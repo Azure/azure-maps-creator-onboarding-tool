@@ -171,14 +171,14 @@ Object {
             data-automationid="splitbuttonprimary"
           >
             <i
-              aria-label="dwg.layers"
+              aria-label="georeference"
               class="emotion-3 root-119"
               data-icon-name="SkypeCircleCheck"
               role="img"
             >
               
             </i>
-            dwg.layers
+            georeference
           </span>
         </button>
         <button
@@ -191,14 +191,14 @@ Object {
             data-automationid="splitbuttonprimary"
           >
             <i
-              aria-label="georeference"
+              aria-label="dwg.layers"
               class="emotion-3 root-119"
               data-icon-name="SkypeCircleCheck"
               role="img"
             >
               
             </i>
-            georeference
+            dwg.layers
           </span>
         </button>
         <button
@@ -330,14 +330,14 @@ Object {
           data-automationid="splitbuttonprimary"
         >
           <i
-            aria-label="dwg.layers"
+            aria-label="georeference"
             class="emotion-3 root-119"
             data-icon-name="SkypeCircleCheck"
             role="img"
           >
             
           </i>
-          dwg.layers
+          georeference
         </span>
       </button>
       <button
@@ -350,14 +350,14 @@ Object {
           data-automationid="splitbuttonprimary"
         >
           <i
-            aria-label="georeference"
+            aria-label="dwg.layers"
             class="emotion-3 root-119"
             data-icon-name="SkypeCircleCheck"
             role="img"
           >
             
           </i>
-          georeference
+          dwg.layers
         </span>
       </button>
       <button

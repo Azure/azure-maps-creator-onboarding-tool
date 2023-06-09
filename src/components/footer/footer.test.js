@@ -57,7 +57,7 @@ describe('footer on pages where it should be rendered', () => {
     render(<Footer />);
     const nextBtn = screen.getByText('next');
     fireEvent.click(nextBtn);
-    expect(mockNavigate).toHaveBeenCalledWith('/create-georeference');
+    expect(mockNavigate).toHaveBeenCalledWith('/review-create');
   });
 
   it('should navigate to prev page when prev button is clicked', () => {
@@ -65,7 +65,7 @@ describe('footer on pages where it should be rendered', () => {
     render(<Footer />);
     const prevBtn = screen.getByText('previous');
     fireEvent.click(prevBtn);
-    expect(mockNavigate).toHaveBeenCalledWith('/levels');
+    expect(mockNavigate).toHaveBeenCalledWith('/create-georeference');
   });
 
   it('show navigate to conversion page when create+download is clicked', async () => {

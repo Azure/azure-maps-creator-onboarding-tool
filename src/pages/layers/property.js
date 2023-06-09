@@ -9,7 +9,7 @@ import DeleteIcon from './delete-icon';
 import FieldError from 'components/field-error';
 
 import {
-  dropdownStyles,
+  propertyDropdownStyles,
   propertyRow,
   propertyFieldLabel,
   layerNameInputStyles,
@@ -73,7 +73,7 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
       <TextField className={propertyFieldLabel} value={name} styles={layerNameInputStyles}
                  onChange={onChangeName} placeholder={placeholder} errorMessage={propertyNameError} />
       <Dropdown placeholder={t('select.layers')} selectedKeys={value} onChange={onChangeValue}
-                multiSelect={textLayerNames.length !== 0} options={options} styles={dropdownStyles} />
+                multiSelect={textLayerNames.length !== 0} options={options} styles={propertyDropdownStyles} />
       <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
     </div>
   );

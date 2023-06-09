@@ -5,7 +5,6 @@ Object {
   "asFragment": [Function],
   "baseElement": .emotion-3 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -18,12 +17,7 @@ Object {
 }
 
 .emotion-5 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -48,22 +42,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-10 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <body
@@ -74,11 +60,11 @@ Object {
       style="position: fixed; z-index: 1000000;"
     >
       <div
-        class="ms-Layer ms-Layer--fixed root-171"
+        class="ms-Layer ms-Layer--fixed root-172"
         data-portal-element="true"
       >
         <div
-          class="ms-Fabric ms-Layer-content content-173"
+          class="ms-Fabric ms-Layer-content content-174"
         >
           <div
             aria-modal="true"
@@ -88,13 +74,13 @@ Object {
           >
             <div
               aria-hidden="false"
-              class="ms-Panel is-open ms-Panel--hasCloseButton root-159"
+              class="ms-Panel is-open ms-Panel--hasCloseButton root-160"
             >
               <div
-                class="ms-Overlay overlay-175"
+                class="ms-Overlay overlay-176"
               />
               <div
-                class="ms-Panel-main main-161"
+                class="ms-Panel-main main-162"
               >
                 <div
                   aria-hidden="true"
@@ -104,22 +90,22 @@ Object {
                   tabindex="0"
                 />
                 <div
-                  class="ms-Panel-contentInner contentInner-164"
+                  class="ms-Panel-contentInner contentInner-165"
                 >
                   <div
-                    class="ms-Panel-scrollableContent scrollableContent-167"
+                    class="ms-Panel-scrollableContent scrollableContent-168"
                     data-is-scrollable="true"
                   >
                     <div
-                      class="ms-Panel-commands commands-162"
+                      class="ms-Panel-commands commands-163"
                       data-is-visible="true"
                     >
                       <div
-                        class="ms-Panel-navigation navigation-163"
+                        class="ms-Panel-navigation navigation-164"
                       >
                         <button
                           aria-label="Close"
-                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-176"
+                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-177"
                           data-is-focusable="true"
                           data-is-visible="true"
                           title="Close"
@@ -142,7 +128,7 @@ Object {
                       </div>
                     </div>
                     <div
-                      class="ms-Panel-content content-168"
+                      class="ms-Panel-content content-169"
                     >
                       <div
                         class="dropdownItemsWrapper-128"
@@ -156,13 +142,13 @@ Object {
                           role="listbox"
                         >
                           <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-178"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-179"
                           >
                             <input
                               aria-posinset="1"
                               aria-selected="false"
                               aria-setsize="2"
-                              class="input-179"
+                              class="input-180"
                               data-index="0"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -172,16 +158,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-180"
+                              class="ms-Checkbox-label label-181"
                               for="Dropdown38-list0"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-181"
+                                class="ms-Checkbox-checkbox checkbox-182"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-184"
+                                  class="ms-Checkbox-checkmark checkmark-185"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -195,14 +181,14 @@ Object {
                             </label>
                           </div>
                           <div
-                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-186"
+                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-187"
                           >
                             <input
                               aria-posinset="2"
                               aria-selected="true"
                               aria-setsize="2"
                               checked=""
-                              class="input-179"
+                              class="input-180"
                               data-index="1"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -212,16 +198,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-180"
+                              class="ms-Checkbox-label label-181"
                               for="Dropdown38-list1"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-187"
+                                class="ms-Checkbox-checkbox checkbox-188"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-189"
+                                  class="ms-Checkbox-checkmark checkmark-190"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -289,7 +275,7 @@ Object {
               aria-controls="Dropdown38-list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              class="ms-Dropdown is-open dropdown-155"
+              class="ms-Dropdown is-open dropdown-156"
               data-is-focusable="true"
               data-ktp-target="true"
               id="Dropdown38"
@@ -298,7 +284,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-185"
+                class="ms-Dropdown-title title-186"
                 id="Dropdown38-option"
               >
                 layer32
@@ -370,7 +356,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -384,7 +370,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown47-option"
               >
                 textLayer11
@@ -453,7 +439,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -467,7 +453,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown56-option"
               >
                 textLayer12
@@ -517,7 +503,6 @@ Object {
   </body>,
   "container": .emotion-0 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -530,12 +515,7 @@ Object {
 }
 
 .emotion-2 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -560,22 +540,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-7 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <div
@@ -615,7 +587,7 @@ Object {
             aria-controls="Dropdown38-list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            class="ms-Dropdown is-open dropdown-155"
+            class="ms-Dropdown is-open dropdown-156"
             data-is-focusable="true"
             data-ktp-target="true"
             id="Dropdown38"
@@ -624,7 +596,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-185"
+              class="ms-Dropdown-title title-186"
               id="Dropdown38-option"
             >
               layer32
@@ -696,7 +668,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -710,7 +682,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown47-option"
             >
               textLayer11
@@ -779,7 +751,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -793,7 +765,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown56-option"
             >
               textLayer12
@@ -899,7 +871,6 @@ Object {
   "asFragment": [Function],
   "baseElement": .emotion-1 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -912,12 +883,7 @@ Object {
 }
 
 .emotion-3 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -942,22 +908,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-8 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <body
@@ -1008,7 +966,7 @@ Object {
               aria-controls="Dropdown5-list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              class="ms-Dropdown is-open dropdown-155"
+              class="ms-Dropdown is-open dropdown-156"
               data-is-focusable="true"
               data-ktp-target="true"
               id="Dropdown5"
@@ -1017,7 +975,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-156"
+                class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-157"
                 id="Dropdown5-option"
               >
                 select.layers
@@ -1089,7 +1047,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -1103,7 +1061,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown14-option"
               >
                 textLayer11
@@ -1172,7 +1130,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -1186,7 +1144,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown23-option"
               >
                 textLayer12
@@ -1238,11 +1196,11 @@ Object {
       style="position: fixed; z-index: 1000000;"
     >
       <div
-        class="ms-Layer ms-Layer--fixed root-171"
+        class="ms-Layer ms-Layer--fixed root-172"
         data-portal-element="true"
       >
         <div
-          class="ms-Fabric ms-Layer-content content-173"
+          class="ms-Fabric ms-Layer-content content-174"
         >
           <div
             aria-modal="true"
@@ -1252,13 +1210,13 @@ Object {
           >
             <div
               aria-hidden="false"
-              class="ms-Panel is-open ms-Panel--hasCloseButton root-159"
+              class="ms-Panel is-open ms-Panel--hasCloseButton root-160"
             >
               <div
-                class="ms-Overlay overlay-175"
+                class="ms-Overlay overlay-176"
               />
               <div
-                class="ms-Panel-main main-161"
+                class="ms-Panel-main main-162"
               >
                 <div
                   aria-hidden="true"
@@ -1268,22 +1226,22 @@ Object {
                   tabindex="0"
                 />
                 <div
-                  class="ms-Panel-contentInner contentInner-164"
+                  class="ms-Panel-contentInner contentInner-165"
                 >
                   <div
-                    class="ms-Panel-scrollableContent scrollableContent-167"
+                    class="ms-Panel-scrollableContent scrollableContent-168"
                     data-is-scrollable="true"
                   >
                     <div
-                      class="ms-Panel-commands commands-162"
+                      class="ms-Panel-commands commands-163"
                       data-is-visible="true"
                     >
                       <div
-                        class="ms-Panel-navigation navigation-163"
+                        class="ms-Panel-navigation navigation-164"
                       >
                         <button
                           aria-label="Close"
-                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-176"
+                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-177"
                           data-is-focusable="true"
                           data-is-visible="true"
                           title="Close"
@@ -1306,7 +1264,7 @@ Object {
                       </div>
                     </div>
                     <div
-                      class="ms-Panel-content content-168"
+                      class="ms-Panel-content content-169"
                     >
                       <div
                         class="dropdownItemsWrapper-128"
@@ -1320,13 +1278,13 @@ Object {
                           role="listbox"
                         >
                           <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-178"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-179"
                           >
                             <input
                               aria-posinset="1"
                               aria-selected="false"
                               aria-setsize="2"
-                              class="input-179"
+                              class="input-180"
                               data-index="0"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -1336,16 +1294,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-180"
+                              class="ms-Checkbox-label label-181"
                               for="Dropdown5-list0"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-181"
+                                class="ms-Checkbox-checkbox checkbox-182"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-184"
+                                  class="ms-Checkbox-checkmark checkmark-185"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -1359,13 +1317,13 @@ Object {
                             </label>
                           </div>
                           <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-178"
+                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-179"
                           >
                             <input
                               aria-posinset="2"
                               aria-selected="false"
                               aria-setsize="2"
-                              class="input-179"
+                              class="input-180"
                               data-index="1"
                               data-is-focusable="true"
                               data-ktp-execute-target="true"
@@ -1375,16 +1333,16 @@ Object {
                               type="checkbox"
                             />
                             <label
-                              class="ms-Checkbox-label label-180"
+                              class="ms-Checkbox-label label-181"
                               for="Dropdown5-list1"
                             >
                               <div
-                                class="ms-Checkbox-checkbox checkbox-181"
+                                class="ms-Checkbox-checkbox checkbox-182"
                                 data-ktp-target="true"
                               >
                                 <i
                                   aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-184"
+                                  class="ms-Checkbox-checkmark checkmark-185"
                                   data-icon-name="CheckMark"
                                 >
                                   
@@ -1418,7 +1376,6 @@ Object {
   </body>,
   "container": .emotion-0 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -1431,12 +1388,7 @@ Object {
 }
 
 .emotion-2 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -1461,22 +1413,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-7 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <div
@@ -1524,7 +1468,7 @@ Object {
             aria-controls="Dropdown5-list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            class="ms-Dropdown is-open dropdown-155"
+            class="ms-Dropdown is-open dropdown-156"
             data-is-focusable="true"
             data-ktp-target="true"
             id="Dropdown5"
@@ -1533,7 +1477,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-156"
+              class="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-157"
               id="Dropdown5-option"
             >
               select.layers
@@ -1605,7 +1549,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -1619,7 +1563,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown14-option"
             >
               textLayer11
@@ -1688,7 +1632,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -1702,7 +1646,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown23-option"
             >
               textLayer12
@@ -1808,7 +1752,6 @@ Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -1821,12 +1764,7 @@ Object {
 }
 
 .emotion-2 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -1851,22 +1789,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-7 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <body
@@ -1995,7 +1925,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -2009,7 +1939,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown80-option"
               >
                 textLayer11
@@ -2078,7 +2008,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-Dropdown-container root-121"
+            class="ms-Dropdown-container root-154"
           >
             <div
               aria-expanded="false"
@@ -2092,7 +2022,7 @@ Object {
             >
               <span
                 aria-invalid="false"
-                class="ms-Dropdown-title title-154"
+                class="ms-Dropdown-title title-155"
                 id="Dropdown89-option"
               >
                 textLayer12
@@ -2142,7 +2072,6 @@ Object {
   </body>,
   "container": .emotion-0 {
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 }
@@ -2155,12 +2084,7 @@ Object {
 }
 
 .emotion-2 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 }
 
@@ -2185,22 +2109,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-7 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 <div>
@@ -2322,7 +2238,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -2336,7 +2252,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown80-option"
             >
               textLayer11
@@ -2405,7 +2321,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="ms-Dropdown-container root-154"
         >
           <div
             aria-expanded="false"
@@ -2419,7 +2335,7 @@ Object {
           >
             <span
               aria-invalid="false"
-              class="ms-Dropdown-title title-154"
+              class="ms-Dropdown-title title-155"
               id="Dropdown89-option"
             >
               textLayer12

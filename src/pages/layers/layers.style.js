@@ -10,19 +10,18 @@ export const layersWithPreview = css`
 
 export const layersContainer = css`
   width: 47rem;
+  max-width: 100%;
 `;
 
 export const layerRow = css`
   width: 100%;
-  max-width: 47rem;
   border-top: 1px solid #bbb;
   padding: 1rem 0;
 `;
 
 export const propertyRow = css`
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 `;
@@ -46,16 +45,13 @@ export const addNewPropText = css`
 `;
 
 export const fieldLabel = css`
-  min-width: 6rem;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 1.5rem);
   margin-right: 1.25rem;
 `;
 
 export const propertyFieldLabel = css`
-  ${fieldLabel}
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
+  width: calc(50% - 2.5rem);
+  margin-right: 1.25rem;
 `;
 
 export const dropdownStyles = {
@@ -64,8 +60,7 @@ export const dropdownStyles = {
     fontSize: fontSize.sm,
   },
   root: {
-    maxWidth: 'calc(50% - 1.5rem)',
-    flexGrow: 1,
+    width: 'calc(50% - 1.5rem)',
   },
   title: {
     height: '1.5rem',
@@ -87,6 +82,13 @@ export const dropdownStyles = {
   caretDownWrapper: {
     height: '1.5rem',
     lineHeight: '1.5rem',
+  },
+};
+
+export const propertyDropdownStyles = {
+  ...dropdownStyles,
+  root: {
+    width: 'calc(50% - 0.5rem)',
   },
 };
 

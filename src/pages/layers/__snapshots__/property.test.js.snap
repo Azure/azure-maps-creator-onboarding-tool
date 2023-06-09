@@ -8,22 +8,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-1 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 .emotion-2 {
@@ -134,22 +126,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-1 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 .emotion-2 {
@@ -315,22 +299,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-2 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 .emotion-3 {
@@ -673,22 +649,14 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 47rem;
+  width: calc(100% - 2rem);
   margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
 .emotion-1 {
-  min-width: 6rem;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: calc(50% - 2rem);
+  width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
-  max-width: calc(50% - 4rem);
-  padding-left: 0.5rem;
 }
 
 .emotion-2 {

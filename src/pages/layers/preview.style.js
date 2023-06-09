@@ -1,13 +1,13 @@
 import { css } from '@emotion/css';
 
 import { dropdownStyles } from './layers.style';
-import { fontSize } from 'common/styles';
+import { fontSize, fontWeight } from 'common/styles';
 
 export const previewContainerStyles = css`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   max-width: 100%;
+  width: 500px;
 `;
 
 export const dropdownContainer = css`
@@ -27,5 +27,14 @@ export const previewDropdownStyles = {
 };
 
 export const previewSelectContainer = css`
-  width: 50%;
+  width: calc(50% - 0.5rem);
+`;
+
+export const previewTitle = css`
+  font-weight: ${fontWeight.semibold};
+  margin-bottom: 0.5rem;
+`;
+
+export const previewSelectTitle = css`
+  margin-bottom: 0.25rem;
 `;

@@ -20,14 +20,14 @@ export const progressBarSteps = [
     href: PATHS.LEVELS,
   },
   {
-    key: progressBarStepsByKey.layers,
-    name: 'dwg.layers',
-    href: PATHS.LAYERS,
-  },
-  {
     key: progressBarStepsByKey.createGeoreference,
     name: 'georeference',
     href: PATHS.CREATE_GEOREFERENCE,
+  },
+  {
+    key: progressBarStepsByKey.layers,
+    name: 'dwg.layers',
+    href: PATHS.LAYERS,
   },
   {
     key: progressBarStepsByKey.reviewCreate,

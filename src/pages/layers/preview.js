@@ -3,23 +3,30 @@ import { shallow } from 'zustand/shallow';
 import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { useTranslation } from 'react-i18next';
 
-import { useLayersStore } from 'common/store';
+import { useGeometryStore, useLayersStore } from 'common/store';
 import {
   previewDropdownStyles,
   previewContainerStyles,
   dropdownContainer,
   previewSelectContainer,
+  previewTitle,
+  previewSelectTitle,
 } from './preview.style';
 
-const layersSelector = (s) => [s.dwgLayers, s.getAllValidLayers];
+const geometrySelector = (s) => s.dwgLayers;
+const layersSelector = (s) => [s.dwgLayers, s.layers, s.getLayerNameError];
 const canvasSide = 500;
 
 const Preview = () => {
   const { t } = useTranslation();
+  const exteriorLayers = useGeometryStore(geometrySelector, shallow);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [unselectedDrawings, setUnselectedDrawings] = useState([]);
-  const [dwgLayers, getAllValidLayers] = useLayersStore(layersSelector, shallow);
+  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError] = useLayersStore(layersSelector, shallow);
 
+  const allValidFeatureClasses = useMemo(() => (
+    allUserCreatedFeatureClasses.filter(featureClass => !featureClass.isDraft && getLayerNameError(featureClass.name) === null)
+  ), [allUserCreatedFeatureClasses, getLayerNameError]);
   const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
   const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
   const allLayers = useMemo(() => Object.keys(dwgLayers).reduce((acc, dwgLayer) => {
@@ -29,14 +36,24 @@ const Preview = () => {
     return acc.concat(dwgLayers[dwgLayer]);
   }, []), [dwgLayers, unselectedDrawings]);
   const selectedDrawings = drawings.filter((drawing) => !unselectedDrawings.includes(drawing));
-  const featureClasses = getAllValidLayers();
+  const featureClasses = useMemo(() => [
+      ...(exteriorLayers.length > 0 ? [{
+      id: 'exterior',
+      name: 'Exterior',
+      value: exteriorLayers,
+    }] : []),
+    ...allValidFeatureClasses,
+  ], [exteriorLayers, allValidFeatureClasses]);
   const selectedFeatureClasses = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
     .map((fClass) => fClass.id);
   const dwgLayersToShow = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
     .reduce((acc, fClass) => acc.concat(fClass.value), []);
-  const layers = allLayers.filter((layer) => dwgLayersToShow.includes(layer.name));
+  const layers = useMemo(
+    () => allLayers.filter((layer) => dwgLayersToShow.includes(layer.name)),
+    [allLayers, dwgLayersToShow]
+  );
   const levelDropdownOptions = useMemo(() => drawings.map((drawing) => ({
     key: drawing,
     text: drawing,
@@ -135,14 +152,15 @@ const Preview = () => {
 
   return (
     <div className={previewContainerStyles}>
+      <div className={previewTitle}>Preview</div>
       <div className={dropdownContainer}>
         <div className={previewSelectContainer}>
-          {t('levels.preview')}:
+          <div className={previewSelectTitle}>Level</div>
           <Dropdown placeholder={t('select.levels.preview')} selectedKeys={selectedDrawings} multiSelect={drawings.length > 1}
                     onChange={onLevelsChange} options={levelDropdownOptions} styles={previewDropdownStyles} />
         </div>
         <div className={previewSelectContainer}>
-          {t('layers.preview')}:
+          <div className={previewSelectTitle}>Layer</div>
           <Dropdown placeholder={t('select.feature.class.preview')} selectedKeys={selectedFeatureClasses} multiSelect={featureClasses.length !== 0}
                     onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
         </div>
