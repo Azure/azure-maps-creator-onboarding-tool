@@ -9,5 +9,5 @@ export function resetStores() {
   useLayersStore.getState().reset();
   useGeometryStore.getState().reset();
   useLevelsStore.getState().reset();
-  useReviewManifestStore.getState().setCanBeDownloaded(false);
+  useReviewManifestStore.getState().setManifestReviewed(false);
 }

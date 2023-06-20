@@ -8,7 +8,7 @@ import { useGeometryStore } from './geometry.store';
 import { isNumeric } from '../functions';
 
 export const useReviewManifestStore = create((set, get) => ({
-  canBeDownloaded: false,
+  manifestReviewed: false,
   originalPackage: null,
   getOriginalManifestJson: async () => {
     const { originalPackage } = get();
@@ -42,8 +42,8 @@ export const useReviewManifestStore = create((set, get) => ({
   setOriginalPackage: (originalPackage) => set(() => ({
     originalPackage,
   })),
-  setCanBeDownloaded: (canBeDownloaded) => set(() => ({
-    canBeDownloaded,
+  setManifestReviewed: (manifestReviewed) => set(() => ({
+    manifestReviewed,
   })),
 }));
 

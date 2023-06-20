@@ -18,12 +18,6 @@ describe('Review page', () => {
   it('should render page', () => {
     const view = render(<Review />);
     expect(view).toMatchSnapshot();
-    expect(mockSetCanBeDownloaded).toHaveBeenCalledWith(false);
-  });
-
-  it('should set canBeDownloaded to true', () => {
-    mockCompletedSteps = [{}, {}, {}];
-    render(<Review />);
     expect(mockSetCanBeDownloaded).toHaveBeenCalledWith(true);
   });
 });

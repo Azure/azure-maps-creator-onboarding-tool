@@ -8,12 +8,12 @@ describe('Property component', () => {
     useLayersStore.setState({
       textLayerNames: ['textLayer1', 'textLayer2', 'textLayer3'],
       layers: [{
-        id: 12,
+        id: 'id12',
         value: ['polygonLayer21'],
         name: 'base layer',
         isDraft: false,
         props: [{
-          id: 11,
+          id: 'id11',
           name: 'Propp',
           value: ['textLayer2', 'textLayer3'],
           isDraft: false,
@@ -23,12 +23,12 @@ describe('Property component', () => {
   });
 
   it('should render component', () => {
-    const view = render(<Property parentId={12} id={11} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
+    const view = render(<Property parentId={'id12'} id={'id11'} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
     expect(view).toMatchSnapshot();
   });
 
   it('should render options correctly', () => {
-    const view = render(<Property parentId={12} id={11} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
+    const view = render(<Property parentId={'id12'} id={'id11'} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
     const dropdown = screen.getByRole('combobox');
     fireEvent.click(dropdown);
     expect(view).toMatchSnapshot();
@@ -37,18 +37,18 @@ describe('Property component', () => {
   it('should call updateProperty when changing selected options', () => {
     const state = useLayersStore.getState();
     const spy = jest.spyOn(state, 'updateProperty');
-    render(<Property parentId={12} id={11} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
+    render(<Property parentId={'id12'} id={'id11'} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
     const dropdown = screen.getByRole('combobox');
     fireEvent.click(dropdown);
     const optionsList = screen.getAllByRole('option');
     fireEvent.click(optionsList[0]);
-    expect(spy).toHaveBeenCalledWith( 12, 11, {value: ['textLayer2', 'textLayer3', 'textLayer1']});
+    expect(spy).toHaveBeenCalledWith( 'id12', 'id11', {value: ['textLayer2', 'textLayer3', 'textLayer1']});
   });
 
   it('should delete prop when delete button was clicked', () => {
     const state = useLayersStore.getState();
     const spy = jest.spyOn(state, 'deleteProperty');
-    render(<Property parentId={12} id={11} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
+    render(<Property parentId={'id12'} id={'id11'} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
     const deleteBtn = screen.getByLabelText('delete.property');
     fireEvent.click(deleteBtn);
     expect(spy).toHaveBeenCalled();

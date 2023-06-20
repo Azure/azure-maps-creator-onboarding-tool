@@ -146,9 +146,11 @@ export const useLayersStore = create(
 
       const { layers } = get();
       let layersWithThisNameCntr = 0;
+      let thisLayer = null;
 
       for (let i = 0; i < layers.length; i++) {
         if (layers[i].name.toLowerCase() === layerName.toLowerCase()) {
+          thisLayer = layers[i];
           layersWithThisNameCntr++;
         }
         if (layersWithThisNameCntr > 1) {
@@ -161,6 +163,9 @@ export const useLayersStore = create(
       }
       if (!featureClassNameAllowedSymbols.test(layerName)) {
         return 'error.layer.name.contains.illegal.characters';
+      }
+      if (thisLayer?.value.length === 0) {
+        return 'error.layer.value.empty';
       }
 
       return null;
@@ -176,10 +181,12 @@ export const useLayersStore = create(
       const { layers } = get();
       const parentLayer = layers.find((layer) => layer.id === parentId);
       let propsWithThisNameCntr = 0;
+      let thisProp = null;
 
       for (let i = 0; i < parentLayer.props.length; i++) {
         if (parentLayer.props[i].name.toLowerCase() === propertyName.toLowerCase()) {
           propsWithThisNameCntr++;
+          thisProp = parentLayer.props[i];
         }
         if (propsWithThisNameCntr > 1) {
           return 'error.prop.name.must.be.unique';
@@ -191,6 +198,9 @@ export const useLayersStore = create(
       }
       if (!featureClassNameAllowedSymbols.test(propertyName)) {
         return 'error.prop.name.contains.illegal.characters';
+      }
+      if (thisProp?.value.length === 0) {
+        return 'error.prop.value.empty';
       }
 
       return null;
