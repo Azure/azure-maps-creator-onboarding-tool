@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import ReactJson from 'react-json-view';
 
-import {
-  useReviewManifestJson,
-  useReviewManifestStore,
-} from 'common/store';
+import { useReviewManifestJson, useReviewManifestStore } from 'common/store';
 
 const reviewManifestSelector = (s) => s.setManifestReviewed;
 

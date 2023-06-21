@@ -54,7 +54,6 @@ const en = {
     'error.prop.name.not.allowed': 'Reserved property name. Please choose a different name.',
     'error.prop.name.should.begin.with.letter': 'Property name must begin with an upper case or lower case character.',
     'error.prop.name.contains.illegal.characters': 'Property name cannot include invalid characters. Valid characters are: lower case characters (a-z), upper case characters (A-Z), numbers (0-9), and underscore character (\'_\').',
-    'error.prop.value.empty': 'Property must be mapped to at least one layer.',
     'error.unexpected': 'An unexpected error has occurred.',
     'error.upload.file': 'Unable to upload the file successfully. Please try again.',
     'error.upload.file.processing': 'Processing your package has failed. Please try again.',
