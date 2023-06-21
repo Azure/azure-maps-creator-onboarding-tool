@@ -52,6 +52,7 @@ const ProcessingPage = () => {
       case LRO_STATUS.UPLOADED:
       case LRO_STATUS.ACCEPTED:
       case LRO_STATUS.RUNNING:
+      case LRO_STATUS.FETCHING_DATA:
         setLabel(LABEL.RUNNING);
         break;
       case LRO_STATUS.SUCCEEDED:

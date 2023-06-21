@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { uploadFile, deleteFromLocation, fetchFromLocation } from 'common/api';
+import { uploadFile, deleteFromLocation, fetchFromLocation, fetchWithRetries } from 'common/api';
 import { HTTP_STATUS_CODE } from 'common/constants';
 import i18next from 'common/translations/i18n';
 import { useLayersStore } from './layers.store';
@@ -19,11 +19,13 @@ const STATUS_CODES_WITH_MEANINGFUL_ERRORS = [
   HTTP_STATUS_CODE.TOO_MANY_REQUESTS
 ];
 const ERROR_CODES_WITH_MEANINGFUL_ERRORS = ['dwgError', 'invalidArchiveFormat', 'packagingError'];
+const defaultErrorMessage = 'Operation failed.';
 
 export const LRO_STATUS = {
   UPLOADING: 'Uploading',
   UPLOADED: 'Uploaded',
   ACCEPTED: 'Accepted',
+  FETCHING_DATA: 'FetchingData',
   RUNNING: 'Running',
   SUCCEEDED: 'Succeeded',
   FAILED: 'Failed',
@@ -112,7 +114,12 @@ export const useResponseStore = create((set, get) => ({
         }
 
         if (data.status === LRO_STATUS.SUCCEEDED) {
-          get().fetchManifestData(data.fetchUrl);
+          if (get().lroStatus !== LRO_STATUS.FETCHING_DATA) {
+            set(() => ({
+              lroStatus: LRO_STATUS.FETCHING_DATA,
+            }));
+            get().fetchManifestData(data.fetchUrl);
+          }
         }
       })
       .catch(({ message }) => {
@@ -125,8 +132,7 @@ export const useResponseStore = create((set, get) => ({
   },
 
   fetchManifestData: (fetchUrl) => {
-    fetchFromLocation(fetchUrl)
-      .then((re) => re.json())
+    fetchWithRetries(fetchUrl)
       .then(async (data) => {
         resetStores();
 
@@ -208,7 +214,7 @@ export const useResponseStore = create((set, get) => ({
         deleteFromLocation(fetchUrl);
       })
       .catch(({ message }) => {
-        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message || defaultErrorMessage;
         set(() => ({
           errorMessage: errorMsg,
           lroStatus: LRO_STATUS.FAILED,
