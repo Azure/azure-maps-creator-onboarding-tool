@@ -75,8 +75,11 @@ const Preview = () => {
     setUnselectedFeatureClasses(!item.selected ? unselectedFeatureClasses.concat(item.key) : unselectedFeatureClasses.filter((key) => key !== item.key));
   }, [setUnselectedFeatureClasses, unselectedFeatureClasses]);
   const onLevelsChange = useCallback((e, item) => {
+    if (drawings.length === 1) {
+      return;
+    }
     setUnselectedDrawings(!item.selected ? unselectedDrawings.concat(item.key) : unselectedDrawings.filter((key) => key !== item.key));
-  }, [setUnselectedDrawings, unselectedDrawings]);
+  }, [drawings, setUnselectedDrawings, unselectedDrawings]);
 
   useEffect(() => {
     const canvas = document.getElementById('canvas');
@@ -156,8 +159,9 @@ const Preview = () => {
       <div className={dropdownContainer}>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Level</div>
-          <Dropdown placeholder={t('select.levels.preview')} selectedKeys={selectedDrawings} multiSelect={drawings.length > 1}
-                    onChange={onLevelsChange} options={levelDropdownOptions} styles={previewDropdownStyles} />
+          <Dropdown placeholder={t('select.levels.preview')} selectedKey={selectedDrawings[0]} onChange={onLevelsChange}
+                    selectedKeys={selectedDrawings} multiSelect={drawings.length > 1} options={levelDropdownOptions}
+                    styles={previewDropdownStyles} />
         </div>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Layer</div>
