@@ -70,13 +70,13 @@ export const useProgressBarStore = create((set) => ({
 const geometrySelector = s => s.dwgLayers;
 const levelsSelector = s => [s.allLevelsCompleted, s.levels, s.facilityName, s.isLevelNameValid, s.getVerticalExtentError];
 const layersSelector = s => [s.allLayersValid, s.layers, s.visited];
-const reviewManifestSelector = s => s.canBeDownloaded;
+const reviewManifestSelector = s => s.manifestReviewed;
 
 export const useCompletedSteps = () => {
   const dwgLayers = useGeometryStore(geometrySelector);
   const [allLayersValid, layers, layersPageVisited] = useLayersStore(layersSelector);
   const [allLevelsCompleted, levels, facilityName, isLevelNameValid, getVerticalExtentError] = useLevelsStore(levelsSelector, shallow);
-  const canManifestBeDownloaded = useReviewManifestStore(reviewManifestSelector);
+  const manifestReviewed = useReviewManifestStore(reviewManifestSelector);
 
   const completedSteps = [];
 
@@ -89,7 +89,7 @@ export const useCompletedSteps = () => {
   if (allLevelsCompleted(levels) && isLevelNameValid(facilityName) && levels.every((level) => getVerticalExtentError(level.verticalExtent) === null)) {
     completedSteps.push(progressBarStepsByKey.levels);
   }
-  if (canManifestBeDownloaded) {
+  if (manifestReviewed) {
     completedSteps.push(progressBarStepsByKey.reviewCreate);
   }
 

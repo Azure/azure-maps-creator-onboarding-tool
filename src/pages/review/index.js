@@ -1,25 +1,17 @@
 import { useEffect } from 'react';
 import ReactJson from 'react-json-view';
 
-import {
-  progressBarSteps,
-  progressBarStepsByKey,
-  useCompletedSteps,
-  useReviewManifestJson,
-  useReviewManifestStore,
-} from 'common/store';
+import { useReviewManifestJson, useReviewManifestStore } from 'common/store';
 
-const reviewManifestSelector = (s) => s.setCanBeDownloaded;
+const reviewManifestSelector = (s) => s.setManifestReviewed;
 
 const ReviewAndCreate = () => {
-  const setCanBeDownloaded = useReviewManifestStore(reviewManifestSelector);
+  const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
   const json = useReviewManifestJson();
-  const completedSteps = useCompletedSteps();
 
   useEffect(() => {
-    const completedStepsCount = completedSteps.filter((step) => step !== progressBarStepsByKey.reviewCreate).length;
-    setCanBeDownloaded(completedStepsCount >= progressBarSteps.length - 1);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    setManifestReviewed(true);
+  }, [setManifestReviewed]);
 
   return (
     <ReactJson src={json} iconStyle='square' indentWidth={2} displayDataTypes={false} name={false}

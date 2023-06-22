@@ -11,10 +11,11 @@ import {
   useReviewManifestJson,
   useReviewManifestStore,
   useConversionStore,
+  useCompletedSteps,
 } from 'common/store';
 import { PATHS } from 'common';
 
-const reviewManifestSelector = (s) => [s.canBeDownloaded, s.createPackageWithJson];
+const reviewManifestSelector = (s) => s.createPackageWithJson;
 const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = (s) => [s.reset, s.uploadPackage];
 
@@ -24,8 +25,9 @@ export const Footer = () => {
   const navigate = useNavigate();
   const json = useReviewManifestJson();
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
-  const [canBeDownloaded, createPackageWithJson] = useReviewManifestStore(reviewManifestSelector, shallow);
+  const createPackageWithJson = useReviewManifestStore(reviewManifestSelector);
   const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
+  const completedSteps = useCompletedSteps();
 
   const order = progressBarSteps.findIndex(route => route.href === pathname);
 
@@ -35,7 +37,7 @@ export const Footer = () => {
   const goNext = () => navigate(nextScreenLink);
   const goPrev = () => navigate(prevScreenLink);
   const onReview = () => {
-    if (canBeDownloaded) {
+    if (completedSteps.length === progressBarSteps.length) {
       resetConversion();
       hideMissingDataError();
       createPackageWithJson(json).then((file) => {

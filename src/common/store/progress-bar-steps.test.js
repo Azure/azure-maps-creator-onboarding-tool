@@ -18,7 +18,7 @@ describe('progress-bar-steps hook', () => {
       visited: false,
     });
     useReviewManifestStore.setState({
-      canBeDownloaded: false,
+      manifestReviewed: false,
     });
   });
 
@@ -37,7 +37,7 @@ describe('progress-bar-steps hook', () => {
 
   it('should contain reviewCreate', () => {
     useReviewManifestStore.setState({
-      canBeDownloaded: true,
+      manifestReviewed: true,
     });
     const { result } = renderHook(() => useCompletedSteps());
     expect(result.current).toStrictEqual(['reviewCreate']);

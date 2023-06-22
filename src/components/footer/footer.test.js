@@ -70,7 +70,7 @@ describe('footer on pages where it should be rendered', () => {
 
   it('show navigate to conversion page when create+download is clicked', async () => {
     useReviewManifestStore.setState({
-      canBeDownloaded: true,
+      manifestReviewed: true,
     });
     const conversionState = useConversionStore.getState();
     const resetSpy = jest.spyOn(conversionState, 'reset');
