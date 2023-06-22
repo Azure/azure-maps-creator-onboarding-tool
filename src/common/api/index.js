@@ -1,6 +1,7 @@
 // The following API is designed to be used only by the onboarding tool and is not supported for any other use.
 import { getEnvs } from 'common/functions';
 import { useUserStore } from '../store/user.store';
+import { HTTP_STATUS_CODE } from '../constants';
 
 export const uploadFile = (file) => {
   const { geography, subscriptionKey } = useUserStore.getState();
@@ -20,6 +21,26 @@ export const fetchFromLocation = (location) => {
   return fetch(`${location}&subscription-key=${subscriptionKey}`, {
     method: 'GET',
   });
+};
+
+export const fetchWithRetries = (location, retries = 10) => {
+  const { subscriptionKey } = useUserStore.getState();
+  return fetch(`${location}&subscription-key=${subscriptionKey}`)
+    .then(async (res) => {
+      const data = await res.json();
+      if (res.status === HTTP_STATUS_CODE.OK) {
+        return data;
+      }
+
+      if (retries > 0) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(fetchWithRetries(location, retries - 1));
+          }, 10000);
+        });
+      }
+      throw new Error(data?.error?.message);
+    });
 };
 
 export const deleteFromLocation = (fetchUrl) => {
