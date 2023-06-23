@@ -1,5 +1,6 @@
 import { getEnvs } from 'common/functions';
 import { useUserStore } from '../store/user.store';
+import { useConversionStore } from '../store/conversion.store';
 
 const apiVersion = '2.0';
 const previewApiVersion = '2023-03-01-preview';
@@ -41,4 +42,28 @@ export const startTileset = (datasetId) => {
   return fetch(url, {
     method: 'POST',
   });
+};
+
+export const deleteCreatedData = () => {
+  const { geography, subscriptionKey } = useUserStore.getState();
+  const { uploadUdId, conversionId, datasetId, tilesetId } = useConversionStore.getState();
+
+  if (tilesetId !== null) {
+    return;
+  }
+  if (uploadUdId !== null) {
+    fetch(`${getEnvs()[geography].URL}/mapData/${uploadUdId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
+      method: 'DELETE',
+    });
+  }
+  if (conversionId !== null) {
+    fetch(`${getEnvs()[geography].URL}/conversions/${conversionId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
+      method: 'DELETE',
+    });
+  }
+  if (datasetId !== null) {
+    fetch(`${getEnvs()[geography].URL}/datasets/${datasetId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
+      method: 'DELETE',
+    });
+  }
 };

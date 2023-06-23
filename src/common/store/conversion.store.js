@@ -1,6 +1,12 @@
 import { create } from 'zustand';
 
-import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
+import {
+  deleteCreatedData,
+  startConversion,
+  startDataset,
+  startTileset,
+  uploadConversion,
+} from 'common/api/conversion';
 import { fetchFromLocation } from 'common/api';
 import { HTTP_STATUS_CODE } from 'common/constants';
 import { LRO_STATUS } from './response.store';
@@ -67,6 +73,7 @@ export const useConversionStore = create((set, get) => ({
   }),
   uploadPackage: (file) => {
     set({
+      ...getDefaultState(),
       uploadStartTime: Date.now(),
       uploadStepStatus: conversionStatuses.inProgress,
     });
@@ -78,6 +85,7 @@ export const useConversionStore = create((set, get) => ({
             uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             uploadEndTime: Date.now(),
           });
+          deleteCreatedData();
         });
       } else {
         get().fetchUploadStatus(res.headers.get(OPERATION_LOCATION));
@@ -88,9 +96,13 @@ export const useConversionStore = create((set, get) => ({
         uploadOperationLog: e.message || defaultErrorMessage,
         uploadEndTime: Date.now(),
       });
+      deleteCreatedData();
     });
   },
   fetchUploadStatus: (location) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     fetchFromLocation(location)
       .then(async (res) => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
@@ -105,6 +117,7 @@ export const useConversionStore = create((set, get) => ({
             uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             uploadEndTime: Date.now(),
           });
+          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             uploadOperationId: data.operationId,
@@ -138,9 +151,13 @@ export const useConversionStore = create((set, get) => ({
         uploadOperationLog: e.message || defaultErrorMessage,
         uploadEndTime: Date.now(),
       });
+      deleteCreatedData();
     });
   },
   startConversion: (udid) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     set({
       conversionStartTime: Date.now(),
       conversionStepStatus: conversionStatuses.inProgress,
@@ -153,6 +170,7 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             conversionEndTime: Date.now(),
           });
+          deleteCreatedData();
         });
       } else {
         get().fetchConversionStatus(res.headers.get(OPERATION_LOCATION));
@@ -163,9 +181,13 @@ export const useConversionStore = create((set, get) => ({
         conversionOperationLog: e.message || defaultErrorMessage,
         conversionEndTime: Date.now(),
       });
+      deleteCreatedData();
     });
   },
   fetchConversionStatus: (operationLocation) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     fetchFromLocation(operationLocation)
       .then(async (res) => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
@@ -180,6 +202,7 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             conversionEndTime: Date.now(),
           });
+          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             conversionOperationId: data.operationId,
@@ -216,9 +239,13 @@ export const useConversionStore = create((set, get) => ({
           conversionOperationLog: e.message || defaultErrorMessage,
           conversionEndTime: Date.now(),
         });
+        deleteCreatedData();
       });
   },
   startDataset: (conversionId) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     set({
       datasetStartTime: Date.now(),
       datasetStepStatus: conversionStatuses.inProgress,
@@ -231,6 +258,7 @@ export const useConversionStore = create((set, get) => ({
             datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             datasetEndTime: Date.now(),
           });
+          deleteCreatedData();
         });
       } else {
         get().fetchDatasetStatus(res.headers.get(OPERATION_LOCATION));
@@ -241,9 +269,13 @@ export const useConversionStore = create((set, get) => ({
         datasetOperationLog: e.message || defaultErrorMessage,
         datasetEndTime: Date.now(),
       });
+      deleteCreatedData();
     });
   },
   fetchDatasetStatus: (location) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     fetchFromLocation(location)
       .then(async (res) => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
@@ -258,6 +290,7 @@ export const useConversionStore = create((set, get) => ({
             datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             datasetEndTime: Date.now(),
           });
+          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             datasetOperationId: data.operationId,
@@ -292,9 +325,13 @@ export const useConversionStore = create((set, get) => ({
           datasetOperationLog: e.message || defaultErrorMessage,
           datasetEndTime: Date.now(),
         });
+        deleteCreatedData();
       });
   },
   startTileset: (datasetId) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     set({
       tilesetStartTime: Date.now(),
       tilesetStepStatus: conversionStatuses.inProgress,
@@ -307,6 +344,7 @@ export const useConversionStore = create((set, get) => ({
             tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             tilesetEndTime: Date.now(),
           });
+          deleteCreatedData();
         });
       } else {
         get().fetchTilesetStatus(res.headers.get(OPERATION_LOCATION));
@@ -317,9 +355,13 @@ export const useConversionStore = create((set, get) => ({
         tilesetOperationLog: e.message || defaultErrorMessage,
         tilesetEndTime: Date.now(),
       });
+      deleteCreatedData();
     });
   },
   fetchTilesetStatus: (location) => {
+    if (get().uploadStartTime === null) {
+      return;
+    }
     fetchFromLocation(location)
       .then(async (res) => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
@@ -334,6 +376,7 @@ export const useConversionStore = create((set, get) => ({
             tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             tilesetEndTime: Date.now(),
           });
+          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             tilesetOperationId: data.operationId,
@@ -369,6 +412,7 @@ export const useConversionStore = create((set, get) => ({
           tilesetOperationLog: e.message || defaultErrorMessage,
           tilesetEndTime: Date.now(),
         });
+        deleteCreatedData();
       });
   },
 }));
