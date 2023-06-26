@@ -54,16 +54,19 @@ export const deleteCreatedData = () => {
   if (uploadUdId !== null) {
     fetch(`${getEnvs()[geography].URL}/mapData/${uploadUdId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
       method: 'DELETE',
+      keepalive: true,
     });
   }
   if (conversionId !== null) {
     fetch(`${getEnvs()[geography].URL}/conversions/${conversionId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
       method: 'DELETE',
+      keepalive: true,
     });
   }
   if (datasetId !== null) {
     fetch(`${getEnvs()[geography].URL}/datasets/${datasetId}?api-version=2.0&subscription-key=${subscriptionKey}`, {
       method: 'DELETE',
+      keepalive: true,
     });
   }
 };
