@@ -3,8 +3,7 @@ export const PATHS = {
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
-  PREPARE_PACKAGE: '/prepare-package',
-  CONVERSION: '/prepare-package/conversion',
+  CONVERSION: '/review-create/conversion',
   LAYERS: '/layers',
   LEVELS: '/levels',
   INVALID_PATH: '/*',
@@ -13,12 +12,11 @@ export const PATHS = {
 export const ROUTE_NAME_BY_PATH = {
   [PATHS.INDEX]: 'home',
   [PATHS.PROCESSING]: 'processing',
-  [PATHS.CREATE_GEOREFERENCE]: 'create',
-  [PATHS.LAYERS]: 'create',
-  [PATHS.LEVELS]: 'create',
+  [PATHS.CREATE_GEOREFERENCE]: 'prepare.drawing.package',
+  [PATHS.LAYERS]: 'prepare.drawing.package',
+  [PATHS.LEVELS]: 'prepare.drawing.package',
   [PATHS.INVALID_PATH]: 'redirect',
-  [PATHS.REVIEW_CREATE]: 'create',
-  [PATHS.PREPARE_PACKAGE]: 'prepare.drawing.package',
+  [PATHS.REVIEW_CREATE]: 'prepare.drawing.package',
   [PATHS.CONVERSION]: 'create.indoor.map',
 };
 

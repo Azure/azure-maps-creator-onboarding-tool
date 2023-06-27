@@ -95,5 +95,13 @@ export const diagnosticDescription = css`
 
 export const mapContainer = css`
   width: 100%;
-  height: 500px;
+  height: 100%;
 `;
+
+export const pivotStyles = css`
+  height: 100%;
+`;
+
+export const pivotStylesObj = {
+  itemContainer: { height: '100%' },
+};

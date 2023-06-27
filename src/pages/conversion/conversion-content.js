@@ -20,18 +20,6 @@ const ConversionContent = () => {
   return (
     <div>
       <Pivot>
-        <PivotItem headerText={t('diagnostic.package')} headerButtonProps={{ 'data-title': t('diagnostic.package') }}>
-          <div className={diagnosticDescription}>
-            <Trans i18nKey='diagnostic.description.text' components={[
-              <LinkText href={diagnosticDocsUrl} />
-            ]} />
-          </div>
-          <a href={diagnosticPackageLocation} download>
-            <PrimaryButton disabled={!diagnosticPackageLocation}>
-              {t('download.diagnostics')}
-            </PrimaryButton>
-          </a>
-        </PivotItem>
         <PivotItem headerText={t('logs')} headerButtonProps={{ 'data-title': t('logs') }} >
           <div>
             <h3>{t('meta.data')}</h3>
@@ -42,6 +30,18 @@ const ConversionContent = () => {
             <h3>{t('operation.log')}</h3>
             <pre className={logsContainer}>{operationLog}</pre>
           </div>
+        </PivotItem>
+        <PivotItem headerText={t('diagnostic.package')} headerButtonProps={{ 'data-title': t('diagnostic.package') }}>
+          <div className={diagnosticDescription}>
+            <Trans i18nKey='diagnostic.description.text' components={[
+              <LinkText href={diagnosticDocsUrl} />
+            ]} />
+          </div>
+          <a href={diagnosticPackageLocation} download>
+            <PrimaryButton disabled={!diagnosticPackageLocation}>
+              {t('download')}
+            </PrimaryButton>
+          </a>
         </PivotItem>
       </Pivot>
     </div>
