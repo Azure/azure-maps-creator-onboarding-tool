@@ -50,7 +50,7 @@ describe('conversion api', () => {
     deleteCreatedData();
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/mapData/123?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
   });
 
@@ -62,11 +62,11 @@ describe('conversion api', () => {
     deleteCreatedData();
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/mapData/123?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/conversions/234?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
   });
 
@@ -79,15 +79,15 @@ describe('conversion api', () => {
     deleteCreatedData();
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/mapData/123?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/conversions/234?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/datasets/345?api-version=2.0&subscription-key=subKeeeeeeey',
-      { 'method': 'DELETE' },
+      { 'method': 'DELETE', 'keepalive': true },
     );
   });
 
