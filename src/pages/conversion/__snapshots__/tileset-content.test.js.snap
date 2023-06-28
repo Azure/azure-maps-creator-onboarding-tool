@@ -64,53 +64,37 @@ Object {
 exports[`tileset content should render tileset content 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": .emotion-0 {
+  height: 100%;
+}
+
+.emotion-3 {
+  overflow-x: auto;
+}
+
+<body>
     <div>
-      <div>
-        <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-0"
+        >
           <div
-            class="ms-FocusZone emotion-0 ms-Pivot root-109"
+            class="ms-FocusZone emotion-2 ms-Pivot root-109"
             data-focuszone-id="FocusZone1"
             role="tablist"
           >
             <button
               aria-selected="true"
               class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
-              data-content="rendered.map"
-              data-is-focusable="true"
-              data-title="rendered.map"
-              id="Pivot0-Tab0"
-              name="rendered.map"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="ms-Button-flexContainer flexContainer-120"
-                data-automationid="splitbuttonprimary"
-              >
-                <span
-                  class="ms-Pivot-linkContent linkContent-115"
-                >
-                  <span
-                    class="ms-Pivot-text text-116"
-                  >
-                     
-                    rendered.map
-                  </span>
-                </span>
-              </span>
-            </button>
-            <button
-              aria-selected="false"
-              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
               data-content="logs"
               data-is-focusable="true"
               data-title="logs"
-              id="Pivot0-Tab1"
+              id="Pivot0-Tab0"
               name="logs"
               role="tab"
-              tabindex="-1"
+              tabindex="0"
               type="button"
             >
               <span
@@ -129,6 +113,34 @@ Object {
                 </span>
               </span>
             </button>
+            <button
+              aria-selected="false"
+              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+              data-content="rendered.map"
+              data-is-focusable="true"
+              data-title="rendered.map"
+              id="Pivot0-Tab1"
+              name="rendered.map"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-120"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Pivot-linkContent linkContent-115"
+                >
+                  <span
+                    class="ms-Pivot-text text-116"
+                  >
+                     
+                    rendered.map
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
             aria-hidden="false"
@@ -137,59 +149,72 @@ Object {
             role="tabpanel"
           >
             <div>
-              Tileset map here
+              <div>
+                <h3>
+                  meta.data
+                </h3>
+                <div>
+                  operationId: 
+                  tilset-operation-zxcvzxcv-asdf-dgfh
+                </div>
+                <div>
+                  tilesetId: 
+                  17
+                </div>
+                <div>
+                  mapConfigurationId: 
+                  N/A
+                </div>
+              </div>
+              <div>
+                <h3>
+                  operation.log
+                </h3>
+                <pre
+                  class="emotion-3"
+                >
+                  {
+    "foo": "tileset-operation-log",
+    "baz": "blee blue blah blueberry dee"
+}
+                </pre>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </body>,
-  "container": <div>
-    <div>
-      <div>
+  "container": .emotion-0 {
+  height: 100%;
+}
+
+.emotion-3 {
+  overflow-x: auto;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-0"
+      >
         <div
-          class="ms-FocusZone emotion-0 ms-Pivot root-109"
+          class="ms-FocusZone emotion-2 ms-Pivot root-109"
           data-focuszone-id="FocusZone1"
           role="tablist"
         >
           <button
             aria-selected="true"
             class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
-            data-content="rendered.map"
-            data-is-focusable="true"
-            data-title="rendered.map"
-            id="Pivot0-Tab0"
-            name="rendered.map"
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="ms-Button-flexContainer flexContainer-120"
-              data-automationid="splitbuttonprimary"
-            >
-              <span
-                class="ms-Pivot-linkContent linkContent-115"
-              >
-                <span
-                  class="ms-Pivot-text text-116"
-                >
-                   
-                  rendered.map
-                </span>
-              </span>
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
             data-content="logs"
             data-is-focusable="true"
             data-title="logs"
-            id="Pivot0-Tab1"
+            id="Pivot0-Tab0"
             name="logs"
             role="tab"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             <span
@@ -208,6 +233,34 @@ Object {
               </span>
             </span>
           </button>
+          <button
+            aria-selected="false"
+            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+            data-content="rendered.map"
+            data-is-focusable="true"
+            data-title="rendered.map"
+            id="Pivot0-Tab1"
+            name="rendered.map"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-120"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Pivot-linkContent linkContent-115"
+              >
+                <span
+                  class="ms-Pivot-text text-116"
+                >
+                   
+                  rendered.map
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
           aria-hidden="false"
@@ -216,7 +269,36 @@ Object {
           role="tabpanel"
         >
           <div>
-            Tileset map here
+            <div>
+              <h3>
+                meta.data
+              </h3>
+              <div>
+                operationId: 
+                tilset-operation-zxcvzxcv-asdf-dgfh
+              </div>
+              <div>
+                tilesetId: 
+                17
+              </div>
+              <div>
+                mapConfigurationId: 
+                N/A
+              </div>
+            </div>
+            <div>
+              <h3>
+                operation.log
+              </h3>
+              <pre
+                class="emotion-3"
+              >
+                {
+    "foo": "tileset-operation-log",
+    "baz": "blee blue blah blueberry dee"
+}
+              </pre>
+            </div>
           </div>
         </div>
       </div>
@@ -279,57 +361,37 @@ Object {
 exports[`tileset content should render tileset content logs tab 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .emotion-1 {
+  "baseElement": .emotion-0 {
+  height: 100%;
+}
+
+.emotion-3 {
   overflow-x: auto;
 }
 
 <body>
     <div>
-      <div>
-        <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          class="emotion-0"
+        >
           <div
-            class="ms-FocusZone emotion-0 ms-Pivot root-109"
+            class="ms-FocusZone emotion-2 ms-Pivot root-109"
             data-focuszone-id="FocusZone9"
             role="tablist"
           >
-            <button
-              aria-selected="false"
-              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
-              data-content="rendered.map"
-              data-is-focusable="true"
-              data-title="rendered.map"
-              id="Pivot8-Tab0"
-              name="rendered.map"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="ms-Button-flexContainer flexContainer-120"
-                data-automationid="splitbuttonprimary"
-              >
-                <span
-                  class="ms-Pivot-linkContent linkContent-115"
-                >
-                  <span
-                    class="ms-Pivot-text text-116"
-                  >
-                     
-                    rendered.map
-                  </span>
-                </span>
-              </span>
-            </button>
             <button
               aria-selected="true"
               class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
               data-content="logs"
               data-is-focusable="true"
               data-title="logs"
-              id="Pivot8-Tab1"
+              id="Pivot8-Tab0"
               name="logs"
               role="tab"
-              tabindex="-1"
+              tabindex="0"
               type="button"
             >
               <span
@@ -348,10 +410,38 @@ Object {
                 </span>
               </span>
             </button>
+            <button
+              aria-selected="false"
+              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+              data-content="rendered.map"
+              data-is-focusable="true"
+              data-title="rendered.map"
+              id="Pivot8-Tab1"
+              name="rendered.map"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-120"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Pivot-linkContent linkContent-115"
+                >
+                  <span
+                    class="ms-Pivot-text text-116"
+                  >
+                     
+                    rendered.map
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
             aria-hidden="false"
-            aria-labelledby="Pivot8-Tab1"
+            aria-labelledby="Pivot8-Tab0"
             class="itemContainer-110"
             role="tabpanel"
           >
@@ -368,13 +458,17 @@ Object {
                   tilesetId: 
                   44
                 </div>
+                <div>
+                  mapConfigurationId: 
+                  N/A
+                </div>
               </div>
               <div>
                 <h3>
                   operation.log
                 </h3>
                 <pre
-                  class="emotion-1"
+                  class="emotion-3"
                 >
                   {
     "foo": "hop-hei-la-la-lei",
@@ -388,56 +482,36 @@ Object {
       </div>
     </div>
   </body>,
-  "container": .emotion-1 {
+  "container": .emotion-0 {
+  height: 100%;
+}
+
+.emotion-3 {
   overflow-x: auto;
 }
 
 <div>
-    <div>
-      <div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-0"
+      >
         <div
-          class="ms-FocusZone emotion-0 ms-Pivot root-109"
+          class="ms-FocusZone emotion-2 ms-Pivot root-109"
           data-focuszone-id="FocusZone9"
           role="tablist"
         >
-          <button
-            aria-selected="false"
-            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
-            data-content="rendered.map"
-            data-is-focusable="true"
-            data-title="rendered.map"
-            id="Pivot8-Tab0"
-            name="rendered.map"
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="ms-Button-flexContainer flexContainer-120"
-              data-automationid="splitbuttonprimary"
-            >
-              <span
-                class="ms-Pivot-linkContent linkContent-115"
-              >
-                <span
-                  class="ms-Pivot-text text-116"
-                >
-                   
-                  rendered.map
-                </span>
-              </span>
-            </span>
-          </button>
           <button
             aria-selected="true"
             class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
             data-content="logs"
             data-is-focusable="true"
             data-title="logs"
-            id="Pivot8-Tab1"
+            id="Pivot8-Tab0"
             name="logs"
             role="tab"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             <span
@@ -456,10 +530,38 @@ Object {
               </span>
             </span>
           </button>
+          <button
+            aria-selected="false"
+            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+            data-content="rendered.map"
+            data-is-focusable="true"
+            data-title="rendered.map"
+            id="Pivot8-Tab1"
+            name="rendered.map"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-120"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Pivot-linkContent linkContent-115"
+              >
+                <span
+                  class="ms-Pivot-text text-116"
+                >
+                   
+                  rendered.map
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
           aria-hidden="false"
-          aria-labelledby="Pivot8-Tab1"
+          aria-labelledby="Pivot8-Tab0"
           class="itemContainer-110"
           role="tabpanel"
         >
@@ -476,13 +578,17 @@ Object {
                 tilesetId: 
                 44
               </div>
+              <div>
+                mapConfigurationId: 
+                N/A
+              </div>
             </div>
             <div>
               <h3>
                 operation.log
               </h3>
               <pre
-                class="emotion-1"
+                class="emotion-3"
               >
                 {
     "foo": "hop-hei-la-la-lei",

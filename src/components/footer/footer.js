@@ -44,7 +44,7 @@ export const Footer = () => {
         uploadConversion(file);
         saveAs(
           file,
-          'manifest.zip',
+          'drawingpackage.zip',
         );
         navigate(PATHS.CONVERSION);
       });

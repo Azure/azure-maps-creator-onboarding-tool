@@ -4,7 +4,7 @@ exports[`conversion content should render conversion content 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-1 {
-  margin: 0.5rem 0;
+  overflow-x: auto;
 }
 
 <body>
@@ -19,41 +19,13 @@ Object {
             <button
               aria-selected="true"
               class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
-              data-content="diagnostic.package"
-              data-is-focusable="true"
-              data-title="diagnostic.package"
-              id="Pivot0-Tab0"
-              name="diagnostic.package"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="ms-Button-flexContainer flexContainer-120"
-                data-automationid="splitbuttonprimary"
-              >
-                <span
-                  class="ms-Pivot-linkContent linkContent-115"
-                >
-                  <span
-                    class="ms-Pivot-text text-116"
-                  >
-                     
-                    diagnostic.package
-                  </span>
-                </span>
-              </span>
-            </button>
-            <button
-              aria-selected="false"
-              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
               data-content="logs"
               data-is-focusable="true"
               data-title="logs"
-              id="Pivot0-Tab1"
+              id="Pivot0-Tab0"
               name="logs"
               role="tab"
-              tabindex="-1"
+              tabindex="0"
               type="button"
             >
               <span
@@ -72,6 +44,34 @@ Object {
                 </span>
               </span>
             </button>
+            <button
+              aria-selected="false"
+              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+              data-content="diagnostic.package"
+              data-is-focusable="true"
+              data-title="diagnostic.package"
+              id="Pivot0-Tab1"
+              name="diagnostic.package"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-120"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Pivot-linkContent linkContent-115"
+                >
+                  <span
+                    class="ms-Pivot-text text-116"
+                  >
+                     
+                    diagnostic.package
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
             aria-hidden="false"
@@ -80,39 +80,32 @@ Object {
             role="tabpanel"
           >
             <div>
-              <div
-                class="emotion-1"
-              >
+              <div>
+                <h3>
+                  meta.data
+                </h3>
                 <div>
-                  diagnostic.description.text
+                  operationId: 
+                  qqwer-asdf-zxcvzxcv-asdf-dgfh
+                </div>
+                <div>
+                  conversionId: 
+                  17
                 </div>
               </div>
-              <a
-                download=""
-                href="http://conversion.content.com"
-              >
-                <button
-                  class="ms-Button ms-Button--primary root-128"
-                  data-is-focusable="true"
-                  type="button"
+              <div>
+                <h3>
+                  operation.log
+                </h3>
+                <pre
+                  class="emotion-1"
                 >
-                  <span
-                    class="ms-Button-flexContainer flexContainer-129"
-                    data-automationid="splitbuttonprimary"
-                  >
-                    <span
-                      class="ms-Button-textContainer textContainer-130"
-                    >
-                      <span
-                        class="ms-Button-label label-132"
-                        id="id__8"
-                      >
-                        download.diagnostics
-                      </span>
-                    </span>
-                  </span>
-                </button>
-              </a>
+                  {
+    "foo": "bar",
+    "baz": "blee blue blah blueberry dee"
+}
+                </pre>
+              </div>
             </div>
           </div>
         </div>
@@ -120,7 +113,7 @@ Object {
     </div>
   </body>,
   "container": .emotion-1 {
-  margin: 0.5rem 0;
+  overflow-x: auto;
 }
 
 <div>
@@ -134,41 +127,13 @@ Object {
           <button
             aria-selected="true"
             class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
-            data-content="diagnostic.package"
-            data-is-focusable="true"
-            data-title="diagnostic.package"
-            id="Pivot0-Tab0"
-            name="diagnostic.package"
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="ms-Button-flexContainer flexContainer-120"
-              data-automationid="splitbuttonprimary"
-            >
-              <span
-                class="ms-Pivot-linkContent linkContent-115"
-              >
-                <span
-                  class="ms-Pivot-text text-116"
-                >
-                   
-                  diagnostic.package
-                </span>
-              </span>
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
             data-content="logs"
             data-is-focusable="true"
             data-title="logs"
-            id="Pivot0-Tab1"
+            id="Pivot0-Tab0"
             name="logs"
             role="tab"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             <span
@@ -187,6 +152,34 @@ Object {
               </span>
             </span>
           </button>
+          <button
+            aria-selected="false"
+            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+            data-content="diagnostic.package"
+            data-is-focusable="true"
+            data-title="diagnostic.package"
+            id="Pivot0-Tab1"
+            name="diagnostic.package"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-120"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Pivot-linkContent linkContent-115"
+              >
+                <span
+                  class="ms-Pivot-text text-116"
+                >
+                   
+                  diagnostic.package
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
           aria-hidden="false"
@@ -195,39 +188,32 @@ Object {
           role="tabpanel"
         >
           <div>
-            <div
-              class="emotion-1"
-            >
+            <div>
+              <h3>
+                meta.data
+              </h3>
               <div>
-                diagnostic.description.text
+                operationId: 
+                qqwer-asdf-zxcvzxcv-asdf-dgfh
+              </div>
+              <div>
+                conversionId: 
+                17
               </div>
             </div>
-            <a
-              download=""
-              href="http://conversion.content.com"
-            >
-              <button
-                class="ms-Button ms-Button--primary root-128"
-                data-is-focusable="true"
-                type="button"
+            <div>
+              <h3>
+                operation.log
+              </h3>
+              <pre
+                class="emotion-1"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-129"
-                  data-automationid="splitbuttonprimary"
-                >
-                  <span
-                    class="ms-Button-textContainer textContainer-130"
-                  >
-                    <span
-                      class="ms-Button-label label-132"
-                      id="id__8"
-                    >
-                      download.diagnostics
-                    </span>
-                  </span>
-                </span>
-              </button>
-            </a>
+                {
+    "foo": "bar",
+    "baz": "blee blue blah blueberry dee"
+}
+              </pre>
+            </div>
           </div>
         </div>
       </div>
@@ -300,47 +286,19 @@ Object {
         <div>
           <div
             class="ms-FocusZone emotion-0 ms-Pivot root-109"
-            data-focuszone-id="FocusZone12"
+            data-focuszone-id="FocusZone9"
             role="tablist"
           >
-            <button
-              aria-selected="false"
-              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
-              data-content="diagnostic.package"
-              data-is-focusable="true"
-              data-title="diagnostic.package"
-              id="Pivot11-Tab0"
-              name="diagnostic.package"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="ms-Button-flexContainer flexContainer-120"
-                data-automationid="splitbuttonprimary"
-              >
-                <span
-                  class="ms-Pivot-linkContent linkContent-115"
-                >
-                  <span
-                    class="ms-Pivot-text text-116"
-                  >
-                     
-                    diagnostic.package
-                  </span>
-                </span>
-              </span>
-            </button>
             <button
               aria-selected="true"
               class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
               data-content="logs"
               data-is-focusable="true"
               data-title="logs"
-              id="Pivot11-Tab1"
+              id="Pivot8-Tab0"
               name="logs"
               role="tab"
-              tabindex="-1"
+              tabindex="0"
               type="button"
             >
               <span
@@ -359,10 +317,38 @@ Object {
                 </span>
               </span>
             </button>
+            <button
+              aria-selected="false"
+              class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+              data-content="diagnostic.package"
+              data-is-focusable="true"
+              data-title="diagnostic.package"
+              id="Pivot8-Tab1"
+              name="diagnostic.package"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="ms-Button-flexContainer flexContainer-120"
+                data-automationid="splitbuttonprimary"
+              >
+                <span
+                  class="ms-Pivot-linkContent linkContent-115"
+                >
+                  <span
+                    class="ms-Pivot-text text-116"
+                  >
+                     
+                    diagnostic.package
+                  </span>
+                </span>
+              </span>
+            </button>
           </div>
           <div
             aria-hidden="false"
-            aria-labelledby="Pivot11-Tab1"
+            aria-labelledby="Pivot8-Tab0"
             class="itemContainer-110"
             role="tabpanel"
           >
@@ -408,47 +394,19 @@ Object {
       <div>
         <div
           class="ms-FocusZone emotion-0 ms-Pivot root-109"
-          data-focuszone-id="FocusZone12"
+          data-focuszone-id="FocusZone9"
           role="tablist"
         >
-          <button
-            aria-selected="false"
-            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
-            data-content="diagnostic.package"
-            data-is-focusable="true"
-            data-title="diagnostic.package"
-            id="Pivot11-Tab0"
-            name="diagnostic.package"
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="ms-Button-flexContainer flexContainer-120"
-              data-automationid="splitbuttonprimary"
-            >
-              <span
-                class="ms-Pivot-linkContent linkContent-115"
-              >
-                <span
-                  class="ms-Pivot-text text-116"
-                >
-                   
-                  diagnostic.package
-                </span>
-              </span>
-            </span>
-          </button>
           <button
             aria-selected="true"
             class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link is-selected linkIsSelected-119"
             data-content="logs"
             data-is-focusable="true"
             data-title="logs"
-            id="Pivot11-Tab1"
+            id="Pivot8-Tab0"
             name="logs"
             role="tab"
-            tabindex="-1"
+            tabindex="0"
             type="button"
           >
             <span
@@ -467,10 +425,38 @@ Object {
               </span>
             </span>
           </button>
+          <button
+            aria-selected="false"
+            class="ms-Button ms-Button--action ms-Button--command ms-Pivot-link link-127"
+            data-content="diagnostic.package"
+            data-is-focusable="true"
+            data-title="diagnostic.package"
+            id="Pivot8-Tab1"
+            name="diagnostic.package"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-120"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Pivot-linkContent linkContent-115"
+              >
+                <span
+                  class="ms-Pivot-text text-116"
+                >
+                   
+                  diagnostic.package
+                </span>
+              </span>
+            </span>
+          </button>
         </div>
         <div
           aria-hidden="false"
-          aria-labelledby="Pivot11-Tab1"
+          aria-labelledby="Pivot8-Tab0"
           class="itemContainer-110"
           role="tabpanel"
         >
