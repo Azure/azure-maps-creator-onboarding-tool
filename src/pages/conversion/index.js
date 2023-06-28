@@ -1,5 +1,6 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 import { container, content, stepsContainer } from './style';
 import UploadContent from './upload-content';
@@ -8,6 +9,15 @@ import DatasetContent from './dataset-content';
 import TilesetContent from './tileset-content';
 import StepButton from './step-button';
 import { conversionSteps, useConversionStore } from 'common/store';
+import { deleteCreatedData } from 'common/api/conversion';
+
+const unloadCallback = () => {
+  deleteCreatedData();
+};
+const beforeUnload = (e) => {
+  e.preventDefault();
+  return true;
+};
 
 const conversionStoreSelector = (s) => [
   s.uploadStepStatus,
@@ -41,6 +51,15 @@ const Conversion = () => {
     tilesetStartTime,
     tilesetEndTime,
   ] = useConversionStore(conversionStoreSelector, shallow);
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', beforeUnload);
+    window.addEventListener('unload', unloadCallback);
+    return () => {
+      window.removeEventListener('beforeunload', beforeUnload);
+      window.removeEventListener('unload', unloadCallback);
+    };
+  }, []);
 
   return (
     <div className={container}>
