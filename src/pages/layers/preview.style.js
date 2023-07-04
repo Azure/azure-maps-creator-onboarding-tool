@@ -19,12 +19,10 @@ export const dropdownContainer = css`
   width: 100%;
 `;
 
-export const previewDropdownStyles = {
-  ...dropdownStyles,
-  root: {
-    maxWidth: '15rem',
-  },
-};
+export const previewDropdownStyles = css`
+  ${dropdownStyles};
+  max-width: 15rem;
+`;
 
 export const previewSelectContainer = css`
   width: calc(50% - 0.5rem);

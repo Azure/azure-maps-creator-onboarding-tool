@@ -4,13 +4,15 @@ exports[`Conversion should render component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
+  position: fixed;
+  top: 5.5rem;
+  height: calc(100% - 5.5rem - 2px);
+  width: calc(100% - 2.5rem);
+  left: 1.25rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   font-size: 0.813rem;
   border-top: 1px solid #E1DFDD;
 }
@@ -235,13 +237,15 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
+  position: fixed;
+  top: 5.5rem;
+  height: calc(100% - 5.5rem - 2px);
+  width: calc(100% - 2.5rem);
+  left: 1.25rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   font-size: 0.813rem;
   border-top: 1px solid #E1DFDD;
 }

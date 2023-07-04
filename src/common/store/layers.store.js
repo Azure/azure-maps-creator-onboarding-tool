@@ -16,6 +16,9 @@ export const useLayersStore = create(
     setVisited: () => set({
       visited: true,
     }),
+    setPreviewSingleFeatureClass: (previewSingleFeatureClass) => set({
+      previewSingleFeatureClass,
+    }),
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
@@ -249,6 +252,7 @@ export function getDefaultState() {
     polygonLayers: [],
     polygonLayerNames: [],
     textLayerNames: [],
+    previewSingleFeatureClass: null,
     visited: false,
     layers: [
       {

@@ -4,7 +4,28 @@ exports[`ProcessingPage should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin: auto;
+  position: fixed;
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1 {
+  display: block;
   min-width: min(500px, 90%);
   max-width: 500px;
 }
@@ -15,7 +36,7 @@ Object {
         class="emotion-0"
       >
         <div
-          class="ms-ProgressIndicator root-102"
+          class="ms-ProgressIndicator emotion-1 root-102"
         >
           <div
             class="ms-ProgressIndicator-itemName itemName-103"
@@ -40,7 +61,28 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  margin: auto;
+  position: fixed;
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1 {
+  display: block;
   min-width: min(500px, 90%);
   max-width: 500px;
 }
@@ -50,7 +92,7 @@ Object {
       class="emotion-0"
     >
       <div
-        class="ms-ProgressIndicator root-102"
+        class="ms-ProgressIndicator emotion-1 root-102"
       >
         <div
           class="ms-ProgressIndicator-itemName itemName-103"

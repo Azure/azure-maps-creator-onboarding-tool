@@ -77,7 +77,7 @@ const ProcessingPage = () => {
 
   return (
     <div className={containerStyle}>
-      <ProgressIndicator label={<div>{t(label)}</div>} styles={progressIndicatorStyles}
+      <ProgressIndicator label={<div>{t(label)}</div>} className={progressIndicatorStyles}
                          description={t('processing.last.checked', { seconds: lastUpdated })} />
     </div>
   );

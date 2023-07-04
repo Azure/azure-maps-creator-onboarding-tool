@@ -2,10 +2,10 @@ import { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
-import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { TextField } from '@fluentui/react';
 
 import { useLayersStore } from 'common/store';
+import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
 import Property from './property';
 import {
@@ -23,6 +23,7 @@ const layerSelector = (s) => [
   s.layerNames,
   s.updateLayer,
   s.getLayerNameError,
+  s.setPreviewSingleFeatureClass,
 ];
 
 export const Layer = ({ id, name, value, props, isDraft }) => {
@@ -33,6 +34,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     layerNames,
     updateLayer,
     getLayerNameError,
+    setPreviewSingleFeatureClass,
   ] = useLayersStore(layerSelector, shallow);
 
   const options = useMemo(() => {
@@ -54,11 +56,10 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     if (layerNames.length === 0) {
       return;
     }
-    const updatedValue = item.selected ? [...value, item.text] : value.filter(layer => layer !== item.text);
     updateLayer(id, {
-      value: updatedValue,
+      value: item.selectedOptions,
     });
-  }, [updateLayer, id, value, layerNames]);
+  }, [updateLayer, id, layerNames]);
   const onChangeName = useCallback((e) => {
     updateLayer(id, {
       name: e.target.value,
@@ -71,25 +72,31 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
       return '';
     }
     return <FieldError text={t(error)} />;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getLayerNameError, t, name, layers]);
+  }, [getLayerNameError, t, name, layers]); // eslint-disable-line react-hooks/exhaustive-deps
   const placeholder = useMemo(() => {
     if (isDraft) {
       return t('enter.feature.class.name');
     }
     return '';
   }, [isDraft, t]);
+  const showTempPreview = useCallback((e, { open }) => {
+    if (open) {
+      setPreviewSingleFeatureClass(id);
+    } else {
+      setPreviewSingleFeatureClass(null);
+    }
+  }, [id, setPreviewSingleFeatureClass]);
 
   return (
     <div className={layerRow}>
       <div className={flexContainer}>
-        <TextField className={fieldLabel} value={name} onChange={onChangeName}
-                   styles={layerNameInputStyles} errorMessage={layerNameError}
-                   placeholder={placeholder} />
-        <Dropdown placeholder={t('select.layers')} selectedKeys={value} multiSelect={layerNames.length !== 0}
-                  onChange={onChangeLayersSelection} options={options} styles={dropdownStyles} />
-        <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer}
-                    title={t('delete.layer', { layerName: name })} />
+        <TextField className={fieldLabel} value={name} onChange={onChangeName} styles={layerNameInputStyles}
+                   errorMessage={layerNameError} placeholder={placeholder} />
+        <Dropdown placeholder={t('geography')} onOptionSelect={onChangeLayersSelection} onOpenChange={showTempPreview}
+                  options={options} multiselect={layerNames.length !== 0} selectedOptions={value} className={dropdownStyles}>
+          {value.length ? value.join(', ') : t('select.layers')}
+        </Dropdown>
+        <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
       </div>
       {props.map((property) => (
         <Property key={property.id} name={property.name} value={property.value}

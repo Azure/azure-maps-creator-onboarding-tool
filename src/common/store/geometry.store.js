@@ -23,11 +23,8 @@ export const useGeometryStore = create(
     reset: () => set({
       ...getDefaultState(),
     }),
-    addDwgLayer: (dwgLayer) => set({
-      dwgLayers: get().dwgLayers.concat(dwgLayer),
-    }),
-    removeDwgLayer: (dwgLayer) => set({
-      dwgLayers: get().dwgLayers.filter((layer) => layer !== dwgLayer),
+    setDwgLayers: (dwgLayers) => set({
+      dwgLayers,
     }),
     setCenterToAnchorPointDestination: (centerToAnchorPointDestination) => set({
       centerToAnchorPointDestination,

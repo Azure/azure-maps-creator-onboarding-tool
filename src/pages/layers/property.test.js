@@ -40,7 +40,7 @@ describe('Property component', () => {
     render(<Property parentId={'id12'} id={'id11'} name='Propp' value={['textLayer2', 'textLayer3']} isDraft={false} />);
     const dropdown = screen.getByRole('combobox');
     fireEvent.click(dropdown);
-    const optionsList = screen.getAllByRole('option');
+    const optionsList = screen.getAllByRole('menuitemcheckbox');
     fireEvent.click(optionsList[0]);
     expect(spy).toHaveBeenCalledWith( 'id12', 'id11', {value: ['textLayer2', 'textLayer3', 'textLayer1']});
   });
