@@ -83,6 +83,7 @@ export const stepTimer = css`
 
 export const content = css`
   padding: 0 1rem;
+  overflow: auto;
   width: calc(100% - 18rem);
   @media (max-width: 600px) {
     width: calc(100% - 9rem);
