@@ -93,7 +93,8 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
         <TextField className={fieldLabel} value={name} onChange={onChangeName} styles={layerNameInputStyles}
                    errorMessage={layerNameError} placeholder={placeholder} />
         <Dropdown placeholder={t('geography')} onOptionSelect={onChangeLayersSelection} onOpenChange={showTempPreview}
-                  options={options} multiselect={layerNames.length !== 0} selectedOptions={value} className={dropdownStyles}>
+                  options={options} multiselect={layerNames.length !== 0} selectedOptions={value}
+                  positioning='before' className={dropdownStyles}>
           {value.length ? value.join(', ') : t('select.layers')}
         </Dropdown>
         <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
