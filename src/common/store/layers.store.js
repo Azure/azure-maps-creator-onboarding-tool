@@ -19,7 +19,6 @@ export const useLayersStore = create(
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
-    dwgLayers: {},
     addDwgLayers: (dwgLayers, fileName) => set((state) => ({
       dwgLayers: {
         ...state.dwgLayers,
@@ -245,6 +244,7 @@ export function checkIfLayersValid(layers) {
 
 export function getDefaultState() {
   return {
+    dwgLayers: {},
     layerNames: [],
     polygonLayers: [],
     polygonLayerNames: [],
