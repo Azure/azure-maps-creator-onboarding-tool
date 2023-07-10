@@ -124,6 +124,10 @@ const Preview = () => {
     }
 
     coordinatesFromLinesAndPolygons.forEach((points) => {
+      if (points.length === 0) {
+        return;
+      }
+
       const newPoints = points.map((point) => {
         const distanceX = point[0] - midPoints.midX;
         // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
