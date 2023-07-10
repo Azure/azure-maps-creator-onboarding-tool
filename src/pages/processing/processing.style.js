@@ -15,3 +15,9 @@ export const progressIndicatorStyles = css`
   min-width: min(500px, 90%);
   max-width: 500px;
 `;
+
+export const progressIndicatorLabel = {
+  itemName: {
+    whiteSpace: 'normal',
+  },
+};
