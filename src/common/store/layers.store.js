@@ -146,11 +146,9 @@ export const useLayersStore = create(
 
       const { layers } = get();
       let layersWithThisNameCntr = 0;
-      let thisLayer = null;
 
       for (let i = 0; i < layers.length; i++) {
         if (layers[i].name.toLowerCase() === layerName.toLowerCase()) {
-          thisLayer = layers[i];
           layersWithThisNameCntr++;
         }
         if (layersWithThisNameCntr > 1) {
@@ -163,9 +161,6 @@ export const useLayersStore = create(
       }
       if (!featureClassNameAllowedSymbols.test(layerName)) {
         return 'error.layer.name.contains.illegal.characters';
-      }
-      if (thisLayer?.value.length === 0) {
-        return 'error.layer.value.empty';
       }
 
       return null;

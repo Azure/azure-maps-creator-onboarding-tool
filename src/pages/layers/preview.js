@@ -164,7 +164,7 @@ const Preview = () => {
                     styles={previewDropdownStyles} />
         </div>
         <div className={previewSelectContainer}>
-          <div className={previewSelectTitle}>Layer</div>
+          <div className={previewSelectTitle}>Feature Class</div>
           <Dropdown placeholder={t('select.feature.class.preview')} selectedKeys={selectedFeatureClasses} multiSelect={featureClasses.length !== 0}
                     onChange={onChange} options={dropdownOptions} styles={previewDropdownStyles} />
         </div>
