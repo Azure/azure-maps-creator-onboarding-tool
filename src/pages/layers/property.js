@@ -72,7 +72,7 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
       <TextField className={propertyFieldLabel} value={name} styles={layerNameInputStyles}
                  onChange={onChangeName} placeholder={placeholder} errorMessage={propertyNameError} />
       <Dropdown placeholder={t('geography')} onOptionSelect={onChangeValue} className={propertyDropdownStyles}
-                options={options} multiselect={textLayerNames.length !== 0} selectedOptions={value}>
+                options={options} multiselect={textLayerNames.length !== 0} selectedOptions={value} positioning='before'>
         {value.length ? value.join(', ') : t('select.layers')}
       </Dropdown>
       <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
