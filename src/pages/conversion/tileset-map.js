@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
 import { useConversionStore, useUserStore } from 'common/store';
+import { indoor, control as indoorControl } from 'azure-maps-indoor';
 import { control, Map } from 'azure-maps-control';
 import { getEnvs } from 'common/functions';
 import { mapContainer } from './style';
@@ -17,7 +18,7 @@ const TilesetMap = () => {
     if (mapConfigurationId === null) {
       return;
     }
-    const mapNew = new Map('azure-maps-container', {
+    const map = new Map('azure-maps-container', {
       bounds: bbox,
       subscriptionKey: subscriptionKey,
       language: 'en-US',
@@ -26,7 +27,11 @@ const TilesetMap = () => {
       mapConfiguration: mapConfigurationId,
       styleAPIVersion: '2023-03-01-preview',
     });
-    mapNew.controls.add(new control.ZoomControl(), { position: 'top-right' });
+    map.controls.add(new control.ZoomControl(), { position: 'top-right' });
+    new indoor.IndoorManager(map, {
+      levelControl: new indoorControl.LevelControl({ position: 'top-left' })
+    });
+    map.controls.add(new control.StyleControl({ mapStyles: 'all' }), { position: 'top-right' });
   }, [mapConfigurationId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

@@ -8,6 +8,7 @@
     "@turf/turf": "^6.5.0",
     "@zip.js/zip.js": "^2.7.9",
     "azure-maps-control": "^2.2.7",
+    "azure-maps-indoor": "^0.2.2",
     "file-saver": "^2.0.5",
     "i18next": "^21.9.2",
     "i18next-browser-languagedetector": "^6.1.5",
