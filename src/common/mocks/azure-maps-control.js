@@ -8,3 +8,12 @@ export const math = {
   getDistanceTo: () => 155,
   getHeading: () => 45,
 };
+export const control = {
+  StyleControl: function() {},
+  ZoomControl: function() {},
+};
+export function Map() {
+  this.controls = {
+    add: () => {},
+  };
+}
