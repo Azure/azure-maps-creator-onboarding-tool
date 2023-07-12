@@ -8,6 +8,7 @@ import { routes } from 'pages/routes';
 import 'common/translations/i18n';
 import './index.css';
 import 'azure-maps-control/dist/atlas.min.css';
+import 'azure-maps-indoor/dist/atlas-indoor.min.css';
 
 initializeIcons();
 

@@ -4,6 +4,7 @@ import TilesetMap from './tileset-map';
 
 jest.mock('azure-maps-control', () => ({
   control: {
+    StyleControl: function() {},
     ZoomControl: function() {},
   },
   Map: jest.fn(),
