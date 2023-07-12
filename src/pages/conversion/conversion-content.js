@@ -37,7 +37,7 @@ const ConversionContent = () => {
               <LinkText href={diagnosticDocsUrl} />
             ]} />
           </div>
-          <a href={diagnosticPackageLocation} download>
+          <a href={diagnosticPackageLocation} download target='_blank' rel='noreferrer'>
             <PrimaryButton disabled={!diagnosticPackageLocation}>
               {t('download')}
             </PrimaryButton>
