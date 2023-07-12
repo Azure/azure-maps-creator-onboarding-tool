@@ -2,10 +2,11 @@ import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
-import { DefaultButton, Dropdown, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
+import { DefaultButton, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
+import Dropdown from 'components/dropdown';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
 import { useUserStore, useResponseStore } from 'common/store';
@@ -76,7 +77,7 @@ const CreateManifestPage = () => {
 
   const navigateHome = useCallback(() => navigate(PATHS.INDEX), [navigate]);
   const updateSubKey = useCallback((e) => setSubKey(e.target.value), [setSubKey]);
-  const updateGeo = useCallback((_, option) => setGeo(option.key), [setGeo]);
+  const updateGeo = useCallback((_, option) => setGeo(option.optionValue), [setGeo]);
 
   const allFieldsFilled = useMemo(() => {
     return file !== null && subKey !== '';
@@ -94,9 +95,9 @@ const CreateManifestPage = () => {
       <div className={formRowStyle}>
         <FieldLabel tooltip={t('tooltip.geography')}>{t('geography')}</FieldLabel>
         <div className={fieldStyle}>
-          <Dropdown className={textFieldStyle} ariaLabel={t('upload.geography')}
-                    options={environmentOptions} styles={dropdownStyle} onChange={updateGeo}
-                    defaultSelectedKey={geo} />
+          <Dropdown placeholder={t('geography')} onOptionSelect={updateGeo} className={dropdownStyle} options={environmentOptions}>
+            {t(getEnvs()[geo].TEXT)}
+          </Dropdown>
         </div>
       </div>
       <div className={formRowStyle}>

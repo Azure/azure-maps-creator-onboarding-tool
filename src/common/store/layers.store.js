@@ -16,10 +16,12 @@ export const useLayersStore = create(
     setVisited: () => set({
       visited: true,
     }),
+    setPreviewSingleFeatureClass: (previewSingleFeatureClass) => set({
+      previewSingleFeatureClass,
+    }),
     addPolygonLayers: (polygonLayers) => set((state) => ({
       polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
     })),
-    dwgLayers: {},
     addDwgLayers: (dwgLayers, fileName) => set((state) => ({
       dwgLayers: {
         ...state.dwgLayers,
@@ -240,10 +242,12 @@ export function checkIfLayersValid(layers) {
 
 export function getDefaultState() {
   return {
+    dwgLayers: {},
     layerNames: [],
     polygonLayers: [],
     polygonLayerNames: [],
     textLayerNames: [],
+    previewSingleFeatureClass: null,
     visited: false,
     layers: [
       {

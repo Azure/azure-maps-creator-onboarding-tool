@@ -2,9 +2,9 @@ import { useMemo, useCallback } from 'react';
 import { TextField } from '@fluentui/react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
-import { Dropdown } from '@fluentui/react/lib/Dropdown';
 
 import FieldLabel from 'components/field-label';
+import Dropdown from 'components/dropdown';
 import { useGeometryStore, useLayersStore } from 'common/store';
 import {
   container,
@@ -19,12 +19,12 @@ import CheckedMap from './checked-map';
 import MapError from './map-error';
 import PageDescription from 'components/page-description/page-description';
 
-const geometryStoreSelector = (s) => [s.dwgLayers, s.addDwgLayer, s.removeDwgLayer, s.anchorPoint.coordinates, s.anchorPoint.angle];
+const geometryStoreSelector = (s) => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
 const layersSelector = (s) => s.polygonLayerNames;
 
 function Georeference() {
   const { t } = useTranslation();
-  const [dwgLayers, addDwgLayer, removeDwgLayer, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(geometryStoreSelector, shallow);
+  const [dwgLayers, setDwgLayers, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(geometryStoreSelector, shallow);
   const polygonLayers = useLayersStore(layersSelector);
 
   const options = useMemo(() => {
@@ -44,9 +44,8 @@ function Georeference() {
     if (polygonLayers.length === 0) {
       return;
     }
-    const modifier = item.selected ? addDwgLayer : removeDwgLayer;
-    modifier(item.text);
-  }, [addDwgLayer, removeDwgLayer, polygonLayers]);
+    setDwgLayers(item.selectedOptions);
+  }, [setDwgLayers, polygonLayers]);
 
   return (
     <>
@@ -56,8 +55,10 @@ function Georeference() {
         <div className={textFieldColumn}>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('exterior')}</FieldLabel>
-            <Dropdown placeholder={t('select.layers')} selectedKeys={dwgLayers} multiSelect={polygonLayers.length !== 0}
-                      onChange={onExteriorLayersSelect} options={options} styles={dropdownStyles} />
+            <Dropdown placeholder={t('geography')} onOptionSelect={onExteriorLayersSelect} className={dropdownStyles}
+                      options={options} multiselect={polygonLayers.length !== 0} selectedOptions={dwgLayers}>
+              {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
+            </Dropdown>
           </div>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.longitude')}</FieldLabel>

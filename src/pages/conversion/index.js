@@ -16,7 +16,7 @@ const unloadCallback = () => {
 };
 const beforeUnload = (e) => {
   e.preventDefault();
-  return true;
+  return (e.returnValue = '');
 };
 
 const conversionStoreSelector = (s) => [

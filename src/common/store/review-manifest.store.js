@@ -123,7 +123,7 @@ export async function createPackageWithJson(originalPackage, json) {
 
   for (let i = 0; i < entries.length; i++) {
     const file = entries[i];
-    if (file.filename.endsWith('.dwg')) {
+    if (file.filename.toLowerCase().endsWith('.dwg')) {
       const data = await file.getData(new zip.BlobWriter());
       await writer.add(file.filename, new zip.BlobReader(data));
     }

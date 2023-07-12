@@ -3,8 +3,12 @@ import { css, keyframes } from '@emotion/css';
 import { color, fontSize, fontWeight } from 'common/styles';
 
 export const container = css`
+  position: fixed;
+  top: 5.5rem;
+  height: calc(100% - 5.5rem - 2px);
+  width: calc(100% - 2.5rem);
+  left: 1.25rem;
   display: flex;
-  flex: 1;
   font-size: ${fontSize.sm};
   border-top: 1px solid ${color.gray};
 `;
@@ -79,6 +83,7 @@ export const stepTimer = css`
 
 export const content = css`
   padding: 0 1rem;
+  overflow: auto;
   width: calc(100% - 18rem);
   @media (max-width: 600px) {
     width: calc(100% - 9rem);
@@ -103,5 +108,5 @@ export const pivotStyles = css`
 `;
 
 export const pivotStylesObj = {
-  itemContainer: { height: '100%' },
+  itemContainer: { height: 'calc(100% - 44px)' },
 };

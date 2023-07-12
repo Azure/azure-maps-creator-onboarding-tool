@@ -47,28 +47,9 @@ export const inputStyles = {
   }]
 };
 
-export const dropdownStyle = {
-  title: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-    fontSize: fontSize.sm,
-  },
-  caretDownWrapper: {
-    lineHeight: '1.5rem'
-  },
-  dropdownItemSelected: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-    minHeight: 'auto',
-    fontSize: fontSize.sm,
-  },
-  dropdownItem: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-    minHeight: 'auto',
-    fontSize: fontSize.sm,
-  }
-};
+export const dropdownStyle = css`
+  width: 30rem;
+`;
 
 export const defaultButtonStyle = css`
   height: 1.5rem;

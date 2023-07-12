@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
 import { shallow } from 'zustand/shallow';
 
-import { containerStyle, progressIndicatorStyles } from './processing.style';
+import { containerStyle, progressIndicatorLabel, progressIndicatorStyles } from './processing.style';
 import { PATHS } from 'common';
 import { useResponseStore, useUserStore } from 'common/store';
 import { LRO_STATUS } from 'common/store/response.store';
@@ -77,7 +77,7 @@ const ProcessingPage = () => {
 
   return (
     <div className={containerStyle}>
-      <ProgressIndicator label={<div>{t(label)}</div>} styles={progressIndicatorStyles}
+      <ProgressIndicator label={t(label)} className={progressIndicatorStyles} styles={progressIndicatorLabel}
                          description={t('processing.last.checked', { seconds: lastUpdated })} />
     </div>
   );

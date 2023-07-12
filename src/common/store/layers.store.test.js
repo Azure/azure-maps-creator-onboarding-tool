@@ -26,9 +26,11 @@ describe('layers store', () => {
 
   it('should return default state', () => {
     expect(getDefaultState()).toEqual({
+      dwgLayers: {},
       layerNames: [],
       polygonLayers: [],
       polygonLayerNames: [],
+      previewSingleFeatureClass: null,
       textLayerNames: [],
       visited: false,
       layers: [{
