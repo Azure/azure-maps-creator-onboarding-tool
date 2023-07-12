@@ -23,11 +23,8 @@ export const useGeometryStore = create(
     reset: () => set({
       ...getDefaultState(),
     }),
-    addDwgLayer: (dwgLayer) => set({
-      dwgLayers: get().dwgLayers.concat(dwgLayer),
-    }),
-    removeDwgLayer: (dwgLayer) => set({
-      dwgLayers: get().dwgLayers.filter((layer) => layer !== dwgLayer),
+    setDwgLayers: (dwgLayers) => set({
+      dwgLayers,
     }),
     setCenterToAnchorPointDestination: (centerToAnchorPointDestination) => set({
       centerToAnchorPointDestination,
@@ -40,11 +37,9 @@ export const useGeometryStore = create(
         parseFloat(newAnchorPointCoordinates[0].toFixed(TRUNCATE_FRACTION_DIGITS)),
         parseFloat(newAnchorPointCoordinates[1].toFixed(TRUNCATE_FRACTION_DIGITS))
       ];
-      set({
-        anchorPoint: {
-          coordinates: newAnchorPointCoordinatesFixed,
-          angle: anchorPoint.angle,
-        },
+      get().safelySetAnchorPoint({
+        coordinates: newAnchorPointCoordinatesFixed,
+        angle: anchorPoint.angle,
       });
     },
     updateAngle: (angle) => {
@@ -60,19 +55,24 @@ export const useGeometryStore = create(
         parseFloat(newAnchorPointCoordinates[0].toFixed(TRUNCATE_FRACTION_DIGITS)),
         parseFloat(newAnchorPointCoordinates[1].toFixed(TRUNCATE_FRACTION_DIGITS))
       ];
-      set({
-        anchorPoint: {
-          coordinates: newAnchorPointCoordinatesFixed,
-          angle,
-        },
+      get().safelySetAnchorPoint({
+        coordinates: newAnchorPointCoordinatesFixed,
+        angle,
       });
     },
-    updateAnchorPoint: (anchorPoint) => set((state) => ({
-      anchorPoint: {
-        ...state.anchorPoint,
+    updateAnchorPoint: (anchorPoint) => {
+      get().safelySetAnchorPoint({
+        ...get().anchorPoint,
         ...anchorPoint,
-      },
-    })),
+      });
+    },
+    safelySetAnchorPoint: (anchorPoint) => {
+      if (isValidAnchorPoint(anchorPoint)) {
+        set({
+          anchorPoint,
+        });
+      }
+    },
   })
 );
 
@@ -162,4 +162,21 @@ export function fixAngle(angle) {
     return angle % 360;
   }
   return angle;
+}
+
+export function isValidAnchorPoint(anchorPoint) {
+  const angle = anchorPoint?.angle;
+  const coordinates = anchorPoint?.coordinates;
+
+  if (!isValidNumber(angle)) {
+    return false;
+  }
+  if (!Array.isArray(coordinates) || !isValidNumber(coordinates[0]) || !isValidNumber(coordinates[1])) {
+    return false;
+  }
+  return true;
+}
+
+function isValidNumber(num) {
+  return typeof num === 'number' && !isNaN(num) && Number.isFinite(num);
 }

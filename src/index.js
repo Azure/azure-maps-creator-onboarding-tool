@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { initializeIcons } from '@fluentui/react/lib/Icons';
+import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 
 import { routes } from 'pages/routes';
 import 'common/translations/i18n';
@@ -12,6 +13,8 @@ initializeIcons();
 
 render(
   <React.StrictMode>
-    <RouterProvider router={createHashRouter(routes)} />
+    <FluentProvider theme={webLightTheme}>
+      <RouterProvider router={createHashRouter(routes)} />
+    </FluentProvider>
   </React.StrictMode>
   , document.getElementById('root'));

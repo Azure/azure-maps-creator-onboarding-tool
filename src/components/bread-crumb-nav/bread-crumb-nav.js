@@ -32,6 +32,10 @@ const BreadCrumbNav = () => {
             useConversionStore.getState().reset();
             navigate(path);
           }
+        } else if (path === PATHS.INDEX) {
+          if (window.confirm(t('progress.will.be.lost'))) {
+            navigate(path);
+          }
         } else {
           navigate(path);
         }

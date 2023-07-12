@@ -54,43 +54,15 @@ export const propertyFieldLabel = css`
   margin-right: 1.25rem;
 `;
 
-export const dropdownStyles = {
-  dropdown: {
-    height: '1.5rem',
-    fontSize: fontSize.sm,
-  },
-  root: {
-    width: 'calc(50% - 1.5rem)',
-  },
-  title: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-  },
-  dropdownItem: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-    minHeight: 'auto',
-  },
-  dropdownOptionText: {
-    fontSize: fontSize.sm,
-  },
-  dropdownItemSelected: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-    minHeight: 'auto',
-  },
-  caretDownWrapper: {
-    height: '1.5rem',
-    lineHeight: '1.5rem',
-  },
-};
+export const dropdownStyles = css`
+  align-self: baseline;
+  width: calc(50% - 1.5rem);
+`;
 
-export const propertyDropdownStyles = {
-  ...dropdownStyles,
-  root: {
-    width: 'calc(50% - 0.5rem)',
-  },
-};
+export const propertyDropdownStyles = css`
+  ${dropdownStyles};
+  width: calc(50% - 0.5rem);
+`;
 
 export const addLayerRow = css`
   margin-bottom: 2rem;

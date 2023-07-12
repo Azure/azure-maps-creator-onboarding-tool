@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from '@fluentui/react/lib/Dropdown';
 import { TextField } from '@fluentui/react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
 
 import DeleteIcon from './delete-icon';
 import FieldError from 'components/field-error';
+import Dropdown from 'components/dropdown';
 
 import {
   propertyDropdownStyles,
@@ -42,11 +42,10 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
     if (textLayerNames.length === 0) {
       return;
     }
-    const updatedValue = item.selected ? [...value, item.text] : value.filter(layer => layer !== item.text);
     updateProperty(parentId, id, {
-      value: updatedValue,
+      value: item.selectedOptions,
     });
-  }, [updateProperty, textLayerNames, parentId, id, value]);
+  }, [updateProperty, textLayerNames, parentId, id]);
   const onChangeName = useCallback((e) => {
     updateProperty(parentId, id, {
       name: e.target.value,
@@ -72,8 +71,10 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
     <div className={propertyRow}>
       <TextField className={propertyFieldLabel} value={name} styles={layerNameInputStyles}
                  onChange={onChangeName} placeholder={placeholder} errorMessage={propertyNameError} />
-      <Dropdown placeholder={t('select.layers')} selectedKeys={value} onChange={onChangeValue}
-                multiSelect={textLayerNames.length !== 0} options={options} styles={propertyDropdownStyles} />
+      <Dropdown placeholder={t('geography')} onOptionSelect={onChangeValue} className={propertyDropdownStyles}
+                options={options} multiselect={textLayerNames.length !== 0} selectedOptions={value} positioning='before'>
+        {value.length ? value.join(', ') : t('select.layers')}
+      </Dropdown>
       <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
     </div>
   );

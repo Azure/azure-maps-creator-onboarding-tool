@@ -19,18 +19,34 @@ Object {
 }
 
 .emotion-2 {
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  width: calc(50% - 1.5rem);
+  width: calc(50% - 0.5rem);
+}
+
+.emotion-3 {
+  font-size: 0.813rem;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-5 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-3:hover {
+.emotion-5:hover {
   color: black;
 }
 
@@ -60,56 +76,58 @@ Object {
           </div>
         </div>
         <div
-          class="ms-Dropdown-container root-121"
+          class="fui-Dropdown emotion-2 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
         >
-          <div
+          <button
             aria-expanded="false"
-            aria-haspopup="listbox"
-            class="ms-Dropdown dropdown-122"
-            data-is-focusable="true"
-            data-ktp-target="true"
-            id="Dropdown5"
+            class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
             role="combobox"
-            tabindex="0"
+            type="button"
           >
-            <span
-              aria-invalid="false"
-              class="ms-Dropdown-title title-153"
-              id="Dropdown5-option"
+            <div
+              class="emotion-3"
             >
               textLayer2, textLayer3
-            </span>
+            </div>
             <span
-              class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                class="ms-Dropdown-caretDown caretDown-142"
-                data-icon-name="ChevronDown"
+                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                
-              </i>
+                <path
+                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </span>
-          </div>
+          </button>
         </div>
         <div
-          class="emotion-2"
+          class="emotion-4"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-3 root-143"
+            class="ms-Button ms-Button--icon emotion-5 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-144"
+              class="ms-Button-flexContainer flexContainer-122"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-4 ms-Button-icon icon-146"
+                class="ms-Icon root-105 emotion-6 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -137,18 +155,34 @@ Object {
 }
 
 .emotion-2 {
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  width: calc(50% - 1.5rem);
+  width: calc(50% - 0.5rem);
+}
+
+.emotion-3 {
+  font-size: 0.813rem;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-5 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-3:hover {
+.emotion-5:hover {
   color: black;
 }
 
@@ -177,56 +211,58 @@ Object {
         </div>
       </div>
       <div
-        class="ms-Dropdown-container root-121"
+        class="fui-Dropdown emotion-2 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+        style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
       >
-        <div
+        <button
           aria-expanded="false"
-          aria-haspopup="listbox"
-          class="ms-Dropdown dropdown-122"
-          data-is-focusable="true"
-          data-ktp-target="true"
-          id="Dropdown5"
+          class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
           role="combobox"
-          tabindex="0"
+          type="button"
         >
-          <span
-            aria-invalid="false"
-            class="ms-Dropdown-title title-153"
-            id="Dropdown5-option"
+          <div
+            class="emotion-3"
           >
             textLayer2, textLayer3
-          </span>
+          </div>
           <span
-            class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+            class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
           >
-            <i
+            <svg
               aria-hidden="true"
-              class="ms-Dropdown-caretDown caretDown-142"
-              data-icon-name="ChevronDown"
+              class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              
-            </i>
+              <path
+                d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
-        class="emotion-2"
+        class="emotion-4"
       >
         <button
           aria-label="delete.property"
-          class="ms-Button ms-Button--icon emotion-3 root-143"
+          class="ms-Button ms-Button--icon emotion-5 root-121"
           data-is-focusable="true"
           data-testid="delete-icon"
           title="delete.property"
           type="button"
         >
           <span
-            class="ms-Button-flexContainer flexContainer-144"
+            class="ms-Button-flexContainer flexContainer-122"
             data-automationid="splitbuttonprimary"
           >
             <i
               aria-hidden="true"
-              class="ms-Icon root-105 emotion-4 ms-Button-icon icon-146"
+              class="ms-Icon root-105 emotion-6 ms-Button-icon icon-124"
               data-icon-name="StatusCircleErrorX"
               style="font-family: \\"FabricMDL2Icons-9\\";"
             >
@@ -294,7 +330,7 @@ Object {
 exports[`Property component should render options correctly 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .emotion-1 {
+  "baseElement": .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -304,38 +340,50 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-2 {
+.emotion-1 {
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
 }
 
+.emotion-2 {
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  width: calc(50% - 1.5rem);
+  width: calc(50% - 0.5rem);
+}
+
 .emotion-3 {
+  font-size: 0.813rem;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-4 {
+.emotion-5 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-4:hover {
+.emotion-5:hover {
   color: black;
 }
 
-<body
-    class="emotion-0"
-  >
-    <div
-      aria-hidden="true"
-    >
+<body>
+    <div>
       <div
-        class="emotion-1"
+        class="emotion-0"
       >
         <div
-          class="ms-TextField emotion-2 root-110"
+          class="ms-TextField emotion-1 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -346,7 +394,7 @@ Object {
               <input
                 aria-invalid="false"
                 class="ms-TextField-field field-112"
-                id="TextField9"
+                id="TextField8"
                 placeholder=""
                 type="text"
                 value="Propp"
@@ -355,61 +403,63 @@ Object {
           </div>
         </div>
         <div
-          aria-owns="Dropdown14-list"
-          class="ms-Dropdown-container root-121"
+          aria-owns="fluent-listbox2"
+          class="fui-Dropdown emotion-2 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
         >
-          <div
-            aria-controls="Dropdown14-list"
+          <button
+            aria-activedescendant="fluent-option3"
             aria-expanded="true"
-            aria-haspopup="listbox"
-            class="ms-Dropdown is-open dropdown-154"
-            data-is-focusable="true"
-            data-ktp-target="true"
-            id="Dropdown14"
+            class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
             role="combobox"
-            tabindex="0"
+            type="button"
           >
-            <span
-              aria-invalid="false"
-              class="ms-Dropdown-title title-155"
-              id="Dropdown14-option"
+            <div
+              class="emotion-3"
             >
               textLayer2, textLayer3
-            </span>
+            </div>
             <span
-              class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
             >
-              <i
+              <svg
                 aria-hidden="true"
-                class="ms-Dropdown-caretDown caretDown-142"
-                data-icon-name="ChevronDown"
+                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                
-              </i>
+                <path
+                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  fill="currentColor"
+                />
+              </svg>
             </span>
-          </div>
+          </button>
           <span
-            class="ms-layer"
+            hidden=""
           />
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-4 root-143"
+            class="ms-Button ms-Button--icon emotion-5 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-144"
+              class="ms-Button-flexContainer flexContainer-122"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-5 ms-Button-icon icon-146"
+                class="ms-Icon root-105 emotion-6 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -421,225 +471,84 @@ Object {
       </div>
     </div>
     <div
-      id="fluent-default-layer-host"
-      style="position: fixed; z-index: 1000000;"
+      class="___1uxlrft_djprso0 f1euv43f f15twtuk f1vgc2s3 f1e31b4d f494woh"
+      dir="ltr"
     >
       <div
-        class="ms-Layer ms-Layer--fixed root-170"
-        data-portal-element="true"
+        aria-multiselectable="true"
+        class="fui-Listbox fui-Dropdown__listbox ___1te21m2_r0cuxf0 fxugw4r f1ewtqcl f22iagw f1vx9l62 f3hsy1e f5zp4f fpvhumw f1yog68k f13sgyd8 f1x4af0m f7x41pl fd55psn fruq291 fiut8dr f1hg901r f1aa9q02 f16jpd5f f1jar5jt fyu767a fmmk62d"
+        id="fluent-listbox2"
+        role="menu"
+        style="position: fixed; left: 0px; top: 0px; margin: 0px; width: 0px;"
       >
         <div
-          class="ms-Fabric ms-Layer-content content-172"
+          aria-checked="false"
+          class="fui-Option ___1u9whar_q1puvv0 f122n59 f1aa9q02 f16jpd5f f1jar5jt fyu767a f19n0e5 f1ufnopg f1k6fduh f22iagw fk6fouc fkhj508 f1i3iumi fp2oml8 f1vdfbxk f1tdddsa f1f5gg8d f10pi13n f1knas48 fb40n2d"
+          id="fluent-option3"
+          role="menuitemcheckbox"
+          style="font-size: 0.813rem; color: black;"
         >
-          <div
-            aria-modal="true"
-            class=""
-            role="dialog"
-            style="outline: none;"
+          <span
+            aria-hidden="true"
+            class="fui-Option__checkIcon ___12nzoej_6q04f40 f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fq0vr37 f1byw159 f1c1zstj f11cr0be f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7"
+          />
+          textLayer1
+        </div>
+        <div
+          aria-checked="true"
+          class="fui-Option ___1u9whar_q1puvv0 f122n59 f1aa9q02 f16jpd5f f1jar5jt fyu767a f19n0e5 f1ufnopg f1k6fduh f22iagw fk6fouc fkhj508 f1i3iumi fp2oml8 f1vdfbxk f1tdddsa f1f5gg8d f10pi13n f1knas48 fb40n2d"
+          id="fluent-option4"
+          role="menuitemcheckbox"
+          style="font-size: 0.813rem; color: black;"
+        >
+          <span
+            aria-hidden="true"
+            class="fui-Option__checkIcon ___1sfj1o1_17ody2f f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z f3xi7mh ftovhe4 f68vbr6 f1wczvin f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7 ftywsgz fqpbvvt"
           >
-            <div
-              aria-hidden="false"
-              class="ms-Panel is-open ms-Panel--hasCloseButton root-158"
+            <svg
+              aria-hidden="true"
+              class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+              fill="currentColor"
+              height="12"
+              viewBox="0 0 12 12"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <div
-                class="ms-Overlay overlay-174"
+              <path
+                d="M9.76 3.2c.3.29.32.76.04 1.06l-4.25 4.5a.75.75 0 0 1-1.08.02L2.22 6.53a.75.75 0 0 1 1.06-1.06l1.7 1.7L8.7 3.24a.75.75 0 0 1 1.06-.04Z"
+                fill="currentColor"
               />
-              <div
-                class="ms-Panel-main main-160"
-              >
-                <div
-                  aria-hidden="true"
-                  data-is-focus-trap-zone-bumper="true"
-                  data-is-visible="true"
-                  style="pointer-events: none; position: fixed;"
-                  tabindex="0"
-                />
-                <div
-                  class="ms-Panel-contentInner contentInner-163"
-                >
-                  <div
-                    class="ms-Panel-scrollableContent scrollableContent-166"
-                    data-is-scrollable="true"
-                  >
-                    <div
-                      class="ms-Panel-commands commands-161"
-                      data-is-visible="true"
-                    >
-                      <div
-                        class="ms-Panel-navigation navigation-162"
-                      >
-                        <button
-                          aria-label="Close"
-                          class="ms-Button ms-Panel-closeButton ms-PanelAction-close ms-Button--icon root-175"
-                          data-is-focusable="true"
-                          data-is-visible="true"
-                          title="Close"
-                          type="button"
-                        >
-                          <span
-                            class="ms-Button-flexContainer flexContainer-144"
-                            data-automationid="splitbuttonprimary"
-                          >
-                            <i
-                              aria-hidden="true"
-                              class="ms-Icon root-105 emotion-6 ms-Button-icon icon-146"
-                              data-icon-name="Cancel"
-                              style="font-family: \\"FabricMDL2Icons\\";"
-                            >
-                              
-                            </i>
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="ms-Panel-content content-167"
-                    >
-                      <div
-                        class="dropdownItemsWrapper-128"
-                        tabindex="0"
-                      >
-                        <div
-                          aria-multiselectable="true"
-                          class="ms-FocusZone emotion-7 ms-Dropdown-items dropdownItems-129"
-                          data-focuszone-id="FocusZone23"
-                          id="Dropdown14-list"
-                          role="listbox"
-                        >
-                          <div
-                            class="ms-Checkbox is-enabled ms-Dropdown-item is-multi-select dropdownItem-177"
-                          >
-                            <input
-                              aria-posinset="1"
-                              aria-selected="false"
-                              aria-setsize="3"
-                              class="input-178"
-                              data-index="0"
-                              data-is-focusable="true"
-                              data-ktp-execute-target="true"
-                              id="Dropdown14-list0"
-                              role="option"
-                              tabindex="0"
-                              type="checkbox"
-                            />
-                            <label
-                              class="ms-Checkbox-label label-179"
-                              for="Dropdown14-list0"
-                            >
-                              <div
-                                class="ms-Checkbox-checkbox checkbox-180"
-                                data-ktp-target="true"
-                              >
-                                <i
-                                  aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-183"
-                                  data-icon-name="CheckMark"
-                                >
-                                  
-                                </i>
-                              </div>
-                              <span
-                                class="ms-Dropdown-optionText dropdownOptionText-137"
-                              >
-                                textLayer1
-                              </span>
-                            </label>
-                          </div>
-                          <div
-                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-184"
-                          >
-                            <input
-                              aria-posinset="2"
-                              aria-selected="true"
-                              aria-setsize="3"
-                              checked=""
-                              class="input-178"
-                              data-index="1"
-                              data-is-focusable="true"
-                              data-ktp-execute-target="true"
-                              id="Dropdown14-list1"
-                              role="option"
-                              tabindex="-1"
-                              type="checkbox"
-                            />
-                            <label
-                              class="ms-Checkbox-label label-179"
-                              for="Dropdown14-list1"
-                            >
-                              <div
-                                class="ms-Checkbox-checkbox checkbox-185"
-                                data-ktp-target="true"
-                              >
-                                <i
-                                  aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-187"
-                                  data-icon-name="CheckMark"
-                                >
-                                  
-                                </i>
-                              </div>
-                              <span
-                                class="ms-Dropdown-optionText dropdownOptionText-137"
-                              >
-                                textLayer2
-                              </span>
-                            </label>
-                          </div>
-                          <div
-                            class="ms-Checkbox is-checked is-enabled ms-Dropdown-item is-multi-select dropdownItemSelected-184"
-                          >
-                            <input
-                              aria-posinset="3"
-                              aria-selected="true"
-                              aria-setsize="3"
-                              checked=""
-                              class="input-178"
-                              data-index="2"
-                              data-is-focusable="true"
-                              data-ktp-execute-target="true"
-                              id="Dropdown14-list2"
-                              role="option"
-                              tabindex="-1"
-                              type="checkbox"
-                            />
-                            <label
-                              class="ms-Checkbox-label label-179"
-                              for="Dropdown14-list2"
-                            >
-                              <div
-                                class="ms-Checkbox-checkbox checkbox-185"
-                                data-ktp-target="true"
-                              >
-                                <i
-                                  aria-hidden="true"
-                                  class="ms-Checkbox-checkmark checkmark-187"
-                                  data-icon-name="CheckMark"
-                                >
-                                  
-                                </i>
-                              </div>
-                              <span
-                                class="ms-Dropdown-optionText dropdownOptionText-137"
-                              >
-                                textLayer3
-                              </span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  aria-hidden="true"
-                  data-is-focus-trap-zone-bumper="true"
-                  data-is-visible="true"
-                  style="pointer-events: none; position: fixed;"
-                  tabindex="0"
-                />
-              </div>
-            </div>
-          </div>
+            </svg>
+          </span>
+          textLayer2
+        </div>
+        <div
+          aria-checked="true"
+          class="fui-Option ___1u9whar_q1puvv0 f122n59 f1aa9q02 f16jpd5f f1jar5jt fyu767a f19n0e5 f1ufnopg f1k6fduh f22iagw fk6fouc fkhj508 f1i3iumi fp2oml8 f1vdfbxk f1tdddsa f1f5gg8d f10pi13n f1knas48 fb40n2d"
+          id="fluent-option5"
+          role="menuitemcheckbox"
+          style="font-size: 0.813rem; color: black;"
+        >
+          <span
+            aria-hidden="true"
+            class="fui-Option__checkIcon ___1sfj1o1_17ody2f f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z f3xi7mh ftovhe4 f68vbr6 f1wczvin f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7 ftywsgz fqpbvvt"
+          >
+            <svg
+              aria-hidden="true"
+              class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+              fill="currentColor"
+              height="12"
+              viewBox="0 0 12 12"
+              width="12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.76 3.2c.3.29.32.76.04 1.06l-4.25 4.5a.75.75 0 0 1-1.08.02L2.22 6.53a.75.75 0 0 1 1.06-1.06l1.7 1.7L8.7 3.24a.75.75 0 0 1 1.06-.04Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          textLayer3
         </div>
       </div>
     </div>
@@ -660,24 +569,38 @@ Object {
 }
 
 .emotion-2 {
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  width: calc(50% - 1.5rem);
+  width: calc(50% - 0.5rem);
+}
+
+.emotion-3 {
+  font-size: 0.813rem;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.emotion-4 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-3 {
+.emotion-5 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-3:hover {
+.emotion-5:hover {
   color: black;
 }
 
-<div
-    aria-hidden="true"
-  >
+<div>
     <div
       class="emotion-0"
     >
@@ -693,7 +616,7 @@ Object {
             <input
               aria-invalid="false"
               class="ms-TextField-field field-112"
-              id="TextField9"
+              id="TextField8"
               placeholder=""
               type="text"
               value="Propp"
@@ -702,61 +625,63 @@ Object {
         </div>
       </div>
       <div
-        aria-owns="Dropdown14-list"
-        class="ms-Dropdown-container root-121"
+        aria-owns="fluent-listbox2"
+        class="fui-Dropdown emotion-2 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+        style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
       >
-        <div
-          aria-controls="Dropdown14-list"
+        <button
+          aria-activedescendant="fluent-option3"
           aria-expanded="true"
-          aria-haspopup="listbox"
-          class="ms-Dropdown is-open dropdown-154"
-          data-is-focusable="true"
-          data-ktp-target="true"
-          id="Dropdown14"
+          class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
           role="combobox"
-          tabindex="0"
+          type="button"
         >
-          <span
-            aria-invalid="false"
-            class="ms-Dropdown-title title-155"
-            id="Dropdown14-option"
+          <div
+            class="emotion-3"
           >
             textLayer2, textLayer3
-          </span>
+          </div>
           <span
-            class="ms-Dropdown-caretDownWrapper caretDownWrapper-124"
+            class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
           >
-            <i
+            <svg
               aria-hidden="true"
-              class="ms-Dropdown-caretDown caretDown-142"
-              data-icon-name="ChevronDown"
+              class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              
-            </i>
+              <path
+                d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </span>
-        </div>
+        </button>
         <span
-          class="ms-layer"
+          hidden=""
         />
       </div>
       <div
-        class="emotion-2"
+        class="emotion-4"
       >
         <button
           aria-label="delete.property"
-          class="ms-Button ms-Button--icon emotion-3 root-143"
+          class="ms-Button ms-Button--icon emotion-5 root-121"
           data-is-focusable="true"
           data-testid="delete-icon"
           title="delete.property"
           type="button"
         >
           <span
-            class="ms-Button-flexContainer flexContainer-144"
+            class="ms-Button-flexContainer flexContainer-122"
             data-automationid="splitbuttonprimary"
           >
             <i
               aria-hidden="true"
-              class="ms-Icon root-105 emotion-4 ms-Button-icon icon-146"
+              class="ms-Icon root-105 emotion-6 ms-Button-icon icon-124"
               data-icon-name="StatusCircleErrorX"
               style="font-family: \\"FabricMDL2Icons-9\\";"
             >

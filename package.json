@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/css": "^11.10.0",
     "@fluentui/react": "^8.97.1",
+    "@fluentui/react-components": "^9.23.1",
     "@turf/turf": "^6.5.0",
     "@zip.js/zip.js": "^2.7.9",
     "azure-maps-control": "^2.2.7",
