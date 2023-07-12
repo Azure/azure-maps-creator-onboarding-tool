@@ -42,7 +42,6 @@ const en = {
     'error.layer.name.contains.illegal.characters': 'Feature class name cannot include invalid characters. Valid characters are: lower case characters (a-z), upper case characters (A-Z), numbers (0-9), and underscore character (\'_\').',
     'error.layer.name.not.allowed': 'Reserved feature class name. Please choose a different name.',
     'error.layer.name.should.begin.with.letter': 'Feature class name must begin with an upper case or lower case character.',
-    'error.layer.value.empty': 'Feature class must be mapped to at least one layer.',
     'error.manifest.incorrect.version': 'Existing manifest provided is not supported. Only manifest version 2.0 or later is supported.',
     'error.manifest.invalid': 'Existing manifest provided is invalid.',
     'error.network.issue.cors': 'Unable to process your request due to a network issue or CORS is enabled for your Azure Maps account and a rule needs to be added for this tool.',

@@ -180,7 +180,7 @@ const Preview = () => {
           </Dropdown>
         </div>
         <div className={previewSelectContainer}>
-          <div className={previewSelectTitle}>Layer</div>
+          <div className={previewSelectTitle}>Feature Class</div>
           <Dropdown placeholder={t('geography')} onOptionSelect={onLayerDropdownChange} className={previewDropdownStyles}
                     options={dropdownOptions} multiselect={featureClasses.length !== 0} selectedOptions={selectedFeatureClassesIds}>
             {selectedFeatureClassesNames.length ? selectedFeatureClassesNames.join(', ') : t('select.feature.class.preview')}
