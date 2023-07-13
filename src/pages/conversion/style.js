@@ -27,10 +27,13 @@ export const step = css`
   align-items: center;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
-  
+`;
+
+export const enabledStep = css`
+  cursor: pointer;
+
   &:hover {
     color: ${color.accent.primary};
     background-color: ${color.lightGray};
@@ -102,11 +105,3 @@ export const mapContainer = css`
   width: 100%;
   height: 100%;
 `;
-
-export const pivotStyles = css`
-  height: 100%;
-`;
-
-export const pivotStylesObj = {
-  itemContainer: { height: 'calc(100% - 44px)' },
-};

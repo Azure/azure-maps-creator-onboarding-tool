@@ -39,8 +39,6 @@ describe('tileset content', () => {
       tilesetId: 44,
     });
     const view = render(<TilesetContent />);
-    const logsTab = screen.getByText('logs');
-    fireEvent.click(logsTab);
     expect(view).toMatchSnapshot();
   });
 });

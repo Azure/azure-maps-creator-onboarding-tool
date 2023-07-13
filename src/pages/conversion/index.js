@@ -7,9 +7,11 @@ import UploadContent from './upload-content';
 import ConversionContent from './conversion-content';
 import DatasetContent from './dataset-content';
 import TilesetContent from './tileset-content';
+import MapContent from './map-content';
 import StepButton from './step-button';
 import { conversionSteps, useConversionStore } from 'common/store';
 import { deleteCreatedData } from 'common/api/conversion';
+import { conversionStatuses } from 'common/store/conversion.store';
 
 const unloadCallback = () => {
   deleteCreatedData();
@@ -72,12 +74,15 @@ const Conversion = () => {
                     startTime={datasetStartTime} step={conversionSteps.dataset} title={t('dataset.creation')} />
         <StepButton endTime={tilesetEndTime} label={t('select.tileset.step')} status={tilesetStepStatus}
                     startTime={tilesetStartTime} step={conversionSteps.tileset} title={t('tileset.creation')} />
+        <StepButton label={t('select.map')} status={tilesetStepStatus} step={conversionSteps.map} title={t('map')}
+                    disabled={tilesetStepStatus !== conversionStatuses.finishedSuccessfully} />
       </div>
       <div className={content}>
         <UploadContent />
         <ConversionContent />
         <DatasetContent />
         <TilesetContent />
+        <MapContent />
       </div>
     </div>
   );

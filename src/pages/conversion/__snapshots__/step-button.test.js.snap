@@ -17,11 +17,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -88,11 +88,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -214,11 +214,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -268,7 +268,7 @@ Object {
         <span
           class="emotion-3"
         >
-          ~9h 55m 4s
+          ~9h 55m 5s
         </span>
       </button>
     </div>
@@ -287,11 +287,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -340,7 +340,7 @@ Object {
       <span
         class="emotion-3"
       >
-        ~9h 55m 4s
+        ~9h 55m 5s
       </span>
     </button>
   </div>,
@@ -415,11 +415,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -488,11 +488,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -616,11 +616,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -690,11 +690,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -835,11 +835,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -927,11 +927,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -1058,11 +1058,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -1132,11 +1132,11 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
   background-color: #E1DFDD;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -1261,9 +1261,9 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
@@ -1330,9 +1330,9 @@ Object {
   -webkit-justify-content: space-between;
   justify-content: space-between;
   padding: 0 0.5rem;
-  cursor: pointer;
   border: none;
   width: 100%;
+  cursor: pointer;
 }
 
 .emotion-0:hover {
