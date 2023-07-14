@@ -28,6 +28,7 @@ export const conversionSteps = {
   conversion: 1,
   dataset: 2,
   tileset: 3,
+  map: 4,
 };
 
 const getDefaultState = () => ({
