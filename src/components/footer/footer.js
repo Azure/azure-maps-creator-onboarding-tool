@@ -14,6 +14,7 @@ import {
   useCompletedSteps,
 } from 'common/store';
 import { PATHS } from 'common';
+import featureFlags from 'common/feature-flags';
 
 const reviewManifestSelector = (s) => s.createPackageWithJson;
 const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
@@ -41,12 +42,14 @@ export const Footer = () => {
       resetConversion();
       hideMissingDataError();
       createPackageWithJson(json).then((file) => {
-        uploadConversion(file);
         saveAs(
           file,
           'drawingpackage.zip',
         );
-        navigate(PATHS.CONVERSION);
+        if (featureFlags.onboardingEnabled) {
+          uploadConversion(file);
+          navigate(PATHS.CONVERSION);
+        }
       });
     } else {
       showMissingDataError();
@@ -60,7 +63,7 @@ export const Footer = () => {
   return (
       <div className={footerContainerStyle}>
         <PrimaryButton className={buttonStyle} onClick={onReview}>
-          {t('create.download')}
+          {featureFlags.onboardingEnabled ? t('create.download') : t('download')}
         </PrimaryButton>
         <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
           {t('previous')}
