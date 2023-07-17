@@ -33,3 +33,5 @@ junit.xml
 /.idea
 
 /src/excluded
+
+.env
