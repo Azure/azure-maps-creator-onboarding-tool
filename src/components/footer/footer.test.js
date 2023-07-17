@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { saveAs } from 'file-saver';
+import featureFlags from 'common/feature-flags';
 
 import Footer from './footer';
 import {
@@ -20,10 +21,16 @@ jest.mock('react-router-dom', () => ({
   }),
   useNavigate: () => mockNavigate,
 }));
+jest.mock('common/feature-flags', () => ({
+  onboardingEnabled: true,
+}));
 
 describe('footer on pages where it should not be rendered', () => {
   beforeEach(() => {
     mockCurrentPathname = '/a-snail-breathes-through-its-foot';
+  });
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 
   it('should render nothing', () => {
@@ -68,7 +75,7 @@ describe('footer on pages where it should be rendered', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/create-georeference');
   });
 
-  it('show navigate to conversion page when create+download is clicked', async () => {
+  it('should navigate to conversion page when create+download is clicked', async () => {
     useReviewManifestStore.setState({
       manifestReviewed: true,
     });
@@ -87,5 +94,29 @@ describe('footer on pages where it should be rendered', () => {
     expect(resetSpy).toHaveBeenCalled();
     expect(uploadPackageSpy).toHaveBeenCalled();
     expect(saveAs).toHaveBeenCalled();
+    expect(mockNavigate).toHaveBeenCalledWith('/review-create/conversion');
+  });
+
+  it('should not navigate to conversion page when onboarding FF is disabled', async () => {
+    useReviewManifestStore.setState({
+      manifestReviewed: true,
+    });
+    featureFlags.onboardingEnabled = false;
+    const conversionState = useConversionStore.getState();
+    const resetSpy = jest.spyOn(conversionState, 'reset');
+    const uploadPackageSpy = jest.spyOn(conversionState, 'uploadPackage').mockImplementation(() => {});
+    useGeometryStore.setState({ dwgLayers: ['layer1'] });
+    useLayersStore.setState({ visited: true, layers: [] });
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }]});
+
+    render(<Footer />);
+    const createDownloadBtn = screen.getByText('download');
+    fireEvent.click(createDownloadBtn);
+    await flushPromises();
+
+    expect(resetSpy).toHaveBeenCalled();
+    expect(uploadPackageSpy).not.toHaveBeenCalled();
+    expect(saveAs).toHaveBeenCalled();
+    expect(mockNavigate).not.toHaveBeenCalledWith('/review-create/conversion');
   });
 });
