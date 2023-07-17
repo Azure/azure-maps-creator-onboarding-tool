@@ -30,3 +30,5 @@ export const HTTP_STATUS_CODE = {
   FORBIDDEN: 403,
   TOO_MANY_REQUESTS: 429,
 };
+
+export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';

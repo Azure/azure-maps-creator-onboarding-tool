@@ -1,3 +1,5 @@
+import { isStagingEnv } from './constants';
+
 /**
  * Given a single path name, returns a list of all path names from root to the given path name.
  * Ex. Given '/create/hello', returns ['/', '/create', '/create/hello']
@@ -50,7 +52,7 @@ const defaultEnvs = {
 export const getEnvs = () => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
-  const showTestEndpoint = params.hasOwnProperty('testMdp');
+  const showTestEndpoint = params.hasOwnProperty('testMdp') || isStagingEnv;
   return {
     ...defaultEnvs,
     ...(showTestEndpoint ? {
