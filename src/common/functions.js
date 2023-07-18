@@ -50,12 +50,9 @@ const defaultEnvs = {
 };
 
 export const getEnvs = () => {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
-  const showTestEndpoint = params.hasOwnProperty('testMdp') || isStagingEnv;
   return {
     ...defaultEnvs,
-    ...(showTestEndpoint ? {
+    ...(isStagingEnv ? {
       US_TEST: {
         TEXT: 'geography.unitedstates.test',
         URL: 'https://us.t-azmaps.azurelbs.com',

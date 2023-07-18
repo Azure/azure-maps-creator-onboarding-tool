@@ -1,5 +1,7 @@
+import { isStagingEnv } from './constants';
+
 const flags = {
-  onboardingEnabled: false,
+  onboardingEnabled: isStagingEnv,
 };
 
 export default flags;

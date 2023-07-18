@@ -35,3 +35,4 @@ junit.xml
 /src/excluded
 
 .env
+.env.test
