@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { saveAs } from 'file-saver';
-import featureFlags from 'common/feature-flags';
+import flushPromises from 'flush-promises';
 
 import Footer from './footer';
 import {
@@ -10,7 +10,7 @@ import {
   useConversionStore,
   useReviewManifestStore,
 } from 'common/store';
-import flushPromises from 'flush-promises';
+import featureFlags from 'common/feature-flags';
 
 const mockNavigate = jest.fn();
 let mockCurrentPathname = '/screen1';
