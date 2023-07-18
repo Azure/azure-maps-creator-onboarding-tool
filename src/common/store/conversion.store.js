@@ -162,6 +162,7 @@ export const useConversionStore = create((set, get) => ({
     set({
       conversionStartTime: Date.now(),
       conversionStepStatus: conversionStatuses.inProgress,
+      selectedStep: conversionSteps.conversion,
     });
     startConversion(udid).then((res) => {
       if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
@@ -250,6 +251,7 @@ export const useConversionStore = create((set, get) => ({
     set({
       datasetStartTime: Date.now(),
       datasetStepStatus: conversionStatuses.inProgress,
+      selectedStep: conversionSteps.dataset,
     });
     startDataset(conversionId).then((res) => {
       if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
@@ -336,6 +338,7 @@ export const useConversionStore = create((set, get) => ({
     set({
       tilesetStartTime: Date.now(),
       tilesetStepStatus: conversionStatuses.inProgress,
+      selectedStep: conversionSteps.tileset,
     });
     startTileset(datasetId).then((res) => {
       if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
@@ -392,6 +395,7 @@ export const useConversionStore = create((set, get) => ({
             tilesetOperationLog: JSON.stringify(data, null, 4),
             tilesetOperationId: data.operationId,
             tilesetEndTime: Date.now(),
+            selectedStep: conversionSteps.map,
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
