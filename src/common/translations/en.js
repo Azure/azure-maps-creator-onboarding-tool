@@ -117,6 +117,7 @@ const en = {
     'search.address': 'Search Address',
     'search.by.building.address': 'Search by building address',
     'search.by.lon.lat': 'Search by longitude and latitude',
+    'select.all': 'Select all',
     'select.upload.step': 'Select upload step',
     'select.conversion.step': 'Select conversion step',
     'select.dataset.step': 'Select dataset step',

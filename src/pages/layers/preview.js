@@ -17,6 +17,8 @@ const geometrySelector = (s) => s.dwgLayers;
 const layersSelector = (s) => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
 const canvasSide = 500;
 
+const selectAllId = 'select-all';
+
 const Preview = () => {
   const { t } = useTranslation();
   const exteriorLayers = useGeometryStore(geometrySelector, shallow);
@@ -35,6 +37,15 @@ const Preview = () => {
     }
     return acc.concat(dwgLayers[dwgLayer]);
   }, []), [drawings, dwgLayers, selectedDrawings]);
+  const selectedDrawingsOptions = useMemo(() => {
+    if (selectedDrawings.length !== Object.keys(dwgLayers).length) {
+      return selectedDrawings;
+    }
+    return [
+      selectAllId,
+      ...selectedDrawings,
+    ];
+  }, [dwgLayers, selectedDrawings]);
   const featureClasses = useMemo(() => [
       ...(exteriorLayers.length > 0 ? [{
       id: 'exterior',
@@ -49,6 +60,15 @@ const Preview = () => {
   const selectedFeatureClassesIds = featureClasses
     .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
     .map((fClass) => fClass.id);
+  const selectedFeatureClasses = useMemo(() => {
+    if (selectedFeatureClassesIds.length !== featureClasses.length) {
+      return selectedFeatureClassesIds;
+    }
+    return [
+      selectAllId,
+      ...selectedFeatureClassesIds,
+    ];
+  }, [featureClasses, selectedFeatureClassesIds]);
   const dwgLayersToShow = useMemo(() => {
     if (previewSingleFeatureClass) {
       return allUserCreatedFeatureClasses.find((fClass) => fClass.id === previewSingleFeatureClass)?.value ?? [];
@@ -61,35 +81,75 @@ const Preview = () => {
     () => allLayers.filter((layer) => dwgLayersToShow.includes(layer.name)),
     [allLayers, dwgLayersToShow]
   );
-  const levelDropdownOptions = useMemo(() => drawings.map((drawing) => ({
-    key: drawing,
-    text: drawing,
-  })), [drawings]);
-  const dropdownOptions = useMemo(() => {
+  const levelDropdownOptions = useMemo(() => {
+    const options = drawings.map((drawing) => ({
+      key: drawing,
+      text: drawing,
+    }));
+    if (options.length === 1) {
+      return [options];
+    }
+    return [
+      [{
+        key: selectAllId,
+        text: t('select.all'),
+      }],
+      options,
+    ];
+  }, [drawings, t]);
+  const featureClassDropdownOptions = useMemo(() => {
     if (featureClasses.length === 0) {
-      return [{
+      return [[{
         key: null,
         text: t('error.empty.feature.class.dropdown'),
-      }];
+      }]];
     }
-    return featureClasses.map((ffClass) => ({
+    const options = featureClasses.map((ffClass) => ({
       key: ffClass.id,
       text: ffClass.name,
     }));
+    if (options.length === 1) {
+      return [options];
+    }
+    return [
+      [{
+        key: selectAllId,
+        text: t('select.all'),
+      }],
+      options,
+    ];
   }, [featureClasses, t]);
 
   const onLayerDropdownChange = (e, item) => {
     if (featureClasses.length === 0) {
       return;
     }
-    setUnselectedFeatureClasses(
-      featureClasses
-        .filter((fClass) => !item.selectedOptions.includes(fClass.id))
-        .map((fClass) => fClass.id)
-    );
+    if (item.optionValue === selectAllId) {
+      if (item.selectedOptions.includes(selectAllId)) {
+        setUnselectedFeatureClasses([]);
+      } else {
+        setUnselectedFeatureClasses(
+          featureClasses.map((fClass) => fClass.id)
+        );
+      }
+    } else {
+      setUnselectedFeatureClasses(
+        featureClasses
+          .filter((fClass) => !item.selectedOptions.includes(fClass.id))
+          .map((fClass) => fClass.id)
+      );
+    }
   };
   const onLevelsChange = (e, item) => {
-    setSelectedDrawings(item.selectedOptions);
+    if (item.optionValue === selectAllId) {
+      if (item.selectedOptions.includes(selectAllId)) {
+        setSelectedDrawings(Object.keys(dwgLayers));
+      } else {
+        setSelectedDrawings([]);
+      }
+    } else {
+      setSelectedDrawings(item.selectedOptions.filter((option) => option !== selectAllId));
+    }
   };
 
   useEffect(() => {
@@ -175,14 +235,14 @@ const Preview = () => {
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Level</div>
           <Dropdown placeholder={t('geography')} onOptionSelect={onLevelsChange} className={previewDropdownStyles}
-                    options={levelDropdownOptions} multiselect selectedOptions={selectedDrawings}>
+                    optionGroups={levelDropdownOptions} multiselect selectedOptions={selectedDrawingsOptions}>
             {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
           </Dropdown>
         </div>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Feature Class</div>
           <Dropdown placeholder={t('geography')} onOptionSelect={onLayerDropdownChange} className={previewDropdownStyles}
-                    options={dropdownOptions} multiselect={featureClasses.length !== 0} selectedOptions={selectedFeatureClassesIds}>
+                    optionGroups={featureClassDropdownOptions} multiselect={featureClasses.length !== 0} selectedOptions={selectedFeatureClasses}>
             {selectedFeatureClassesNames.length ? selectedFeatureClassesNames.join(', ') : t('select.feature.class.preview')}
           </Dropdown>
         </div>
