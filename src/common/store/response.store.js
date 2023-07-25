@@ -12,13 +12,6 @@ import { useReviewManifestStore } from './review-manifest.store';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
-const STATUS_CODES_WITH_MEANINGFUL_ERRORS = [
-  HTTP_STATUS_CODE.BAD_REQUEST,
-  HTTP_STATUS_CODE.UNAUTHORIZED,
-  HTTP_STATUS_CODE.FORBIDDEN,
-  HTTP_STATUS_CODE.TOO_MANY_REQUESTS
-];
-const ERROR_CODES_WITH_MEANINGFUL_ERRORS = ['dwgError', 'invalidArchiveFormat', 'packagingError'];
 const defaultErrorMessage = 'Operation failed.';
 
 export const LRO_STATUS = {
@@ -49,12 +42,10 @@ export const useResponseStore = create((set, get) => ({
     uploadFile(file)
     .then(async (r) => {
       if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        if (STATUS_CODES_WITH_MEANINGFUL_ERRORS.includes(r.status)) {
-          const data = await r.json();
-          const errorMessage = data?.error?.message;
-          if (errorMessage) {
-            throw new Error(errorMessage);
-          }
+        const data = await r.json();
+        const errorMessage = data?.error?.message;
+        if (errorMessage) {
+          throw new Error(errorMessage);
         }
         throw new Error(i18next.t('error.upload.file'));
       }
@@ -83,11 +74,9 @@ export const useResponseStore = create((set, get) => ({
       .then(async (r) => {
         const data = await r.json();
         if (r.status !== HTTP_STATUS_CODE.OK) {
-          if (STATUS_CODES_WITH_MEANINGFUL_ERRORS.includes(r.status)) {
-            const errorMessage = data?.error?.message;
-            if (errorMessage) {
-              throw new Error(errorMessage);
-            }
+          const errorMessage = data?.error?.message;
+          if (errorMessage) {
+            throw new Error(errorMessage);
           }
           throw new Error(i18next.t('error.upload.file.processing'));
         }
@@ -109,7 +98,7 @@ export const useResponseStore = create((set, get) => ({
 
         if (data.status === LRO_STATUS.FAILED) {
           const meaningfulError = getFirstMeaningfulError(data);
-          const message = meaningfulError?.message || i18next.t('error.upload.file.processing');
+          const message = meaningfulError || i18next.t('error.upload.file.processing');
           throw new Error(message);
         }
 
@@ -252,19 +241,28 @@ export function parseManifestJson(json) {
   };
 }
 
-export function getFirstMeaningfulError(data) {
-  const details = data?.error?.details ?? [];
+export function getFirstMeaningfulError({ error = {}}) {
+  if (error.message) {
+    return error.message;
+  }
+
+  const details = error.details;
+
+  if (!details || details.length === 0) {
+    return null;
+  }
 
   for (let i = 0; i < details.length; i++) {
-    if (Array.isArray(details[i].details)) {
-      const meaningfulError = details[i].details.find((error) => ERROR_CODES_WITH_MEANINGFUL_ERRORS.includes(error.code));
-      if (meaningfulError) {
-        return meaningfulError;
-      }
-    } else {
-      const { code, message } = details[i];
-      if (ERROR_CODES_WITH_MEANINGFUL_ERRORS.includes(code)) {
-        return message;
+    const subError = details[i];
+    if (subError.message) {
+      return subError.message;
+    }
+    const subDetails = subError.details;
+    if (Array.isArray(subDetails)) {
+      for (let j = 0; j < subDetails.length; j++) {
+        if (subDetails[j].message) {
+          return subDetails[j].message;
+        }
       }
     }
   }
