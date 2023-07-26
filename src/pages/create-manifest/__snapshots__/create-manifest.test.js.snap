@@ -196,12 +196,6 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-28 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
 <body>
     <div>
       <div
@@ -531,28 +525,6 @@ Object {
             </span>
           </span>
         </button>
-        <button
-          class="ms-Button ms-Button--default emotion-28 root-152"
-          data-is-focusable="true"
-          data-testid="cancel-button"
-          type="button"
-        >
-          <span
-            class="ms-Button-flexContainer flexContainer-122"
-            data-automationid="splitbuttonprimary"
-          >
-            <span
-              class="ms-Button-textContainer textContainer-123"
-            >
-              <span
-                class="ms-Button-label label-153"
-                id="id__20"
-              >
-                cancel
-              </span>
-            </span>
-          </span>
-        </button>
       </div>
     </div>
   </body>,
@@ -744,12 +716,6 @@ Object {
 
 .emotion-27 {
   margin-right: 1rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
-.emotion-28 {
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: 0.813rem;
@@ -1083,28 +1049,6 @@ Object {
           </span>
         </span>
       </button>
-      <button
-        class="ms-Button ms-Button--default emotion-28 root-152"
-        data-is-focusable="true"
-        data-testid="cancel-button"
-        type="button"
-      >
-        <span
-          class="ms-Button-flexContainer flexContainer-122"
-          data-automationid="splitbuttonprimary"
-        >
-          <span
-            class="ms-Button-textContainer textContainer-123"
-          >
-            <span
-              class="ms-Button-label label-153"
-              id="id__20"
-            >
-              cancel
-            </span>
-          </span>
-        </span>
-      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -1357,19 +1301,13 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-28 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
 <body>
     <div>
       <div
         class="emotion-0"
       >
         <div
-          aria-describedby="MessageBar138"
+          aria-describedby="MessageBar100"
           class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
@@ -1391,7 +1329,7 @@ Object {
             <div
               aria-live="assertive"
               class="ms-MessageBar-text text-113"
-              id="MessageBar138"
+              id="MessageBar100"
               role="alert"
             >
               <span
@@ -1464,7 +1402,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip142"
+                  id="tooltip104"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.geography
@@ -1540,7 +1478,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip143"
+                  id="tooltip105"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.subKey
@@ -1566,7 +1504,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-136"
                     data-testid="subscription-key-field"
-                    id="TextField144"
+                    id="TextField106"
                     type="password"
                     value="subscription_key!"
                   />
@@ -1620,7 +1558,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip149"
+                  id="tooltip111"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.dwg.zip.package
@@ -1646,7 +1584,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-136"
                     data-testid="file-name-field"
-                    id="TextField150"
+                    id="TextField112"
                     readonly=""
                     type="text"
                     value=""
@@ -1689,31 +1627,9 @@ Object {
             >
               <span
                 class="ms-Button-label label-150"
-                id="id__155"
+                id="id__117"
               >
                 process
-              </span>
-            </span>
-          </span>
-        </button>
-        <button
-          class="ms-Button ms-Button--default emotion-28 root-152"
-          data-is-focusable="true"
-          data-testid="cancel-button"
-          type="button"
-        >
-          <span
-            class="ms-Button-flexContainer flexContainer-122"
-            data-automationid="splitbuttonprimary"
-          >
-            <span
-              class="ms-Button-textContainer textContainer-123"
-            >
-              <span
-                class="ms-Button-label label-153"
-                id="id__158"
-              >
-                cancel
               </span>
             </span>
           </span>
@@ -1914,18 +1830,12 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-28 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  font-size: 0.813rem;
-}
-
 <div>
     <div
       class="emotion-0"
     >
       <div
-        aria-describedby="MessageBar138"
+        aria-describedby="MessageBar100"
         class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
@@ -1947,7 +1857,7 @@ Object {
           <div
             aria-live="assertive"
             class="ms-MessageBar-text text-113"
-            id="MessageBar138"
+            id="MessageBar100"
             role="alert"
           >
             <span
@@ -2020,7 +1930,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip142"
+                id="tooltip104"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.geography
@@ -2096,7 +2006,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip143"
+                id="tooltip105"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.subKey
@@ -2122,7 +2032,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-136"
                   data-testid="subscription-key-field"
-                  id="TextField144"
+                  id="TextField106"
                   type="password"
                   value="subscription_key!"
                 />
@@ -2176,7 +2086,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip149"
+                id="tooltip111"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.dwg.zip.package
@@ -2202,7 +2112,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-136"
                   data-testid="file-name-field"
-                  id="TextField150"
+                  id="TextField112"
                   readonly=""
                   type="text"
                   value=""
@@ -2245,31 +2155,9 @@ Object {
           >
             <span
               class="ms-Button-label label-150"
-              id="id__155"
+              id="id__117"
             >
               process
-            </span>
-          </span>
-        </span>
-      </button>
-      <button
-        class="ms-Button ms-Button--default emotion-28 root-152"
-        data-is-focusable="true"
-        data-testid="cancel-button"
-        type="button"
-      >
-        <span
-          class="ms-Button-flexContainer flexContainer-122"
-          data-automationid="splitbuttonprimary"
-        >
-          <span
-            class="ms-Button-textContainer textContainer-123"
-          >
-            <span
-              class="ms-Button-label label-153"
-              id="id__158"
-            >
-              cancel
             </span>
           </span>
         </span>

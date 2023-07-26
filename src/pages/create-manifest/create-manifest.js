@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
-import { DefaultButton, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
+import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { shallow } from 'zustand/shallow';
 
 import FieldLabel from 'components/field-label';
@@ -12,9 +12,7 @@ import { getEnvs } from 'common/functions';
 import { useUserStore, useResponseStore } from 'common/store';
 import FileField from './file-field';
 import {
-  buttonLabelStyle,
   containerStyle,
-  defaultButtonStyle,
   descriptionStyle,
   dropdownStyle,
   errorBannerHidden,
@@ -29,7 +27,6 @@ import {
 } from './create-manifest.style';
 
 export const TEST_ID = {
-  CANCEL_BUTTON: 'cancel-button',
   ERROR_BAR: 'error-bar',
   FILE_NAME_FIELD: 'file-name-field',
   FILE_UPLOAD_FIELD: 'file-upload-field',
@@ -75,7 +72,6 @@ const CreateManifestPage = () => {
     navigate(PATHS.PROCESSING);
   }, [file, navigate, subKey, uploadFile]);
 
-  const navigateHome = useCallback(() => navigate(PATHS.INDEX), [navigate]);
   const updateSubKey = useCallback((e) => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback((_, option) => setGeo(option.optionValue), [setGeo]);
 
@@ -112,8 +108,6 @@ const CreateManifestPage = () => {
                  fileType='zip' onError={setErrorMessage} tooltip={t('tooltip.dwg.zip.package')} />
       <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} data-testid={TEST_ID.UPLOAD_BUTTON}
                      className={primaryButtonStyle} text={t('process')} styles={primaryButtonDisabledStyles} />
-      <DefaultButton styles={buttonLabelStyle} className={defaultButtonStyle} text={t('cancel')}
-                     onClick={navigateHome} data-testid={TEST_ID.CANCEL_BUTTON} />
     </div>
   );
 };
