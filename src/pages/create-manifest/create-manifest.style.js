@@ -51,26 +51,16 @@ export const dropdownStyle = css`
   width: 30rem;
 `;
 
-export const defaultButtonStyle = css`
+export const primaryButtonStyle = css`
+  margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: ${fontSize.sm};
 `;
 
-export const primaryButtonStyle = css`
-  margin-right: 1rem;
-  ${defaultButtonStyle};
-`;
-
 export const primaryButtonDisabledStyles = {
   labelDisabled: {
     color: '#666', // added this cause default color does not provide enough contrast for accessibility (4.5)
-  },
-};
-
-export const buttonLabelStyle = {
-  label: {
-    lineHeight: 'unset',
   },
 };
 

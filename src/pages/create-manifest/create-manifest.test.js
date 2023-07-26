@@ -93,13 +93,6 @@ describe('CreateManifestPage', () => {
     expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe('');
   });
 
-  it('should redirect to home page when Cancel button is clicked', () => {
-    render(<CreateManifestPage />);
-    const cancelButton = screen.getByTestId(TEST_ID.CANCEL_BUTTON);
-    fireEvent.click(cancelButton);
-    expect(mockNavigate).toBeCalledWith('/');
-  });
-
   it('should pick different geographies', async () => {
     render(<CreateManifestPage />);
 
