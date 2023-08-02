@@ -81,7 +81,7 @@ Object {
         >
           <button
             aria-expanded="false"
-            class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
             role="combobox"
             type="button"
           >
@@ -216,7 +216,7 @@ Object {
       >
         <button
           aria-expanded="false"
-          class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+          class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
           role="combobox"
           type="button"
         >
@@ -377,6 +377,33 @@ Object {
   color: black;
 }
 
+.emotion-7 {
+  height: 1.625rem;
+  margin: 0.3125rem;
+  padding: 0 0.625rem;
+  box-sizing: border-box;
+  line-height: 1.625rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-image: url(icon.png);
+  -webkit-background-size: 0.75rem 0.75rem;
+  background-size: 0.75rem 0.75rem;
+  background-repeat: no-repeat;
+  -webkit-background-position: 0.375rem 0.375rem;
+  background-position: 0.375rem 0.375rem;
+  padding-left: 1.5rem;
+}
+
+.emotion-8 {
+  position: fixed;
+  top: -99999px;
+  left: -99999px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+}
+
 <body>
     <div>
       <div
@@ -410,7 +437,7 @@ Object {
           <button
             aria-activedescendant="fluent-option3"
             aria-expanded="true"
-            class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
             role="combobox"
             type="button"
           >
@@ -481,6 +508,15 @@ Object {
         role="menu"
         style="position: fixed; left: 0px; top: 0px; margin: 0px; width: 0px;"
       >
+        <input
+          class="emotion-7"
+          placeholder="Search layers"
+          type="text"
+          value=""
+        />
+        <input
+          class="emotion-8"
+        />
         <div
           aria-checked="false"
           class="fui-Option ___1u9whar_q1puvv0 f122n59 f1aa9q02 f16jpd5f f1jar5jt fyu767a f19n0e5 f1ufnopg f1k6fduh f22iagw fk6fouc fkhj508 f1i3iumi fp2oml8 f1vdfbxk f1tdddsa f1f5gg8d f10pi13n f1knas48 fb40n2d"
@@ -632,7 +668,7 @@ Object {
         <button
           aria-activedescendant="fluent-option3"
           aria-expanded="true"
-          class="fui-Dropdown__button ___1jkuyn2_1ro7mo8 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl fxc4j92 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+          class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
           role="combobox"
           type="button"
         >

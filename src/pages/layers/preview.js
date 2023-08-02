@@ -3,7 +3,7 @@ import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
 import { useGeometryStore, useLayersStore } from 'common/store';
-import Dropdown from 'components/dropdown';
+import Dropdown, { selectAllId } from 'components/dropdown';
 import {
   previewDropdownStyles,
   previewContainerStyles,
@@ -16,8 +16,6 @@ import {
 const geometrySelector = (s) => s.dwgLayers;
 const layersSelector = (s) => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
 const canvasSide = 500;
-
-const selectAllId = 'select-all';
 
 const Preview = () => {
   const { t } = useTranslation();
@@ -234,15 +232,15 @@ const Preview = () => {
       <div className={dropdownContainer}>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Level</div>
-          <Dropdown placeholder={t('geography')} onOptionSelect={onLevelsChange} className={previewDropdownStyles}
+          <Dropdown onOptionSelect={onLevelsChange} className={previewDropdownStyles}
                     optionGroups={levelDropdownOptions} multiselect selectedOptions={selectedDrawingsOptions}>
             {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
           </Dropdown>
         </div>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Feature Class</div>
-          <Dropdown placeholder={t('geography')} onOptionSelect={onLayerDropdownChange} className={previewDropdownStyles}
-                    optionGroups={featureClassDropdownOptions} multiselect={featureClasses.length !== 0} selectedOptions={selectedFeatureClasses}>
+          <Dropdown onOptionSelect={onLayerDropdownChange} className={previewDropdownStyles} selectedOptions={selectedFeatureClasses}
+                    optionGroups={featureClassDropdownOptions} multiselect={featureClasses.length !== 0}>
             {selectedFeatureClassesNames.length ? selectedFeatureClassesNames.join(', ') : t('select.feature.class.preview')}
           </Dropdown>
         </div>
