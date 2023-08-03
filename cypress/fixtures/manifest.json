@@ -1,55 +1,40 @@
 {
   "version": "2.0",
   "buildingLevels": {
-    "dwgLayers": ["AK-FLOR-EXTR", "AK-WALL"],
+    "dwgLayers": [
+      "AK-FLOR-EXTR",
+      "AK-WALL"
+    ],
     "levels": [
       {
-        "filename": "PUGET SOUND_ADVANTA-A_01.dwg",
+        "filename": "PUGET SOUND_113_01.dwg",
         "levelName": "Ground level",
         "ordinal": 1,
         "verticalExtent": 1.5
       },
       {
-        "filename": "PUGET SOUND_ADVANTA-A_02.dwg",
+        "filename": "PUGET SOUND_113_02.dwg",
         "levelName": "Next level",
         "ordinal": 22,
         "verticalExtent": 2.5
       },
       {
-        "filename": "PUGET SOUND_ADVANTA-A_03.dwg",
+        "filename": "PUGET SOUND_113_03.dwg",
         "levelName": "Nivel tres",
         "ordinal": 333,
         "verticalExtent": 0.0001
       },
       {
-        "filename": "PUGET SOUND_ADVANTA-A_04.dwg",
+        "filename": "PUGET SOUND_113_04.dwg",
         "levelName": "Niveau quatre",
         "ordinal": 4,
         "verticalExtent": 1
-      },
-      {
-        "filename": "PUGET SOUND_ADVANTA-A_05.dwg",
-        "levelName": "第五級",
-        "ordinal": 5,
-        "verticalExtent": 0.55
-      },
-      {
-        "filename": "PUGET SOUND_ADVANTA-A_06.dwg",
-        "levelName": "Уровень шесть",
-        "ordinal": 6,
-        "verticalExtent": 99.55
-      },
-      {
-        "filename": "PUGET SOUND_ADVANTA-A_07.dwg",
-        "levelName": "المستوى السابع",
-        "ordinal": 7,
-        "verticalExtent": 55
       }
     ]
   },
   "georeference": {
-    "lat": 47.60360412,
-    "lon": -122.33065936,
+    "lat": 47.6036886,
+    "lon": -122.33039129,
     "angle": 100
   },
   "featureClasses": [
@@ -60,22 +45,25 @@
         {
           "featureClassPropertyName": "my_prop_1",
           "dwgLayers": [
-            "S-GRID-IDEN-EXST",
-            "RM$TXT"
+            "A-EQPM-EXST",
+            "RM$TXT",
+            "S-GRID-IDEN-EXST"
           ]
         },
         {
           "featureClassPropertyName": "new_prop_7",
           "dwgLayers": [
             "LMS_LOCATION",
-            "GROS$TXT"
+            "GROS$TXT",
+            "A-CASE-EXST"
           ]
         },
         {
           "featureClassPropertyName": "new_prop_8",
           "dwgLayers": [
             "AK-ROOM-LABL",
-            "A-EQPM-EXST"
+            "A-EQPM-EXST",
+            "A-FURN-FREE-EXST"
           ]
         }
       ]
@@ -84,7 +72,8 @@
       "featureClassName": "my_class_2",
       "dwgLayers": [
         "A-GLAZ-EXST",
-        "A-WALL-CORE-EXST"
+        "A-WALL-CORE-EXST",
+        "A-EQPM-EXST"
       ]
     }
   ],
