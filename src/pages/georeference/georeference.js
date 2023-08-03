@@ -56,7 +56,7 @@ function Georeference() {
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('exterior')}</FieldLabel>
             <Dropdown placeholder={t('geography')} onOptionSelect={onExteriorLayersSelect} className={dropdownStyles}
-                      options={options} multiselect={polygonLayers.length !== 0} selectedOptions={dwgLayers}>
+                      options={options} multiselect={polygonLayers.length !== 0} selectedOptions={dwgLayers} showFilter>
               {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
             </Dropdown>
           </div>

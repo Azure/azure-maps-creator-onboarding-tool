@@ -92,7 +92,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
       <div className={flexContainer}>
         <TextField className={fieldLabel} value={name} onChange={onChangeName} styles={layerNameInputStyles}
                    errorMessage={layerNameError} placeholder={placeholder} />
-        <Dropdown placeholder={t('geography')} onOptionSelect={onChangeLayersSelection} onOpenChange={showTempPreview}
+        <Dropdown onOptionSelect={onChangeLayersSelection} onOpenChange={showTempPreview} showFilter
                   options={options} multiselect={layerNames.length !== 0} selectedOptions={value}
                   positioning='before' className={dropdownStyles}>
           {value.length ? value.join(', ') : t('select.layers')}
