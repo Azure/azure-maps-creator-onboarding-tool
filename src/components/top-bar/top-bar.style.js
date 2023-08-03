@@ -38,11 +38,4 @@ export const docLink = css`
   color: white;
   margin: 0 1.25rem;
   text-decoration: none;
- 
-`;
-
-export const linkIcon = css`
-  ${docLink}:hover & {
-    width: 30px;
-  }
 `;
