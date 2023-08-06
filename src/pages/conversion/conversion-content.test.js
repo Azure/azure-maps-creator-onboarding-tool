@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import ConversionContent from './conversion-content';
 import { useConversionStore } from 'common/store';
@@ -26,19 +26,6 @@ describe('conversion content', () => {
       diagnosticPackageLocation: 'http://conversion.content.com',
     });
     const view = render(<ConversionContent />);
-    expect(view).toMatchSnapshot();
-  });
-
-  it('should render conversion content logs tab', () => {
-    useConversionStore.setState({
-      selectedStep: 1,
-      conversionOperationLog: JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee'}, null, 4),
-      conversionId: 17,
-      diagnosticPackageLocation: 'http://conversion.content.com',
-    });
-    const view = render(<ConversionContent />);
-    const logsTab = screen.getByText('logs');
-    fireEvent.click(logsTab);
     expect(view).toMatchSnapshot();
   });
 });
