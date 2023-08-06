@@ -1,30 +1,32 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore } from 'common/store';
-import { logsContainer } from './style';
+import { conversionStatuses, conversionSteps, useConversionStore } from 'common/store/conversion.store';
+import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
+import { Log } from './log';
+import { DownloadLogs } from './download-logs';
 
-const conversionStoreSelector = (s) => [s.uploadOperationLog, s.uploadUdId, s.uploadOperationId, s.selectedStep];
+const conversionStoreSelector = (s) => [s.uploadStepStatus, s.uploadOperationLog, s.uploadUdId, s.selectedStep];
 
 const UploadContent = () => {
   const { t } = useTranslation();
-  const [uploadOperationLog, uploadUdId, uploadOperationId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
+  const [uploadStepStatus, uploadOperationLog, uploadUdId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.upload) {
     return null;
   }
 
   return (
-    <div>
-      <div>
-        <h3>{t('meta.data')}</h3>
-        <div>operationId: {uploadOperationId === null ? 'N/A' : uploadOperationId}</div>
-        <div>udid: {uploadUdId === null ? 'N/A' : uploadUdId}</div>
+    <div className={contentContainer}>
+      <div className={metaInfoContainer}>
+        <span className={boldHeader}>Udid</span>: {uploadUdId === null ? 'N/A' : uploadUdId}
       </div>
-      <div>
+      <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
-        <pre className={logsContainer}>{uploadOperationLog}</pre>
+        <Log src={uploadOperationLog} />
       </div>
+      {uploadStepStatus !== conversionStatuses.empty && uploadStepStatus !== conversionStatuses.inProgress &&
+        <DownloadLogs type='upload' isFailed={uploadStepStatus === conversionStatuses.failed} json={uploadOperationLog} />}
     </div>
   );
 };

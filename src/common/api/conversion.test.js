@@ -96,7 +96,6 @@ describe('conversion api', () => {
       uploadUdId: 123,
       conversionId: 234,
       datasetId: 345,
-      tilesetId: 456,
     });
     deleteCreatedData();
     expect(global.fetch).not.toHaveBeenCalled();

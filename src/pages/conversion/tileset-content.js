@@ -1,31 +1,33 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore } from 'common/store';
-import { logsContainer } from './style';
+import { conversionSteps, useConversionStore, conversionStatuses } from 'common/store/conversion.store';
+import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
+import { Log } from './log';
+import { DownloadLogs } from './download-logs';
 
-const conversionStoreSelector = (s) => [s.tilesetOperationLog, s.tilesetOperationId, s.selectedStep, s.tilesetId, s.mapConfigurationId];
+const conversionStoreSelector = (s) => [s.tilesetStepStatus, s.tilesetOperationLog, s.selectedStep, s.mapConfigurationId];
 
 const TilesetContent = () => {
   const { t } = useTranslation();
-  const [operationLog, operationId, selectedStep, tilesetId, mapConfigurationId] = useConversionStore(conversionStoreSelector, shallow);
+  const [tilesetStepStatus, operationLog, selectedStep, mapConfigurationId] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.tileset) {
     return null;
   }
 
   return (
-    <div>
-      <div>
-        <h3>{t('meta.data')}</h3>
-        <div>operationId: {operationId === null ? 'N/A' : operationId}</div>
-        <div>tilesetId: {tilesetId === null ? 'N/A' : tilesetId}</div>
-        <div>mapConfigurationId: {mapConfigurationId === null ? 'N/A' : mapConfigurationId}</div>
+    <div className={contentContainer}>
+      <div className={metaInfoContainer}>
+        <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? 'N/A' : mapConfigurationId}
       </div>
-      <div>
+      <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
-        <pre className={logsContainer}>{operationLog}</pre>
+        <Log src={operationLog} />
       </div>
+      {tilesetStepStatus !== conversionStatuses.empty && tilesetStepStatus !== conversionStatuses.inProgress &&
+        <DownloadLogs type='tileset' isFailed={tilesetStepStatus === conversionStatuses.failed}
+                      json={operationLog} />}
     </div>
   );
 };

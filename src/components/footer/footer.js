@@ -16,7 +16,7 @@ import {
 import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
 
-const reviewManifestSelector = (s) => s.createPackageWithJson;
+const reviewManifestSelector = (s) => [s.createPackageWithJson, s.getOriginalPackageName];
 const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = (s) => [s.reset, s.uploadPackage];
 
@@ -26,7 +26,7 @@ export const Footer = () => {
   const navigate = useNavigate();
   const json = useReviewManifestJson();
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
-  const createPackageWithJson = useReviewManifestStore(reviewManifestSelector);
+  const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);
   const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
   const completedSteps = useCompletedSteps();
 
@@ -44,7 +44,7 @@ export const Footer = () => {
       createPackageWithJson(json).then((file) => {
         saveAs(
           file,
-          'drawingpackage.zip',
+          `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`,
         );
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file);

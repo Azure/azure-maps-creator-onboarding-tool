@@ -8,7 +8,6 @@ describe('conversion content', () => {
     useConversionStore.setState({
       selectedStep: 0,
       conversionOperationLog: null,
-      conversionOperationId: null,
       conversionId: null,
       diagnosticPackageLocation: null,
     });
@@ -23,7 +22,6 @@ describe('conversion content', () => {
     useConversionStore.setState({
       selectedStep: 1,
       conversionOperationLog: JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee'}, null, 4),
-      conversionOperationId: 'qqwer-asdf-zxcvzxcv-asdf-dgfh',
       conversionId: 17,
       diagnosticPackageLocation: 'http://conversion.content.com',
     });
@@ -35,7 +33,6 @@ describe('conversion content', () => {
     useConversionStore.setState({
       selectedStep: 1,
       conversionOperationLog: JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee'}, null, 4),
-      conversionOperationId: 'qqwer-asdf-zxcvzxcv-asdf-dgfh',
       conversionId: 17,
       diagnosticPackageLocation: 'http://conversion.content.com',
     });

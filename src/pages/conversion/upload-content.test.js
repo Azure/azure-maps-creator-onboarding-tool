@@ -8,7 +8,6 @@ describe('upload content', () => {
     useConversionStore.setState({
       selectedStep: 0,
       uploadOperationLog: null,
-      uploadOperationId: null,
       uploadUdId: null,
     });
   });
@@ -24,7 +23,6 @@ describe('upload content', () => {
   it('should render upload content', () => {
     useConversionStore.setState({
       uploadOperationLog: JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee' }, null, 4),
-      uploadOperationId: 'operation-id-id-operation',
       uploadUdId: 'zxcv-asdf-zxcvzxcv-asdf-dgfh',
     });
     const view = render(<UploadContent />);

@@ -105,3 +105,47 @@ export const mapContainer = css`
   width: 100%;
   height: 100%;
 `;
+
+export const contentContainer = css`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const metaInfoContainer = css`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+`;
+
+export const logContainer = css`
+  overflow: auto;
+`;
+
+export const downloadLogsContainer = css`
+  margin: 1rem 0;
+`;
+
+export const logsButton = css`
+  padding: 0 1.5rem;
+  height: 1.75rem;
+  margin: 1rem 0;
+`;
+
+export const failedLogsButton = css`
+  border-color: #d61d28;
+  background-color: #d61d28;
+  
+  &:hover {
+    background-color: #C11B26;
+    border-color: #C11B26;
+  }
+  &:active {
+    background-color: #AB1822;
+    border-color: #AB1822;
+  }
+`;
+
+export const boldHeader = css`
+  font-weight: 600;
+`;
