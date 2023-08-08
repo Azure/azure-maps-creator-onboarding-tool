@@ -1,49 +1,38 @@
 import { shallow } from 'zustand/shallow';
-import { Trans, useTranslation } from 'react-i18next';
-import { Pivot, PivotItem, PrimaryButton } from '@fluentui/react';
+import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore } from 'common/store';
-import { diagnosticDescription, logsContainer } from './style';
-import LinkText from 'common/translations/link-text';
+import { conversionSteps, useConversionStore, conversionStatuses } from 'common/store/conversion.store';
+import {
+  boldHeader,
+  contentContainer,
+  logContainer,
+  metaInfoContainer,
+} from './style';
+import { Log } from './log';
+import { DownloadLogs } from './download-logs';
 
-const conversionStoreSelector = (s) => [s.conversionOperationLog, s.conversionOperationId, s.selectedStep, s.conversionId, s.diagnosticPackageLocation];
-const diagnosticDocsUrl = 'https://docs.microsoft.com/en-us/azure/azure-maps/drawing-error-visualizer';
+const conversionStoreSelector = (s) => [s.conversionStepStatus, s.conversionOperationLog, s.selectedStep, s.conversionId, s.diagnosticPackageLocation];
 
 const ConversionContent = () => {
   const { t } = useTranslation();
-  const [operationLog, operationId, selectedStep, conversionId, diagnosticPackageLocation] = useConversionStore(conversionStoreSelector, shallow);
+  const [conversionStepStatus, operationLog, selectedStep, conversionId, diagnosticPackageLocation] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.conversion) {
     return null;
   }
 
   return (
-    <div>
-      <Pivot>
-        <PivotItem headerText={t('logs')} headerButtonProps={{ 'data-title': t('logs') }} >
-          <div>
-            <h3>{t('meta.data')}</h3>
-            <div>operationId: {operationId === null ? 'N/A' : operationId}</div>
-            <div>conversionId: {conversionId === null ? 'N/A' : conversionId}</div>
-          </div>
-          <div>
-            <h3>{t('operation.log')}</h3>
-            <pre className={logsContainer}>{operationLog}</pre>
-          </div>
-        </PivotItem>
-        <PivotItem headerText={t('diagnostic.package')} headerButtonProps={{ 'data-title': t('diagnostic.package') }}>
-          <div className={diagnosticDescription}>
-            <Trans i18nKey='diagnostic.description.text' components={[
-              <LinkText href={diagnosticDocsUrl} />
-            ]} />
-          </div>
-          <a href={diagnosticPackageLocation} download target='_blank' rel='noreferrer'>
-            <PrimaryButton disabled={!diagnosticPackageLocation}>
-              {t('download')}
-            </PrimaryButton>
-          </a>
-        </PivotItem>
-      </Pivot>
+    <div className={contentContainer}>
+      <div className={metaInfoContainer}>
+        <span className={boldHeader}>ConversionId</span>: {conversionId === null ? 'N/A' : conversionId}
+      </div>
+      <div className={logContainer}>
+        <h3>{t('operation.log')}</h3>
+        <Log src={operationLog} />
+      </div>
+      {conversionStepStatus !== conversionStatuses.empty && conversionStepStatus !== conversionStatuses.inProgress &&
+        <DownloadLogs type='conversion' isFailed={conversionStepStatus === conversionStatuses.failed}
+                      link={diagnosticPackageLocation} json={operationLog} />}
     </div>
   );
 };

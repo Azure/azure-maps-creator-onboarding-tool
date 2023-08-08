@@ -39,6 +39,13 @@ export const useReviewManifestStore = create((set, get) => ({
     const { originalPackage } = get();
     return createPackageWithJson(originalPackage, json);
   },
+  getOriginalPackageName: () => {
+    const { originalPackage } = get();
+    if (originalPackage === null) {
+      return '';
+    }
+    return originalPackage.name?.split('.')[0] ?? '';
+  },
   setOriginalPackage: (originalPackage) => set(() => ({
     originalPackage,
   })),

@@ -37,25 +37,21 @@ const getDefaultState = () => ({
   uploadStartTime: null,
   uploadEndTime: null,
   uploadUdId: null,
-  uploadOperationId: null,
   uploadOperationLog: null,
   conversionStepStatus: conversionStatuses.empty,
   conversionStartTime: null,
   conversionEndTime: null,
-  conversionOperationId: null,
   conversionOperationLog: null,
   conversionId: null,
   diagnosticPackageLocation: null,
   datasetStepStatus: conversionStatuses.empty,
   datasetStartTime: null,
   datasetEndTime: null,
-  datasetOperationId: null,
   datasetOperationLog: null,
   datasetId: null,
   tilesetStepStatus: conversionStatuses.empty,
   tilesetStartTime: null,
   tilesetEndTime: null,
-  tilesetOperationId: null,
   tilesetOperationLog: null,
   tilesetId: null,
   mapConfigurationId: null,
@@ -121,7 +117,6 @@ export const useConversionStore = create((set, get) => ({
           deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
-            uploadOperationId: data.operationId,
             uploadOperationLog: JSON.stringify(data, null, 4),
           }));
           setTimeout(() => {
@@ -131,7 +126,6 @@ export const useConversionStore = create((set, get) => ({
           set({
             uploadStepStatus: conversionStatuses.finishedSuccessfully,
             uploadOperationLog: JSON.stringify(data, null, 4),
-            uploadOperationId: data.operationId,
             uploadEndTime: Date.now(),
           });
 
@@ -207,7 +201,6 @@ export const useConversionStore = create((set, get) => ({
           deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
-            conversionOperationId: data.operationId,
             conversionOperationLog: JSON.stringify(data, null, 4),
           }));
           setTimeout(() => {
@@ -218,7 +211,6 @@ export const useConversionStore = create((set, get) => ({
           set({
             conversionStepStatus: conversionStatuses.finishedSuccessfully,
             conversionOperationLog: JSON.stringify(data, null, 4),
-            conversionOperationId: data.operationId,
             conversionEndTime: Date.now(),
             diagnosticPackageLocation: `${data.properties.diagnosticPackageLocation}&subscription-key=${subscriptionKey}`,
           });
@@ -296,7 +288,6 @@ export const useConversionStore = create((set, get) => ({
           deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
-            datasetOperationId: data.operationId,
             datasetOperationLog: JSON.stringify(data, null, 4),
           }));
           setTimeout(() => {
@@ -306,7 +297,6 @@ export const useConversionStore = create((set, get) => ({
           set({
             datasetStepStatus: conversionStatuses.finishedSuccessfully,
             datasetOperationLog: JSON.stringify(data, null, 4),
-            datasetOperationId: data.operationId,
             datasetEndTime: Date.now(),
           });
 
@@ -383,7 +373,6 @@ export const useConversionStore = create((set, get) => ({
           deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
-            tilesetOperationId: data.operationId,
             tilesetOperationLog: JSON.stringify(data, null, 4),
           }));
           setTimeout(() => {
@@ -393,7 +382,6 @@ export const useConversionStore = create((set, get) => ({
           set({
             tilesetStepStatus: conversionStatuses.finishedSuccessfully,
             tilesetOperationLog: JSON.stringify(data, null, 4),
-            tilesetOperationId: data.operationId,
             tilesetEndTime: Date.now(),
             selectedStep: conversionSteps.map,
           });

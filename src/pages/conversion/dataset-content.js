@@ -1,30 +1,33 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore } from 'common/store';
-import { logsContainer } from './style';
+import { conversionSteps, useConversionStore, conversionStatuses } from 'common/store/conversion.store';
+import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
+import { Log } from './log';
+import { DownloadLogs } from './download-logs';
 
-const conversionStoreSelector = (s) => [s.datasetOperationLog, s.datasetId, s.datasetOperationId, s.selectedStep];
+const conversionStoreSelector = (s) => [s.datasetStepStatus, s.datasetOperationLog, s.datasetId, s.selectedStep];
 
 const DatasetContent = () => {
   const { t } = useTranslation();
-  const [datasetOperationLog, datasetId, datasetOperationId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
+  const [datasetStepStatus, datasetOperationLog, datasetId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.dataset) {
     return null;
   }
 
   return (
-    <div>
-      <div>
-        <h3>{t('meta.data')}</h3>
-        <div>operationId: {datasetOperationId === null ? 'N/A' : datasetOperationId}</div>
-        <div>datasetId: {datasetId === null ? 'N/A' : datasetId}</div>
+    <div className={contentContainer}>
+      <div className={metaInfoContainer}>
+        <span className={boldHeader}>DatasetId</span>: {datasetId === null ? 'N/A' : datasetId}
       </div>
-      <div>
+      <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
-        <pre className={logsContainer}>{datasetOperationLog}</pre>
+        <Log src={datasetOperationLog} />
       </div>
+      {datasetStepStatus !== conversionStatuses.empty && datasetStepStatus !== conversionStatuses.inProgress &&
+        <DownloadLogs type='dataset' isFailed={datasetStepStatus === conversionStatuses.failed}
+                      json={datasetOperationLog} />}
     </div>
   );
 };

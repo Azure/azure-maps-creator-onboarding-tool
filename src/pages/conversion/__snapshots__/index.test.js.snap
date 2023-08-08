@@ -129,6 +129,31 @@ Object {
 }
 
 .emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+.emotion-24 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.emotion-25 {
+  font-weight: 600;
+}
+
+.emotion-26 {
+  overflow: auto;
+}
+
+.emotion-27 {
   overflow-x: auto;
 }
 
@@ -250,26 +275,28 @@ Object {
         <div
           class="emotion-22"
         >
-          <div>
-            <div>
-              <h3>
-                meta.data
-              </h3>
-              <div>
-                operationId: 
-                N/A
-              </div>
-              <div>
-                udid: 
-                N/A
-              </div>
+          <div
+            class="emotion-23"
+          >
+            <div
+              class="emotion-24"
+            >
+              <span
+                class="emotion-25"
+              >
+                Udid
+              </span>
+              : 
+              N/A
             </div>
-            <div>
+            <div
+              class="emotion-26"
+            >
               <h3>
                 operation.log
               </h3>
               <pre
-                class="emotion-23"
+                class="emotion-27"
               />
             </div>
           </div>
@@ -403,6 +430,31 @@ Object {
 }
 
 .emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+.emotion-24 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.emotion-25 {
+  font-weight: 600;
+}
+
+.emotion-26 {
+  overflow: auto;
+}
+
+.emotion-27 {
   overflow-x: auto;
 }
 
@@ -523,26 +575,28 @@ Object {
       <div
         class="emotion-22"
       >
-        <div>
-          <div>
-            <h3>
-              meta.data
-            </h3>
-            <div>
-              operationId: 
-              N/A
-            </div>
-            <div>
-              udid: 
-              N/A
-            </div>
+        <div
+          class="emotion-23"
+        >
+          <div
+            class="emotion-24"
+          >
+            <span
+              class="emotion-25"
+            >
+              Udid
+            </span>
+            : 
+            N/A
           </div>
-          <div>
+          <div
+            class="emotion-26"
+          >
             <h3>
               operation.log
             </h3>
             <pre
-              class="emotion-23"
+              class="emotion-27"
             />
           </div>
         </div>
