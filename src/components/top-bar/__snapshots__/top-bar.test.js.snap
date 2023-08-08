@@ -16,24 +16,45 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
   box-shadow: 0px 0px 0.625rem #888888;
 }
 
 .emotion-1 {
-  font-weight: 600;
-  font-size: 0.938rem;
-  margin: 0.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
+  font-weight: 600;
+  font-size: 0.938rem;
+  margin: 0 1.25rem;
+}
+
+.emotion-3 {
   width: 1px;
   height: 1.25rem;
   background: white;
 }
 
-.emotion-3 {
+.emotion-4 {
   font-size: 0.875rem;
-  margin: 0.625rem;
+  margin: 0 1.25rem;
+}
+
+.emotion-5 {
+  color: white;
+  margin: 0 1.25rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <body>
@@ -41,19 +62,40 @@ Object {
       <div
         class="emotion-0"
       >
-        <span
+        <div
           class="emotion-1"
         >
-          Microsoft Azure
-        </span>
-        <span
-          class="emotion-2"
-        />
-        <span
-          class="emotion-3"
+          <span
+            class="emotion-2"
+          >
+            Microsoft Azure
+          </span>
+          <span
+            class="emotion-3"
+          />
+          <span
+            class="emotion-4"
+          >
+            Azure Maps Creator
+          </span>
+        </div>
+        <a
+          aria-label="docs.link"
+          class="emotion-5"
+          href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+          rel="noreferrer"
+          target="_blank"
         >
-          Azure Maps Creator
-        </span>
+          docs
+           
+          <i
+            aria-hidden="true"
+            class="root-106"
+            data-icon-name="NavigateExternalInline"
+          >
+            
+          </i>
+        </a>
       </div>
     </div>
   </body>,
@@ -70,43 +112,85 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
   box-shadow: 0px 0px 0.625rem #888888;
 }
 
 .emotion-1 {
-  font-weight: 600;
-  font-size: 0.938rem;
-  margin: 0.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 {
+  font-weight: 600;
+  font-size: 0.938rem;
+  margin: 0 1.25rem;
+}
+
+.emotion-3 {
   width: 1px;
   height: 1.25rem;
   background: white;
 }
 
-.emotion-3 {
+.emotion-4 {
   font-size: 0.875rem;
-  margin: 0.625rem;
+  margin: 0 1.25rem;
+}
+
+.emotion-5 {
+  color: white;
+  margin: 0 1.25rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div>
     <div
       class="emotion-0"
     >
-      <span
+      <div
         class="emotion-1"
       >
-        Microsoft Azure
-      </span>
-      <span
-        class="emotion-2"
-      />
-      <span
-        class="emotion-3"
+        <span
+          class="emotion-2"
+        >
+          Microsoft Azure
+        </span>
+        <span
+          class="emotion-3"
+        />
+        <span
+          class="emotion-4"
+        >
+          Azure Maps Creator
+        </span>
+      </div>
+      <a
+        aria-label="docs.link"
+        class="emotion-5"
+        href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+        rel="noreferrer"
+        target="_blank"
       >
-        Azure Maps Creator
-      </span>
+        docs
+         
+        <i
+          aria-hidden="true"
+          class="root-106"
+          data-icon-name="NavigateExternalInline"
+        >
+          
+        </i>
+      </a>
     </div>
   </div>,
   "debug": [Function],

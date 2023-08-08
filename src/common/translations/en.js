@@ -19,6 +19,8 @@ const en = {
     'delete.property': 'Delete property {{propertyName}}',
     'diagnostic.description.text': 'Use the Azure Maps Drawing Error Visualizer to visually review errors and warnings from Conversion. For additional information see, <0>Drawing Error Visualizer</0>.',
     'diagnostic.package': 'Diagnostic Package',
+    'docs': 'Documentation',
+    'docs.link': 'Link to documentation',
     'download': 'Download',
     'download.diagnostics': 'Download Diagnostics',
     'dwg.layers': 'DWG Layers',
