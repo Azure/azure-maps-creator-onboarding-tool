@@ -24,7 +24,7 @@ describe('useDissolvedExterior', () => {
       dwgLayers: [],
     });
     const { result } = renderHook(() => useDissolvedExterior());
-    expect(result.current).toEqual([null, null]);
+    expect(result.current).toEqual([[0, 0], null]);
   });
 });
 
