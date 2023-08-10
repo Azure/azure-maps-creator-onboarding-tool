@@ -24,7 +24,7 @@ const ConversionContent = () => {
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
-        <span className={boldHeader}>ConversionId</span>: {conversionId === null ? 'N/A' : conversionId}
+        <span className={boldHeader}>ConversionId</span>: {conversionId === null ? '' : conversionId}
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
