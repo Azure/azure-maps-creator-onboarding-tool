@@ -19,7 +19,7 @@ const TilesetContent = () => {
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
-        <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? 'N/A' : mapConfigurationId}
+        <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? '' : mapConfigurationId}
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

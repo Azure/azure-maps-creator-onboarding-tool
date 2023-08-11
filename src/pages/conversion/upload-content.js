@@ -19,7 +19,7 @@ const UploadContent = () => {
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
-        <span className={boldHeader}>Udid</span>: {uploadUdId === null ? 'N/A' : uploadUdId}
+        <span className={boldHeader}>Udid</span>: {uploadUdId === null ? '' : uploadUdId}
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

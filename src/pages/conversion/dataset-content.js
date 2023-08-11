@@ -19,7 +19,7 @@ const DatasetContent = () => {
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
-        <span className={boldHeader}>DatasetId</span>: {datasetId === null ? 'N/A' : datasetId}
+        <span className={boldHeader}>DatasetId</span>: {datasetId === null ? '' : datasetId}
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

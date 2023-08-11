@@ -14,7 +14,10 @@ const getDefaultState = () => ({
     angle: 0,
   },
   dwgLayers: [],
-  centerToAnchorPointDestination: {},
+  centerToAnchorPointDestination: {
+    heading: 0,
+    distance: 0,
+  },
 });
 
 export const useGeometryStore = create(
@@ -32,13 +35,9 @@ export const useGeometryStore = create(
     updateAnchorPointViaMapCenter: (mapCenter) => {
       const anchorPoint = get().anchorPoint;
       const centerToAnchor = get().centerToAnchorPointDestination;
-      const newAnchorPointCoordinates = math.getDestination(mapCenter, fixAngle(centerToAnchor.heading + anchorPoint.angle), centerToAnchor.distance, 'meters');
-      const newAnchorPointCoordinatesFixed = [
-        parseFloat(newAnchorPointCoordinates[0].toFixed(TRUNCATE_FRACTION_DIGITS)),
-        parseFloat(newAnchorPointCoordinates[1].toFixed(TRUNCATE_FRACTION_DIGITS))
-      ];
+      const newAnchorPointCoordinates = applyDistance(mapCenter, fixAngle(centerToAnchor.heading + anchorPoint.angle), centerToAnchor.distance);
       get().safelySetAnchorPoint({
-        coordinates: newAnchorPointCoordinatesFixed,
+        coordinates: newAnchorPointCoordinates,
         angle: anchorPoint.angle,
       });
     },
@@ -50,13 +49,9 @@ export const useGeometryStore = create(
       const centerToAnchor = get().centerToAnchorPointDestination;
       const anchorToCenterAngle = fixAngle(centerToAnchor.heading + anchorPoint.angle + 180);
       const centerPoint = math.getDestination(anchorPoint.coordinates, anchorToCenterAngle, centerToAnchor.distance, 'meters');
-      const newAnchorPointCoordinates = math.getDestination(centerPoint, fixAngle(centerToAnchor.heading + angle), centerToAnchor.distance, 'meters');
-      const newAnchorPointCoordinatesFixed = [
-        parseFloat(newAnchorPointCoordinates[0].toFixed(TRUNCATE_FRACTION_DIGITS)),
-        parseFloat(newAnchorPointCoordinates[1].toFixed(TRUNCATE_FRACTION_DIGITS))
-      ];
+      const newAnchorPointCoordinates = applyDistance(centerPoint, fixAngle(centerToAnchor.heading + angle), centerToAnchor.distance);
       get().safelySetAnchorPoint({
-        coordinates: newAnchorPointCoordinatesFixed,
+        coordinates: newAnchorPointCoordinates,
         angle,
       });
     },
@@ -76,23 +71,30 @@ export const useGeometryStore = create(
   })
 );
 
-const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.setCenterToAnchorPointDestination];
+const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.centerToAnchorPointDestination, s.setCenterToAnchorPointDestination, s.updateAnchorPoint];
 const layersSelector = (s) => s.polygonLayers;
 
 export const useDissolvedExterior = () => {
   const lastProcessedAnchorPoint = useRef(null);
   const lastProcessedDwgLayers = useRef(null);
   const polygonLayers = useLayersStore(layersSelector);
-  const [dwgLayers, anchorPoint, setCenterToAnchorPointDestination] = useGeometryStore(geometrySelector, shallow);
+  const [dwgLayers, anchorPoint, centerToAnchorPointDestination, setCenterToAnchorPointDestination, updateAnchorPoint] = useGeometryStore(geometrySelector, shallow);
   const [output, setOutput] = useState([null, null]);
   const [worker, setWorker] = useState(null);
   const [calcInProgress, setCalcInProgress] = useState(false);
-  const [centerToAnchorHasBeenUpdated, setCenterToAnchorHasBeenUpdated] = useState(false);
   const [mergedMultiPolygons, setMergedMultiPolygons] = useState(null);
 
   useEffect(() => {
     if (mergedMultiPolygons === null) {
-      setOutput([null, null]);
+      setOutput([
+        dwgLayers.length === 0 ? applyDistance(
+          anchorPoint.coordinates,
+            fixAngle(centerToAnchorPointDestination.heading + anchorPoint.angle + 180),
+          centerToAnchorPointDestination.distance,
+          )
+          : null,
+        null,
+      ]);
       return;
     }
 
@@ -112,13 +114,18 @@ export const useDissolvedExterior = () => {
     const rotatedPolygon = { type: polygon.type, coordinates: rotated };
     const centerPoint = center(rotatedPolygon).geometry.coordinates;
 
-    if (!centerToAnchorHasBeenUpdated) {
+    if (centerToAnchorPointDestination.distance === 0) {
       const distance = math.getDistanceTo(centerPoint, anchorPointOfThisPolygon.coordinates, 'meters');
       const heading = math.getHeading(centerPoint, anchorPointOfThisPolygon.coordinates);
-      setCenterToAnchorHasBeenUpdated(true);
       setCenterToAnchorPointDestination({distance, heading: heading - anchorPointOfThisPolygon.angle});
+      const newAnchorPoint = applyDistance(anchorPoint.coordinates, heading, distance);
+      updateAnchorPoint({
+        angle: anchorPoint.angle,
+        coordinates: newAnchorPoint,
+      });
+    } else {
+      setOutput([centerPoint, rotatedPolygon]);
     }
-    setOutput([centerPoint, rotatedPolygon]);
   }, [mergedMultiPolygons]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -162,6 +169,14 @@ export function fixAngle(angle) {
     return angle % 360;
   }
   return angle;
+}
+
+function applyDistance(initialPoint, heading, distance) {
+  const newPoint = math.getDestination(initialPoint, heading, distance, 'meters');
+  return [
+    parseFloat(newPoint[0].toFixed(TRUNCATE_FRACTION_DIGITS)),
+    parseFloat(newPoint[1].toFixed(TRUNCATE_FRACTION_DIGITS)),
+  ];
 }
 
 export function isValidAnchorPoint(anchorPoint) {

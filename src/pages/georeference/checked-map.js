@@ -4,7 +4,7 @@ import Map from './map';
 const CheckedMap = () => {
   const [exteriorCenter, dissolvedExterior] = useDissolvedExterior();
 
-  if (!exteriorCenter || !dissolvedExterior) {
+  if (!exteriorCenter) {
     return null;
   }
 

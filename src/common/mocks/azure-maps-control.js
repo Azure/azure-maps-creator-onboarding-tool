@@ -5,6 +5,7 @@ export const data = {
 };
 export const math = {
   rotatePositions: (coordinates) => coordinates,
+  getDestination: (coordinates) => coordinates,
   getDistanceTo: () => 155,
   getHeading: () => 45,
 };

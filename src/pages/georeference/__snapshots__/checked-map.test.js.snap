@@ -3,10 +3,64 @@
 exports[`CheckedMap should render map 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
-    <div />
+  "baseElement": .emotion-0 {
+  height: 32.5rem;
+  width: 48.75rem;
+}
+
+<body>
+    <div>
+      <div>
+        <div
+          class="emotion-0"
+        >
+          <div
+            controls=""
+            events="[object Object]"
+            options="[object Object]"
+          >
+            <div
+              id="OutlineMapDataSourceProvider"
+            >
+              <div
+                id="OutlineLayerProvider"
+                options="[object Object]"
+                type="PolygonLayer"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>,
-  "container": <div />,
+  "container": .emotion-0 {
+  height: 32.5rem;
+  width: 48.75rem;
+}
+
+<div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          controls=""
+          events="[object Object]"
+          options="[object Object]"
+        >
+          <div
+            id="OutlineMapDataSourceProvider"
+          >
+            <div
+              id="OutlineLayerProvider"
+              options="[object Object]"
+              type="PolygonLayer"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
@@ -64,10 +118,64 @@ Object {
 exports[`CheckedMap should render nothing 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": <body>
-    <div />
+  "baseElement": .emotion-0 {
+  height: 32.5rem;
+  width: 48.75rem;
+}
+
+<body>
+    <div>
+      <div>
+        <div
+          class="emotion-0"
+        >
+          <div
+            controls=""
+            events="[object Object]"
+            options="[object Object]"
+          >
+            <div
+              id="OutlineMapDataSourceProvider"
+            >
+              <div
+                id="OutlineLayerProvider"
+                options="[object Object]"
+                type="PolygonLayer"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>,
-  "container": <div />,
+  "container": .emotion-0 {
+  height: 32.5rem;
+  width: 48.75rem;
+}
+
+<div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <div
+          controls=""
+          events="[object Object]"
+          options="[object Object]"
+        >
+          <div
+            id="OutlineMapDataSourceProvider"
+          >
+            <div
+              id="OutlineLayerProvider"
+              options="[object Object]"
+              type="PolygonLayer"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],

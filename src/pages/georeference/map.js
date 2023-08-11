@@ -53,6 +53,9 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
   }), []); // eslint-disable-line react-hooks/exhaustive-deps -- this only needs to be set once on map init
 
   const featureProps = useMemo(() => {
+    if (dissolvedExterior === null) {
+      return {};
+    }
     if (dissolvedExterior.type === 'MultiPolygon') {
       return {
         type: 'MultiPolygon',
@@ -92,13 +95,13 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
               It is only set once inside AzureMapFeature on component mount https://github.com/Azure/react-azure-maps/blob/master/src/components/AzureMapFeature/AzureMapFeature.tsx#L18
               and due to this the feature is not rendered properly when type changes from polygon to multipolygon or vice-versa
             */}
-            <AzureMapFeature
+            {dissolvedExterior !== null && <AzureMapFeature
               key={dissolvedExterior.type}
               variant='shape'
               id='OutlineMapFeature'
               {...featureProps}
               setCoords={dissolvedExterior.coordinates}
-            />
+            />}
           </AzureMapDataSourceProvider>
         </AzureMap>
       </div>
