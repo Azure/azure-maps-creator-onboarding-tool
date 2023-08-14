@@ -6,7 +6,7 @@ import { shallow } from 'zustand/shallow';
 
 import { containerStyle, progressIndicatorLabel, progressIndicatorStyles } from './processing.style';
 import { PATHS } from 'common';
-import { useResponseStore, useUserStore } from 'common/store';
+import { useResponseStore, useUserStore, useCompletedSteps, progressBarStepsByKey } from 'common/store';
 import { LRO_STATUS } from 'common/store/response.store';
 
 export const API_REQUEST_INTERVAL = 10; // in seconds
@@ -23,6 +23,7 @@ const subKeySelector = (s) => s.subscriptionKey;
 const ProcessingPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const completedSteps = useCompletedSteps();
 
   const [lastUpdated, setLastUpdated] = useState(0);
   const [label, setLabel] = useState();
@@ -56,7 +57,15 @@ const ProcessingPage = () => {
         setLabel(LABEL.RUNNING);
         break;
       case LRO_STATUS.SUCCEEDED:
-        navigate(PATHS.LEVELS);
+        if (!completedSteps.includes(progressBarStepsByKey.levels)) {
+          navigate(PATHS.LEVELS);
+        } else if (!completedSteps.includes(progressBarStepsByKey.layers)) {
+          navigate(PATHS.LAYERS);
+        } else if (!completedSteps.includes(progressBarStepsByKey.createGeoreference)) {
+          navigate(PATHS.CREATE_GEOREFERENCE);
+        } else {
+          navigate(PATHS.REVIEW_CREATE);
+        }
         break;
       default:
         navigate(PATHS.INDEX);
