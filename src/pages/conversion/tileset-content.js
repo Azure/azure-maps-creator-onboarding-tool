@@ -6,11 +6,11 @@ import { boldHeader, contentContainer, logContainer, metaInfoContainer } from '.
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
 
-const conversionStoreSelector = (s) => [s.tilesetStepStatus, s.tilesetOperationLog, s.selectedStep, s.mapConfigurationId];
+const conversionStoreSelector = (s) => [s.tilesetStepStatus, s.tilesetOperationLog, s.selectedStep, s.mapConfigurationId, s.tilesetId];
 
 const TilesetContent = () => {
   const { t } = useTranslation();
-  const [tilesetStepStatus, operationLog, selectedStep, mapConfigurationId] = useConversionStore(conversionStoreSelector, shallow);
+  const [tilesetStepStatus, operationLog, selectedStep, mapConfigurationId, tilesetId] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.tileset) {
     return null;
@@ -19,7 +19,12 @@ const TilesetContent = () => {
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
-        <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? '' : mapConfigurationId}
+        <div>
+          <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? '' : mapConfigurationId}
+        </div>
+        <div>
+          <span className={boldHeader}>MapConfigurationAlias</span>: {tilesetId === null ? '' : `default_${tilesetId}`}
+        </div>
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

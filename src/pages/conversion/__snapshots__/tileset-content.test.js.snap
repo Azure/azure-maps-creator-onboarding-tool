@@ -85,7 +85,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-3 {
+.emotion-4 {
   overflow: auto;
 }
 
@@ -97,16 +97,27 @@ Object {
         <div
           class="emotion-1"
         >
-          <span
-            class="emotion-2"
-          >
-            MapConfigurationId
-          </span>
-          : 
-          
+          <div>
+            <span
+              class="emotion-2"
+            >
+              MapConfigurationId
+            </span>
+            : 
+            
+          </div>
+          <div>
+            <span
+              class="emotion-2"
+            >
+              MapConfigurationAlias
+            </span>
+            : 
+            
+          </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <h3>
             operation.log
@@ -305,7 +316,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-3 {
+.emotion-4 {
   overflow: auto;
 }
 
@@ -316,16 +327,27 @@ Object {
       <div
         class="emotion-1"
       >
-        <span
-          class="emotion-2"
-        >
-          MapConfigurationId
-        </span>
-        : 
-        
+        <div>
+          <span
+            class="emotion-2"
+          >
+            MapConfigurationId
+          </span>
+          : 
+          
+        </div>
+        <div>
+          <span
+            class="emotion-2"
+          >
+            MapConfigurationAlias
+          </span>
+          : 
+          
+        </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-4"
       >
         <h3>
           operation.log
@@ -580,7 +602,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-3 {
+.emotion-4 {
   overflow: auto;
 }
 
@@ -592,16 +614,27 @@ Object {
         <div
           class="emotion-1"
         >
-          <span
-            class="emotion-2"
-          >
-            MapConfigurationId
-          </span>
-          : 
-          
+          <div>
+            <span
+              class="emotion-2"
+            >
+              MapConfigurationId
+            </span>
+            : 
+            
+          </div>
+          <div>
+            <span
+              class="emotion-2"
+            >
+              MapConfigurationAlias
+            </span>
+            : 
+            
+          </div>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <h3>
             operation.log
@@ -800,7 +833,7 @@ Object {
   font-weight: 600;
 }
 
-.emotion-3 {
+.emotion-4 {
   overflow: auto;
 }
 
@@ -811,16 +844,27 @@ Object {
       <div
         class="emotion-1"
       >
-        <span
-          class="emotion-2"
-        >
-          MapConfigurationId
-        </span>
-        : 
-        
+        <div>
+          <span
+            class="emotion-2"
+          >
+            MapConfigurationId
+          </span>
+          : 
+          
+        </div>
+        <div>
+          <span
+            class="emotion-2"
+          >
+            MapConfigurationAlias
+          </span>
+          : 
+          
+        </div>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-4"
       >
         <h3>
           operation.log
