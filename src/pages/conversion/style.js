@@ -149,3 +149,13 @@ export const failedLogsButton = css`
 export const boldHeader = css`
   font-weight: 600;
 `;
+
+export const copyIcon = css`
+  opacity: 0.5;
+  font-size: ${fontSize.xs};
+  cursor: pointer;
+  margin: 0 0.5rem;
+  &:hover {
+    opacity: 0.75;
+  }
+`;

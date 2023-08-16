@@ -5,6 +5,7 @@ import { conversionSteps, useConversionStore, conversionStatuses } from 'common/
 import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
+import CopyIcon from './copy-icon';
 
 const conversionStoreSelector = (s) => [s.datasetStepStatus, s.datasetOperationLog, s.datasetId, s.selectedStep];
 
@@ -20,6 +21,7 @@ const DatasetContent = () => {
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
         <span className={boldHeader}>DatasetId</span>: {datasetId === null ? '' : datasetId}
+        <CopyIcon textToCopy={datasetId} />
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

@@ -10,6 +10,7 @@ import {
 } from './style';
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
+import CopyIcon from './copy-icon';
 
 const conversionStoreSelector = (s) => [s.conversionStepStatus, s.conversionOperationLog, s.selectedStep, s.conversionId, s.diagnosticPackageLocation];
 
@@ -25,6 +26,7 @@ const ConversionContent = () => {
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
         <span className={boldHeader}>ConversionId</span>: {conversionId === null ? '' : conversionId}
+        <CopyIcon textToCopy={conversionId} />
       </div>
       <div className={logContainer}>
         <h3>{t('operation.log')}</h3>

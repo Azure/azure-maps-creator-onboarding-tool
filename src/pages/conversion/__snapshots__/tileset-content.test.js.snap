@@ -86,6 +86,17 @@ Object {
 }
 
 .emotion-4 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-4:hover {
+  opacity: 0.75;
+}
+
+.emotion-5 {
   overflow: auto;
 }
 
@@ -114,10 +125,19 @@ Object {
             </span>
             : 
             
+            <span>
+              <i
+                aria-hidden="true"
+                class="emotion-4 root-112"
+                data-icon-name="Copy"
+              >
+                
+              </i>
+            </span>
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <h3>
             operation.log
@@ -317,6 +337,17 @@ Object {
 }
 
 .emotion-4 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-4:hover {
+  opacity: 0.75;
+}
+
+.emotion-5 {
   overflow: auto;
 }
 
@@ -344,10 +375,19 @@ Object {
           </span>
           : 
           
+          <span>
+            <i
+              aria-hidden="true"
+              class="emotion-4 root-112"
+              data-icon-name="Copy"
+            >
+              
+            </i>
+          </span>
         </div>
       </div>
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
         <h3>
           operation.log
@@ -603,6 +643,17 @@ Object {
 }
 
 .emotion-4 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-4:hover {
+  opacity: 0.75;
+}
+
+.emotion-5 {
   overflow: auto;
 }
 
@@ -631,10 +682,19 @@ Object {
             </span>
             : 
             
+            <span>
+              <i
+                aria-hidden="true"
+                class="emotion-4 root-112"
+                data-icon-name="Copy"
+              >
+                
+              </i>
+            </span>
           </div>
         </div>
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <h3>
             operation.log
@@ -834,6 +894,17 @@ Object {
 }
 
 .emotion-4 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-4:hover {
+  opacity: 0.75;
+}
+
+.emotion-5 {
   overflow: auto;
 }
 
@@ -861,10 +932,19 @@ Object {
           </span>
           : 
           
+          <span>
+            <i
+              aria-hidden="true"
+              class="emotion-4 root-112"
+              data-icon-name="Copy"
+            >
+              
+            </i>
+          </span>
         </div>
       </div>
       <div
-        class="emotion-4"
+        class="emotion-5"
       >
         <h3>
           operation.log
