@@ -25,6 +25,17 @@ Object {
 }
 
 .emotion-3 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-3:hover {
+  opacity: 0.75;
+}
+
+.emotion-4 {
   overflow: auto;
 }
 
@@ -43,9 +54,18 @@ Object {
           </span>
           : 
           17
+          <span>
+            <i
+              aria-hidden="true"
+              class="emotion-3 root-112"
+              data-icon-name="Copy"
+            >
+              
+            </i>
+          </span>
         </div>
         <div
-          class="emotion-3"
+          class="emotion-4"
         >
           <h3>
             operation.log
@@ -245,6 +265,17 @@ Object {
 }
 
 .emotion-3 {
+  opacity: 0.5;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.emotion-3:hover {
+  opacity: 0.75;
+}
+
+.emotion-4 {
   overflow: auto;
 }
 
@@ -262,9 +293,18 @@ Object {
         </span>
         : 
         17
+        <span>
+          <i
+            aria-hidden="true"
+            class="emotion-3 root-112"
+            data-icon-name="Copy"
+          >
+            
+          </i>
+        </span>
       </div>
       <div
-        class="emotion-3"
+        class="emotion-4"
       >
         <h3>
           operation.log
