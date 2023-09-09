@@ -1,8 +1,18 @@
 import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { cx } from '@emotion/css';
+import { Icon } from '@fluentui/react/lib/Icon';
 
-import { container, content, stepsContainer } from './style';
+import { PATHS } from 'common';
+import {
+  container,
+  content,
+  enabledStep,
+  step as stepStyle,
+  stepsContainer,
+  stepTitle,
+} from './style';
 import UploadContent from './upload-content';
 import ConversionContent from './conversion-content';
 import DatasetContent from './dataset-content';
@@ -10,16 +20,7 @@ import TilesetContent from './tileset-content';
 import MapContent from './map-content';
 import StepButton from './step-button';
 import { conversionSteps, useConversionStore } from 'common/store';
-import { deleteCreatedData } from 'common/api/conversion';
 import { conversionStatuses } from 'common/store/conversion.store';
-
-const unloadCallback = () => {
-  deleteCreatedData();
-};
-const beforeUnload = (e) => {
-  e.preventDefault();
-  return (e.returnValue = '');
-};
 
 const conversionStoreSelector = (s) => [
   s.uploadStepStatus,
@@ -38,6 +39,7 @@ const conversionStoreSelector = (s) => [
 
 const Conversion = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [
     uploadStepStatus,
@@ -54,18 +56,16 @@ const Conversion = () => {
     tilesetEndTime,
   ] = useConversionStore(conversionStoreSelector, shallow);
 
-  useEffect(() => {
-    window.addEventListener('beforeunload', beforeUnload);
-    window.addEventListener('unload', unloadCallback);
-    return () => {
-      window.removeEventListener('beforeunload', beforeUnload);
-      window.removeEventListener('unload', unloadCallback);
-    };
-  }, []);
-
   return (
     <div className={container}>
       <div className={stepsContainer}>
+        <button onClick={() => navigate(PATHS.CONVERSIONS)} className={cx(stepStyle, enabledStep)}>
+          <div className={stepTitle}>
+            <Icon iconName='SkypeArrow' style={{marginRight: 8}} />
+            {t('view.all.conversions')}
+          </div>
+        </button>
+        <div style={{borderBottom: '2px solid'}}></div>
         <StepButton endTime={uploadEndTime} label={t('select.upload.step')} status={uploadStepStatus}
                     startTime={uploadStartTime} step={conversionSteps.upload} title={t('package.upload')} />
         <StepButton endTime={conversionEndTime} label={t('select.conversion.step')} status={conversionStepStatus}

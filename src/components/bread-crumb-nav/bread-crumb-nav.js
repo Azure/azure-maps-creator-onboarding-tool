@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { breadcrumbStyle } from './bread-crumb-nav.style';
 import { getSplitPaths } from 'common/functions';
 import { PATHS, ROUTE_NAME_BY_PATH } from 'common/constants';
-import { deleteCreatedData } from 'common/api/conversion';
 import { useConversionStore } from 'common/store';
 
 const routesConfirmationRequiredBeforeLeaving = [
@@ -28,7 +27,6 @@ const BreadCrumbNav = () => {
         }
         if (routesConfirmationRequiredBeforeLeaving.includes(pathname)) {
           if (window.confirm(t('progress.will.be.lost'))) {
-            deleteCreatedData();
             useConversionStore.getState().reset();
             navigate(path);
           }

@@ -7,6 +7,7 @@ import Layers from './layers';
 import Levels from './levels';
 import ReviewAndCreate from './review';
 import Conversion from './conversion';
+import Conversions from './conversions';
 import { Route } from 'components';
 import { PATHS, ROUTE_NAME_BY_PATH } from 'common';
 
@@ -18,5 +19,6 @@ export const routes = [
   { path: PATHS.LEVELS, name: ROUTE_NAME_BY_PATH[PATHS.LEVELS], element: <Route component={Levels} title='create.manifest' dataRequired /> },
   { path: PATHS.REVIEW_CREATE, name: ROUTE_NAME_BY_PATH[PATHS.REVIEW_CREATE], element: <Route component={ReviewAndCreate} title='create.manifest' dataRequired /> },
   { path: PATHS.CONVERSION, name: ROUTE_NAME_BY_PATH[PATHS.CONVERSION], element: <Route component={Conversion} dataRequired />  },
+  { path: PATHS.CONVERSIONS, name: ROUTE_NAME_BY_PATH[PATHS.CONVERSION], element: <Route component={Conversions} />  },
   { path: PATHS.INVALID_PATH, name: ROUTE_NAME_BY_PATH[PATHS.INVALID_PATH], element: <Navigate to='/' />  },
 ];

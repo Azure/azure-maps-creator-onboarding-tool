@@ -66,7 +66,9 @@ export const useResponseStore = create((set, get) => ({
   // Uses the operationLocation set by uploadFile()
   refreshStatus: () => {
     const operationLocation = get().operationLocation;
-    if (operationLocation === '') {
+    const lroStatus = get().lroStatus;
+
+    if (operationLocation === '' || lroStatus === LRO_STATUS.FETCHING_DATA || lroStatus === LRO_STATUS.SUCCEEDED) {
       return;
     }
 
@@ -103,12 +105,10 @@ export const useResponseStore = create((set, get) => ({
         }
 
         if (data.status === LRO_STATUS.SUCCEEDED) {
-          if (get().lroStatus !== LRO_STATUS.FETCHING_DATA) {
-            set(() => ({
-              lroStatus: LRO_STATUS.FETCHING_DATA,
-            }));
-            get().fetchManifestData(data.fetchUrl);
-          }
+          set(() => ({
+            lroStatus: LRO_STATUS.FETCHING_DATA,
+          }));
+          get().fetchManifestData(data.fetchUrl);
         }
       })
       .catch(({ message }) => {

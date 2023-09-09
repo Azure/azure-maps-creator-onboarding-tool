@@ -80,6 +80,7 @@ const en = {
     'levels.preview': 'Levels preview',
     'level.name': 'Level name',
     'level.name.of.file': 'Level name of {{filename}}',
+    'loading': 'Loading...',
     'logs': 'Logs',
     'longitude': 'Longitude',
     'manifest.file': 'Manifest file',
@@ -141,6 +142,9 @@ const en = {
     'upload': 'Upload',
     'vertical.extent': 'Vertical Extent',
     'vertical.extent.of.file': 'Vertical Extent of {{filename}}',
+    'view': 'View',
+    'view.all.conversions': 'View all conversions',
+    'view.existing.conversions': 'View existing conversions',
   },
 };
 

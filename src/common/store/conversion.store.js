@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 
 import {
-  deleteCreatedData,
   startConversion,
   startDataset,
   startTileset,
@@ -38,6 +37,7 @@ const getDefaultState = () => ({
   uploadEndTime: null,
   uploadUdId: null,
   uploadOperationLog: null,
+  uploadDescription: null,
   conversionStepStatus: conversionStatuses.empty,
   conversionStartTime: null,
   conversionEndTime: null,
@@ -82,7 +82,6 @@ export const useConversionStore = create((set, get) => ({
             uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             uploadEndTime: Date.now(),
           });
-          deleteCreatedData();
         });
       } else {
         get().fetchUploadStatus(res.headers.get(OPERATION_LOCATION));
@@ -93,7 +92,6 @@ export const useConversionStore = create((set, get) => ({
         uploadOperationLog: e.message || defaultErrorMessage,
         uploadEndTime: Date.now(),
       });
-      deleteCreatedData();
     });
   },
   fetchUploadStatus: (location) => {
@@ -114,7 +112,6 @@ export const useConversionStore = create((set, get) => ({
             uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             uploadEndTime: Date.now(),
           });
-          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             uploadOperationLog: JSON.stringify(data, null, 4),
@@ -135,6 +132,7 @@ export const useConversionStore = create((set, get) => ({
               get().startConversion(data.udid);
               set({
                 uploadUdId: data.udid,
+                uploadDescription: data.description,
               });
             });
         } else {
@@ -146,7 +144,6 @@ export const useConversionStore = create((set, get) => ({
         uploadOperationLog: e.message || defaultErrorMessage,
         uploadEndTime: Date.now(),
       });
-      deleteCreatedData();
     });
   },
   startConversion: (udid) => {
@@ -166,7 +163,6 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             conversionEndTime: Date.now(),
           });
-          deleteCreatedData();
         });
       } else {
         get().fetchConversionStatus(res.headers.get(OPERATION_LOCATION));
@@ -177,7 +173,6 @@ export const useConversionStore = create((set, get) => ({
         conversionOperationLog: e.message || defaultErrorMessage,
         conversionEndTime: Date.now(),
       });
-      deleteCreatedData();
     });
   },
   fetchConversionStatus: (operationLocation) => {
@@ -198,7 +193,6 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             conversionEndTime: Date.now(),
           });
-          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             conversionOperationLog: JSON.stringify(data, null, 4),
@@ -233,7 +227,6 @@ export const useConversionStore = create((set, get) => ({
           conversionOperationLog: e.message || defaultErrorMessage,
           conversionEndTime: Date.now(),
         });
-        deleteCreatedData();
       });
   },
   startDataset: (conversionId) => {
@@ -253,7 +246,6 @@ export const useConversionStore = create((set, get) => ({
             datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             datasetEndTime: Date.now(),
           });
-          deleteCreatedData();
         });
       } else {
         get().fetchDatasetStatus(res.headers.get(OPERATION_LOCATION));
@@ -264,7 +256,6 @@ export const useConversionStore = create((set, get) => ({
         datasetOperationLog: e.message || defaultErrorMessage,
         datasetEndTime: Date.now(),
       });
-      deleteCreatedData();
     });
   },
   fetchDatasetStatus: (location) => {
@@ -285,7 +276,6 @@ export const useConversionStore = create((set, get) => ({
             datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             datasetEndTime: Date.now(),
           });
-          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             datasetOperationLog: JSON.stringify(data, null, 4),
@@ -318,7 +308,6 @@ export const useConversionStore = create((set, get) => ({
           datasetOperationLog: e.message || defaultErrorMessage,
           datasetEndTime: Date.now(),
         });
-        deleteCreatedData();
       });
   },
   startTileset: (datasetId) => {
@@ -338,7 +327,6 @@ export const useConversionStore = create((set, get) => ({
             tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             tilesetEndTime: Date.now(),
           });
-          deleteCreatedData();
         });
       } else {
         get().fetchTilesetStatus(res.headers.get(OPERATION_LOCATION));
@@ -349,7 +337,6 @@ export const useConversionStore = create((set, get) => ({
         tilesetOperationLog: e.message || defaultErrorMessage,
         tilesetEndTime: Date.now(),
       });
-      deleteCreatedData();
     });
   },
   fetchTilesetStatus: (location) => {
@@ -370,7 +357,6 @@ export const useConversionStore = create((set, get) => ({
             tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
             tilesetEndTime: Date.now(),
           });
-          deleteCreatedData();
         } else if (data.status === LRO_STATUS.RUNNING) {
           set(() => ({
             tilesetOperationLog: JSON.stringify(data, null, 4),
@@ -405,7 +391,6 @@ export const useConversionStore = create((set, get) => ({
           tilesetOperationLog: e.message || defaultErrorMessage,
           tilesetEndTime: Date.now(),
         });
-        deleteCreatedData();
       });
   },
 }));
