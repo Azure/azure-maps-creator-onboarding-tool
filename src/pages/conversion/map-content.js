@@ -1,17 +1,13 @@
-import { conversionSteps, useConversionStore } from 'common/store';
+import { conversionSteps } from 'common/store';
 import TilesetMap from './tileset-map';
 
-const conversionStoreSelector = (s) => s.selectedStep;
-
-const MapContent = () => {
-  const selectedStep = useConversionStore(conversionStoreSelector);
-
+const MapContent = ({ selectedStep, mapConfigurationId, bbox }) => {
   if (selectedStep !== conversionSteps.map) {
     return null;
   }
 
   return (
-    <TilesetMap />
+    <TilesetMap mapConfigurationId={mapConfigurationId} bbox={bbox} />
   );
 };
 

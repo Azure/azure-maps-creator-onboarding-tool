@@ -1,17 +1,13 @@
-import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore, conversionStatuses } from 'common/store/conversion.store';
+import { conversionSteps, conversionStatuses } from 'common/store/conversion.store';
 import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
 import CopyIcon from './copy-icon';
 
-const conversionStoreSelector = (s) => [s.datasetStepStatus, s.datasetOperationLog, s.datasetId, s.selectedStep];
-
-const DatasetContent = () => {
+const DatasetContent = ({ datasetStepStatus, datasetOperationLog, datasetId, selectedStep }) => {
   const { t } = useTranslation();
-  const [datasetStepStatus, datasetOperationLog, datasetId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.dataset) {
     return null;
@@ -23,10 +19,10 @@ const DatasetContent = () => {
         <span className={boldHeader}>DatasetId</span>: {datasetId === null ? '' : datasetId}
         <CopyIcon textToCopy={datasetId} />
       </div>
-      <div className={logContainer}>
+      {datasetOperationLog && <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
         <Log src={datasetOperationLog} />
-      </div>
+      </div>}
       {datasetStepStatus !== conversionStatuses.empty && datasetStepStatus !== conversionStatuses.inProgress &&
         <DownloadLogs type='dataset' isFailed={datasetStepStatus === conversionStatuses.failed}
                       json={datasetOperationLog} />}

@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import { DetailsList, DetailsListLayoutMode } from '@fluentui/react/lib/DetailsList';
 
 import { PATHS } from 'common';
 import { getAllData } from 'common/api/conversions';
-import { useConversionStore } from 'common/store/conversion.store';
+import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
+import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
 
 const columns =  [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 50, isResizable: true },
   { key: 'dateCol', name: 'Date', fieldName: 'date', minWidth: 40, maxWidth: 200, isResizable: true },
-  { key: 'actionCol', name: 'View Progress', fieldName: 'view', minWidth: 50, maxWidth: 100, isResizable: true,
-    onRender: ({ actionButton }) => actionButton()
-  },
 ];
 
 const conversionStoreSelector = (s) => ({
@@ -34,12 +32,21 @@ const conversionStoreSelector = (s) => ({
   tilesetDate: s.tilesetEndTime,
 });
 
+const pastConversionStoreSelector = (s) => s.setData;
+
 const Conversions = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [existingConversions, setExistingConversions] = useState([]);
   const [items, setItems] = useState([]);
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
+  const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
+
+  const onItemClick = useCallback((item) => {
+    setPastConversionData(item.conversionData);
+    navigate(item.ongoing ? PATHS.CONVERSION : PATHS.PAST_CONVERSION);
+  }, [navigate, setPastConversionData]);
 
   useEffect(() => {
     getAllData().then(({ conversions, datasets, mapDataList, tilesets }) => {
@@ -82,12 +89,6 @@ const Conversions = () => {
 
       setItems(items.map((item, i) => ({
         key: i,
-        actionButton: () => {
-          if (item.ongoing) {
-            return <Link to={PATHS.CONVERSION}>{t('view')}</Link>;
-          }
-          return null;
-        },
         name: item.upload?.description,
         status: (
           <>
@@ -98,6 +99,19 @@ const Conversions = () => {
           </>
         ),
         date: item.date.toLocaleString(),
+        ongoing: item.ongoing,
+        conversionData: {
+          uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+          uploadUdId: item.upload?.udid,
+          conversionStepStatus: item.conversion?.conversionId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+          conversionId: item.conversion?.conversionId,
+          datasetStepStatus: item.dataset?.datasetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+          datasetId: item.dataset?.datasetId,
+          tilesetStepStatus: item.tileset?.tilesetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+          tilesetId: item.tileset?.tilesetId,
+          mapConfigurationId: item.tileset?.defaultMapConfigurationId,
+          bbox: item.tileset?.bbox,
+        }
       })));
   }, [existingConversions, ongoingConversion, t]);
 
@@ -108,6 +122,7 @@ const Conversions = () => {
   return (
     <DetailsList
       items={items}
+      onItemInvoked={onItemClick}
       columns={columns}
       layoutMode={DetailsListLayoutMode.justified}
       selectionMode={0}

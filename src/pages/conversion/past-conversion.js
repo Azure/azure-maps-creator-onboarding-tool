@@ -19,7 +19,9 @@ import DatasetContent from './dataset-content';
 import TilesetContent from './tileset-content';
 import MapContent from './map-content';
 import StepButton from './step-button';
-import { conversionSteps, useConversionStore } from 'common/store';
+import { conversionSteps } from 'common/store';
+import { useConversionPastStore } from 'common/store/conversion-past.store';
+
 import { conversionStatuses } from 'common/store/conversion.store';
 
 const conversionStoreSelector = (s) => [
@@ -80,7 +82,7 @@ const Conversion = () => {
     bbox,
     setStep,
     selectedStep,
-  ] = useConversionStore(conversionStoreSelector, shallow);
+  ] = useConversionPastStore(conversionStoreSelector, shallow);
 
   return (
     <div className={container}>

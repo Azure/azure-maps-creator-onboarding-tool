@@ -4,6 +4,7 @@ export const PATHS = {
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
   CONVERSION: '/review-create/conversion',
+  PAST_CONVERSION: '/past-conversion',
   CONVERSIONS: '/conversions',
   LAYERS: '/layers',
   LEVELS: '/levels',
