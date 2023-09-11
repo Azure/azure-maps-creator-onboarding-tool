@@ -23,3 +23,8 @@ export const inProgressIcon = css`
   color: ${color.blueIcon};
   animation: ${spin} 2s linear infinite;
 `;
+
+export const iconsContainer = css`
+  display: flex;
+  gap: 2px;
+`;

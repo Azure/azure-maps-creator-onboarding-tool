@@ -2,17 +2,18 @@ import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
-import { DetailsList, DetailsListLayoutMode } from '@fluentui/react/lib/DetailsList';
+import { DetailsList, DetailsRow, DetailsListLayoutMode } from '@fluentui/react/lib/DetailsList';
 
 import { PATHS } from 'common';
 import { getAllData } from 'common/api/conversions';
 import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
+import { iconsContainer } from './style';
 
 const columns =  [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
-  { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 50, isResizable: true },
+  { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
   { key: 'dateCol', name: 'Date', fieldName: 'date', minWidth: 40, maxWidth: 200, isResizable: true },
 ];
 
@@ -91,12 +92,12 @@ const Conversions = () => {
         key: i,
         name: item.upload?.description,
         status: (
-          <>
+          <div className={iconsContainer}>
             <StatusIcon item={item.upload} />
             <StatusIcon item={item.conversion} />
             <StatusIcon item={item.dataset} />
             <StatusIcon item={item.tileset} />
-          </>
+          </div>
         ),
         date: item.date.toLocaleString(),
         ongoing: item.ongoing,
@@ -124,6 +125,9 @@ const Conversions = () => {
       items={items}
       onItemInvoked={onItemClick}
       columns={columns}
+      onRenderRow={(data) => (
+        <DetailsRow {...data} styles={{ root: {fontSize: '0.875rem'} }} />
+      )}
       layoutMode={DetailsListLayoutMode.justified}
       selectionMode={0}
     />
