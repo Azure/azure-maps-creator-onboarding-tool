@@ -90,7 +90,7 @@ const Conversions = () => {
 
       setItems(items.map((item, i) => ({
         key: i,
-        name: item.upload?.description,
+        name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description,
         status: (
           <div className={iconsContainer}>
             <StatusIcon item={item.upload} />

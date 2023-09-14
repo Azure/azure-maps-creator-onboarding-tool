@@ -23,7 +23,8 @@ export const uploadConversion = (file) => {
 
 export const startConversion = (udid) => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/conversions?udid=${udid}&outputOntology=${conversionOutputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${conversionDwgPackageVersion}`;
+  const { getOriginalPackageName } = useReviewManifestStore.getState();
+  const url = `${getEnvs()[geography].URL}/conversions?udid=${udid}&outputOntology=${conversionOutputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${conversionDwgPackageVersion}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
@@ -31,7 +32,8 @@ export const startConversion = (udid) => {
 
 export const startDataset = (conversionId) => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/datasets?api-version=${apiVersion}&conversionId=${conversionId}&subscription-key=${subscriptionKey}`;
+  const { getOriginalPackageName } = useReviewManifestStore.getState();
+  const url = `${getEnvs()[geography].URL}/datasets?api-version=${apiVersion}&conversionId=${conversionId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
@@ -39,7 +41,8 @@ export const startDataset = (conversionId) => {
 
 export const startTileset = (datasetId) => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/tilesets?api-version=${previewApiVersion}&datasetId=${datasetId}&subscription-key=${subscriptionKey}`;
+  const { getOriginalPackageName } = useReviewManifestStore.getState();
+  const url = `${getEnvs()[geography].URL}/tilesets?api-version=${previewApiVersion}&datasetId=${datasetId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
