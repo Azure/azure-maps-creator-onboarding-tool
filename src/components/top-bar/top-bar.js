@@ -1,16 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { Icon } from '@fluentui/react/lib/Icon';
 
 import {
   azMapsCreatorTextStyle,
   barStyle,
   docLink,
+  linksContainer,
   logoContainer,
   msftAzureTextStyle,
   splitterStyle,
 } from './top-bar.style';
 
 const docsLink = 'https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2';
+const feedbackLink = 'https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest';
 
 const TopBar = () => {
   const { t } = useTranslation();
@@ -22,10 +23,14 @@ const TopBar = () => {
         <span className={splitterStyle}/>
         <span className={azMapsCreatorTextStyle}>Azure Maps Creator</span>
       </div>
-      <a className={docLink} href={docsLink} target='_blank' rel='noreferrer' aria-label={t('docs.link')}>
-        {t('docs')}&nbsp;
-        <Icon iconName='NavigateExternalInline' />
-      </a>
+      <div className={linksContainer}>
+        <a className={docLink} href={docsLink} target='_blank' rel='noreferrer' aria-label={t('docs.link')}>
+          {t('docs')}
+        </a>
+        <a className={docLink} href={feedbackLink} target='_blank' rel='noreferrer' aria-label={t('feedback.link')}>
+          {t('feedback')}
+        </a>
+      </div>
     </div>
   );
 };
