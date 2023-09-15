@@ -19,8 +19,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -90,8 +88,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -216,8 +212,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -289,8 +283,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -417,8 +409,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -490,8 +480,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -618,8 +606,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -692,8 +678,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -837,8 +821,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -929,8 +911,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -1060,8 +1040,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -1134,8 +1112,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 

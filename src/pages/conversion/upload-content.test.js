@@ -1,31 +1,16 @@
 import { render } from '@testing-library/react';
 
 import UploadContent from './upload-content';
-import { useConversionStore } from 'common/store';
 
 describe('upload content', () => {
-  beforeEach(() => {
-    useConversionStore.setState({
-      selectedStep: 0,
-      uploadOperationLog: null,
-      uploadUdId: null,
-    });
-  });
-
   it('should render nothing when not selected', () => {
-    useConversionStore.setState({
-      selectedStep: 1,
-    });
-    const view = render(<UploadContent />);
+    const view = render(<UploadContent uploadStepStatus={1} uploadOperationLog={'loooooog'} uploadUdId={'some-id'} selectedStep={1} />);
     expect(view).toMatchSnapshot();
   });
 
   it('should render upload content', () => {
-    useConversionStore.setState({
-      uploadOperationLog: JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee' }, null, 4),
-      uploadUdId: 'zxcv-asdf-zxcvzxcv-asdf-dgfh',
-    });
-    const view = render(<UploadContent />);
+    const operationLog = JSON.stringify({ foo: 'bar', baz: 'blee blue blah blueberry dee' }, null, 4);
+    const view = render(<UploadContent uploadStepStatus={1} uploadOperationLog={operationLog} uploadUdId={'zxcv-asdf-zxcvzxcv-asdf-dgfh'} selectedStep={0} />);
     expect(view).toMatchSnapshot();
   });
 });

@@ -9,6 +9,7 @@ const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
+  Link: ({ children }) => <div>{children}</div>,
 }));
 jest.mock('common/api', () => ({
   ...jest.requireActual('common/api'),

@@ -44,8 +44,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -66,15 +64,6 @@ Object {
 }
 
 .emotion-4 {
-  margin-right: 0.5rem;
-}
-
-.emotion-5 {
-  color: #605e5c;
-  font-size: 0.6875rem;
-}
-
-.emotion-6 {
   height: 2.75rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -90,15 +79,26 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
+  background-color: #E1DFDD;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.emotion-6:hover {
+.emotion-4:hover {
   color: #0078d4;
   background-color: #F3F2F1;
 }
 
-.emotion-18 {
+.emotion-6 {
+  margin-right: 0.5rem;
+}
+
+.emotion-7 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+.emotion-20 {
   height: 2.75rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -116,19 +116,19 @@ Object {
   width: 100%;
 }
 
-.emotion-22 {
+.emotion-24 {
   padding: 0 1rem;
   overflow: auto;
   width: calc(100% - 18rem);
 }
 
 @media (max-width: 600px) {
-  .emotion-22 {
+  .emotion-24 {
     width: calc(100% - 9rem);
   }
 }
 
-.emotion-23 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -139,22 +139,14 @@ Object {
   height: 100%;
 }
 
-.emotion-24 {
+.emotion-26 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
 }
 
-.emotion-25 {
-  font-weight: 600;
-}
-
-.emotion-26 {
-  overflow: auto;
-}
-
 .emotion-27 {
-  overflow-x: auto;
+  font-weight: 600;
 }
 
 <body>
@@ -166,15 +158,35 @@ Object {
           class="emotion-1"
         >
           <button
-            aria-label="select.upload.step"
             class="emotion-2"
           >
             <div
               class="emotion-3"
             >
               <i
+                aria-hidden="true"
+                class="root-112"
+                data-icon-name="SkypeArrow"
+                style="margin-right: 8px;"
+              >
+                
+              </i>
+              view.all.conversions
+            </div>
+          </button>
+          <div
+            style="border-bottom: 2px solid;"
+          />
+          <button
+            aria-label="select.upload.step"
+            class="emotion-4"
+          >
+            <div
+              class="emotion-3"
+            >
+              <i
                 aria-label="package.conversion"
-                class="emotion-4 root-112"
+                class="emotion-6 root-115"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -183,19 +195,19 @@ Object {
               package.upload
             </div>
             <span
-              class="emotion-5"
+              class="emotion-7"
             />
           </button>
           <button
             aria-label="select.conversion.step"
-            class="emotion-6"
+            class="emotion-2"
           >
             <div
               class="emotion-3"
             >
               <i
                 aria-label="package.conversion"
-                class="emotion-4 root-112"
+                class="emotion-6 root-115"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -204,19 +216,19 @@ Object {
               package.conversion
             </div>
             <span
-              class="emotion-5"
+              class="emotion-7"
             />
           </button>
           <button
             aria-label="select.dataset.step"
-            class="emotion-6"
+            class="emotion-2"
           >
             <div
               class="emotion-3"
             >
               <i
                 aria-label="package.conversion"
-                class="emotion-4 root-112"
+                class="emotion-6 root-115"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -225,19 +237,19 @@ Object {
               dataset.creation
             </div>
             <span
-              class="emotion-5"
+              class="emotion-7"
             />
           </button>
           <button
             aria-label="select.tileset.step"
-            class="emotion-6"
+            class="emotion-2"
           >
             <div
               class="emotion-3"
             >
               <i
                 aria-label="package.conversion"
-                class="emotion-4 root-112"
+                class="emotion-6 root-115"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -246,12 +258,12 @@ Object {
               tileset.creation
             </div>
             <span
-              class="emotion-5"
+              class="emotion-7"
             />
           </button>
           <button
             aria-label="select.map"
-            class="emotion-18"
+            class="emotion-20"
             disabled=""
           >
             <div
@@ -259,7 +271,7 @@ Object {
             >
               <i
                 aria-label="package.conversion"
-                class="emotion-4 root-112"
+                class="emotion-6 root-115"
                 data-icon-name="StatusCircleRing"
                 role="img"
               >
@@ -268,36 +280,26 @@ Object {
               map
             </div>
             <span
-              class="emotion-5"
+              class="emotion-7"
             />
           </button>
         </div>
         <div
-          class="emotion-22"
+          class="emotion-24"
         >
           <div
-            class="emotion-23"
+            class="emotion-25"
           >
             <div
-              class="emotion-24"
+              class="emotion-26"
             >
               <span
-                class="emotion-25"
+                class="emotion-27"
               >
                 Udid
               </span>
               : 
               
-            </div>
-            <div
-              class="emotion-26"
-            >
-              <h3>
-                operation.log
-              </h3>
-              <pre
-                class="emotion-27"
-              />
             </div>
           </div>
         </div>
@@ -345,8 +347,6 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
-  background-color: #E1DFDD;
-  font-weight: 700;
   cursor: pointer;
 }
 
@@ -367,15 +367,6 @@ Object {
 }
 
 .emotion-4 {
-  margin-right: 0.5rem;
-}
-
-.emotion-5 {
-  color: #605e5c;
-  font-size: 0.6875rem;
-}
-
-.emotion-6 {
   height: 2.75rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -391,15 +382,26 @@ Object {
   padding: 0 0.5rem;
   border: none;
   width: 100%;
+  background-color: #E1DFDD;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.emotion-6:hover {
+.emotion-4:hover {
   color: #0078d4;
   background-color: #F3F2F1;
 }
 
-.emotion-18 {
+.emotion-6 {
+  margin-right: 0.5rem;
+}
+
+.emotion-7 {
+  color: #605e5c;
+  font-size: 0.6875rem;
+}
+
+.emotion-20 {
   height: 2.75rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -417,19 +419,19 @@ Object {
   width: 100%;
 }
 
-.emotion-22 {
+.emotion-24 {
   padding: 0 1rem;
   overflow: auto;
   width: calc(100% - 18rem);
 }
 
 @media (max-width: 600px) {
-  .emotion-22 {
+  .emotion-24 {
     width: calc(100% - 9rem);
   }
 }
 
-.emotion-23 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -440,22 +442,14 @@ Object {
   height: 100%;
 }
 
-.emotion-24 {
+.emotion-26 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
 }
 
-.emotion-25 {
-  font-weight: 600;
-}
-
-.emotion-26 {
-  overflow: auto;
-}
-
 .emotion-27 {
-  overflow-x: auto;
+  font-weight: 600;
 }
 
 <div>
@@ -466,15 +460,35 @@ Object {
         class="emotion-1"
       >
         <button
-          aria-label="select.upload.step"
           class="emotion-2"
         >
           <div
             class="emotion-3"
           >
             <i
+              aria-hidden="true"
+              class="root-112"
+              data-icon-name="SkypeArrow"
+              style="margin-right: 8px;"
+            >
+              
+            </i>
+            view.all.conversions
+          </div>
+        </button>
+        <div
+          style="border-bottom: 2px solid;"
+        />
+        <button
+          aria-label="select.upload.step"
+          class="emotion-4"
+        >
+          <div
+            class="emotion-3"
+          >
+            <i
               aria-label="package.conversion"
-              class="emotion-4 root-112"
+              class="emotion-6 root-115"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -483,19 +497,19 @@ Object {
             package.upload
           </div>
           <span
-            class="emotion-5"
+            class="emotion-7"
           />
         </button>
         <button
           aria-label="select.conversion.step"
-          class="emotion-6"
+          class="emotion-2"
         >
           <div
             class="emotion-3"
           >
             <i
               aria-label="package.conversion"
-              class="emotion-4 root-112"
+              class="emotion-6 root-115"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -504,19 +518,19 @@ Object {
             package.conversion
           </div>
           <span
-            class="emotion-5"
+            class="emotion-7"
           />
         </button>
         <button
           aria-label="select.dataset.step"
-          class="emotion-6"
+          class="emotion-2"
         >
           <div
             class="emotion-3"
           >
             <i
               aria-label="package.conversion"
-              class="emotion-4 root-112"
+              class="emotion-6 root-115"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -525,19 +539,19 @@ Object {
             dataset.creation
           </div>
           <span
-            class="emotion-5"
+            class="emotion-7"
           />
         </button>
         <button
           aria-label="select.tileset.step"
-          class="emotion-6"
+          class="emotion-2"
         >
           <div
             class="emotion-3"
           >
             <i
               aria-label="package.conversion"
-              class="emotion-4 root-112"
+              class="emotion-6 root-115"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -546,12 +560,12 @@ Object {
             tileset.creation
           </div>
           <span
-            class="emotion-5"
+            class="emotion-7"
           />
         </button>
         <button
           aria-label="select.map"
-          class="emotion-18"
+          class="emotion-20"
           disabled=""
         >
           <div
@@ -559,7 +573,7 @@ Object {
           >
             <i
               aria-label="package.conversion"
-              class="emotion-4 root-112"
+              class="emotion-6 root-115"
               data-icon-name="StatusCircleRing"
               role="img"
             >
@@ -568,36 +582,26 @@ Object {
             map
           </div>
           <span
-            class="emotion-5"
+            class="emotion-7"
           />
         </button>
       </div>
       <div
-        class="emotion-22"
+        class="emotion-24"
       >
         <div
-          class="emotion-23"
+          class="emotion-25"
         >
           <div
-            class="emotion-24"
+            class="emotion-26"
           >
             <span
-              class="emotion-25"
+              class="emotion-27"
             >
               Udid
             </span>
             : 
             
-          </div>
-          <div
-            class="emotion-26"
-          >
-            <h3>
-              operation.log
-            </h3>
-            <pre
-              class="emotion-27"
-            />
           </div>
         </div>
       </div>

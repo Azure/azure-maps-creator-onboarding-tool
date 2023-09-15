@@ -14,25 +14,13 @@ describe('tileset content', () => {
   });
 
   it('should render nothing by default', () => {
-    const view = render(<TilesetContent />);
+    const view = render(<TilesetContent tilesetStepStatus={0} tilesetOperationLog={null} selectedStep={0} mapConfigurationId={null} tilesetId={null} />);
     expect(view).toMatchSnapshot();
   });
 
   it('should render tileset content', () => {
-    useConversionStore.setState({
-      selectedStep: 3,
-      tilesetOperationLog: JSON.stringify({ foo: 'tileset-operation-log', baz: 'blee blue blah blueberry dee'}, null, 4),
-    });
-    const view = render(<TilesetContent />);
-    expect(view).toMatchSnapshot();
-  });
-
-  it('should render tileset content logs tab', () => {
-    useConversionStore.setState({
-      selectedStep: 3,
-      tilesetOperationLog: JSON.stringify({ foo: 'hop-hei-la-la-lei', baz: 'blee blue blah blueberry dee'}, null, 4),
-    });
-    const view = render(<TilesetContent />);
+    const operationLog = JSON.stringify({ foo: 'tileset-operation-log', baz: 'blee blue blah blueberry dee'}, null, 4);
+    const view = render(<TilesetContent tilesetStepStatus={1} tilesetOperationLog={operationLog} selectedStep={3} mapConfigurationId={'my-map-config'} tilesetId={'some-id'} />);
     expect(view).toMatchSnapshot();
   });
 });
