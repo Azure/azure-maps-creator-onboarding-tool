@@ -64,6 +64,8 @@ const en = {
     'exterior': 'Exterior',
     'facility.levels': 'Facility Levels',
     'facility.name': 'Facility name',
+    'feedback': 'Feedback',
+    'feedback.link': 'Feedback link',
     'filter.by.name': 'Filter by name',
     'geography': 'Geography',
     'file.name': 'File name',
