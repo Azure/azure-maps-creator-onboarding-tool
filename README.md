@@ -4,10 +4,10 @@ The Azure Maps Manifest Tool allows to interactively generate manifest files req
 
 ## Getting Started
 
-1. Download the latest [Node.js LTS](https://nodejs.org/en/download/) and install Node.js, if you don't have it already installed.
+1. Download [Node.js LTS](https://nodejs.org/en/download/) and install Node.js, if you don't have it already installed. Version 18 is recommended.
 2. To install dependencies, run `npm install`.
 
-After installing deps you may see concerning security messages like `6 high severity vulnerabilities`. Please don't try to fix it by running `npm audit fix --force` as it may break your build. \
+After installing deps you may see concerning security messages like `6 high severity vulnerabilities`. Don't try to fix it by running `npm audit fix --force` as it may break your build. \
 These vulnerabilities can be safely ignored as affected packages are only used in dev. To check production dependencies you may run `npm audit --production`, which should return `found 0 vulnerabilities`. 
 
 ## Available commands
@@ -38,6 +38,9 @@ See the section about [End-to-End Testing](https://docs.cypress.io/guides/end-to
 
 Builds the app for production to the `build` folder.\
 It bundles React in production mode and optimizes the build for the best performance.
+
+If you plan to deploy to test environment you may want to add env variable REACT_APP_STAGING_ENV=true.\
+This will add test endpoint to regions.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
