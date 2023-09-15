@@ -64,6 +64,7 @@ const en = {
     'exterior': 'Exterior',
     'facility.levels': 'Facility Levels',
     'facility.name': 'Facility name',
+    'filter.by.name': 'Filter by name',
     'geography': 'Geography',
     'file.name': 'File name',
     'geography.europe': 'Europe',

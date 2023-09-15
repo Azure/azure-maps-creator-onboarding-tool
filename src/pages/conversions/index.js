@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import { DetailsList, DetailsRow, DetailsListLayoutMode } from '@fluentui/react/lib/DetailsList';
+import { TextField } from '@fluentui/react';
 
 import { PATHS } from 'common';
 import { getAllData } from 'common/api/conversions';
 import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
-import { iconsContainer } from './style';
+import { filterInputStyles, iconsContainer, nameFilterContainer } from './style';
 
 const defaultColumns =  [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
@@ -74,6 +75,7 @@ const Conversions = () => {
   const [items, setItems] = useState([]);
   const [sorting, setSorting] = useState({ fieldName: 'date', descending: true});
   const [columns, setColumns] = useState([]);
+  const [nameFilter, setNameFilter] = useState('');
 
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
   const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
@@ -82,6 +84,8 @@ const Conversions = () => {
     setPastConversionData(item.conversionData);
     navigate(item.ongoing ? PATHS.CONVERSION : PATHS.PAST_CONVERSION);
   }, [navigate, setPastConversionData]);
+
+  const onNameFilterChange = (e, text) => setNameFilter(text);
 
   useEffect(() => {
     setColumns(defaultColumns.map((column) => ({
@@ -128,7 +132,7 @@ const Conversions = () => {
 
     setItems(items.map((item, i) => ({
       key: i,
-      name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description,
+      name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description ?? '',
       status: (
         <div className={iconsContainer}>
           <StatusIcon item={item.upload} />
@@ -151,29 +155,35 @@ const Conversions = () => {
         mapConfigurationId: item.tileset?.defaultMapConfigurationId,
         bbox: item.tileset?.bbox,
       }
-    })).sort((a, b) => {
+    })).filter((item) => item.name.includes(nameFilter)).sort((a, b) => {
       if (a[sorting.fieldName] < b[sorting.fieldName]) {
         return sorting.descending ? 1 : -1;
       }
       return sorting.descending ? -1 : 1;
     }));
-  }, [existingConversions, ongoingConversion, t, sorting]);
+  }, [existingConversions, ongoingConversion, t, sorting, nameFilter]);
 
   if (isLoading) {
     return <div>{t('loading')}</div>;
   }
 
   return (
-    <DetailsList
-      items={items}
-      onItemInvoked={onItemClick}
-      columns={columns}
-      onRenderRow={(data) => (
-        <DetailsRow {...data} styles={{ root: {fontSize: '0.875rem'} }} />
-      )}
-      layoutMode={DetailsListLayoutMode.justified}
-      selectionMode={0}
-    />
+    <>
+      <div className={nameFilterContainer}>
+        <TextField ariaLabel={t('filter.by.name')} placeholder={t('filter.by.name')} styles={filterInputStyles}
+                   value={nameFilter} onChange={onNameFilterChange} />
+      </div>
+      <DetailsList
+        items={items}
+        onItemInvoked={onItemClick}
+        columns={columns}
+        onRenderRow={(data) => (
+          <DetailsRow {...data} styles={{ root: {fontSize: '0.875rem'} }} />
+        )}
+        layoutMode={DetailsListLayoutMode.justified}
+        selectionMode={0}
+      />
+    </>
   );
 };
 
