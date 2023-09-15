@@ -1,17 +1,14 @@
-import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionSteps, useConversionStore, conversionStatuses } from 'common/store/conversion.store';
+import { conversionSteps, conversionStatuses } from 'common/store/conversion.store';
 import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
 import CopyIcon from './copy-icon';
 
-const conversionStoreSelector = (s) => [s.tilesetStepStatus, s.tilesetOperationLog, s.selectedStep, s.mapConfigurationId, s.tilesetId];
 
-const TilesetContent = () => {
+const TilesetContent = ({ tilesetStepStatus, tilesetOperationLog, selectedStep, mapConfigurationId, tilesetId }) => {
   const { t } = useTranslation();
-  const [tilesetStepStatus, operationLog, selectedStep, mapConfigurationId, tilesetId] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.tileset) {
     return null;
@@ -29,13 +26,13 @@ const TilesetContent = () => {
           <CopyIcon textToCopy={`default_${tilesetId}`} />
         </div>
       </div>
-      <div className={logContainer}>
+      {tilesetOperationLog && <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
-        <Log src={operationLog} />
-      </div>
+        <Log src={tilesetOperationLog} />
+      </div>}
       {tilesetStepStatus !== conversionStatuses.empty && tilesetStepStatus !== conversionStatuses.inProgress &&
         <DownloadLogs type='tileset' isFailed={tilesetStepStatus === conversionStatuses.failed}
-                      json={operationLog} />}
+                      json={tilesetOperationLog} />}
     </div>
   );
 };

@@ -10,7 +10,6 @@ jest.mock('azure-maps-control', () => ({
   Map: jest.fn(),
 }));
 jest.mock('common/store', () => ({
-  useConversionStore: () => ['map-config-id', [0, 1, 2, 3]],
   useUserStore: () => ['US', 'key-subscription'],
 }));
 
@@ -23,7 +22,7 @@ describe('Tileset map', () => {
     }));
   });
   it('should render map', () => {
-    render(<TilesetMap />);
+    render(<TilesetMap mapConfigurationId='map-config-id' bbox={[0, 1, 2, 3]} />);
     const constructorSpy = jest.spyOn(azMapsControl, 'Map');
     expect(constructorSpy).toBeCalledWith(
       'azure-maps-container',

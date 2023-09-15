@@ -24,7 +24,7 @@ const Route = ({ title, component: Component, dataRequired }) => {
   const shouldShowFooter = useMemo(() => progressBarSteps.findIndex(route => route.href === pathname) !== -1, [pathname]);
 
   useEffect(() => {
-    if (dataRequired && lroStatus !== LRO_STATUS.SUCCEEDED) {
+    if (dataRequired && lroStatus !== LRO_STATUS.SUCCEEDED && lroStatus !== LRO_STATUS.FETCHING_DATA) {
       navigate(PATHS.INDEX);
     }
   }, [dataRequired, lroStatus, navigate]);

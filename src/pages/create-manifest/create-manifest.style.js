@@ -114,3 +114,13 @@ export const errorBannerStyle = css`
 export const errorBannerHidden = css`
   visibility: hidden;
 `;
+
+export const conversionsLink = css`
+  color: initial;
+  cursor: pointer;
+`;
+
+export const disabledConversionsLinks = css`
+  color: grey;
+  cursor: text;
+`;

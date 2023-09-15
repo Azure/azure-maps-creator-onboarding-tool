@@ -1,19 +1,14 @@
 import { useCallback, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { cx } from '@emotion/css';
-import { shallow } from 'zustand/shallow';
 
 import { enabledStep, selectedStep as selectedStepStyle, step as stepStyle, stepTimer, stepTitle } from './style';
 import Icon from './icon';
-import { useConversionStore } from 'common/store';
 import { formatProgressTime } from './format-time';
 
-const conversionStoreSelector = (s) => [s.setStep, s.selectedStep];
-
-const StepButton = ({ endTime, label, status, startTime, step, title, disabled }) => {
+const StepButton = ({ endTime, label, status, startTime, step, title, disabled, setStep, selectedStep }) => {
   const [elapsedTime, setElapsedTime] = useState('');
   const intervalRef = useRef(null);
-  const [setStep, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
   useEffect(() => {
     if (startTime !== null && endTime !== null) {

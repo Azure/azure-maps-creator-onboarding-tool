@@ -1,17 +1,13 @@
-import { shallow } from 'zustand/shallow';
 import { useTranslation } from 'react-i18next';
 
-import { conversionStatuses, conversionSteps, useConversionStore } from 'common/store/conversion.store';
+import { conversionStatuses, conversionSteps } from 'common/store/conversion.store';
 import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
 import { Log } from './log';
 import { DownloadLogs } from './download-logs';
 import CopyIcon from './copy-icon';
 
-const conversionStoreSelector = (s) => [s.uploadStepStatus, s.uploadOperationLog, s.uploadUdId, s.selectedStep];
-
-const UploadContent = () => {
+const UploadContent = ({ uploadStepStatus, uploadOperationLog, uploadUdId, selectedStep }) => {
   const { t } = useTranslation();
-  const [uploadStepStatus, uploadOperationLog, uploadUdId, selectedStep] = useConversionStore(conversionStoreSelector, shallow);
 
   if (selectedStep !== conversionSteps.upload) {
     return null;
@@ -23,10 +19,10 @@ const UploadContent = () => {
         <span className={boldHeader}>Udid</span>: {uploadUdId === null ? '' : uploadUdId}
         <CopyIcon textToCopy={uploadUdId} />
       </div>
-      <div className={logContainer}>
+      {uploadOperationLog && <div className={logContainer}>
         <h3>{t('operation.log')}</h3>
         <Log src={uploadOperationLog} />
-      </div>
+      </div>}
       {uploadStepStatus !== conversionStatuses.empty && uploadStepStatus !== conversionStatuses.inProgress &&
         <DownloadLogs type='upload' isFailed={uploadStepStatus === conversionStatuses.failed} json={uploadOperationLog} />}
     </div>

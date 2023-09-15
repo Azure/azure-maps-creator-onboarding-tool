@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
 import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { shallow } from 'zustand/shallow';
@@ -13,7 +13,9 @@ import { useUserStore, useResponseStore } from 'common/store';
 import FileField from './file-field';
 import {
   containerStyle,
+  conversionsLink,
   descriptionStyle,
+  disabledConversionsLinks,
   dropdownStyle,
   errorBannerHidden,
   errorBannerStyle,
@@ -108,6 +110,9 @@ const CreateManifestPage = () => {
                  fileType='zip' onError={setErrorMessage} tooltip={t('tooltip.dwg.zip.package')} />
       <PrimaryButton disabled={!allFieldsFilled} onClick={uploadButtonOnClick} data-testid={TEST_ID.UPLOAD_BUTTON}
                      className={primaryButtonStyle} text={t('process')} styles={primaryButtonDisabledStyles} />
+      <Link to={subKey ? PATHS.CONVERSIONS : ''} className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}>
+        {t('view.existing.conversions')}
+      </Link>
     </div>
   );
 };

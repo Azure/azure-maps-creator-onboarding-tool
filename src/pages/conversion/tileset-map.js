@@ -1,17 +1,15 @@
 import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
-import { useConversionStore, useUserStore } from 'common/store';
+import { useUserStore } from 'common/store';
 import { indoor, control as indoorControl } from 'azure-maps-indoor';
 import { control, Map } from 'azure-maps-control';
 import { getEnvs } from 'common/functions';
 import { mapContainer } from './style';
 
-const conversionStoreSelector = (s) => [s.mapConfigurationId, s.bbox];
 const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
 
-const TilesetMap = () => {
-  const [mapConfigurationId, bbox] = useConversionStore(conversionStoreSelector, shallow);
+const TilesetMap = ({ mapConfigurationId, bbox }) => {
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
   useEffect(() => {

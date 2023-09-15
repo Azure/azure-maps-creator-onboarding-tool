@@ -4,6 +4,8 @@ export const PATHS = {
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
   CONVERSION: '/review-create/conversion',
+  PAST_CONVERSION: '/past-conversion',
+  CONVERSIONS: '/conversions',
   LAYERS: '/layers',
   LEVELS: '/levels',
   INVALID_PATH: '/*',
@@ -18,6 +20,7 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.INVALID_PATH]: 'redirect',
   [PATHS.REVIEW_CREATE]: 'prepare.drawing.package',
   [PATHS.CONVERSION]: 'create.indoor.map',
+  [PATHS.CONVERSIONS]: 'All conversions',
 };
 
 export const TRUNCATE_FRACTION_DIGITS = 8;
