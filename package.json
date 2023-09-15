@@ -28,7 +28,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
-    "cypress": "^12.17.2",
+    "cypress": "^13.2.0",
     "eslint-plugin-cypress": "^2.12.1",
     "flush-promises": "^1.0.2",
     "jest-junit": "^14.0.1",
