@@ -1,10 +1,10 @@
-# This workflow builds current main and pushes it to gh-pages branch.
+# This workflow builds release branch and pushes it to gh-pages branch.
 
 name: Build for Deployment
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "release" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
