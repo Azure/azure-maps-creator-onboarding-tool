@@ -11,11 +11,42 @@ import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
 import { iconsContainer } from './style';
 
-const columns =  [
+const defaultColumns =  [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
-  { key: 'dateCol', name: 'Date', fieldName: 'date', minWidth: 40, maxWidth: 200, isResizable: true },
+  { key: 'dateCol', name: 'Date', fieldName: 'date', minWidth: 40, maxWidth: 200, isResizable: true, isSorted: true, isSortedDescending: true, },
 ];
+
+const addSorting = (columns, sortingColumnKey) => (
+  columns.map((column) => ({
+    ...column,
+    isSorted: column.key === sortingColumnKey,
+    isSortedDescending: isDescending(column, sortingColumnKey),
+  }))
+);
+
+const isDescending = (column, sortingColumnKey) => {
+  if (column.key !== sortingColumnKey) {
+    return undefined;
+  }
+  if (column.isSortedDescending === undefined) {
+    return false;
+  }
+  return !column.isSortedDescending;
+};
+
+const getOnColumnClickCallback = (columns, setColumns, setSorting) => (e, column) => {
+  if (column.key === 'statusCol') return;
+  const newColumns = addSorting(columns, column.key);
+  setSorting({
+    fieldName: column.fieldName,
+    descending: !!newColumns.find((col) => col.key === column.key).isSortedDescending,
+  });
+  setColumns(newColumns.map((col) => ({
+    ...col,
+    onColumnClick: getOnColumnClickCallback(newColumns, setColumns, setSorting),
+  })));
+};
 
 const conversionStoreSelector = (s) => ({
   uploadStepStatus: s.uploadStepStatus,
@@ -41,6 +72,9 @@ const Conversions = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [existingConversions, setExistingConversions] = useState([]);
   const [items, setItems] = useState([]);
+  const [sorting, setSorting] = useState({ fieldName: 'date', descending: true});
+  const [columns, setColumns] = useState([]);
+
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
   const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
 
@@ -50,6 +84,10 @@ const Conversions = () => {
   }, [navigate, setPastConversionData]);
 
   useEffect(() => {
+    setColumns(defaultColumns.map((column) => ({
+      ...column,
+      onColumnClick: getOnColumnClickCallback(defaultColumns, setColumns, setSorting),
+    })));
     getAllData().then(({ conversions, datasets, mapDataList, tilesets }) => {
       setIsLoading(false);
       const groupedItems = groupItems(ongoingConversion, { conversions, datasets, mapDataList, tilesets });
@@ -59,62 +97,67 @@ const Conversions = () => {
   }, []); // eslint-disable-line
 
   useEffect(() => {
-      const items = [...existingConversions];
-      if (ongoingConversion.uploadStartTime) {
-        items.unshift({
-          ongoing: true,
-          upload: {
-            udid: ongoingConversion.uploadUdId,
-            uploadStatus: ongoingConversion.uploadStepStatus,
-            created: ongoingConversion.uploadStartTime,
-            description: ongoingConversion.uploadDescription,
-          },
-          conversion: {
-            conversionId: ongoingConversion.conversionId,
-            conversionStatus: ongoingConversion.conversionStepStatus,
-            created: ongoingConversion.conversionDate,
-          },
-          dataset: {
-            datasetId: ongoingConversion.datasetId,
-            datasetStatus: ongoingConversion.datasetStepStatus,
-            created: ongoingConversion.datasetDate,
-          },
-          tileset: {
-            tilesetId: ongoingConversion.tilesetId,
-            tilesetStatus: ongoingConversion.tilesetStepStatus,
-            created: ongoingConversion.tilesetDate,
-          },
-          date: new Date(ongoingConversion.tilesetDate ?? ongoingConversion.uploadStartTime),
-        });
-      }
+    const items = [...existingConversions];
+    if (ongoingConversion.uploadStartTime) {
+      items.unshift({
+        ongoing: true,
+        upload: {
+          udid: ongoingConversion.uploadUdId,
+          uploadStatus: ongoingConversion.uploadStepStatus,
+          created: ongoingConversion.uploadStartTime,
+          description: ongoingConversion.uploadDescription,
+        },
+        conversion: {
+          conversionId: ongoingConversion.conversionId,
+          conversionStatus: ongoingConversion.conversionStepStatus,
+          created: ongoingConversion.conversionDate,
+        },
+        dataset: {
+          datasetId: ongoingConversion.datasetId,
+          datasetStatus: ongoingConversion.datasetStepStatus,
+          created: ongoingConversion.datasetDate,
+        },
+        tileset: {
+          tilesetId: ongoingConversion.tilesetId,
+          tilesetStatus: ongoingConversion.tilesetStepStatus,
+          created: ongoingConversion.tilesetDate,
+        },
+        date: new Date(ongoingConversion.tilesetDate ?? ongoingConversion.uploadStartTime),
+      });
+    }
 
-      setItems(items.map((item, i) => ({
-        key: i,
-        name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description,
-        status: (
-          <div className={iconsContainer}>
-            <StatusIcon item={item.upload} />
-            <StatusIcon item={item.conversion} />
-            <StatusIcon item={item.dataset} />
-            <StatusIcon item={item.tileset} />
-          </div>
-        ),
-        date: item.date.toLocaleString(),
-        ongoing: item.ongoing,
-        conversionData: {
-          uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-          uploadUdId: item.upload?.udid,
-          conversionStepStatus: item.conversion?.conversionId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-          conversionId: item.conversion?.conversionId,
-          datasetStepStatus: item.dataset?.datasetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-          datasetId: item.dataset?.datasetId,
-          tilesetStepStatus: item.tileset?.tilesetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-          tilesetId: item.tileset?.tilesetId,
-          mapConfigurationId: item.tileset?.defaultMapConfigurationId,
-          bbox: item.tileset?.bbox,
-        }
-      })));
-  }, [existingConversions, ongoingConversion, t]);
+    setItems(items.map((item, i) => ({
+      key: i,
+      name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description,
+      status: (
+        <div className={iconsContainer}>
+          <StatusIcon item={item.upload} />
+          <StatusIcon item={item.conversion} />
+          <StatusIcon item={item.dataset} />
+          <StatusIcon item={item.tileset} />
+        </div>
+      ),
+      date: item.date.toLocaleString(),
+      ongoing: item.ongoing,
+      conversionData: {
+        uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+        uploadUdId: item.upload?.udid,
+        conversionStepStatus: item.conversion?.conversionId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+        conversionId: item.conversion?.conversionId,
+        datasetStepStatus: item.dataset?.datasetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+        datasetId: item.dataset?.datasetId,
+        tilesetStepStatus: item.tileset?.tilesetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+        tilesetId: item.tileset?.tilesetId,
+        mapConfigurationId: item.tileset?.defaultMapConfigurationId,
+        bbox: item.tileset?.bbox,
+      }
+    })).sort((a, b) => {
+      if (a[sorting.fieldName] < b[sorting.fieldName]) {
+        return sorting.descending ? 1 : -1;
+      }
+      return sorting.descending ? -1 : 1;
+    }));
+  }, [existingConversions, ongoingConversion, t, sorting]);
 
   if (isLoading) {
     return <div>{t('loading')}</div>;
