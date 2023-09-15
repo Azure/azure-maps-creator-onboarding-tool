@@ -36,6 +36,14 @@ export const logoContainer = css`
 
 export const docLink = css`
   color: white;
-  margin: 0 1.25rem;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const linksContainer = css`
+  display: flex;
+  gap: 1rem;
+  margin-right: 1.25rem;
 `;

@@ -51,10 +51,23 @@ Object {
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  margin-right: 1.25rem;
+}
+
+.emotion-6 {
   color: white;
-  margin: 0 1.25rem;
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.emotion-6:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <body>
@@ -79,23 +92,28 @@ Object {
             Azure Maps Creator
           </span>
         </div>
-        <a
-          aria-label="docs.link"
+        <div
           class="emotion-5"
-          href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
-          rel="noreferrer"
-          target="_blank"
         >
-          docs
-           
-          <i
-            aria-hidden="true"
-            class="root-106"
-            data-icon-name="NavigateExternalInline"
+          <a
+            aria-label="docs.link"
+            class="emotion-6"
+            href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+            rel="noreferrer"
+            target="_blank"
           >
-            
-          </i>
-        </a>
+            docs
+          </a>
+          <a
+            aria-label="feedback.link"
+            class="emotion-6"
+            href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
+            rel="noreferrer"
+            target="_blank"
+          >
+            feedback
+          </a>
+        </div>
       </div>
     </div>
   </body>,
@@ -147,10 +165,23 @@ Object {
 }
 
 .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  margin-right: 1.25rem;
+}
+
+.emotion-6 {
   color: white;
-  margin: 0 1.25rem;
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.emotion-6:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <div>
@@ -174,23 +205,28 @@ Object {
           Azure Maps Creator
         </span>
       </div>
-      <a
-        aria-label="docs.link"
+      <div
         class="emotion-5"
-        href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
-        rel="noreferrer"
-        target="_blank"
       >
-        docs
-         
-        <i
-          aria-hidden="true"
-          class="root-106"
-          data-icon-name="NavigateExternalInline"
+        <a
+          aria-label="docs.link"
+          class="emotion-6"
+          href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+          rel="noreferrer"
+          target="_blank"
         >
-          
-        </i>
-      </a>
+          docs
+        </a>
+        <a
+          aria-label="feedback.link"
+          class="emotion-6"
+          href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
+          rel="noreferrer"
+          target="_blank"
+        >
+          feedback
+        </a>
+      </div>
     </div>
   </div>,
   "debug": [Function],
