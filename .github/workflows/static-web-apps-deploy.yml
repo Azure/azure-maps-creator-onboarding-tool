@@ -1,2 +1,29 @@
-- name: Azure Static Web Apps Deploy
-  uses: Azure/static-web-apps-deploy@v1
+# This workflow builds release branch and pushes it to gh-pages branch.
+
+name: Build for Deployment
+
+on:
+  push:
+    branches: [ "nizetic-patch-1" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - name: Azure Static Web Apps Deploy
+      uses: Azure/static-web-apps-deploy@v1
+           
