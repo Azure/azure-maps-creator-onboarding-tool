@@ -1,0 +1,2 @@
+- name: Azure Static Web Apps Deploy
+  uses: Azure/static-web-apps-deploy@v1
