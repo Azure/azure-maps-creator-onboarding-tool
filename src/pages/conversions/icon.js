@@ -3,7 +3,7 @@ import { Icon } from '@fluentui/react/lib/Icon';
 import { conversionStatuses } from 'common/store/conversion.store';
 import { checkIcon, crossIcon, inProgressIcon } from './style';
 
-export const StatusIcon = ({item}) => {
+export const StatusIcon = ({ item }) => {
   if (!item) {
     return <Icon iconName='CircleRing' />;
   }

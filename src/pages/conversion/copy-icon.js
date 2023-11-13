@@ -13,7 +13,7 @@ const styles = mergeStyleSets({
   },
 });
 
-const CopyIcon = ({textToCopy}) => {
+const CopyIcon = ({ textToCopy }) => {
   const [isCalloutVisible, setIsCalloutVisible] = useState(false);
   const ref = useRef(null);
 
@@ -32,14 +32,12 @@ const CopyIcon = ({textToCopy}) => {
   return (
     <>
       <span ref={ref}>
-        <Icon iconName='Copy' onClick={copy} className={copyIcon} />
+        <Icon iconName="Copy" onClick={copy} className={copyIcon} />
       </span>
       {isCalloutVisible && (
-        <Callout target={ref} role='alert' directionalHint={DirectionalHint.topCenter} className={styles.callout}>
+        <Callout target={ref} role="alert" directionalHint={DirectionalHint.topCenter} className={styles.callout}>
           <DelayedRender>
-            <Text variant='small'>
-              Copied!
-            </Text>
+            <Text variant="small">Copied!</Text>
           </DelayedRender>
         </Callout>
       )}

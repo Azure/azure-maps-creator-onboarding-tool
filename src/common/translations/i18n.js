@@ -9,12 +9,12 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en
+      en,
     },
     fallbackLng: 'en',
     interpolation: {
-      escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
-    }
+      escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
+    },
   });
 
 export default i18n;

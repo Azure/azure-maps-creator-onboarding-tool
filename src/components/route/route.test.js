@@ -24,20 +24,20 @@ describe('Route', () => {
   });
 
   it('should render route', () => {
-    const view = render(<Route title='Route 66' component={() => <div>My awesome component</div>} />);
+    const view = render(<Route title="Route 66" component={() => <div>My awesome component</div>} />);
     expect(view).toMatchSnapshot();
     expect(mockNavigate).not.toHaveBeenCalledWith('/');
   });
 
   it('should render route with footerPadding', () => {
     mockPathname = '/layers';
-    const view = render(<Route title='Route 66' component={() => <div>My awesome component</div>} />);
+    const view = render(<Route title="Route 66" component={() => <div>My awesome component</div>} />);
     expect(view).toMatchSnapshot();
     expect(mockNavigate).not.toHaveBeenCalledWith('/');
   });
 
   it('should redirect when data is required but not provided', () => {
-    render(<Route title='Route 66' dataRequired component={() => <div>My awesome component</div>} />);
+    render(<Route title="Route 66" dataRequired component={() => <div>My awesome component</div>} />);
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 
@@ -45,7 +45,7 @@ describe('Route', () => {
     useResponseStore.setState({
       lroStatus: LRO_STATUS.SUCCEEDED,
     });
-    render(<Route title='Route 66' dataRequired component={() => <div>My awesome component</div>} />);
+    render(<Route title="Route 66" dataRequired component={() => <div>My awesome component</div>} />);
     expect(mockNavigate).not.toHaveBeenCalledWith('/');
   });
 });

@@ -13,74 +13,86 @@ import {
   previewSelectTitle,
 } from './preview.style';
 
-const geometrySelector = (s) => s.dwgLayers;
-const layersSelector = (s) => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
+const geometrySelector = s => s.dwgLayers;
+const layersSelector = s => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
 const canvasSide = 500;
 
 const Preview = () => {
   const { t } = useTranslation();
   const exteriorLayers = useGeometryStore(geometrySelector, shallow);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
-  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] = useLayersStore(layersSelector, shallow);
+  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] = useLayersStore(
+    layersSelector,
+    shallow
+  );
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers));
 
-  const allValidFeatureClasses = useMemo(() => (
-    allUserCreatedFeatureClasses.filter(featureClass => !featureClass.isDraft && getLayerNameError(featureClass.name) === null)
-  ), [allUserCreatedFeatureClasses, getLayerNameError]);
+  const allValidFeatureClasses = useMemo(
+    () =>
+      allUserCreatedFeatureClasses.filter(
+        featureClass => !featureClass.isDraft && getLayerNameError(featureClass.name) === null
+      ),
+    [allUserCreatedFeatureClasses, getLayerNameError]
+  );
   const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
   const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
-  const allLayers = useMemo(() => drawings.reduce((acc, dwgLayer) => {
-    if (!selectedDrawings.includes(dwgLayer)) {
-      return acc;
-    }
-    return acc.concat(dwgLayers[dwgLayer]);
-  }, []), [drawings, dwgLayers, selectedDrawings]);
+  const allLayers = useMemo(
+    () =>
+      drawings.reduce((acc, dwgLayer) => {
+        if (!selectedDrawings.includes(dwgLayer)) {
+          return acc;
+        }
+        return acc.concat(dwgLayers[dwgLayer]);
+      }, []),
+    [drawings, dwgLayers, selectedDrawings]
+  );
   const selectedDrawingsOptions = useMemo(() => {
     if (selectedDrawings.length !== Object.keys(dwgLayers).length) {
       return selectedDrawings;
     }
-    return [
-      selectAllId,
-      ...selectedDrawings,
-    ];
+    return [selectAllId, ...selectedDrawings];
   }, [dwgLayers, selectedDrawings]);
-  const featureClasses = useMemo(() => [
-      ...(exteriorLayers.length > 0 ? [{
-      id: 'exterior',
-      name: 'Exterior',
-      value: exteriorLayers,
-    }] : []),
-    ...allValidFeatureClasses,
-  ], [exteriorLayers, allValidFeatureClasses]);
+  const featureClasses = useMemo(
+    () => [
+      ...(exteriorLayers.length > 0
+        ? [
+            {
+              id: 'exterior',
+              name: 'Exterior',
+              value: exteriorLayers,
+            },
+          ]
+        : []),
+      ...allValidFeatureClasses,
+    ],
+    [exteriorLayers, allValidFeatureClasses]
+  );
   const selectedFeatureClassesNames = featureClasses
-    .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
-    .map((fClass) => fClass.name);
+    .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
+    .map(fClass => fClass.name);
   const selectedFeatureClassesIds = featureClasses
-    .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
-    .map((fClass) => fClass.id);
+    .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
+    .map(fClass => fClass.id);
   const selectedFeatureClasses = useMemo(() => {
     if (selectedFeatureClassesIds.length !== featureClasses.length) {
       return selectedFeatureClassesIds;
     }
-    return [
-      selectAllId,
-      ...selectedFeatureClassesIds,
-    ];
+    return [selectAllId, ...selectedFeatureClassesIds];
   }, [featureClasses, selectedFeatureClassesIds]);
   const dwgLayersToShow = useMemo(() => {
     if (previewSingleFeatureClass) {
-      return allUserCreatedFeatureClasses.find((fClass) => fClass.id === previewSingleFeatureClass)?.value ?? [];
+      return allUserCreatedFeatureClasses.find(fClass => fClass.id === previewSingleFeatureClass)?.value ?? [];
     }
     return featureClasses
-      .filter((fClass) => !unselectedFeatureClasses.includes(fClass.id))
+      .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
       .reduce((acc, fClass) => acc.concat(fClass.value), []);
   }, [allUserCreatedFeatureClasses, featureClasses, previewSingleFeatureClass, unselectedFeatureClasses]);
   const layers = useMemo(
-    () => allLayers.filter((layer) => dwgLayersToShow.includes(layer.name)),
+    () => allLayers.filter(layer => dwgLayersToShow.includes(layer.name)),
     [allLayers, dwgLayersToShow]
   );
   const levelDropdownOptions = useMemo(() => {
-    const options = drawings.map((drawing) => ({
+    const options = drawings.map(drawing => ({
       key: drawing,
       text: drawing,
     }));
@@ -88,21 +100,27 @@ const Preview = () => {
       return [options];
     }
     return [
-      [{
-        key: selectAllId,
-        text: t('select.all'),
-      }],
+      [
+        {
+          key: selectAllId,
+          text: t('select.all'),
+        },
+      ],
       options,
     ];
   }, [drawings, t]);
   const featureClassDropdownOptions = useMemo(() => {
     if (featureClasses.length === 0) {
-      return [[{
-        key: null,
-        text: t('error.empty.feature.class.dropdown'),
-      }]];
+      return [
+        [
+          {
+            key: null,
+            text: t('error.empty.feature.class.dropdown'),
+          },
+        ],
+      ];
     }
-    const options = featureClasses.map((ffClass) => ({
+    const options = featureClasses.map(ffClass => ({
       key: ffClass.id,
       text: ffClass.name,
     }));
@@ -110,10 +128,12 @@ const Preview = () => {
       return [options];
     }
     return [
-      [{
-        key: selectAllId,
-        text: t('select.all'),
-      }],
+      [
+        {
+          key: selectAllId,
+          text: t('select.all'),
+        },
+      ],
       options,
     ];
   }, [featureClasses, t]);
@@ -126,15 +146,11 @@ const Preview = () => {
       if (item.selectedOptions.includes(selectAllId)) {
         setUnselectedFeatureClasses([]);
       } else {
-        setUnselectedFeatureClasses(
-          featureClasses.map((fClass) => fClass.id)
-        );
+        setUnselectedFeatureClasses(featureClasses.map(fClass => fClass.id));
       }
     } else {
       setUnselectedFeatureClasses(
-        featureClasses
-          .filter((fClass) => !item.selectedOptions.includes(fClass.id))
-          .map((fClass) => fClass.id)
+        featureClasses.filter(fClass => !item.selectedOptions.includes(fClass.id)).map(fClass => fClass.id)
       );
     }
   };
@@ -146,7 +162,7 @@ const Preview = () => {
         setSelectedDrawings([]);
       }
     } else {
-      setSelectedDrawings(item.selectedOptions.filter((option) => option !== selectAllId));
+      setSelectedDrawings(item.selectedOptions.filter(option => option !== selectAllId));
     }
   };
 
@@ -163,46 +179,49 @@ const Preview = () => {
     const pointsAndMultiPoints = [];
     const geometries = [];
 
-    layers.forEach((layer) => {
+    layers.forEach(layer => {
       if (layer.geometry === undefined) {
         return;
       }
       if (layer.geometry.type !== 'GeometryCollection') {
         geometries.push(layer.geometry);
       } else {
-        layer.geometry.geometries.forEach((geometry) => {
+        layer.geometry.geometries.forEach(geometry => {
           geometries.push(geometry);
         });
       }
     });
 
-    const coordinatesFromLinesAndPolygons = geometries.filter((geometry) => {
-      if (geometry.type === 'Point') {
-        pointsAndMultiPoints.push(geometry.coordinates);
-        return false;
-      }
-      if (geometry.type === 'MultiPoint') {
-        pointsAndMultiPoints.push(...geometry.coordinates);
-        return false;
-      }
-      return true;
-    }).map((geometry) => getPointsRecursively(geometry.coordinates)).flat();
+    const coordinatesFromLinesAndPolygons = geometries
+      .filter(geometry => {
+        if (geometry.type === 'Point') {
+          pointsAndMultiPoints.push(geometry.coordinates);
+          return false;
+        }
+        if (geometry.type === 'MultiPoint') {
+          pointsAndMultiPoints.push(...geometry.coordinates);
+          return false;
+        }
+        return true;
+      })
+      .map(geometry => getPointsRecursively(geometry.coordinates))
+      .flat();
 
     if (coordinatesFromLinesAndPolygons.length === 0 && pointsAndMultiPoints.length === 0) {
       return;
     }
 
-    coordinatesFromLinesAndPolygons.forEach((points) => {
+    coordinatesFromLinesAndPolygons.forEach(points => {
       if (points.length === 0) {
         return;
       }
 
-      const newPoints = points.map((point) => {
+      const newPoints = points.map(point => {
         const distanceX = point[0] - midPoints.midX;
         // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
         const distanceY = midPoints.midY - point[1];
-        const newX = canvasSide/2 + (distanceX * midPoints.multiplier) + midPoints.offsetX;
-        const newY = canvasSide/2 + (distanceY * midPoints.multiplier) - midPoints.offsetY;
+        const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
+        const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
         return [newX, newY];
       });
 
@@ -217,12 +236,12 @@ const Preview = () => {
       ctx.stroke();
     });
 
-    pointsAndMultiPoints.forEach((point) => {
+    pointsAndMultiPoints.forEach(point => {
       const distanceX = point[0] - midPoints.midX;
       const distanceY = midPoints.midY - point[1];
-      const newX = canvasSide/2 + (distanceX * midPoints.multiplier) + midPoints.offsetX;
-      const newY = canvasSide/2 + (distanceY * midPoints.multiplier) - midPoints.offsetY;
-      ctx.fillRect(newX, newY,1,1);
+      const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
+      const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
+      ctx.fillRect(newX, newY, 1, 1);
     });
   }, [layers, midPoints]);
 
@@ -232,21 +251,37 @@ const Preview = () => {
       <div className={dropdownContainer}>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Level</div>
-          <Dropdown onOptionSelect={onLevelsChange} className={previewDropdownStyles}
-                    optionGroups={levelDropdownOptions} multiselect selectedOptions={selectedDrawingsOptions}>
+          <Dropdown
+            onOptionSelect={onLevelsChange}
+            className={previewDropdownStyles}
+            optionGroups={levelDropdownOptions}
+            multiselect
+            selectedOptions={selectedDrawingsOptions}
+          >
             {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
           </Dropdown>
         </div>
         <div className={previewSelectContainer}>
           <div className={previewSelectTitle}>Feature Class</div>
-          <Dropdown onOptionSelect={onLayerDropdownChange} className={previewDropdownStyles} selectedOptions={selectedFeatureClasses}
-                    optionGroups={featureClassDropdownOptions} multiselect={featureClasses.length !== 0}>
-            {selectedFeatureClassesNames.length ? selectedFeatureClassesNames.join(', ') : t('select.feature.class.preview')}
+          <Dropdown
+            onOptionSelect={onLayerDropdownChange}
+            className={previewDropdownStyles}
+            selectedOptions={selectedFeatureClasses}
+            optionGroups={featureClassDropdownOptions}
+            multiselect={featureClasses.length !== 0}
+          >
+            {selectedFeatureClassesNames.length
+              ? selectedFeatureClassesNames.join(', ')
+              : t('select.feature.class.preview')}
           </Dropdown>
         </div>
       </div>
-      <canvas style={{maxWidth: '100%', display: selectedFeatureClassesIds.length ? 'block' : 'none' }}
-              id='canvas' width={canvasSide} height={canvasSide} />
+      <canvas
+        style={{ maxWidth: '100%', display: selectedFeatureClassesIds.length ? 'block' : 'none' }}
+        id="canvas"
+        width={canvasSide}
+        height={canvasSide}
+      />
     </div>
   );
 };
@@ -260,7 +295,7 @@ function getMidPointsFromLayers(dwgLayers) {
   let minY = null;
   let maxY = null;
 
-  const updateMinMax = (point) => {
+  const updateMinMax = point => {
     if (maxX === null || point[0] > maxX) {
       maxX = point[0];
     }
@@ -275,7 +310,7 @@ function getMidPointsFromLayers(dwgLayers) {
     }
   };
 
-  allLayers.forEach((layer) => {
+  allLayers.forEach(layer => {
     if (layer.geometry === undefined) {
       return;
     }
@@ -285,24 +320,24 @@ function getMidPointsFromLayers(dwgLayers) {
         return;
       }
       if (layer.geometry.type === 'MultiPoint') {
-        layer.geometry.coordinates.forEach((point) => updateMinMax(point));
+        layer.geometry.coordinates.forEach(point => updateMinMax(point));
         return;
       }
-      getPointsRecursively(layer.geometry.coordinates).forEach((pointsArr) => {
-        pointsArr.forEach((point) => updateMinMax(point));
+      getPointsRecursively(layer.geometry.coordinates).forEach(pointsArr => {
+        pointsArr.forEach(point => updateMinMax(point));
       });
     } else {
-      layer.geometry.geometries.forEach((geometry) => {
+      layer.geometry.geometries.forEach(geometry => {
         if (geometry.type === 'Point') {
           updateMinMax(geometry);
           return;
         }
         if (geometry.type === 'MultiPoint') {
-          geometry.coordinates.forEach((point) => updateMinMax(point));
+          geometry.coordinates.forEach(point => updateMinMax(point));
           return;
         }
-        getPointsRecursively(geometry.coordinates).forEach((pointsArr) => {
-          pointsArr.forEach((point) => updateMinMax(point));
+        getPointsRecursively(geometry.coordinates).forEach(pointsArr => {
+          pointsArr.forEach(point => updateMinMax(point));
         });
       });
     }
@@ -312,8 +347,8 @@ function getMidPointsFromLayers(dwgLayers) {
   const diffY = maxY - minY;
   const diff = diffX > diffY ? diffX : diffY;
   const multiplier = canvasSide / diff;
-  const offsetY = diffX > diffY ? (canvasSide - (multiplier * diffY)) / 3 : 0;
-  const offsetX = diffX < diffY ? 0 : (canvasSide - (multiplier * diffX)) / 3;
+  const offsetY = diffX > diffY ? (canvasSide - multiplier * diffY) / 3 : 0;
+  const offsetX = diffX < diffY ? 0 : (canvasSide - multiplier * diffX) / 3;
 
   return {
     multiplier,

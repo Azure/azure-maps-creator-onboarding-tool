@@ -12,7 +12,7 @@ describe('GeoreferenceControl class', () => {
   beforeEach(() => {
     useGeometryStore.setState({
       anchorPoint: {
-        coordinates: [0,0],
+        coordinates: [0, 0],
         angle: 111,
       },
     });
@@ -93,12 +93,14 @@ describe('Control', () => {
     global.fetch.mockReturnValue(
       Promise.resolve({
         json: () => ({
-          results: [{
-            position: {
-              lon: '12.34',
-              lat: '56.78',
-            }
-          }],
+          results: [
+            {
+              position: {
+                lon: '12.34',
+                lat: '56.78',
+              },
+            },
+          ],
         }),
       })
     );
@@ -117,7 +119,9 @@ describe('Control', () => {
 
     await flushPromises();
 
-    expect(global.fetch).toHaveBeenCalledWith('https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1'
+    );
     expect(map.setCamera).toHaveBeenCalledWith({
       center: [12.34, 56.78],
       zoom: 16,
@@ -125,9 +129,7 @@ describe('Control', () => {
   });
 
   it('should show error message', async () => {
-    global.fetch.mockReturnValue(
-      Promise.reject('something really bad happened')
-    );
+    global.fetch.mockReturnValue(Promise.reject('something really bad happened'));
     const map = { setCamera: jest.fn() };
     const view = render(<Control map={map} />);
     const searchAddressInput = screen.getByPlaceholderText('search.address');
@@ -143,7 +145,9 @@ describe('Control', () => {
 
     await flushPromises();
 
-    expect(global.fetch).toHaveBeenCalledWith('https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1');
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1'
+    );
     expect(view).toMatchSnapshot();
   });
 });

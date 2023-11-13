@@ -9,8 +9,8 @@ import { onMessage } from 'common/store/geometry.store.worker';
 initializeIcons();
 
 jest.mock('react-i18next', () => ({
-  useTranslation: () => ({t: key => key}),
-  Trans: (props) => <div>{props.i18nKey}</div>,
+  useTranslation: () => ({ t: key => key }),
+  Trans: props => <div>{props.i18nKey}</div>,
 }));
 jest.mock('common/translations/i18n', () => ({
   t: key => key,
@@ -19,7 +19,7 @@ jest.mock('common/store/geometry.store.worker-builder', () => () => new MockWork
 jest.mock('file-saver', () => ({
   saveAs: jest.fn(),
 }));
-jest.mock( '@zip.js/zip.js', () => ({
+jest.mock('@zip.js/zip.js', () => ({
   BlobWriter: class {},
   BlobReader: class {},
   ZipWriter: class {
@@ -40,7 +40,7 @@ jest.mock( '@zip.js/zip.js', () => ({
 global.fetch = jest.fn();
 
 function MockWorker() {
-  this.postMessage = (d) => {
-    this.onmessage({data: onMessage(d)});
+  this.postMessage = d => {
+    this.onmessage({ data: onMessage(d) });
   };
 }

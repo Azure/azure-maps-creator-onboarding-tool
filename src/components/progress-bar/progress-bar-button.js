@@ -15,19 +15,19 @@ const ProgressBarButton = ({ step }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const isActiveStep = useMemo(() => (
-    pathname === step.href
-  ), [pathname, step]);
-  const isCompletedStep = useMemo(() => (
-    completedSteps.includes(step.key)
-  ), [completedSteps, step]);
+  const isActiveStep = useMemo(() => pathname === step.href, [pathname, step]);
+  const isCompletedStep = useMemo(() => completedSteps.includes(step.key), [completedSteps, step]);
   const onClick = useCallback(() => {
     navigate(step.href);
   }, [navigate, step]);
 
   return (
-    <ActionButton className={cx(stepStyle, { [activeStepStyle]: isActiveStep })}
-                  key={step.key} disabled={isActiveStep} onClick={onClick}>
+    <ActionButton
+      className={cx(stepStyle, { [activeStepStyle]: isActiveStep })}
+      key={step.key}
+      disabled={isActiveStep}
+      onClick={onClick}
+    >
       <ProgressBarIcon label={t(step.name)} isCompletedStep={isCompletedStep} />
       {t(step.name)}
     </ActionButton>

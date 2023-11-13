@@ -16,10 +16,12 @@ describe('Dropdown', () => {
       {
         key: 'key3',
         text: 'text3',
-      }
+      },
     ];
     const view = render(
-      <Dropdown options={options} anotherAttr={1} someOtherAttr={'hello'}>A shrimp's heart is in its head.</Dropdown>
+      <Dropdown options={options} anotherAttr={1} someOtherAttr={'hello'}>
+        A shrimp's heart is in its head.
+      </Dropdown>
     );
     const dropdown = screen.getByRole('combobox');
     fireEvent.click(dropdown);
@@ -30,7 +32,6 @@ describe('Dropdown', () => {
     expect(optionsList[1]).toHaveTextContent('text2');
     expect(optionsList[2]).toHaveTextContent('text3');
   });
-
 
   it('should render component with option groups', () => {
     const groups = [
@@ -48,11 +49,13 @@ describe('Dropdown', () => {
         {
           key: 'key3',
           text: 'text3',
-        }
+        },
       ],
     ];
     const view = render(
-      <Dropdown optionGroups={groups} anotherAttr={1} someOtherAttr={'hello'}>A shrimp's heart is in its head.</Dropdown>
+      <Dropdown optionGroups={groups} anotherAttr={1} someOtherAttr={'hello'}>
+        A shrimp's heart is in its head.
+      </Dropdown>
     );
     const dropdown = screen.getByRole('combobox');
     fireEvent.click(dropdown);

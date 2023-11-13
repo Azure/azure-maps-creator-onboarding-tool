@@ -12,8 +12,8 @@ describe('getFirstMeaningfulError', () => {
       ...errorResponseMock,
       error: {
         ...errorResponseMock.error,
-        message: errorResponseMock.error.details[0].details[1].message
-      }
+        message: errorResponseMock.error.details[0].details[1].message,
+      },
     });
     expect(error).toEqual(errorResponseMock.error.details[0].details[1].message);
   });
@@ -23,11 +23,13 @@ describe('getFirstMeaningfulError', () => {
       ...errorResponseMock,
       error: {
         ...errorResponseMock.error,
-        details: [{
-          ...errorResponseMock.error.details[0],
-          message: errorResponseMock.error.details[0].details[2].message,
-        }],
-      }
+        details: [
+          {
+            ...errorResponseMock.error.details[0],
+            message: errorResponseMock.error.details[0].details[2].message,
+          },
+        ],
+      },
     });
     expect(error).toEqual(errorResponseMock.error.details[0].details[2].message);
   });
@@ -45,7 +47,7 @@ describe('parseManifestJson', () => {
       lat: 1,
       lon: 2,
       angle: 3,
-    }
+    },
   };
 
   it('should return null when json is not valid', () => {
@@ -59,35 +61,45 @@ describe('parseManifestJson', () => {
     expect(parseManifestJson(123)).toBe(null);
     expect(parseManifestJson('123')).toBe(null);
     expect(parseManifestJson({})).toBe(null);
-    expect(parseManifestJson({
-      ...validJson,
-      facilityName: 123,
-    })).toBe(null);
-    expect(parseManifestJson({
-      ...validJson,
-      buildingLevels: {
-        ...validJson.buildingLevels,
-        dwgLayers: new Set(),
-      }
-    })).toBe(null);
-    expect(parseManifestJson({
-      ...validJson,
-      featureClasses: new Set(),
-    })).toBe(null);
-    expect(parseManifestJson({
-      ...validJson,
-      georeference: {
-        ...validJson.georeference,
-        lat: '1',
-      }
-    })).toBe(null);
-    expect(parseManifestJson({
-      ...validJson,
-      georeference: {
-        ...validJson.georeference,
-        angle: '1',
-      }
-    })).toBe(null);
+    expect(
+      parseManifestJson({
+        ...validJson,
+        facilityName: 123,
+      })
+    ).toBe(null);
+    expect(
+      parseManifestJson({
+        ...validJson,
+        buildingLevels: {
+          ...validJson.buildingLevels,
+          dwgLayers: new Set(),
+        },
+      })
+    ).toBe(null);
+    expect(
+      parseManifestJson({
+        ...validJson,
+        featureClasses: new Set(),
+      })
+    ).toBe(null);
+    expect(
+      parseManifestJson({
+        ...validJson,
+        georeference: {
+          ...validJson.georeference,
+          lat: '1',
+        },
+      })
+    ).toBe(null);
+    expect(
+      parseManifestJson({
+        ...validJson,
+        georeference: {
+          ...validJson.georeference,
+          angle: '1',
+        },
+      })
+    ).toBe(null);
   });
 
   it('should return true when json is valid', () => {

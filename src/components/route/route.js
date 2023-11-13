@@ -21,7 +21,10 @@ const Route = ({ title, component: Component, dataRequired }) => {
   const { pathname } = useLocation();
   const lroStatus = useResponseStore(responseStoreSelector);
 
-  const shouldShowFooter = useMemo(() => progressBarSteps.findIndex(route => route.href === pathname) !== -1, [pathname]);
+  const shouldShowFooter = useMemo(
+    () => progressBarSteps.findIndex(route => route.href === pathname) !== -1,
+    [pathname]
+  );
 
   useEffect(() => {
     if (dataRequired && lroStatus !== LRO_STATUS.SUCCEEDED && lroStatus !== LRO_STATUS.FETCHING_DATA) {
@@ -32,7 +35,7 @@ const Route = ({ title, component: Component, dataRequired }) => {
   return (
     <>
       <TopBar />
-      <div className={cx(routeStyle, {[footerPadding]: shouldShowFooter})}>
+      <div className={cx(routeStyle, { [footerPadding]: shouldShowFooter })}>
         <BreadCrumbNav />
         {title && <h1>{t(title)}</h1>}
         <ProgressBar />

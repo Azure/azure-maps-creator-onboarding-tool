@@ -80,7 +80,7 @@ export const addLayerInput = {
   ],
   errorMessage: {
     maxWidth: '10rem',
-  }
+  },
 };
 
 export const layerIcon = css`
@@ -88,7 +88,7 @@ export const layerIcon = css`
   font-size: ${fontSize.sm};
   width: 1.5rem;
   height: 1.5rem;
-  &:hover{
+  &:hover {
     color: black;
   }
 `;

@@ -5,9 +5,7 @@ import { infoContainer } from './page-description.style';
 
 const PageDescription = ({ description }) => (
   <div className={infoContainer}>
-    <MessageBar messageBarType={MessageBarType.info}>
-      {description}
-    </MessageBar>
+    <MessageBar messageBarType={MessageBarType.info}>{description}</MessageBar>
   </div>
 );
 

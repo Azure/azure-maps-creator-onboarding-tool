@@ -8,8 +8,14 @@ const DeleteIcon = ({ isDraft, title, onDelete }) => {
   }
   return (
     <div className={deleteIconContainer}>
-      <IconButton title={title} onClick={onDelete} iconProps={{ iconName: 'StatusCircleErrorX' }}
-                  className={layerIcon} ariaLabel={title} data-testid='delete-icon' />
+      <IconButton
+        title={title}
+        onClick={onDelete}
+        iconProps={{ iconName: 'StatusCircleErrorX' }}
+        className={layerIcon}
+        ariaLabel={title}
+        data-testid="delete-icon"
+      />
     </div>
   );
 };

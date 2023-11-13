@@ -58,19 +58,19 @@ describe('fixAngle', () => {
 
 describe('isValidAnchorPoint', () => {
   it('should return true', () => {
-    expect(isValidAnchorPoint({ coordinates: [0,0], angle: 0 })).toBe(true);
-    expect(isValidAnchorPoint({ coordinates: [-100,-100], angle: -100 })).toBe(true);
-    expect(isValidAnchorPoint({ coordinates: [100,100], angle: 100 })).toBe(true);
+    expect(isValidAnchorPoint({ coordinates: [0, 0], angle: 0 })).toBe(true);
+    expect(isValidAnchorPoint({ coordinates: [-100, -100], angle: -100 })).toBe(true);
+    expect(isValidAnchorPoint({ coordinates: [100, 100], angle: 100 })).toBe(true);
   });
 
   it('should return false', () => {
-    expect(isValidAnchorPoint({ coordinates: [0,0], angle: null })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, 0], angle: null })).toBe(false);
     expect(isValidAnchorPoint({ angle: null })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [0,0] })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [0,0], angle: true })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [0,0], angle: Infinity })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [0,0], angle: NaN })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [NaN,0], angle: 0 })).toBe(false);
-    expect(isValidAnchorPoint({ coordinates: [0,NaN], angle: 0 })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, 0] })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, 0], angle: true })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, 0], angle: Infinity })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, 0], angle: NaN })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [NaN, 0], angle: 0 })).toBe(false);
+    expect(isValidAnchorPoint({ coordinates: [0, NaN], angle: 0 })).toBe(false);
   });
 });

@@ -8,7 +8,7 @@ import PageDescription from 'components/page-description/page-description';
 import Preview from './preview';
 import { layersContainer, layersWithPreview } from './layers.style';
 
-const layersSelector = (s) => [s.layers, s.setVisited];
+const layersSelector = s => [s.layers, s.setVisited];
 
 export const Layers = () => {
   const { t } = useTranslation();
@@ -24,7 +24,7 @@ export const Layers = () => {
       <PageDescription description={t('page.description.layers')} />
       <div className={layersWithPreview}>
         <div className={layersContainer}>
-          {layers.map(({id, name, props, value, isDraft}) => (
+          {layers.map(({ id, name, props, value, isDraft }) => (
             <Layer id={id} name={name} props={props} value={value} key={id} isDraft={isDraft} />
           ))}
         </div>

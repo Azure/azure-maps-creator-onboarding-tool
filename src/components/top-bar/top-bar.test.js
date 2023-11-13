@@ -14,7 +14,7 @@ describe('TopBar', () => {
 
     const elements = [textSpanElement0, textSpanElement1];
 
-    elements.forEach((textElement) => {
+    elements.forEach(textElement => {
       expect(textElement).toBeInTheDocument();
     });
   });

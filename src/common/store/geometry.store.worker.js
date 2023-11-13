@@ -15,15 +15,19 @@ const SPI = 3.14159265359;
 const k0 = 1.0;
 const TWO_PI = Math.PI * 2;
 
-self.onmessage = function({ data }) { // eslint-disable-line no-restricted-globals
+// eslint-disable-next-line no-restricted-globals
+self.onmessage = function ({ data }) {
+  // eslint-disable-line no-restricted-globals
   // wrapped this in try catch to ignore errors thrown by union function
   // truncating coordinates in unionFixed vastly fixed it, but it still fails sometimes
-  try { postMessage(onMessage(data)); } catch {}
+  try {
+    postMessage(onMessage(data));
+  } catch {}
 };
 
 export function onMessage(data) {
   const { dwgLayers, polygonLayers, anchorPoint } = data;
-  const filteredPolygonLayers = polygonLayers.filter((layer) => dwgLayers.includes(layer.name));
+  const filteredPolygonLayers = polygonLayers.filter(layer => dwgLayers.includes(layer.name));
 
   if (filteredPolygonLayers.length === 0) {
     return null;
@@ -35,36 +39,43 @@ export function onMessage(data) {
 }
 
 function splitPolygons(polygons, [lon, lat]) {
-  return polygons.reduce((acc, val) => {
-    if (val.geometry.type === 'MultiPolygon') {
-      acc.multiPolygons.push(convertMultiPolygonInMetersToDegrees(val.geometry, [lon, lat]));
-    } else if (val.geometry.type === 'Polygon') {
-      acc.polygons.push(convertPolygonInMetersToDegrees(val.geometry, [lon, lat]));
+  return polygons.reduce(
+    (acc, val) => {
+      if (val.geometry.type === 'MultiPolygon') {
+        acc.multiPolygons.push(convertMultiPolygonInMetersToDegrees(val.geometry, [lon, lat]));
+      } else if (val.geometry.type === 'Polygon') {
+        acc.polygons.push(convertPolygonInMetersToDegrees(val.geometry, [lon, lat]));
+      }
+      return acc;
+    },
+    {
+      multiPolygons: [],
+      polygons: [],
     }
-    return acc;
-  }, {
-    multiPolygons: [],
-    polygons: [],
-  });
+  );
 }
 
 function convertMultiPolygonInMetersToDegrees(polygon, [lon, lat]) {
   return {
     type: polygon.type,
-    coordinates: polygon.coordinates.map((coordinates) => (
-      coordinates.map((innerCoordinates) => (
-        innerCoordinates.map(([lonMeters, latMeters]) => translateCoordinateInMetersIntoDegrees(lon, lat, [lonMeters, latMeters]))
-      ))
-    )),
+    coordinates: polygon.coordinates.map(coordinates =>
+      coordinates.map(innerCoordinates =>
+        innerCoordinates.map(([lonMeters, latMeters]) =>
+          translateCoordinateInMetersIntoDegrees(lon, lat, [lonMeters, latMeters])
+        )
+      )
+    ),
   };
 }
 
 function convertPolygonInMetersToDegrees(polygon, [lon, lat]) {
   return {
     type: polygon.type,
-    coordinates: polygon.coordinates.map((coordinates) => (
-      coordinates.map(([lonMeters, latMeters]) => translateCoordinateInMetersIntoDegrees(lon, lat, [lonMeters, latMeters]))
-    )),
+    coordinates: polygon.coordinates.map(coordinates =>
+      coordinates.map(([lonMeters, latMeters]) =>
+        translateCoordinateInMetersIntoDegrees(lon, lat, [lonMeters, latMeters])
+      )
+    ),
   };
 }
 
@@ -95,7 +106,7 @@ function unionFixed(f1, f2) {
 
 function combinePolygons(polygons) {
   const collection = featureCollection(polygons.map(p => polygon(p.coordinates)));
-  return combine(collection).features.map((c) => c.geometry);
+  return combine(collection).features.map(c => c.geometry);
 }
 
 // this function is simplified version of https://github.com/proj4js/proj4js/blob/master/lib/transform.js
@@ -104,7 +115,7 @@ export function translateCoordinateInMetersIntoDegrees(lon, lat, meters) {
   const long0 = lon * D2R;
   const { Qn, Zb, cgb, utg } = getConsts(es, k0, lat0);
 
-  let point = {x: meters[0], y: meters[1]};
+  let point = { x: meters[0], y: meters[1] };
   point = inverse(point, long0, Qn, Zb, cgb, utg); // Convert Cartesian to longlat
 
   point = {
@@ -137,12 +148,12 @@ function getConsts(es, k0, lat0) {
   const n = f / (2 - f);
   let np = n;
 
-  cgb[0] = n * (2 + n * (-2 / 3 + n * (-2 + n * (116 / 45 + n * (26 / 45 + n * (-2854 / 675 ))))));
-  cbg[0] = n * (-2 + n * ( 2 / 3 + n * ( 4 / 3 + n * (-82 / 45 + n * (32 / 45 + n * (4642 / 4725))))));
+  cgb[0] = n * (2 + n * (-2 / 3 + n * (-2 + n * (116 / 45 + n * (26 / 45 + n * (-2854 / 675))))));
+  cbg[0] = n * (-2 + n * (2 / 3 + n * (4 / 3 + n * (-82 / 45 + n * (32 / 45 + n * (4642 / 4725))))));
 
   np = np * n;
   cgb[1] = np * (7 / 3 + n * (-8 / 5 + n * (-227 / 45 + n * (2704 / 315 + n * (2323 / 945)))));
-  cbg[1] = np * (5 / 3 + n * (-16 / 15 + n * ( -13 / 9 + n * (904 / 315 + n * (-1522 / 945)))));
+  cbg[1] = np * (5 / 3 + n * (-16 / 15 + n * (-13 / 9 + n * (904 / 315 + n * (-1522 / 945)))));
 
   np = np * n;
   cgb[2] = np * (56 / 15 + n * (-136 / 35 + n * (-1262 / 105 + n * (73814 / 2835))));
@@ -150,7 +161,7 @@ function getConsts(es, k0, lat0) {
 
   np = np * n;
   cgb[3] = np * (4279 / 630 + n * (-332 / 35 + n * (-399572 / 14175)));
-  cbg[3] = np * (1237 / 630 + n * (-12 / 5 + n * ( -24832 / 14175)));
+  cbg[3] = np * (1237 / 630 + n * (-12 / 5 + n * (-24832 / 14175)));
 
   np = np * n;
   cgb[4] = np * (4174 / 315 + n * (-144838 / 6237));
@@ -161,16 +172,16 @@ function getConsts(es, k0, lat0) {
   cbg[5] = np * (444337 / 155925);
 
   np = Math.pow(n, 2);
-  const Qn = k0 / (1 + n) * (1 + np * (1 / 4 + np * (1 / 64 + np / 256)));
+  const Qn = (k0 / (1 + n)) * (1 + np * (1 / 4 + np * (1 / 64 + np / 256)));
 
-  utg[0] = n * (-0.5 + n * ( 2 / 3 + n * (-37 / 96 + n * ( 1 / 360 + n * (81 / 512 + n * (-96199 / 604800))))));
+  utg[0] = n * (-0.5 + n * (2 / 3 + n * (-37 / 96 + n * (1 / 360 + n * (81 / 512 + n * (-96199 / 604800))))));
   gtu[0] = n * (0.5 + n * (-2 / 3 + n * (5 / 16 + n * (41 / 180 + n * (-127 / 288 + n * (7891 / 37800))))));
 
   utg[1] = np * (-1 / 48 + n * (-1 / 15 + n * (437 / 1440 + n * (-46 / 105 + n * (1118711 / 3870720)))));
   gtu[1] = np * (13 / 48 + n * (-3 / 5 + n * (557 / 1440 + n * (281 / 630 + n * (-1983433 / 1935360)))));
 
   np = np * n;
-  utg[2] = np * (-17 / 480 + n * (37 / 840 + n * (209 / 4480 + n * (-5569 / 90720 ))));
+  utg[2] = np * (-17 / 480 + n * (37 / 840 + n * (209 / 4480 + n * (-5569 / 90720))));
   gtu[2] = np * (61 / 240 + n * (-103 / 140 + n * (15061 / 26880 + n * (167603 / 181440))));
 
   np = np * n;
@@ -210,7 +221,7 @@ function gatg(pp, B) {
     h1 = h;
   }
 
-  return (B + h * Math.sin(2 * B));
+  return B + h * Math.sin(2 * B);
 }
 
 // https://github.com/proj4js/proj4js/blob/master/lib/projections/etmerc.js
@@ -287,7 +298,7 @@ function clens(pp, arg_r) {
 
 // https://github.com/proj4js/proj4js/blob/master/lib/common/adjust_lon.js
 function adjust_lon(x) {
-  return (Math.abs(x) <= SPI) ? x : (x - (sign(x) * TWO_PI));
+  return Math.abs(x) <= SPI ? x : x - sign(x) * TWO_PI;
 }
 
 // https://github.com/proj4js/proj4js/blob/master/lib/common/hypot.js

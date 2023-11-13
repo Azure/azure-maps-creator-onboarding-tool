@@ -24,18 +24,18 @@ export const dropdownStyleObj = {
 };
 
 export const filterInputStyle = css`
-    height: 1.625rem;
-    margin: 0.3125rem;
-    padding: 0 0.625rem;
-    box-sizing: border-box;
-    line-height: 1.625rem;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    background-image: url(${img});
-    background-size: 0.75rem 0.75rem;
-    background-repeat: no-repeat;
-    background-position: 0.375rem 0.375rem;
-    padding-left: 1.5rem;
+  height: 1.625rem;
+  margin: 0.3125rem;
+  padding: 0 0.625rem;
+  box-sizing: border-box;
+  line-height: 1.625rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-image: url(${img});
+  background-size: 0.75rem 0.75rem;
+  background-repeat: no-repeat;
+  background-position: 0.375rem 0.375rem;
+  padding-left: 1.5rem;
 `;
 
 // this input was added to bring back focus to dropdown and make it work properly.

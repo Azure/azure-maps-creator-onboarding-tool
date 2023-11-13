@@ -1,21 +1,8 @@
 {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:cypress/recommended"
-  ],
+  "extends": ["react-app", "react-app/jest", "plugin:cypress/recommended"],
   "rules": {
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ]
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "semi": ["error", "always"]
   }
 }

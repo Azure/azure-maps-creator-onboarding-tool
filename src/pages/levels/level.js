@@ -9,23 +9,50 @@ import FieldError from 'components/field-error';
 
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
-const levelsSelector = (s) => [s.getOrdinalError, s.levels, s.setOrdinal, s.setLevelName, s.isLevelNameValid, s.setVerticalExtent, s.getVerticalExtentError, s.isOrdinalEmpty];
-const progressBarSelector = (s) => s.isMissingDataErrorShown;
+const levelsSelector = s => [
+  s.getOrdinalError,
+  s.levels,
+  s.setOrdinal,
+  s.setLevelName,
+  s.isLevelNameValid,
+  s.setVerticalExtent,
+  s.getVerticalExtentError,
+  s.isOrdinalEmpty,
+];
+const progressBarSelector = s => s.isMissingDataErrorShown;
 
 const Level = ({ level }) => {
   const { t } = useTranslation();
-  const [getOrdinalError, levels, setOrdinal, setLevelName, isLevelNameValid, setVerticalExtent, getVerticalExtentError, isOrdinalEmpty] = useLevelsStore(levelsSelector, shallow);
+  const [
+    getOrdinalError,
+    levels,
+    setOrdinal,
+    setLevelName,
+    isLevelNameValid,
+    setVerticalExtent,
+    getVerticalExtentError,
+    isOrdinalEmpty,
+  ] = useLevelsStore(levelsSelector, shallow);
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
-  const onOrdinalChange = useCallback((e) => {
-    setOrdinal(level.filename, e.target.value);
-  }, [setOrdinal, level]);
-  const onLevelNameChange = useCallback((e) => {
-    setLevelName(level.filename, e.target.value);
-  }, [setLevelName, level]);
-  const onVerticalExtentChange = useCallback((e) => {
-    setVerticalExtent(level.filename, e.target.value);
-  }, [setVerticalExtent, level]);
+  const onOrdinalChange = useCallback(
+    e => {
+      setOrdinal(level.filename, e.target.value);
+    },
+    [setOrdinal, level]
+  );
+  const onLevelNameChange = useCallback(
+    e => {
+      setLevelName(level.filename, e.target.value);
+    },
+    [setLevelName, level]
+  );
+  const onVerticalExtentChange = useCallback(
+    e => {
+      setVerticalExtent(level.filename, e.target.value);
+    },
+    [setVerticalExtent, level]
+  );
   const verticalExtentErrorMsg = useMemo(() => {
     const verticalExtentError = getVerticalExtentError(level.verticalExtent);
     if (verticalExtentError === null) {
@@ -61,32 +88,50 @@ const Level = ({ level }) => {
         <div className={fieldLabel}>
           <FieldLabel required>{t('file.name')}</FieldLabel>
         </div>
-        <TextField readOnly styles={readOnlyInput} className={inputClass} disabled
-                   value={level.filename} />
+        <TextField readOnly styles={readOnlyInput} className={inputClass} disabled value={level.filename} />
       </div>
       <div className={fieldsRow}>
         <div className={fieldLabel}>
-          <FieldLabel required tooltip={t('tooltip.level.name')}>{t('level.name')}</FieldLabel>
+          <FieldLabel required tooltip={t('tooltip.level.name')}>
+            {t('level.name')}
+          </FieldLabel>
         </div>
-        <TextField ariaLabel={t('level.name.of.file', { filename: level.filename })}
-                   onChange={onLevelNameChange} styles={inputStyles} className={inputClass}
-                   value={level.levelName} errorMessage={levelNameErrorMsg} />
+        <TextField
+          ariaLabel={t('level.name.of.file', { filename: level.filename })}
+          onChange={onLevelNameChange}
+          styles={inputStyles}
+          className={inputClass}
+          value={level.levelName}
+          errorMessage={levelNameErrorMsg}
+        />
       </div>
       <div className={fieldsRow}>
         <div className={fieldLabel}>
-          <FieldLabel tooltip={t('tooltip.ordinal')} required>{t('ordinal')}</FieldLabel>
+          <FieldLabel tooltip={t('tooltip.ordinal')} required>
+            {t('ordinal')}
+          </FieldLabel>
         </div>
-        <TextField className={inputClass} value={level.ordinal} onChange={onOrdinalChange}
-                   ariaLabel={t('ordinal.of.file', { filename: level.filename })}
-                   errorMessage={ordinalErrorMsg} styles={inputStyles} />
+        <TextField
+          className={inputClass}
+          value={level.ordinal}
+          onChange={onOrdinalChange}
+          ariaLabel={t('ordinal.of.file', { filename: level.filename })}
+          errorMessage={ordinalErrorMsg}
+          styles={inputStyles}
+        />
       </div>
       <div className={fieldsRow}>
         <div className={fieldLabel}>
           <FieldLabel tooltip={t('tooltip.vertical.extent')}>{t('vertical.extent')}</FieldLabel>
         </div>
-        <TextField className={inputClass} value={level.verticalExtent} onChange={onVerticalExtentChange}
-                   ariaLabel={t('vertical.extent.of.file', { filename: level.filename })}
-                   errorMessage={verticalExtentErrorMsg} styles={inputStyles} />
+        <TextField
+          className={inputClass}
+          value={level.verticalExtent}
+          onChange={onVerticalExtentChange}
+          ariaLabel={t('vertical.extent.of.file', { filename: level.filename })}
+          errorMessage={verticalExtentErrorMsg}
+          styles={inputStyles}
+        />
       </div>
     </div>
   );

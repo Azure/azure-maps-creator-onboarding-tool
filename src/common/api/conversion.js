@@ -8,10 +8,12 @@ const dataFormat = 'dwgzippackage';
 const conversionDwgPackageVersion = '2.0';
 const conversionOutputOntology = 'facility-2.0';
 
-export const uploadConversion = (file) => {
+export const uploadConversion = file => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
-  const url = `${getEnvs()[geography].URL}/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -21,28 +23,34 @@ export const uploadConversion = (file) => {
   });
 };
 
-export const startConversion = (udid) => {
+export const startConversion = udid => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
-  const url = `${getEnvs()[geography].URL}/conversions?udid=${udid}&outputOntology=${conversionOutputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${conversionDwgPackageVersion}&description=${getOriginalPackageName()}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/conversions?udid=${udid}&outputOntology=${conversionOutputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${conversionDwgPackageVersion}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
 };
 
-export const startDataset = (conversionId) => {
+export const startDataset = conversionId => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
-  const url = `${getEnvs()[geography].URL}/datasets?api-version=${apiVersion}&conversionId=${conversionId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/datasets?api-version=${apiVersion}&conversionId=${conversionId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
 };
 
-export const startTileset = (datasetId) => {
+export const startTileset = datasetId => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
-  const url = `${getEnvs()[geography].URL}/tilesets?api-version=${previewApiVersion}&datasetId=${datasetId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/tilesets?api-version=${previewApiVersion}&datasetId=${datasetId}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });

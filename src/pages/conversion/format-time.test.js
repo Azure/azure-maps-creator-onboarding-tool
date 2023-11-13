@@ -2,9 +2,7 @@ import { formatProgressTime } from './format-time';
 
 describe('conversion format time', () => {
   beforeEach(() => {
-    jest
-      .useFakeTimers()
-      .setSystemTime(new Date('2023-05-19'));
+    jest.useFakeTimers().setSystemTime(new Date('2023-05-19'));
   });
 
   it('should return time diff as string', () => {

@@ -1,47 +1,59 @@
 describe('create manifest scenario', () => {
   beforeEach(() => {
     cy.viewport(2048, 1536);
-    cy.intercept({
-      method: 'POST',
-    }, {
-      statusCode: 202,
-      headers: {
-        'Operation-Location': 'very-secret-operation-location',
+    cy.intercept(
+      {
+        method: 'POST',
       },
-      delayMs: 500,
-    });
+      {
+        statusCode: 202,
+        headers: {
+          'Operation-Location': 'very-secret-operation-location',
+        },
+        delayMs: 500,
+      }
+    );
 
-    cy.intercept({
-      method: 'GET',
-      url: '**/very-secret-operation-location*'
-    }, {
-      statusCode: 200,
-      headers: {
-        'Resource-Location': 'fetch-manifest-url',
-      },
-      body: {
-        status: 'Succeeded',
-      },
-    });
-
-    cy.fixture('layer_preview').then((json) => {
-      cy.intercept({
+    cy.intercept(
+      {
         method: 'GET',
-        url: '**/fetch-manifest-url*'
-      }, {
+        url: '**/very-secret-operation-location*',
+      },
+      {
         statusCode: 200,
-        body: json,
-      }).as('getManifest');
+        headers: {
+          'Resource-Location': 'fetch-manifest-url',
+        },
+        body: {
+          status: 'Succeeded',
+        },
+      }
+    );
+
+    cy.fixture('layer_preview').then(json => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: '**/fetch-manifest-url*',
+        },
+        {
+          statusCode: 200,
+          body: json,
+        }
+      ).as('getManifest');
     });
 
-    cy.fixture('search-address-seattle').then((json) => {
-      cy.intercept({
-        method: 'GET',
-        url: '**/search/address/json*'
-      }, {
-        statusCode: 200,
-        body: json,
-      }).as('searchAddress');
+    cy.fixture('search-address-seattle').then(json => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: '**/search/address/json*',
+        },
+        {
+          statusCode: 200,
+          body: json,
+        }
+      ).as('searchAddress');
     });
 
     cy.writeFile('cypress/downloads/drawingpackage.zip', {});
@@ -50,7 +62,7 @@ describe('create manifest scenario', () => {
 
   it('create manifest scenario', () => {
     cy.get('[data-testid="subscription-key-field"]').type(Cypress.env('subscriptionKey'));
-    cy.get('input[type=file]').selectFile('src/common/mocks/contoso.zip', {force: true});
+    cy.get('input[type=file]').selectFile('src/common/mocks/contoso.zip', { force: true });
     cy.get('button').contains('Process').click();
 
     // processing page
@@ -147,8 +159,8 @@ describe('create manifest scenario', () => {
     cy.get('button').contains('Create + Download').click();
 
     // should download correct file
-    cy.fixture('manifest').then((expectedManifest) => {
-      cy.readFile('cypress/downloads/drawingpackage.zip', 'base64').then((drawingPackage) => {
+    cy.fixture('manifest').then(expectedManifest => {
+      cy.readFile('cypress/downloads/drawingpackage.zip', 'base64').then(drawingPackage => {
         cy.task('validateManifestFromZip', { drawingPackage, expectedManifest });
       });
     });

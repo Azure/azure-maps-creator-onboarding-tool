@@ -13,7 +13,7 @@ describe('api', () => {
     uploadFile('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey',
-      {'body': 'myFile', 'headers': {'Content-Type': 'application/zip'}, 'method': 'POST'},
+      { body: 'myFile', headers: { 'Content-Type': 'application/zip' }, method: 'POST' }
     );
   });
 
@@ -29,16 +29,14 @@ describe('api', () => {
     deleteFromLocation('https://www.msft.com/fetch/manifest/data');
     expect(global.fetch).toHaveBeenCalledWith(
       'https://www.msft.com/fetch/manifest/data&subscription-key=subKeeeeeeey',
-      {'method': 'DELETE'},
+      { method: 'DELETE' }
     );
   });
 
-
   it('should call fetchFromLocation request', () => {
     fetchFromLocation('operation-1-location-2');
-    expect(global.fetch).toHaveBeenCalledWith(
-      'operation-1-location-2&subscription-key=subKeeeeeeey',
-      { 'method': 'GET' },
-    );
+    expect(global.fetch).toHaveBeenCalledWith('operation-1-location-2&subscription-key=subKeeeeeeey', {
+      method: 'GET',
+    });
   });
 });

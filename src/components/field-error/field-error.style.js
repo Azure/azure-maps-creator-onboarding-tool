@@ -8,6 +8,6 @@ export const errorContainer = css`
 `;
 
 export const fieldErrorIconStyle = css`
-    margin-right: 0.25rem;
-    font-size: ${fontSize.sm};
+  margin-right: 0.25rem;
+  font-size: ${fontSize.sm};
 `;

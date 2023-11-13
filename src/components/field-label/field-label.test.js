@@ -9,7 +9,9 @@ const myClassName = css`
 
 describe('FieldLabel', () => {
   it('should render default', () => {
-    const view = render(<FieldLabel>The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.</FieldLabel>);
+    const view = render(
+      <FieldLabel>The oldest "your mom" joke was discovered on a 3,500-year-old Babylonian tablet.</FieldLabel>
+    );
     expect(view).toMatchSnapshot();
   });
 

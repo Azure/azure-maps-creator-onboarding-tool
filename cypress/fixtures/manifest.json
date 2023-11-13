@@ -1,10 +1,7 @@
 {
   "version": "2.0",
   "buildingLevels": {
-    "dwgLayers": [
-      "AK-FLOR-EXTR",
-      "AK-WALL"
-    ],
+    "dwgLayers": ["AK-FLOR-EXTR", "AK-WALL"],
     "levels": [
       {
         "filename": "PUGET SOUND_113_01.dwg",
@@ -44,37 +41,21 @@
       "featureClassProperties": [
         {
           "featureClassPropertyName": "my_prop_1",
-          "dwgLayers": [
-            "A-EQPM-EXST",
-            "RM$TXT",
-            "S-GRID-IDEN-EXST"
-          ]
+          "dwgLayers": ["A-EQPM-EXST", "RM$TXT", "S-GRID-IDEN-EXST"]
         },
         {
           "featureClassPropertyName": "new_prop_7",
-          "dwgLayers": [
-            "LMS_LOCATION",
-            "GROS$TXT",
-            "A-CASE-EXST"
-          ]
+          "dwgLayers": ["LMS_LOCATION", "GROS$TXT", "A-CASE-EXST"]
         },
         {
           "featureClassPropertyName": "new_prop_8",
-          "dwgLayers": [
-            "AK-ROOM-LABL",
-            "A-EQPM-EXST",
-            "A-FURN-FREE-EXST"
-          ]
+          "dwgLayers": ["AK-ROOM-LABL", "A-EQPM-EXST", "A-FURN-FREE-EXST"]
         }
       ]
     },
     {
       "featureClassName": "my_class_2",
-      "dwgLayers": [
-        "A-GLAZ-EXST",
-        "A-WALL-CORE-EXST",
-        "A-EQPM-EXST"
-      ]
+      "dwgLayers": ["A-GLAZ-EXST", "A-WALL-CORE-EXST", "A-EQPM-EXST"]
     }
   ],
   "facilityName": "perfect circle"

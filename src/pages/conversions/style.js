@@ -36,11 +36,15 @@ export const nameFilterContainer = css`
 `;
 
 export const filterInputStyles = {
-  fieldGroup: [{
-    height: '1.5rem',
-    borderColor: color.grayBorder,
-  }],
-  field: [{
-    fontSize: fontSize.sm,
-  }]
+  fieldGroup: [
+    {
+      height: '1.5rem',
+      borderColor: color.grayBorder,
+    },
+  ],
+  field: [
+    {
+      fontSize: fontSize.sm,
+    },
+  ],
 };

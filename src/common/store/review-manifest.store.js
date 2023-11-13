@@ -30,12 +30,12 @@ export const useReviewManifestStore = create((set, get) => ({
           return JSON.parse(await data.text());
         }
       }
-    } catch(e) {
+    } catch (e) {
       console.warn('manifest.json in DWG ZIP archive was not read correctly. ', e);
     }
     return null;
   },
-  createPackageWithJson: (json) => {
+  createPackageWithJson: json => {
     const { originalPackage } = get();
     return createPackageWithJson(originalPackage, json);
   },
@@ -46,17 +46,19 @@ export const useReviewManifestStore = create((set, get) => ({
     }
     return originalPackage.name?.split('.')[0] ?? '';
   },
-  setOriginalPackage: (originalPackage) => set(() => ({
-    originalPackage,
-  })),
-  setManifestReviewed: (manifestReviewed) => set(() => ({
-    manifestReviewed,
-  })),
+  setOriginalPackage: originalPackage =>
+    set(() => ({
+      originalPackage,
+    })),
+  setManifestReviewed: manifestReviewed =>
+    set(() => ({
+      manifestReviewed,
+    })),
 }));
 
-const geometryStoreSelector = (s) => [s.anchorPoint, s.dwgLayers];
-const levelsStoreSelector = (s) => [s.levels, s.facilityName];
-const layersStoreSelector = (s) => s.layers;
+const geometryStoreSelector = s => [s.anchorPoint, s.dwgLayers];
+const levelsStoreSelector = s => [s.levels, s.facilityName];
+const layersStoreSelector = s => s.layers;
 
 export const useReviewManifestJson = () => {
   const layers = useLayersStore(layersStoreSelector);
@@ -67,7 +69,7 @@ export const useReviewManifestJson = () => {
     version: '2.0',
     buildingLevels: {
       dwgLayers,
-      levels: levels.map((level) => {
+      levels: levels.map(level => {
         const formattedLevel = {
           ...level,
           ordinal: Number(level.ordinal),
@@ -86,17 +88,17 @@ export const useReviewManifestJson = () => {
       angle: anchorPoint.angle,
     },
     featureClasses: layers
-      .filter((layer) => !layer.isDraft)
-      .map((layer) => {
+      .filter(layer => !layer.isDraft)
+      .map(layer => {
         const featureClass = {
           featureClassName: layer.name,
           dwgLayers: layer.value,
         };
 
-        const props = layer.props.filter((prop) => !prop.isDraft);
+        const props = layer.props.filter(prop => !prop.isDraft);
 
         if (props.length !== 0) {
-          featureClass.featureClassProperties = props.map((prop) => ({
+          featureClass.featureClassProperties = props.map(prop => ({
             featureClassPropertyName: prop.name,
             dwgLayers: prop.value,
           }));

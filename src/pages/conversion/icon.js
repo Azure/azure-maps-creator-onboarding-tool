@@ -8,15 +8,15 @@ const StepIcon = ({ status }) => {
   const { t } = useTranslation();
 
   if (status === conversionStatuses.finishedSuccessfully) {
-    return <Icon iconName='SkypeCircleCheck' ariaLabel={t('package.conversion')} className={successIcon} />;
+    return <Icon iconName="SkypeCircleCheck" ariaLabel={t('package.conversion')} className={successIcon} />;
   }
   if (status === conversionStatuses.inProgress) {
-    return <Icon iconName='SyncStatusSolid' ariaLabel={t('package.conversion')} className={inProgressIcon} />;
+    return <Icon iconName="SyncStatusSolid" ariaLabel={t('package.conversion')} className={inProgressIcon} />;
   }
   if (status === conversionStatuses.failed) {
-    return <Icon iconName='StatusErrorFull' ariaLabel={t('package.conversion')} className={failedIcon} />;
+    return <Icon iconName="StatusErrorFull" ariaLabel={t('package.conversion')} className={failedIcon} />;
   }
-  return <Icon iconName='StatusCircleRing' ariaLabel={t('package.conversion')} className={defaultIcon} />;
+  return <Icon iconName="StatusCircleRing" ariaLabel={t('package.conversion')} className={defaultIcon} />;
 };
 
 export default StepIcon;

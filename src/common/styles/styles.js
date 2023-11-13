@@ -1,8 +1,8 @@
 export const color = {
   accent: {
-    'primaryLight': '#deecf9',
-    'primary': '#0078d4',
-    'primaryDark': '#004578'
+    primaryLight: '#deecf9',
+    primary: '#0078d4',
+    primaryDark: '#004578',
   },
   shadow: '#888888',
   darkRed: '#A4262C',
@@ -26,7 +26,7 @@ export const fontSize = {
   lg: '0.938rem', // 15px, (Microsoft Azure header)
   xl: '1rem', // 16px, h3
   '2xl': '1.25rem', // 20px, h2
-  '3xl': '1.5rem' // 24px, h1
+  '3xl': '1.5rem', // 24px, h1
 };
 
 export const fontWeight = {
@@ -34,5 +34,5 @@ export const fontWeight = {
   normal: 400,
   medium: 500,
   semibold: 600,
-  bold: 700
+  bold: 700,
 };

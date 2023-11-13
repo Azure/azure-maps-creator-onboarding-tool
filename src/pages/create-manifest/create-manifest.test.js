@@ -64,7 +64,7 @@ describe('CreateManifestPage', () => {
     expect(uploadFileSpy).toBeCalledWith(file);
   });
 
-  it('should show an error when the file is too big',  async () => {
+  it('should show an error when the file is too big', async () => {
     render(<CreateManifestPage />);
     const fileInput = screen.getByTestId(TEST_ID.FILE_UPLOAD_FIELD);
     file.size = 1024 * 1024 * 101;

@@ -6,7 +6,7 @@ import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useGeometryStore } from './geometry.store';
 
-jest.mock( '@zip.js/zip.js', () => ({
+jest.mock('@zip.js/zip.js', () => ({
   BlobWriter: class {},
   BlobReader: class {
     constructor(originalPackage) {
@@ -64,7 +64,7 @@ describe('useReviewManifestJson', () => {
           filename: 'file 222.dwg',
           levelName: 'last level',
           ordinal: 99,
-        }
+        },
       ],
     });
     useLayersStore.setState({
@@ -87,7 +87,7 @@ describe('useReviewManifestJson', () => {
           name: 'last layer',
           value: ['val val val', 'lav lav lav'],
           props: [],
-        }
+        },
       ],
     });
   });
@@ -96,7 +96,7 @@ describe('useReviewManifestJson', () => {
     const { result } = renderHook(() => useReviewManifestJson());
 
     expect(result.current).toEqual({
-      version:'2.0',
+      version: '2.0',
       buildingLevels: {
         dwgLayers: ['exteriorLayer1', 'exteriorLayer2'],
         levels: [
@@ -112,11 +112,11 @@ describe('useReviewManifestJson', () => {
       featureClasses: [
         {
           featureClassName: 'first layer',
-          dwgLayers: ['val 1','val 2'],
+          dwgLayers: ['val 1', 'val 2'],
           featureClassProperties: [
             {
               featureClassPropertyName: 'first prop',
-              dwgLayers: [ 'prop val 1', 'prop val N' ],
+              dwgLayers: ['prop val 1', 'prop val N'],
             },
             {
               dwgLayers: ['Crows often hold grudges against specific people.'],
@@ -126,8 +126,8 @@ describe('useReviewManifestJson', () => {
         },
         {
           featureClassName: 'last layer',
-          dwgLayers: ['val val val','lav lav lav'],
-        }
+          dwgLayers: ['val val val', 'lav lav lav'],
+        },
       ],
     });
   });
@@ -135,7 +135,7 @@ describe('useReviewManifestJson', () => {
   describe('createPackageWithJson', () => {
     let originalBlob = global.blob;
     beforeAll(() => {
-      global.Blob = function(content, type) {
+      global.Blob = function (content, type) {
         this.stringContent = JSON.stringify({
           content,
           type,
@@ -150,9 +150,12 @@ describe('useReviewManifestJson', () => {
     it('createPackageWithJson', async () => {
       const out = await createPackageWithJson('blee-bloo-blah', { foo: 'bar' });
       expect(out).toEqual([
-        ['manifest.json', {
-          stringContent: '{"content":["{\\n  \\"foo\\": \\"bar\\"\\n}"],"type":{"type":"application/json"}}',
-        }],
+        [
+          'manifest.json',
+          {
+            stringContent: '{"content":["{\\n  \\"foo\\": \\"bar\\"\\n}"],"type":{"type":"application/json"}}',
+          },
+        ],
         ['blee-bloo-blahqwe.dwg', 'file1'],
         ['blee-bloo-blahASDZXCZXC.dwg', 'file3'],
       ]);
