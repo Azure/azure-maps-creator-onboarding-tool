@@ -67,7 +67,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -401,7 +401,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -790,7 +790,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -1140,7 +1140,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -1545,7 +1545,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -1895,7 +1895,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -2300,7 +2300,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -2642,7 +2642,7 @@ Object {
 }
 
 .emotion-4:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }

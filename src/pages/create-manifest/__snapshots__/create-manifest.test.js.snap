@@ -125,7 +125,7 @@ Object {
 }
 
 .emotion-14:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -653,7 +653,7 @@ Object {
 }
 
 .emotion-14:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -1236,7 +1236,7 @@ Object {
 }
 
 .emotion-14:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -1768,7 +1768,7 @@ Object {
 }
 
 .emotion-14:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
