@@ -10,20 +10,20 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import {
-	containerStyle,
-	conversionsLink,
-	descriptionStyle,
-	disabledConversionsLinks,
-	dropdownStyle,
-	errorBannerHidden,
-	errorBannerStyle,
-	fieldStyle,
-	formRowStyle,
-	headerStyle,
-	inputStyles,
-	primaryButtonDisabledStyles,
-	primaryButtonStyle,
-	textFieldStyle,
+  containerStyle,
+  conversionsLink,
+  descriptionStyle,
+  disabledConversionsLinks,
+  dropdownStyle,
+  errorBannerHidden,
+  errorBannerStyle,
+  fieldStyle,
+  formRowStyle,
+  headerStyle,
+  inputStyles,
+  primaryButtonDisabledStyles,
+  primaryButtonStyle,
+  textFieldStyle,
 } from './create-manifest.style';
 import FileField from './file-field';
 
@@ -130,7 +130,7 @@ const CreateManifestPage = () => {
         label={t('dwg.zip.package')}
         id={TEST_ID.FILE_UPLOAD_FIELD}
         onFileSelect={setFile}
-        fileType='zip'
+        fileType="zip"
         onError={setErrorMessage}
         tooltip={t('tooltip.dwg.zip.package')}
       />

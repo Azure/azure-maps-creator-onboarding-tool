@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 
 import FieldLabel from 'components/field-label';
 import {
-	browseButtonContentStyle,
-	browseButtonStyle,
-	fieldStyle,
-	fileInputStyle,
-	formRowStyle,
-	inputStyles,
-	textFieldStyle,
+  browseButtonContentStyle,
+  browseButtonStyle,
+  fieldStyle,
+  fileInputStyle,
+  formRowStyle,
+  inputStyles,
+  textFieldStyle,
 } from './create-manifest.style';
 
 const errors = {
@@ -79,7 +79,7 @@ const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
         <TextField
           value={filename}
           className={textFieldStyle}
-          data-testid='file-name-field'
+          data-testid="file-name-field"
           ariaLabel={label}
           aria-required
           readOnly
@@ -90,7 +90,7 @@ const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
         <label htmlFor={id} className={browseButtonStyle}>
           <span className={browseButtonContentStyle}>{t('browse')}</span>
         </label>
-        <input className={fileInputStyle} id={id} data-testid={id} onChange={pickFile} type='file' />
+        <input className={fileInputStyle} id={id} data-testid={id} onChange={pickFile} type="file" />
       </div>
     </div>
   );

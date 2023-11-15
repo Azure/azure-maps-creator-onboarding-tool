@@ -11,12 +11,12 @@ const ProgressBarIcon = ({ isCompletedStep, label }) => {
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   if (isProgressBarErrorShown && !isCompletedStep) {
-    return <Icon iconName='ErrorBadge' ariaLabel={label} className={cx(iconStyle, iconErrorStyle)} />;
+    return <Icon iconName="ErrorBadge" ariaLabel={label} className={cx(iconStyle, iconErrorStyle)} />;
   }
 
   return (
     <Icon
-      iconName='SkypeCircleCheck'
+      iconName="SkypeCircleCheck"
       ariaLabel={label}
       className={cx(iconStyle, { [iconCompletedStyle]: isCompletedStep })}
     />

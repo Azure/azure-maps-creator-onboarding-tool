@@ -8,7 +8,7 @@ const FieldError = ({ text }) => {
   }
   return (
     <span className={errorContainer}>
-      <Icon iconName='StatusErrorFull' className={fieldErrorIconStyle} />
+      <Icon iconName="StatusErrorFull" className={fieldErrorIconStyle} />
       {text}
     </span>
   );

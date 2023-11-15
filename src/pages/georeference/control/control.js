@@ -12,25 +12,25 @@ import NumberInput from 'components/number-input';
 import { fetchAddress } from 'common/api';
 import { useGeometryStore } from 'common/store';
 import {
-	angleInputStyles,
-	buttonDisabledStyles,
-	buttonStyle,
-	collapseButton,
-	controlContainer,
-	controlCoordinatesContainer,
-	controlHeader,
-	controlInputStyles,
-	controls,
-	controlSliderSection,
-	hiddenControls,
-	iconClass,
-	radioButtonsContainer,
-	searchAddressContainer,
-	searchAddressInput,
-	sectionTitle,
-	sliderContainerInner,
-	sliderContainerOuter,
-	toggleButton,
+  angleInputStyles,
+  buttonDisabledStyles,
+  buttonStyle,
+  collapseButton,
+  controlContainer,
+  controlCoordinatesContainer,
+  controlHeader,
+  controlInputStyles,
+  controls,
+  controlSliderSection,
+  hiddenControls,
+  iconClass,
+  radioButtonsContainer,
+  searchAddressContainer,
+  searchAddressInput,
+  sectionTitle,
+  sliderContainerInner,
+  sliderContainerOuter,
+  toggleButton,
 } from './control.style';
 
 const anchorPointSelector = s => [s.anchorPoint.angle, s.updateAngle];
@@ -130,13 +130,13 @@ function Control({ map }) {
         onClick={toggle}
         ariaLabel={t('hide.control')}
       >
-        <Icon iconName='Search' className={iconClass} ariaLabel={t('hide.control')} />
+        <Icon iconName="Search" className={iconClass} ariaLabel={t('hide.control')} />
       </IconButton>
       <div className={cx(controls, { [hiddenControls]: !isControlsShown })}>
         <div className={controlHeader}>
           <span>{t('position.building.footprint')}</span>
           <IconButton className={collapseButton} onClick={toggle} ariaLabel={t('toggle.control')}>
-            <Icon iconName='BackToWindow' className={iconClass} />
+            <Icon iconName="BackToWindow" className={iconClass} />
           </IconButton>
         </div>
         <div className={cx(searchAddressContainer, radioButtonsContainer)}>

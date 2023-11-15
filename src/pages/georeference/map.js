@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
-	AzureMap,
-	AzureMapDataSourceProvider,
-	AzureMapFeature,
-	AzureMapLayerProvider,
-	AzureMapsProvider,
+  AzureMap,
+  AzureMapDataSourceProvider,
+  AzureMapFeature,
+  AzureMapLayerProvider,
+  AzureMapsProvider,
 } from 'react-azure-maps';
 import { shallow } from 'zustand/shallow';
 
@@ -52,9 +52,9 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
       domain: getDomain(geography),
       zoom: 16,
     }),
-		// eslint-disable-next-line react-hooks/exhaustive-deps -- this only needs to be set once on map init
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- this only needs to be set once on map init
     []
-  ); 
+  );
 
   const featureProps = useMemo(() => {
     if (dissolvedExterior === null) {
@@ -83,11 +83,11 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
     <AzureMapsProvider>
       <div className={mapContainerStyle}>
         <AzureMap options={azureMapOptions} customControls={customControls} controls={controls} events={{ move }}>
-          <AzureMapDataSourceProvider id='OutlineMapDataSourceProvider'>
+          <AzureMapDataSourceProvider id="OutlineMapDataSourceProvider">
             <AzureMapLayerProvider
-              id='OutlineLayerProvider'
+              id="OutlineLayerProvider"
               options={azureMapsLayerProviderOptions}
-              type='PolygonLayer'
+              type="PolygonLayer"
             />
             {/*
               Added key attribute here to remount this component whenever type changes.
@@ -97,8 +97,8 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
             {dissolvedExterior !== null && (
               <AzureMapFeature
                 key={dissolvedExterior.type}
-                variant='shape'
-                id='OutlineMapFeature'
+                variant="shape"
+                id="OutlineMapFeature"
                 {...featureProps}
                 setCoords={dissolvedExterior.coordinates}
               />

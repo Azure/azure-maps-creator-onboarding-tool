@@ -93,7 +93,7 @@ const NumberInput = ({
   return (
     <TextField
       value={stringVal}
-      autoComplete='off'
+      autoComplete="off"
       onKeyPress={onKeyPress}
       onChange={updateStringValue}
       placeholder={placeholder}

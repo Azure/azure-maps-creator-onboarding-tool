@@ -27,7 +27,7 @@ const UploadContent = ({ uploadStepStatus, uploadOperationLog, uploadUdId, selec
       )}
       {uploadStepStatus !== conversionStatuses.empty && uploadStepStatus !== conversionStatuses.inProgress && (
         <DownloadLogs
-          type='upload'
+          type="upload"
           isFailed={uploadStepStatus === conversionStatuses.failed}
           json={uploadOperationLog}
         />

@@ -10,7 +10,7 @@ export const FieldLabel = ({ children, className, required, tooltip }) => (
     {tooltip && (
       <span className={toolTipContainer}>
         <TooltipHost content={tooltip}>
-          <Icon aria-label='Tooltip' iconName='Info' />
+          <Icon aria-label="Tooltip" iconName="Info" />
         </TooltipHost>
       </span>
     )}
