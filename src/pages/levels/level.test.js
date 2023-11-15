@@ -40,9 +40,9 @@ describe('Level component', () => {
     fireEvent.change(input, {
       target: {
         value: '6',
-      }
+      },
     });
-    expect(spy).toHaveBeenCalledWith( 'kitchen.dwg', '6');
+    expect(spy).toHaveBeenCalledWith('kitchen.dwg', '6');
   });
 
   it('should call setLevelName on levelName change', async () => {
@@ -54,9 +54,9 @@ describe('Level component', () => {
     fireEvent.change(input, {
       target: {
         value: 'Ground',
-      }
+      },
     });
-    expect(spy).toHaveBeenCalledWith( 'kitchen.dwg', 'Ground');
+    expect(spy).toHaveBeenCalledWith('kitchen.dwg', 'Ground');
   });
 
   it('should show error message when ordinal is not unique', () => {
@@ -68,7 +68,8 @@ describe('Level component', () => {
   });
 
   it('should show error message when level name contains invalid chars', () => {
-    const veryLongName = 'asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb';
+    const veryLongName =
+      'asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb';
     const level = { filename: 'filename', levelName: veryLongName, ordinal: '5' };
     const view = render(<Level level={level} />);
     expect(view).toMatchSnapshot();

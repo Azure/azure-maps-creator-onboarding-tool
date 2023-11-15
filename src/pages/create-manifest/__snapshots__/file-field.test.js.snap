@@ -48,7 +48,7 @@ Object {
 }
 
 .emotion-2:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }
@@ -225,7 +225,7 @@ Object {
 }
 
 .emotion-2:after {
-  content: " *";
+  content: ' *';
   color: #A4262C;
   white-space: pre;
 }

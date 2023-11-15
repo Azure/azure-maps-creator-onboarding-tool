@@ -135,14 +135,14 @@ export const logsButton = css`
 export const failedLogsButton = css`
   border-color: #d61d28;
   background-color: #d61d28;
-  
+
   &:hover {
-    background-color: #C11B26;
-    border-color: #C11B26;
+    background-color: #c11b26;
+    border-color: #c11b26;
   }
   &:active {
-    background-color: #AB1822;
-    border-color: #AB1822;
+    background-color: #ab1822;
+    border-color: #ab1822;
   }
 `;
 

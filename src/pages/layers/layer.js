@@ -8,16 +8,10 @@ import { useLayersStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
 import Property from './property';
-import {
-  dropdownStyles,
-  fieldLabel,
-  flexContainer,
-  layerRow,
-  layerNameInputStyles,
-} from './layers.style';
+import { dropdownStyles, fieldLabel, flexContainer, layerRow, layerNameInputStyles } from './layers.style';
 import DeleteIcon from './delete-icon';
 
-const layerSelector = (s) => [
+const layerSelector = s => [
   s.layers,
   s.deleteLayer,
   s.layerNames,
@@ -28,23 +22,19 @@ const layerSelector = (s) => [
 
 export const Layer = ({ id, name, value, props, isDraft }) => {
   const { t } = useTranslation();
-  const [
-    layers,
-    deleteLayer,
-    layerNames,
-    updateLayer,
-    getLayerNameError,
-    setPreviewSingleFeatureClass,
-  ] = useLayersStore(layerSelector, shallow);
+  const [layers, deleteLayer, layerNames, updateLayer, getLayerNameError, setPreviewSingleFeatureClass] =
+    useLayersStore(layerSelector, shallow);
 
   const options = useMemo(() => {
     if (layerNames.length === 0) {
-      return [{
-        key: null,
-        text: t('error.empty.layers.dropdown'),
-      }];
+      return [
+        {
+          key: null,
+          text: t('error.empty.layers.dropdown'),
+        },
+      ];
     }
-    return layerNames.map((layer) => ({
+    return layerNames.map(layer => ({
       key: layer,
       text: layer,
     }));
@@ -52,19 +42,25 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
   const deleteThisLayer = useCallback(() => {
     deleteLayer(id);
   }, [deleteLayer, id]);
-  const onChangeLayersSelection = useCallback((e, item) => {
-    if (layerNames.length === 0) {
-      return;
-    }
-    updateLayer(id, {
-      value: item.selectedOptions,
-    });
-  }, [updateLayer, id, layerNames]);
-  const onChangeName = useCallback((e) => {
-    updateLayer(id, {
-      name: e.target.value,
-    });
-  }, [updateLayer, id]);
+  const onChangeLayersSelection = useCallback(
+    (e, item) => {
+      if (layerNames.length === 0) {
+        return;
+      }
+      updateLayer(id, {
+        value: item.selectedOptions,
+      });
+    },
+    [updateLayer, id, layerNames]
+  );
+  const onChangeName = useCallback(
+    e => {
+      updateLayer(id, {
+        name: e.target.value,
+      });
+    },
+    [updateLayer, id]
+  );
   const layerNameError = useMemo(() => {
     if (isDraft) return '';
     const error = getLayerNameError(name);
@@ -79,29 +75,51 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     }
     return '';
   }, [isDraft, t]);
-  const showTempPreview = useCallback((e, { open }) => {
-    if (open) {
-      setPreviewSingleFeatureClass(id);
-    } else {
-      setPreviewSingleFeatureClass(null);
-    }
-  }, [id, setPreviewSingleFeatureClass]);
+  const showTempPreview = useCallback(
+    (e, { open }) => {
+      if (open) {
+        setPreviewSingleFeatureClass(id);
+      } else {
+        setPreviewSingleFeatureClass(null);
+      }
+    },
+    [id, setPreviewSingleFeatureClass]
+  );
 
   return (
     <div className={layerRow}>
       <div className={flexContainer}>
-        <TextField className={fieldLabel} value={name} onChange={onChangeName} styles={layerNameInputStyles}
-                   errorMessage={layerNameError} placeholder={placeholder} />
-        <Dropdown onOptionSelect={onChangeLayersSelection} onOpenChange={showTempPreview} showFilter
-                  options={options} multiselect={layerNames.length !== 0} selectedOptions={value}
-                  positioning='before' className={dropdownStyles}>
+        <TextField
+          className={fieldLabel}
+          value={name}
+          onChange={onChangeName}
+          styles={layerNameInputStyles}
+          errorMessage={layerNameError}
+          placeholder={placeholder}
+        />
+        <Dropdown
+          onOptionSelect={onChangeLayersSelection}
+          onOpenChange={showTempPreview}
+          showFilter
+          options={options}
+          multiselect={layerNames.length !== 0}
+          selectedOptions={value}
+          positioning="before"
+          className={dropdownStyles}
+        >
           {value.length ? value.join(', ') : t('select.layers')}
         </Dropdown>
         <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
       </div>
-      {props.map((property) => (
-        <Property key={property.id} name={property.name} value={property.value}
-                  id={property.id} parentId={id} isDraft={property.isDraft} />
+      {props.map(property => (
+        <Property
+          key={property.id}
+          name={property.name}
+          value={property.value}
+          id={property.id}
+          parentId={id}
+          isDraft={property.isDraft}
+        />
       ))}
     </div>
   );
@@ -111,11 +129,13 @@ Layer.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(PropTypes.string).isRequired,
-  props: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.arrayOf(PropTypes.string).isRequired,
-  })).isRequired,
+  props: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
   isDraft: PropTypes.bool.isRequired,
 };
 

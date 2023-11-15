@@ -55,10 +55,7 @@
   "featureClasses": [
     {
       "featureClassName": "my_class_2",
-      "dwgLayers": [
-        "A-GLAZ-EXST",
-        "A-WALL-CORE-EXST"
-      ]
+      "dwgLayers": ["A-GLAZ-EXST", "A-WALL-CORE-EXST"]
     }
   ],
   "facilityName": "perfect circle"

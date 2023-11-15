@@ -8,9 +8,7 @@ const CheckedMap = () => {
     return null;
   }
 
-  return (
-    <Map dissolvedExterior={dissolvedExterior} exteriorCenter={exteriorCenter} />
-  );
+  return <Map dissolvedExterior={dissolvedExterior} exteriorCenter={exteriorCenter} />;
 };
 
 export default CheckedMap;

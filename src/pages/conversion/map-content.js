@@ -6,9 +6,7 @@ const MapContent = ({ selectedStep, mapConfigurationId, bbox }) => {
     return null;
   }
 
-  return (
-    <TilesetMap mapConfigurationId={mapConfigurationId} bbox={bbox} />
-  );
+  return <TilesetMap mapConfigurationId={mapConfigurationId} bbox={bbox} />;
 };
 
 export default MapContent;

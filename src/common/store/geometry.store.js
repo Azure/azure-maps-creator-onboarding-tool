@@ -20,65 +20,86 @@ const getDefaultState = () => ({
   },
 });
 
-export const useGeometryStore = create(
-  (set, get) => ({
-    ...getDefaultState(),
-    reset: () => set({
+export const useGeometryStore = create((set, get) => ({
+  ...getDefaultState(),
+  reset: () =>
+    set({
       ...getDefaultState(),
     }),
-    setDwgLayers: (dwgLayers) => set({
+  setDwgLayers: dwgLayers =>
+    set({
       dwgLayers,
     }),
-    setCenterToAnchorPointDestination: (centerToAnchorPointDestination) => set({
+  setCenterToAnchorPointDestination: centerToAnchorPointDestination =>
+    set({
       centerToAnchorPointDestination,
     }),
-    updateAnchorPointViaMapCenter: (mapCenter) => {
-      const anchorPoint = get().anchorPoint;
-      const centerToAnchor = get().centerToAnchorPointDestination;
-      const newAnchorPointCoordinates = applyDistance(mapCenter, fixAngle(centerToAnchor.heading + anchorPoint.angle), centerToAnchor.distance);
-      get().safelySetAnchorPoint({
-        coordinates: newAnchorPointCoordinates,
-        angle: anchorPoint.angle,
+  updateAnchorPointViaMapCenter: mapCenter => {
+    const anchorPoint = get().anchorPoint;
+    const centerToAnchor = get().centerToAnchorPointDestination;
+    const newAnchorPointCoordinates = applyDistance(
+      mapCenter,
+      fixAngle(centerToAnchor.heading + anchorPoint.angle),
+      centerToAnchor.distance
+    );
+    get().safelySetAnchorPoint({
+      coordinates: newAnchorPointCoordinates,
+      angle: anchorPoint.angle,
+    });
+  },
+  updateAngle: angle => {
+    const anchorPoint = get().anchorPoint;
+    if (angle === anchorPoint.angle) {
+      return;
+    }
+    const centerToAnchor = get().centerToAnchorPointDestination;
+    const anchorToCenterAngle = fixAngle(centerToAnchor.heading + anchorPoint.angle + 180);
+    const centerPoint = math.getDestination(
+      anchorPoint.coordinates,
+      anchorToCenterAngle,
+      centerToAnchor.distance,
+      'meters'
+    );
+    const newAnchorPointCoordinates = applyDistance(
+      centerPoint,
+      fixAngle(centerToAnchor.heading + angle),
+      centerToAnchor.distance
+    );
+    get().safelySetAnchorPoint({
+      coordinates: newAnchorPointCoordinates,
+      angle,
+    });
+  },
+  updateAnchorPoint: anchorPoint => {
+    get().safelySetAnchorPoint({
+      ...get().anchorPoint,
+      ...anchorPoint,
+    });
+  },
+  safelySetAnchorPoint: anchorPoint => {
+    if (isValidAnchorPoint(anchorPoint)) {
+      set({
+        anchorPoint,
       });
-    },
-    updateAngle: (angle) => {
-      const anchorPoint = get().anchorPoint;
-      if (angle === anchorPoint.angle) {
-        return;
-      }
-      const centerToAnchor = get().centerToAnchorPointDestination;
-      const anchorToCenterAngle = fixAngle(centerToAnchor.heading + anchorPoint.angle + 180);
-      const centerPoint = math.getDestination(anchorPoint.coordinates, anchorToCenterAngle, centerToAnchor.distance, 'meters');
-      const newAnchorPointCoordinates = applyDistance(centerPoint, fixAngle(centerToAnchor.heading + angle), centerToAnchor.distance);
-      get().safelySetAnchorPoint({
-        coordinates: newAnchorPointCoordinates,
-        angle,
-      });
-    },
-    updateAnchorPoint: (anchorPoint) => {
-      get().safelySetAnchorPoint({
-        ...get().anchorPoint,
-        ...anchorPoint,
-      });
-    },
-    safelySetAnchorPoint: (anchorPoint) => {
-      if (isValidAnchorPoint(anchorPoint)) {
-        set({
-          anchorPoint,
-        });
-      }
-    },
-  })
-);
+    }
+  },
+}));
 
-const geometrySelector = (s) => [s.dwgLayers, s.anchorPoint, s.centerToAnchorPointDestination, s.setCenterToAnchorPointDestination, s.updateAnchorPoint];
-const layersSelector = (s) => s.polygonLayers;
+const geometrySelector = s => [
+  s.dwgLayers,
+  s.anchorPoint,
+  s.centerToAnchorPointDestination,
+  s.setCenterToAnchorPointDestination,
+  s.updateAnchorPoint,
+];
+const layersSelector = s => s.polygonLayers;
 
 export const useDissolvedExterior = () => {
   const lastProcessedAnchorPoint = useRef(null);
   const lastProcessedDwgLayers = useRef(null);
   const polygonLayers = useLayersStore(layersSelector);
-  const [dwgLayers, anchorPoint, centerToAnchorPointDestination, setCenterToAnchorPointDestination, updateAnchorPoint] = useGeometryStore(geometrySelector, shallow);
+  const [dwgLayers, anchorPoint, centerToAnchorPointDestination, setCenterToAnchorPointDestination, updateAnchorPoint] =
+    useGeometryStore(geometrySelector, shallow);
   const [output, setOutput] = useState([null, null]);
   const [worker, setWorker] = useState(null);
   const [calcInProgress, setCalcInProgress] = useState(false);
@@ -87,11 +108,12 @@ export const useDissolvedExterior = () => {
   useEffect(() => {
     if (mergedMultiPolygons === null) {
       setOutput([
-        dwgLayers.length === 0 ? applyDistance(
-          anchorPoint.coordinates,
-            fixAngle(centerToAnchorPointDestination.heading + anchorPoint.angle + 180),
-          centerToAnchorPointDestination.distance,
-          )
+        dwgLayers.length === 0
+          ? applyDistance(
+              anchorPoint.coordinates,
+              fixAngle(centerToAnchorPointDestination.heading + anchorPoint.angle + 180),
+              centerToAnchorPointDestination.distance
+            )
           : null,
         null,
       ]);
@@ -101,15 +123,16 @@ export const useDissolvedExterior = () => {
     const polygon = mergedMultiPolygons[0];
     const anchorPointOfThisPolygon = mergedMultiPolygons[1];
     const fixedAngle = fixAngle(anchorPointOfThisPolygon.angle);
-    const rotated = polygon.type === 'Polygon'
-      ? polygon.coordinates.map((coordinates) => (
-        math.rotatePositions(coordinates, anchorPointOfThisPolygon.coordinates, fixedAngle)
-      ))
-      : polygon.coordinates.map((coordinates) => (
-        coordinates.map((innerCoordinates) => (
-          math.rotatePositions(innerCoordinates, anchorPointOfThisPolygon.coordinates, fixedAngle)
-        ))
-      ));
+    const rotated =
+      polygon.type === 'Polygon'
+        ? polygon.coordinates.map(coordinates =>
+            math.rotatePositions(coordinates, anchorPointOfThisPolygon.coordinates, fixedAngle)
+          )
+        : polygon.coordinates.map(coordinates =>
+            coordinates.map(innerCoordinates =>
+              math.rotatePositions(innerCoordinates, anchorPointOfThisPolygon.coordinates, fixedAngle)
+            )
+          );
 
     const rotatedPolygon = { type: polygon.type, coordinates: rotated };
     const centerPoint = center(rotatedPolygon).geometry.coordinates;
@@ -117,7 +140,7 @@ export const useDissolvedExterior = () => {
     if (centerToAnchorPointDestination.distance === 0) {
       const distance = math.getDistanceTo(centerPoint, anchorPointOfThisPolygon.coordinates, 'meters');
       const heading = math.getHeading(centerPoint, anchorPointOfThisPolygon.coordinates);
-      setCenterToAnchorPointDestination({distance, heading: heading - anchorPointOfThisPolygon.angle});
+      setCenterToAnchorPointDestination({ distance, heading: heading - anchorPointOfThisPolygon.angle });
       const newAnchorPoint = applyDistance(anchorPoint.coordinates, heading, distance);
       updateAnchorPoint({
         angle: anchorPoint.angle,
@@ -131,7 +154,7 @@ export const useDissolvedExterior = () => {
   useEffect(() => {
     const newWorker = buildWorker();
     setWorker(newWorker);
-    newWorker.onmessage = (message) => {
+    newWorker.onmessage = message => {
       setCalcInProgress(false);
       setMergedMultiPolygons(message.data);
     };
@@ -139,9 +162,10 @@ export const useDissolvedExterior = () => {
 
   useEffect(() => {
     if (
-      worker === null
-      || calcInProgress
-      || (anchorPoint === lastProcessedAnchorPoint.current && dwgLayers === lastProcessedDwgLayers.current)) {
+      worker === null ||
+      calcInProgress ||
+      (anchorPoint === lastProcessedAnchorPoint.current && dwgLayers === lastProcessedDwgLayers.current)
+    ) {
       return;
     }
     setCalcInProgress(true);

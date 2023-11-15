@@ -3,7 +3,7 @@ import { getEnvs } from 'common/functions';
 import { useUserStore } from '../store/user.store';
 import { HTTP_STATUS_CODE } from '../constants';
 
-export const uploadFile = (file) => {
+export const uploadFile = file => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const url = `${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`;
 
@@ -16,7 +16,7 @@ export const uploadFile = (file) => {
   });
 };
 
-export const fetchFromLocation = (location) => {
+export const fetchFromLocation = location => {
   const { subscriptionKey } = useUserStore.getState();
   return fetch(`${location}&subscription-key=${subscriptionKey}`, {
     method: 'GET',
@@ -25,33 +25,35 @@ export const fetchFromLocation = (location) => {
 
 export const fetchWithRetries = (location, retries = 10) => {
   const { subscriptionKey } = useUserStore.getState();
-  return fetch(`${location}&subscription-key=${subscriptionKey}`)
-    .then(async (res) => {
-      const data = await res.json();
-      if (res.status === HTTP_STATUS_CODE.OK) {
-        return data;
-      }
+  return fetch(`${location}&subscription-key=${subscriptionKey}`).then(async res => {
+    const data = await res.json();
+    if (res.status === HTTP_STATUS_CODE.OK) {
+      return data;
+    }
 
-      if (retries > 0) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(fetchWithRetries(location, retries - 1));
-          }, 10000);
-        });
-      }
-      throw new Error(data?.error?.message);
-    });
+    if (retries > 0) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(fetchWithRetries(location, retries - 1));
+        }, 10000);
+      });
+    }
+    throw new Error(data?.error?.message);
+  });
 };
 
-export const deleteFromLocation = (fetchUrl) => {
+export const deleteFromLocation = fetchUrl => {
   const { subscriptionKey } = useUserStore.getState();
   fetch(`${fetchUrl}&subscription-key=${subscriptionKey}`, {
     method: 'DELETE',
   });
 };
 
-export const fetchAddress = (address) => {
+export const fetchAddress = address => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  return fetch(`${getEnvs()[geography].URL}/search/address/json?subscription-key=${subscriptionKey}&api-version=1.0&query=${address}&limit=1`)
-    .then((res) => res.json());
+  return fetch(
+    `${
+      getEnvs()[geography].URL
+    }/search/address/json?subscription-key=${subscriptionKey}&api-version=1.0&query=${address}&limit=1`
+  ).then(res => res.json());
 };

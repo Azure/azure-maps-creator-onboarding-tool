@@ -53,7 +53,7 @@ describe('footer on pages where it should be rendered', () => {
     mockCurrentPathname = '/levels';
     useGeometryStore.setState({ checkedByUser: true });
     useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'], props: [] }] });
-    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: 1 }]});
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: 1 }] });
     const view = render(<Footer />);
     expect(view).toMatchSnapshot();
   });
@@ -84,7 +84,7 @@ describe('footer on pages where it should be rendered', () => {
     const uploadPackageSpy = jest.spyOn(conversionState, 'uploadPackage').mockImplementation(() => {});
     useGeometryStore.setState({ dwgLayers: ['layer1'] });
     useLayersStore.setState({ visited: true, layers: [] });
-    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }]});
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }] });
 
     render(<Footer />);
     const createDownloadBtn = screen.getByText('create.download');
@@ -107,7 +107,7 @@ describe('footer on pages where it should be rendered', () => {
     const uploadPackageSpy = jest.spyOn(conversionState, 'uploadPackage').mockImplementation(() => {});
     useGeometryStore.setState({ dwgLayers: ['layer1'] });
     useLayersStore.setState({ visited: true, layers: [] });
-    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }]});
+    useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }] });
 
     render(<Footer />);
     const createDownloadBtn = screen.getByText('download');

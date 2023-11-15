@@ -6,9 +6,13 @@ import { isStagingEnv } from './constants';
  * @param {String} pathName the path name of the URL
  * @returns {String[]} an array of path names
  */
-export const getSplitPaths = (pathName) => {
-  if (typeof pathName !== 'string' || pathName === '') { return []; }
-  if (pathName === '/') { return ['/']; }
+export const getSplitPaths = pathName => {
+  if (typeof pathName !== 'string' || pathName === '') {
+    return [];
+  }
+  if (pathName === '/') {
+    return ['/'];
+  }
 
   const pathNameLowerCase = pathName.toLowerCase();
   const splits = pathNameLowerCase.split('/');
@@ -46,17 +50,19 @@ const defaultEnvs = {
   EU: {
     TEXT: 'geography.europe',
     URL: 'https://eu.atlas.microsoft.com',
-  }
+  },
 };
 
 export const getEnvs = () => {
   return {
     ...defaultEnvs,
-    ...(isStagingEnv ? {
-      US_TEST: {
-        TEXT: 'geography.unitedstates.test',
-        URL: 'https://us.t-azmaps.azurelbs.com',
-      },
-    }: {}),
+    ...(isStagingEnv
+      ? {
+          US_TEST: {
+            TEXT: 'geography.unitedstates.test',
+            URL: 'https://us.t-azmaps.azurelbs.com',
+          },
+        }
+      : {}),
   };
 };

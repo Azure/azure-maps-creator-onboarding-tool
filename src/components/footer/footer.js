@@ -16,9 +16,9 @@ import {
 import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
 
-const reviewManifestSelector = (s) => [s.createPackageWithJson, s.getOriginalPackageName];
-const progressBarStoreSelector = (s) => [s.showMissingDataError, s.hideMissingDataError];
-const conversionSelector = (s) => [s.reset, s.uploadPackage];
+const reviewManifestSelector = s => [s.createPackageWithJson, s.getOriginalPackageName];
+const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
+const conversionSelector = s => [s.reset, s.uploadPackage];
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -41,11 +41,8 @@ export const Footer = () => {
     if (completedSteps.length === progressBarSteps.length) {
       resetConversion();
       hideMissingDataError();
-      createPackageWithJson(json).then((file) => {
-        saveAs(
-          file,
-          `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`,
-        );
+      createPackageWithJson(json).then(file => {
+        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`);
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file);
           navigate(PATHS.CONVERSION);
@@ -61,17 +58,17 @@ export const Footer = () => {
   }
 
   return (
-      <div className={footerContainerStyle}>
-        <PrimaryButton className={buttonStyle} onClick={onReview}>
-          {featureFlags.onboardingEnabled ? t('create.download') : t('download')}
-        </PrimaryButton>
-        <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
-          {t('previous')}
-        </DefaultButton>
-        <DefaultButton className={buttonStyle} disabled={nextScreenLink === null} onClick={goNext}>
-          {t('next')}
-        </DefaultButton>
-      </div>
+    <div className={footerContainerStyle}>
+      <PrimaryButton className={buttonStyle} onClick={onReview}>
+        {featureFlags.onboardingEnabled ? t('create.download') : t('download')}
+      </PrimaryButton>
+      <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
+        {t('previous')}
+      </DefaultButton>
+      <DefaultButton className={buttonStyle} disabled={nextScreenLink === null} onClick={goNext}>
+        {t('next')}
+      </DefaultButton>
+    </div>
   );
 };
 

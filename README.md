@@ -8,7 +8,7 @@ The Azure Maps Manifest Tool allows to interactively generate manifest files req
 2. To install dependencies, run `npm install`.
 
 After installing deps you may see concerning security messages like `6 high severity vulnerabilities`. Don't try to fix it by running `npm audit fix --force` as it may break your build. \
-These vulnerabilities can be safely ignored as affected packages are only used in dev. To check production dependencies you may run `npm audit --production`, which should return `found 0 vulnerabilities`. 
+These vulnerabilities can be safely ignored as affected packages are only used in dev. To check production dependencies you may run `npm audit --production`, which should return `found 0 vulnerabilities`.
 
 ## Available commands
 
@@ -65,6 +65,7 @@ API is designed to be used only by the onboarding tool and is not supported for 
 ## Map interactions.
 
 For map interactions we use following libraries:
+
 - [azure-maps-control](https://www.npmjs.com/package/azure-maps-control)
 - [react-azure-maps](https://github.com/Azure/react-azure-maps), usage examples [here](https://github.com/Azure/react-azure-maps-playground/tree/master/src/examples)
 - [turf.js](http://turfjs.org/)
@@ -74,7 +75,7 @@ More info on map calculations in src/common/store/geometry.store.readme.md.
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
@@ -88,8 +89,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.

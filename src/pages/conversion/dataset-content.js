@@ -19,13 +19,19 @@ const DatasetContent = ({ datasetStepStatus, datasetOperationLog, datasetId, sel
         <span className={boldHeader}>DatasetId</span>: {datasetId === null ? '' : datasetId}
         <CopyIcon textToCopy={datasetId} />
       </div>
-      {datasetOperationLog && <div className={logContainer}>
-        <h3>{t('operation.log')}</h3>
-        <Log src={datasetOperationLog} />
-      </div>}
-      {datasetStepStatus !== conversionStatuses.empty && datasetStepStatus !== conversionStatuses.inProgress &&
-        <DownloadLogs type='dataset' isFailed={datasetStepStatus === conversionStatuses.failed}
-                      json={datasetOperationLog} />}
+      {datasetOperationLog && (
+        <div className={logContainer}>
+          <h3>{t('operation.log')}</h3>
+          <Log src={datasetOperationLog} />
+        </div>
+      )}
+      {datasetStepStatus !== conversionStatuses.empty && datasetStepStatus !== conversionStatuses.inProgress && (
+        <DownloadLogs
+          type="dataset"
+          isFailed={datasetStepStatus === conversionStatuses.failed}
+          json={datasetOperationLog}
+        />
+      )}
     </div>
   );
 };

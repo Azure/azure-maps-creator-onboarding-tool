@@ -21,7 +21,7 @@ export const labelStyle = css`
 
 export const requiredField = css`
   &:after {
-    content: " *";
+    content: ' *';
     color: ${color.darkRed};
     white-space: pre;
   }

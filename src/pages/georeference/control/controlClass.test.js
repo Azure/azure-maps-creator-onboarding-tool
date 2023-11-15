@@ -15,7 +15,7 @@ describe('GeoreferenceControl', () => {
     const returnVal = instance.onAdd(map);
     expect(instance.container.outerHTML).toBe('<div class="azure-maps-control-container"></div>');
     expect(instance.map).toBe(map);
-    expect(render).toHaveBeenCalledWith(<Control map='map!' />, instance.container);
+    expect(render).toHaveBeenCalledWith(<Control map="map!" />, instance.container);
     expect(returnVal).toBe(instance.container);
   });
 

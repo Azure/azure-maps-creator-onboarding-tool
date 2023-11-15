@@ -114,7 +114,8 @@ Object {
             >
               MapConfigurationId
             </span>
-            : 
+            :
+             
             my-map-config
             <span>
               <i
@@ -373,7 +374,8 @@ Object {
           >
             MapConfigurationId
           </span>
-          : 
+          :
+           
           my-map-config
           <span>
             <i

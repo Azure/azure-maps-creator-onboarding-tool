@@ -7,7 +7,7 @@ import { control, Map } from 'azure-maps-control';
 import { getEnvs } from 'common/functions';
 import { mapContainer } from './style';
 
-const userStoreSelector = (s) => [s.geography, s.subscriptionKey];
+const userStoreSelector = s => [s.geography, s.subscriptionKey];
 
 const TilesetMap = ({ mapConfigurationId, bbox }) => {
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
@@ -21,20 +21,18 @@ const TilesetMap = ({ mapConfigurationId, bbox }) => {
       subscriptionKey: subscriptionKey,
       language: 'en-US',
       domain: getEnvs()[geography].URL,
-      staticAssetsDomain : getEnvs()[geography].URL,
+      staticAssetsDomain: getEnvs()[geography].URL,
       mapConfiguration: mapConfigurationId,
       styleAPIVersion: '2023-03-01-preview',
     });
     map.controls.add(new control.ZoomControl(), { position: 'top-right' });
     new indoor.IndoorManager(map, {
-      levelControl: new indoorControl.LevelControl({ position: 'top-left' })
+      levelControl: new indoorControl.LevelControl({ position: 'top-left' }),
     });
     map.controls.add(new control.StyleControl({ mapStyles: 'all' }), { position: 'top-right' });
   }, [mapConfigurationId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (
-    <div id='azure-maps-container' className={mapContainer} />
-  );
+  return <div id="azure-maps-container" className={mapContainer} />;
 };
 
 export default TilesetMap;

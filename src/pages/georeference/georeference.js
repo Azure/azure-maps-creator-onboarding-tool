@@ -19,33 +19,41 @@ import CheckedMap from './checked-map';
 import MapError from './map-error';
 import PageDescription from 'components/page-description/page-description';
 
-const geometryStoreSelector = (s) => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
-const layersSelector = (s) => s.polygonLayerNames;
+const geometryStoreSelector = s => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
+const layersSelector = s => s.polygonLayerNames;
 
 function Georeference() {
   const { t } = useTranslation();
-  const [dwgLayers, setDwgLayers, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(geometryStoreSelector, shallow);
+  const [dwgLayers, setDwgLayers, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(
+    geometryStoreSelector,
+    shallow
+  );
   const polygonLayers = useLayersStore(layersSelector);
 
   const options = useMemo(() => {
     if (polygonLayers.length === 0) {
-      return [{
-        key: null,
-        text: t('error.empty.layers.dropdown'),
-      }];
+      return [
+        {
+          key: null,
+          text: t('error.empty.layers.dropdown'),
+        },
+      ];
     }
-    return polygonLayers.map((layer) => ({
+    return polygonLayers.map(layer => ({
       key: layer,
       text: layer,
     }));
   }, [t, polygonLayers]);
 
-  const onExteriorLayersSelect = useCallback((e, item) => {
-    if (polygonLayers.length === 0) {
-      return;
-    }
-    setDwgLayers(item.selectedOptions);
-  }, [setDwgLayers, polygonLayers]);
+  const onExteriorLayersSelect = useCallback(
+    (e, item) => {
+      if (polygonLayers.length === 0) {
+        return;
+      }
+      setDwgLayers(item.selectedOptions);
+    },
+    [setDwgLayers, polygonLayers]
+  );
 
   return (
     <>
@@ -55,25 +63,50 @@ function Georeference() {
         <div className={textFieldColumn}>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('exterior')}</FieldLabel>
-            <Dropdown placeholder={t('geography')} onOptionSelect={onExteriorLayersSelect} className={dropdownStyles}
-                      options={options} multiselect={polygonLayers.length !== 0} selectedOptions={dwgLayers} showFilter>
+            <Dropdown
+              placeholder={t('geography')}
+              onOptionSelect={onExteriorLayersSelect}
+              className={dropdownStyles}
+              options={options}
+              multiselect={polygonLayers.length !== 0}
+              selectedOptions={dwgLayers}
+              showFilter
+            >
               {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
             </Dropdown>
           </div>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.longitude')}</FieldLabel>
-            <TextField disabled readOnly value={anchorPointCoordinates[0].toString()} className={textFieldStyle}
-                       ariaLabel={t('anchor.point.longitude')} styles={textInputStyles} />
+            <TextField
+              disabled
+              readOnly
+              value={anchorPointCoordinates[0].toString()}
+              className={textFieldStyle}
+              ariaLabel={t('anchor.point.longitude')}
+              styles={textInputStyles}
+            />
           </div>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.latitude')}</FieldLabel>
-            <TextField disabled readOnly value={anchorPointCoordinates[1].toString()} className={textFieldStyle}
-                       ariaLabel={t('anchor.point.latitude')} styles={textInputStyles} />
+            <TextField
+              disabled
+              readOnly
+              value={anchorPointCoordinates[1].toString()}
+              className={textFieldStyle}
+              ariaLabel={t('anchor.point.latitude')}
+              styles={textInputStyles}
+            />
           </div>
           <div className={textFieldRow}>
             <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.angle')}</FieldLabel>
-            <TextField disabled readOnly value={anchorPointAngle.toString()} className={textFieldStyle}
-                       ariaLabel={t('anchor.point.angle')} styles={textInputStyles} />
+            <TextField
+              disabled
+              readOnly
+              value={anchorPointAngle.toString()}
+              className={textFieldStyle}
+              ariaLabel={t('anchor.point.angle')}
+              styles={textInputStyles}
+            />
           </div>
         </div>
         <CheckedMap />

@@ -8,7 +8,7 @@ import { progressBarSteps, useCompletedSteps, useProgressBarStore } from 'common
 import { errorContainer, progressBarContainer } from './progress-bar.style';
 import ProgressBarButton from './progress-bar-button';
 
-const progressBarStoreSelector = (s) => [
+const progressBarStoreSelector = s => [
   s.isIncorrectManifestVersionErrorShown,
   s.hideIncorrectManifestVersionError,
   s.isInvalidManifestErrorShown,
@@ -30,9 +30,7 @@ export const ProgressBar = () => {
     hideMissingDataError,
   ] = useProgressBarStore(progressBarStoreSelector, shallow);
 
-  const shouldShowProgressBar = useMemo(() => (
-    progressBarSteps.some((step) => step.href === pathname)
-  ), [pathname]);
+  const shouldShowProgressBar = useMemo(() => progressBarSteps.some(step => step.href === pathname), [pathname]);
 
   useEffect(() => {
     if (completedSteps.length === progressBarSteps.length && isMissingDataErrorShown) {
@@ -64,7 +62,9 @@ export const ProgressBar = () => {
         )}
       </div>
       <div className={progressBarContainer}>
-        {progressBarSteps.map((step) => <ProgressBarButton step={step} key={step.key} />)}
+        {progressBarSteps.map(step => (
+          <ProgressBarButton step={step} key={step.key} />
+        ))}
       </div>
     </>
   );

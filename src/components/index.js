@@ -5,11 +5,4 @@ import ProgressBar from './progress-bar/progress-bar';
 import Route from './route/route';
 import TopBar from './top-bar/top-bar';
 
-export {
-  BreadCrumbNav,
-  FieldLabel,
-  Footer,
-  ProgressBar,
-  Route,
-  TopBar,
-};
+export { BreadCrumbNav, FieldLabel, Footer, ProgressBar, Route, TopBar };

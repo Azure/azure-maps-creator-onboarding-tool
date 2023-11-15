@@ -17,5 +17,6 @@ render(
     <FluentProvider theme={webLightTheme}>
       <RouterProvider router={createHashRouter(routes)} />
     </FluentProvider>
-  </React.StrictMode>
-  , document.getElementById('root'));
+  </React.StrictMode>,
+  document.getElementById('root')
+);

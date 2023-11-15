@@ -12,19 +12,27 @@ import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
 import { filterInputStyles, iconsContainer, nameFilterContainer } from './style';
 
-const defaultColumns =  [
+const defaultColumns = [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
-  { key: 'dateCol', name: 'Date', fieldName: 'date', minWidth: 40, maxWidth: 200, isResizable: true, isSorted: true, isSortedDescending: true, },
+  {
+    key: 'dateCol',
+    name: 'Date',
+    fieldName: 'date',
+    minWidth: 40,
+    maxWidth: 200,
+    isResizable: true,
+    isSorted: true,
+    isSortedDescending: true,
+  },
 ];
 
-const addSorting = (columns, sortingColumnKey) => (
-  columns.map((column) => ({
+const addSorting = (columns, sortingColumnKey) =>
+  columns.map(column => ({
     ...column,
     isSorted: column.key === sortingColumnKey,
     isSortedDescending: isDescending(column, sortingColumnKey),
-  }))
-);
+  }));
 
 const isDescending = (column, sortingColumnKey) => {
   if (column.key !== sortingColumnKey) {
@@ -41,15 +49,17 @@ const getOnColumnClickCallback = (columns, setColumns, setSorting) => (e, column
   const newColumns = addSorting(columns, column.key);
   setSorting({
     fieldName: column.fieldName,
-    descending: !!newColumns.find((col) => col.key === column.key).isSortedDescending,
+    descending: !!newColumns.find(col => col.key === column.key).isSortedDescending,
   });
-  setColumns(newColumns.map((col) => ({
-    ...col,
-    onColumnClick: getOnColumnClickCallback(newColumns, setColumns, setSorting),
-  })));
+  setColumns(
+    newColumns.map(col => ({
+      ...col,
+      onColumnClick: getOnColumnClickCallback(newColumns, setColumns, setSorting),
+    }))
+  );
 };
 
-const conversionStoreSelector = (s) => ({
+const conversionStoreSelector = s => ({
   uploadStepStatus: s.uploadStepStatus,
   uploadUdId: s.uploadUdId,
   uploadStartTime: s.uploadStartTime,
@@ -65,7 +75,7 @@ const conversionStoreSelector = (s) => ({
   tilesetDate: s.tilesetEndTime,
 });
 
-const pastConversionStoreSelector = (s) => s.setData;
+const pastConversionStoreSelector = s => s.setData;
 
 const Conversions = () => {
   const { t } = useTranslation();
@@ -73,29 +83,34 @@ const Conversions = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [existingConversions, setExistingConversions] = useState([]);
   const [items, setItems] = useState([]);
-  const [sorting, setSorting] = useState({ fieldName: 'date', descending: true});
+  const [sorting, setSorting] = useState({ fieldName: 'date', descending: true });
   const [columns, setColumns] = useState([]);
   const [nameFilter, setNameFilter] = useState('');
 
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
   const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
 
-  const onItemClick = useCallback((item) => {
-    setPastConversionData(item.conversionData);
-    navigate(item.ongoing ? PATHS.CONVERSION : PATHS.PAST_CONVERSION);
-  }, [navigate, setPastConversionData]);
+  const onItemClick = useCallback(
+    item => {
+      setPastConversionData(item.conversionData);
+      navigate(item.ongoing ? PATHS.CONVERSION : PATHS.PAST_CONVERSION);
+    },
+    [navigate, setPastConversionData]
+  );
 
   const onNameFilterChange = (e, text) => setNameFilter(text);
 
   useEffect(() => {
-    setColumns(defaultColumns.map((column) => ({
-      ...column,
-      onColumnClick: getOnColumnClickCallback(defaultColumns, setColumns, setSorting),
-    })));
+    setColumns(
+      defaultColumns.map(column => ({
+        ...column,
+        onColumnClick: getOnColumnClickCallback(defaultColumns, setColumns, setSorting),
+      }))
+    );
     getAllData().then(({ conversions, datasets, mapDataList, tilesets }) => {
       setIsLoading(false);
       const groupedItems = groupItems(ongoingConversion, { conversions, datasets, mapDataList, tilesets });
-      groupedItems.sort((a, b) => a.date < b.date ? 1 : -1);
+      groupedItems.sort((a, b) => (a.date < b.date ? 1 : -1));
       setExistingConversions(groupedItems);
     });
   }, []); // eslint-disable-line
@@ -130,37 +145,53 @@ const Conversions = () => {
       });
     }
 
-    setItems(items.map((item, i) => ({
-      key: i,
-      name: item.upload?.description ?? item.conversion?.description ?? item.dataset?.description ?? item.tileset?.description ?? '',
-      status: (
-        <div className={iconsContainer}>
-          <StatusIcon item={item.upload} />
-          <StatusIcon item={item.conversion} />
-          <StatusIcon item={item.dataset} />
-          <StatusIcon item={item.tileset} />
-        </div>
-      ),
-      date: item.date.toLocaleString(),
-      ongoing: item.ongoing,
-      conversionData: {
-        uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-        uploadUdId: item.upload?.udid,
-        conversionStepStatus: item.conversion?.conversionId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-        conversionId: item.conversion?.conversionId,
-        datasetStepStatus: item.dataset?.datasetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-        datasetId: item.dataset?.datasetId,
-        tilesetStepStatus: item.tileset?.tilesetId ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-        tilesetId: item.tileset?.tilesetId,
-        mapConfigurationId: item.tileset?.defaultMapConfigurationId,
-        bbox: item.tileset?.bbox,
-      }
-    })).filter((item) => item.name.includes(nameFilter)).sort((a, b) => {
-      if (a[sorting.fieldName] < b[sorting.fieldName]) {
-        return sorting.descending ? 1 : -1;
-      }
-      return sorting.descending ? -1 : 1;
-    }));
+    setItems(
+      items
+        .map((item, i) => ({
+          key: i,
+          name:
+            item.upload?.description ??
+            item.conversion?.description ??
+            item.dataset?.description ??
+            item.tileset?.description ??
+            '',
+          status: (
+            <div className={iconsContainer}>
+              <StatusIcon item={item.upload} />
+              <StatusIcon item={item.conversion} />
+              <StatusIcon item={item.dataset} />
+              <StatusIcon item={item.tileset} />
+            </div>
+          ),
+          date: item.date.toLocaleString(),
+          ongoing: item.ongoing,
+          conversionData: {
+            uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+            uploadUdId: item.upload?.udid,
+            conversionStepStatus: item.conversion?.conversionId
+              ? conversionStatuses.finishedSuccessfully
+              : conversionStatuses.empty,
+            conversionId: item.conversion?.conversionId,
+            datasetStepStatus: item.dataset?.datasetId
+              ? conversionStatuses.finishedSuccessfully
+              : conversionStatuses.empty,
+            datasetId: item.dataset?.datasetId,
+            tilesetStepStatus: item.tileset?.tilesetId
+              ? conversionStatuses.finishedSuccessfully
+              : conversionStatuses.empty,
+            tilesetId: item.tileset?.tilesetId,
+            mapConfigurationId: item.tileset?.defaultMapConfigurationId,
+            bbox: item.tileset?.bbox,
+          },
+        }))
+        .filter(item => item.name.includes(nameFilter))
+        .sort((a, b) => {
+          if (a[sorting.fieldName] < b[sorting.fieldName]) {
+            return sorting.descending ? 1 : -1;
+          }
+          return sorting.descending ? -1 : 1;
+        })
+    );
   }, [existingConversions, ongoingConversion, t, sorting, nameFilter]);
 
   if (isLoading) {
@@ -170,16 +201,19 @@ const Conversions = () => {
   return (
     <>
       <div className={nameFilterContainer}>
-        <TextField ariaLabel={t('filter.by.name')} placeholder={t('filter.by.name')} styles={filterInputStyles}
-                   value={nameFilter} onChange={onNameFilterChange} />
+        <TextField
+          ariaLabel={t('filter.by.name')}
+          placeholder={t('filter.by.name')}
+          styles={filterInputStyles}
+          value={nameFilter}
+          onChange={onNameFilterChange}
+        />
       </div>
       <DetailsList
         items={items}
         onItemInvoked={onItemClick}
         columns={columns}
-        onRenderRow={(data) => (
-          <DetailsRow {...data} styles={{ root: {fontSize: '0.875rem'} }} />
-        )}
+        onRenderRow={data => <DetailsRow {...data} styles={{ root: { fontSize: '0.875rem' } }} />}
         layoutMode={DetailsListLayoutMode.justified}
         selectionMode={0}
       />
@@ -196,14 +230,14 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     uploads: new Set([ongoingConversion.uploadUdId]),
   };
 
-  tilesets?.forEach((tileset) => {
+  tilesets?.forEach(tileset => {
     if (tileset.tilesetId === ongoingConversion.tilesetId) {
       return;
     }
     const item = {
       tileset,
     };
-    const dataset = datasets.find((dataset) => {
+    const dataset = datasets.find(dataset => {
       if (dataset.datasetId === tileset.datasetId) {
         usedItems.datasets.add(dataset.datasetId);
         return true;
@@ -212,7 +246,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     });
     item.dataset = dataset;
     const conversionIds = dataset?.datasetSources?.conversionIds ?? [];
-    const conversion = conversions.find((c) => {
+    const conversion = conversions.find(c => {
       if (conversionIds.includes(c.conversionId)) {
         usedItems.conversions.add(c.conversionId);
         return true;
@@ -220,7 +254,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
       return false;
     });
     item.conversion = conversion;
-    item.upload = mapDataList.find((upload) => {
+    item.upload = mapDataList.find(upload => {
       if (upload.udid === conversion?.udid) {
         usedItems.uploads.add(upload.udid);
         return true;
@@ -231,7 +265,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     items.push(item);
   });
 
-  datasets?.forEach((dataset) => {
+  datasets?.forEach(dataset => {
     if (usedItems.datasets.has(dataset.datasetId) || dataset.datasetId === ongoingConversion.datasetId) {
       return;
     }
@@ -240,7 +274,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     };
 
     const conversionIds = dataset.datasetSources?.conversionIds ?? [];
-    const conversion = conversions.find((c) => {
+    const conversion = conversions.find(c => {
       if (conversionIds.includes(c.conversionId)) {
         usedItems.conversions.add(c.conversionId);
         return true;
@@ -248,7 +282,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
       return false;
     });
     item.conversion = conversion;
-    item.upload = mapDataList.find((upload) => {
+    item.upload = mapDataList.find(upload => {
       if (upload.udid === conversion?.udid) {
         usedItems.uploads.add(upload.udid);
         return true;
@@ -259,15 +293,18 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     items.push(item);
   });
 
-  conversions?.forEach((conversion) => {
-    if (usedItems.conversions.has(conversion.conversionId) || conversion.conversionId === ongoingConversion.conversionId) {
+  conversions?.forEach(conversion => {
+    if (
+      usedItems.conversions.has(conversion.conversionId) ||
+      conversion.conversionId === ongoingConversion.conversionId
+    ) {
       return;
     }
     const item = {
       conversion,
     };
 
-    item.upload = mapDataList.find((upload) => {
+    item.upload = mapDataList.find(upload => {
       if (upload.udid === conversion.udid) {
         usedItems.uploads.add(upload.udid);
         return true;
@@ -278,7 +315,7 @@ function groupItems(ongoingConversion, { conversions, datasets, mapDataList, til
     items.push(item);
   });
 
-  mapDataList?.forEach((upload) => {
+  mapDataList?.forEach(upload => {
     if (usedItems.uploads.has(upload.udid) || upload.udid === ongoingConversion.udid) {
       return;
     }

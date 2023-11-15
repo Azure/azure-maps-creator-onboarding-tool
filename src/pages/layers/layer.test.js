@@ -15,7 +15,7 @@ const props = [
     name: 'prop2',
     value: ['textLayer12'],
     isDraft: false,
-  }
+  },
 ];
 
 const layer1 = { id: 1, value: ['polygonLayer21'], name: 'base layer', isDraft: false, props };

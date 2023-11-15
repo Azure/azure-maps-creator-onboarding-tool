@@ -1,7 +1,7 @@
 export const indoor = {
-  IndoorManager: function() {},
+  IndoorManager: function () {},
 };
 
 export const control = {
-  LevelControl: function() {},
+  LevelControl: function () {},
 };

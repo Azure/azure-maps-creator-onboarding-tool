@@ -10,15 +10,18 @@ import FieldLabel from 'components/field-label';
 import FieldError from 'components/field-error';
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles } from './levels.style';
 
-const levelsSelector = (s) => [s.levels, s.facilityName, s.setFacilityName, s.isLevelNameValid];
+const levelsSelector = s => [s.levels, s.facilityName, s.setFacilityName, s.isLevelNameValid];
 
 const Levels = () => {
   const { t } = useTranslation();
   const [levels, facilityName, setFacilityName, isLevelNameValid] = useLevelsStore(levelsSelector, shallow);
 
-  const onFacilityNameChange = useCallback((e) => {
-    setFacilityName(e.target.value);
-  }, [setFacilityName]);
+  const onFacilityNameChange = useCallback(
+    e => {
+      setFacilityName(e.target.value);
+    },
+    [setFacilityName]
+  );
   const facilityNameErrorMsg = useMemo(() => {
     if (facilityName.length === 0 || isLevelNameValid(facilityName)) {
       return '';
@@ -34,8 +37,14 @@ const Levels = () => {
           <div className={fieldLabel}>
             <FieldLabel>{t('facility.name')}</FieldLabel>
           </div>
-          <TextField ariaLabel={t('facility.name')} onChange={onFacilityNameChange} styles={inputStyles}
-                     className={inputClass} value={facilityName} errorMessage={facilityNameErrorMsg} />
+          <TextField
+            ariaLabel={t('facility.name')}
+            onChange={onFacilityNameChange}
+            styles={inputStyles}
+            className={inputClass}
+            value={facilityName}
+            errorMessage={facilityNameErrorMsg}
+          />
         </div>
       </div>
       {levels.map((level, id) => (

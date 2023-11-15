@@ -94,7 +94,8 @@ describe('progress-bar-steps hook', () => {
       },
     ];
 
-    const longName = 'asdjfhgaskdjfhgaskdjfghaskjdfhgaskjdhgfkajshdgfkajshdgfkasjhdfgaksjhdfgaskjdhfgaksjdhfgaksjhdgfaksjhd';
+    const longName =
+      'asdjfhgaskdjfhgaskdjfghaskjdfhgaskjdhgfkajshdgfkajshdgfkasjhdfgaksjhdfgaskjdhfgaksjdhfgaksjhdgfaksjhd';
     expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);
     useLevelsStore.getState().levels[0].levelName = longName;
     expect(renderHook(() => useCompletedSteps()).result.current).toStrictEqual([]);

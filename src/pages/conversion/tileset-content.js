@@ -6,7 +6,6 @@ import { Log } from './log';
 import { DownloadLogs } from './download-logs';
 import CopyIcon from './copy-icon';
 
-
 const TilesetContent = ({ tilesetStepStatus, tilesetOperationLog, selectedStep, mapConfigurationId, tilesetId }) => {
   const { t } = useTranslation();
 
@@ -18,7 +17,8 @@ const TilesetContent = ({ tilesetStepStatus, tilesetOperationLog, selectedStep, 
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
         <div>
-          <span className={boldHeader}>MapConfigurationId</span>: {mapConfigurationId === null ? '' : mapConfigurationId}
+          <span className={boldHeader}>MapConfigurationId</span>:{' '}
+          {mapConfigurationId === null ? '' : mapConfigurationId}
           <CopyIcon textToCopy={mapConfigurationId} />
         </div>
         <div>
@@ -26,13 +26,19 @@ const TilesetContent = ({ tilesetStepStatus, tilesetOperationLog, selectedStep, 
           <CopyIcon textToCopy={`default_${tilesetId}`} />
         </div>
       </div>
-      {tilesetOperationLog && <div className={logContainer}>
-        <h3>{t('operation.log')}</h3>
-        <Log src={tilesetOperationLog} />
-      </div>}
-      {tilesetStepStatus !== conversionStatuses.empty && tilesetStepStatus !== conversionStatuses.inProgress &&
-        <DownloadLogs type='tileset' isFailed={tilesetStepStatus === conversionStatuses.failed}
-                      json={tilesetOperationLog} />}
+      {tilesetOperationLog && (
+        <div className={logContainer}>
+          <h3>{t('operation.log')}</h3>
+          <Log src={tilesetOperationLog} />
+        </div>
+      )}
+      {tilesetStepStatus !== conversionStatuses.empty && tilesetStepStatus !== conversionStatuses.inProgress && (
+        <DownloadLogs
+          type="tileset"
+          isFailed={tilesetStepStatus === conversionStatuses.failed}
+          json={tilesetOperationLog}
+        />
+      )}
     </div>
   );
 };

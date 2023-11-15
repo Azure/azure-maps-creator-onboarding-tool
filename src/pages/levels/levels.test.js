@@ -25,9 +25,7 @@ const mockLevel4 = {
 };
 
 // added this to emulate enzyme's shallow render for cleaner snapshots
-jest.mock('./level', () => (props) => (
-  <div>{JSON.stringify(props)}</div>
-));
+jest.mock('./level', () => props => <div>{JSON.stringify(props)}</div>);
 
 describe('Levels component', () => {
   it('should render component with 1 level', () => {

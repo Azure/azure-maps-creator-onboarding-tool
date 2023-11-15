@@ -36,15 +36,21 @@ export const textFieldStyle = css`
 `;
 
 export const inputStyles = {
-  fieldGroup: [{
-    height: '1.5rem',
-  }],
-  revealButton: [{
-    height: 'calc(1.5rem - 2px)', // 2px is border top and bottom, otherwise it overlays input border
-  }],
-  field: [{
-    fontSize: fontSize.sm,
-  }]
+  fieldGroup: [
+    {
+      height: '1.5rem',
+    },
+  ],
+  revealButton: [
+    {
+      height: 'calc(1.5rem - 2px)', // 2px is border top and bottom, otherwise it overlays input border
+    },
+  ],
+  field: [
+    {
+      fontSize: fontSize.sm,
+    },
+  ],
 };
 
 export const dropdownStyle = css`

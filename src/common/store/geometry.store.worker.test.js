@@ -1,14 +1,5 @@
-import {
-  onMessage,
-  translateCoordinateInMetersIntoDegrees,
-  truncateNumber
-} from './geometry.store.worker';
-import {
-  workerMockData,
-  workerMockDataResult,
-  workerMockData2,
-  workerMockData2Result,
-} from './geometry.store.mock';
+import { onMessage, translateCoordinateInMetersIntoDegrees, truncateNumber } from './geometry.store.worker';
+import { workerMockData, workerMockDataResult, workerMockData2, workerMockData2Result } from './geometry.store.mock';
 import proj4 from 'proj4';
 
 describe('Geometry Worker', () => {
@@ -45,7 +36,12 @@ describe('Geometry Worker', () => {
 });
 
 function translateCoordinateInMetersIntoDegreesOrig(lon, lat, coordinateInMeters) {
-  const firstProjection = 'PROJCS["ProjLocalCS", GEOGCS["WGS 84", DATUM["World Geodetic System 1984", SPHEROID["WGS 84", 6378137, 298.257223563, AUTHORITY["EPSG", "7030"]], AUTHORITY["EPSG", "6326"]], PRIMEM["Greenwich", 0, AUTHORITY["EPSG", "8901"]], UNIT["degree", 0.0174532925199433, AUTHORITY["EPSG", "9102"]], AUTHORITY["EPSG", "4326"]], UNIT["metre", 1, AUTHORITY["EPSG", "9001"]], PROJECTION["Transverse Mercator"], PARAMETER["central_meridian",' + lon + '], PARAMETER["latitude_of_origin",' + lat + '], PARAMETER["false_easting", 0], PARAMETER["false_northing", 0], AXIS["Lon", EAST], AXIS["Lat", NORTH]]';
+  const firstProjection =
+    'PROJCS["ProjLocalCS", GEOGCS["WGS 84", DATUM["World Geodetic System 1984", SPHEROID["WGS 84", 6378137, 298.257223563, AUTHORITY["EPSG", "7030"]], AUTHORITY["EPSG", "6326"]], PRIMEM["Greenwich", 0, AUTHORITY["EPSG", "8901"]], UNIT["degree", 0.0174532925199433, AUTHORITY["EPSG", "9102"]], AUTHORITY["EPSG", "4326"]], UNIT["metre", 1, AUTHORITY["EPSG", "9001"]], PROJECTION["Transverse Mercator"], PARAMETER["central_meridian",' +
+    lon +
+    '], PARAMETER["latitude_of_origin",' +
+    lat +
+    '], PARAMETER["false_easting", 0], PARAMETER["false_northing", 0], AXIS["Lon", EAST], AXIS["Lat", NORTH]]';
   const secondProjection = proj4.WGS84;
   const adjustedCoordinates = proj4(firstProjection, secondProjection, coordinateInMeters);
   return [truncateNumber(adjustedCoordinates[0]), truncateNumber(adjustedCoordinates[1])];

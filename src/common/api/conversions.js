@@ -12,31 +12,34 @@ const getUploads = () => {
 
 const getConversions = () => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/conversions?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/conversions?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
   return fetch(url);
 };
 
 const getDatasets = () => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/datasets?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/datasets?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
   return fetch(url);
 };
 
 const getTilesets = () => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/tilesets?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
+  const url = `${
+    getEnvs()[geography].URL
+  }/tilesets?api-version=${creatorApiVersion}&subscription-key=${subscriptionKey}`;
   return fetch(url);
 };
 
-export const getAllData = () => (
-  Promise.all([getUploads(), getConversions(), getDatasets(), getTilesets()]).then(re => (
-    Promise.all([re[0].json(), re[1].json(), re[2].json(), re[3].json()])
-  )).then(([uploads, conversions, datasets, tilesets]) => (
-    {
+export const getAllData = () =>
+  Promise.all([getUploads(), getConversions(), getDatasets(), getTilesets()])
+    .then(re => Promise.all([re[0].json(), re[1].json(), re[2].json(), re[3].json()]))
+    .then(([uploads, conversions, datasets, tilesets]) => ({
       ...uploads,
       ...conversions,
       ...datasets,
       ...tilesets,
-    }
-  ))
-);
+    }));

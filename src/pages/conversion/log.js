@@ -17,7 +17,15 @@ export const Log = ({ src }) => {
   }
 
   return (
-    <ReactJson src={parsedSrc} iconStyle='square' indentWidth={2} displayDataTypes={false} name={false}
-               displayObjectSize={false} enableClipboard={false} displayArrayKey={false} />
+    <ReactJson
+      src={parsedSrc}
+      iconStyle="square"
+      indentWidth={2}
+      displayDataTypes={false}
+      name={false}
+      displayObjectSize={false}
+      enableClipboard={false}
+      displayArrayKey={false}
+    />
   );
 };

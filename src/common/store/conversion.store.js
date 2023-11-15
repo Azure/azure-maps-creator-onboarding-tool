@@ -1,11 +1,6 @@
 import { create } from 'zustand';
 
-import {
-  startConversion,
-  startDataset,
-  startTileset,
-  uploadConversion,
-} from 'common/api/conversion';
+import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { fetchFromLocation } from 'common/api';
 import { HTTP_STATUS_CODE } from 'common/constants';
 import { LRO_STATUS } from './response.store';
@@ -62,44 +57,48 @@ const defaultErrorMessage = 'Operation failed.';
 
 export const useConversionStore = create((set, get) => ({
   ...getDefaultState(),
-  reset: () => set({
-    ...getDefaultState(),
-  }),
-  setStep: (selectedStep) => set({
-    selectedStep,
-  }),
-  uploadPackage: (file) => {
+  reset: () =>
+    set({
+      ...getDefaultState(),
+    }),
+  setStep: selectedStep =>
+    set({
+      selectedStep,
+    }),
+  uploadPackage: file => {
     set({
       ...getDefaultState(),
       uploadStartTime: Date.now(),
       uploadStepStatus: conversionStatuses.inProgress,
     });
-    uploadConversion(file).then((res) => {
-      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        res.json().then((data) => {
-          set({
-            uploadStepStatus: conversionStatuses.failed,
-            uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
-            uploadEndTime: Date.now(),
+    uploadConversion(file)
+      .then(res => {
+        if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+          res.json().then(data => {
+            set({
+              uploadStepStatus: conversionStatuses.failed,
+              uploadOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+              uploadEndTime: Date.now(),
+            });
           });
+        } else {
+          get().fetchUploadStatus(res.headers.get(OPERATION_LOCATION));
+        }
+      })
+      .catch(e => {
+        set({
+          uploadStepStatus: conversionStatuses.failed,
+          uploadOperationLog: e.message || defaultErrorMessage,
+          uploadEndTime: Date.now(),
         });
-      } else {
-        get().fetchUploadStatus(res.headers.get(OPERATION_LOCATION));
-      }
-    }).catch((e) => {
-      set({
-        uploadStepStatus: conversionStatuses.failed,
-        uploadOperationLog: e.message || defaultErrorMessage,
-        uploadEndTime: Date.now(),
       });
-    });
   },
-  fetchUploadStatus: (location) => {
+  fetchUploadStatus: location => {
     if (get().uploadStartTime === null) {
       return;
     }
     fetchFromLocation(location)
-      .then(async (res) => {
+      .then(async res => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
           throw new Error();
         }
@@ -127,8 +126,8 @@ export const useConversionStore = create((set, get) => ({
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
               get().startConversion(data.udid);
               set({
                 uploadUdId: data.udid,
@@ -138,15 +137,16 @@ export const useConversionStore = create((set, get) => ({
         } else {
           throw new Error(JSON.stringify(data, null, 4));
         }
-      }).catch((e) => {
-      set({
-        uploadStepStatus: conversionStatuses.failed,
-        uploadOperationLog: e.message || defaultErrorMessage,
-        uploadEndTime: Date.now(),
+      })
+      .catch(e => {
+        set({
+          uploadStepStatus: conversionStatuses.failed,
+          uploadOperationLog: e.message || defaultErrorMessage,
+          uploadEndTime: Date.now(),
+        });
       });
-    });
   },
-  startConversion: (udid) => {
+  startConversion: udid => {
     if (get().uploadStartTime === null) {
       return;
     }
@@ -155,32 +155,34 @@ export const useConversionStore = create((set, get) => ({
       conversionStepStatus: conversionStatuses.inProgress,
       selectedStep: conversionSteps.conversion,
     });
-    startConversion(udid).then((res) => {
-      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        res.json().then((data) => {
-          set({
-            conversionStepStatus: conversionStatuses.failed,
-            conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
-            conversionEndTime: Date.now(),
+    startConversion(udid)
+      .then(res => {
+        if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+          res.json().then(data => {
+            set({
+              conversionStepStatus: conversionStatuses.failed,
+              conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+              conversionEndTime: Date.now(),
+            });
           });
+        } else {
+          get().fetchConversionStatus(res.headers.get(OPERATION_LOCATION));
+        }
+      })
+      .catch(e => {
+        set({
+          conversionStepStatus: conversionStatuses.failed,
+          conversionOperationLog: e.message || defaultErrorMessage,
+          conversionEndTime: Date.now(),
         });
-      } else {
-        get().fetchConversionStatus(res.headers.get(OPERATION_LOCATION));
-      }
-    }).catch((e) => {
-      set({
-        conversionStepStatus: conversionStatuses.failed,
-        conversionOperationLog: e.message || defaultErrorMessage,
-        conversionEndTime: Date.now(),
       });
-    });
   },
-  fetchConversionStatus: (operationLocation) => {
+  fetchConversionStatus: operationLocation => {
     if (get().uploadStartTime === null) {
       return;
     }
     fetchFromLocation(operationLocation)
-      .then(async (res) => {
+      .then(async res => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
           throw new Error();
         }
@@ -210,8 +212,8 @@ export const useConversionStore = create((set, get) => ({
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
               set({
                 conversionId: data.conversionId,
               });
@@ -221,7 +223,7 @@ export const useConversionStore = create((set, get) => ({
           throw new Error(JSON.stringify(data, null, 4));
         }
       })
-      .catch((e) => {
+      .catch(e => {
         set({
           conversionStepStatus: conversionStatuses.failed,
           conversionOperationLog: e.message || defaultErrorMessage,
@@ -229,7 +231,7 @@ export const useConversionStore = create((set, get) => ({
         });
       });
   },
-  startDataset: (conversionId) => {
+  startDataset: conversionId => {
     if (get().uploadStartTime === null) {
       return;
     }
@@ -238,32 +240,34 @@ export const useConversionStore = create((set, get) => ({
       datasetStepStatus: conversionStatuses.inProgress,
       selectedStep: conversionSteps.dataset,
     });
-    startDataset(conversionId).then((res) => {
-      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        res.json().then((data) => {
-          set({
-            datasetStepStatus: conversionStatuses.failed,
-            datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
-            datasetEndTime: Date.now(),
+    startDataset(conversionId)
+      .then(res => {
+        if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+          res.json().then(data => {
+            set({
+              datasetStepStatus: conversionStatuses.failed,
+              datasetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+              datasetEndTime: Date.now(),
+            });
           });
+        } else {
+          get().fetchDatasetStatus(res.headers.get(OPERATION_LOCATION));
+        }
+      })
+      .catch(e => {
+        set({
+          datasetStepStatus: conversionStatuses.failed,
+          datasetOperationLog: e.message || defaultErrorMessage,
+          datasetEndTime: Date.now(),
         });
-      } else {
-        get().fetchDatasetStatus(res.headers.get(OPERATION_LOCATION));
-      }
-    }).catch((e) => {
-      set({
-        datasetStepStatus: conversionStatuses.failed,
-        datasetOperationLog: e.message || defaultErrorMessage,
-        datasetEndTime: Date.now(),
       });
-    });
   },
-  fetchDatasetStatus: (location) => {
+  fetchDatasetStatus: location => {
     if (get().uploadStartTime === null) {
       return;
     }
     fetchFromLocation(location)
-      .then(async (res) => {
+      .then(async res => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
           throw new Error();
         }
@@ -291,8 +295,8 @@ export const useConversionStore = create((set, get) => ({
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
               set({
                 datasetId: data.datasetId,
               });
@@ -302,7 +306,7 @@ export const useConversionStore = create((set, get) => ({
           throw new Error(JSON.stringify(data, null, 4));
         }
       })
-      .catch((e) => {
+      .catch(e => {
         set({
           datasetStepStatus: conversionStatuses.failed,
           datasetOperationLog: e.message || defaultErrorMessage,
@@ -310,7 +314,7 @@ export const useConversionStore = create((set, get) => ({
         });
       });
   },
-  startTileset: (datasetId) => {
+  startTileset: datasetId => {
     if (get().uploadStartTime === null) {
       return;
     }
@@ -319,32 +323,34 @@ export const useConversionStore = create((set, get) => ({
       tilesetStepStatus: conversionStatuses.inProgress,
       selectedStep: conversionSteps.tileset,
     });
-    startTileset(datasetId).then((res) => {
-      if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        res.json().then((data) => {
-          set({
-            tilesetStepStatus: conversionStatuses.failed,
-            tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
-            tilesetEndTime: Date.now(),
+    startTileset(datasetId)
+      .then(res => {
+        if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
+          res.json().then(data => {
+            set({
+              tilesetStepStatus: conversionStatuses.failed,
+              tilesetOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
+              tilesetEndTime: Date.now(),
+            });
           });
+        } else {
+          get().fetchTilesetStatus(res.headers.get(OPERATION_LOCATION));
+        }
+      })
+      .catch(e => {
+        set({
+          tilesetStepStatus: conversionStatuses.failed,
+          tilesetOperationLog: e.message || defaultErrorMessage,
+          tilesetEndTime: Date.now(),
         });
-      } else {
-        get().fetchTilesetStatus(res.headers.get(OPERATION_LOCATION));
-      }
-    }).catch((e) => {
-      set({
-        tilesetStepStatus: conversionStatuses.failed,
-        tilesetOperationLog: e.message || defaultErrorMessage,
-        tilesetEndTime: Date.now(),
       });
-    });
   },
-  fetchTilesetStatus: (location) => {
+  fetchTilesetStatus: location => {
     if (get().uploadStartTime === null) {
       return;
     }
     fetchFromLocation(location)
-      .then(async (res) => {
+      .then(async res => {
         if (res.status !== HTTP_STATUS_CODE.OK) {
           throw new Error();
         }
@@ -373,8 +379,8 @@ export const useConversionStore = create((set, get) => ({
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
               set({
                 tilesetId: data.tilesetId,
                 mapConfigurationId: data.defaultMapConfigurationId,
@@ -385,7 +391,7 @@ export const useConversionStore = create((set, get) => ({
           throw new Error(JSON.stringify(data, null, 4));
         }
       })
-      .catch((e) => {
+      .catch(e => {
         set({
           tilesetStepStatus: conversionStatuses.failed,
           tilesetOperationLog: e.message || defaultErrorMessage,

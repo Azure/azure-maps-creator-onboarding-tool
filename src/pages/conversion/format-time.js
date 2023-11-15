@@ -11,9 +11,9 @@ export function formatProgressTime(startTime, endTime) {
   }
 
   const hours = Math.floor(totalSeconds / 3600);
-  let remainingSeconds = totalSeconds - (hours * 3600);
+  let remainingSeconds = totalSeconds - hours * 3600;
   const minutes = Math.floor(remainingSeconds / 60);
-  remainingSeconds -= (minutes * 60);
+  remainingSeconds -= minutes * 60;
 
   let out = '~';
   if (hours > 0) {

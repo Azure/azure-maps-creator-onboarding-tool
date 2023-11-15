@@ -15,8 +15,8 @@ const defaultFileName = 'WarningsAndErrors.json';
 export const DownloadLogs = ({ isFailed, link, json, type }) => {
   if (link) {
     return (
-      <a href={link} download target='_blank' rel='noreferrer'>
-        <PrimaryButton className={cx(logsButton, { [failedLogsButton]: isFailed})}>Download logs</PrimaryButton>
+      <a href={link} download target="_blank" rel="noreferrer">
+        <PrimaryButton className={cx(logsButton, { [failedLogsButton]: isFailed })}>Download logs</PrimaryButton>
       </a>
     );
   }
@@ -24,12 +24,14 @@ export const DownloadLogs = ({ isFailed, link, json, type }) => {
   if (json) {
     const fileName = logTypes[type] ? `${logTypes[type]}${defaultFileName}` : defaultFileName;
     const fileToSave = new Blob([json], {
-      type: 'application/json'
+      type: 'application/json',
     });
     const saveLog = () => saveAs(fileToSave, fileName);
     return (
       <div className={downloadLogsContainer}>
-        <PrimaryButton onClick={saveLog} className={cx(logsButton, { [failedLogsButton]: isFailed})}>Download logs</PrimaryButton>
+        <PrimaryButton onClick={saveLog} className={cx(logsButton, { [failedLogsButton]: isFailed })}>
+          Download logs
+        </PrimaryButton>
       </div>
     );
   }

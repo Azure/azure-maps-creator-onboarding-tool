@@ -26,8 +26,12 @@ const StepButton = ({ endTime, label, status, startTime, step, title, disabled, 
   const onClick = useCallback(() => setStep(step), [setStep, step]);
 
   return (
-    <button className={cx(stepStyle, { [selectedStepStyle]: selectedStep === step, [enabledStep]: !disabled })}
-            onClick={onClick} aria-label={label} disabled={disabled}>
+    <button
+      className={cx(stepStyle, { [selectedStepStyle]: selectedStep === step, [enabledStep]: !disabled })}
+      onClick={onClick}
+      aria-label={label}
+      disabled={disabled}
+    >
       <div className={stepTitle}>
         <Icon status={status} />
         {title}

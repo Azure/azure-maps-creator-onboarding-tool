@@ -21,15 +21,17 @@ module.exports = defineConfig({
             }
           }
           if (JSON.stringify(downloadedManifest) !== JSON.stringify(expectedManifest)) {
-            throw new Error(JSON.stringify({
-              error: 'Manifest does not match.',
-              downloadedManifest,
-              expectedManifest,
-            }));
+            throw new Error(
+              JSON.stringify({
+                error: 'Manifest does not match.',
+                downloadedManifest,
+                expectedManifest,
+              })
+            );
           }
 
           return null;
-        }
+        },
       });
     },
   },

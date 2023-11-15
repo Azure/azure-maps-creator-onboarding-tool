@@ -39,7 +39,7 @@ describe('FileField', () => {
       size: 1024 * 1024 * 10,
       type: 'application/x-zip-compressed',
     };
-    render(<FileField {...defaultProps} fileType='json' />);
+    render(<FileField {...defaultProps} fileType="json" />);
     const fileInput = screen.getByTestId(defaultProps.id);
 
     fireEvent.change(fileInput, {
@@ -55,7 +55,7 @@ describe('FileField', () => {
       type: 'application/json',
       lastModified: Date.now(),
     });
-    render(<FileField {...defaultProps} fileType='zip' />);
+    render(<FileField {...defaultProps} fileType="zip" />);
     const fileInput = screen.getByTestId(defaultProps.id);
 
     fireEvent.change(fileInput, {
@@ -71,7 +71,7 @@ describe('FileField', () => {
       type: 'application/json',
       lastModified: Date.now(),
     });
-    render(<FileField {...defaultProps} fileType='json' />);
+    render(<FileField {...defaultProps} fileType="json" />);
     const fileInput = screen.getByTestId(defaultProps.id);
 
     fireEvent.change(fileInput, {
