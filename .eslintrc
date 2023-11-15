@@ -1,8 +1,14 @@
 {
   "extends": ["react-app", "react-app/jest", "plugin:cypress/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
-    "quotes": ["error", "single"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "semi": ["error", "always"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
   }
 }
