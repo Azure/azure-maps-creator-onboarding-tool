@@ -76,7 +76,14 @@ const CreateManifestPage = () => {
   }, [file, navigate, subKey, uploadFile]);
 
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
-  const updateGeo = useCallback((_, option) => setGeo(option.optionValue), [setGeo]);
+  const updateGeo = useCallback(
+    (_, option) => {
+      console.log('option', option.optionValue);
+      setGeo(option.optionValue);
+      localStorage.setItem('geography', option.optionValue);
+    },
+    [setGeo]
+  );
 
   const allFieldsFilled = useMemo(() => {
     return file !== null && subKey !== '';
@@ -103,6 +110,7 @@ const CreateManifestPage = () => {
             onOptionSelect={updateGeo}
             className={dropdownStyle}
             options={environmentOptions}
+            defaultSelectedKey={geo}
           >
             {t(getEnvs()[geo].TEXT)}
           </Dropdown>
