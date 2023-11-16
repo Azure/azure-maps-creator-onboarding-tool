@@ -1,9 +1,8 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import flushPromises from 'flush-promises';
-
-import CreateManifestPage, { TEST_ID } from './create-manifest';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { uploadFile } from 'common/api';
 import { useResponseStore } from 'common/store';
+import flushPromises from 'flush-promises';
+import CreateManifestPage, { TEST_ID } from './create-manifest';
 
 const mockNavigate = jest.fn();
 
@@ -43,14 +42,13 @@ describe('CreateManifestPage', () => {
     expect(uploadFileSpy).not.toHaveBeenCalled();
     render(<CreateManifestPage />);
     const fileInput = screen.getByTestId(TEST_ID.FILE_UPLOAD_FIELD);
-    const uploadButton = screen.getByTestId(TEST_ID.UPLOAD_BUTTON);
     const subKeyTextField = screen.getByTestId(TEST_ID.SUBSCRIPTION_KEY_FIELD);
 
     fireEvent.change(fileInput, {
       target: { files: [file] },
     });
 
-    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe(file.name);
+    expect(screen.getByTestId(TEST_ID.FILE_NAME_FIELD).textContent).toBe(file.name);
     expect(screen.queryByText('error.file.size.exceeded')).toBeNull();
     expect(screen.queryByText('error.file.type.incorrect')).toBeNull();
 
@@ -59,6 +57,8 @@ describe('CreateManifestPage', () => {
         value: 'Sonic the Hedgehog isnt his fullname',
       },
     });
+
+    const uploadButton = screen.getByTestId(TEST_ID.UPLOAD_BUTTON);
     fireEvent.click(uploadButton);
 
     expect(uploadFileSpy).toBeCalledWith(file);
@@ -76,7 +76,7 @@ describe('CreateManifestPage', () => {
     await flushPromises();
 
     expect(screen.getByText('error.file.size.exceeded')).toBeInTheDocument();
-    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe('');
+    expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
   });
 
   it('should show an error when the file is not zip', async () => {
@@ -91,7 +91,7 @@ describe('CreateManifestPage', () => {
     await flushPromises();
 
     expect(screen.getByText('error.file.type.incorrect')).toBeInTheDocument();
-    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe('');
+    expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
   });
 
   it('should pick different geographies', async () => {

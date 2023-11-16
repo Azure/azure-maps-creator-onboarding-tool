@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css';
-import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
+import { DefaultButton, MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
 import { useResponseStore, useUserStore } from 'common/store';
@@ -9,7 +9,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
+import FileUploader from './FileUploader';
 import {
+  actionPanelStyle,
   containerStyle,
   conversionsLink,
   descriptionStyle,
@@ -78,7 +80,6 @@ const CreateManifestPage = () => {
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback(
     (_, option) => {
-      console.log('option', option.optionValue);
       setGeo(option.optionValue);
       localStorage.setItem('geography', option.optionValue);
     },
@@ -134,28 +135,76 @@ const CreateManifestPage = () => {
           />
         </div>
       </div>
-      <FileField
-        label={t('dwg.zip.package')}
-        id={TEST_ID.FILE_UPLOAD_FIELD}
-        onFileSelect={setFile}
-        fileType="zip"
-        onError={setErrorMessage}
-        tooltip={t('tooltip.dwg.zip.package')}
-      />
-      <PrimaryButton
-        disabled={!allFieldsFilled}
-        onClick={uploadButtonOnClick}
-        data-testid={TEST_ID.UPLOAD_BUTTON}
-        className={primaryButtonStyle}
-        text={t('process')}
-        styles={primaryButtonDisabledStyles}
-      />
-      <Link
-        to={subKey ? PATHS.CONVERSIONS : ''}
-        className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}
-      >
-        {t('view.existing.conversions')}
-      </Link>
+      {false && (
+        <>
+          <FileField
+            label={t('dwg.zip.package')}
+            id={TEST_ID.FILE_UPLOAD_FIELD}
+            onFileSelect={setFile}
+            fileType="zip"
+            onError={setErrorMessage}
+            tooltip={t('tooltip.dwg.zip.package')}
+          />
+          <PrimaryButton
+            disabled={!allFieldsFilled}
+            onClick={uploadButtonOnClick}
+            data-testid={TEST_ID.UPLOAD_BUTTON}
+            className={primaryButtonStyle}
+            text={t('process')}
+            styles={primaryButtonDisabledStyles}
+          />
+          <Link
+            to={subKey ? PATHS.CONVERSIONS : ''}
+            className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}
+          >
+            {t('view.existing.conversions')}
+          </Link>
+        </>
+      )}
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 15, marginTop: 30 }}>
+        <div className={actionPanelStyle}>
+          <div>
+            <h3>Previous conversions</h3>
+            <div>View all your previous conversions</div>
+          </div>
+          <div>
+            <DefaultButton
+              to={subKey ? PATHS.CONVERSIONS : ''}
+              onClick={() => navigate(PATHS.CONVERSIONS)}
+              disabled={!subKey}
+              // className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}
+              style={{ height: '1.5rem' }}
+              text="View"
+            />
+          </div>
+        </div>
+        <div className={actionPanelStyle}>
+          <div>
+            <h3>New conversion</h3>
+            <div>Start by uploading your DWG files</div>
+          </div>
+          <div>
+            <FileUploader
+              id={TEST_ID.FILE_UPLOAD_FIELD}
+              onFileSelect={setFile}
+              fileType="zip"
+              onError={setErrorMessage}
+              tooltip={t('tooltip.dwg.zip.package')}
+            />
+            {file && (
+              <PrimaryButton
+                disabled={!allFieldsFilled}
+                onClick={uploadButtonOnClick}
+                data-testid={TEST_ID.UPLOAD_BUTTON}
+                className={primaryButtonStyle}
+                text={t('process')}
+                styles={primaryButtonDisabledStyles}
+                style={{ marginTop: 6 }}
+              />
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
