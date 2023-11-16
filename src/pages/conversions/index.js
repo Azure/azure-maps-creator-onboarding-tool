@@ -1,16 +1,16 @@
-import { useEffect, useState, useCallback } from 'react';
+import { TextField } from '@fluentui/react';
+import { DetailsList, DetailsListLayoutMode, DetailsRow } from '@fluentui/react/lib/DetailsList';
+import { PATHS } from 'common';
+import { getAllData } from 'common/api/conversions';
+import { useConversionPastStore } from 'common/store/conversion-past.store';
+import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
-import { DetailsList, DetailsRow, DetailsListLayoutMode } from '@fluentui/react/lib/DetailsList';
-import { TextField } from '@fluentui/react';
-
-import { PATHS } from 'common';
-import { getAllData } from 'common/api/conversions';
-import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
-import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { StatusIcon } from './icon';
 import { filterInputStyles, iconsContainer, nameFilterContainer } from './style';
+import { groupItems } from './utils';
 
 const defaultColumns = [
   { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
@@ -211,121 +211,19 @@ const Conversions = () => {
       </div>
       <DetailsList
         items={items}
-        onItemInvoked={onItemClick}
         columns={columns}
-        onRenderRow={data => <DetailsRow {...data} styles={{ root: { fontSize: '0.875rem' } }} />}
+        onRenderRow={data => (
+          <DetailsRow
+            {...data}
+            onClick={() => onItemClick(data.item)}
+            styles={{ root: { fontSize: '0.875rem', cursor: 'pointer' } }}
+          />
+        )}
         layoutMode={DetailsListLayoutMode.justified}
         selectionMode={0}
       />
     </>
   );
 };
-
-function groupItems(ongoingConversion, { conversions, datasets, mapDataList, tilesets }) {
-  const items = [];
-
-  const usedItems = {
-    datasets: new Set([ongoingConversion.datasetId]),
-    conversions: new Set([ongoingConversion.conversionId]),
-    uploads: new Set([ongoingConversion.uploadUdId]),
-  };
-
-  tilesets?.forEach(tileset => {
-    if (tileset.tilesetId === ongoingConversion.tilesetId) {
-      return;
-    }
-    const item = {
-      tileset,
-    };
-    const dataset = datasets.find(dataset => {
-      if (dataset.datasetId === tileset.datasetId) {
-        usedItems.datasets.add(dataset.datasetId);
-        return true;
-      }
-      return false;
-    });
-    item.dataset = dataset;
-    const conversionIds = dataset?.datasetSources?.conversionIds ?? [];
-    const conversion = conversions.find(c => {
-      if (conversionIds.includes(c.conversionId)) {
-        usedItems.conversions.add(c.conversionId);
-        return true;
-      }
-      return false;
-    });
-    item.conversion = conversion;
-    item.upload = mapDataList.find(upload => {
-      if (upload.udid === conversion?.udid) {
-        usedItems.uploads.add(upload.udid);
-        return true;
-      }
-      return false;
-    });
-    item.date = new Date(item.tileset.created);
-    items.push(item);
-  });
-
-  datasets?.forEach(dataset => {
-    if (usedItems.datasets.has(dataset.datasetId) || dataset.datasetId === ongoingConversion.datasetId) {
-      return;
-    }
-    const item = {
-      dataset,
-    };
-
-    const conversionIds = dataset.datasetSources?.conversionIds ?? [];
-    const conversion = conversions.find(c => {
-      if (conversionIds.includes(c.conversionId)) {
-        usedItems.conversions.add(c.conversionId);
-        return true;
-      }
-      return false;
-    });
-    item.conversion = conversion;
-    item.upload = mapDataList.find(upload => {
-      if (upload.udid === conversion?.udid) {
-        usedItems.uploads.add(upload.udid);
-        return true;
-      }
-      return false;
-    });
-    item.date = new Date(item.dataset.created);
-    items.push(item);
-  });
-
-  conversions?.forEach(conversion => {
-    if (
-      usedItems.conversions.has(conversion.conversionId) ||
-      conversion.conversionId === ongoingConversion.conversionId
-    ) {
-      return;
-    }
-    const item = {
-      conversion,
-    };
-
-    item.upload = mapDataList.find(upload => {
-      if (upload.udid === conversion.udid) {
-        usedItems.uploads.add(upload.udid);
-        return true;
-      }
-      return false;
-    });
-    item.date = new Date(item.conversion.created);
-    items.push(item);
-  });
-
-  mapDataList?.forEach(upload => {
-    if (usedItems.uploads.has(upload.udid) || upload.udid === ongoingConversion.udid) {
-      return;
-    }
-    items.push({
-      upload,
-      date: new Date(upload.created),
-    });
-  });
-
-  return items;
-}
 
 export default Conversions;

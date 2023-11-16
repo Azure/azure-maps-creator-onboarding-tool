@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-
 import { fontSize, fontWeight } from 'common/styles';
 
 export const containerStyle = css`
@@ -58,7 +57,6 @@ export const dropdownStyle = css`
 `;
 
 export const primaryButtonStyle = css`
-  margin-right: 1rem;
   height: 1.5rem;
   line-height: 1.5rem;
   font-size: ${fontSize.sm};
@@ -72,6 +70,18 @@ export const primaryButtonDisabledStyles = {
 
 export const fileInputStyle = css`
   display: none;
+`;
+
+export const actionPanelStyle = css`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
+  padding: 12px;
+  height: 110px;
+  border-radius: 4px;
 `;
 
 // these styles copied from fluent ui default button
@@ -98,6 +108,32 @@ export const browseButtonStyle = css`
   &:hover {
     background-color: rgb(243, 242, 241);
     color: rgb(32, 31, 30);
+  }
+`;
+
+export const selectFileButtonClassName = css`
+  outline: transparent;
+  position: relative;
+  font-size: ${fontSize.md};
+  font-weight: ${fontWeight.normal};
+  box-sizing: border-box;
+  border: 1px solid rgb(0, 120, 212);
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 5rem;
+  height: 1.5rem;
+  background-color: rgb(0, 120, 212);
+  color: rgb(255, 255, 255);
+  user-select: none;
+
+  &:hover {
+    background-color: rgb(16, 110, 190);
+    border: 1px solid rgb(16, 110, 190);
+    color: rgb(255, 255, 255);
   }
 `;
 
