@@ -7,15 +7,13 @@ import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import FileUploader from './FileUploader';
 import {
   actionPanelStyle,
   containerStyle,
-  conversionsLink,
   descriptionStyle,
-  disabledConversionsLinks,
   dropdownStyle,
   errorBannerHidden,
   errorBannerStyle,
@@ -27,7 +25,6 @@ import {
   primaryButtonStyle,
   textFieldStyle,
 } from './create-manifest.style';
-import FileField from './file-field';
 
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',
@@ -135,32 +132,6 @@ const CreateManifestPage = () => {
           />
         </div>
       </div>
-      {false && (
-        <>
-          <FileField
-            label={t('dwg.zip.package')}
-            id={TEST_ID.FILE_UPLOAD_FIELD}
-            onFileSelect={setFile}
-            fileType="zip"
-            onError={setErrorMessage}
-            tooltip={t('tooltip.dwg.zip.package')}
-          />
-          <PrimaryButton
-            disabled={!allFieldsFilled}
-            onClick={uploadButtonOnClick}
-            data-testid={TEST_ID.UPLOAD_BUTTON}
-            className={primaryButtonStyle}
-            text={t('process')}
-            styles={primaryButtonDisabledStyles}
-          />
-          <Link
-            to={subKey ? PATHS.CONVERSIONS : ''}
-            className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}
-          >
-            {t('view.existing.conversions')}
-          </Link>
-        </>
-      )}
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 15, marginTop: 30 }}>
         <div className={actionPanelStyle}>
           <div>
@@ -172,7 +143,6 @@ const CreateManifestPage = () => {
               to={subKey ? PATHS.CONVERSIONS : ''}
               onClick={() => navigate(PATHS.CONVERSIONS)}
               disabled={!subKey}
-              // className={cx({ [conversionsLink]: subKey, [disabledConversionsLinks]: !subKey })}
               style={{ height: '1.5rem' }}
               text="View"
             />
