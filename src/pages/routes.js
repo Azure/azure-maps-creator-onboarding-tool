@@ -1,16 +1,16 @@
 import { Navigate } from 'react-router-dom';
 
-import CreateManifestPage from './create-manifest';
-import ProcessingPage from './processing';
-import Georeference from './georeference';
-import Layers from './layers';
-import Levels from './levels';
-import ReviewAndCreate from './review';
+import { PATHS, ROUTE_NAME_BY_PATH } from 'common';
+import { Route } from 'components';
 import Conversion from './conversion';
 import PastConversion from './conversion/past-conversion';
 import Conversions from './conversions';
-import { Route } from 'components';
-import { PATHS, ROUTE_NAME_BY_PATH } from 'common';
+import CreateManifestPage from './create-manifest';
+import Georeference from './georeference';
+import Layers from './layers';
+import Levels from './levels';
+import ProcessingPage from './processing';
+import ReviewAndCreate from './review';
 
 export const routes = [
   {
