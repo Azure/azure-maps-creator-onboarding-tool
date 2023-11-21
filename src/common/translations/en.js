@@ -75,6 +75,7 @@ const en = {
     feedback: 'Feedback',
     'feedback.link': 'Feedback link',
     'filter.by.name': 'Filter by name',
+    'filter.by.description': 'Filter by description',
     geography: 'Geography',
     'file.name': 'File name',
     'geography.europe': 'Europe',

@@ -13,7 +13,7 @@ import { filterInputStyles, iconsContainer, nameFilterContainer } from './style'
 import { groupItems } from './utils';
 
 const defaultColumns = [
-  { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
+  { key: 'nameCol', name: 'Description', fieldName: 'description', minWidth: 40, maxWidth: 460, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
   {
     key: 'dateCol',
@@ -85,7 +85,7 @@ const Conversions = () => {
   const [items, setItems] = useState([]);
   const [sorting, setSorting] = useState({ fieldName: 'date', descending: true });
   const [columns, setColumns] = useState([]);
-  const [nameFilter, setNameFilter] = useState('');
+  const [descriptionFilter, setDescriptionFilter] = useState('');
 
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
   const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
@@ -98,7 +98,7 @@ const Conversions = () => {
     [navigate, setPastConversionData]
   );
 
-  const onNameFilterChange = (e, text) => setNameFilter(text);
+  const onNameFilterChange = (e, text) => setDescriptionFilter(text);
 
   useEffect(() => {
     setColumns(
@@ -149,7 +149,7 @@ const Conversions = () => {
       items
         .map((item, i) => ({
           key: i,
-          name:
+          description:
             item.upload?.description ??
             item.conversion?.description ??
             item.dataset?.description ??
@@ -184,7 +184,7 @@ const Conversions = () => {
             bbox: item.tileset?.bbox,
           },
         }))
-        .filter(item => item.name.includes(nameFilter))
+        .filter(item => item.description.includes(descriptionFilter))
         .sort((a, b) => {
           if (a[sorting.fieldName] < b[sorting.fieldName]) {
             return sorting.descending ? 1 : -1;
@@ -192,7 +192,7 @@ const Conversions = () => {
           return sorting.descending ? -1 : 1;
         })
     );
-  }, [existingConversions, ongoingConversion, t, sorting, nameFilter]);
+  }, [existingConversions, ongoingConversion, t, sorting, descriptionFilter]);
 
   if (isLoading) {
     return <div>{t('loading')}</div>;
@@ -202,10 +202,10 @@ const Conversions = () => {
     <>
       <div className={nameFilterContainer}>
         <TextField
-          ariaLabel={t('filter.by.name')}
-          placeholder={t('filter.by.name')}
+          ariaLabel={t('filter.by.description')}
+          placeholder={t('filter.by.description')}
           styles={filterInputStyles}
-          value={nameFilter}
+          value={descriptionFilter}
           onChange={onNameFilterChange}
         />
       </div>
