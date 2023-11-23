@@ -1,10 +1,11 @@
-import { TextField } from '@fluentui/react';
+import { Spinner, SpinnerSize, TextField } from '@fluentui/react';
 import { DetailsList, DetailsListLayoutMode, DetailsRow } from '@fluentui/react/lib/DetailsList';
 import { PATHS } from 'common';
-import { getAllData } from 'common/api/conversions';
+import { getExistingConversions } from 'common/api/conversions';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
 import { useCallback, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
@@ -101,16 +102,20 @@ const Conversions = () => {
   const onNameFilterChange = (e, text) => setDescriptionFilter(text);
 
   useEffect(() => {
+    // setIsLoading(true);
     setColumns(
       defaultColumns.map(column => ({
         ...column,
         onColumnClick: getOnColumnClickCallback(defaultColumns, setColumns, setSorting),
       }))
     );
-    getAllData().then(({ conversions, datasets, mapDataList, tilesets }) => {
+    getExistingConversions().then(({ error, conversions, datasets, mapDataList, tilesets }) => {
       setIsLoading(false);
+      if (error) {
+        toast.error('Unable to fetch existing conversions. Check your Geography and Subscription key');
+        navigate(PATHS.INDEX);
+      }
       const groupedItems = groupItems(ongoingConversion, { conversions, datasets, mapDataList, tilesets });
-      groupedItems.sort((a, b) => (a.date < b.date ? 1 : -1));
       setExistingConversions(groupedItems);
     });
   }, []); // eslint-disable-line
@@ -195,7 +200,11 @@ const Conversions = () => {
   }, [existingConversions, ongoingConversion, t, sorting, descriptionFilter]);
 
   if (isLoading) {
-    return <div>{t('loading')}</div>;
+    return (
+      <div style={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Spinner size={SpinnerSize.large} label={t('loading')} />
+      </div>
+    );
   }
 
   return (

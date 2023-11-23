@@ -3,6 +3,7 @@ import { PATHS } from 'common';
 import { LRO_STATUS, progressBarSteps, useResponseStore, useUserStore } from 'common/store';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BreadCrumbNav from '../bread-crumb-nav/bread-crumb-nav';
@@ -39,6 +40,18 @@ const Route = ({ title, component: Component, dataRequired }) => {
 
   return (
     <>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: '#525252',
+            color: '#fff',
+            borderRadius: 4,
+            padding: '0.75rem 1rem',
+          },
+        }}
+      />
       <TopBar />
       <div className={cx(routeStyle, { [footerPadding]: shouldShowFooter })}>
         <BreadCrumbNav />
