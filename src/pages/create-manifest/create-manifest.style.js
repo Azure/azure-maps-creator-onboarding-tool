@@ -79,7 +79,7 @@ export const actionPanelStyle = css`
   width: 100%;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 12px;
+  padding: 0.75rem;
   height: 110px;
   border-radius: 4px;
 `;

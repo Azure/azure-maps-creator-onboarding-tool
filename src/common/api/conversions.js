@@ -34,12 +34,20 @@ const getTilesets = () => {
   return fetch(url);
 };
 
-export const getAllData = () =>
-  Promise.all([getUploads(), getConversions(), getDatasets(), getTilesets()])
-    .then(re => Promise.all([re[0].json(), re[1].json(), re[2].json(), re[3].json()]))
-    .then(([uploads, conversions, datasets, tilesets]) => ({
-      ...uploads,
-      ...conversions,
-      ...datasets,
-      ...tilesets,
-    }));
+export const getExistingConversions = async () => {
+  const responses = await Promise.all([getUploads(), getConversions(), getDatasets(), getTilesets()]);
+
+  if (responses.some(res => res.status !== 200)) {
+    return { error: true };
+  }
+
+  const [uploads, conversions, datasets, tilesets] = await Promise.all(responses.map(res => res.json()));
+
+  return {
+    error: false,
+    ...uploads,
+    ...conversions,
+    ...datasets,
+    ...tilesets,
+  };
+};

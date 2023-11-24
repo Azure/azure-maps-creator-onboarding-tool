@@ -1,10 +1,11 @@
-import { TextField } from '@fluentui/react';
+import { Spinner, SpinnerSize, TextField } from '@fluentui/react';
 import { DetailsList, DetailsListLayoutMode, DetailsRow } from '@fluentui/react/lib/DetailsList';
 import { PATHS } from 'common';
-import { getAllData } from 'common/api/conversions';
+import { getExistingConversions } from 'common/api/conversions';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
 import { useCallback, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
@@ -13,7 +14,7 @@ import { filterInputStyles, iconsContainer, nameFilterContainer } from './style'
 import { groupItems } from './utils';
 
 const defaultColumns = [
-  { key: 'nameCol', name: 'Name', fieldName: 'name', minWidth: 40, maxWidth: 200, isResizable: true },
+  { key: 'nameCol', name: 'Description', fieldName: 'description', minWidth: 40, maxWidth: 460, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
   {
     key: 'dateCol',
@@ -85,7 +86,7 @@ const Conversions = () => {
   const [items, setItems] = useState([]);
   const [sorting, setSorting] = useState({ fieldName: 'date', descending: true });
   const [columns, setColumns] = useState([]);
-  const [nameFilter, setNameFilter] = useState('');
+  const [descriptionFilter, setDescriptionFilter] = useState('');
 
   const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
   const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
@@ -98,19 +99,23 @@ const Conversions = () => {
     [navigate, setPastConversionData]
   );
 
-  const onNameFilterChange = (e, text) => setNameFilter(text);
+  const onNameFilterChange = (e, text) => setDescriptionFilter(text);
 
   useEffect(() => {
+    // setIsLoading(true);
     setColumns(
       defaultColumns.map(column => ({
         ...column,
         onColumnClick: getOnColumnClickCallback(defaultColumns, setColumns, setSorting),
       }))
     );
-    getAllData().then(({ conversions, datasets, mapDataList, tilesets }) => {
+    getExistingConversions().then(({ error, conversions, datasets, mapDataList, tilesets }) => {
       setIsLoading(false);
+      if (error) {
+        toast.error('Unable to fetch existing conversions. Check your Geography and Subscription key');
+        navigate(PATHS.INDEX);
+      }
       const groupedItems = groupItems(ongoingConversion, { conversions, datasets, mapDataList, tilesets });
-      groupedItems.sort((a, b) => (a.date < b.date ? 1 : -1));
       setExistingConversions(groupedItems);
     });
   }, []); // eslint-disable-line
@@ -149,7 +154,7 @@ const Conversions = () => {
       items
         .map((item, i) => ({
           key: i,
-          name:
+          description:
             item.upload?.description ??
             item.conversion?.description ??
             item.dataset?.description ??
@@ -184,7 +189,7 @@ const Conversions = () => {
             bbox: item.tileset?.bbox,
           },
         }))
-        .filter(item => item.name.includes(nameFilter))
+        .filter(item => item.description.includes(descriptionFilter))
         .sort((a, b) => {
           if (a[sorting.fieldName] < b[sorting.fieldName]) {
             return sorting.descending ? 1 : -1;
@@ -192,20 +197,24 @@ const Conversions = () => {
           return sorting.descending ? -1 : 1;
         })
     );
-  }, [existingConversions, ongoingConversion, t, sorting, nameFilter]);
+  }, [existingConversions, ongoingConversion, t, sorting, descriptionFilter]);
 
   if (isLoading) {
-    return <div>{t('loading')}</div>;
+    return (
+      <div style={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Spinner size={SpinnerSize.large} label={t('loading')} />
+      </div>
+    );
   }
 
   return (
     <>
       <div className={nameFilterContainer}>
         <TextField
-          ariaLabel={t('filter.by.name')}
-          placeholder={t('filter.by.name')}
+          ariaLabel={t('filter.by.description')}
+          placeholder={t('filter.by.description')}
           styles={filterInputStyles}
-          value={nameFilter}
+          value={descriptionFilter}
           onChange={onNameFilterChange}
         />
       </div>

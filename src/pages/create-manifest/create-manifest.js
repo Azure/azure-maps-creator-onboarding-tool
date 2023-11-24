@@ -135,8 +135,8 @@ const CreateManifestPage = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 15, marginTop: 30 }}>
         <div className={actionPanelStyle}>
           <div>
-            <h3>Previous conversions</h3>
-            <div>View all your previous conversions</div>
+            <h3>Existing conversions</h3>
+            <div>View all your existing conversions</div>
           </div>
           <div>
             <DefaultButton

@@ -148,7 +148,7 @@ Object {
   width: 100%;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 12px;
+  padding: 0.75rem;
   height: 110px;
   border-radius: 4px;
 }
@@ -441,10 +441,10 @@ Object {
           >
             <div>
               <h3>
-                Previous conversions
+                Existing conversions
               </h3>
               <div>
-                View all your previous conversions
+                View all your existing conversions
               </div>
             </div>
             <div>
@@ -656,7 +656,7 @@ Object {
   width: 100%;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 12px;
+  padding: 0.75rem;
   height: 110px;
   border-radius: 4px;
 }
@@ -948,10 +948,10 @@ Object {
         >
           <div>
             <h3>
-              Previous conversions
+              Existing conversions
             </h3>
             <div>
-              View all your previous conversions
+              View all your existing conversions
             </div>
           </div>
           <div>
@@ -1219,7 +1219,7 @@ Object {
   width: 100%;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 12px;
+  padding: 0.75rem;
   height: 110px;
   border-radius: 4px;
 }
@@ -1516,10 +1516,10 @@ Object {
           >
             <div>
               <h3>
-                Previous conversions
+                Existing conversions
               </h3>
               <div>
-                View all your previous conversions
+                View all your existing conversions
               </div>
             </div>
             <div>
@@ -1729,7 +1729,7 @@ Object {
   width: 100%;
   background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 12px;
+  padding: 0.75rem;
   height: 110px;
   border-radius: 4px;
 }
@@ -2025,10 +2025,10 @@ Object {
         >
           <div>
             <h3>
-              Previous conversions
+              Existing conversions
             </h3>
             <div>
-              View all your previous conversions
+              View all your existing conversions
             </div>
           </div>
           <div>
