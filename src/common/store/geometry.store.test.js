@@ -1,7 +1,6 @@
-import { renderHook } from '@testing-library/react-hooks';
-
+import { renderHook } from '@testing-library/react';
+import { fixAngle, isValidAnchorPoint, useDissolvedExterior, useGeometryStore } from './geometry.store';
 import { expectedUseDissolvedExteriorResult, mockPolygonLayers } from './geometry.store.mock';
-import { useDissolvedExterior, fixAngle, useGeometryStore, isValidAnchorPoint } from './geometry.store';
 import { useLayersStore } from './layers.store';
 
 describe('useDissolvedExterior', () => {

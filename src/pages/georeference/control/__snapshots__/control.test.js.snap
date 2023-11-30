@@ -1068,18 +1068,18 @@ Object {
             class="emotion-6"
           >
             <div
-              class="ms-TextField root-136"
+              class="ms-TextField is-disabled root-136"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-174"
+                  class="ms-TextField-fieldGroup fieldGroup-168"
                 >
                   <input
-                    aria-describedby="TextFieldDescription132"
-                    aria-invalid="true"
-                    class="ms-TextField-field field-138"
+                    aria-invalid="false"
+                    class="ms-TextField-field field-169"
+                    disabled=""
                     id="TextField131"
                     placeholder="search.address"
                     type="text"
@@ -1087,13 +1087,6 @@ Object {
                   />
                 </div>
               </div>
-              <span
-                id="TextFieldDescription132"
-              >
-                <div
-                  role="alert"
-                />
-              </span>
             </div>
             <button
               class="ms-Button ms-Button--primary emotion-7 root-166"
@@ -1453,18 +1446,18 @@ Object {
           class="emotion-6"
         >
           <div
-            class="ms-TextField root-136"
+            class="ms-TextField is-disabled root-136"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-174"
+                class="ms-TextField-fieldGroup fieldGroup-168"
               >
                 <input
-                  aria-describedby="TextFieldDescription132"
-                  aria-invalid="true"
-                  class="ms-TextField-field field-138"
+                  aria-invalid="false"
+                  class="ms-TextField-field field-169"
+                  disabled=""
                   id="TextField131"
                   placeholder="search.address"
                   type="text"
@@ -1472,13 +1465,6 @@ Object {
                 />
               </div>
             </div>
-            <span
-              id="TextFieldDescription132"
-            >
-              <div
-                role="alert"
-              />
-            </span>
           </div>
           <button
             class="ms-Button ms-Button--primary emotion-7 root-166"
@@ -2013,7 +1999,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   class="ms-TextField-field field-164"
                   id="TextField17"
                   type="text"
-                  value="111"
+                  value=""
                 />
               </div>
             </div>

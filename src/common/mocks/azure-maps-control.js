@@ -17,4 +17,7 @@ export function Map() {
   this.controls = {
     add: () => {},
   };
+  this.events = {
+    add: () => {},
+  };
 }
