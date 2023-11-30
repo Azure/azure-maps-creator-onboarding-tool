@@ -148,6 +148,9 @@ describe('Control', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1'
     );
-    expect(view).toMatchSnapshot();
+
+    const errorMessage = await screen.findByText('request.failed');
+
+    expect(errorMessage).toBeInTheDocument();
   });
 });
