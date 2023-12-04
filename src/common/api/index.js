@@ -3,6 +3,8 @@ import { getEnvs } from 'common/functions';
 import { useUserStore } from '../store/user.store';
 import { HTTP_STATUS_CODE } from '../constants';
 
+const RETRY_TIMEOUT = 1000;
+
 export const uploadFile = (file) => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const url = `${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`;
@@ -36,7 +38,7 @@ export const fetchWithRetries = (location, retries = 10) => {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve(fetchWithRetries(location, retries - 1));
-          }, 10000);
+          }, RETRY_TIMEOUT);
         });
       }
       throw new Error(data?.error?.message);
