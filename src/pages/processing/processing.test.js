@@ -1,10 +1,9 @@
 import { act, render } from '@testing-library/react';
-
-import ProcessingPage, { API_REQUEST_INTERVAL, PAGE_REFRESH_INTERVAL} from './processing';
 import { useResponseStore, useUserStore } from 'common/store';
+import ProcessingPage, { REFRESH_INTERVAL } from './processing';
 
-const refreshRateMs = PAGE_REFRESH_INTERVAL * 1000;
-const requestFrequency = parseInt(API_REQUEST_INTERVAL / PAGE_REFRESH_INTERVAL);
+const refreshRateMs = REFRESH_INTERVAL * 1000;
+const requestFrequency = 1;
 const mockT = jest.fn();
 const mockNavigate = jest.fn();
 
@@ -37,16 +36,24 @@ describe('ProcessingPage', () => {
     jest.useFakeTimers();
     render(<ProcessingPage />);
     for (let i = 0; i < requestFrequency; i++) {
-      expect(mockT).toHaveBeenCalledWith('processing.last.checked', { seconds: i });
-      act(() => { jest.advanceTimersByTime(refreshRateMs); });
+      expect(mockT).toHaveBeenCalledWith('processing.last.checked', {
+        seconds: i,
+      });
+      act(() => {
+        jest.advanceTimersByTime(refreshRateMs);
+      });
     }
 
     expect(spy).toHaveBeenCalledWith('subscriptionKey');
     expect(spy).toHaveBeenCalledTimes(1);
 
     for (let i = 0; i < requestFrequency * 10; i++) {
-      expect(mockT).toHaveBeenCalledWith('processing.last.checked', { seconds: i % 10 });
-      act(() => { jest.advanceTimersByTime(refreshRateMs); });
+      expect(mockT).toHaveBeenCalledWith('processing.last.checked', {
+        seconds: i % 10,
+      });
+      act(() => {
+        jest.advanceTimersByTime(refreshRateMs);
+      });
     }
 
     expect(spy).toHaveBeenCalledTimes(11);

@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-import { uploadFile, deleteFromLocation, fetchFromLocation, fetchWithRetries } from 'common/api';
+import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } from 'common/api';
 import { HTTP_STATUS_CODE } from 'common/constants';
 import i18next from 'common/translations/i18n';
+import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
-import { useGeometryStore } from './geometry.store';
 import { useProgressBarStore } from './progress-bar-steps';
 import { resetStores } from './reset';
 import { useReviewManifestStore } from './review-manifest.store';
@@ -28,10 +28,13 @@ export const useResponseStore = create((set, get) => ({
   operationLocation: '',
   lroStatus: '',
   errorMessage: '',
-  acknowledgeError: () => set({
-    errorMessage: ''
-  }),
-  uploadFile: (file) => {
+  refreshRunning: false,
+  acknowledgeError: () => {
+    set({
+      errorMessage: '',
+    });
+  },
+  uploadFile: file => {
     set(() => ({
       errorMessage: '',
       lroStatus: LRO_STATUS.UPLOADING,
@@ -40,38 +43,48 @@ export const useResponseStore = create((set, get) => ({
     useReviewManifestStore.getState().setOriginalPackage(file);
 
     uploadFile(file)
-    .then(async (r) => {
-      if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
-        const data = await r.json();
-        const errorMessage = data?.error?.message;
-        if (errorMessage) {
-          throw new Error(errorMessage);
+      .then(async r => {
+        if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
+          const data = await r.json();
+          const errorMessage = data?.error?.message;
+          if (errorMessage) {
+            throw new Error(errorMessage);
+          }
+          throw new Error(i18next.t('error.upload.file'));
         }
-        throw new Error(i18next.t('error.upload.file'));
-      }
 
-      // Once accepted by the backend, the response will contain the location of the operation
-      set(() => ({
-        lroStatus: LRO_STATUS.UPLOADED,
-        operationLocation: r.headers.get(OPERATION_LOCATION),
-      }));
-    })
-    .catch(({ message }) => {
-      const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
-      set(() => ({ errorMessage: errorMsg }));
-    });
+        // Once accepted by the backend, the response will contain the location of the operation
+        set(() => ({
+          lroStatus: LRO_STATUS.UPLOADED,
+          operationLocation: r.headers.get(OPERATION_LOCATION),
+        }));
+      })
+      .catch(({ message }) => {
+        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+        set(() => ({ errorMessage: errorMsg }));
+      });
   },
 
   // Poll the backend for the status of the upload operation
   // Uses the operationLocation set by uploadFile()
-  refreshStatus: () => {
+  refreshStatus: async () => {
     const operationLocation = get().operationLocation;
-    if (operationLocation === '') {
+    const lroStatus = get().lroStatus;
+    const refreshRunning = get().refreshRunning;
+
+    if (
+      operationLocation === '' ||
+      lroStatus === LRO_STATUS.FETCHING_DATA ||
+      lroStatus === LRO_STATUS.SUCCEEDED ||
+      refreshRunning
+    ) {
       return;
     }
 
-    fetchFromLocation(operationLocation)
-      .then(async (r) => {
+    set({ refreshRunning: true });
+
+    await fetchFromLocation(operationLocation)
+      .then(async r => {
         const data = await r.json();
         if (r.status !== HTTP_STATUS_CODE.OK) {
           const errorMessage = data?.error?.message;
@@ -86,7 +99,7 @@ export const useResponseStore = create((set, get) => ({
           fetchUrl: r.headers.get(RESOURCE_LOCATION),
         };
       })
-      .then((data) => {
+      .then(async data => {
         if (!data || !data.status) {
           throw new Error(i18next.t('error.upload.file.processing'));
         }
@@ -103,12 +116,11 @@ export const useResponseStore = create((set, get) => ({
         }
 
         if (data.status === LRO_STATUS.SUCCEEDED) {
-          if (get().lroStatus !== LRO_STATUS.FETCHING_DATA) {
-            set(() => ({
-              lroStatus: LRO_STATUS.FETCHING_DATA,
-            }));
-            get().fetchManifestData(data.fetchUrl);
-          }
+          set(() => ({
+            lroStatus: LRO_STATUS.FETCHING_DATA,
+          }));
+
+          await get().fetchManifestData(data.fetchUrl);
         }
       })
       .catch(({ message }) => {
@@ -118,11 +130,13 @@ export const useResponseStore = create((set, get) => ({
           lroStatus: LRO_STATUS.FAILED,
         }));
       });
+
+    set({ refreshRunning: false });
   },
 
-  fetchManifestData: (fetchUrl) => {
-    fetchWithRetries(fetchUrl)
-      .then(async (data) => {
+  fetchManifestData: async fetchUrl => {
+    return fetchWithRetries(fetchUrl)
+      .then(async data => {
         resetStores();
 
         // Compute and store useful response data
@@ -159,11 +173,9 @@ export const useResponseStore = create((set, get) => ({
           coordinates: data.anchorPoint,
         });
 
-        useLayersStore.getState().setLayerNames(
-          Array.from(layerNames),
-          Array.from(polygonLayerNames),
-          Array.from(textLayerNames)
-        );
+        useLayersStore
+          .getState()
+          .setLayerNames(Array.from(layerNames), Array.from(polygonLayerNames), Array.from(textLayerNames));
 
         useLevelsStore.getState().setLevels(data.drawings.map(drawing => drawing.fileName));
 
@@ -183,17 +195,13 @@ export const useResponseStore = create((set, get) => ({
             useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
             useLayersStore.getState().setVisited();
             useGeometryStore.setState({
-              dwgLayers: jsonData.dwgLayers.filter((layer) => polygonLayerNames.has(layer)),
+              dwgLayers: jsonData.dwgLayers.filter(layer => polygonLayerNames.has(layer)),
             });
             useGeometryStore.getState().updateAnchorPoint({
-              coordinates: [
-                jsonData.georeference.lon,
-                jsonData.georeference.lat,
-              ],
+              coordinates: [jsonData.georeference.lon, jsonData.georeference.lat],
               angle: jsonData.georeference.angle,
             });
           }
-
         }
 
         set(() => ({
@@ -203,7 +211,8 @@ export const useResponseStore = create((set, get) => ({
         deleteFromLocation(fetchUrl);
       })
       .catch(({ message }) => {
-        const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message || defaultErrorMessage;
+        const errorMsg =
+          message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message || defaultErrorMessage;
         set(() => ({
           errorMessage: errorMsg,
           lroStatus: LRO_STATUS.FAILED,
@@ -228,7 +237,11 @@ export function parseManifestJson(json) {
   if (!Array.isArray(json.featureClasses)) {
     return null;
   }
-  if (typeof json.georeference?.lon !== 'number' || typeof json.georeference?.lat !== 'number' || typeof json.georeference?.angle !== 'number') {
+  if (
+    typeof json.georeference?.lon !== 'number' ||
+    typeof json.georeference?.lat !== 'number' ||
+    typeof json.georeference?.angle !== 'number'
+  ) {
     return null;
   }
 
@@ -241,7 +254,7 @@ export function parseManifestJson(json) {
   };
 }
 
-export function getFirstMeaningfulError({ error = {}}) {
+export function getFirstMeaningfulError({ error = {} }) {
   if (error.message) {
     return error.message;
   }

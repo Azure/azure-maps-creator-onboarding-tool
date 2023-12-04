@@ -32,6 +32,9 @@ junit.xml
 # IDEs, IntelliJ
 /.idea
 
+# VSCode
+/.vscode
+
 /src/excluded
 
 .env
