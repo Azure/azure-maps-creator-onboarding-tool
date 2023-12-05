@@ -168,7 +168,7 @@ const Conversions = () => {
               <StatusIcon item={item.tileset} />
             </div>
           ),
-          date: item.date.toLocaleString(),
+          date: item.date.toISOString(),
           ongoing: item.ongoing,
           conversionData: {
             uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
@@ -195,7 +195,7 @@ const Conversions = () => {
             return sorting.descending ? 1 : -1;
           }
           return sorting.descending ? -1 : 1;
-        })
+        }).map((item, i) => ({...item, date: new Date(item.date).toLocaleString()}))
     );
   }, [existingConversions, ongoingConversion, t, sorting, descriptionFilter]);
 
