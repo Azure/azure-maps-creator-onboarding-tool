@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { breadcrumbStyle } from './bread-crumb-nav.style';
 
 const routesReset = [PATHS.CONVERSION];
+const routesSkipAlert = [PATHS.PAST_CONVERSION];
 
 const BreadCrumbNav = () => {
   const { t } = useTranslation();
@@ -23,7 +24,9 @@ const BreadCrumbNav = () => {
         key: ROUTE_NAME_BY_PATH[nextPath],
         onClick: () => {
           if (currentPath === nextPath) return;
-          if (routesReset.includes(currentPath)) {
+          if (routesSkipAlert.includes(currentPath)) {
+            navigate(nextPath);
+          } else if (routesReset.includes(currentPath)) {
             if (window.confirm(t('progress.will.be.lost'))) {
               useConversionStore.getState().reset();
               navigate(nextPath);
