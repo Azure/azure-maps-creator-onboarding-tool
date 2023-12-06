@@ -162,6 +162,7 @@ const en = {
     view: 'View',
     'view.all.conversions': 'View all conversions',
     'view.existing.conversions': 'View existing conversions',
+    'resource.deleted': 'Not found - The resource might be deleted',
   },
 };
 
