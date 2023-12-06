@@ -75,7 +75,9 @@ describe('CreateManifestPage', () => {
 
     await flushPromises();
 
-    expect(screen.getByText('error.file.size.exceeded')).toBeInTheDocument();
+    const errorMessage = await screen.findByText('error.file.size.exceeded');
+
+    expect(errorMessage).toBeInTheDocument();
     expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
   });
 
@@ -90,7 +92,9 @@ describe('CreateManifestPage', () => {
 
     await flushPromises();
 
-    expect(screen.getByText('error.file.type.incorrect')).toBeInTheDocument();
+    const errorMessage = await screen.findByText('error.file.type.incorrect');
+
+    expect(errorMessage).toBeInTheDocument();
     expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
   });
 

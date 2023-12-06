@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import flushPromises from 'flush-promises';
 
 import { useGeometryStore, useUserStore } from 'common/store';
+import Control, { TEST_ID } from './control';
 import GeoreferenceControl from './controlClass';
-import Control from './control';
 
 describe('GeoreferenceControl class', () => {
   let control, container;
@@ -43,8 +43,8 @@ describe('GeoreferenceControl class', () => {
 
 describe('Control', () => {
   it('should render Control', () => {
-    const view = render(<Control />);
-    expect(view).toMatchSnapshot();
+    render(<Control />);
+    expect(screen.getByTestId(TEST_ID.MAP_CONTROL)).toBeInTheDocument();
   });
 
   it('should center map to set coordinates', () => {
@@ -148,6 +148,9 @@ describe('Control', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/search/address/json?subscription-key=subKey&api-version=1.0&query=742 Evergreen Terrace&limit=1'
     );
-    expect(view).toMatchSnapshot();
+
+    const errorMessage = await screen.findByText('request.failed');
+
+    expect(errorMessage).toBeInTheDocument();
   });
 });

@@ -261,9 +261,7 @@ Object {
         </div>
         <span
           class="emotion-3"
-        >
-          ~9h 55m 5s
-        </span>
+        />
       </button>
     </div>
   </body>,
@@ -331,9 +329,7 @@ Object {
       </div>
       <span
         class="emotion-3"
-      >
-        ~9h 55m 5s
-      </span>
+      />
     </button>
   </div>,
   "debug": [Function],

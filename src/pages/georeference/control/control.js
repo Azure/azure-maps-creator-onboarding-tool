@@ -35,6 +35,10 @@ import {
 
 const anchorPointSelector = s => [s.anchorPoint.angle, s.updateAngle];
 
+export const TEST_ID = {
+  MAP_CONTROL: 'map-control',
+};
+
 const radioKeys = {
   address: 'address',
   coordinates: 'coordinates',
@@ -124,7 +128,7 @@ function Control({ map }) {
   }, []);
 
   return (
-    <div className={controlContainer}>
+    <div data-testid={TEST_ID.MAP_CONTROL} className={controlContainer}>
       <IconButton
         className={cx(toggleButton, { [hiddenControls]: isControlsShown })}
         onClick={toggle}

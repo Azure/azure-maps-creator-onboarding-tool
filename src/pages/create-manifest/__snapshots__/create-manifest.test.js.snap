@@ -227,7 +227,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="icon-120"
+                class="icon-121"
                 data-icon-name="ErrorBadge"
               >
                 
@@ -246,18 +246,18 @@ Object {
             </div>
             <button
               aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-122"
               data-is-focusable="true"
               title="close"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-122"
+                class="ms-Button-flexContainer flexContainer-123"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-125"
                   data-icon-name="Clear"
                   style="font-family: \\"FabricMDL2Icons\\";"
                 >
@@ -292,12 +292,12 @@ Object {
               class="emotion-8"
             >
               <div
-                class="ms-TooltipHost root-131"
+                class="ms-TooltipHost root-132"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-132"
+                  class="root-133"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -368,12 +368,12 @@ Object {
               class="emotion-8"
             >
               <div
-                class="ms-TooltipHost root-131"
+                class="ms-TooltipHost root-132"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-132"
+                  class="root-133"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -393,19 +393,19 @@ Object {
             class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-17 root-134"
+              class="ms-TextField emotion-17 root-135"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-135"
+                  class="ms-TextField-fieldGroup fieldGroup-136"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="subscription.key"
                     aria-required="true"
-                    class="ms-TextField-field field-136"
+                    class="ms-TextField-field field-137"
                     data-testid="subscription-key-field"
                     id="TextField6"
                     type="password"
@@ -413,15 +413,15 @@ Object {
                   />
                   <button
                     aria-pressed="false"
-                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-142"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-143"
                     type="button"
                   >
                     <span
-                      class="revealSpan-143"
+                      class="revealSpan-144"
                     >
                       <i
                         aria-hidden="true"
-                        class="revealIcon-147"
+                        class="revealIcon-148"
                         data-icon-name="RedEye"
                       >
                         
@@ -450,21 +450,21 @@ Object {
             <div>
               <button
                 aria-disabled="true"
-                class="ms-Button ms-Button--default is-disabled root-148"
+                class="ms-Button ms-Button--default is-disabled root-149"
                 data-is-focusable="false"
                 disabled=""
                 style="height: 1.5rem;"
                 type="button"
               >
                 <span
-                  class="ms-Button-flexContainer flexContainer-122"
+                  class="ms-Button-flexContainer flexContainer-123"
                   data-automationid="splitbuttonprimary"
                 >
                   <span
-                    class="ms-Button-textContainer textContainer-123"
+                    class="ms-Button-textContainer textContainer-124"
                   >
                     <span
-                      class="ms-Button-label label-150"
+                      class="ms-Button-label label-151"
                       id="id__11"
                     >
                       View
@@ -487,7 +487,6 @@ Object {
             </div>
             <div>
               <div>
-                
                 <label
                   class="emotion-20"
                   for="file-upload-field"
@@ -734,7 +733,7 @@ Object {
           >
             <i
               aria-hidden="true"
-              class="icon-120"
+              class="icon-121"
               data-icon-name="ErrorBadge"
             >
               
@@ -753,18 +752,18 @@ Object {
           </div>
           <button
             aria-label="close"
-            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-122"
             data-is-focusable="true"
             title="close"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-122"
+              class="ms-Button-flexContainer flexContainer-123"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-125"
                 data-icon-name="Clear"
                 style="font-family: \\"FabricMDL2Icons\\";"
               >
@@ -799,12 +798,12 @@ Object {
             class="emotion-8"
           >
             <div
-              class="ms-TooltipHost root-131"
+              class="ms-TooltipHost root-132"
               role="none"
             >
               <i
                 aria-label="Tooltip"
-                class="root-132"
+                class="root-133"
                 data-icon-name="Info"
                 role="img"
               >
@@ -875,12 +874,12 @@ Object {
             class="emotion-8"
           >
             <div
-              class="ms-TooltipHost root-131"
+              class="ms-TooltipHost root-132"
               role="none"
             >
               <i
                 aria-label="Tooltip"
-                class="root-132"
+                class="root-133"
                 data-icon-name="Info"
                 role="img"
               >
@@ -900,19 +899,19 @@ Object {
           class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-17 root-134"
+            class="ms-TextField emotion-17 root-135"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-135"
+                class="ms-TextField-fieldGroup fieldGroup-136"
               >
                 <input
                   aria-invalid="false"
                   aria-label="subscription.key"
                   aria-required="true"
-                  class="ms-TextField-field field-136"
+                  class="ms-TextField-field field-137"
                   data-testid="subscription-key-field"
                   id="TextField6"
                   type="password"
@@ -920,15 +919,15 @@ Object {
                 />
                 <button
                   aria-pressed="false"
-                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-142"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-143"
                   type="button"
                 >
                   <span
-                    class="revealSpan-143"
+                    class="revealSpan-144"
                   >
                     <i
                       aria-hidden="true"
-                      class="revealIcon-147"
+                      class="revealIcon-148"
                       data-icon-name="RedEye"
                     >
                       
@@ -957,21 +956,21 @@ Object {
           <div>
             <button
               aria-disabled="true"
-              class="ms-Button ms-Button--default is-disabled root-148"
+              class="ms-Button ms-Button--default is-disabled root-149"
               data-is-focusable="false"
               disabled=""
               style="height: 1.5rem;"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-122"
+                class="ms-Button-flexContainer flexContainer-123"
                 data-automationid="splitbuttonprimary"
               >
                 <span
-                  class="ms-Button-textContainer textContainer-123"
+                  class="ms-Button-textContainer textContainer-124"
                 >
                   <span
-                    class="ms-Button-label label-150"
+                    class="ms-Button-label label-151"
                     id="id__11"
                   >
                     View
@@ -994,7 +993,6 @@ Object {
           </div>
           <div>
             <div>
-              
               <label
                 class="emotion-20"
                 for="file-upload-field"
@@ -1298,7 +1296,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="icon-120"
+                class="icon-121"
                 data-icon-name="ErrorBadge"
               >
                 
@@ -1313,26 +1311,22 @@ Object {
               <span
                 class="ms-MessageBar-innerText innerText-114"
                 data-testid="error-bar"
-              >
-                <span>
-                  some err
-                </span>
-              </span>
+              />
             </div>
             <button
               aria-label="close"
-              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+              class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-122"
               data-is-focusable="true"
               title="close"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-122"
+                class="ms-Button-flexContainer flexContainer-123"
                 data-automationid="splitbuttonprimary"
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-2 ms-Button-icon icon-125"
                   data-icon-name="Clear"
                   style="font-family: \\"FabricMDL2Icons\\";"
                 >
@@ -1367,12 +1361,12 @@ Object {
               class="emotion-8"
             >
               <div
-                class="ms-TooltipHost root-131"
+                class="ms-TooltipHost root-132"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-132"
+                  class="root-133"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -1443,12 +1437,12 @@ Object {
               class="emotion-8"
             >
               <div
-                class="ms-TooltipHost root-131"
+                class="ms-TooltipHost root-132"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-132"
+                  class="root-133"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -1468,19 +1462,19 @@ Object {
             class="emotion-9"
           >
             <div
-              class="ms-TextField emotion-17 root-134"
+              class="ms-TextField emotion-17 root-135"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-135"
+                  class="ms-TextField-fieldGroup fieldGroup-136"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="subscription.key"
                     aria-required="true"
-                    class="ms-TextField-field field-136"
+                    class="ms-TextField-field field-137"
                     data-testid="subscription-key-field"
                     id="TextField79"
                     type="password"
@@ -1488,15 +1482,15 @@ Object {
                   />
                   <button
                     aria-pressed="false"
-                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-142"
+                    class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-143"
                     type="button"
                   >
                     <span
-                      class="revealSpan-143"
+                      class="revealSpan-144"
                     >
                       <i
                         aria-hidden="true"
-                        class="revealIcon-147"
+                        class="revealIcon-148"
                         data-icon-name="RedEye"
                       >
                         
@@ -1524,20 +1518,20 @@ Object {
             </div>
             <div>
               <button
-                class="ms-Button ms-Button--default root-154"
+                class="ms-Button ms-Button--default root-155"
                 data-is-focusable="true"
                 style="height: 1.5rem;"
                 type="button"
               >
                 <span
-                  class="ms-Button-flexContainer flexContainer-122"
+                  class="ms-Button-flexContainer flexContainer-123"
                   data-automationid="splitbuttonprimary"
                 >
                   <span
-                    class="ms-Button-textContainer textContainer-123"
+                    class="ms-Button-textContainer textContainer-124"
                   >
                     <span
-                      class="ms-Button-label label-150"
+                      class="ms-Button-label label-151"
                       id="id__84"
                     >
                       View
@@ -1560,7 +1554,6 @@ Object {
             </div>
             <div>
               <div>
-                
                 <label
                   class="emotion-20"
                   for="file-upload-field"
@@ -1807,7 +1800,7 @@ Object {
           >
             <i
               aria-hidden="true"
-              class="icon-120"
+              class="icon-121"
               data-icon-name="ErrorBadge"
             >
               
@@ -1822,26 +1815,22 @@ Object {
             <span
               class="ms-MessageBar-innerText innerText-114"
               data-testid="error-bar"
-            >
-              <span>
-                some err
-              </span>
-            </span>
+            />
           </div>
           <button
             aria-label="close"
-            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-121"
+            class="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-122"
             data-is-focusable="true"
             title="close"
             type="button"
           >
             <span
-              class="ms-Button-flexContainer flexContainer-122"
+              class="ms-Button-flexContainer flexContainer-123"
               data-automationid="splitbuttonprimary"
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-2 ms-Button-icon icon-125"
                 data-icon-name="Clear"
                 style="font-family: \\"FabricMDL2Icons\\";"
               >
@@ -1876,12 +1865,12 @@ Object {
             class="emotion-8"
           >
             <div
-              class="ms-TooltipHost root-131"
+              class="ms-TooltipHost root-132"
               role="none"
             >
               <i
                 aria-label="Tooltip"
-                class="root-132"
+                class="root-133"
                 data-icon-name="Info"
                 role="img"
               >
@@ -1952,12 +1941,12 @@ Object {
             class="emotion-8"
           >
             <div
-              class="ms-TooltipHost root-131"
+              class="ms-TooltipHost root-132"
               role="none"
             >
               <i
                 aria-label="Tooltip"
-                class="root-132"
+                class="root-133"
                 data-icon-name="Info"
                 role="img"
               >
@@ -1977,19 +1966,19 @@ Object {
           class="emotion-9"
         >
           <div
-            class="ms-TextField emotion-17 root-134"
+            class="ms-TextField emotion-17 root-135"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-135"
+                class="ms-TextField-fieldGroup fieldGroup-136"
               >
                 <input
                   aria-invalid="false"
                   aria-label="subscription.key"
                   aria-required="true"
-                  class="ms-TextField-field field-136"
+                  class="ms-TextField-field field-137"
                   data-testid="subscription-key-field"
                   id="TextField79"
                   type="password"
@@ -1997,15 +1986,15 @@ Object {
                 />
                 <button
                   aria-pressed="false"
-                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-142"
+                  class="ms-TextField-reveal ms-Button ms-Button--icon revealButton-143"
                   type="button"
                 >
                   <span
-                    class="revealSpan-143"
+                    class="revealSpan-144"
                   >
                     <i
                       aria-hidden="true"
-                      class="revealIcon-147"
+                      class="revealIcon-148"
                       data-icon-name="RedEye"
                     >
                       
@@ -2033,20 +2022,20 @@ Object {
           </div>
           <div>
             <button
-              class="ms-Button ms-Button--default root-154"
+              class="ms-Button ms-Button--default root-155"
               data-is-focusable="true"
               style="height: 1.5rem;"
               type="button"
             >
               <span
-                class="ms-Button-flexContainer flexContainer-122"
+                class="ms-Button-flexContainer flexContainer-123"
                 data-automationid="splitbuttonprimary"
               >
                 <span
-                  class="ms-Button-textContainer textContainer-123"
+                  class="ms-Button-textContainer textContainer-124"
                 >
                   <span
-                    class="ms-Button-label label-150"
+                    class="ms-Button-label label-151"
                     id="id__84"
                   >
                     View
@@ -2069,7 +2058,6 @@ Object {
           </div>
           <div>
             <div>
-              
               <label
                 class="emotion-20"
                 for="file-upload-field"

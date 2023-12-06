@@ -1,9 +1,8 @@
-import { renderHook } from '@testing-library/react-hooks';
-
-import { useCompletedSteps } from './progress-bar-steps';
+import { renderHook } from '@testing-library/react';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
+import { useCompletedSteps } from './progress-bar-steps';
 import { useReviewManifestStore } from './review-manifest.store';
 
 describe('progress-bar-steps hook', () => {

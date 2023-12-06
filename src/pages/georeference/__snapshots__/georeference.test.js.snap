@@ -109,7 +109,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="icon-120"
+                class="icon-121"
                 data-icon-name="ErrorBadge"
               >
                 
@@ -132,7 +132,7 @@ Object {
         class="emotion-1"
       >
         <div
-          class="ms-MessageBar ms-MessageBar-multiline root-121"
+          class="ms-MessageBar ms-MessageBar-multiline root-122"
         >
           <div
             class="ms-MessageBar-content content-110"
@@ -143,7 +143,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="icon-127"
+                class="icon-128"
                 data-icon-name="Info"
               >
                 
@@ -156,7 +156,7 @@ Object {
               role="status"
             >
               <span
-                class="ms-MessageBar-innerText innerText-123"
+                class="ms-MessageBar-innerText innerText-124"
               />
             </div>
           </div>
@@ -229,18 +229,18 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-12 root-129"
+              class="ms-TextField is-disabled emotion-12 root-130"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-130"
+                  class="ms-TextField-fieldGroup fieldGroup-131"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.longitude"
-                    class="ms-TextField-field field-131"
+                    class="ms-TextField-field field-132"
                     disabled=""
                     id="TextField2"
                     readonly=""
@@ -264,18 +264,18 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-12 root-129"
+              class="ms-TextField is-disabled emotion-12 root-130"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-130"
+                  class="ms-TextField-fieldGroup fieldGroup-131"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.latitude"
-                    class="ms-TextField-field field-131"
+                    class="ms-TextField-field field-132"
                     disabled=""
                     id="TextField7"
                     readonly=""
@@ -299,18 +299,18 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-12 root-129"
+              class="ms-TextField is-disabled emotion-12 root-130"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-130"
+                  class="ms-TextField-fieldGroup fieldGroup-131"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="anchor.point.angle"
-                    class="ms-TextField-field field-131"
+                    class="ms-TextField-field field-132"
                     disabled=""
                     id="TextField12"
                     readonly=""
@@ -433,7 +433,7 @@ Object {
           >
             <i
               aria-hidden="true"
-              class="icon-120"
+              class="icon-121"
               data-icon-name="ErrorBadge"
             >
               
@@ -456,7 +456,7 @@ Object {
       class="emotion-1"
     >
       <div
-        class="ms-MessageBar ms-MessageBar-multiline root-121"
+        class="ms-MessageBar ms-MessageBar-multiline root-122"
       >
         <div
           class="ms-MessageBar-content content-110"
@@ -467,7 +467,7 @@ Object {
           >
             <i
               aria-hidden="true"
-              class="icon-127"
+              class="icon-128"
               data-icon-name="Info"
             >
               
@@ -480,7 +480,7 @@ Object {
             role="status"
           >
             <span
-              class="ms-MessageBar-innerText innerText-123"
+              class="ms-MessageBar-innerText innerText-124"
             />
           </div>
         </div>
@@ -553,18 +553,18 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-12 root-129"
+            class="ms-TextField is-disabled emotion-12 root-130"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
+                class="ms-TextField-fieldGroup fieldGroup-131"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.longitude"
-                  class="ms-TextField-field field-131"
+                  class="ms-TextField-field field-132"
                   disabled=""
                   id="TextField2"
                   readonly=""
@@ -588,18 +588,18 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-12 root-129"
+            class="ms-TextField is-disabled emotion-12 root-130"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
+                class="ms-TextField-fieldGroup fieldGroup-131"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.latitude"
-                  class="ms-TextField-field field-131"
+                  class="ms-TextField-field field-132"
                   disabled=""
                   id="TextField7"
                   readonly=""
@@ -623,18 +623,18 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-12 root-129"
+            class="ms-TextField is-disabled emotion-12 root-130"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
+                class="ms-TextField-fieldGroup fieldGroup-131"
               >
                 <input
                   aria-invalid="false"
                   aria-label="anchor.point.angle"
-                  class="ms-TextField-field field-131"
+                  class="ms-TextField-field field-132"
                   disabled=""
                   id="TextField12"
                   readonly=""
