@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
-
+import { MessageBar } from '@fluentui/react';
 import { conversionStatuses, conversionSteps } from 'common/store/conversion.store';
+import { useTranslation } from 'react-i18next';
 import CopyIcon from './copy-icon';
 import { DownloadLogs } from './download-logs';
 import { Log } from './log';
@@ -16,6 +16,11 @@ const UploadContent = ({ uploadStepStatus, uploadOperationLog, uploadUdId, selec
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
+        {uploadStepStatus === conversionStatuses.deleted && (
+          <div style={{ marginBottom: '1rem' }}>
+            <MessageBar>{t('resource.deleted')}</MessageBar>
+          </div>
+        )}
         <span className={boldHeader}>Udid</span>: {uploadUdId === null ? '' : uploadUdId}
         <CopyIcon textToCopy={uploadUdId} />
       </div>
