@@ -14,7 +14,7 @@ const en = {
     'create.manifest': 'Create manifest',
     'create.new.manifest': 'Create a new manifest',
     'create.new.manifest.page.description':
-      'You will need to first submit your DWG files for processing to begin the onboarding process.',
+      'You will need to submit your drawing packages in a single ZIP file to begin the onboarding process.',
     'dataset.creation': 'Dataset creation',
     'delete.layer': 'Delete layer {{layerName}}',
     'delete.property': 'Delete property {{propertyName}}',
@@ -162,6 +162,7 @@ const en = {
     view: 'View',
     'view.all.conversions': 'View all conversions',
     'view.existing.conversions': 'View existing conversions',
+    'resource.deleted': 'Resource not found',
   },
 };
 

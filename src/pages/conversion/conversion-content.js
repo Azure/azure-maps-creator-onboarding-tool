@@ -1,10 +1,10 @@
+import { MessageBar } from '@fluentui/react';
+import { conversionStatuses, conversionSteps } from 'common/store/conversion.store';
 import { useTranslation } from 'react-i18next';
-
-import { conversionSteps, conversionStatuses } from 'common/store/conversion.store';
-import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
-import { Log } from './log';
-import { DownloadLogs } from './download-logs';
 import CopyIcon from './copy-icon';
+import { DownloadLogs } from './download-logs';
+import { Log } from './log';
+import { boldHeader, contentContainer, logContainer, metaInfoContainer } from './style';
 
 const ConversionContent = ({
   conversionStepStatus,
@@ -22,6 +22,11 @@ const ConversionContent = ({
   return (
     <div className={contentContainer}>
       <div className={metaInfoContainer}>
+        {conversionStepStatus === conversionStatuses.deleted && (
+          <div style={{ marginBottom: '1rem' }}>
+            <MessageBar>{t('resource.deleted')}</MessageBar>
+          </div>
+        )}
         <span className={boldHeader}>ConversionId</span>: {conversionId === null ? '' : conversionId}
         <CopyIcon textToCopy={conversionId} />
       </div>

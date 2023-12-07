@@ -1,21 +1,20 @@
-import { shallow } from 'zustand/shallow';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
 import { Icon } from '@fluentui/react/lib/Icon';
-
 import { PATHS } from 'common';
-import { container, content, enabledStep, step as stepStyle, stepsContainer, stepTitle } from './style';
-import UploadContent from './upload-content';
-import ConversionContent from './conversion-content';
-import DatasetContent from './dataset-content';
-import TilesetContent from './tileset-content';
-import MapContent from './map-content';
-import StepButton from './step-button';
 import { conversionSteps } from 'common/store';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
-
 import { conversionStatuses } from 'common/store/conversion.store';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { shallow } from 'zustand/shallow';
+import ConversionContent from './conversion-content';
+import DatasetContent from './dataset-content';
+import MapContent from './map-content';
+import StepButton from './step-button';
+import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
+import TilesetContent from './tileset-content';
+import UploadContent from './upload-content';
 
 const conversionStoreSelector = s => [
   s.uploadStepStatus,
@@ -77,6 +76,18 @@ const Conversion = () => {
     selectedStep,
   ] = useConversionPastStore(conversionStoreSelector, shallow);
 
+  const [uploadStatus = 0, conversionStatus = 0, datasetStatus = 0, tilesetStatus = 0] = useMemo(() => {
+    const statuses = [uploadStepStatus, conversionStepStatus, datasetStepStatus, tilesetStepStatus];
+
+    const updatedStatuses = statuses.map((currStatus, index) => {
+      const isResourceDeleted = !currStatus && statuses.slice(index + 1, 4).some(v => v > conversionStatuses.empty);
+      if (isResourceDeleted) return -1;
+      return currStatus;
+    });
+
+    return updatedStatuses;
+  }, [uploadStepStatus, conversionStepStatus, datasetStepStatus, tilesetStepStatus]);
+
   return (
     <div className={container}>
       <div className={stepsContainer}>
@@ -90,7 +101,7 @@ const Conversion = () => {
         <StepButton
           endTime={uploadEndTime}
           label={t('select.upload.step')}
-          status={uploadStepStatus}
+          status={uploadStatus}
           startTime={uploadStartTime}
           step={conversionSteps.upload}
           title={t('package.upload')}
@@ -100,7 +111,7 @@ const Conversion = () => {
         <StepButton
           endTime={conversionEndTime}
           label={t('select.conversion.step')}
-          status={conversionStepStatus}
+          status={conversionStatus}
           startTime={conversionStartTime}
           step={conversionSteps.conversion}
           title={t('package.conversion')}
@@ -110,7 +121,7 @@ const Conversion = () => {
         <StepButton
           endTime={datasetEndTime}
           label={t('select.dataset.step')}
-          status={datasetStepStatus}
+          status={datasetStatus}
           startTime={datasetStartTime}
           step={conversionSteps.dataset}
           title={t('dataset.creation')}
@@ -120,7 +131,7 @@ const Conversion = () => {
         <StepButton
           endTime={tilesetEndTime}
           label={t('select.tileset.step')}
-          status={tilesetStepStatus}
+          status={tilesetStatus}
           startTime={tilesetStartTime}
           step={conversionSteps.tileset}
           title={t('tileset.creation')}
@@ -139,26 +150,26 @@ const Conversion = () => {
       </div>
       <div className={content}>
         <UploadContent
-          uploadStepStatus={uploadStepStatus}
+          uploadStepStatus={uploadStatus}
           uploadOperationLog={uploadOperationLog}
           uploadUdId={uploadUdId}
           selectedStep={selectedStep}
         />
         <ConversionContent
-          conversionStepStatus={conversionStepStatus}
+          conversionStepStatus={conversionStatus}
           conversionOperationLog={conversionOperationLog}
           selectedStep={selectedStep}
           conversionId={conversionId}
           diagnosticPackageLocation={diagnosticPackageLocation}
         />
         <DatasetContent
-          datasetStepStatus={datasetStepStatus}
+          datasetStepStatus={datasetStatus}
           datasetOperationLog={datasetOperationLog}
           datasetId={datasetId}
           selectedStep={selectedStep}
         />
         <TilesetContent
-          tilesetStepStatus={tilesetStepStatus}
+          tilesetStepStatus={tilesetStatus}
           tilesetOperationLog={tilesetOperationLog}
           selectedStep={selectedStep}
           mapConfigurationId={mapConfigurationId}

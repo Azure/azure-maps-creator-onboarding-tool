@@ -152,43 +152,46 @@ const Conversions = () => {
 
     setItems(
       items
-        .map((item, i) => ({
-          key: i,
-          description:
-            item.upload?.description ??
-            item.conversion?.description ??
-            item.dataset?.description ??
-            item.tileset?.description ??
-            '',
-          status: (
-            <div className={iconsContainer}>
-              <StatusIcon item={item.upload} />
-              <StatusIcon item={item.conversion} />
-              <StatusIcon item={item.dataset} />
-              <StatusIcon item={item.tileset} />
-            </div>
-          ),
-          date: item.date.toLocaleString(),
-          ongoing: item.ongoing,
-          conversionData: {
-            uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
-            uploadUdId: item.upload?.udid,
-            conversionStepStatus: item.conversion?.conversionId
-              ? conversionStatuses.finishedSuccessfully
-              : conversionStatuses.empty,
-            conversionId: item.conversion?.conversionId,
-            datasetStepStatus: item.dataset?.datasetId
-              ? conversionStatuses.finishedSuccessfully
-              : conversionStatuses.empty,
-            datasetId: item.dataset?.datasetId,
-            tilesetStepStatus: item.tileset?.tilesetId
-              ? conversionStatuses.finishedSuccessfully
-              : conversionStatuses.empty,
-            tilesetId: item.tileset?.tilesetId,
-            mapConfigurationId: item.tileset?.defaultMapConfigurationId,
-            bbox: item.tileset?.bbox,
-          },
-        }))
+        .map((item, i) => {
+          const statuses = [item.upload, item.conversion, item.dataset, item.tileset];
+          return {
+            key: i,
+            description:
+              item.upload?.description ??
+              item.conversion?.description ??
+              item.dataset?.description ??
+              item.tileset?.description ??
+              '',
+            status: (
+              <div className={iconsContainer}>
+                {statuses.map((status, i) => {
+                  const isResourceDeleted = !status && statuses.slice(i + 1, 4).some(v => v !== undefined);
+                  return <StatusIcon key={i} item={status} deleted={isResourceDeleted} />;
+                })}
+              </div>
+            ),
+            date: item.date.toISOString(),
+            ongoing: item.ongoing,
+            conversionData: {
+              uploadStepStatus: item.upload?.udid ? conversionStatuses.finishedSuccessfully : conversionStatuses.empty,
+              uploadUdId: item.upload?.udid,
+              conversionStepStatus: item.conversion?.conversionId
+                ? conversionStatuses.finishedSuccessfully
+                : conversionStatuses.empty,
+              conversionId: item.conversion?.conversionId,
+              datasetStepStatus: item.dataset?.datasetId
+                ? conversionStatuses.finishedSuccessfully
+                : conversionStatuses.empty,
+              datasetId: item.dataset?.datasetId,
+              tilesetStepStatus: item.tileset?.tilesetId
+                ? conversionStatuses.finishedSuccessfully
+                : conversionStatuses.empty,
+              tilesetId: item.tileset?.tilesetId,
+              mapConfigurationId: item.tileset?.defaultMapConfigurationId,
+              bbox: item.tileset?.bbox,
+            },
+          };
+        })
         .filter(item => item.description.includes(descriptionFilter))
         .sort((a, b) => {
           if (a[sorting.fieldName] < b[sorting.fieldName]) {
@@ -196,6 +199,7 @@ const Conversions = () => {
           }
           return sorting.descending ? -1 : 1;
         })
+        .map((item, i) => ({ ...item, date: new Date(item.date).toLocaleString() }))
     );
   }, [existingConversions, ongoingConversion, t, sorting, descriptionFilter]);
 

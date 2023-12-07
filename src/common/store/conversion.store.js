@@ -1,8 +1,7 @@
-import { create } from 'zustand';
-
-import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { fetchFromLocation } from 'common/api';
+import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { HTTP_STATUS_CODE } from 'common/constants';
+import { create } from 'zustand';
 import { LRO_STATUS } from './response.store';
 import { useUserStore } from './user.store';
 
@@ -11,6 +10,7 @@ const RESOURCE_LOCATION = 'Resource-Location';
 const fetchTimeout = 10000;
 
 export const conversionStatuses = {
+  deleted: -1,
   empty: 0,
   inProgress: 1,
   finishedSuccessfully: 2,
