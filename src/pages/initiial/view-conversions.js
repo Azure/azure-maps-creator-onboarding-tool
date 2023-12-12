@@ -5,13 +5,8 @@ import { getEnvs } from 'common/functions';
 import { useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { shallow } from 'zustand/shallow';
 import {
   containerStyle,
-  descriptionStyle,
   dropdownStyle,
   errorBannerHidden,
   errorBannerStyle,
@@ -19,11 +14,12 @@ import {
   formRowStyle,
   headerStyle,
   inputStyles,
-  primaryButtonDisabledStyles,
-  primaryButtonStyle,
   textFieldStyle,
-} from './create-manifest.style';
-import FileField from './file-field';
+} from 'pages/create-manifest/create-manifest.style';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { shallow } from 'zustand/shallow';
 
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',
@@ -35,17 +31,16 @@ export const TEST_ID = {
 };
 
 const userStoreSelector = s => [s.setGeography, s.geography, s.setSubscriptionKey, s.subscriptionKey];
-const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage, s.uploadFile];
+const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage];
 
-const CreateManifestPage = () => {
+const ViewConversions = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
-  const [file, setFile] = useState(null);
 
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
-  const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector, shallow);
+  const [acknowledgeApiError, apiErrorMessage] = useResponseStore(responseStoreSelector, shallow);
 
   const environmentOptions = useMemo(
     () =>
@@ -64,15 +59,6 @@ const CreateManifestPage = () => {
     }
   }, [apiErrorMessage]);
 
-  const uploadButtonOnClick = useCallback(() => {
-    if (file === null || subKey === '') {
-      return;
-    }
-
-    uploadFile(file);
-    navigate(PATHS.PROCESSING);
-  }, [file, navigate, subKey, uploadFile]);
-
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback(
     (_, option) => {
@@ -81,10 +67,6 @@ const CreateManifestPage = () => {
     },
     [setGeo]
   );
-
-  const allFieldsFilled = useMemo(() => {
-    return file !== null && subKey !== '';
-  }, [file, subKey]);
 
   return (
     <div className={containerStyle}>
@@ -97,8 +79,7 @@ const CreateManifestPage = () => {
       >
         {errorMessage}
       </MessageBar>
-      <h2 className={headerStyle}>{t('process.file')}</h2>
-      <p className={descriptionStyle}>{t('create.new.manifest.page.description')}</p>
+      <h2 className={headerStyle}>View existing conversions</h2>
       <div className={formRowStyle}>
         <FieldLabel tooltip={t('tooltip.geography')}>{t('geography')}</FieldLabel>
         <div className={fieldStyle}>
@@ -131,24 +112,16 @@ const CreateManifestPage = () => {
           />
         </div>
       </div>
-      <FileField
-        label={t('dwg.zip.package')}
-        id={TEST_ID.FILE_UPLOAD_FIELD}
-        onFileSelect={setFile}
-        fileType="zip"
-        onError={setErrorMessage}
-        tooltip={t('tooltip.dwg.zip.package')}
-      />
+
       <PrimaryButton
-        disabled={!allFieldsFilled}
-        onClick={uploadButtonOnClick}
-        data-testid={TEST_ID.UPLOAD_BUTTON}
-        className={primaryButtonStyle}
-        text={t('process')}
-        styles={primaryButtonDisabledStyles}
+        to={subKey ? PATHS.CONVERSIONS : ''}
+        onClick={() => navigate(PATHS.CONVERSIONS)}
+        disabled={!subKey}
+        style={{ height: '1.5rem' }}
+        text="View"
       />
     </div>
   );
 };
 
-export default CreateManifestPage;
+export default ViewConversions;

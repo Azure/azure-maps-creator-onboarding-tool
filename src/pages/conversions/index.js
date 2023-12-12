@@ -1,5 +1,5 @@
 import { Spinner, SpinnerSize, TextField } from '@fluentui/react';
-import { DetailsList, DetailsListLayoutMode, DetailsRow } from '@fluentui/react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, DetailsRow, SelectionMode } from '@fluentui/react/lib/DetailsList';
 import { PATHS } from 'common';
 import { getExistingConversions } from 'common/api/conversions';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
@@ -146,7 +146,12 @@ const Conversions = () => {
           tilesetStatus: ongoingConversion.tilesetStepStatus,
           created: ongoingConversion.tilesetDate,
         },
-        date: new Date(ongoingConversion.tilesetDate ?? ongoingConversion.uploadStartTime),
+        date: new Date(
+          ongoingConversion.tilesetDate ??
+            ongoingConversion.datasetDate ??
+            ongoingConversion.conversionDate ??
+            ongoingConversion.uploadStartTime
+        ),
       });
     }
 
@@ -192,7 +197,7 @@ const Conversions = () => {
             },
           };
         })
-        .filter(item => item.description.includes(descriptionFilter))
+        .filter(item => item.description.toLowerCase().includes(descriptionFilter.toLowerCase()))
         .sort((a, b) => {
           if (a[sorting.fieldName] < b[sorting.fieldName]) {
             return sorting.descending ? 1 : -1;
@@ -232,8 +237,9 @@ const Conversions = () => {
             styles={{ root: { fontSize: '0.875rem', cursor: 'pointer' } }}
           />
         )}
+        onShouldVirtualize={() => false}
         layoutMode={DetailsListLayoutMode.justified}
-        selectionMode={0}
+        selectionMode={SelectionMode.none}
       />
     </>
   );

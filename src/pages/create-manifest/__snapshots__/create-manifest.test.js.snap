@@ -134,32 +134,13 @@ Object {
   width: 100%;
 }
 
-.emotion-18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 0.75rem;
-  height: 110px;
-  border-radius: 4px;
-}
-
-.emotion-20 {
+.emotion-24 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
   font-weight: 400;
   box-sizing: border-box;
-  border: 1px solid rgb(0, 120, 212);
+  border: 1px solid rgb(138, 136, 134);
   display: inline-block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -169,21 +150,21 @@ Object {
   border-radius: 2px;
   min-width: 5rem;
   height: 1.5rem;
-  background-color: rgb(0, 120, 212);
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-left: 1rem;
 }
 
-.emotion-20:hover {
-  background-color: rgb(16, 110, 190);
-  border: 1px solid rgb(16, 110, 190);
-  color: rgb(255, 255, 255);
+.emotion-24:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -204,8 +185,14 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-26 {
   display: none;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
 }
 
 <body>
@@ -434,79 +421,109 @@ Object {
           </div>
         </div>
         <div
-          style="display: flex; justify-content: space-between; gap: 15px; margin-top: 30px;"
+          class="emotion-5"
         >
           <div
-            class="emotion-18"
+            class="emotion-6"
           >
-            <div>
-              <h3>
-                Existing conversions
-              </h3>
-              <div>
-                View all your existing conversions
-              </div>
+            <div
+              class="emotion-14"
+            >
+              dwg.zip.package
             </div>
-            <div>
-              <button
-                aria-disabled="true"
-                class="ms-Button ms-Button--default is-disabled root-149"
-                data-is-focusable="false"
-                disabled=""
-                style="height: 1.5rem;"
-                type="button"
+            <span
+              class="emotion-8"
+            >
+              <div
+                class="ms-TooltipHost root-132"
+                role="none"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-123"
-                  data-automationid="splitbuttonprimary"
+                <i
+                  aria-label="Tooltip"
+                  class="root-133"
+                  data-icon-name="Info"
+                  role="img"
                 >
-                  <span
-                    class="ms-Button-textContainer textContainer-124"
-                  >
-                    <span
-                      class="ms-Button-label label-151"
-                      id="id__11"
-                    >
-                      View
-                    </span>
-                  </span>
-                </span>
-              </button>
-            </div>
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip11"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.dwg.zip.package
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-18"
+            class="emotion-9"
           >
-            <div>
-              <h3>
-                New conversion
-              </h3>
-              <div>
-                Start by uploading your DWG files
-              </div>
-            </div>
-            <div>
-              <div>
-                <label
-                  class="emotion-20"
-                  for="file-upload-field"
+            <div
+              class="ms-TextField emotion-17 root-135"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
                 >
-                  <span
-                    class="emotion-21"
-                  >
-                    Select File
-                  </span>
-                </label>
-                <input
-                  class="emotion-22"
-                  data-testid="file-upload-field"
-                  id="file-upload-field"
-                  type="file"
-                />
+                  <input
+                    aria-invalid="false"
+                    aria-label="dwg.zip.package"
+                    aria-required="true"
+                    class="ms-TextField-field field-137"
+                    data-testid="file-name-field"
+                    id="TextField12"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
             </div>
+            <label
+              class="emotion-24"
+              for="file-upload-field"
+            >
+              <span
+                class="emotion-25"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-26"
+              data-testid="file-upload-field"
+              id="file-upload-field"
+              type="file"
+            />
           </div>
         </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-27 root-149"
+          data-is-focusable="false"
+          data-testid="upload-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-123"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-124"
+            >
+              <span
+                class="ms-Button-label label-151"
+                id="id__17"
+              >
+                process
+              </span>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
   </body>,
@@ -641,32 +658,13 @@ Object {
   width: 100%;
 }
 
-.emotion-18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 0.75rem;
-  height: 110px;
-  border-radius: 4px;
-}
-
-.emotion-20 {
+.emotion-24 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
   font-weight: 400;
   box-sizing: border-box;
-  border: 1px solid rgb(0, 120, 212);
+  border: 1px solid rgb(138, 136, 134);
   display: inline-block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -676,21 +674,21 @@ Object {
   border-radius: 2px;
   min-width: 5rem;
   height: 1.5rem;
-  background-color: rgb(0, 120, 212);
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-left: 1rem;
 }
 
-.emotion-20:hover {
-  background-color: rgb(16, 110, 190);
-  border: 1px solid rgb(16, 110, 190);
-  color: rgb(255, 255, 255);
+.emotion-24:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -711,8 +709,14 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-26 {
   display: none;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
 }
 
 <div>
@@ -940,79 +944,109 @@ Object {
         </div>
       </div>
       <div
-        style="display: flex; justify-content: space-between; gap: 15px; margin-top: 30px;"
+        class="emotion-5"
       >
         <div
-          class="emotion-18"
+          class="emotion-6"
         >
-          <div>
-            <h3>
-              Existing conversions
-            </h3>
-            <div>
-              View all your existing conversions
-            </div>
+          <div
+            class="emotion-14"
+          >
+            dwg.zip.package
           </div>
-          <div>
-            <button
-              aria-disabled="true"
-              class="ms-Button ms-Button--default is-disabled root-149"
-              data-is-focusable="false"
-              disabled=""
-              style="height: 1.5rem;"
-              type="button"
+          <span
+            class="emotion-8"
+          >
+            <div
+              class="ms-TooltipHost root-132"
+              role="none"
             >
-              <span
-                class="ms-Button-flexContainer flexContainer-123"
-                data-automationid="splitbuttonprimary"
+              <i
+                aria-label="Tooltip"
+                class="root-133"
+                data-icon-name="Info"
+                role="img"
               >
-                <span
-                  class="ms-Button-textContainer textContainer-124"
-                >
-                  <span
-                    class="ms-Button-label label-151"
-                    id="id__11"
-                  >
-                    View
-                  </span>
-                </span>
-              </span>
-            </button>
-          </div>
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip11"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.dwg.zip.package
+              </div>
+            </div>
+          </span>
         </div>
         <div
-          class="emotion-18"
+          class="emotion-9"
         >
-          <div>
-            <h3>
-              New conversion
-            </h3>
-            <div>
-              Start by uploading your DWG files
-            </div>
-          </div>
-          <div>
-            <div>
-              <label
-                class="emotion-20"
-                for="file-upload-field"
+          <div
+            class="ms-TextField emotion-17 root-135"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-136"
               >
-                <span
-                  class="emotion-21"
-                >
-                  Select File
-                </span>
-              </label>
-              <input
-                class="emotion-22"
-                data-testid="file-upload-field"
-                id="file-upload-field"
-                type="file"
-              />
+                <input
+                  aria-invalid="false"
+                  aria-label="dwg.zip.package"
+                  aria-required="true"
+                  class="ms-TextField-field field-137"
+                  data-testid="file-name-field"
+                  id="TextField12"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
+          <label
+            class="emotion-24"
+            for="file-upload-field"
+          >
+            <span
+              class="emotion-25"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-26"
+            data-testid="file-upload-field"
+            id="file-upload-field"
+            type="file"
+          />
         </div>
       </div>
+      <button
+        aria-disabled="true"
+        class="ms-Button ms-Button--primary is-disabled emotion-27 root-149"
+        data-is-focusable="false"
+        data-testid="upload-button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-123"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-124"
+          >
+            <span
+              class="ms-Button-label label-151"
+              id="id__17"
+            >
+              process
+            </span>
+          </span>
+        </span>
+      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -1203,32 +1237,13 @@ Object {
   width: 100%;
 }
 
-.emotion-18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 0.75rem;
-  height: 110px;
-  border-radius: 4px;
-}
-
-.emotion-20 {
+.emotion-24 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
   font-weight: 400;
   box-sizing: border-box;
-  border: 1px solid rgb(0, 120, 212);
+  border: 1px solid rgb(138, 136, 134);
   display: inline-block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -1238,21 +1253,21 @@ Object {
   border-radius: 2px;
   min-width: 5rem;
   height: 1.5rem;
-  background-color: rgb(0, 120, 212);
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-left: 1rem;
 }
 
-.emotion-20:hover {
-  background-color: rgb(16, 110, 190);
-  border: 1px solid rgb(16, 110, 190);
-  color: rgb(255, 255, 255);
+.emotion-24:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1273,8 +1288,14 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-26 {
   display: none;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
 }
 
 <body>
@@ -1283,7 +1304,7 @@ Object {
         class="emotion-0"
       >
         <div
-          aria-describedby="MessageBar73"
+          aria-describedby="MessageBar100"
           class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
           role="region"
         >
@@ -1305,7 +1326,7 @@ Object {
             <div
               aria-live="assertive"
               class="ms-MessageBar-text text-113"
-              id="MessageBar73"
+              id="MessageBar100"
               role="alert"
             >
               <span
@@ -1374,7 +1395,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip77"
+                  id="tooltip104"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.geography
@@ -1450,7 +1471,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip78"
+                  id="tooltip105"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.subKey
@@ -1476,7 +1497,7 @@ Object {
                     aria-required="true"
                     class="ms-TextField-field field-137"
                     data-testid="subscription-key-field"
-                    id="TextField79"
+                    id="TextField106"
                     type="password"
                     value="subscription_key!"
                   />
@@ -1503,77 +1524,109 @@ Object {
           </div>
         </div>
         <div
-          style="display: flex; justify-content: space-between; gap: 15px; margin-top: 30px;"
+          class="emotion-5"
         >
           <div
-            class="emotion-18"
+            class="emotion-6"
           >
-            <div>
-              <h3>
-                Existing conversions
-              </h3>
-              <div>
-                View all your existing conversions
-              </div>
+            <div
+              class="emotion-14"
+            >
+              dwg.zip.package
             </div>
-            <div>
-              <button
-                class="ms-Button ms-Button--default root-155"
-                data-is-focusable="true"
-                style="height: 1.5rem;"
-                type="button"
+            <span
+              class="emotion-8"
+            >
+              <div
+                class="ms-TooltipHost root-132"
+                role="none"
               >
-                <span
-                  class="ms-Button-flexContainer flexContainer-123"
-                  data-automationid="splitbuttonprimary"
+                <i
+                  aria-label="Tooltip"
+                  class="root-133"
+                  data-icon-name="Info"
+                  role="img"
                 >
-                  <span
-                    class="ms-Button-textContainer textContainer-124"
-                  >
-                    <span
-                      class="ms-Button-label label-151"
-                      id="id__84"
-                    >
-                      View
-                    </span>
-                  </span>
-                </span>
-              </button>
-            </div>
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip111"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.dwg.zip.package
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-18"
+            class="emotion-9"
           >
-            <div>
-              <h3>
-                New conversion
-              </h3>
-              <div>
-                Start by uploading your DWG files
-              </div>
-            </div>
-            <div>
-              <div>
-                <label
-                  class="emotion-20"
-                  for="file-upload-field"
+            <div
+              class="ms-TextField emotion-17 root-135"
+            >
+              <div
+                class="ms-TextField-wrapper"
+              >
+                <div
+                  class="ms-TextField-fieldGroup fieldGroup-136"
                 >
-                  <span
-                    class="emotion-21"
-                  >
-                    Select File
-                  </span>
-                </label>
-                <input
-                  class="emotion-22"
-                  data-testid="file-upload-field"
-                  id="file-upload-field"
-                  type="file"
-                />
+                  <input
+                    aria-invalid="false"
+                    aria-label="dwg.zip.package"
+                    aria-required="true"
+                    class="ms-TextField-field field-137"
+                    data-testid="file-name-field"
+                    id="TextField112"
+                    readonly=""
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
             </div>
+            <label
+              class="emotion-24"
+              for="file-upload-field"
+            >
+              <span
+                class="emotion-25"
+              >
+                browse
+              </span>
+            </label>
+            <input
+              class="emotion-26"
+              data-testid="file-upload-field"
+              id="file-upload-field"
+              type="file"
+            />
           </div>
         </div>
+        <button
+          aria-disabled="true"
+          class="ms-Button ms-Button--primary is-disabled emotion-27 root-149"
+          data-is-focusable="false"
+          data-testid="upload-button"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="ms-Button-flexContainer flexContainer-123"
+            data-automationid="splitbuttonprimary"
+          >
+            <span
+              class="ms-Button-textContainer textContainer-124"
+            >
+              <span
+                class="ms-Button-label label-151"
+                id="id__117"
+              >
+                process
+              </span>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
   </body>,
@@ -1708,32 +1761,13 @@ Object {
   width: 100%;
 }
 
-.emotion-18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 4px;
-  padding: 0.75rem;
-  height: 110px;
-  border-radius: 4px;
-}
-
-.emotion-20 {
+.emotion-24 {
   outline: transparent;
   position: relative;
   font-size: 0.875rem;
   font-weight: 400;
   box-sizing: border-box;
-  border: 1px solid rgb(0, 120, 212);
+  border: 1px solid rgb(138, 136, 134);
   display: inline-block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -1743,21 +1777,21 @@ Object {
   border-radius: 2px;
   min-width: 5rem;
   height: 1.5rem;
-  background-color: rgb(0, 120, 212);
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-left: 1rem;
 }
 
-.emotion-20:hover {
-  background-color: rgb(16, 110, 190);
-  border: 1px solid rgb(16, 110, 190);
-  color: rgb(255, 255, 255);
+.emotion-24:hover {
+  background-color: rgb(243, 242, 241);
+  color: rgb(32, 31, 30);
 }
 
-.emotion-21 {
+.emotion-25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1778,8 +1812,14 @@ Object {
   font-weight: 600;
 }
 
-.emotion-22 {
+.emotion-26 {
   display: none;
+}
+
+.emotion-27 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
 }
 
 <div>
@@ -1787,7 +1827,7 @@ Object {
       class="emotion-0"
     >
       <div
-        aria-describedby="MessageBar73"
+        aria-describedby="MessageBar100"
         class="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline emotion-1 root-109"
         role="region"
       >
@@ -1809,7 +1849,7 @@ Object {
           <div
             aria-live="assertive"
             class="ms-MessageBar-text text-113"
-            id="MessageBar73"
+            id="MessageBar100"
             role="alert"
           >
             <span
@@ -1878,7 +1918,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip77"
+                id="tooltip104"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.geography
@@ -1954,7 +1994,7 @@ Object {
               </i>
               <div
                 hidden=""
-                id="tooltip78"
+                id="tooltip105"
                 style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
               >
                 tooltip.subKey
@@ -1980,7 +2020,7 @@ Object {
                   aria-required="true"
                   class="ms-TextField-field field-137"
                   data-testid="subscription-key-field"
-                  id="TextField79"
+                  id="TextField106"
                   type="password"
                   value="subscription_key!"
                 />
@@ -2007,77 +2047,109 @@ Object {
         </div>
       </div>
       <div
-        style="display: flex; justify-content: space-between; gap: 15px; margin-top: 30px;"
+        class="emotion-5"
       >
         <div
-          class="emotion-18"
+          class="emotion-6"
         >
-          <div>
-            <h3>
-              Existing conversions
-            </h3>
-            <div>
-              View all your existing conversions
-            </div>
+          <div
+            class="emotion-14"
+          >
+            dwg.zip.package
           </div>
-          <div>
-            <button
-              class="ms-Button ms-Button--default root-155"
-              data-is-focusable="true"
-              style="height: 1.5rem;"
-              type="button"
+          <span
+            class="emotion-8"
+          >
+            <div
+              class="ms-TooltipHost root-132"
+              role="none"
             >
-              <span
-                class="ms-Button-flexContainer flexContainer-123"
-                data-automationid="splitbuttonprimary"
+              <i
+                aria-label="Tooltip"
+                class="root-133"
+                data-icon-name="Info"
+                role="img"
               >
-                <span
-                  class="ms-Button-textContainer textContainer-124"
-                >
-                  <span
-                    class="ms-Button-label label-151"
-                    id="id__84"
-                  >
-                    View
-                  </span>
-                </span>
-              </span>
-            </button>
-          </div>
+                
+              </i>
+              <div
+                hidden=""
+                id="tooltip111"
+                style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+              >
+                tooltip.dwg.zip.package
+              </div>
+            </div>
+          </span>
         </div>
         <div
-          class="emotion-18"
+          class="emotion-9"
         >
-          <div>
-            <h3>
-              New conversion
-            </h3>
-            <div>
-              Start by uploading your DWG files
-            </div>
-          </div>
-          <div>
-            <div>
-              <label
-                class="emotion-20"
-                for="file-upload-field"
+          <div
+            class="ms-TextField emotion-17 root-135"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-136"
               >
-                <span
-                  class="emotion-21"
-                >
-                  Select File
-                </span>
-              </label>
-              <input
-                class="emotion-22"
-                data-testid="file-upload-field"
-                id="file-upload-field"
-                type="file"
-              />
+                <input
+                  aria-invalid="false"
+                  aria-label="dwg.zip.package"
+                  aria-required="true"
+                  class="ms-TextField-field field-137"
+                  data-testid="file-name-field"
+                  id="TextField112"
+                  readonly=""
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
+          <label
+            class="emotion-24"
+            for="file-upload-field"
+          >
+            <span
+              class="emotion-25"
+            >
+              browse
+            </span>
+          </label>
+          <input
+            class="emotion-26"
+            data-testid="file-upload-field"
+            id="file-upload-field"
+            type="file"
+          />
         </div>
       </div>
+      <button
+        aria-disabled="true"
+        class="ms-Button ms-Button--primary is-disabled emotion-27 root-149"
+        data-is-focusable="false"
+        data-testid="upload-button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="ms-Button-flexContainer flexContainer-123"
+          data-automationid="splitbuttonprimary"
+        >
+          <span
+            class="ms-Button-textContainer textContainer-124"
+          >
+            <span
+              class="ms-Button-label label-151"
+              id="id__117"
+            >
+              process
+            </span>
+          </span>
+        </span>
+      </button>
     </div>
   </div>,
   "debug": [Function],

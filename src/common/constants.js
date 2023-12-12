@@ -1,5 +1,7 @@
 export const PATHS = {
   INDEX: '/',
+  VIEW_CONVERSIONS: '/view-conversions',
+  CREATE_UPLOAD: '/create-upload',
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
@@ -13,6 +15,8 @@ export const PATHS = {
 
 export const ROUTE_NAME_BY_PATH = {
   [PATHS.INDEX]: 'home',
+  [PATHS.CREATE_UPLOAD]: 'Create',
+  [PATHS.VIEW_CONVERSIONS]: 'View',
   [PATHS.PROCESSING]: 'processing',
   [PATHS.CREATE_GEOREFERENCE]: 'prepare.drawing.package',
   [PATHS.LAYERS]: 'prepare.drawing.package',
