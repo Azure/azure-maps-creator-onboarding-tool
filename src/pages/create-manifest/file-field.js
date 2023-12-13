@@ -1,9 +1,9 @@
 import { TextField } from '@fluentui/react';
+import FieldLabel from 'components/field-label';
 import PropTypes from 'prop-types';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import FieldLabel from 'components/field-label';
+import { TEST_ID } from './create-manifest';
 import {
   browseButtonContentStyle,
   browseButtonStyle,
@@ -79,7 +79,7 @@ const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
         <TextField
           value={filename}
           className={textFieldStyle}
-          data-testid="file-name-field"
+          data-testid={TEST_ID.FILE_NAME_FIELD}
           ariaLabel={label}
           aria-required
           readOnly

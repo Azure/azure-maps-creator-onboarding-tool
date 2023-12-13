@@ -9,6 +9,9 @@ const en = {
     cancel: 'Cancel',
     close: 'Close',
     create: 'Create',
+    'initial.description':
+      'Create and publish custom indoor maps that support maintaining control of design, distribution, scale, and access.',
+    'create.description': 'Create Tilesets by uploading your drawing files',
     'create.download': 'Create + Download',
     'create.indoor.map': 'Create Indoor Map',
     'create.manifest': 'Create manifest',

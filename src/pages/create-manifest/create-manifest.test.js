@@ -42,13 +42,14 @@ describe('CreateManifestPage', () => {
     expect(uploadFileSpy).not.toHaveBeenCalled();
     render(<CreateManifestPage />);
     const fileInput = screen.getByTestId(TEST_ID.FILE_UPLOAD_FIELD);
+    const uploadButton = screen.getByTestId(TEST_ID.UPLOAD_BUTTON);
     const subKeyTextField = screen.getByTestId(TEST_ID.SUBSCRIPTION_KEY_FIELD);
 
     fireEvent.change(fileInput, {
       target: { files: [file] },
     });
 
-    expect(screen.getByTestId(TEST_ID.FILE_NAME_FIELD).textContent).toBe(file.name);
+    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe(file.name);
     expect(screen.queryByText('error.file.size.exceeded')).toBeNull();
     expect(screen.queryByText('error.file.type.incorrect')).toBeNull();
 
@@ -57,8 +58,6 @@ describe('CreateManifestPage', () => {
         value: 'Sonic the Hedgehog isnt his fullname',
       },
     });
-
-    const uploadButton = screen.getByTestId(TEST_ID.UPLOAD_BUTTON);
     fireEvent.click(uploadButton);
 
     expect(uploadFileSpy).toBeCalledWith(file);
@@ -75,10 +74,8 @@ describe('CreateManifestPage', () => {
 
     await flushPromises();
 
-    const errorMessage = await screen.findByText('error.file.size.exceeded');
-
-    expect(errorMessage).toBeInTheDocument();
-    expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
+    expect(screen.getByTestId(TEST_ID.ERROR_BAR)).toBeInTheDocument();
+    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe('');
   });
 
   it('should show an error when the file is not zip', async () => {
@@ -92,10 +89,8 @@ describe('CreateManifestPage', () => {
 
     await flushPromises();
 
-    const errorMessage = await screen.findByText('error.file.type.incorrect');
-
-    expect(errorMessage).toBeInTheDocument();
-    expect(screen.queryByTestId(TEST_ID.FILE_NAME_FIELD)).toBeNull();
+    expect(screen.getByTestId(TEST_ID.ERROR_BAR)).toBeInTheDocument();
+    expect(screen.getAllByTestId(TEST_ID.FILE_NAME_FIELD)[0].value).toBe('');
   });
 
   it('should pick different geographies', async () => {

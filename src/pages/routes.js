@@ -7,6 +7,8 @@ import PastConversion from './conversion/past-conversion';
 import Conversions from './conversions';
 import CreateManifestPage from './create-manifest';
 import Georeference from './georeference';
+import InitialView from './initial';
+import ViewConversions from './initial/view-conversions';
 import Layers from './layers';
 import Levels from './levels';
 import ProcessingPage from './processing';
@@ -16,7 +18,17 @@ export const routes = [
   {
     path: PATHS.INDEX,
     name: ROUTE_NAME_BY_PATH[PATHS.INDEX],
+    element: <Route component={InitialView} />,
+  },
+  {
+    path: PATHS.CREATE_UPLOAD,
+    name: ROUTE_NAME_BY_PATH[PATHS.CREATE_UPLOAD],
     element: <Route component={CreateManifestPage} title="maps.creator.manifest" />,
+  },
+  {
+    path: PATHS.VIEW_CONVERSIONS,
+    name: ROUTE_NAME_BY_PATH[PATHS.VIEW_CONVERSIONS],
+    element: <Route component={ViewConversions} title="maps.creator.manifest" />,
   },
   { path: PATHS.PROCESSING, name: ROUTE_NAME_BY_PATH[PATHS.PROCESSING], element: <ProcessingPage /> },
   {

@@ -1,7 +1,7 @@
 import { color, fontSize, fontWeight } from 'common/styles';
 
 export const breadcrumbStyle = {
-  root: { margin: '0.625rem 0px' },
+  root: { margin: '0.625rem 0px', lineHeight: '1rem' },
   itemLink: {
     color: color.accent.primary,
     fontSize: fontSize.md,

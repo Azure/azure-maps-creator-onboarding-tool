@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { breadcrumbStyle } from './bread-crumb-nav.style';
 
 const routesReset = [PATHS.CONVERSION];
-const routesSkipAlert = [PATHS.PAST_CONVERSION];
+const routesSkipAlert = [PATHS.PAST_CONVERSION, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
 
 const BreadCrumbNav = () => {
   const { t } = useTranslation();

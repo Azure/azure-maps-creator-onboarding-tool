@@ -15,6 +15,8 @@ import { footerPadding, routeStyle } from './route.style';
 const responseStoreSelector = s => s.lroStatus;
 const userStoreSelector = s => s.subscriptionKey;
 
+const openRoutes = [PATHS.INDEX, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
+
 const Route = ({ title, component: Component, dataRequired }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -28,6 +30,7 @@ const Route = ({ title, component: Component, dataRequired }) => {
   }, [currentPath]);
 
   useEffect(() => {
+    if (openRoutes.includes(currentPath)) return;
     // Redirect to index if there is no subscription key
     if (!subKey) navigate(PATHS.INDEX, { replace: true });
   }, [navigate, currentPath, subKey]);
