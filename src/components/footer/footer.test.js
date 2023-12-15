@@ -2,24 +2,27 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { saveAs } from 'file-saver';
 import flushPromises from 'flush-promises';
 
-import Footer from './footer';
+import featureFlags from 'common/feature-flags';
 import {
+  useConversionStore,
   useGeometryStore,
   useLayersStore,
   useLevelsStore,
-  useConversionStore,
   useReviewManifestStore,
 } from 'common/store';
-import featureFlags from 'common/feature-flags';
+import Footer from './footer';
 
 const mockNavigate = jest.fn();
 let mockCurrentPathname = '/screen1';
 
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 jest.mock('react-router-dom', () => ({
   useLocation: () => ({
     pathname: mockCurrentPathname,
   }),
-  useNavigate: () => mockNavigate,
 }));
 jest.mock('common/feature-flags', () => ({
   onboardingEnabled: true,

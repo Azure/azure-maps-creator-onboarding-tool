@@ -1,21 +1,20 @@
-import { useTranslation } from 'react-i18next';
 import { DefaultButton, PrimaryButton } from '@fluentui/react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { shallow } from 'zustand/shallow';
-import { saveAs } from 'file-saver';
-
-import { buttonStyle, footerContainerStyle } from './footer.style';
+import { PATHS } from 'common';
+import featureFlags from 'common/feature-flags';
 import {
   progressBarSteps,
+  useCompletedSteps,
+  useConversionStore,
   useProgressBarStore,
   useReviewManifestJson,
   useReviewManifestStore,
-  useConversionStore,
-  useCompletedSteps,
 } from 'common/store';
-import { PATHS } from 'common';
-import featureFlags from 'common/feature-flags';
-
+import { saveAs } from 'file-saver';
+import { useCustomNavigate } from 'hooks';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import { shallow } from 'zustand/shallow';
+import { buttonStyle, footerContainerStyle } from './footer.style';
 const reviewManifestSelector = s => [s.createPackageWithJson, s.getOriginalPackageName];
 const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = s => [s.reset, s.uploadPackage];
@@ -23,7 +22,7 @@ const conversionSelector = s => [s.reset, s.uploadPackage];
 export const Footer = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const json = useReviewManifestJson();
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
   const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);

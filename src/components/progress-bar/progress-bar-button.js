@@ -1,19 +1,18 @@
-import { useCallback, useMemo } from 'react';
-import { ActionButton } from '@fluentui/react';
-import PropTypes from 'prop-types';
 import { cx } from '@emotion/css';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-
+import { ActionButton } from '@fluentui/react';
 import { useCompletedSteps } from 'common/store';
-import { activeStepStyle, stepStyle } from './progress-bar.style';
+import { useCustomNavigate } from 'hooks';
+import PropTypes from 'prop-types';
+import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import ProgressBarIcon from './progress-bar-icon';
-
+import { activeStepStyle, stepStyle } from './progress-bar.style';
 const ProgressBarButton = ({ step }) => {
   const completedSteps = useCompletedSteps();
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const isActiveStep = useMemo(() => pathname === step.href, [pathname, step]);
   const isCompletedStep = useMemo(() => completedSteps.includes(step.key), [completedSteps, step]);

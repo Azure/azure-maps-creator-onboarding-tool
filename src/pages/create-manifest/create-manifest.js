@@ -5,9 +5,9 @@ import { getEnvs } from 'common/functions';
 import { useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
+import { useCustomNavigate } from 'hooks';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import {
   containerStyle,
@@ -39,7 +39,7 @@ const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage, s.upload
 
 const CreateManifestPage = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
   const [file, setFile] = useState(null);

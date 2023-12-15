@@ -6,8 +6,11 @@ import CreateManifestPage, { TEST_ID } from './create-manifest';
 
 const mockNavigate = jest.fn();
 
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
   Link: ({ children }) => <div>{children}</div>,
 }));
 jest.mock('common/api', () => ({

@@ -4,15 +4,14 @@ import { PATHS } from 'common';
 import { getExistingConversions } from 'common/api/conversions';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { conversionStatuses, useConversionStore } from 'common/store/conversion.store';
+import { useCustomNavigate } from 'hooks';
 import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import { StatusIcon } from './icon';
 import { filterInputStyles, iconsContainer, nameFilterContainer } from './style';
 import { groupItems } from './utils';
-
 const defaultColumns = [
   { key: 'nameCol', name: 'Description', fieldName: 'description', minWidth: 40, maxWidth: 460, isResizable: true },
   { key: 'statusCol', name: 'Status', fieldName: 'status', minWidth: 40, maxWidth: 200, isResizable: true },
@@ -80,7 +79,7 @@ const pastConversionStoreSelector = s => s.setData;
 
 const Conversions = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [existingConversions, setExistingConversions] = useState([]);
   const [items, setItems] = useState([]);

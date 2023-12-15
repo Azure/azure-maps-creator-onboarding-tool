@@ -2,8 +2,9 @@ import { Breadcrumb } from '@fluentui/react/lib/Breadcrumb';
 import { PATHS, ROUTE_NAME_BY_PATH } from 'common/constants';
 import { getSplitPaths } from 'common/functions';
 import { useConversionStore } from 'common/store';
+import { useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { breadcrumbStyle } from './bread-crumb-nav.style';
 
 const routesReset = [PATHS.CONVERSION];
@@ -11,7 +12,7 @@ const routesSkipAlert = [PATHS.PAST_CONVERSION, PATHS.CREATE_UPLOAD, PATHS.VIEW_
 
 const BreadCrumbNav = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const { pathname: currentPath } = useLocation();
 
   const splitPaths = getSplitPaths(currentPath);

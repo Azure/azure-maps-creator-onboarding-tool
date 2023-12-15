@@ -8,9 +8,9 @@ const mockNavigate = jest.fn();
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({ t: mockT }),
 }));
-
-jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
 }));
 
 describe('ProcessingPage', () => {

@@ -1,17 +1,17 @@
 import { cx } from '@emotion/css';
 import { PATHS } from 'common';
 import { LRO_STATUS, progressBarSteps, useResponseStore, useUserStore } from 'common/store';
+import { useCustomNavigate } from 'hooks';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import BreadCrumbNav from '../bread-crumb-nav/bread-crumb-nav';
 import Footer from '../footer/footer';
 import ProgressBar from '../progress-bar/progress-bar';
 import TopBar from '../top-bar/top-bar';
 import { footerPadding, routeStyle } from './route.style';
-
 const responseStoreSelector = s => s.lroStatus;
 const userStoreSelector = s => s.subscriptionKey;
 
@@ -19,7 +19,7 @@ const openRoutes = [PATHS.INDEX, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
 
 const Route = ({ title, component: Component, dataRequired }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const { pathname: currentPath } = useLocation();
 
   const lroStatus = useResponseStore(responseStoreSelector);

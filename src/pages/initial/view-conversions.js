@@ -5,6 +5,7 @@ import { getEnvs } from 'common/functions';
 import { useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
+import { useCustomNavigate } from 'hooks';
 import {
   containerStyle,
   dropdownStyle,
@@ -18,9 +19,7 @@ import {
 } from 'pages/create-manifest/create-manifest.style';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
-
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',
   FILE_NAME_FIELD: 'file-name-field',
@@ -35,7 +34,7 @@ const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage];
 
 const ViewConversions = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -114,7 +113,6 @@ const ViewConversions = () => {
       </div>
 
       <PrimaryButton
-        to={subKey ? PATHS.CONVERSIONS : ''}
         onClick={() => navigate(PATHS.CONVERSIONS)}
         disabled={!subKey}
         style={{ height: '1.5rem' }}

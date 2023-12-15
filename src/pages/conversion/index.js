@@ -1,20 +1,18 @@
-import { shallow } from 'zustand/shallow';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { cx } from '@emotion/css';
 import { Icon } from '@fluentui/react/lib/Icon';
-
 import { PATHS } from 'common';
-import { container, content, enabledStep, step as stepStyle, stepsContainer, stepTitle } from './style';
-import UploadContent from './upload-content';
-import ConversionContent from './conversion-content';
-import DatasetContent from './dataset-content';
-import TilesetContent from './tileset-content';
-import MapContent from './map-content';
-import StepButton from './step-button';
 import { conversionSteps, useConversionStore } from 'common/store';
 import { conversionStatuses } from 'common/store/conversion.store';
-
+import { useCustomNavigate } from 'hooks';
+import { useTranslation } from 'react-i18next';
+import { shallow } from 'zustand/shallow';
+import ConversionContent from './conversion-content';
+import DatasetContent from './dataset-content';
+import MapContent from './map-content';
+import StepButton from './step-button';
+import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
+import TilesetContent from './tileset-content';
+import UploadContent from './upload-content';
 const conversionStoreSelector = s => [
   s.uploadStepStatus,
   s.uploadStartTime,
@@ -45,7 +43,7 @@ const conversionStoreSelector = s => [
 
 const Conversion = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [
     uploadStepStatus,
