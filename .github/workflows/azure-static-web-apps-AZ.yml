@@ -26,3 +26,5 @@ jobs:
           app_location: '/' # App source code path relative to repository root
           app_build_command: 'npm run build:test'
           output_location: 'build' # Built app content directory, relative to app_location - optional
+        env: # Add environment variables here
+          REACT_APP_STAGING_ENV: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
