@@ -5,6 +5,7 @@ export const PATHS = {
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
+  IMDF_CONVERT: '/convert',
   CONVERSION: '/review-create/conversion',
   PAST_CONVERSION: '/past-conversion',
   CONVERSIONS: '/conversions',
@@ -23,6 +24,7 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.LEVELS]: 'prepare.drawing.package',
   [PATHS.INVALID_PATH]: 'redirect',
   [PATHS.REVIEW_CREATE]: 'prepare.drawing.package',
+  [PATHS.IMDF_CONVERT]: 'convert',
   [PATHS.CONVERSION]: 'create.indoor.map',
   [PATHS.CONVERSIONS]: 'All conversions',
 };

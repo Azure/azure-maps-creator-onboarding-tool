@@ -1,30 +1,12 @@
-import { useEffect } from 'react';
-import ReactJson from 'react-json-view';
+import { useFeatureFlags } from 'hooks';
+import SummaryTab from 'pages/summary';
+import ReviewTab from './review';
 
-import { useReviewManifestJson, useReviewManifestStore } from 'common/store';
+const Review = () => {
+  const { isPlacesPreview } = useFeatureFlags();
 
-const reviewManifestSelector = s => s.setManifestReviewed;
-
-const ReviewAndCreate = () => {
-  const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
-  const json = useReviewManifestJson();
-
-  useEffect(() => {
-    setManifestReviewed(true);
-  }, [setManifestReviewed]);
-
-  return (
-    <ReactJson
-      src={json}
-      iconStyle="square"
-      indentWidth={2}
-      displayDataTypes={false}
-      name={false}
-      displayObjectSize={false}
-      enableClipboard={false}
-      displayArrayKey={false}
-    />
-  );
+  if (isPlacesPreview) return <SummaryTab />;
+  return <ReviewTab />;
 };
 
-export default ReviewAndCreate;
+export default Review;

@@ -26,8 +26,9 @@ export const formRowStyle = css`
 `;
 
 export const fieldStyle = css`
-  width: 30rem;
+  width: 100%;
   display: flex;
+  max-width: 30rem;
 `;
 
 export const textFieldStyle = css`

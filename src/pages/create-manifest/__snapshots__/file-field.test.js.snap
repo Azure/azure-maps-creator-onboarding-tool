@@ -54,11 +54,12 @@ Object {
 }
 
 .emotion-3 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-4 {
@@ -231,11 +232,12 @@ Object {
 }
 
 .emotion-3 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-4 {

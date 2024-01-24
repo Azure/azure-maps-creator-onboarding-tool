@@ -1,10 +1,12 @@
-import { Navigate } from 'react-router-dom';
-
 import { PATHS, ROUTE_NAME_BY_PATH } from 'common';
 import { Route } from 'components';
+import { useFeatureFlags } from 'hooks';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 import Conversion from './conversion';
 import PastConversion from './conversion/past-conversion';
 import Conversions from './conversions';
+import ConvertTab from './convert';
 import CreateManifestPage from './create-manifest';
 import Georeference from './georeference';
 import InitialView from './initial';
@@ -14,16 +16,33 @@ import Levels from './levels';
 import ProcessingPage from './processing';
 import ReviewAndCreate from './review';
 
+const CreateUploadRoute = props => {
+  const { isPlacesPreview } = useFeatureFlags();
+  return (
+    <Route
+      component={CreateManifestPage}
+      title={isPlacesPreview ? 'conversion.for.places' : 'maps.creator.manifest'}
+      {...props}
+    />
+  );
+};
+
+const InitialViewRoute = props => {
+  const { isPlacesPreview } = useFeatureFlags();
+  if (!isPlacesPreview) return <Route component={InitialView} {...props} />;
+  return <CreateUploadRoute {...props} />;
+};
+
 export const routes = [
   {
     path: PATHS.INDEX,
     name: ROUTE_NAME_BY_PATH[PATHS.INDEX],
-    element: <Route component={InitialView} />,
+    element: <InitialViewRoute />,
   },
   {
     path: PATHS.CREATE_UPLOAD,
     name: ROUTE_NAME_BY_PATH[PATHS.CREATE_UPLOAD],
-    element: <Route component={CreateManifestPage} title="maps.creator.manifest" />,
+    element: <CreateUploadRoute />,
   },
   {
     path: PATHS.VIEW_CONVERSIONS,
@@ -50,6 +69,11 @@ export const routes = [
     path: PATHS.REVIEW_CREATE,
     name: ROUTE_NAME_BY_PATH[PATHS.REVIEW_CREATE],
     element: <Route component={ReviewAndCreate} title="create.manifest" dataRequired />,
+  },
+  {
+    path: PATHS.IMDF_CONVERT,
+    name: ROUTE_NAME_BY_PATH[PATHS.IMDF_CONVERT],
+    element: <Route component={ConvertTab} title="create.manifest" />,
   },
   {
     path: PATHS.CONVERSION,

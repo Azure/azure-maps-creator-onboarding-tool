@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import Papa from 'papaparse';
 import nextId from 'react-id-generator';
-
+import { create } from 'zustand';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
 const systemReservedLayerNames = ['facility', 'level'];
@@ -17,6 +17,73 @@ export const useLayersStore = create((set, get) => ({
     set({
       visited: true,
     }),
+  setCategoryMappingEnabled: categoryMappingEnabled => {
+    set({
+      categoryMappingEnabled,
+    });
+  },
+  setCategoryLayer: categoryLayer => {
+    set({
+      categoryLayer,
+    });
+  },
+  setCategoryMapping: (mappingFile, errorMessage = null) => {
+    let isMappingValid = false;
+    let categoryMap = {};
+    let message = null;
+
+    if (!mappingFile)
+      return set({
+        categoryMapping: { ...getDefaultState().categoryMapping, message: errorMessage },
+      });
+
+    Papa.parse(mappingFile, {
+      header: false,
+      skipEmptyLines: true,
+      complete: results => {
+        const { data } = results;
+        const mapping = {};
+
+        if (data.length > 2000) {
+          message = 'Maximum number of rows is 2000.';
+        } else {
+          data.forEach(row => {
+            // Check if row has 2 columns
+            if (row?.length !== 2) {
+              console.log('Invalid row', row);
+              message = 'Error uploading category map. Each row must have 2 columns.';
+              return;
+            }
+            // if the key already exists
+            const key = row[0].toLowerCase();
+
+            if (mapping[key]) {
+              console.log('Duplicate key', key);
+              message = 'Error uploading category map. Duplicate key found.';
+              return;
+            }
+            // Map the key to the value
+            mapping[key] = row[1];
+          });
+        }
+
+        if (!message) {
+          isMappingValid = true;
+          categoryMap = mapping;
+          message = 'Successfully imported.';
+        }
+
+        set({
+          categoryMapping: {
+            file: isMappingValid ? mappingFile : null,
+            categoryMap,
+            isMappingValid,
+            message,
+          },
+        });
+      },
+    });
+  },
   setPreviewSingleFeatureClass: previewSingleFeatureClass =>
     set({
       previewSingleFeatureClass,
@@ -252,6 +319,14 @@ export function checkIfLayersValid(layers) {
 
 export function getDefaultState() {
   return {
+    categoryMappingEnabled: false,
+    categoryLayer: undefined,
+    categoryMapping: {
+      file: null,
+      categoryMap: {},
+      isMappingValid: undefined,
+      message: null,
+    },
     dwgLayers: {},
     layerNames: [],
     polygonLayers: [],

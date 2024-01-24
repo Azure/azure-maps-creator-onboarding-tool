@@ -1,7 +1,9 @@
 import { fetchFromLocation } from 'common/api';
-import { startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
+import { generateIMDFLink, startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { HTTP_STATUS_CODE } from 'common/constants';
+import { useFeatureFlags } from 'hooks';
 import { create } from 'zustand';
+import { shallow } from 'zustand/shallow';
 import { LRO_STATUS } from './response.store';
 import { useUserStore } from './user.store';
 
@@ -26,6 +28,7 @@ export const conversionSteps = {
 };
 
 const getDefaultState = () => ({
+  isPlacesPreview: false,
   selectedStep: conversionSteps.upload,
   uploadStepStatus: conversionStatuses.empty,
   uploadStartTime: null,
@@ -39,6 +42,7 @@ const getDefaultState = () => ({
   conversionOperationLog: null,
   conversionId: null,
   diagnosticPackageLocation: null,
+  imdfPackageLocation: null,
   datasetStepStatus: conversionStatuses.empty,
   datasetStartTime: null,
   datasetEndTime: null,
@@ -65,13 +69,17 @@ export const useConversionStore = create((set, get) => ({
     set({
       selectedStep,
     }),
-  uploadPackage: file => {
+  uploadPackage: (file, options = {}) => {
+    const { isPlacesPreview } = options;
     set({
       ...getDefaultState(),
+      isPlacesPreview,
       uploadStartTime: Date.now(),
       uploadStepStatus: conversionStatuses.inProgress,
     });
-    uploadConversion(file)
+    const requestOptions = {};
+    if (isPlacesPreview) requestOptions.dwgPackageVersion = 'places-1.0';
+    uploadConversion(file, requestOptions)
       .then(res => {
         if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
           res.json().then(data => {
@@ -155,7 +163,10 @@ export const useConversionStore = create((set, get) => ({
       conversionStepStatus: conversionStatuses.inProgress,
       selectedStep: conversionSteps.conversion,
     });
-    startConversion(udid)
+    const isPlacesPreview = get().isPlacesPreview;
+    const requestOptions = {};
+    if (isPlacesPreview) requestOptions.dwgPackageVersion = 'places-1.0';
+    startConversion(udid, requestOptions)
       .then(res => {
         if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
           res.json().then(data => {
@@ -209,6 +220,7 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: JSON.stringify(data, null, 4),
             conversionEndTime: Date.now(),
             diagnosticPackageLocation: `${data.properties.diagnosticPackageLocation}&subscription-key=${subscriptionKey}`,
+            // https://us.t-azmaps.azurelbs.com/mapData/84c0efd1-cb13-cb22-6ff1-ebc3ee8b4a9b?api-version=2.0
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))
@@ -217,6 +229,13 @@ export const useConversionStore = create((set, get) => ({
               set({
                 conversionId: data.conversionId,
               });
+              if (get().isPlacesPreview) {
+                // TODO: stop here
+                set({
+                  imdfPackageLocation: generateIMDFLink(data.conversionId),
+                });
+                return;
+              }
               get().startDataset(data.conversionId);
             });
         } else {
@@ -400,3 +419,21 @@ export const useConversionStore = create((set, get) => ({
       });
   },
 }));
+
+const imdfConversionStoreSelector = s => [s.uploadStepStatus, s.conversionStepStatus];
+
+export const useIMDFConversionStatus = () => {
+  const { isPlacesPreview } = useFeatureFlags();
+
+  const [uploadStepStatus, conversionStepStatus] = useConversionStore(imdfConversionStoreSelector, shallow);
+
+  const isRunningIMDFConversion =
+    isPlacesPreview &&
+    (uploadStepStatus === conversionStatuses.inProgress || conversionStepStatus === conversionStatuses.inProgress);
+
+  const hasCompletedIMDFConversion =
+    isPlacesPreview &&
+    [conversionStatuses.failed, conversionStatuses.finishedSuccessfully].includes(conversionStepStatus);
+
+  return { isRunningIMDFConversion, hasCompletedIMDFConversion };
+};

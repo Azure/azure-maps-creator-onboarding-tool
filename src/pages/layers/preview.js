@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
-import { shallow } from 'zustand/shallow';
-import { useTranslation } from 'react-i18next';
-
 import { useGeometryStore, useLayersStore } from 'common/store';
 import Dropdown, { selectAllId } from 'components/dropdown';
+import { useFeatureFlags } from 'hooks';
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { shallow } from 'zustand/shallow';
 import {
-  previewDropdownStyles,
-  previewContainerStyles,
   dropdownContainer,
+  previewContainerStyles,
+  previewDropdownStyles,
   previewSelectContainer,
-  previewTitle,
   previewSelectTitle,
+  previewTitle,
 } from './preview.style';
 
 const geometrySelector = s => s.dwgLayers;
@@ -26,6 +26,8 @@ const Preview = () => {
     shallow
   );
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers));
+
+  const { isPlacesPreview } = useFeatureFlags();
 
   const allValidFeatureClasses = useMemo(
     () =>
@@ -261,20 +263,22 @@ const Preview = () => {
             {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
           </Dropdown>
         </div>
-        <div className={previewSelectContainer}>
-          <div className={previewSelectTitle}>Feature Class</div>
-          <Dropdown
-            onOptionSelect={onLayerDropdownChange}
-            className={previewDropdownStyles}
-            selectedOptions={selectedFeatureClasses}
-            optionGroups={featureClassDropdownOptions}
-            multiselect={featureClasses.length !== 0}
-          >
-            {selectedFeatureClassesNames.length
-              ? selectedFeatureClassesNames.join(', ')
-              : t('select.feature.class.preview')}
-          </Dropdown>
-        </div>
+        {!isPlacesPreview && (
+          <div className={previewSelectContainer}>
+            <div className={previewSelectTitle}>Feature Class</div>
+            <Dropdown
+              onOptionSelect={onLayerDropdownChange}
+              className={previewDropdownStyles}
+              selectedOptions={selectedFeatureClasses}
+              optionGroups={featureClassDropdownOptions}
+              multiselect={featureClasses.length !== 0}
+            >
+              {selectedFeatureClassesNames.length
+                ? selectedFeatureClassesNames.join(', ')
+                : t('select.feature.class.preview')}
+            </Dropdown>
+          </div>
+        )}
       </div>
       <canvas
         style={{ maxWidth: '100%', display: selectedFeatureClassesIds.length ? 'block' : 'none' }}

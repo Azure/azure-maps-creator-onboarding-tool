@@ -7,7 +7,8 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import ProgressBarIcon from './progress-bar-icon';
-import { activeStepStyle, stepStyle } from './progress-bar.style';
+import { activeStepStyle, disabledStepStyle, stepStyle } from './progress-bar.style';
+
 const ProgressBarButton = ({ step }) => {
   const completedSteps = useCompletedSteps();
   const { t } = useTranslation();
@@ -16,18 +17,20 @@ const ProgressBarButton = ({ step }) => {
 
   const isActiveStep = useMemo(() => pathname === step.href, [pathname, step]);
   const isCompletedStep = useMemo(() => completedSteps.includes(step.key), [completedSteps, step]);
+  const isDisabledStep = step.disabled;
+
   const onClick = useCallback(() => {
     navigate(step.href);
   }, [navigate, step]);
 
   return (
     <ActionButton
-      className={cx(stepStyle, { [activeStepStyle]: isActiveStep })}
+      className={cx(stepStyle, { [activeStepStyle]: isActiveStep, [disabledStepStyle]: isDisabledStep })}
       key={step.key}
-      disabled={isActiveStep}
+      disabled={isActiveStep || isDisabledStep}
       onClick={onClick}
     >
-      <ProgressBarIcon label={t(step.name)} isCompletedStep={isCompletedStep} />
+      <ProgressBarIcon label={t(step.name)} isCompletedStep={isCompletedStep} iconName={step.icon} />
       {t(step.name)}
     </ActionButton>
   );

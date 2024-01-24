@@ -1,10 +1,10 @@
 import {
-  truncateCoordinates,
+  checkIfLayersValid,
   convertLayersFromManifestJson,
   getDefaultState,
-  checkIfLayersValid,
+  truncateCoordinates,
 } from './layers.store';
-import { polygonLayers, polygonLayersWithTruncatedCoordinates, layers } from './layers.store.mock';
+import { layers, polygonLayers, polygonLayersWithTruncatedCoordinates } from './layers.store.mock';
 
 describe('layers store', () => {
   it('truncateCoordinates', () => {
@@ -42,6 +42,14 @@ describe('layers store', () => {
 
   it('should return default state', () => {
     expect(getDefaultState()).toEqual({
+      categoryMappingEnabled: false,
+      categoryLayer: undefined,
+      categoryMapping: {
+        file: null,
+        categoryMap: {},
+        isMappingValid: undefined,
+        message: null,
+      },
       dwgLayers: {},
       layerNames: [],
       polygonLayers: [],

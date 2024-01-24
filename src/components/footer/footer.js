@@ -2,15 +2,17 @@ import { DefaultButton, PrimaryButton } from '@fluentui/react';
 import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
 import {
-  progressBarSteps,
   useCompletedSteps,
   useConversionStore,
+  useProgressBarSteps,
   useProgressBarStore,
   useReviewManifestJson,
   useReviewManifestStore,
 } from 'common/store';
+import { useIMDFConversionStatus } from 'common/store/conversion.store';
+import { usePlacesReviewManifestJson } from 'common/store/review-manifest.store';
 import { saveAs } from 'file-saver';
-import { useCustomNavigate } from 'hooks';
+import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
@@ -24,19 +26,25 @@ export const Footer = () => {
   const { pathname } = useLocation();
   const navigate = useCustomNavigate();
   const json = useReviewManifestJson();
+  const placesJson = usePlacesReviewManifestJson();
   const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
   const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);
   const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
   const completedSteps = useCompletedSteps();
+  const progressBarSteps = useProgressBarSteps();
+  const { isPlacesPreview } = useFeatureFlags();
 
   const order = progressBarSteps.findIndex(route => route.href === pathname);
 
   const nextScreenLink = progressBarSteps[order + 1] !== undefined ? progressBarSteps[order + 1].href : null;
   const prevScreenLink = progressBarSteps[order - 1] !== undefined ? progressBarSteps[order - 1].href : null;
 
+  const { isRunningIMDFConversion } = useIMDFConversionStatus();
+
   const goNext = () => navigate(nextScreenLink);
   const goPrev = () => navigate(prevScreenLink);
-  const onReview = () => {
+
+  const regularReviewFlow = () => {
     if (completedSteps.length === progressBarSteps.length) {
       resetConversion();
       hideMissingDataError();
@@ -52,19 +60,53 @@ export const Footer = () => {
     }
   };
 
+  const placesReviewFlow = () => {
+    if (completedSteps.length === progressBarSteps.length) {
+      resetConversion();
+      hideMissingDataError();
+      // TODO: remove this console.log for production
+      console.log(placesJson);
+      createPackageWithJson(placesJson).then(file => {
+        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`);
+        if (featureFlags.onboardingEnabled) {
+          uploadConversion(file, { isPlacesPreview: true });
+          navigate(PATHS.IMDF_CONVERT);
+        }
+      });
+    } else {
+      showMissingDataError();
+    }
+  };
+
+  const onReview = () => {
+    if (isPlacesPreview) {
+      placesReviewFlow();
+    } else {
+      regularReviewFlow();
+    }
+  };
+
   if (order === -1) {
     return null;
   }
 
   return (
     <div className={footerContainerStyle}>
-      <PrimaryButton className={buttonStyle} onClick={onReview}>
-        {featureFlags.onboardingEnabled ? t('create.download') : t('download')}
+      <PrimaryButton className={buttonStyle} onClick={onReview} disabled={isRunningIMDFConversion}>
+        {featureFlags.onboardingEnabled ? (isPlacesPreview ? t('convert') : t('create.download')) : t('download')}
       </PrimaryButton>
-      <DefaultButton className={buttonStyle} disabled={prevScreenLink === null} onClick={goPrev}>
+      <DefaultButton
+        className={buttonStyle}
+        disabled={prevScreenLink === null || isRunningIMDFConversion}
+        onClick={goPrev}
+      >
         {t('previous')}
       </DefaultButton>
-      <DefaultButton className={buttonStyle} disabled={nextScreenLink === null} onClick={goNext}>
+      <DefaultButton
+        className={buttonStyle}
+        disabled={nextScreenLink === null || isRunningIMDFConversion}
+        onClick={goNext}
+      >
         {t('next')}
       </DefaultButton>
     </div>

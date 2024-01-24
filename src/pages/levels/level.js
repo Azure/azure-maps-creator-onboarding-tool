@@ -1,12 +1,11 @@
-import { useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TextField } from '@fluentui/react';
-import { shallow } from 'zustand/shallow';
-
-import FieldLabel from 'components/field-label';
 import { useLevelsStore, useProgressBarStore } from 'common/store';
 import FieldError from 'components/field-error';
-
+import FieldLabel from 'components/field-label';
+import { useFeatureFlags } from 'hooks';
+import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { shallow } from 'zustand/shallow';
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
 const levelsSelector = s => [
@@ -23,6 +22,8 @@ const progressBarSelector = s => s.isMissingDataErrorShown;
 
 const Level = ({ level }) => {
   const { t } = useTranslation();
+  const { isPlacesPreview } = useFeatureFlags();
+
   const [
     getOrdinalError,
     levels,
@@ -120,19 +121,21 @@ const Level = ({ level }) => {
           styles={inputStyles}
         />
       </div>
-      <div className={fieldsRow}>
-        <div className={fieldLabel}>
-          <FieldLabel tooltip={t('tooltip.vertical.extent')}>{t('vertical.extent')}</FieldLabel>
+      {!isPlacesPreview && (
+        <div className={fieldsRow}>
+          <div className={fieldLabel}>
+            <FieldLabel tooltip={t('tooltip.vertical.extent')}>{t('vertical.extent')}</FieldLabel>
+          </div>
+          <TextField
+            className={inputClass}
+            value={level.verticalExtent}
+            onChange={onVerticalExtentChange}
+            ariaLabel={t('vertical.extent.of.file', { filename: level.filename })}
+            errorMessage={verticalExtentErrorMsg}
+            styles={inputStyles}
+          />
         </div>
-        <TextField
-          className={inputClass}
-          value={level.verticalExtent}
-          onChange={onVerticalExtentChange}
-          ariaLabel={t('vertical.extent.of.file', { filename: level.filename })}
-          errorMessage={verticalExtentErrorMsg}
-          styles={inputStyles}
-        />
-      </div>
+      )}
     </div>
   );
 };

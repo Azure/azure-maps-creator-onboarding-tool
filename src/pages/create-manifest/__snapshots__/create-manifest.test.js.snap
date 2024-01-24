@@ -88,11 +88,12 @@ Object {
 }
 
 .emotion-9 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-10 {
@@ -612,11 +613,12 @@ Object {
 }
 
 .emotion-9 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-10 {
@@ -1191,11 +1193,12 @@ Object {
 }
 
 .emotion-9 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-10 {
@@ -1715,11 +1718,12 @@ Object {
 }
 
 .emotion-9 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-10 {

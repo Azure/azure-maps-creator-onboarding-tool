@@ -1,14 +1,20 @@
 import { getEnvs } from 'common/functions';
-import { useUserStore } from '../store/user.store';
 import { useReviewManifestStore } from '../store/review-manifest.store';
+import { useUserStore } from '../store/user.store';
 
-const apiVersion = '2.0';
-const previewApiVersion = '2023-03-01-preview';
-const dataFormat = 'dwgzippackage';
-const conversionDwgPackageVersion = '2.0';
-const conversionOutputOntology = 'facility-2.0';
+const defaultOptions = {
+  apiVersion: '2.0',
+  previewApiVersion: '2023-03-01-preview',
+  dataFormat: 'dwgzippackage',
+  dwgPackageVersion: '2.0',
+  outputOntology: 'facility-2.0',
+};
 
-export const uploadConversion = file => {
+export const uploadConversion = (file, options = {}) => {
+  const { apiVersion, dataFormat } = {
+    ...defaultOptions,
+    ...options,
+  };
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
   const url = `${
@@ -23,18 +29,26 @@ export const uploadConversion = file => {
   });
 };
 
-export const startConversion = udid => {
+export const startConversion = (udid, options = {}) => {
+  const { previewApiVersion, dwgPackageVersion, outputOntology } = {
+    ...defaultOptions,
+    ...options,
+  };
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
   const url = `${
     getEnvs()[geography].URL
-  }/conversions?udid=${udid}&outputOntology=${conversionOutputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${conversionDwgPackageVersion}&description=${getOriginalPackageName()}`;
+  }/conversions?udid=${udid}&outputOntology=${outputOntology}&api-version=${previewApiVersion}&subscription-key=${subscriptionKey}&dwgPackageVersion=${dwgPackageVersion}&description=${getOriginalPackageName()}`;
   return fetch(url, {
     method: 'POST',
   });
 };
 
-export const startDataset = conversionId => {
+export const startDataset = (conversionId, options = {}) => {
+  const { apiVersion } = {
+    ...defaultOptions,
+    ...options,
+  };
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
   const url = `${
@@ -45,7 +59,11 @@ export const startDataset = conversionId => {
   });
 };
 
-export const startTileset = datasetId => {
+export const startTileset = (datasetId, options = {}) => {
+  const { previewApiVersion } = {
+    ...defaultOptions,
+    ...options,
+  };
   const { geography, subscriptionKey } = useUserStore.getState();
   const { getOriginalPackageName } = useReviewManifestStore.getState();
   const url = `${
@@ -54,4 +72,16 @@ export const startTileset = datasetId => {
   return fetch(url, {
     method: 'POST',
   });
+};
+
+export const generateIMDFLink = (conversionId, options = {}) => {
+  const { apiVersion } = {
+    ...defaultOptions,
+    ...options,
+  };
+  const { geography, subscriptionKey } = useUserStore.getState();
+  const url = `${
+    getEnvs()[geography].URL
+  }/mapData/${conversionId}?api-version=${apiVersion}&subscription-key=${subscriptionKey}`;
+  return url;
 };

@@ -159,3 +159,8 @@ export const copyIcon = css`
     opacity: 0.75;
   }
 `;
+
+export const actionButtonsContainer = css`
+  display: flex;
+  gap: 1rem;
+`;

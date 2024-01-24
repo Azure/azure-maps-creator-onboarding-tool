@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css';
 import { PATHS } from 'common';
-import { LRO_STATUS, progressBarSteps, useResponseStore, useUserStore } from 'common/store';
+import { LRO_STATUS, useProgressBarSteps, useResponseStore, useUserStore } from 'common/store';
 import { useCustomNavigate } from 'hooks';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
@@ -24,10 +24,11 @@ const Route = ({ title, component: Component, dataRequired }) => {
 
   const lroStatus = useResponseStore(responseStoreSelector);
   const subKey = useUserStore(userStoreSelector);
+  const progressBarSteps = useProgressBarSteps();
 
   const shouldShowFooter = useMemo(() => {
     return progressBarSteps.findIndex(route => route.href === currentPath) !== -1;
-  }, [currentPath]);
+  }, [currentPath, progressBarSteps]);
 
   useEffect(() => {
     if (openRoutes.includes(currentPath)) return;

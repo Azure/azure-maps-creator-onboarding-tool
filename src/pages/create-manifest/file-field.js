@@ -1,7 +1,9 @@
+import { cx } from '@emotion/css';
 import { TextField } from '@fluentui/react';
 import FieldLabel from 'components/field-label';
+import DeleteIcon from 'pages/layers/delete-icon';
 import PropTypes from 'prop-types';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TEST_ID } from './create-manifest';
 import {
@@ -22,9 +24,23 @@ const maxFileSize = 1024 * 1024 * 100; // 100 MB
 const fileTypes = {
   zip: ['application/x-zip', 'application/x-zip-compressed', 'application/zip', 'application/zip-compressed'],
   json: ['application/json'],
+  csv: ['text/csv'],
 };
 
-const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
+const FileField = props => {
+  const {
+    fieldClassName,
+    id,
+    label,
+    onFileSelect,
+    fileType,
+    onError,
+    tooltip,
+    required = true,
+    file,
+    allowClear,
+  } = props;
+
   const { t } = useTranslation();
   const [filename, setFilename] = useState('');
 
@@ -70,23 +86,36 @@ const FileField = ({ id, label, onFileSelect, fileType, onError, tooltip }) => {
     [fileType, onError, onFileSelect, setFilename, t]
   );
 
+  useEffect(() => {
+    if (file?.name) {
+      pickFile({ target: { files: [file] } });
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  const handleRemoveFile = () => {
+    setFilename('');
+    onFileSelect(null);
+  };
+
   return (
     <div className={formRowStyle}>
-      <FieldLabel required tooltip={tooltip}>
+      <FieldLabel required={required} tooltip={tooltip}>
         {label}
       </FieldLabel>
-      <div className={fieldStyle}>
+      <div className={cx(fieldStyle, fieldClassName)}>
         <TextField
           value={filename}
           className={textFieldStyle}
           data-testid={TEST_ID.FILE_NAME_FIELD}
           ariaLabel={label}
-          aria-required
+          aria-required={required}
           readOnly
           styles={inputStyles}
           onClick={onTextFieldClick}
           onKeyPress={onTextFieldKeyPress}
         />
+        {allowClear && filename && <DeleteIcon onDelete={handleRemoveFile} />}
         <label htmlFor={id} className={browseButtonStyle}>
           <span className={browseButtonContentStyle}>{t('browse')}</span>
         </label>
@@ -100,7 +129,7 @@ FileField.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onFileSelect: PropTypes.func.isRequired,
-  fileType: PropTypes.oneOf(['zip', 'json']).isRequired,
+  fileType: PropTypes.oneOf(['zip', 'json', 'csv']).isRequired,
   onError: PropTypes.func.isRequired,
   tooltip: PropTypes.string,
 };

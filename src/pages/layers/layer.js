@@ -1,32 +1,51 @@
-import { useMemo, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { TextField } from '@fluentui/react';
-
 import { useLayersStore } from 'common/store';
+import { FieldLabel } from 'components';
 import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
-import Property from './property';
-import { dropdownStyles, fieldLabel, flexContainer, layerRow, layerNameInputStyles } from './layers.style';
+import { useFeatureFlags } from 'hooks';
+import PropTypes from 'prop-types';
+import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { shallow } from 'zustand/shallow';
 import DeleteIcon from './delete-icon';
+import {
+  dropdownStyles,
+  fieldLabel,
+  flexContainer,
+  layerNameInputStyles,
+  layerRow,
+  readOnlyFieldLabel,
+} from './layers.style';
+import Property from './property';
 
 const layerSelector = s => [
   s.layers,
   s.deleteLayer,
   s.layerNames,
+  s.polygonLayerNames,
   s.updateLayer,
   s.getLayerNameError,
   s.setPreviewSingleFeatureClass,
 ];
 
-export const Layer = ({ id, name, value, props, isDraft }) => {
+export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, isRequired }) => {
   const { t } = useTranslation();
-  const [layers, deleteLayer, layerNames, updateLayer, getLayerNameError, setPreviewSingleFeatureClass] =
-    useLayersStore(layerSelector, shallow);
+  const [
+    layers,
+    deleteLayer,
+    layerNames,
+    polygonLayerNames,
+    updateLayer,
+    getLayerNameError,
+    setPreviewSingleFeatureClass,
+  ] = useLayersStore(layerSelector, shallow);
+
+  const { isPlacesPreview } = useFeatureFlags();
+  const filteredLayerNames = isPlacesPreview ? polygonLayerNames : layerNames;
 
   const options = useMemo(() => {
-    if (layerNames.length === 0) {
+    if (filteredLayerNames.length === 0) {
       return [
         {
           key: null,
@@ -34,25 +53,28 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
         },
       ];
     }
-    return layerNames.map(layer => ({
+    return filteredLayerNames.map(layer => ({
       key: layer,
       text: layer,
     }));
-  }, [t, layerNames]);
+  }, [t, filteredLayerNames]);
+
   const deleteThisLayer = useCallback(() => {
     deleteLayer(id);
   }, [deleteLayer, id]);
+
   const onChangeLayersSelection = useCallback(
     (e, item) => {
-      if (layerNames.length === 0) {
+      if (filteredLayerNames.length === 0) {
         return;
       }
       updateLayer(id, {
         value: item.selectedOptions,
       });
     },
-    [updateLayer, id, layerNames]
+    [updateLayer, id, filteredLayerNames]
   );
+
   const onChangeName = useCallback(
     e => {
       updateLayer(id, {
@@ -61,6 +83,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     },
     [updateLayer, id]
   );
+
   const layerNameError = useMemo(() => {
     if (isDraft) return '';
     const error = getLayerNameError(name);
@@ -69,12 +92,14 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
     }
     return <FieldError text={t(error)} />;
   }, [getLayerNameError, t, name, layers]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const placeholder = useMemo(() => {
     if (isDraft) {
       return t('enter.feature.class.name');
     }
     return '';
   }, [isDraft, t]);
+
   const showTempPreview = useCallback(
     (e, { open }) => {
       if (open) {
@@ -89,27 +114,37 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
   return (
     <div className={layerRow}>
       <div className={flexContainer}>
-        <TextField
-          className={fieldLabel}
-          value={name}
-          onChange={onChangeName}
-          styles={layerNameInputStyles}
-          errorMessage={layerNameError}
-          placeholder={placeholder}
-        />
+        {isPlacesPreview ? (
+          <div className={readOnlyFieldLabel}>
+            <FieldLabel required={isRequired}>{name}</FieldLabel>
+          </div>
+        ) : (
+          <TextField
+            className={fieldLabel}
+            value={name}
+            onChange={onChangeName}
+            styles={layerNameInputStyles}
+            errorMessage={layerNameError}
+            placeholder={placeholder}
+            readOnly={readOnlyName}
+            aria-required={isRequired}
+          />
+        )}
         <Dropdown
           onOptionSelect={onChangeLayersSelection}
           onOpenChange={showTempPreview}
           showFilter
           options={options}
-          multiselect={layerNames.length !== 0}
+          multiselect={filteredLayerNames.length !== 0}
           selectedOptions={value}
           positioning="before"
           className={dropdownStyles}
         >
           {value.length ? value.join(', ') : t('select.layers')}
         </Dropdown>
-        <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
+        {!isPlacesPreview && (
+          <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
+        )}
       </div>
       {props.map(property => (
         <Property
@@ -119,6 +154,7 @@ export const Layer = ({ id, name, value, props, isDraft }) => {
           id={property.id}
           parentId={id}
           isDraft={property.isDraft}
+          readOnlyName={isPlacesPreview}
         />
       ))}
     </div>

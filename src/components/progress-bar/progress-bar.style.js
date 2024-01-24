@@ -45,3 +45,9 @@ export const activeStepStyle = css`
   font-weight: ${fontWeight.semibold};
   border-bottom: 2px solid ${color.accent.primary};
 `;
+
+export const disabledStepStyle = css`
+  border-bottom: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+`;
