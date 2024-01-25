@@ -92,7 +92,7 @@ const ConvertTab = () => {
             link={diagnosticPackageLocation}
             json={conversionOperationLog}
           />
-          {conversionStepStatus !== conversionStatuses.finishedSuccessfully && (
+          {conversionStepStatus === conversionStatuses.finishedSuccessfully && (
             <DownloadIMDF type="conversion" link={imdfPackageLocation} />
           )}
         </div>
