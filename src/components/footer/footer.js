@@ -93,7 +93,11 @@ export const Footer = () => {
   return (
     <div className={footerContainerStyle}>
       <PrimaryButton className={buttonStyle} onClick={onReview} disabled={isRunningIMDFConversion}>
-        {featureFlags.onboardingEnabled ? (isPlacesPreview ? t('convert') : t('create.download')) : t('download')}
+        {featureFlags.onboardingEnabled
+          ? isPlacesPreview
+            ? t('convert.download')
+            : t('create.download')
+          : t('download')}
       </PrimaryButton>
       <DefaultButton
         className={buttonStyle}

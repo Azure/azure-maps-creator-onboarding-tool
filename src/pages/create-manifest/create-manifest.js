@@ -2,7 +2,7 @@ import { cx } from '@emotion/css';
 import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
-import { useResponseStore, useUserStore } from 'common/store';
+import { resetStores, useConversionStore, useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import { useCustomNavigate } from 'hooks';
@@ -36,6 +36,7 @@ export const TEST_ID = {
 
 const userStoreSelector = s => [s.setGeography, s.geography, s.setSubscriptionKey, s.subscriptionKey];
 const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage, s.uploadFile];
+const conversionStoreSelector = s => s.reset;
 
 const CreateManifestPage = () => {
   const { t } = useTranslation();
@@ -46,6 +47,7 @@ const CreateManifestPage = () => {
 
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
   const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector, shallow);
+  const resetConversionStore = useConversionStore(conversionStoreSelector);
 
   const environmentOptions = useMemo(
     () =>
@@ -56,7 +58,11 @@ const CreateManifestPage = () => {
     [t]
   );
 
-  useEffect(() => acknowledgeApiError, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    resetStores();
+    resetConversionStore();
+    acknowledgeApiError();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (apiErrorMessage) {

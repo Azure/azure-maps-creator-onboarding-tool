@@ -143,6 +143,7 @@ const en = {
     'review.plus.create': 'Review + Create',
     review: 'Review',
     convert: 'Convert',
+    'convert.download': 'Download Package and Convert',
     'request.failed': 'Request failed. Please try again.',
     'rotation.in.degrees': 'Rotation in degrees',
     save: 'Save',
