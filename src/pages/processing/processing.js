@@ -58,7 +58,7 @@ const ProcessingPage = () => {
         }
         break;
       default:
-        navigate(PATHS.INDEX);
+        navigate(PATHS.CREATE_UPLOAD);
         break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,7 +68,7 @@ const ProcessingPage = () => {
     if (errorMessage === '') {
       return;
     }
-    navigate(PATHS.INDEX);
+    navigate(PATHS.CREATE_UPLOAD);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessage]);
 
