@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { PATHS } from 'common';
 import { useResponseStore, useUserStore } from 'common/store';
 import ProcessingPage from './processing';
 
@@ -31,6 +32,6 @@ describe('ProcessingPage', () => {
   it('should navigate to create manifest page in case of error', () => {
     useResponseStore.setState({ errorMessage: 'erreur!' });
     render(<ProcessingPage />);
-    expect(mockNavigate).toHaveBeenCalledWith('/');
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.CREATE_UPLOAD);
   });
 });
