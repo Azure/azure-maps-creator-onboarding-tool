@@ -73,7 +73,6 @@ export const Units = () => {
             parentId={id}
             isDraft={property.isDraft}
             readOnlyName
-            isRequired
           />
           <MappingToggle />
           {categoryMappingEnabled && (

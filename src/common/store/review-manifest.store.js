@@ -155,7 +155,7 @@ export const usePlacesReviewManifestJson = () => {
           featureClass.categoryDwgLayer = categoryDwgLayer;
         }
 
-        const props = layer.props.filter(prop => !prop?.isDraft);
+        const props = layer.props.filter(prop => !prop?.isDraft && prop?.value?.length > 0);
 
         if (props.length !== 0) {
           featureClass.featureClassProperties = props.map(prop => ({

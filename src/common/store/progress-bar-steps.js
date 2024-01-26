@@ -144,12 +144,7 @@ export const useCompletedSteps = () => {
 
   // Validate layers
   if (isPlacesPreview) {
-    if (
-      layersPageVisited &&
-      allLayersValid(layers) &&
-      layers[0]?.value?.length > 0 &&
-      layers[0]?.props[0]?.value?.length > 0
-    ) {
+    if (layersPageVisited && allLayersValid(layers)) {
       // Check mapping
       if (categoryMappingEnabled) {
         if (categoryLayer && isMappingValid) completedSteps.push(progressBarStepsByKey.layers);
