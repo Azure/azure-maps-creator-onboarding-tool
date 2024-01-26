@@ -34,7 +34,7 @@ export const Units = () => {
     setVisited();
 
     const { id: layerId, props = [{}] } = layers[0] || {};
-    updateLayer(layerId, { name: 'unit', props: [{ ...props[0], name: 'name', isDraft: true }] });
+    updateLayer(layerId, { name: 'unit', props: [{ ...props[0], name: 'name', isDraft: false }] });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setVisited]);
 
