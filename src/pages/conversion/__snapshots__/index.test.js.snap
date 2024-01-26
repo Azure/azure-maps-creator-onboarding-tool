@@ -96,6 +96,7 @@ Object {
 .emotion-7 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 .emotion-20 {
@@ -398,6 +399,7 @@ Object {
 .emotion-7 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 .emotion-20 {

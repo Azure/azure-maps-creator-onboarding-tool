@@ -45,6 +45,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -114,6 +115,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -238,6 +240,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -307,6 +310,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -431,6 +435,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -502,6 +507,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -629,6 +635,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -701,6 +708,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -846,6 +854,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -936,6 +945,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -1063,6 +1073,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -1135,6 +1146,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>
@@ -1261,6 +1273,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <body>
@@ -1330,6 +1343,7 @@ Object {
 .emotion-3 {
   color: #605e5c;
   font-size: 0.6875rem;
+  line-height: 0.6875rem;
 }
 
 <div>

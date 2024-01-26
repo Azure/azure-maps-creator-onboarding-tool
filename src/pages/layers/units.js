@@ -15,6 +15,7 @@ import Property from './property';
 const layersSelector = s => [
   s.layers,
   s.updateLayer,
+  s.visited,
   s.setVisited,
   s.categoryMappingEnabled,
   s.categoryMapping,
@@ -22,24 +23,34 @@ const layersSelector = s => [
   s.categoryLayer,
 ];
 
+const defaultNameLayer = { id: 'name', name: 'name', value: [], isDraft: false };
+
 export const Units = () => {
   const { t } = useTranslation();
-  const [layers, updateLayer, setVisited, categoryMappingEnabled, categoryMapping, setCategoryMapping, categoryLayer] =
-    useLayersStore(layersSelector, shallow);
+  const [
+    layers,
+    updateLayer,
+    visited,
+    setVisited,
+    categoryMappingEnabled,
+    categoryMapping,
+    setCategoryMapping,
+    categoryLayer,
+  ] = useLayersStore(layersSelector, shallow);
 
   const { file, isMappingValid, message } = categoryMapping;
 
   useEffect(() => {
-    // this page does not have any required fields, so the only requirement is to visit it once.
+    if (visited) return;
     setVisited();
 
-    const { id: layerId, props = [{}] } = layers[0] || {};
-    updateLayer(layerId, { name: 'unit', props: [{ ...props[0], name: 'name', isDraft: false }] });
+    const { id: layerId } = layers[0] || {};
+    updateLayer(layerId, { name: 'unit', props: [defaultNameLayer] });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setVisited]);
+  }, [visited]);
 
   const { id, props, value } = layers[0] || {};
-  const property = props[0] || {};
+  const property = props[0] || defaultNameLayer;
 
   return (
     <>

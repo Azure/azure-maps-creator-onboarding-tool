@@ -82,6 +82,7 @@ export const failedIcon = css`
 export const stepTimer = css`
   color: ${color.granite};
   font-size: ${fontSize.xxs};
+  line-height: ${fontSize.xxs};
 `;
 
 export const content = css`
@@ -158,9 +159,4 @@ export const copyIcon = css`
   &:hover {
     opacity: 0.75;
   }
-`;
-
-export const actionButtonsContainer = css`
-  display: flex;
-  gap: 1rem;
 `;

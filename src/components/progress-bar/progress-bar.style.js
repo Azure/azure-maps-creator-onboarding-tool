@@ -21,7 +21,7 @@ export const iconStyle = css`
 `;
 
 export const iconCompletedStyle = css`
-  color: ${color.green};
+  color: ${color.greenIcon};
 `;
 
 export const iconErrorStyle = css`

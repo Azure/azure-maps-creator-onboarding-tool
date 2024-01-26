@@ -1,14 +1,18 @@
+import { cx } from '@emotion/css';
+import { MessageBar, MessageBarType } from '@fluentui/react';
 import { useConversionStore } from 'common/store';
-import { conversionStatuses } from 'common/store/conversion.store';
+import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conversion.store';
 import { stepStyle } from 'components/progress-bar/progress-bar.style';
 import { DownloadLogs } from 'pages/conversion/download-logs';
 import { formatProgressTime } from 'pages/conversion/format-time';
 import StepIcon from 'pages/conversion/icon';
-import { actionButtonsContainer, stepTimer, stepTitle } from 'pages/conversion/style';
+import { stepTimer, stepTitle } from 'pages/conversion/style';
 import { DownloadIMDF } from 'pages/convert/download-imdf';
+import { sectionTitle } from 'pages/summary/summary.style';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
+import { actionButtonsContainer, convertWrapper, imdfStepStyle, messageWrapper } from './convert.style';
 
 const conversionStoreSelector = s => [
   s.uploadStepStatus,
@@ -42,8 +46,8 @@ const StepEntry = props => {
   }, [startTime, endTime]);
 
   return (
-    <div style={{ width: '30rem' }}>
-      <div className={stepStyle}>
+    <div>
+      <div className={cx(stepStyle, imdfStepStyle)}>
         <div className={stepTitle}>
           <StepIcon status={stepStatus} />
           {title}
@@ -69,8 +73,21 @@ const ConvertTab = () => {
 
   const { t } = useTranslation();
 
+  const { isRunningIMDFConversion } = useIMDFConversionStatus();
+
+  const json = JSON.parse(conversionOperationLog);
+  const errorMessages =
+    json?.details
+      ?.map(item => {
+        return item?.details?.map(detailItem => {
+          return detailItem?.innererror?.exceptionText;
+        });
+      })
+      .flat() || [];
+
   return (
-    <div>
+    <div className={convertWrapper}>
+      <div className={sectionTitle}>{isRunningIMDFConversion ? 'Conversion in progress...' : 'Conversion done'}</div>
       <StepEntry
         stepStatus={uploadStepStatus}
         startTime={uploadStartTime}
@@ -85,16 +102,26 @@ const ConvertTab = () => {
       />
 
       {conversionStepStatus !== conversionStatuses.empty && conversionStepStatus !== conversionStatuses.inProgress && (
-        <div className={actionButtonsContainer}>
-          <DownloadLogs
-            type="conversion"
-            isFailed={conversionStepStatus === conversionStatuses.failed}
-            link={diagnosticPackageLocation}
-            json={conversionOperationLog}
-          />
-          {conversionStepStatus === conversionStatuses.finishedSuccessfully && (
-            <DownloadIMDF type="conversion" link={imdfPackageLocation} />
-          )}
+        <div>
+          {errorMessages.length > 0 &&
+            errorMessages.map((message, index) => (
+              <div key={message} className={messageWrapper}>
+                <MessageBar messageBarType={MessageBarType.error} isMultiline>
+                  {message}
+                </MessageBar>
+              </div>
+            ))}
+          <div className={actionButtonsContainer}>
+            <DownloadLogs
+              type="conversion"
+              link={diagnosticPackageLocation}
+              json={conversionOperationLog}
+              primaryButton={false}
+            />
+            {conversionStepStatus === conversionStatuses.finishedSuccessfully && (
+              <DownloadIMDF type="conversion" link={imdfPackageLocation} />
+            )}
+          </div>
         </div>
       )}
     </div>

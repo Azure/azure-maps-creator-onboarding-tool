@@ -67,7 +67,6 @@ export const CategoryLayer = ({ name, value }) => {
 
 CategoryLayer.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
 };
 
 export default CategoryLayer;
