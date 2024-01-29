@@ -3,7 +3,7 @@ import { useLayersStore } from 'common/store';
 import PageDescription from 'components/page-description/page-description';
 import FileField from 'pages/create-manifest/file-field';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
 import CategoryLayer from './categoryLayer';
 import Layer from './layer';
@@ -37,7 +37,20 @@ export const Units = () => {
 
   return (
     <>
-      <PageDescription description={t('page.description.layers')} />
+      <PageDescription
+        description={
+          <Trans i18nKey="welcome_message">
+            {t('page.description.units')}
+            <a
+              href="https://register.apple.com/resources/imdf/reference/categories#unit"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {/* This will replace <1></1> in the translation */}
+            </a>
+          </Trans>
+        }
+      />
       <div className={layersWithPreview}>
         <div className={layersContainer}>
           <Layer

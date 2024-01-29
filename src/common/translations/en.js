@@ -126,6 +126,8 @@ const en = {
     'page.description.levels': 'Each DWG file represents a single level within a facility.',
     'page.description.layers':
       'Define and map feature classes to DWG layer(s). The Conversion service will produce an instance of a feature class object for each entity in the DWG layer. Additionally, you can define a property for the feature class that will be populated from DWG layers contain text entities. For example, a feature class could be called Spaces and have properties SpaceName and SpaceUseType.',
+    'page.description.units':
+      'Map one or more DWG layer(s) to the Unit feature class. An instance of a unit feature class object is produced for each entity in the DWG layer. Optionally, map a DWG layer that contains text values to be used for Unit names. Unit categories can also be defined by providing a CSV that maps a DWG text value to a <1>category value</1>.',
     'page.description.georeference':
       'Accurately position the facility on the map to specify where the facility is located geographically and how much to rotate the facility. Values captured here will be used by the Conversion service to position the converted facility.',
     'position.building.footprint': 'Position Building Footprint',
