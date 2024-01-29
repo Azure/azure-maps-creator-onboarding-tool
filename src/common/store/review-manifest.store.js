@@ -119,6 +119,28 @@ export const usePlacesReviewManifestJson = () => {
   const [levels, facilityName, language] = useLevelsStore(levelsStoreSelector, shallow);
   const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
 
+  const featureLayer = layers?.[0] || {};
+  const propertyLayer = featureLayer.props?.[0] || {};
+
+  const featureClass = {
+    featureClassName: 'unit',
+    dwgLayers: featureLayer.value,
+  };
+
+  if (categoryMappingEnabled) {
+    featureClass.categoryMap = categoryMap;
+    featureClass.categoryDwgLayer = categoryDwgLayer;
+  }
+
+  if (propertyLayer?.value?.length > 0) {
+    featureClass.featureClassProperties = [
+      {
+        featureClassPropertyName: 'name',
+        dwgLayers: propertyLayer.value,
+      },
+    ];
+  }
+
   const json = {
     version: 'places-1.0',
     language: language,
@@ -142,30 +164,7 @@ export const usePlacesReviewManifestJson = () => {
       lon: anchorPoint.coordinates[0],
       angle: anchorPoint.angle,
     },
-    featureClasses: layers
-      .filter(layer => !layer?.isDraft)
-      .map(layer => {
-        const featureClass = {
-          featureClassName: layer.name,
-          dwgLayers: layer.value,
-        };
-
-        if (categoryMappingEnabled) {
-          featureClass.categoryMap = categoryMap;
-          featureClass.categoryDwgLayer = categoryDwgLayer;
-        }
-
-        const props = layer.props.filter(prop => !prop?.isDraft && prop?.value?.length > 0);
-
-        if (props.length !== 0) {
-          featureClass.featureClassProperties = props.map(prop => ({
-            featureClassPropertyName: prop.name,
-            dwgLayers: prop.value,
-          }));
-        }
-
-        return featureClass;
-      }, {}),
+    featureClasses: [featureClass],
   };
 
   if (facilityName.replace(/\s/g, '').length !== 0) {

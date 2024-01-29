@@ -21,7 +21,7 @@ import {
 
 const layersSelector = s => [s.layers, s.textLayerNames, s.deleteProperty, s.updateProperty, s.getPropertyNameError];
 
-const Property = ({ name, value, id, parentId, isDraft, readOnlyName, singleSelect = false, isRequired }) => {
+const Property = ({ name, value = [], id, parentId, isDraft, readOnlyName, singleSelect = false, isRequired }) => {
   const { t } = useTranslation();
   const [layers, textLayerNames, deleteProperty, updateProperty, getPropertyNameError] = useLayersStore(
     layersSelector,

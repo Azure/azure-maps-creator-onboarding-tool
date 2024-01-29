@@ -14,8 +14,6 @@ import Property from './property';
 
 const layersSelector = s => [
   s.layers,
-  s.updateLayer,
-  s.visited,
   s.setVisited,
   s.categoryMappingEnabled,
   s.categoryMapping,
@@ -23,34 +21,19 @@ const layersSelector = s => [
   s.categoryLayer,
 ];
 
-const defaultNameLayer = { id: 'name', name: 'name', value: [], isDraft: false };
-
 export const Units = () => {
   const { t } = useTranslation();
-  const [
-    layers,
-    updateLayer,
-    visited,
-    setVisited,
-    categoryMappingEnabled,
-    categoryMapping,
-    setCategoryMapping,
-    categoryLayer,
-  ] = useLayersStore(layersSelector, shallow);
+  const [layers, setVisited, categoryMappingEnabled, categoryMapping, setCategoryMapping, categoryLayer] =
+    useLayersStore(layersSelector, shallow);
 
   const { file, isMappingValid, message } = categoryMapping;
 
   useEffect(() => {
-    if (visited) return;
     setVisited();
-
-    const { id: layerId } = layers[0] || {};
-    updateLayer(layerId, { name: 'unit', props: [defaultNameLayer] });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visited]);
+  }, [setVisited]);
 
   const { id, props, value } = layers[0] || {};
-  const property = props[0] || defaultNameLayer;
+  const property = props[0] || {};
 
   return (
     <>
@@ -71,7 +54,7 @@ export const Units = () => {
             value={property.value}
             id={property.id}
             parentId={id}
-            isDraft={property.isDraft}
+            isDraft={false}
             readOnlyName
           />
           <MappingToggle />
