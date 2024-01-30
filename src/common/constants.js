@@ -41,3 +41,7 @@ export const HTTP_STATUS_CODE = {
 };
 
 export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';
+
+export const PLACES_PREVIEW = {
+  VERSION: 'places-1.0',
+};

@@ -1,6 +1,6 @@
 import { fetchFromLocation } from 'common/api';
 import { generateIMDFLink, startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
-import { HTTP_STATUS_CODE } from 'common/constants';
+import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import { useFeatureFlags } from 'hooks';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
@@ -78,7 +78,7 @@ export const useConversionStore = create((set, get) => ({
       uploadStepStatus: conversionStatuses.inProgress,
     });
     const requestOptions = {};
-    if (isPlacesPreview) requestOptions.dwgPackageVersion = 'places-1.0';
+    if (isPlacesPreview) requestOptions.dwgPackageVersion = PLACES_PREVIEW.VERSION;
     uploadConversion(file, requestOptions)
       .then(res => {
         if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {
@@ -165,7 +165,7 @@ export const useConversionStore = create((set, get) => ({
     });
     const isPlacesPreview = get().isPlacesPreview;
     const requestOptions = {};
-    if (isPlacesPreview) requestOptions.dwgPackageVersion = 'places-1.0';
+    if (isPlacesPreview) requestOptions.dwgPackageVersion = PLACES_PREVIEW.VERSION;
     startConversion(udid, requestOptions)
       .then(res => {
         if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {

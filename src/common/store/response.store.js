@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } from 'common/api';
-import { HTTP_STATUS_CODE } from 'common/constants';
+import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
@@ -182,16 +182,16 @@ export const useResponseStore = create((set, get) => ({
         const existingManifestJson = await useReviewManifestStore.getState().getOriginalManifestJson();
 
         if (existingManifestJson !== null) {
-          const manifestVersion = parseInt(existingManifestJson.version);
           const jsonData = parseManifestJson(existingManifestJson);
 
-          if (!Number.isInteger(manifestVersion) || manifestVersion < 2) {
+          if (!isValidManifestVersion(existingManifestJson.version)) {
             useProgressBarStore.getState().showIncorrectManifestVersionError();
           } else if (jsonData === null) {
             useProgressBarStore.getState().showInvalidManifestError();
           } else {
             useLevelsStore.getState().updateLevels(jsonData.levels);
             useLevelsStore.getState().setFacilityName(jsonData.facilityName);
+            useLevelsStore.getState().setLanguage(jsonData.language);
             useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
             useLayersStore.getState().setVisited();
             useGeometryStore.setState({
@@ -247,12 +247,22 @@ export function parseManifestJson(json) {
 
   return {
     dwgLayers: json.buildingLevels.dwgLayers,
-    facilityName: json.facilityName ?? '',
+    facilityName: json.facilityName ?? json.buildingName ?? '',
     featureClasses: json.featureClasses,
     levels: json.buildingLevels.levels,
     georeference: json.georeference,
+    language: json.language ?? 'en',
   };
 }
+
+export const isValidManifestVersion = version => {
+  const manifestVersion = parseInt(version);
+
+  if (version === PLACES_PREVIEW.VERSION) return true;
+  if (!Number.isInteger(manifestVersion) || manifestVersion < 2) return false;
+
+  return true;
+};
 
 export function getFirstMeaningfulError({ error = {} }) {
   if (error.message) {

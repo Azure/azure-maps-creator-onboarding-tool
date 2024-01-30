@@ -1,4 +1,5 @@
 import * as zip from '@zip.js/zip.js';
+import { PLACES_PREVIEW } from 'common/constants';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
 import { isNumeric } from '../functions';
@@ -142,7 +143,7 @@ export const usePlacesReviewManifestJson = () => {
   }
 
   const json = {
-    version: 'places-1.0',
+    version: PLACES_PREVIEW.VERSION,
     language: language,
     buildingLevels: {
       dwgLayers,

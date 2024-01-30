@@ -112,7 +112,16 @@ export const useLayersStore = create((set, get) => ({
 
     const convertedLayers = convertLayersFromManifestJson(layers, get().textLayerNames, get().layerNames);
 
+    const mappingData = {};
+    const categoryDwgLayer = layers?.[0]?.categoryDwgLayer;
+
+    if (categoryDwgLayer) {
+      mappingData.categoryLayer = categoryDwgLayer;
+      mappingData.categoryMappingEnabled = true;
+    }
+
     set({
+      ...mappingData,
       layers: convertedLayers,
     });
   },
