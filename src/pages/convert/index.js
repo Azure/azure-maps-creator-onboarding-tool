@@ -9,8 +9,9 @@ import StepIcon from 'pages/conversion/icon';
 import { stepTimer, stepTitle } from 'pages/conversion/style';
 import { DownloadIMDF } from 'pages/convert/download-imdf';
 import { sectionTitle } from 'pages/summary/summary.style';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import nextId from 'react-id-generator';
 import { shallow } from 'zustand/shallow';
 import { actionButtonsContainer, convertWrapper, imdfStepStyle, messageWrapper } from './convert.style';
 
@@ -75,15 +76,22 @@ const ConvertTab = () => {
 
   const { isRunningIMDFConversion } = useIMDFConversionStatus();
 
-  const json = JSON.parse(conversionOperationLog);
-  const errorMessages =
-    json?.details
-      ?.map(item => {
-        return item?.details?.map(detailItem => {
-          return detailItem?.innererror?.exceptionText;
-        });
-      })
-      .flat() || [];
+  const errorList =
+    useMemo(() => {
+      const json = JSON.parse(conversionOperationLog);
+      return (
+        json?.details
+          ?.map(item => {
+            return item?.details?.map(detailItem => {
+              return {
+                key: nextId(),
+                message: detailItem?.message || detailItem?.innererror?.exceptionText,
+              };
+            });
+          })
+          .flat() || []
+      );
+    }, [conversionOperationLog]) || [];
 
   return (
     <div className={convertWrapper}>
@@ -103,14 +111,13 @@ const ConvertTab = () => {
 
       {conversionStepStatus !== conversionStatuses.empty && conversionStepStatus !== conversionStatuses.inProgress && (
         <div>
-          {errorMessages.length > 0 &&
-            errorMessages.map((message, index) => (
-              <div key={message} className={messageWrapper}>
-                <MessageBar messageBarType={MessageBarType.error} isMultiline>
-                  {message}
-                </MessageBar>
-              </div>
-            ))}
+          {errorList.map(error => (
+            <div key={error.key} className={messageWrapper}>
+              <MessageBar messageBarType={MessageBarType.error} isMultiline>
+                {error.message}
+              </MessageBar>
+            </div>
+          ))}
           <div className={actionButtonsContainer}>
             <DownloadLogs
               type="conversion"
