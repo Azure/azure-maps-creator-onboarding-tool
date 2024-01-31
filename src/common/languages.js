@@ -185,7 +185,9 @@ export const languages = {
   zu: 'Zulu',
 };
 
-export const languagesList = Object.keys(languages).map(key => ({
-  code: key,
-  name: languages[key],
-}));
+export const languagesList = Object.keys(languages)
+  .map(key => ({
+    code: key,
+    name: languages[key],
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
