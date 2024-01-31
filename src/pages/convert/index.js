@@ -34,7 +34,9 @@ const StepEntry = props => {
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    if (startTime !== null && endTime !== null) {
+    if (startTime === null) {
+      setElapsedTime('');
+    } else if (startTime !== null && endTime !== null) {
       setElapsedTime(formatProgressTime(startTime, endTime));
       clearInterval(intervalRef.current);
     } else if (startTime !== null && intervalRef.current === null) {
