@@ -134,44 +134,48 @@ Object {
             </div>
           </div>
           <div
-            aria-owns="fluent-listboxr5"
-            class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-3"
           >
-            <button
-              aria-activedescendant="fluent-optionr8"
-              aria-expanded="true"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              aria-owns="fluent-listboxr5"
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-activedescendant="fluent-optionr8"
+                aria-expanded="true"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                layer32
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  layer32
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
-            <span
-              hidden=""
-            />
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <span
+                hidden=""
+              />
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -224,39 +228,43 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-10"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer11
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer11
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -309,39 +317,43 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-10"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer12
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer12
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -539,44 +551,48 @@ Object {
           </div>
         </div>
         <div
-          aria-owns="fluent-listboxr5"
-          class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-3"
         >
-          <button
-            aria-activedescendant="fluent-optionr8"
-            aria-expanded="true"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            aria-owns="fluent-listboxr5"
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-activedescendant="fluent-optionr8"
+              aria-expanded="true"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              layer32
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                layer32
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
-          <span
-            hidden=""
-          />
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+            <span
+              hidden=""
+            />
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -629,39 +645,43 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-10"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer11
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer11
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -714,39 +734,43 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-10"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer12
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer12
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -973,44 +997,48 @@ Object {
             </span>
           </div>
           <div
-            aria-owns="fluent-listboxr0"
-            class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-3"
           >
-            <button
-              aria-activedescendant="fluent-optionr3"
-              aria-expanded="true"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              aria-owns="fluent-listboxr0"
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-activedescendant="fluent-optionr3"
+                aria-expanded="true"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                polygonLayer21
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  polygonLayer21
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
-            <span
-              hidden=""
-            />
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <span
+                hidden=""
+              />
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -1063,39 +1091,43 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-10"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer11
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer11
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -1148,39 +1180,43 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-10"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer12
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer12
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="emotion-5"
@@ -1371,44 +1407,48 @@ Object {
           </span>
         </div>
         <div
-          aria-owns="fluent-listboxr0"
-          class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-3"
         >
-          <button
-            aria-activedescendant="fluent-optionr3"
-            aria-expanded="true"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            aria-owns="fluent-listboxr0"
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-activedescendant="fluent-optionr3"
+              aria-expanded="true"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              polygonLayer21
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                polygonLayer21
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
-          <span
-            hidden=""
-          />
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+            <span
+              hidden=""
+            />
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -1461,39 +1501,43 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-10"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer11
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer11
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -1546,39 +1590,43 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-10"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer12
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer12
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
           class="emotion-5"
@@ -1703,22 +1751,52 @@ Object {
 }
 
 .emotion-5 {
+  margin: 0px;
+  padding-top: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #A80000;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-7 {
+  margin-right: 0.25rem;
+  font-size: 0.813rem;
+}
+
+.emotion-8 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-6 {
+.emotion-9 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-6:hover {
+.emotion-9:hover {
   color: black;
 }
 
-.emotion-8 {
+.emotion-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1728,12 +1806,12 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-9 {
+.emotion-12 {
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
 }
 
-.emotion-10 {
+.emotion-13 {
   -webkit-align-self: baseline;
   -ms-flex-item-align: baseline;
   align-self: baseline;
@@ -1778,46 +1856,66 @@ Object {
             </span>
           </div>
           <div
-            class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-3"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                select.layers
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  select.layers
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div
+              class="emotion-5"
+            >
+              <span
+                class="emotion-6"
+              >
+                <i
+                  aria-hidden="true"
+                  class="emotion-7 root-134"
+                  data-icon-name="StatusErrorFull"
+                >
+                  
+                </i>
+                error.field.is.required
               </span>
-            </button>
+            </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-8"
           >
             <button
               aria-label="delete.layer"
-              class="ms-Button ms-Button--icon emotion-6 root-121"
+              class="ms-Button ms-Button--icon emotion-9 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.layer"
@@ -1829,7 +1927,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1840,10 +1938,10 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-11"
         >
           <div
-            class="ms-TextField emotion-9 root-110"
+            class="ms-TextField emotion-12 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1863,46 +1961,50 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-13"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer11
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer11
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-8"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-6 root-121"
+              class="ms-Button ms-Button--icon emotion-9 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
@@ -1914,7 +2016,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1925,10 +2027,10 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-11"
         >
           <div
-            class="ms-TextField emotion-9 root-110"
+            class="ms-TextField emotion-12 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1948,46 +2050,50 @@ Object {
             </div>
           </div>
           <div
-            class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+            class="emotion-13"
           >
-            <button
-              aria-expanded="false"
-              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-              role="combobox"
-              type="button"
+            <div
+              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
-              <div
-                class="emotion-4"
+              <button
+                aria-expanded="false"
+                class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+                role="combobox"
+                type="button"
               >
-                textLayer12
-              </div>
-              <span
-                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 20 20"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="emotion-4"
                 >
-                  <path
-                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                  textLayer12
+                </div>
+                <span
+                  class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                     fill="currentColor"
-                  />
-                </svg>
-              </span>
-            </button>
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-8"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-6 root-121"
+              class="ms-Button ms-Button--icon emotion-9 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
@@ -1999,7 +2105,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -2049,22 +2155,52 @@ Object {
 }
 
 .emotion-5 {
+  margin: 0px;
+  padding-top: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #A80000;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-7 {
+  margin-right: 0.25rem;
+  font-size: 0.813rem;
+}
+
+.emotion-8 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-6 {
+.emotion-9 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-6:hover {
+.emotion-9:hover {
   color: black;
 }
 
-.emotion-8 {
+.emotion-11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2074,12 +2210,12 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-9 {
+.emotion-12 {
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
 }
 
-.emotion-10 {
+.emotion-13 {
   -webkit-align-self: baseline;
   -ms-flex-item-align: baseline;
   align-self: baseline;
@@ -2123,46 +2259,66 @@ Object {
           </span>
         </div>
         <div
-          class="fui-Dropdown emotion-3 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-3"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              select.layers
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                select.layers
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="emotion-5"
+          >
+            <span
+              class="emotion-6"
+            >
+              <i
+                aria-hidden="true"
+                class="emotion-7 root-134"
+                data-icon-name="StatusErrorFull"
+              >
+                
+              </i>
+              error.field.is.required
             </span>
-          </button>
+          </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-8"
         >
           <button
             aria-label="delete.layer"
-            class="ms-Button ms-Button--icon emotion-6 root-121"
+            class="ms-Button ms-Button--icon emotion-9 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.layer"
@@ -2174,7 +2330,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -2185,10 +2341,10 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-11"
       >
         <div
-          class="ms-TextField emotion-9 root-110"
+          class="ms-TextField emotion-12 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2208,46 +2364,50 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-13"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer11
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer11
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-8"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-121"
+            class="ms-Button ms-Button--icon emotion-9 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
@@ -2259,7 +2419,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -2270,10 +2430,10 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-11"
       >
         <div
-          class="ms-TextField emotion-9 root-110"
+          class="ms-TextField emotion-12 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2293,46 +2453,50 @@ Object {
           </div>
         </div>
         <div
-          class="fui-Dropdown emotion-10 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
-          style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem;"
+          class="emotion-13"
         >
-          <button
-            aria-expanded="false"
-            class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
-            role="combobox"
-            type="button"
+          <div
+            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
-            <div
-              class="emotion-4"
+            <button
+              aria-expanded="false"
+              class="fui-Dropdown__button ___rl9y210_gr9ejb0 f122n59 f1c21dwh fre7gi1 f1358rze fqdk4by f1rvrf73 f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fy9rknc figsok6 fwrc4pm f1khb0e9 fdw0yi8 f1jnq6q7 f1xile11"
+              role="combobox"
+              type="button"
             >
-              textLayer12
-            </div>
-            <span
-              class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
-            >
-              <svg
-                aria-hidden="true"
-                class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 20 20"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="emotion-4"
               >
-                <path
-                  d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                textLayer12
+              </div>
+              <span
+                class="fui-Dropdown__expandIcon ___wu62wz0_l0el1i0 f1ewtqcl fxkbij4 ftgm304 f4ybsrx f12w6cgp f8bv1bt fvc9v3g f1h9en5y"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="___12fm75w_v8ls9a0 f1w7gpdv fez10in fg4l7m0"
                   fill="currentColor"
-                />
-              </svg>
-            </span>
-          </button>
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
         <div
-          class="emotion-5"
+          class="emotion-8"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-6 root-121"
+            class="ms-Button ms-Button--icon emotion-9 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
@@ -2344,7 +2508,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-7 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >

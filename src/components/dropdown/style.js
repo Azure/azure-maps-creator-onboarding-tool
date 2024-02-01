@@ -21,6 +21,7 @@ export const dropdownStyleObj = {
   fontSize: fontSize.sm,
   height: '1.5rem',
   lineHeight: '1.5rem',
+  width: '100%',
 };
 
 export const filterInputStyle = css`
@@ -49,4 +50,12 @@ export const hackInputStyle = css`
   height: 1px;
   padding: 0;
   margin: 0;
+`;
+
+export const errorContainer = css`
+  margin: 0px;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  color: ${color.redError};
 `;

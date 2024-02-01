@@ -87,7 +87,7 @@ const ViewConversions = () => {
             onOptionSelect={updateGeo}
             className={dropdownStyle}
             options={environmentOptions}
-            defaultSelectedKey={geo}
+            selectedKey={geo}
           >
             {t(getEnvs()[geo].TEXT)}
           </Dropdown>

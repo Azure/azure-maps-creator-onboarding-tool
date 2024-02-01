@@ -139,6 +139,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
           selectedOptions={value}
           positioning="before"
           className={dropdownStyles}
+          errorMessage={() => (value.length === 0 ? t('error.field.is.required') : '')}
         >
           {value.length ? value.join(', ') : t('select.layers')}
         </Dropdown>

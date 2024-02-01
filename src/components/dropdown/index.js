@@ -1,6 +1,14 @@
-import { useState, useMemo, useRef } from 'react';
 import { Dropdown, Option, OptionGroup } from '@fluentui/react-components';
-import { dropdownButton, dropdownOption, dropdownStyleObj, filterInputStyle, hackInputStyle } from './style';
+import FieldError from 'components/field-error';
+import { useMemo, useRef, useState } from 'react';
+import {
+  dropdownButton,
+  dropdownOption,
+  dropdownStyleObj,
+  errorContainer,
+  filterInputStyle,
+  hackInputStyle,
+} from './style';
 
 export const selectAllId = 'select-all';
 
@@ -8,7 +16,18 @@ const inputOnClick = e => {
   e.stopPropagation();
 };
 
-const DropdownComponent = ({ children, options, optionGroups, showFilter, onOpenChange, ...attrs }) => {
+const DropdownComponent = props => {
+  const {
+    className,
+    children,
+    options,
+    optionGroups,
+    showFilter,
+    onOpenChange,
+    showError = true,
+    errorMessage,
+    ...attrs
+  } = props;
   const [optionsFilter, setOptionsFilter] = useState('');
   const ref = useRef(null);
 
@@ -45,43 +64,55 @@ const DropdownComponent = ({ children, options, optionGroups, showFilter, onOpen
     onOpenChange?.(_, state);
   };
 
+  const message = useMemo(() => {
+    if (typeof errorMessage === 'string') return errorMessage;
+    if (typeof errorMessage === 'function') return errorMessage();
+  }, [errorMessage]);
+
   return (
-    <Dropdown
-      size="small"
-      style={dropdownStyleObj}
-      button={<div className={dropdownButton}>{children}</div>}
-      onOpenChange={onOpenChangeCallback}
-      {...attrs}
-    >
-      {showFilter && (
-        <>
-          <input
-            value={optionsFilter}
-            onBlur={inputOnBlur}
-            className={filterInputStyle}
-            onClick={inputOnClick}
-            onChange={e => setOptionsFilter(e.target.value)}
-            type="text"
-            placeholder="Search layers"
-          />
-          <input ref={ref} className={hackInputStyle} />
-        </>
+    <div className={className}>
+      <Dropdown
+        size="small"
+        style={dropdownStyleObj}
+        button={<div className={dropdownButton}>{children}</div>}
+        onOpenChange={onOpenChangeCallback}
+        {...attrs}
+      >
+        {showFilter && (
+          <>
+            <input
+              value={optionsFilter}
+              onBlur={inputOnBlur}
+              className={filterInputStyle}
+              onClick={inputOnClick}
+              onChange={e => setOptionsFilter(e.target.value)}
+              type="text"
+              placeholder="Search layers"
+            />
+            <input ref={ref} className={hackInputStyle} />
+          </>
+        )}
+        {filteredOptions?.map(option => (
+          <Option key={option.key} value={option.key} style={dropdownOption}>
+            {option.text}
+          </Option>
+        ))}
+        {filteredGroups?.map((group, i) => (
+          <OptionGroup key={i}>
+            {group.map(option => (
+              <Option key={option.key} value={option.key} style={dropdownOption}>
+                {option.text}
+              </Option>
+            ))}
+          </OptionGroup>
+        ))}
+      </Dropdown>
+      {showError && message && (
+        <div className={errorContainer}>
+          <FieldError text={message} />
+        </div>
       )}
-      {filteredOptions?.map(option => (
-        <Option key={option.key} value={option.key} style={dropdownOption}>
-          {option.text}
-        </Option>
-      ))}
-      {filteredGroups?.map((group, i) => (
-        <OptionGroup key={i}>
-          {group.map(option => (
-            <Option key={option.key} value={option.key} style={dropdownOption}>
-              {option.text}
-            </Option>
-          ))}
-        </OptionGroup>
-      ))}
-    </Dropdown>
+    </div>
   );
 };
 
