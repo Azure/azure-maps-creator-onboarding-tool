@@ -159,8 +159,9 @@ export const useCompletedSteps = () => {
     }
   }
 
+  // Facitlity name is required for places preview
   if (
-    facilityName.length > 0 &&
+    (!isPlacesPreview || facilityName.length > 0) &&
     allLevelsCompleted(levels) &&
     isLevelNameValid(facilityName) &&
     levels.every(level => getVerticalExtentError(level.verticalExtent) === null)
