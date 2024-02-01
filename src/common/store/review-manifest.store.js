@@ -85,7 +85,7 @@ export const useReviewManifestJson = () => {
     georeference: {
       lat: anchorPoint.coordinates[1],
       lon: anchorPoint.coordinates[0],
-      angle: anchorPoint.angle,
+      angle: fixAngleForManifest(anchorPoint.angle),
     },
     featureClasses: layers
       .filter(layer => !layer?.isDraft)
@@ -163,7 +163,7 @@ export const usePlacesReviewManifestJson = () => {
     georeference: {
       lat: anchorPoint.coordinates[1],
       lon: anchorPoint.coordinates[0],
-      angle: anchorPoint.angle,
+      angle: fixAngleForManifest(anchorPoint.angle),
     },
     featureClasses: [featureClass],
   };
@@ -173,6 +173,13 @@ export const usePlacesReviewManifestJson = () => {
   }
 
   return json;
+};
+
+export const fixAngleForManifest = angle => {
+  if (Math.abs(angle) === 360) {
+    return 0;
+  }
+  return angle;
 };
 
 export async function createPackageWithJson(originalPackage, json) {
