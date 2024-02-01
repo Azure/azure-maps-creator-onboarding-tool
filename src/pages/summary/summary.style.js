@@ -1,6 +1,23 @@
 import { css } from '@emotion/css';
 import { color } from 'common/styles';
 
+export const summaryRow = css`
+  display: flex;
+  gap: 2rem;
+`;
+
+export const summaryColumn = css`
+  flex: 1;
+`;
+
+export const summaryMapWrapper = css`
+  padding: 1rem 0;
+`;
+
+export const summaryMap = css`
+  padding-top: 0.5rem;
+`;
+
 export const summaryPanel = css`
   padding: 1rem 0;
   border-bottom: 1px solid ${color.darkGray};

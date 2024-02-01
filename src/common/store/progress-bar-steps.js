@@ -160,6 +160,7 @@ export const useCompletedSteps = () => {
   }
 
   if (
+    facilityName.length > 0 &&
     allLevelsCompleted(levels) &&
     isLevelNameValid(facilityName) &&
     levels.every(level => getVerticalExtentError(level.verticalExtent) === null)

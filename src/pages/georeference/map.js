@@ -1,3 +1,6 @@
+import { cx } from '@emotion/css';
+import { getDomain, useGeometryStore, useUserStore } from 'common/store';
+import { color } from 'common/styles';
 import { memo, useCallback, useMemo } from 'react';
 import {
   AzureMap,
@@ -7,9 +10,6 @@ import {
   AzureMapsProvider,
 } from 'react-azure-maps';
 import { shallow } from 'zustand/shallow';
-
-import { getDomain, useGeometryStore, useUserStore } from 'common/store';
-import { color } from 'common/styles';
 import GeoreferenceControl from './control/controlClass';
 import { mapContainerStyle } from './georeference.style';
 
@@ -38,7 +38,9 @@ const azureMapsLayerProviderOptions = {
 const anchorPointSelector = s => s.updateAnchorPointViaMapCenter;
 const userStoreSelector = s => [s.geography, s.subscriptionKey];
 
-const Map = ({ exteriorCenter, dissolvedExterior }) => {
+const Map = props => {
+  const { className, exteriorCenter, dissolvedExterior, readOnly = false } = props;
+
   const updateAnchorPointViaMapCenter = useGeometryStore(anchorPointSelector);
   const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
 
@@ -79,10 +81,18 @@ const Map = ({ exteriorCenter, dissolvedExterior }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const mapProps = readOnly
+    ? {}
+    : {
+        customControls,
+        controls,
+        events: { move },
+      };
+
   return (
     <AzureMapsProvider>
-      <div className={mapContainerStyle}>
-        <AzureMap options={azureMapOptions} customControls={customControls} controls={controls} events={{ move }}>
+      <div className={cx(mapContainerStyle, className)}>
+        <AzureMap options={azureMapOptions} {...mapProps}>
           <AzureMapDataSourceProvider id="OutlineMapDataSourceProvider">
             <AzureMapLayerProvider
               id="OutlineLayerProvider"
