@@ -11,12 +11,14 @@ import {
 } from 'common/store';
 import { useIMDFConversionStatus } from 'common/store/conversion.store';
 import { usePlacesReviewManifestJson } from 'common/store/review-manifest.store';
+import dayjs from 'dayjs';
 import { saveAs } from 'file-saver';
 import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import { buttonStyle, footerContainerStyle } from './footer.style';
+
 const reviewManifestSelector = s => [s.createPackageWithJson, s.getOriginalPackageName];
 const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = s => [s.reset, s.uploadPackage];
@@ -49,7 +51,7 @@ export const Footer = () => {
       resetConversion();
       hideMissingDataError();
       createPackageWithJson(json).then(file => {
-        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`);
+        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file);
           navigate(PATHS.CONVERSION);
@@ -67,7 +69,7 @@ export const Footer = () => {
       // TODO: remove this console.log for production
       console.log(placesJson);
       createPackageWithJson(placesJson).then(file => {
-        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${Date.now()}.zip`);
+        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file, { isPlacesPreview: true });
           navigate(PATHS.IMDF_CONVERT);
