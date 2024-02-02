@@ -1,11 +1,14 @@
-import { useMemo, useCallback } from 'react';
 import { TextField } from '@fluentui/react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
 
-import FieldLabel from 'components/field-label';
-import Dropdown from 'components/dropdown';
 import { useGeometryStore, useLayersStore } from 'common/store';
+import Dropdown from 'components/dropdown';
+import FieldLabel from 'components/field-label';
+import PageDescription from 'components/page-description/page-description';
+import { useFeatureFlags } from 'hooks';
+import CheckedMap from './checked-map';
 import {
   container,
   dropdownStyles,
@@ -15,9 +18,7 @@ import {
   textFieldStyle,
   textInputStyles,
 } from './georeference.style';
-import CheckedMap from './checked-map';
 import MapError from './map-error';
-import PageDescription from 'components/page-description/page-description';
 
 const geometryStoreSelector = s => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
 const layersSelector = s => s.polygonLayerNames;
@@ -29,6 +30,7 @@ function Georeference() {
     shallow
   );
   const polygonLayers = useLayersStore(layersSelector);
+  const { isPlacesPreview } = useFeatureFlags();
 
   const options = useMemo(() => {
     if (polygonLayers.length === 0) {
@@ -62,13 +64,15 @@ function Georeference() {
       <div className={container}>
         <div className={textFieldColumn}>
           <div className={textFieldRow}>
-            <FieldLabel className={textFieldLabelStyle}>{t('exterior')}</FieldLabel>
+            <FieldLabel className={textFieldLabelStyle} required>
+              {isPlacesPreview ? t('footprint') : t('exterior')}
+            </FieldLabel>
             <Dropdown
               placeholder={t('geography')}
               onOptionSelect={onExteriorLayersSelect}
               className={dropdownStyles}
               options={options}
-              multiselect={polygonLayers.length !== 0}
+              multiselect={polygonLayers.length !== 0 && !isPlacesPreview}
               selectedOptions={dwgLayers}
               showFilter
             >

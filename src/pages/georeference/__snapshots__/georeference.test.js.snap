@@ -72,6 +72,12 @@ Object {
   height: 1.5rem;
 }
 
+.emotion-6:after {
+  content: ' *';
+  color: #A4262C;
+  white-space: pre;
+}
+
 .emotion-7 {
   max-width: 18.25rem;
   -webkit-box-flex: 1;
@@ -86,6 +92,27 @@ Object {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.emotion-11 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 13rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
 }
 
 .emotion-12 {
@@ -227,7 +254,7 @@ Object {
               class="emotion-5"
             >
               <div
-                class="emotion-6"
+                class="emotion-11"
               >
                 anchor.point.longitude
               </div>
@@ -262,7 +289,7 @@ Object {
               class="emotion-5"
             >
               <div
-                class="emotion-6"
+                class="emotion-11"
               >
                 anchor.point.latitude
               </div>
@@ -297,7 +324,7 @@ Object {
               class="emotion-5"
             >
               <div
-                class="emotion-6"
+                class="emotion-11"
               >
                 anchor.point.angle
               </div>
@@ -401,6 +428,12 @@ Object {
   height: 1.5rem;
 }
 
+.emotion-6:after {
+  content: ' *';
+  color: #A4262C;
+  white-space: pre;
+}
+
 .emotion-7 {
   max-width: 18.25rem;
   -webkit-box-flex: 1;
@@ -415,6 +448,27 @@ Object {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.emotion-11 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 13rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
 }
 
 .emotion-12 {
@@ -555,7 +609,7 @@ Object {
             class="emotion-5"
           >
             <div
-              class="emotion-6"
+              class="emotion-11"
             >
               anchor.point.longitude
             </div>
@@ -590,7 +644,7 @@ Object {
             class="emotion-5"
           >
             <div
-              class="emotion-6"
+              class="emotion-11"
             >
               anchor.point.latitude
             </div>
@@ -625,7 +679,7 @@ Object {
             class="emotion-5"
           >
             <div
-              class="emotion-6"
+              class="emotion-11"
             >
               anchor.point.angle
             </div>

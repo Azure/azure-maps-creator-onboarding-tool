@@ -79,6 +79,7 @@ const en = {
     'error.vertical.extent.not.valid': 'Vertical extent must be a valid number greater than 0 and less than 100.',
     'exterior.layer.not.selected.error': "Please select 'exterior' layer(s) to georeference your Facility",
     exterior: 'Exterior',
+    footprint: 'Footprint',
     'facility.levels': 'Facility Levels',
     'building.levels': 'Building Levels',
     'facility.name': 'Facility name',
