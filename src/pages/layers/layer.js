@@ -1,5 +1,6 @@
 import { TextField } from '@fluentui/react';
 import { useLayersStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { FieldLabel } from 'components';
 import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
@@ -41,6 +42,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
     setPreviewSingleFeatureClass,
   ] = useLayersStore(layerSelector, shallow);
 
+  const { failed } = useValidationStatus();
   const { isPlacesPreview } = useFeatureFlags();
   const filteredLayerNames = isPlacesPreview ? polygonLayerNames : layerNames;
 
@@ -139,6 +141,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
           selectedOptions={value}
           positioning="before"
           className={dropdownStyles}
+          showError={isRequired && failed}
           errorMessage={() => (value.length === 0 ? t('error.field.is.required') : '')}
         >
           {value.length ? value.join(', ') : t('select.layers')}

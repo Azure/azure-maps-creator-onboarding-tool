@@ -47,11 +47,11 @@ const Levels = () => {
     if (isFacilityNameEmpty || isLevelNameValid(facilityName)) {
       return '';
     }
-    return <FieldError text={t('error.invalid.facility.name')} />;
+    return <FieldError text={isPlacesPreview ? t('error.invalid.building.name') : t('error.invalid.facility.name')} />;
   }, [isLevelNameValid, facilityName, t, isPlacesPreview, isProgressBarErrorShown]);
 
   const onChangeLayersSelection = (e, item) => {
-    setLanguage(item.selectedOptions[0]);
+    setLanguage(item.optionValue);
   };
 
   const labelName = isPlacesPreview ? t('building.name') : t('facility.name');
@@ -70,8 +70,7 @@ const Levels = () => {
               onOptionSelect={onChangeLayersSelection}
               showFilter
               options={languagesList.map(lang => ({ key: lang.code, text: lang.name }))}
-              selectedOptions={[language]}
-              selected
+              selectedKey={language}
               className={dropdownInputClass}
             >
               {languages[language]}

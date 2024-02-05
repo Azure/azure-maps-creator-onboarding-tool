@@ -126,13 +126,15 @@ Object {
       <div
         class="emotion-0"
       >
-        <div
-          class="emotion-1"
-        >
+        <div>
           <div
-            class="emotion-2"
+            class="emotion-1"
           >
-            foobar
+            <div
+              class="emotion-2"
+            >
+              foobar
+            </div>
           </div>
         </div>
         <div
@@ -303,13 +305,15 @@ Object {
     <div
       class="emotion-0"
     >
-      <div
-        class="emotion-1"
-      >
+      <div>
         <div
-          class="emotion-2"
+          class="emotion-1"
         >
-          foobar
+          <div
+            class="emotion-2"
+          >
+            foobar
+          </div>
         </div>
       </div>
       <div

@@ -1,4 +1,5 @@
 import { useLayersStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { FieldLabel } from 'components';
 import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';
@@ -12,6 +13,7 @@ const layerSelector = s => [s.setCategoryLayer, s.textLayerNames];
 export const CategoryLayer = ({ name, value }) => {
   const { t } = useTranslation();
   const [setCategoryLayer, textLayerNames] = useLayersStore(layerSelector, shallow);
+  const { failed } = useValidationStatus();
 
   const filteredLayerNames = textLayerNames;
 
@@ -57,6 +59,8 @@ export const CategoryLayer = ({ name, value }) => {
           selected
           positioning="before"
           className={dropdownStyles}
+          showError={failed}
+          errorMessage={() => !value && t('error.field.is.required')}
         >
           {value || t('select.layers')}
         </Dropdown>

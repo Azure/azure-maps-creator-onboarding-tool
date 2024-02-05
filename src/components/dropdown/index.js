@@ -1,3 +1,4 @@
+import { cx } from '@emotion/css';
 import { Dropdown, Option, OptionGroup } from '@fluentui/react-components';
 import FieldError from 'components/field-error';
 import { useMemo, useRef, useState } from 'react';
@@ -5,6 +6,7 @@ import {
   dropdownButton,
   dropdownOption,
   dropdownStyleObj,
+  dropdownWithError,
   errorContainer,
   filterInputStyle,
   hackInputStyle,
@@ -73,6 +75,7 @@ const DropdownComponent = props => {
     <div className={className}>
       <Dropdown
         size="small"
+        className={cx({ [dropdownWithError]: showError && message })}
         style={dropdownStyleObj}
         button={<div className={dropdownButton}>{children}</div>}
         onOpenChange={onOpenChangeCallback}

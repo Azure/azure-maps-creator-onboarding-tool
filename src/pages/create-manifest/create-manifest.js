@@ -5,6 +5,7 @@ import { getEnvs } from 'common/functions';
 import { resetStores, useConversionStore, useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
+import FileField from 'components/file-field/file-field';
 import { useCustomNavigate } from 'hooks';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +24,6 @@ import {
   primaryButtonStyle,
   textFieldStyle,
 } from './create-manifest.style';
-import FileField from './file-field';
 
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',

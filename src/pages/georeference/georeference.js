@@ -1,13 +1,13 @@
 import { TextField } from '@fluentui/react';
-import { useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
-
 import { useGeometryStore, useLayersStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import PageDescription from 'components/page-description/page-description';
 import { useFeatureFlags } from 'hooks';
+import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { shallow } from 'zustand/shallow';
 import CheckedMap from './checked-map';
 import {
   container,
@@ -18,7 +18,6 @@ import {
   textFieldStyle,
   textInputStyles,
 } from './georeference.style';
-import MapError from './map-error';
 
 const geometryStoreSelector = s => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
 const layersSelector = s => s.polygonLayerNames;
@@ -31,6 +30,7 @@ function Georeference() {
   );
   const polygonLayers = useLayersStore(layersSelector);
   const { isPlacesPreview } = useFeatureFlags();
+  const { failed } = useValidationStatus();
 
   const options = useMemo(() => {
     if (polygonLayers.length === 0) {
@@ -59,14 +59,15 @@ function Georeference() {
 
   return (
     <>
-      <MapError />
       <PageDescription description={t('page.description.georeference')} />
       <div className={container}>
         <div className={textFieldColumn}>
           <div className={textFieldRow}>
-            <FieldLabel className={textFieldLabelStyle} required>
-              {isPlacesPreview ? t('footprint') : t('exterior')}
-            </FieldLabel>
+            <div>
+              <FieldLabel className={textFieldLabelStyle} required>
+                {isPlacesPreview ? t('footprint') : t('exterior')}
+              </FieldLabel>
+            </div>
             <Dropdown
               placeholder={t('geography')}
               onOptionSelect={onExteriorLayersSelect}
@@ -75,6 +76,8 @@ function Georeference() {
               multiselect={polygonLayers.length !== 0 && !isPlacesPreview}
               selectedOptions={dwgLayers}
               showFilter
+              showError={failed}
+              errorMessage={() => (dwgLayers.length === 0 ? t('error.field.is.required') : '')}
             >
               {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
             </Dropdown>

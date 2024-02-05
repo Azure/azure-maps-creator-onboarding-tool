@@ -1743,6 +1743,10 @@ Object {
 }
 
 .emotion-4 {
+  border-color: #A80000!important;
+}
+
+.emotion-5 {
   font-size: 0.813rem;
   color: black;
   text-overflow: ellipsis;
@@ -1750,7 +1754,7 @@ Object {
   overflow: hidden;
 }
 
-.emotion-5 {
+.emotion-6 {
   margin: 0px;
   padding-top: 5px;
   display: -webkit-box;
@@ -1764,7 +1768,7 @@ Object {
   color: #A80000;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1773,30 +1777,32 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  font-size: 0.813rem;
+  color: #A80000;
 }
 
-.emotion-7 {
+.emotion-8 {
   margin-right: 0.25rem;
   font-size: 0.813rem;
 }
 
-.emotion-8 {
+.emotion-9 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-9 {
+.emotion-10 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-9:hover {
+.emotion-10:hover {
   color: black;
 }
 
-.emotion-11 {
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1806,12 +1812,12 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-12 {
+.emotion-13 {
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
 }
 
-.emotion-13 {
+.emotion-14 {
   -webkit-align-self: baseline;
   -ms-flex-item-align: baseline;
   align-self: baseline;
@@ -1859,7 +1865,7 @@ Object {
             class="emotion-3"
           >
             <div
-              class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+              class="fui-Dropdown emotion-4 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
               style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
             >
               <button
@@ -1869,7 +1875,7 @@ Object {
                 type="button"
               >
                 <div
-                  class="emotion-4"
+                  class="emotion-5"
                 >
                   select.layers
                 </div>
@@ -1894,14 +1900,14 @@ Object {
               </button>
             </div>
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               <span
-                class="emotion-6"
+                class="emotion-7"
               >
                 <i
                   aria-hidden="true"
-                  class="emotion-7 root-134"
+                  class="emotion-8 root-134"
                   data-icon-name="StatusErrorFull"
                 >
                   
@@ -1911,11 +1917,11 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <button
               aria-label="delete.layer"
-              class="ms-Button ms-Button--icon emotion-9 root-121"
+              class="ms-Button ms-Button--icon emotion-10 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.layer"
@@ -1927,7 +1933,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -1938,10 +1944,10 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-11"
+          class="emotion-12"
         >
           <div
-            class="ms-TextField emotion-12 root-110"
+            class="ms-TextField emotion-13 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1961,7 +1967,7 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-13"
+            class="emotion-14"
           >
             <div
               class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -1974,7 +1980,7 @@ Object {
                 type="button"
               >
                 <div
-                  class="emotion-4"
+                  class="emotion-5"
                 >
                   textLayer11
                 </div>
@@ -2000,11 +2006,11 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-9 root-121"
+              class="ms-Button ms-Button--icon emotion-10 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
@@ -2016,7 +2022,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -2027,10 +2033,10 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-11"
+          class="emotion-12"
         >
           <div
-            class="ms-TextField emotion-12 root-110"
+            class="ms-TextField emotion-13 root-110"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2050,7 +2056,7 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-13"
+            class="emotion-14"
           >
             <div
               class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -2063,7 +2069,7 @@ Object {
                 type="button"
               >
                 <div
-                  class="emotion-4"
+                  class="emotion-5"
                 >
                   textLayer12
                 </div>
@@ -2089,11 +2095,11 @@ Object {
             </div>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-9"
           >
             <button
               aria-label="delete.property"
-              class="ms-Button ms-Button--icon emotion-9 root-121"
+              class="ms-Button ms-Button--icon emotion-10 root-121"
               data-is-focusable="true"
               data-testid="delete-icon"
               title="delete.property"
@@ -2105,7 +2111,7 @@ Object {
               >
                 <i
                   aria-hidden="true"
-                  class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                  class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                   data-icon-name="StatusCircleErrorX"
                   style="font-family: \\"FabricMDL2Icons-9\\";"
                 >
@@ -2147,6 +2153,10 @@ Object {
 }
 
 .emotion-4 {
+  border-color: #A80000!important;
+}
+
+.emotion-5 {
   font-size: 0.813rem;
   color: black;
   text-overflow: ellipsis;
@@ -2154,7 +2164,7 @@ Object {
   overflow: hidden;
 }
 
-.emotion-5 {
+.emotion-6 {
   margin: 0px;
   padding-top: 5px;
   display: -webkit-box;
@@ -2168,7 +2178,7 @@ Object {
   color: #A80000;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2177,30 +2187,32 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  font-size: 0.813rem;
+  color: #A80000;
 }
 
-.emotion-7 {
+.emotion-8 {
   margin-right: 0.25rem;
   font-size: 0.813rem;
 }
 
-.emotion-8 {
+.emotion-9 {
   width: 1.5rem;
   margin-left: 0.25rem;
 }
 
-.emotion-9 {
+.emotion-10 {
   color: black;
   font-size: 0.813rem;
   width: 1.5rem;
   height: 1.5rem;
 }
 
-.emotion-9:hover {
+.emotion-10:hover {
   color: black;
 }
 
-.emotion-11 {
+.emotion-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2210,12 +2222,12 @@ Object {
   padding-left: 2rem;
 }
 
-.emotion-12 {
+.emotion-13 {
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
 }
 
-.emotion-13 {
+.emotion-14 {
   -webkit-align-self: baseline;
   -ms-flex-item-align: baseline;
   align-self: baseline;
@@ -2262,7 +2274,7 @@ Object {
           class="emotion-3"
         >
           <div
-            class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
+            class="fui-Dropdown emotion-4 ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
             style="border-radius: 2px; border: 1px solid #605e5c; font-size: 0.813rem; height: 1.5rem; line-height: 1.5rem; width: 100%;"
           >
             <button
@@ -2272,7 +2284,7 @@ Object {
               type="button"
             >
               <div
-                class="emotion-4"
+                class="emotion-5"
               >
                 select.layers
               </div>
@@ -2297,14 +2309,14 @@ Object {
             </button>
           </div>
           <div
-            class="emotion-5"
+            class="emotion-6"
           >
             <span
-              class="emotion-6"
+              class="emotion-7"
             >
               <i
                 aria-hidden="true"
-                class="emotion-7 root-134"
+                class="emotion-8 root-134"
                 data-icon-name="StatusErrorFull"
               >
                 
@@ -2314,11 +2326,11 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <button
             aria-label="delete.layer"
-            class="ms-Button ms-Button--icon emotion-9 root-121"
+            class="ms-Button ms-Button--icon emotion-10 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.layer"
@@ -2330,7 +2342,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -2341,10 +2353,10 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-11"
+        class="emotion-12"
       >
         <div
-          class="ms-TextField emotion-12 root-110"
+          class="ms-TextField emotion-13 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2364,7 +2376,7 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-13"
+          class="emotion-14"
         >
           <div
             class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -2377,7 +2389,7 @@ Object {
               type="button"
             >
               <div
-                class="emotion-4"
+                class="emotion-5"
               >
                 textLayer11
               </div>
@@ -2403,11 +2415,11 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-9 root-121"
+            class="ms-Button ms-Button--icon emotion-10 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
@@ -2419,7 +2431,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >
@@ -2430,10 +2442,10 @@ Object {
         </div>
       </div>
       <div
-        class="emotion-11"
+        class="emotion-12"
       >
         <div
-          class="ms-TextField emotion-12 root-110"
+          class="ms-TextField emotion-13 root-110"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2453,7 +2465,7 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-13"
+          class="emotion-14"
         >
           <div
             class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -2466,7 +2478,7 @@ Object {
               type="button"
             >
               <div
-                class="emotion-4"
+                class="emotion-5"
               >
                 textLayer12
               </div>
@@ -2492,11 +2504,11 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <button
             aria-label="delete.property"
-            class="ms-Button ms-Button--icon emotion-9 root-121"
+            class="ms-Button ms-Button--icon emotion-10 root-121"
             data-is-focusable="true"
             data-testid="delete-icon"
             title="delete.property"
@@ -2508,7 +2520,7 @@ Object {
             >
               <i
                 aria-hidden="true"
-                class="ms-Icon root-105 emotion-10 ms-Button-icon icon-124"
+                class="ms-Icon root-105 emotion-11 ms-Button-icon icon-124"
                 data-icon-name="StatusCircleErrorX"
                 style="font-family: \\"FabricMDL2Icons-9\\";"
               >

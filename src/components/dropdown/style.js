@@ -59,3 +59,7 @@ export const errorContainer = css`
   align-items: center;
   color: ${color.redError};
 `;
+
+export const dropdownWithError = css`
+  border-color: ${color.redError} !important;
+`;

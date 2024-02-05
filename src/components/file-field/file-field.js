@@ -1,11 +1,12 @@
 import { cx } from '@emotion/css';
 import { TextField } from '@fluentui/react';
+import FieldError from 'components/field-error';
 import FieldLabel from 'components/field-label';
 import DeleteIcon from 'pages/layers/delete-icon';
 import PropTypes from 'prop-types';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TEST_ID } from './create-manifest';
+import { TEST_ID } from '../../pages/create-manifest/create-manifest';
 import {
   browseButtonContentStyle,
   browseButtonStyle,
@@ -14,7 +15,7 @@ import {
   formRowStyle,
   inputStyles,
   textFieldStyle,
-} from './create-manifest.style';
+} from '../../pages/create-manifest/create-manifest.style';
 
 const errors = {
   fileSizeExceeded: 'error.file.size.exceeded',
@@ -39,6 +40,8 @@ const FileField = props => {
     required = true,
     file,
     allowClear,
+    showError = true,
+    errorMessage,
   } = props;
 
   const { t } = useTranslation();
@@ -93,6 +96,11 @@ const FileField = props => {
     // eslint-disable-next-line
   }, []);
 
+  const message = useMemo(() => {
+    if (typeof errorMessage === 'string') return errorMessage;
+    if (typeof errorMessage === 'function') return errorMessage();
+  }, [errorMessage]);
+
   const handleRemoveFile = () => {
     setFilename('');
     onFileSelect(null);
@@ -100,9 +108,11 @@ const FileField = props => {
 
   return (
     <div className={formRowStyle}>
-      <FieldLabel required={required} tooltip={tooltip}>
-        {label}
-      </FieldLabel>
+      <div>
+        <FieldLabel required={required} tooltip={tooltip}>
+          {label}
+        </FieldLabel>
+      </div>
       <div className={cx(fieldStyle, fieldClassName)}>
         <TextField
           value={filename}
@@ -114,6 +124,7 @@ const FileField = props => {
           styles={inputStyles}
           onClick={onTextFieldClick}
           onKeyPress={onTextFieldKeyPress}
+          errorMessage={showError && message && <FieldError text={message} />}
         />
         {allowClear && filename && <DeleteIcon onDelete={handleRemoveFile} />}
         <label htmlFor={id} className={browseButtonStyle}>

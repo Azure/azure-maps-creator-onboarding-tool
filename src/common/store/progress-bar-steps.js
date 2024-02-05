@@ -178,3 +178,12 @@ export const useCompletedSteps = () => {
 
   return completedSteps;
 };
+
+const progressBarSelector = s => s.isMissingDataErrorShown;
+export const useValidationStatus = () => {
+  const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
+
+  return {
+    failed: isProgressBarErrorShown,
+  };
+};

@@ -1,7 +1,8 @@
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { useLayersStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
+import FileField from 'components/file-field/file-field';
 import PageDescription from 'components/page-description/page-description';
-import FileField from 'pages/create-manifest/file-field';
 import { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
@@ -25,6 +26,7 @@ export const Units = () => {
   const { t } = useTranslation();
   const [layers, setVisited, categoryMappingEnabled, categoryMapping, setCategoryMapping, categoryLayer] =
     useLayersStore(layersSelector, shallow);
+  const { failed } = useValidationStatus();
 
   const { file, isMappingValid, message } = categoryMapping;
 
@@ -83,6 +85,8 @@ export const Units = () => {
                 fileType="csv"
                 onError={msg => setCategoryMapping(null, msg)}
                 tooltip="A CSV file that contains IMDF category mapping in key value pairs."
+                showError={failed}
+                errorMessage={() => !file && t('error.field.is.required')}
                 required
                 allowClear
               />
