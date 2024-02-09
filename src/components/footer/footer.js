@@ -1,15 +1,8 @@
 import { DefaultButton, PrimaryButton } from '@fluentui/react';
 import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
-import {
-  useCompletedSteps,
-  useConversionStore,
-  useProgressBarSteps,
-  useProgressBarStore,
-  useReviewManifestJson,
-  useReviewManifestStore,
-} from 'common/store';
-import { useIMDFConversionStatus } from 'common/store/conversion.store';
+import { useConversionStore, useProgressBarSteps, useReviewManifestJson, useReviewManifestStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { usePlacesReviewManifestJson } from 'common/store/review-manifest.store';
 import dayjs from 'dayjs';
 import { saveAs } from 'file-saver';
@@ -17,10 +10,16 @@ import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
+import ButtonText from './download-button';
 import { buttonStyle, footerContainerStyle } from './footer.style';
 
+export const TEST_ID = {
+  CONVERT_BUTTON: 'convert-button',
+  PREVIOUS_BUTTON: 'previous-button',
+  NEXT_BUTTON: 'next-button',
+};
+
 const reviewManifestSelector = s => [s.createPackageWithJson, s.getOriginalPackageName];
-const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 const conversionSelector = s => [s.reset, s.uploadPackage];
 
 export const Footer = () => {
@@ -29,10 +28,8 @@ export const Footer = () => {
   const navigate = useCustomNavigate();
   const json = useReviewManifestJson();
   const placesJson = usePlacesReviewManifestJson();
-  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
   const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);
   const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
-  const completedSteps = useCompletedSteps();
   const progressBarSteps = useProgressBarSteps();
   const { isPlacesPreview } = useFeatureFlags();
 
@@ -41,50 +38,40 @@ export const Footer = () => {
   const nextScreenLink = progressBarSteps[order + 1] !== undefined ? progressBarSteps[order + 1].href : null;
   const prevScreenLink = progressBarSteps[order - 1] !== undefined ? progressBarSteps[order - 1].href : null;
 
-  const { isRunningIMDFConversion } = useIMDFConversionStatus();
+  const { success: allStepsCompleted } = useValidationStatus();
+
+  const isOnFirstStep = prevScreenLink === null;
+  const isOnLastStep = nextScreenLink === null;
 
   const goNext = () => navigate(nextScreenLink);
   const goPrev = () => navigate(prevScreenLink);
 
-  const regularReviewFlow = () => {
-    if (completedSteps.length === progressBarSteps.length) {
-      resetConversion();
-      hideMissingDataError();
-      createPackageWithJson(json).then(file => {
-        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
-        if (featureFlags.onboardingEnabled) {
-          uploadConversion(file);
-          navigate(PATHS.CONVERSION);
-        }
-      });
-    } else {
-      showMissingDataError();
-    }
-  };
-
-  const placesReviewFlow = () => {
-    if (completedSteps.length === progressBarSteps.length) {
-      resetConversion();
-      hideMissingDataError();
-      // TODO: remove this console.log for production
-      console.log(placesJson);
-      createPackageWithJson(placesJson).then(file => {
-        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
-        if (featureFlags.onboardingEnabled) {
-          uploadConversion(file, { isPlacesPreview: true });
-          navigate(PATHS.IMDF_CONVERT);
-        }
-      });
-    } else {
-      showMissingDataError();
-    }
-  };
-
   const onReview = () => {
-    if (isPlacesPreview) {
-      placesReviewFlow();
-    } else {
-      regularReviewFlow();
+    if (!isOnLastStep) {
+      navigate(PATHS.REVIEW_CREATE);
+      return;
+    }
+
+    if (allStepsCompleted) {
+      resetConversion();
+      const flowData = isPlacesPreview
+        ? {
+            json: placesJson,
+            redirectTo: PATHS.IMDF_CONVERSION,
+          }
+        : {
+            json: json,
+            redirectTo: PATHS.CONVERSION,
+          };
+
+      createPackageWithJson(flowData.json).then(file => {
+        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
+        if (featureFlags.onboardingEnabled) {
+          uploadConversion(file, { isPlacesPreview });
+          navigate(flowData.redirectTo);
+          console.log('redirect now');
+        }
+      });
     }
   };
 
@@ -94,25 +81,23 @@ export const Footer = () => {
 
   return (
     <div className={footerContainerStyle}>
-      <PrimaryButton className={buttonStyle} onClick={onReview} disabled={isRunningIMDFConversion}>
-        {featureFlags.onboardingEnabled
-          ? isPlacesPreview
-            ? t('convert.download')
-            : t('create.download')
-          : t('download')}
+      <PrimaryButton
+        className={buttonStyle}
+        disabled={!allStepsCompleted && isOnLastStep}
+        onClick={onReview}
+        data-testid={TEST_ID.CONVERT_BUTTON}
+      >
+        <ButtonText isOnLastStep={isOnLastStep} />
       </PrimaryButton>
       <DefaultButton
         className={buttonStyle}
-        disabled={prevScreenLink === null || isRunningIMDFConversion}
+        disabled={isOnFirstStep}
         onClick={goPrev}
+        data-testid={TEST_ID.PREVIOUS_BUTTON}
       >
         {t('previous')}
       </DefaultButton>
-      <DefaultButton
-        className={buttonStyle}
-        disabled={nextScreenLink === null || isRunningIMDFConversion}
-        onClick={goNext}
-      >
+      <DefaultButton className={buttonStyle} disabled={isOnLastStep} onClick={goNext} data-testid={TEST_ID.NEXT_BUTTON}>
         {t('next')}
       </DefaultButton>
     </div>

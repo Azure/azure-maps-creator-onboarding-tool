@@ -1,7 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { saveAs } from 'file-saver';
-import flushPromises from 'flush-promises';
-
+import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
 import {
   useConversionStore,
@@ -10,7 +8,9 @@ import {
   useLevelsStore,
   useReviewManifestStore,
 } from 'common/store';
-import Footer from './footer';
+import { saveAs } from 'file-saver';
+import flushPromises from 'flush-promises';
+import Footer, { TEST_ID } from './footer';
 
 const mockNavigate = jest.fn();
 let mockCurrentPathname = '/screen1';
@@ -44,7 +44,7 @@ describe('footer on pages where it should not be rendered', () => {
 
 describe('footer on pages where it should be rendered', () => {
   beforeEach(() => {
-    mockCurrentPathname = '/create-georeference';
+    mockCurrentPathname = PATHS.CREATE_GEOREFERENCE;
   });
 
   it('should render footer with next button disabled', () => {
@@ -53,7 +53,7 @@ describe('footer on pages where it should be rendered', () => {
   });
 
   it('should render footer with prev button disabled', () => {
-    mockCurrentPathname = '/levels';
+    mockCurrentPathname = PATHS.LEVELS;
     useGeometryStore.setState({ checkedByUser: true });
     useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'], props: [] }] });
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: 1 }] });
@@ -62,23 +62,35 @@ describe('footer on pages where it should be rendered', () => {
   });
 
   it('should navigate to next page when next button is clicked', () => {
-    mockCurrentPathname = '/layers';
+    mockCurrentPathname = PATHS.LAYERS;
     useLayersStore.setState({ layers: [{ id: 0, value: ['OUTLINE'], props: [] }] });
     render(<Footer />);
-    const nextBtn = screen.getByText('next');
+    const nextBtn = screen.getByTestId(TEST_ID.NEXT_BUTTON);
     fireEvent.click(nextBtn);
-    expect(mockNavigate).toHaveBeenCalledWith('/review-create');
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.REVIEW_CREATE);
   });
 
   it('should navigate to prev page when prev button is clicked', () => {
-    mockCurrentPathname = '/layers';
+    mockCurrentPathname = PATHS.LAYERS;
     render(<Footer />);
-    const prevBtn = screen.getByText('previous');
+    const prevBtn = screen.getByTestId(TEST_ID.PREVIOUS_BUTTON);
     fireEvent.click(prevBtn);
-    expect(mockNavigate).toHaveBeenCalledWith('/create-georeference');
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.CREATE_GEOREFERENCE);
+  });
+
+  it('should navigate to review page when review+download is clicked', async () => {
+    mockCurrentPathname = PATHS.LEVELS;
+    render(<Footer />);
+
+    const createDownloadBtn = screen.getByTestId(TEST_ID.CONVERT_BUTTON);
+    fireEvent.click(createDownloadBtn);
+    await flushPromises();
+
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.REVIEW_CREATE);
   });
 
   it('should navigate to conversion page when create+download is clicked', async () => {
+    mockCurrentPathname = PATHS.REVIEW_CREATE;
     useReviewManifestStore.setState({
       manifestReviewed: true,
     });
@@ -90,17 +102,18 @@ describe('footer on pages where it should be rendered', () => {
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }] });
 
     render(<Footer />);
-    const createDownloadBtn = screen.getByText('create.download');
+    const createDownloadBtn = screen.getByTestId(TEST_ID.CONVERT_BUTTON);
     fireEvent.click(createDownloadBtn);
     await flushPromises();
 
     expect(resetSpy).toHaveBeenCalled();
     expect(uploadPackageSpy).toHaveBeenCalled();
     expect(saveAs).toHaveBeenCalled();
-    expect(mockNavigate).toHaveBeenCalledWith('/review-create/conversion');
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.CONVERSION);
   });
 
   it('should not navigate to conversion page when onboarding FF is disabled', async () => {
+    mockCurrentPathname = PATHS.REVIEW_CREATE;
     useReviewManifestStore.setState({
       manifestReviewed: true,
     });
@@ -113,13 +126,13 @@ describe('footer on pages where it should be rendered', () => {
     useLevelsStore.setState({ levels: [{ levelName: '1', ordinal: '1', verticalExtent: '50' }] });
 
     render(<Footer />);
-    const createDownloadBtn = screen.getByText('download');
+    const createDownloadBtn = screen.getByTestId(TEST_ID.CONVERT_BUTTON);
     fireEvent.click(createDownloadBtn);
     await flushPromises();
 
     expect(resetSpy).toHaveBeenCalled();
     expect(uploadPackageSpy).not.toHaveBeenCalled();
     expect(saveAs).toHaveBeenCalled();
-    expect(mockNavigate).not.toHaveBeenCalledWith('/review-create/conversion');
+    expect(mockNavigate).not.toHaveBeenCalledWith(PATHS.CONVERSION);
   });
 });

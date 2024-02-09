@@ -22,6 +22,8 @@ const levelsSelector = s => [
 ];
 const progressBarSelector = s => s.isMissingDataErrorShown;
 
+const mappedLanguages = languagesList.map(lang => ({ key: lang.code, text: lang.name }));
+
 const Levels = () => {
   const { t } = useTranslation();
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
@@ -50,9 +52,12 @@ const Levels = () => {
     return <FieldError text={isPlacesPreview ? t('error.invalid.building.name') : t('error.invalid.facility.name')} />;
   }, [isLevelNameValid, facilityName, t, isPlacesPreview, isProgressBarErrorShown]);
 
-  const onChangeLayersSelection = (e, item) => {
-    setLanguage(item.optionValue);
-  };
+  const handleLanguageChange = useCallback(
+    (e, item) => {
+      setLanguage(item.optionValue);
+    },
+    [setLanguage]
+  );
 
   const labelName = isPlacesPreview ? t('building.name') : t('facility.name');
 
@@ -67,9 +72,9 @@ const Levels = () => {
               <FieldLabel>Language</FieldLabel>
             </div>
             <Dropdown
-              onOptionSelect={onChangeLayersSelection}
+              onOptionSelect={handleLanguageChange}
               showFilter
-              options={languagesList.map(lang => ({ key: lang.code, text: lang.name }))}
+              options={mappedLanguages}
               selectedKey={language}
               className={dropdownInputClass}
             >

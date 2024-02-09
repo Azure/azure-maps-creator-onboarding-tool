@@ -1,9 +1,8 @@
 import { cx } from '@emotion/css';
-import { Icon } from '@fluentui/react';
 import { languages } from 'common/languages';
 import { useGeometryStore, useLayersStore, useLevelsStore, useReviewManifestStore } from 'common/store';
+import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { color } from 'common/styles';
-import { defaultIcon, failedIcon, successIcon } from 'pages/conversion/style';
 import CheckedMap from 'pages/georeference/checked-map';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,18 +25,6 @@ const levelsSelector = s => [s.levels, s.facilityName, s.language];
 const geometryStoreSelector = s => [s.dwgLayers];
 const layersSelector = s => [s.layers, s.categoryMappingEnabled, s.categoryLayer, s.categoryMapping];
 
-const MappingIcon = props => {
-  const { isMappingValid, message } = props;
-
-  if (message && isMappingValid) {
-    return <Icon iconName="SkypeCircleCheck" className={successIcon} />;
-  }
-  if (message && !isMappingValid) {
-    return <Icon iconName="StatusErrorFull" className={failedIcon} />;
-  }
-  return <Icon iconName="StatusCircleBlock" className={defaultIcon} />;
-};
-
 const SummaryEntry = props => {
   const { title, children } = props;
 
@@ -49,23 +36,15 @@ const SummaryEntry = props => {
   );
 };
 
-const NotProvidedEntry = props => {
-  return (
-    <>
-      <MappingIcon />
-      <i style={{ color: color.granite }}>Not provided</i>
-    </>
-  );
-};
-
 const SummaryTab = () => {
   const { t } = useTranslation();
   const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
   const [levels, facilityName, language] = useLevelsStore(levelsSelector, shallow);
   const [dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
   const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector, shallow);
+  const { success } = useValidationStatus();
 
-  const { isMappingValid, message } = categoryMapping;
+  const { file } = categoryMapping;
 
   const { props, value } = layers[0] || {};
 
@@ -73,17 +52,16 @@ const SummaryTab = () => {
     setManifestReviewed(true);
   }, [setManifestReviewed]);
 
+  if (!success) return null;
+
   return (
     <div className={summaryRow}>
       <div className={summaryColumn}>
         <div className={summaryPanel}>
-          <div className={sectionTitle}>General</div>
+          <div className={sectionTitle}>{t('building.levels')}</div>
           <SummaryEntry title="Language">{languages[language]}</SummaryEntry>
-          <SummaryEntry title={t('building.name')}>{facilityName || <NotProvidedEntry />}</SummaryEntry>
-        </div>
-        <div className={summaryPanel}>
-          <div className={sectionTitle}>Drawing Files</div>
-          <table>
+          <SummaryEntry title={t('building.name')}>{facilityName}</SummaryEntry>
+          <table style={{ marginTop: '1rem' }}>
             <tbody>
               <tr>
                 <th className={entryCell} style={{ fontWeight: 500 }}>
@@ -107,14 +85,18 @@ const SummaryTab = () => {
           </table>
         </div>
         <div className={summaryPanel}>
-          <div className={sectionTitle}>Selected Layers</div>
-          <SummaryEntry title={t('exterior')}>
+          <div className={sectionTitle}>{t('georeference')}</div>
+          <SummaryEntry title={t('footprint')}>
             {dwgLayers.map(layer => (
               <span key={layer} className={layerPill}>
                 {layer}
               </span>
             ))}
           </SummaryEntry>
+        </div>
+        <div className={summaryPanel}>
+          <div className={sectionTitle}>{t('dwg.units')}</div>
+
           <SummaryEntry title={t('unit.feature.layers')}>
             {value.map(layer => (
               <span key={layer} className={layerPill}>
@@ -130,25 +112,19 @@ const SummaryTab = () => {
             ))}
           </SummaryEntry>
           {categoryMappingEnabled && (
-            <SummaryEntry title={t('unit.category.layer')}>
-              {categoryLayer && <span className={layerPill}>{categoryLayer}</span>}
-            </SummaryEntry>
+            <>
+              <SummaryEntry title={t('unit.category.layer')}>
+                {categoryLayer && <span className={layerPill}>{categoryLayer}</span>}
+              </SummaryEntry>
+              <SummaryEntry title={t('category.mapping.file')}>
+                <i style={{ color: color.granite }}>{file?.name}</i>
+              </SummaryEntry>
+            </>
           )}
         </div>
-        {categoryMappingEnabled && (
-          <div className={summaryPanel}>
-            <div className={sectionTitle}>Additional Data</div>
-            <SummaryEntry title={t('category.mapping.file')}>
-              <span className={entryCell} style={{ display: 'flex' }}>
-                <MappingIcon isMappingValid={isMappingValid} message={message} />
-                <span>{message ?? <i style={{ color: color.granite }}>Not provided</i>}</span>
-              </span>
-            </SummaryEntry>
-          </div>
-        )}
       </div>
       <div className={cx(summaryColumn, summaryMapWrapper)}>
-        <div className={sectionTitle}>Georeference</div>
+        <div className={sectionTitle}>Map Preview</div>
         <CheckedMap className={summaryMap} readOnly />
       </div>
     </div>

@@ -2,6 +2,8 @@ import { fetchFromLocation } from 'common/api';
 import { generateIMDFLink, startConversion, startDataset, startTileset, uploadConversion } from 'common/api/conversion';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import { useFeatureFlags } from 'hooks';
+import { useMemo } from 'react';
+import nextId from 'react-id-generator';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
 import { LRO_STATUS } from './response.store';
@@ -420,20 +422,57 @@ export const useConversionStore = create((set, get) => ({
   },
 }));
 
-const imdfConversionStoreSelector = s => [s.uploadStepStatus, s.conversionStepStatus];
+const imdfConversionStoreSelector = s => [
+  s.uploadStartTime,
+  s.conversionEndTime,
+  s.uploadStepStatus,
+  s.conversionStepStatus,
+  s.conversionOperationLog,
+];
 
 export const useIMDFConversionStatus = () => {
   const { isPlacesPreview } = useFeatureFlags();
 
-  const [uploadStepStatus, conversionStepStatus] = useConversionStore(imdfConversionStoreSelector, shallow);
+  const [startTime, endTime, uploadStepStatus, conversionStepStatus, conversionOperationLog] = useConversionStore(
+    imdfConversionStoreSelector,
+    shallow
+  );
 
   const isRunningIMDFConversion =
-    isPlacesPreview &&
-    (uploadStepStatus === conversionStatuses.inProgress || conversionStepStatus === conversionStatuses.inProgress);
+    isPlacesPreview && !!startTime && !endTime && uploadStepStatus !== conversionStatuses.failed;
+
+  const mergedStatus = () => {
+    if (uploadStepStatus === conversionStatuses.empty && conversionStepStatus === conversionStatuses.empty)
+      return conversionStatuses.empty;
+    if (isRunningIMDFConversion) return conversionStatuses.inProgress;
+    if (uploadStepStatus === conversionStatuses.failed || conversionStepStatus === conversionStatuses.failed)
+      return conversionStatuses.failed;
+    if (conversionStepStatus === conversionStatuses.finishedSuccessfully)
+      return conversionStatuses.finishedSuccessfully;
+  };
+
+  const imdfConversionStatus = mergedStatus();
 
   const hasCompletedIMDFConversion =
     isPlacesPreview &&
     [conversionStatuses.failed, conversionStatuses.finishedSuccessfully].includes(conversionStepStatus);
 
-  return { isRunningIMDFConversion, hasCompletedIMDFConversion };
+  const errorList =
+    useMemo(() => {
+      const json = JSON.parse(conversionOperationLog);
+      return (
+        json?.details
+          ?.map(item => {
+            return item?.details?.map(detailItem => {
+              return {
+                key: nextId(),
+                message: detailItem?.message || detailItem?.innererror?.exceptionText,
+              };
+            });
+          })
+          .flat() || []
+      );
+    }, [conversionOperationLog]) || [];
+
+  return { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList };
 };

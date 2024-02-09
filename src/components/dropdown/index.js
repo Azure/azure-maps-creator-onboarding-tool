@@ -90,7 +90,7 @@ const DropdownComponent = props => {
               onClick={inputOnClick}
               onChange={e => setOptionsFilter(e.target.value)}
               type="text"
-              placeholder="Search layers"
+              placeholder="Search..."
             />
             <input ref={ref} className={hackInputStyle} />
           </>

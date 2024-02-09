@@ -1,5 +1,5 @@
+import { PLACES_PREVIEW } from 'common/constants';
 import { create } from 'zustand';
-
 import { isNumeric, isVerticalExtentEmpty } from '../functions';
 
 const MAX_LEVEL_NAME_LENGTH = 100;
@@ -7,7 +7,7 @@ const MAX_LEVEL_NAME_LENGTH = 100;
 const getDefaultState = () => ({
   facilityName: '',
   levels: [],
-  language: 'en',
+  language: PLACES_PREVIEW.DEFAULT_LANGUAGE,
 });
 
 export const useLevelsStore = create((set, get) => ({
@@ -20,7 +20,7 @@ export const useLevelsStore = create((set, get) => ({
     set({
       facilityName,
     }),
-  setLanguage: (language = 'en') => {
+  setLanguage: (language = PLACES_PREVIEW.DEFAULT_LANGUAGE) => {
     set({
       language,
     });

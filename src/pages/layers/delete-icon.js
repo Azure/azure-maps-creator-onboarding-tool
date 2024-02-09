@@ -1,11 +1,11 @@
 import { IconButton } from '@fluentui/react/lib/Button';
-
 import { deleteIconContainer, layerIcon } from './layers.style';
 
-const DeleteIcon = ({ isDraft, title, onDelete }) => {
+const DeleteIcon = ({ isDraft, title, onDelete, placeholder = null }) => {
   if (isDraft) {
-    return null;
+    return placeholder;
   }
+
   return (
     <div className={deleteIconContainer}>
       <IconButton

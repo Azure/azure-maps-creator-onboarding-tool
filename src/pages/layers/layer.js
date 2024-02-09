@@ -30,7 +30,7 @@ const layerSelector = s => [
   s.setPreviewSingleFeatureClass,
 ];
 
-export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, isRequired }) => {
+export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false }) => {
   const { t } = useTranslation();
   const [
     layers,
@@ -118,7 +118,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
       <div className={flexContainer}>
         {isPlacesPreview ? (
           <div className={readOnlyFieldLabel}>
-            <FieldLabel required={isRequired}>{name}</FieldLabel>
+            <FieldLabel required>{name}</FieldLabel>
           </div>
         ) : (
           <TextField
@@ -129,7 +129,6 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
             errorMessage={layerNameError}
             placeholder={placeholder}
             readOnly={readOnlyName}
-            aria-required={isRequired}
           />
         )}
         <Dropdown
@@ -141,13 +140,18 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false, i
           selectedOptions={value}
           positioning="before"
           className={dropdownStyles}
-          showError={isRequired && failed}
+          showError={!isDraft && failed}
           errorMessage={() => (value.length === 0 ? t('error.field.is.required') : '')}
         >
           {value.length ? value.join(', ') : t('select.layers')}
         </Dropdown>
         {!isPlacesPreview && (
-          <DeleteIcon isDraft={isDraft} onDelete={deleteThisLayer} title={t('delete.layer', { layerName: name })} />
+          <DeleteIcon
+            isDraft={isDraft}
+            onDelete={deleteThisLayer}
+            title={t('delete.layer', { layerName: name })}
+            placeholder={<div style={{ width: 24 }} />}
+          />
         )}
       </div>
       {props.map(property => (

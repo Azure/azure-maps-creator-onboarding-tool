@@ -14,6 +14,7 @@ const en = {
     'create.description': 'Create Tilesets by uploading your drawing files',
     'create.download': 'Create + Download',
     'create.indoor.map': 'Create Indoor Map',
+    'convert.indoor.map': 'Convert Indoor Map',
     'create.manifest': 'Create manifest',
     'create.new.manifest': 'Create a new manifest',
     'create.new.manifest.page.description':
@@ -146,7 +147,7 @@ const en = {
     'rendered.map': 'Rendered Map',
     'review.manifest': 'Review Manifest',
     'review.plus.create': 'Review + Create',
-    review: 'Review',
+    'review.plus.convert': 'Review + Convert',
     convert: 'Convert',
     'convert.download': 'Download Package and Convert',
     'request.failed': 'Request failed. Please try again.',

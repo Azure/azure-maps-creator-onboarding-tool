@@ -1,3 +1,4 @@
+import { PLACES_PREVIEW } from 'common/constants';
 import { getFirstMeaningfulError, parseManifestJson } from './response.store';
 import { errorResponseMock } from './response.store.mock';
 
@@ -108,7 +109,7 @@ describe('parseManifestJson', () => {
       facilityName: '',
       featureClasses: [],
       georeference: { angle: 3, lat: 1, lon: 2 },
-      language: 'en',
+      language: PLACES_PREVIEW.DEFAULT_LANGUAGE,
       levels: [],
     });
   });

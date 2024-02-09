@@ -55,15 +55,7 @@ export const Units = () => {
       />
       <div className={layersWithPreview}>
         <div className={layersContainer}>
-          <Layer
-            id={id}
-            name={t('unit.feature.layers')}
-            props={[]}
-            value={value}
-            isDraft={false}
-            readOnlyName
-            isRequired
-          />
+          <Layer id={id} name={t('unit.feature.layers')} props={[]} value={value} isDraft={false} readOnlyName />
           <Property
             name={t('unit.name.layers')}
             value={property.value}

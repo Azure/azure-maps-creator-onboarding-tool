@@ -5,8 +5,8 @@ export const PATHS = {
   PROCESSING: '/processing',
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
-  IMDF_CONVERT: '/convert',
   CONVERSION: '/review-create/conversion',
+  IMDF_CONVERSION: '/review-create/imdf-conversion',
   PAST_CONVERSION: '/past-conversion',
   CONVERSIONS: '/conversions',
   LAYERS: '/layers',
@@ -24,8 +24,8 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.LEVELS]: 'prepare.drawing.package',
   [PATHS.INVALID_PATH]: 'redirect',
   [PATHS.REVIEW_CREATE]: 'prepare.drawing.package',
-  [PATHS.IMDF_CONVERT]: 'convert',
   [PATHS.CONVERSION]: 'create.indoor.map',
+  [PATHS.IMDF_CONVERSION]: 'convert.indoor.map',
   [PATHS.CONVERSIONS]: 'All conversions',
 };
 
@@ -43,5 +43,6 @@ export const HTTP_STATUS_CODE = {
 export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';
 
 export const PLACES_PREVIEW = {
+  DEFAULT_LANGUAGE: 'en',
   VERSION: 'places-1.0',
 };

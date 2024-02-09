@@ -522,7 +522,7 @@ Object {
       >
         <input
           class="emotion-7"
-          placeholder="Search layers"
+          placeholder="Search..."
           type="text"
           value=""
         />

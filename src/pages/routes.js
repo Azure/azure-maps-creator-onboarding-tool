@@ -4,9 +4,9 @@ import { useFeatureFlags } from 'hooks';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Conversion from './conversion';
+import ImdfConversion from './conversion/imdf-conversion';
 import PastConversion from './conversion/past-conversion';
 import Conversions from './conversions';
-import ConvertTab from './convert';
 import CreateManifestPage from './create-manifest';
 import Georeference from './georeference';
 import InitialView from './initial';
@@ -71,14 +71,14 @@ export const routes = [
     element: <Route component={ReviewAndCreate} title="create.manifest" dataRequired />,
   },
   {
-    path: PATHS.IMDF_CONVERT,
-    name: ROUTE_NAME_BY_PATH[PATHS.IMDF_CONVERT],
-    element: <Route component={ConvertTab} title="create.manifest" />,
-  },
-  {
     path: PATHS.CONVERSION,
     name: ROUTE_NAME_BY_PATH[PATHS.CONVERSION],
     element: <Route component={Conversion} dataRequired />,
+  },
+  {
+    path: PATHS.IMDF_CONVERSION,
+    name: ROUTE_NAME_BY_PATH[PATHS.IMDF_CONVERSION],
+    element: <Route component={ImdfConversion} dataRequired />,
   },
   {
     path: PATHS.PAST_CONVERSION,

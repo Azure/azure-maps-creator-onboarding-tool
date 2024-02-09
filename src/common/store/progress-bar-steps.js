@@ -14,13 +14,12 @@ export const progressBarStepsByKey = {
   layers: 'layers',
   levels: 'levels',
   reviewCreate: 'reviewCreate',
-  convert: 'convert',
 };
 
 export const useProgressBarSteps = () => {
   const { isPlacesPreview } = useFeatureFlags();
 
-  const { isRunningIMDFConversion, hasCompletedIMDFConversion } = useIMDFConversionStatus();
+  const { isRunningIMDFConversion } = useIMDFConversionStatus();
 
   return useMemo(() => {
     const tabs = [
@@ -44,29 +43,14 @@ export const useProgressBarSteps = () => {
       },
       {
         key: progressBarStepsByKey.reviewCreate,
-        name: isPlacesPreview ? 'review' : 'review.plus.create',
+        name: isPlacesPreview ? 'review.plus.create' : 'review.plus.create',
         href: PATHS.REVIEW_CREATE,
         disabled: isRunningIMDFConversion,
       },
     ];
 
-    if (isPlacesPreview) {
-      const getIcon = () => {
-        if (isRunningIMDFConversion) return 'SyncStatusSolid';
-        if (hasCompletedIMDFConversion) return 'SkypeCircleCheck';
-        return 'Unknown';
-      };
-      tabs.push({
-        key: progressBarStepsByKey.convert,
-        name: 'convert',
-        href: PATHS.IMDF_CONVERT,
-        icon: getIcon(),
-        disabled: !isRunningIMDFConversion && !hasCompletedIMDFConversion,
-      });
-    }
-
     return tabs;
-  }, [isPlacesPreview, isRunningIMDFConversion, hasCompletedIMDFConversion]);
+  }, [isPlacesPreview, isRunningIMDFConversion]);
 };
 
 const getDefaultState = () => ({
@@ -172,18 +156,17 @@ export const useCompletedSteps = () => {
     completedSteps.push(progressBarStepsByKey.reviewCreate);
   }
 
-  if (isPlacesPreview) {
-    completedSteps.push(progressBarStepsByKey.convert);
-  }
-
   return completedSteps;
 };
 
 const progressBarSelector = s => s.isMissingDataErrorShown;
 export const useValidationStatus = () => {
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
+  const completedSteps = useCompletedSteps();
+  const progressBarSteps = useProgressBarSteps();
 
   return {
+    success: completedSteps.length === progressBarSteps.length,
     failed: isProgressBarErrorShown,
   };
 };

@@ -251,7 +251,7 @@ export function parseManifestJson(json) {
     featureClasses: json.featureClasses,
     levels: json.buildingLevels.levels,
     georeference: json.georeference,
-    language: json.language ?? 'en',
+    language: json.language ?? PLACES_PREVIEW.DEFAULT_LANGUAGE,
   };
 }
 

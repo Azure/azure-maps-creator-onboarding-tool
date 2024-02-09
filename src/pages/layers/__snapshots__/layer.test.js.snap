@@ -397,7 +397,7 @@ Object {
       >
         <input
           class="emotion-22"
-          placeholder="Search layers"
+          placeholder="Search..."
           type="text"
           value=""
         />
@@ -1260,7 +1260,7 @@ Object {
       >
         <input
           class="emotion-22"
-          placeholder="Search layers"
+          placeholder="Search..."
           type="text"
           value=""
         />

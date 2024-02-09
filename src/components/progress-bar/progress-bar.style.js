@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-
 import { color, fontSize, fontWeight } from 'common/styles';
 
 export const errorContainer = css`
@@ -12,6 +11,8 @@ export const errorContainer = css`
 
 export const progressBarContainer = css`
   margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
 `;
 
 export const iconStyle = css`
@@ -33,17 +34,28 @@ export const stepStyle = css`
   height: 2.25rem;
   display: inline-flex;
   align-items: center;
-  margin-right: 1rem;
   text-decoration: none;
   color: inherit;
+  padding: 0.3rem;
+  transition: background 0.1s ease-in;
   &:hover {
     color: inherit;
+    background-color: ${color.lightGray};
   }
 `;
 
 export const activeStepStyle = css`
   font-weight: ${fontWeight.semibold};
-  border-bottom: 2px solid ${color.accent.primary};
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${color.accent.primary};
+  }
 `;
 
 export const disabledStepStyle = css`

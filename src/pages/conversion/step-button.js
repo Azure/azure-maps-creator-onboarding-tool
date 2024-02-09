@@ -1,26 +1,34 @@
-import { useCallback, useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { cx } from '@emotion/css';
-
-import { enabledStep, selectedStep as selectedStepStyle, step as stepStyle, stepTimer, stepTitle } from './style';
-import Icon from './icon';
+import PropTypes from 'prop-types';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { formatProgressTime } from './format-time';
+import Icon from './icon';
+import { enabledStep, selectedStep as selectedStepStyle, step as stepStyle, stepTimer, stepTitle } from './style';
 
-const StepButton = ({ endTime, label, status, startTime, step, title, disabled, setStep, selectedStep }) => {
+const StepButton = props => {
+  const { endTime, label, status, startTime, step, title, disabled, setStep, selectedStep } = props;
+
   const [elapsedTime, setElapsedTime] = useState('');
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    if (startTime !== null && endTime !== null) {
-      setElapsedTime(formatProgressTime(startTime, endTime));
+    const clearTimer = () => {
       clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    };
+
+    if (startTime === null) {
+      setElapsedTime('');
+    } else if (startTime !== null && endTime !== null) {
+      setElapsedTime(formatProgressTime(startTime, endTime));
+      clearTimer();
     } else if (startTime !== null && intervalRef.current === null) {
       intervalRef.current = setInterval(() => {
         setElapsedTime(formatProgressTime(startTime, endTime));
       }, 1000);
     }
 
-    return () => clearInterval(intervalRef.current);
+    return () => clearTimer();
   }, [startTime, endTime]);
 
   const onClick = useCallback(() => setStep(step), [setStep, step]);
