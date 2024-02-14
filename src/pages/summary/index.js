@@ -1,4 +1,5 @@
 import { cx } from '@emotion/css';
+import { MessageBar, MessageBarType } from '@fluentui/react';
 import { languages } from 'common/languages';
 import { useGeometryStore, useLayersStore, useLevelsStore, useReviewManifestStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
@@ -7,9 +8,11 @@ import CheckedMap from 'pages/georeference/checked-map';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
+import DownloadConfigButton from './DownloadConfigButton';
 import {
   entryCell,
   layerPill,
+  noBorder,
   sectionTitle,
   summaryColumn,
   summaryEntry,
@@ -121,6 +124,13 @@ const SummaryTab = () => {
               </SummaryEntry>
             </>
           )}
+        </div>
+        <div className={cx(summaryPanel, noBorder)} style={{ maxWidth: '40rem' }}>
+          <MessageBar messageBarType={MessageBarType.info} isMultiline>
+            You can download the configuration file, which allows you to continue the conversion process at a later
+            time. Everthing you have configured so far will be saved in the configuration file.
+          </MessageBar>
+          <DownloadConfigButton style={{ marginTop: '1rem' }} />
         </div>
       </div>
       <div className={cx(summaryColumn, summaryMapWrapper)}>

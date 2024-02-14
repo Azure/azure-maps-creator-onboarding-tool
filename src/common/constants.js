@@ -29,6 +29,13 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.CONVERSIONS]: 'All conversions',
 };
 
+export const PLACES_ROUTE_NAME_BY_PATH = {
+  [PATHS.CREATE_GEOREFERENCE]: 'prepare.building.configuration',
+  [PATHS.LAYERS]: 'prepare.building.configuration',
+  [PATHS.LEVELS]: 'prepare.building.configuration',
+  [PATHS.REVIEW_CREATE]: 'prepare.building.configuration',
+};
+
 export const TRUNCATE_FRACTION_DIGITS = 8;
 
 export const HTTP_STATUS_CODE = {

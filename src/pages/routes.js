@@ -1,6 +1,5 @@
 import { PATHS, ROUTE_NAME_BY_PATH } from 'common';
 import { Route } from 'components';
-import { useFeatureFlags } from 'hooks';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Conversion from './conversion';
@@ -16,33 +15,28 @@ import Levels from './levels';
 import ProcessingPage from './processing';
 import ReviewAndCreate from './review';
 
-const CreateUploadRoute = props => {
-  const { isPlacesPreview } = useFeatureFlags();
-  return (
-    <Route
-      component={CreateManifestPage}
-      title={isPlacesPreview ? 'conversion.for.places' : 'maps.creator.manifest'}
-      {...props}
-    />
-  );
-};
-
-const InitialViewRoute = props => {
-  const { isPlacesPreview } = useFeatureFlags();
-  if (!isPlacesPreview) return <Route component={InitialView} {...props} />;
-  return <CreateUploadRoute {...props} />;
-};
-
 export const routes = [
   {
     path: PATHS.INDEX,
     name: ROUTE_NAME_BY_PATH[PATHS.INDEX],
-    element: <InitialViewRoute />,
+    element: (
+      <Route
+        component={InitialView}
+        title="maps.creator.manifest"
+        overrides={{ isPlacesPreview: { component: CreateManifestPage, title: 'conversion.for.places' } }}
+      />
+    ),
   },
   {
     path: PATHS.CREATE_UPLOAD,
     name: ROUTE_NAME_BY_PATH[PATHS.CREATE_UPLOAD],
-    element: <CreateUploadRoute />,
+    element: (
+      <Route
+        component={CreateManifestPage}
+        title="maps.creator.manifest"
+        overrides={{ isPlacesPreview: { title: 'conversion.for.places' } }}
+      />
+    ),
   },
   {
     path: PATHS.VIEW_CONVERSIONS,
@@ -53,22 +47,50 @@ export const routes = [
   {
     path: PATHS.CREATE_GEOREFERENCE,
     name: ROUTE_NAME_BY_PATH[PATHS.CREATE_GEOREFERENCE],
-    element: <Route component={Georeference} title="create.manifest" dataRequired />,
+    element: (
+      <Route
+        component={Georeference}
+        title="create.manifest"
+        overrides={{ isPlacesPreview: { title: 'create.configuration' } }}
+        dataRequired
+      />
+    ),
   },
   {
     path: PATHS.LAYERS,
     name: ROUTE_NAME_BY_PATH[PATHS.LAYERS],
-    element: <Route component={Layers} title="create.manifest" dataRequired />,
+    element: (
+      <Route
+        component={Layers}
+        title="create.manifest"
+        overrides={{ isPlacesPreview: { title: 'create.configuration' } }}
+        dataRequired
+      />
+    ),
   },
   {
     path: PATHS.LEVELS,
     name: ROUTE_NAME_BY_PATH[PATHS.LEVELS],
-    element: <Route component={Levels} title="create.manifest" dataRequired />,
+    element: (
+      <Route
+        component={Levels}
+        title="create.manifest"
+        overrides={{ isPlacesPreview: { title: 'create.configuration' } }}
+        dataRequired
+      />
+    ),
   },
   {
     path: PATHS.REVIEW_CREATE,
     name: ROUTE_NAME_BY_PATH[PATHS.REVIEW_CREATE],
-    element: <Route component={ReviewAndCreate} title="create.manifest" dataRequired />,
+    element: (
+      <Route
+        component={ReviewAndCreate}
+        title="create.manifest"
+        overrides={{ isPlacesPreview: { title: 'create.configuration' } }}
+        dataRequired
+      />
+    ),
   },
   {
     path: PATHS.CONVERSION,

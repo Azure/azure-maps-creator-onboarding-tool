@@ -4,7 +4,7 @@ import { Icon } from '@fluentui/react/lib/Icon';
 import { PATHS } from 'common';
 import { useConversionStore } from 'common/store';
 import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conversion.store';
-import { useCustomNavigate } from 'hooks';
+import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
 import { DownloadIMDF } from './download-imdf';
@@ -32,8 +32,10 @@ const ImdfConversion = () => {
   const { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList } =
     useIMDFConversionStatus();
 
+  const alert = useAlert({ onOk: () => navigate(PATHS.REVIEW_CREATE) });
+
   const handleBack = () => {
-    navigate(PATHS.REVIEW_CREATE);
+    alert.ask();
   };
 
   return (

@@ -1,7 +1,7 @@
 import { cx } from '@emotion/css';
 import { PATHS } from 'common';
 import { LRO_STATUS, useProgressBarSteps, useResponseStore, useUserStore } from 'common/store';
-import { useCustomNavigate } from 'hooks';
+import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -17,10 +17,17 @@ const userStoreSelector = s => s.subscriptionKey;
 
 const openRoutes = [PATHS.INDEX, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
 
-const Route = ({ title, component: Component, dataRequired }) => {
+const defaultOverrides = {
+  isPlacesPreview: {},
+};
+
+const Route = props => {
+  const { title, component: Component, dataRequired, overrides = defaultOverrides } = props;
+
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
   const { pathname: currentPath } = useLocation();
+  const { isPlacesPreview } = useFeatureFlags();
 
   const lroStatus = useResponseStore(responseStoreSelector);
   const subKey = useUserStore(userStoreSelector);
@@ -42,6 +49,9 @@ const Route = ({ title, component: Component, dataRequired }) => {
     }
   }, [dataRequired, lroStatus, navigate]);
 
+  const displayTitle = (isPlacesPreview && overrides.isPlacesPreview.title) || title;
+  const DisplayComponent = (isPlacesPreview && overrides.isPlacesPreview.component) || Component;
+
   return (
     <>
       <Toaster
@@ -59,9 +69,9 @@ const Route = ({ title, component: Component, dataRequired }) => {
       <TopBar />
       <div className={cx(routeStyle, { [footerPadding]: shouldShowFooter })}>
         <BreadCrumbNav />
-        {title && <h1>{t(title)}</h1>}
+        {displayTitle && <h1>{t(displayTitle)}</h1>}
         <ProgressBar />
-        <Component />
+        <DisplayComponent />
       </div>
       <Footer />
     </>

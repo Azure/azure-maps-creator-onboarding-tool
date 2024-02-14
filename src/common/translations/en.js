@@ -16,6 +16,7 @@ const en = {
     'create.indoor.map': 'Create Indoor Map',
     'convert.indoor.map': 'Convert Indoor Map',
     'create.manifest': 'Create manifest',
+    'create.configuration': 'Create configuration',
     'create.new.manifest': 'Create a new manifest',
     'create.new.manifest.page.description':
       'You will need to submit your drawing packages in a single ZIP file to begin the onboarding process.',
@@ -137,6 +138,7 @@ const en = {
     'position.building.footprint': 'Position Building Footprint',
     previous: 'Previous',
     'prepare.drawing.package': 'Prepare Drawing Package',
+    'prepare.building.configuration': 'Prepare Building Configuration',
     process: 'Process',
     'process.file': 'Process file',
     'processing.label.processing':

@@ -1,3 +1,4 @@
+import { imdfCategories } from 'common/imdf-categories';
 import Papa from 'papaparse';
 import nextId from 'react-id-generator';
 import { create } from 'zustand';
@@ -47,23 +48,30 @@ export const useLayersStore = create((set, get) => ({
         if (data.length > 2000) {
           message = 'Maximum number of rows is 2000.';
         } else {
-          data.forEach(row => {
+          data.forEach((row, index) => {
             // Check if row has 2 columns
             if (row?.length !== 2) {
               console.log('Invalid row', row);
-              message = 'Error uploading category map. Each row must have 2 columns.';
+              message = `Error uploading category map. Each row must have 2 columns (row ${index + 1}).`;
               return;
             }
             // if the key already exists
-            const key = row[0].toLowerCase();
+            const key = row[0].toLowerCase().trim();
+            const value = row[1].trim();
 
             if (mapping[key]) {
               console.log('Duplicate key', key);
-              message = 'Error uploading category map. Duplicate key found.';
+              message = `Error uploading category map. Duplicate key found (row ${index + 1}).`;
+              return;
+            }
+
+            if (!imdfCategories.includes(value)) {
+              console.log('Invalid IMDF category', value);
+              message = `Error uploading category map. In row ${index + 1}, "${value}" is not a valid IMDF category.`;
               return;
             }
             // Map the key to the value
-            mapping[key] = row[1];
+            mapping[key] = value;
           });
         }
 

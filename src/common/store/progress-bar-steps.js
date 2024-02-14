@@ -43,7 +43,7 @@ export const useProgressBarSteps = () => {
       },
       {
         key: progressBarStepsByKey.reviewCreate,
-        name: isPlacesPreview ? 'review.plus.create' : 'review.plus.create',
+        name: isPlacesPreview ? 'review.plus.convert' : 'review.plus.create',
         href: PATHS.REVIEW_CREATE,
         disabled: isRunningIMDFConversion,
       },

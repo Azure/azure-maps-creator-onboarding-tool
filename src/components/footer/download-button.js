@@ -9,7 +9,7 @@ const ButtonText = props => {
 
   if (featureFlags.onboardingEnabled) {
     if (isPlacesPreview) {
-      if (isOnLastStep) return t('convert.download');
+      if (isOnLastStep) return t('convert');
       return t('review.plus.convert');
     } else {
       if (isOnLastStep) return t('convert.download');

@@ -23,6 +23,10 @@ export const summaryPanel = css`
   border-bottom: 1px solid ${color.darkGray};
 `;
 
+export const noBorder = css`
+  border: none;
+`;
+
 export const layerPill = css`
   padding: 0.1rem 1rem;
   background-color: #f3f2f1;

@@ -58,14 +58,17 @@ export const Footer = () => {
         ? {
             json: placesJson,
             redirectTo: PATHS.IMDF_CONVERSION,
+            saveFile: () => {},
           }
         : {
             json: json,
             redirectTo: PATHS.CONVERSION,
+            saveFile: file =>
+              saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`),
           };
 
       createPackageWithJson(flowData.json).then(file => {
-        saveAs(file, `drawingPackage_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`);
+        flowData.saveFile(file);
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file, { isPlacesPreview });
           navigate(flowData.redirectTo);
