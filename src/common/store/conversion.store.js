@@ -80,7 +80,10 @@ export const useConversionStore = create((set, get) => ({
       uploadStepStatus: conversionStatuses.inProgress,
     });
     const requestOptions = {};
-    if (isPlacesPreview) requestOptions.dwgPackageVersion = PLACES_PREVIEW.VERSION;
+    if (isPlacesPreview) {
+      requestOptions.dwgPackageVersion = PLACES_PREVIEW.VERSION;
+      requestOptions.description = PLACES_PREVIEW.DESCRIPTION;
+    }
     uploadConversion(file, requestOptions)
       .then(res => {
         if (res.status !== HTTP_STATUS_CODE.ACCEPTED) {

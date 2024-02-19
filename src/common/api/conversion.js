@@ -11,15 +11,16 @@ const defaultOptions = {
 };
 
 export const uploadConversion = (file, options = {}) => {
-  const { apiVersion, dataFormat } = {
+  const { getOriginalPackageName } = useReviewManifestStore.getState();
+  const { apiVersion, dataFormat, description } = {
     ...defaultOptions,
+    description: getOriginalPackageName(),
     ...options,
   };
   const { geography, subscriptionKey } = useUserStore.getState();
-  const { getOriginalPackageName } = useReviewManifestStore.getState();
   const url = `${
     getEnvs()[geography].URL
-  }/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${getOriginalPackageName()}`;
+  }/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${description}`;
   return fetch(url, {
     method: 'POST',
     headers: {

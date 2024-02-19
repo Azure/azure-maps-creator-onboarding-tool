@@ -6,7 +6,7 @@ import { resetStores, useConversionStore, useResponseStore, useUserStore } from 
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import FileField from 'components/file-field/file-field';
-import { useCustomNavigate } from 'hooks';
+import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
@@ -48,6 +48,7 @@ const CreateManifestPage = () => {
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
   const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector, shallow);
   const resetConversionStore = useConversionStore(conversionStoreSelector);
+  const { isPlacesPreview } = useFeatureFlags();
 
   const environmentOptions = useMemo(
     () =>
@@ -75,9 +76,9 @@ const CreateManifestPage = () => {
       return;
     }
 
-    uploadFile(file);
+    uploadFile(file, { isPlacesPreview });
     navigate(PATHS.PROCESSING);
-  }, [file, navigate, subKey, uploadFile]);
+  }, [file, navigate, subKey, uploadFile, isPlacesPreview]);
 
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback(

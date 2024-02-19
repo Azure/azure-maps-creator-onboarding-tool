@@ -52,4 +52,6 @@ export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';
 export const PLACES_PREVIEW = {
   DEFAULT_LANGUAGE: 'en',
   VERSION: 'places-1.0',
+  DESCRIPTION: 'Converted using Onboarding Tool',
+  STORAGE_RETENTION: 'day',
 };

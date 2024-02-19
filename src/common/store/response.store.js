@@ -1,8 +1,8 @@
-import { create } from 'zustand';
-
 import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } from 'common/api';
+import { clearCloudStorageData } from 'common/api/conversions';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
+import { create } from 'zustand';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
@@ -34,7 +34,11 @@ export const useResponseStore = create((set, get) => ({
       errorMessage: '',
     });
   },
-  uploadFile: file => {
+  uploadFile: async (file, { isPlacesPreview }) => {
+    if (isPlacesPreview) {
+      clearCloudStorageData();
+    }
+
     set(() => ({
       errorMessage: '',
       lroStatus: LRO_STATUS.UPLOADING,
