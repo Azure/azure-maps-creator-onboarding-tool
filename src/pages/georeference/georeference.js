@@ -7,7 +7,6 @@ import PageDescription from 'components/page-description/page-description';
 import { useFeatureFlags } from 'hooks';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import CheckedMap from './checked-map';
 import {
   container,
@@ -24,10 +23,7 @@ const layersSelector = s => s.polygonLayerNames;
 
 function Georeference() {
   const { t } = useTranslation();
-  const [dwgLayers, setDwgLayers, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(
-    geometryStoreSelector,
-    shallow
-  );
+  const [dwgLayers, setDwgLayers, anchorPointCoordinates, anchorPointAngle] = useGeometryStore(geometryStoreSelector);
   const polygonLayers = useLayersStore(layersSelector);
   const { isPlacesPreview } = useFeatureFlags();
   const { failed } = useValidationStatus();

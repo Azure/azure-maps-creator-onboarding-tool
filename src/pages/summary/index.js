@@ -7,7 +7,6 @@ import { color } from 'common/styles';
 import CheckedMap from 'pages/georeference/checked-map';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import DownloadConfigButton from './DownloadConfigButton';
 import {
   entryCell,

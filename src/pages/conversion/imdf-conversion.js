@@ -6,7 +6,6 @@ import { useConversionStore } from 'common/store';
 import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conversion.store';
 import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { DownloadIMDF } from './download-imdf';
 import { actionButtonsContainer, messageWrapper } from './imdf-conversion.style';
 import StepButton from './step-button';
@@ -24,10 +23,8 @@ const ImdfConversion = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
-  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation] = useConversionStore(
-    conversionStoreSelector,
-    shallow
-  );
+  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation] =
+    useConversionStore(conversionStoreSelector);
 
   const { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList } =
     useIMDFConversionStatus();

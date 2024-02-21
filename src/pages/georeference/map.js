@@ -9,7 +9,6 @@ import {
   AzureMapLayerProvider,
   AzureMapsProvider,
 } from 'react-azure-maps';
-import { shallow } from 'zustand/shallow';
 import GeoreferenceControl from './control/controlClass';
 import { mapContainerStyle } from './georeference.style';
 

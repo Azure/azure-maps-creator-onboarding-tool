@@ -3,7 +3,6 @@ import Dropdown, { selectAllId } from 'components/dropdown';
 import { useFeatureFlags } from 'hooks';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import {
   dropdownContainer,
   previewContainerStyles,
@@ -21,10 +20,8 @@ const Preview = () => {
   const { t } = useTranslation();
   const exteriorLayers = useGeometryStore(geometrySelector);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
-  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] = useLayersStore(
-    layersSelector,
-    shallow
-  );
+  const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] =
+    useLayersStore(layersSelector);
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers));
 
   const { isPlacesPreview } = useFeatureFlags();

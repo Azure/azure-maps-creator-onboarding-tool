@@ -5,7 +5,6 @@ import FileField from 'components/file-field/file-field';
 import PageDescription from 'components/page-description/page-description';
 import { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import CategoryLayer from './categoryLayer';
 import Layer from './layer';
 import { dropdownStyles, layersContainer, layersWithPreview } from './layers.style';

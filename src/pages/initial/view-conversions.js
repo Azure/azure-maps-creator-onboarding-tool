@@ -19,7 +19,7 @@ import {
 } from 'pages/create-manifest/create-manifest.style';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
+
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',
   FILE_NAME_FIELD: 'file-name-field',

@@ -5,7 +5,6 @@ import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { categoryMappingPanel, dropdownStyles, flexContainer, readOnlyFieldLabel } from './layers.style';
 
 const layerSelector = s => [s.setCategoryLayer, s.textLayerNames];
