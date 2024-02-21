@@ -1,5 +1,5 @@
-import { PrimaryButton } from '@fluentui/react';
 import { cx } from '@emotion/css';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
 import { saveAs } from 'file-saver';
 
 import { downloadLogsContainer, failedLogsButton, logsButton } from './style';
@@ -12,11 +12,15 @@ const logTypes = {
 };
 const defaultFileName = 'WarningsAndErrors.json';
 
-export const DownloadLogs = ({ isFailed, link, json, type }) => {
+export const DownloadLogs = props => {
+  const { isFailed, link, json, type, primaryButton = true } = props;
+
+  const Button = primaryButton ? PrimaryButton : DefaultButton;
+
   if (link) {
     return (
       <a href={link} download target="_blank" rel="noreferrer">
-        <PrimaryButton className={cx(logsButton, { [failedLogsButton]: isFailed })}>Download logs</PrimaryButton>
+        <Button className={cx(logsButton, { [failedLogsButton]: isFailed })}>Download logs</Button>
       </a>
     );
   }
@@ -29,9 +33,9 @@ export const DownloadLogs = ({ isFailed, link, json, type }) => {
     const saveLog = () => saveAs(fileToSave, fileName);
     return (
       <div className={downloadLogsContainer}>
-        <PrimaryButton onClick={saveLog} className={cx(logsButton, { [failedLogsButton]: isFailed })}>
+        <Button onClick={saveLog} className={cx(logsButton, { [failedLogsButton]: isFailed })}>
           Download logs
-        </PrimaryButton>
+        </Button>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { useResponseStore, LRO_STATUS } from 'common/store/response.store';
+import { LRO_STATUS, useResponseStore } from 'common/store/response.store';
 
 import Route from './route';
 
@@ -11,8 +11,11 @@ jest.mock('../progress-bar/progress-bar', () => () => <div>ProgressBar</div>);
 const mockNavigate = jest.fn();
 let mockPathname = '/';
 
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
   useLocation: () => ({
     pathname: mockPathname,
   }),

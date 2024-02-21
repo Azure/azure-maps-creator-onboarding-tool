@@ -5,6 +5,10 @@ import { useLevelsStore } from './levels.store';
 import { useCompletedSteps } from './progress-bar-steps';
 import { useReviewManifestStore } from './review-manifest.store';
 
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
+
 describe('progress-bar-steps hook', () => {
   beforeEach(() => {
     useLevelsStore.setState({

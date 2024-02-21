@@ -9,5 +9,5 @@ export const useUserStore = create(set => ({
 }));
 
 export const getDomain = geography => {
-  return getEnvs()[geography].URL;
+  return getEnvs()[geography].URL.replace('https://', '');
 };

@@ -1,10 +1,11 @@
 import { css } from '@emotion/css';
-
-import { fontSize } from 'common/styles';
+import { color, fontSize } from 'common/styles';
 
 export const errorContainer = css`
   display: flex;
   align-items: center;
+  font-size: ${fontSize.sm};
+  color: ${color.redError};
 `;
 
 export const fieldErrorIconStyle = css`

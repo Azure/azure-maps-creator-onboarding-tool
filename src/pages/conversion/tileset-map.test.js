@@ -11,6 +11,7 @@ jest.mock('azure-maps-control', () => ({
 }));
 jest.mock('common/store', () => ({
   useUserStore: () => ['US', 'key-subscription'],
+  getDomain: () => 'us.atlas.microsoft.com',
 }));
 
 describe('Tileset map', () => {
@@ -29,10 +30,10 @@ describe('Tileset map', () => {
     const constructorSpy = jest.spyOn(azMapsControl, 'Map');
     expect(constructorSpy).toBeCalledWith('azure-maps-container', {
       bounds: [0, 1, 2, 3],
-      domain: 'https://us.atlas.microsoft.com',
+      domain: 'us.atlas.microsoft.com',
       language: 'en-US',
       mapConfiguration: 'map-config-id',
-      staticAssetsDomain: 'https://us.atlas.microsoft.com',
+      staticAssetsDomain: 'us.atlas.microsoft.com',
       styleAPIVersion: '2023-03-01-preview',
       subscriptionKey: 'key-subscription',
     });

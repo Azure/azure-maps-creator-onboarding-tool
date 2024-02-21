@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 
-import { fontSize, color } from 'common/styles';
+import { color, fontSize } from 'common/styles';
 
 export const fileContainer = css`
   max-width: 45rem;
@@ -26,6 +26,11 @@ export const fieldLabel = css`
 `;
 
 export const inputClass = css`
+  width: 100%;
+  max-width: 30rem;
+`;
+
+export const dropdownInputClass = css`
   width: 100%;
   max-width: 30rem;
 `;

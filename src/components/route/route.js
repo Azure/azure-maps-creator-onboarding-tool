@@ -1,33 +1,41 @@
 import { cx } from '@emotion/css';
 import { PATHS } from 'common';
-import { LRO_STATUS, progressBarSteps, useResponseStore, useUserStore } from 'common/store';
+import { LRO_STATUS, useProgressBarSteps, useResponseStore, useUserStore } from 'common/store';
+import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import BreadCrumbNav from '../bread-crumb-nav/bread-crumb-nav';
 import Footer from '../footer/footer';
 import ProgressBar from '../progress-bar/progress-bar';
 import TopBar from '../top-bar/top-bar';
 import { footerPadding, routeStyle } from './route.style';
-
 const responseStoreSelector = s => s.lroStatus;
 const userStoreSelector = s => s.subscriptionKey;
 
 const openRoutes = [PATHS.INDEX, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
 
-const Route = ({ title, component: Component, dataRequired }) => {
+const defaultOverrides = {
+  isPlacesPreview: {},
+};
+
+const Route = props => {
+  const { title, component: Component, dataRequired, overrides = defaultOverrides } = props;
+
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const { pathname: currentPath } = useLocation();
+  const { isPlacesPreview } = useFeatureFlags();
 
   const lroStatus = useResponseStore(responseStoreSelector);
   const subKey = useUserStore(userStoreSelector);
+  const progressBarSteps = useProgressBarSteps();
 
   const shouldShowFooter = useMemo(() => {
     return progressBarSteps.findIndex(route => route.href === currentPath) !== -1;
-  }, [currentPath]);
+  }, [currentPath, progressBarSteps]);
 
   useEffect(() => {
     if (openRoutes.includes(currentPath)) return;
@@ -40,6 +48,9 @@ const Route = ({ title, component: Component, dataRequired }) => {
       navigate(PATHS.INDEX);
     }
   }, [dataRequired, lroStatus, navigate]);
+
+  const displayTitle = isPlacesPreview ? overrides.isPlacesPreview.title || title : title;
+  const DisplayComponent = (isPlacesPreview && overrides.isPlacesPreview.component) || Component;
 
   return (
     <>
@@ -58,9 +69,9 @@ const Route = ({ title, component: Component, dataRequired }) => {
       <TopBar />
       <div className={cx(routeStyle, { [footerPadding]: shouldShowFooter })}>
         <BreadCrumbNav />
-        {title && <h1>{t(title)}</h1>}
+        {displayTitle && <h1>{t(displayTitle)}</h1>}
         <ProgressBar />
-        <Component />
+        <DisplayComponent />
       </div>
       <Footer />
     </>

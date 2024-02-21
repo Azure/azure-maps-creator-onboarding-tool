@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-
 import { useLevelsStore } from 'common/store';
 import Levels from './levels';
 
@@ -26,6 +25,9 @@ const mockLevel4 = {
 
 // added this to emulate enzyme's shallow render for cleaner snapshots
 jest.mock('./level', () => props => <div>{JSON.stringify(props)}</div>);
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 
 describe('Levels component', () => {
   it('should render component with 1 level', () => {

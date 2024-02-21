@@ -1,7 +1,6 @@
 import { Map, control } from 'azure-maps-control';
 import { indoor, control as indoorControl } from 'azure-maps-indoor';
-import { getEnvs } from 'common/functions';
-import { useUserStore } from 'common/store';
+import { getDomain, useUserStore } from 'common/store';
 import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 import { mapContainer } from './style';
@@ -18,8 +17,8 @@ const TilesetMap = ({ mapConfigurationId, bbox }) => {
       bounds: bbox,
       subscriptionKey: subscriptionKey,
       language: 'en-US',
-      domain: getEnvs()[geography].URL,
-      staticAssetsDomain: getEnvs()[geography].URL,
+      domain: getDomain(geography),
+      staticAssetsDomain: getDomain(geography),
       mapConfiguration: mapConfigurationId,
       styleAPIVersion: '2023-03-01-preview',
     });

@@ -2,12 +2,11 @@ import { ProgressIndicator } from '@fluentui/react/lib/ProgressIndicator';
 import { PATHS } from 'common';
 import { progressBarStepsByKey, useCompletedSteps, useResponseStore, useUserStore } from 'common/store';
 import { LRO_STATUS } from 'common/store/response.store';
+import { useCustomNavigate } from 'hooks';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import { containerStyle, progressIndicatorLabel, progressIndicatorStyles } from './processing.style';
-
 export const REFRESH_INTERVAL = 1;
 
 const LABEL = {
@@ -20,7 +19,7 @@ const subKeySelector = s => s.subscriptionKey;
 
 const ProcessingPage = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const completedSteps = useCompletedSteps();
 
   const [label, setLabel] = useState();
@@ -59,7 +58,7 @@ const ProcessingPage = () => {
         }
         break;
       default:
-        navigate(PATHS.INDEX);
+        navigate(PATHS.CREATE_UPLOAD);
         break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,7 +68,7 @@ const ProcessingPage = () => {
     if (errorMessage === '') {
       return;
     }
-    navigate(PATHS.INDEX);
+    navigate(PATHS.CREATE_UPLOAD);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessage]);
 

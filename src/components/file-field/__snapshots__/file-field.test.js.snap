@@ -54,11 +54,12 @@ Object {
 }
 
 .emotion-3 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-4 {
@@ -125,13 +126,15 @@ Object {
       <div
         class="emotion-0"
       >
-        <div
-          class="emotion-1"
-        >
+        <div>
           <div
-            class="emotion-2"
+            class="emotion-1"
           >
-            foobar
+            <div
+              class="emotion-2"
+            >
+              foobar
+            </div>
           </div>
         </div>
         <div
@@ -231,11 +234,12 @@ Object {
 }
 
 .emotion-3 {
-  width: 30rem;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  max-width: 30rem;
 }
 
 .emotion-4 {
@@ -301,13 +305,15 @@ Object {
     <div
       class="emotion-0"
     >
-      <div
-        class="emotion-1"
-      >
+      <div>
         <div
-          class="emotion-2"
+          class="emotion-1"
         >
-          foobar
+          <div
+            class="emotion-2"
+          >
+            foobar
+          </div>
         </div>
       </div>
       <div

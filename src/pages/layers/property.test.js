@@ -1,7 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-
-import Property from './property';
 import { useLayersStore } from 'common/store';
+import Property from './property';
+
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 
 describe('Property component', () => {
   beforeEach(() => {

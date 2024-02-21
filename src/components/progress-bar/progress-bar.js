@@ -1,12 +1,11 @@
-import { useMemo, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { MessageBar, MessageBarType } from '@fluentui/react';
+import { useCompletedSteps, useProgressBarSteps, useProgressBarStore } from 'common/store';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
-
-import { progressBarSteps, useCompletedSteps, useProgressBarStore } from 'common/store';
-import { errorContainer, progressBarContainer } from './progress-bar.style';
 import ProgressBarButton from './progress-bar-button';
+import { errorContainer, progressBarContainer } from './progress-bar.style';
 
 const progressBarStoreSelector = s => [
   s.isIncorrectManifestVersionErrorShown,
@@ -30,13 +29,18 @@ export const ProgressBar = () => {
     hideMissingDataError,
   ] = useProgressBarStore(progressBarStoreSelector, shallow);
 
-  const shouldShowProgressBar = useMemo(() => progressBarSteps.some(step => step.href === pathname), [pathname]);
+  const progressBarSteps = useProgressBarSteps();
+
+  const shouldShowProgressBar = useMemo(
+    () => progressBarSteps.some(step => step.href === pathname),
+    [pathname, progressBarSteps]
+  );
 
   useEffect(() => {
     if (completedSteps.length === progressBarSteps.length && isMissingDataErrorShown) {
       hideMissingDataError();
     }
-  }, [completedSteps, isMissingDataErrorShown, hideMissingDataError]);
+  }, [completedSteps, isMissingDataErrorShown, hideMissingDataError, progressBarSteps]);
 
   if (!shouldShowProgressBar) {
     return null;

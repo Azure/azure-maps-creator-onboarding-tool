@@ -1,13 +1,16 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-
-import Level from './level';
 import { useLevelsStore, useProgressBarStore } from 'common/store';
+import Level from './level';
 
 const mockLevel = {
   filename: 'kitchen.dwg',
   levelName: 'Kitchen',
   ordinal: '5',
 };
+
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 
 describe('Level component', () => {
   beforeEach(() => {

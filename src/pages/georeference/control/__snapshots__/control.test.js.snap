@@ -203,17 +203,17 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   <input
                     checked=""
                     class="ms-ChoiceField-input input-126"
-                    id="ChoiceGroup6-address"
-                    name="ChoiceGroup6"
+                    id="ChoiceGroup28-address"
+                    name="ChoiceGroup28"
                     type="radio"
                   />
                   <label
                     class="ms-ChoiceField-field is-checked field-127"
-                    for="ChoiceGroup6-address"
+                    for="ChoiceGroup28-address"
                   >
                     <span
                       class="ms-ChoiceFieldLabel"
-                      id="ChoiceGroupLabel7-address"
+                      id="ChoiceGroupLabel29-address"
                     >
                       search.by.building.address
                     </span>
@@ -228,17 +228,17 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                 >
                   <input
                     class="ms-ChoiceField-input input-126"
-                    id="ChoiceGroup6-coordinates"
-                    name="ChoiceGroup6"
+                    id="ChoiceGroup28-coordinates"
+                    name="ChoiceGroup28"
                     type="radio"
                   />
                   <label
                     class="ms-ChoiceField-field field-132"
-                    for="ChoiceGroup6-coordinates"
+                    for="ChoiceGroup28-coordinates"
                   >
                     <span
                       class="ms-ChoiceFieldLabel"
-                      id="ChoiceGroupLabel7-coordinates"
+                      id="ChoiceGroupLabel29-coordinates"
                     >
                       search.by.lon.lat
                     </span>
@@ -264,7 +264,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
               <input
                 aria-invalid="false"
                 class="ms-TextField-field field-138"
-                id="TextField8"
+                id="TextField30"
                 placeholder="search.address"
                 type="text"
                 value=""
@@ -288,7 +288,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
             >
               <span
                 class="ms-Button-label label-149"
-                id="id__13"
+                id="id__35"
               >
                 search
               </span>
@@ -315,7 +315,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
             >
               <label
                 class="ms-Label titleLabel-162"
-                for="Slider16"
+                for="Slider38"
               />
               <div
                 class="ms-Slider-container container-153"
@@ -328,7 +328,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   aria-valuetext="111"
                   class="ms-Slider-slideBox slideBox-154"
                   data-is-focusable="true"
-                  id="Slider16"
+                  id="Slider38"
                   role="slider"
                   tabindex="0"
                 >
@@ -370,7 +370,7 @@ exports[`GeoreferenceControl class onAdd should return container 1`] = `
                   aria-label="rotation.in.degrees"
                   autocomplete="off"
                   class="ms-TextField-field field-164"
-                  id="TextField17"
+                  id="TextField39"
                   type="text"
                   value=""
                 />

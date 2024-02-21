@@ -1,6 +1,7 @@
-import { create } from 'zustand';
+import { imdfCategories } from 'common/imdf-categories';
+import Papa from 'papaparse';
 import nextId from 'react-id-generator';
-
+import { create } from 'zustand';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
 const systemReservedLayerNames = ['facility', 'level'];
@@ -17,6 +18,80 @@ export const useLayersStore = create((set, get) => ({
     set({
       visited: true,
     }),
+  setCategoryMappingEnabled: categoryMappingEnabled => {
+    set({
+      categoryMappingEnabled,
+    });
+  },
+  setCategoryLayer: categoryLayer => {
+    set({
+      categoryLayer,
+    });
+  },
+  setCategoryMapping: (mappingFile, errorMessage = null) => {
+    let isMappingValid = false;
+    let categoryMap = {};
+    let message = null;
+
+    if (!mappingFile)
+      return set({
+        categoryMapping: { ...getDefaultState().categoryMapping, message: errorMessage },
+      });
+
+    Papa.parse(mappingFile, {
+      header: false,
+      skipEmptyLines: true,
+      complete: results => {
+        const { data } = results;
+        const mapping = {};
+
+        if (data.length > 2000) {
+          message = 'Maximum number of rows is 2000.';
+        } else {
+          data.forEach((row, index) => {
+            // Check if row has 2 columns
+            if (row?.length !== 2) {
+              console.log('Invalid row', row);
+              message = `Error uploading category map. Each row must have 2 columns (row ${index + 1}).`;
+              return;
+            }
+            // if the key already exists
+            const key = row[0].toLowerCase().trim();
+            const value = row[1].trim();
+
+            if (mapping[key]) {
+              console.log('Duplicate key', key);
+              message = `Error uploading category map. Duplicate key found (row ${index + 1}).`;
+              return;
+            }
+
+            if (!imdfCategories.includes(value)) {
+              console.log('Invalid IMDF category', value);
+              message = `Error uploading category map. In row ${index + 1}, "${value}" is not a valid IMDF category.`;
+              return;
+            }
+            // Map the key to the value
+            mapping[key] = value;
+          });
+        }
+
+        if (!message) {
+          isMappingValid = true;
+          categoryMap = mapping;
+          message = 'Successfully imported.';
+        }
+
+        set({
+          categoryMapping: {
+            file: isMappingValid ? mappingFile : null,
+            categoryMap,
+            isMappingValid,
+            message,
+          },
+        });
+      },
+    });
+  },
   setPreviewSingleFeatureClass: previewSingleFeatureClass =>
     set({
       previewSingleFeatureClass,
@@ -45,7 +120,16 @@ export const useLayersStore = create((set, get) => ({
 
     const convertedLayers = convertLayersFromManifestJson(layers, get().textLayerNames, get().layerNames);
 
+    const mappingData = {};
+    const categoryDwgLayer = layers?.[0]?.categoryDwgLayer;
+
+    if (categoryDwgLayer) {
+      mappingData.categoryLayer = categoryDwgLayer;
+      mappingData.categoryMappingEnabled = true;
+    }
+
     set({
+      ...mappingData,
       layers: convertedLayers,
     });
   },
@@ -252,6 +336,14 @@ export function checkIfLayersValid(layers) {
 
 export function getDefaultState() {
   return {
+    categoryMappingEnabled: false,
+    categoryLayer: undefined,
+    categoryMapping: {
+      file: null,
+      categoryMap: {},
+      isMappingValid: undefined,
+      message: null,
+    },
     dwgLayers: {},
     layerNames: [],
     polygonLayers: [],

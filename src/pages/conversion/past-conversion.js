@@ -4,9 +4,9 @@ import { PATHS } from 'common';
 import { conversionSteps } from 'common/store';
 import { useConversionPastStore } from 'common/store/conversion-past.store';
 import { conversionStatuses } from 'common/store/conversion.store';
+import { useCustomNavigate } from 'hooks';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import ConversionContent from './conversion-content';
 import DatasetContent from './dataset-content';
@@ -15,7 +15,6 @@ import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
 import TilesetContent from './tileset-content';
 import UploadContent from './upload-content';
-
 const conversionStoreSelector = s => [
   s.uploadStepStatus,
   s.uploadStartTime,
@@ -46,7 +45,7 @@ const conversionStoreSelector = s => [
 
 const Conversion = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [
     uploadStepStatus,

@@ -1,11 +1,11 @@
+import * as zip from '@zip.js/zip.js';
+import { PLACES_PREVIEW } from 'common/constants';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
-import * as zip from '@zip.js/zip.js';
-
+import { isNumeric } from '../functions';
+import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
-import { useGeometryStore } from './geometry.store';
-import { isNumeric } from '../functions';
 
 export const useReviewManifestStore = create((set, get) => ({
   manifestReviewed: false,
@@ -57,11 +57,11 @@ export const useReviewManifestStore = create((set, get) => ({
 }));
 
 const geometryStoreSelector = s => [s.anchorPoint, s.dwgLayers];
-const levelsStoreSelector = s => [s.levels, s.facilityName];
-const layersStoreSelector = s => s.layers;
+const levelsStoreSelector = s => [s.levels, s.facilityName, s.language];
+const layersStoreSelector = s => [s.layers, s.categoryMappingEnabled, s.categoryLayer, s.categoryMapping.categoryMap];
 
 export const useReviewManifestJson = () => {
-  const layers = useLayersStore(layersStoreSelector);
+  const [layers] = useLayersStore(layersStoreSelector, shallow);
   const [levels, facilityName] = useLevelsStore(levelsStoreSelector, shallow);
   const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
 
@@ -85,17 +85,17 @@ export const useReviewManifestJson = () => {
     georeference: {
       lat: anchorPoint.coordinates[1],
       lon: anchorPoint.coordinates[0],
-      angle: anchorPoint.angle,
+      angle: fixAngleForManifest(anchorPoint.angle),
     },
     featureClasses: layers
-      .filter(layer => !layer.isDraft)
-      .map(layer => {
+      .filter(layer => !layer?.isDraft)
+      .map((layer = {}) => {
         const featureClass = {
           featureClassName: layer.name,
           dwgLayers: layer.value,
         };
 
-        const props = layer.props.filter(prop => !prop.isDraft);
+        const props = (layer.props || []).filter(prop => !prop?.isDraft);
 
         if (props.length !== 0) {
           featureClass.featureClassProperties = props.map(prop => ({
@@ -113,6 +113,73 @@ export const useReviewManifestJson = () => {
   }
 
   return json;
+};
+
+export const usePlacesReviewManifestJson = () => {
+  const [layers, categoryMappingEnabled, categoryDwgLayer, categoryMap] = useLayersStore(layersStoreSelector, shallow);
+  const [levels, facilityName, language] = useLevelsStore(levelsStoreSelector, shallow);
+  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
+
+  const featureLayer = layers?.[0] || {};
+  const propertyLayer = featureLayer.props?.[0] || {};
+
+  const featureClass = {
+    featureClassName: 'unit',
+    dwgLayers: featureLayer.value,
+  };
+
+  if (categoryMappingEnabled) {
+    featureClass.categoryMap = categoryMap;
+    featureClass.categoryDwgLayer = categoryDwgLayer;
+  }
+
+  if (propertyLayer?.value?.length > 0) {
+    featureClass.featureClassProperties = [
+      {
+        featureClassPropertyName: 'name',
+        dwgLayers: propertyLayer.value,
+      },
+    ];
+  }
+
+  const json = {
+    version: PLACES_PREVIEW.VERSION,
+    language: language,
+    buildingLevels: {
+      dwgLayers,
+      levels: levels.map(level => {
+        const formattedLevel = {
+          ...level,
+          ordinal: Number(level.ordinal),
+        };
+        if (isNumeric(formattedLevel.verticalExtent)) {
+          formattedLevel.verticalExtent = Number(formattedLevel.verticalExtent);
+        } else {
+          delete formattedLevel.verticalExtent;
+        }
+        return formattedLevel;
+      }),
+    },
+    georeference: {
+      lat: anchorPoint.coordinates[1],
+      lon: anchorPoint.coordinates[0],
+      angle: fixAngleForManifest(anchorPoint.angle),
+    },
+    featureClasses: [featureClass],
+  };
+
+  if (facilityName.replace(/\s/g, '').length !== 0) {
+    json.buildingName = facilityName;
+  }
+
+  return json;
+};
+
+export const fixAngleForManifest = angle => {
+  if (Math.abs(angle) === 360) {
+    return 0;
+  }
+  return angle;
 };
 
 export async function createPackageWithJson(originalPackage, json) {

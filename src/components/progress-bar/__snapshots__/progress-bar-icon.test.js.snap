@@ -7,7 +7,7 @@ Object {
   color: #E1DFDD;
   font-size: 1rem;
   margin-right: 0.5rem;
-  color: #57A300;
+  color: #107c10;
 }
 
 <body>
@@ -26,7 +26,7 @@ Object {
   color: #E1DFDD;
   font-size: 1rem;
   margin-right: 0.5rem;
-  color: #57A300;
+  color: #107c10;
 }
 
 <div>
@@ -108,10 +108,10 @@ Object {
       <i
         aria-label="foo"
         class="emotion-0 root-106"
-        data-icon-name="ErrorBadge"
+        data-icon-name="StatusErrorFull"
         role="img"
       >
-        
+        
       </i>
     </div>
   </body>,
@@ -126,10 +126,10 @@ Object {
     <i
       aria-label="foo"
       class="emotion-0 root-106"
-      data-icon-name="ErrorBadge"
+      data-icon-name="StatusErrorFull"
       role="img"
     >
-      
+      
     </i>
   </div>,
   "debug": [Function],

@@ -2,12 +2,13 @@ import { cx } from '@emotion/css';
 import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
-import { useResponseStore, useUserStore } from 'common/store';
+import { resetStores, useConversionStore, useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
+import FileField from 'components/file-field/file-field';
+import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 import {
   containerStyle,
@@ -23,7 +24,6 @@ import {
   primaryButtonStyle,
   textFieldStyle,
 } from './create-manifest.style';
-import FileField from './file-field';
 
 export const TEST_ID = {
   ERROR_BAR: 'error-bar',
@@ -36,16 +36,19 @@ export const TEST_ID = {
 
 const userStoreSelector = s => [s.setGeography, s.geography, s.setSubscriptionKey, s.subscriptionKey];
 const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage, s.uploadFile];
+const conversionStoreSelector = s => s.reset;
 
 const CreateManifestPage = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
   const [file, setFile] = useState(null);
 
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
   const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector, shallow);
+  const resetConversionStore = useConversionStore(conversionStoreSelector);
+  const { isPlacesPreview } = useFeatureFlags();
 
   const environmentOptions = useMemo(
     () =>
@@ -56,7 +59,11 @@ const CreateManifestPage = () => {
     [t]
   );
 
-  useEffect(() => acknowledgeApiError, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    resetStores();
+    resetConversionStore();
+    acknowledgeApiError();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (apiErrorMessage) {
@@ -69,9 +76,9 @@ const CreateManifestPage = () => {
       return;
     }
 
-    uploadFile(file);
+    uploadFile(file, { isPlacesPreview });
     navigate(PATHS.PROCESSING);
-  }, [file, navigate, subKey, uploadFile]);
+  }, [file, navigate, subKey, uploadFile, isPlacesPreview]);
 
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback(
@@ -107,7 +114,7 @@ const CreateManifestPage = () => {
             onOptionSelect={updateGeo}
             className={dropdownStyle}
             options={environmentOptions}
-            defaultSelectedKey={geo}
+            selectedKey={geo}
           >
             {t(getEnvs()[geo].TEXT)}
           </Dropdown>

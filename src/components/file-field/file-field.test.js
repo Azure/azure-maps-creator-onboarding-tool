@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
-import FileField from './file-field';
+import FileField from '../../components/file-field/file-field';
 
 const defaultProps = {
   id: 'wootwoot',

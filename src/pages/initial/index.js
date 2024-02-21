@@ -2,6 +2,7 @@ import { PrimaryButton } from '@fluentui/react';
 import { PATHS } from 'common';
 import createImage from 'common/assets/create.png';
 import viewImage from 'common/assets/view.png';
+import { useCustomNavigate } from 'hooks';
 import {
   containerStyle,
   descriptionStyle,
@@ -11,8 +12,6 @@ import {
 } from 'pages/create-manifest/create-manifest.style';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-
 const TEST_ID = {
   UPLOAD_BUTTON: 'upload-button',
   VIEW_BUTTON: 'view-button',
@@ -31,7 +30,7 @@ const Card = props => {
 
 const InitialView = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const handleCreateButtonClick = () => navigate(PATHS.CREATE_UPLOAD);
   const handleViewButtonClick = () => navigate(PATHS.VIEW_CONVERSIONS);

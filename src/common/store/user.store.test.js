@@ -6,10 +6,10 @@ describe('getDomain', () => {
   });
 
   it('should return US domain', () => {
-    expect(getDomain('US')).toBe('https://us.atlas.microsoft.com');
+    expect(getDomain('US')).toBe('us.atlas.microsoft.com');
   });
 
   it('should return EU domain', () => {
-    expect(getDomain('EU')).toBe('https://eu.atlas.microsoft.com');
+    expect(getDomain('EU')).toBe('eu.atlas.microsoft.com');
   });
 });

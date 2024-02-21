@@ -1,24 +1,34 @@
-import { useCallback, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { TextField } from '@fluentui/react';
+import { useLayersStore } from 'common/store';
+import { FieldLabel } from 'components';
+import Dropdown from 'components/dropdown';
+import FieldError from 'components/field-error';
+import { useFeatureFlags } from 'hooks';
+import PropTypes from 'prop-types';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
-
 import DeleteIcon from './delete-icon';
-import FieldError from 'components/field-error';
-import Dropdown from 'components/dropdown';
-
-import { propertyDropdownStyles, propertyRow, propertyFieldLabel, layerNameInputStyles } from './layers.style';
-import { useLayersStore } from 'common/store';
+import {
+  dropdownStyles,
+  layerNameInputStyles,
+  propertyDropdownStyles,
+  propertyFieldLabel,
+  propertyRow,
+  readOnlyFieldLabel,
+  singlePropertyRow,
+} from './layers.style';
 
 const layersSelector = s => [s.layers, s.textLayerNames, s.deleteProperty, s.updateProperty, s.getPropertyNameError];
 
-const Property = ({ name, value, id, parentId, isDraft }) => {
+const Property = ({ name, value = [], id, parentId, isDraft, readOnlyName, singleSelect = false, isRequired }) => {
   const { t } = useTranslation();
   const [layers, textLayerNames, deleteProperty, updateProperty, getPropertyNameError] = useLayersStore(
     layersSelector,
     shallow
   );
+
+  const { isPlacesPreview } = useFeatureFlags();
 
   const options = useMemo(() => {
     if (textLayerNames.length === 0) {
@@ -74,27 +84,37 @@ const Property = ({ name, value, id, parentId, isDraft }) => {
   }, [getPropertyNameError, t, name, parentId, layers]);
 
   return (
-    <div className={propertyRow}>
-      <TextField
-        className={propertyFieldLabel}
-        value={name}
-        styles={layerNameInputStyles}
-        onChange={onChangeName}
-        placeholder={placeholder}
-        errorMessage={propertyNameError}
-      />
+    <div className={isPlacesPreview ? singlePropertyRow : propertyRow} style={{}}>
+      {isPlacesPreview ? (
+        <div className={readOnlyFieldLabel}>
+          <FieldLabel required={isRequired}>{name}</FieldLabel>
+        </div>
+      ) : (
+        <TextField
+          className={propertyFieldLabel}
+          value={name}
+          styles={layerNameInputStyles}
+          onChange={onChangeName}
+          placeholder={placeholder}
+          errorMessage={propertyNameError}
+          readOnly={readOnlyName}
+          aria-required={isRequired}
+        />
+      )}
       <Dropdown
         onOptionSelect={onChangeValue}
-        className={propertyDropdownStyles}
+        className={isPlacesPreview ? dropdownStyles : propertyDropdownStyles}
         showFilter
         options={options}
-        multiselect={textLayerNames.length !== 0}
+        multiselect={!singleSelect && textLayerNames?.length !== 0}
         selectedOptions={value}
         positioning="before"
       >
-        {value.length ? value.join(', ') : t('select.layers')}
+        {value?.length ? value.join(', ') : t('select.layers')}
       </Dropdown>
-      <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
+      {!isPlacesPreview && (
+        <DeleteIcon isDraft={isDraft} onDelete={onDelete} title={t('delete.property', { propertyName: name })} />
+      )}
     </div>
   );
 };

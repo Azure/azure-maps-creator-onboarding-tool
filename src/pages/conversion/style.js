@@ -82,6 +82,7 @@ export const failedIcon = css`
 export const stepTimer = css`
   color: ${color.granite};
   font-size: ${fontSize.xxs};
+  line-height: ${fontSize.xxs};
 `;
 
 export const content = css`

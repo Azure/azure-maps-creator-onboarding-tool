@@ -1,22 +1,23 @@
 import { cx } from '@emotion/css';
 import { Icon } from '@fluentui/react/lib/Icon';
-import PropTypes from 'prop-types';
-
 import { useProgressBarStore } from 'common/store';
+import PropTypes from 'prop-types';
 import { iconCompletedStyle, iconErrorStyle, iconStyle } from './progress-bar.style';
 
 const progressBarSelector = s => s.isMissingDataErrorShown;
 
-const ProgressBarIcon = ({ isCompletedStep, label }) => {
+const ProgressBarIcon = ({ isCompletedStep, label, iconName }) => {
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   if (isProgressBarErrorShown && !isCompletedStep) {
-    return <Icon iconName="ErrorBadge" ariaLabel={label} className={cx(iconStyle, iconErrorStyle)} />;
+    return (
+      <Icon iconName={iconName ?? 'StatusErrorFull'} ariaLabel={label} className={cx(iconStyle, iconErrorStyle)} />
+    );
   }
 
   return (
     <Icon
-      iconName="SkypeCircleCheck"
+      iconName={iconName ?? 'SkypeCircleCheck'}
       ariaLabel={label}
       className={cx(iconStyle, { [iconCompletedStyle]: isCompletedStep })}
     />

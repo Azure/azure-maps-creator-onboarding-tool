@@ -26,27 +26,20 @@ Object {
         <button
           class="ms-Button ms-Button--primary emotion-1 root-109"
           data-is-focusable="true"
+          data-testid="convert-button"
           type="button"
         >
           <span
             class="ms-Button-flexContainer flexContainer-110"
             data-automationid="splitbuttonprimary"
           >
-            <span
-              class="ms-Button-textContainer textContainer-111"
-            >
-              <span
-                class="ms-Button-label label-113"
-                id="id__0"
-              >
-                create.download
-              </span>
-            </span>
+            review.plus.create
           </span>
         </button>
         <button
           class="ms-Button ms-Button--default emotion-1 root-117"
           data-is-focusable="true"
+          data-testid="previous-button"
           type="button"
         >
           <span
@@ -68,6 +61,7 @@ Object {
         <button
           class="ms-Button ms-Button--default emotion-1 root-117"
           data-is-focusable="true"
+          data-testid="next-button"
           type="button"
         >
           <span
@@ -111,27 +105,20 @@ Object {
       <button
         class="ms-Button ms-Button--primary emotion-1 root-109"
         data-is-focusable="true"
+        data-testid="convert-button"
         type="button"
       >
         <span
           class="ms-Button-flexContainer flexContainer-110"
           data-automationid="splitbuttonprimary"
         >
-          <span
-            class="ms-Button-textContainer textContainer-111"
-          >
-            <span
-              class="ms-Button-label label-113"
-              id="id__0"
-            >
-              create.download
-            </span>
-          </span>
+          review.plus.create
         </span>
       </button>
       <button
         class="ms-Button ms-Button--default emotion-1 root-117"
         data-is-focusable="true"
+        data-testid="previous-button"
         type="button"
       >
         <span
@@ -153,6 +140,7 @@ Object {
       <button
         class="ms-Button ms-Button--default emotion-1 root-117"
         data-is-focusable="true"
+        data-testid="next-button"
         type="button"
       >
         <span
@@ -253,28 +241,21 @@ Object {
         <button
           class="ms-Button ms-Button--primary emotion-1 root-109"
           data-is-focusable="true"
+          data-testid="convert-button"
           type="button"
         >
           <span
             class="ms-Button-flexContainer flexContainer-110"
             data-automationid="splitbuttonprimary"
           >
-            <span
-              class="ms-Button-textContainer textContainer-111"
-            >
-              <span
-                class="ms-Button-label label-113"
-                id="id__9"
-              >
-                create.download
-              </span>
-            </span>
+            review.plus.create
           </span>
         </button>
         <button
           aria-disabled="true"
           class="ms-Button ms-Button--default is-disabled emotion-1 root-118"
           data-is-focusable="false"
+          data-testid="previous-button"
           disabled=""
           type="button"
         >
@@ -297,6 +278,7 @@ Object {
         <button
           class="ms-Button ms-Button--default emotion-1 root-117"
           data-is-focusable="true"
+          data-testid="next-button"
           type="button"
         >
           <span
@@ -340,28 +322,21 @@ Object {
       <button
         class="ms-Button ms-Button--primary emotion-1 root-109"
         data-is-focusable="true"
+        data-testid="convert-button"
         type="button"
       >
         <span
           class="ms-Button-flexContainer flexContainer-110"
           data-automationid="splitbuttonprimary"
         >
-          <span
-            class="ms-Button-textContainer textContainer-111"
-          >
-            <span
-              class="ms-Button-label label-113"
-              id="id__9"
-            >
-              create.download
-            </span>
-          </span>
+          review.plus.create
         </span>
       </button>
       <button
         aria-disabled="true"
         class="ms-Button ms-Button--default is-disabled emotion-1 root-118"
         data-is-focusable="false"
+        data-testid="previous-button"
         disabled=""
         type="button"
       >
@@ -384,6 +359,7 @@ Object {
       <button
         class="ms-Button ms-Button--default emotion-1 root-117"
         data-is-focusable="true"
+        data-testid="next-button"
         type="button"
       >
         <span

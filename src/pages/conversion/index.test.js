@@ -4,9 +4,9 @@ import Conversion from './index';
 
 const mockNavigate = jest.fn();
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockNavigate,
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
 }));
 
 describe('Conversion', () => {

@@ -6,6 +6,7 @@ export const PATHS = {
   CREATE_GEOREFERENCE: '/create-georeference',
   REVIEW_CREATE: '/review-create',
   CONVERSION: '/review-create/conversion',
+  IMDF_CONVERSION: '/review-create/imdf-conversion',
   PAST_CONVERSION: '/past-conversion',
   CONVERSIONS: '/conversions',
   LAYERS: '/layers',
@@ -24,7 +25,15 @@ export const ROUTE_NAME_BY_PATH = {
   [PATHS.INVALID_PATH]: 'redirect',
   [PATHS.REVIEW_CREATE]: 'prepare.drawing.package',
   [PATHS.CONVERSION]: 'create.indoor.map',
+  [PATHS.IMDF_CONVERSION]: 'convert.indoor.map',
   [PATHS.CONVERSIONS]: 'All conversions',
+};
+
+export const PLACES_ROUTE_NAME_BY_PATH = {
+  [PATHS.CREATE_GEOREFERENCE]: 'prepare.building.configuration',
+  [PATHS.LAYERS]: 'prepare.building.configuration',
+  [PATHS.LEVELS]: 'prepare.building.configuration',
+  [PATHS.REVIEW_CREATE]: 'prepare.building.configuration',
 };
 
 export const TRUNCATE_FRACTION_DIGITS = 8;
@@ -39,3 +48,10 @@ export const HTTP_STATUS_CODE = {
 };
 
 export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';
+
+export const PLACES_PREVIEW = {
+  DEFAULT_LANGUAGE: 'en',
+  VERSION: 'places-1.0',
+  DESCRIPTION: 'Converted by AzMapsCreatorOnboardingTool',
+  STORAGE_RETENTION: 'day',
+};

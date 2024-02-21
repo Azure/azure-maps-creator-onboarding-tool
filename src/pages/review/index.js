@@ -1,30 +1,25 @@
+import { useProgressBarStore, useValidationStatus } from 'common/store/progress-bar-steps';
+import { useFeatureFlags } from 'hooks';
+import SummaryTab from 'pages/summary';
 import { useEffect } from 'react';
-import ReactJson from 'react-json-view';
+import { shallow } from 'zustand/shallow';
+import ReviewTab from './review';
 
-import { useReviewManifestJson, useReviewManifestStore } from 'common/store';
+const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 
-const reviewManifestSelector = s => s.setManifestReviewed;
-
-const ReviewAndCreate = () => {
-  const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
-  const json = useReviewManifestJson();
+const Review = () => {
+  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
+  const { isPlacesPreview } = useFeatureFlags();
+  const { success } = useValidationStatus();
 
   useEffect(() => {
-    setManifestReviewed(true);
-  }, [setManifestReviewed]);
+    if (success) hideMissingDataError();
+    else showMissingDataError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  return (
-    <ReactJson
-      src={json}
-      iconStyle="square"
-      indentWidth={2}
-      displayDataTypes={false}
-      name={false}
-      displayObjectSize={false}
-      enableClipboard={false}
-      displayArrayKey={false}
-    />
-  );
+  if (isPlacesPreview) return <SummaryTab />;
+  return <ReviewTab />;
 };
 
-export default ReviewAndCreate;
+export default Review;

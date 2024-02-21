@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-
-import Layer from './layer';
 import { useLayersStore, useProgressBarStore } from 'common/store';
+import Layer from './layer';
 
 const props = [
   {
@@ -20,6 +19,10 @@ const props = [
 
 const layer1 = { id: 1, value: ['polygonLayer21'], name: 'base layer', isDraft: false, props };
 const layer2 = { id: 2, value: ['layer32'], name: 'int', isDraft: false, props };
+
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 
 describe('Layer component', () => {
   beforeEach(() => {

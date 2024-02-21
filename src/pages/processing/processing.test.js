@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { PATHS } from 'common';
 import { useResponseStore, useUserStore } from 'common/store';
 import ProcessingPage from './processing';
 
@@ -8,9 +9,9 @@ const mockNavigate = jest.fn();
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({ t: mockT }),
 }));
-
-jest.mock('react-router-dom', () => ({
-  useNavigate: () => mockNavigate,
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
 }));
 
 describe('ProcessingPage', () => {
@@ -31,6 +32,6 @@ describe('ProcessingPage', () => {
   it('should navigate to create manifest page in case of error', () => {
     useResponseStore.setState({ errorMessage: 'erreur!' });
     render(<ProcessingPage />);
-    expect(mockNavigate).toHaveBeenCalledWith('/');
+    expect(mockNavigate).toHaveBeenCalledWith(PATHS.CREATE_UPLOAD);
   });
 });

@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import flushPromises from 'flush-promises';
-
 import { useGeometryStore, useUserStore } from 'common/store';
+import flushPromises from 'flush-promises';
 import Control, { TEST_ID } from './control';
 import GeoreferenceControl from './controlClass';
 
@@ -9,7 +8,7 @@ describe('GeoreferenceControl class', () => {
   let control, container;
   const map = { map: 'map' };
 
-  beforeEach(() => {
+  beforeEach(async () => {
     useGeometryStore.setState({
       anchorPoint: {
         coordinates: [0, 0],
@@ -26,9 +25,16 @@ describe('GeoreferenceControl class', () => {
     container = control.onAdd(map);
     // added cause without it useEffect hook wasn't triggered properly and value was not updated correctly
     jest.advanceTimersByTime(0);
+
+    control = new GeoreferenceControl();
+    container = control.onAdd(map);
+
+    await flushPromises();
   });
 
-  it('onAdd should return container', () => {
+  it('onAdd should return container', async () => {
+    await flushPromises();
+
     expect(container).toMatchSnapshot();
     expect(control.map).toBe(map);
   });

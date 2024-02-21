@@ -15,7 +15,18 @@ export const layersContainer = css`
 
 export const layerRow = css`
   width: 100%;
+  padding: 1rem 0;
   border-top: 1px solid #bbb;
+`;
+
+export const categoryLayerRow = css`
+  ${layerRow}
+  margin-top: 1rem;
+  padding-bottom: 0;
+`;
+
+export const categoryMappingPanel = css`
+  width: 100%;
   padding: 1rem 0;
 `;
 
@@ -26,8 +37,15 @@ export const propertyRow = css`
   padding-left: 2rem;
 `;
 
+export const singlePropertyRow = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 export const flexContainer = css`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const newPropContainer = css`
@@ -49,6 +67,11 @@ export const fieldLabel = css`
   margin-right: 1.25rem;
 `;
 
+export const readOnlyFieldLabel = css`
+  width: 50%;
+  margin-right: 1.25rem;
+`;
+
 export const propertyFieldLabel = css`
   width: calc(50% - 2.5rem);
   margin-right: 1.25rem;
@@ -57,6 +80,11 @@ export const propertyFieldLabel = css`
 export const dropdownStyles = css`
   align-self: baseline;
   width: calc(50% - 1.5rem);
+`;
+
+export const wideDropdownStyles = css`
+  align-self: baseline;
+  width: 100%;
 `;
 
 export const propertyDropdownStyles = css`

@@ -5,11 +5,14 @@ import { ProgressBar } from './progress-bar';
 const mockNavigate = jest.fn();
 let mockCurrentPath;
 
+jest.mock('hooks', () => ({
+  useCustomNavigate: () => mockNavigate,
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
 jest.mock('react-router-dom', () => ({
   useLocation: () => ({
     pathname: mockCurrentPath,
   }),
-  useNavigate: () => mockNavigate,
 }));
 
 describe('Progress Bar component', () => {

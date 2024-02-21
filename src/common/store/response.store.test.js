@@ -1,5 +1,6 @@
-import { errorResponseMock } from './response.store.mock';
+import { PLACES_PREVIEW } from 'common/constants';
 import { getFirstMeaningfulError, parseManifestJson } from './response.store';
+import { errorResponseMock } from './response.store.mock';
 
 describe('getFirstMeaningfulError', () => {
   it('should return first meaningful error', () => {
@@ -108,6 +109,7 @@ describe('parseManifestJson', () => {
       facilityName: '',
       featureClasses: [],
       georeference: { angle: 3, lat: 1, lon: 2 },
+      language: PLACES_PREVIEW.DEFAULT_LANGUAGE,
       levels: [],
     });
   });

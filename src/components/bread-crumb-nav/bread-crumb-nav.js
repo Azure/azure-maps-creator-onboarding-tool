@@ -1,43 +1,65 @@
 import { Breadcrumb } from '@fluentui/react/lib/Breadcrumb';
-import { PATHS, ROUTE_NAME_BY_PATH } from 'common/constants';
+import { PATHS, PLACES_ROUTE_NAME_BY_PATH, ROUTE_NAME_BY_PATH } from 'common/constants';
 import { getSplitPaths } from 'common/functions';
 import { useConversionStore } from 'common/store';
+import { useAlert, useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { breadcrumbStyle } from './bread-crumb-nav.style';
-
-const routesReset = [PATHS.CONVERSION];
-const routesSkipAlert = [PATHS.PAST_CONVERSION, PATHS.CREATE_UPLOAD, PATHS.VIEW_CONVERSIONS];
 
 const BreadCrumbNav = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
   const { pathname: currentPath } = useLocation();
+  const { isPlacesPreview } = useFeatureFlags();
+  const alert = useAlert();
+
+  const navigationRules = [
+    {
+      from: [PATHS.CREATE_GEOREFERENCE, PATHS.LAYERS, PATHS.LEVELS, PATHS.REVIEW_CREATE],
+      to: PATHS.INDEX,
+      navigate: url => {
+        alert.ask({
+          onOk: () => {
+            navigate(url);
+          },
+        });
+      },
+    },
+    {
+      from: [PATHS.CONVERSION, PATHS.IMDF_CONVERSION],
+      navigate: url => {
+        alert.ask({
+          onOk: () => {
+            useConversionStore.getState().reset();
+            navigate(url);
+          },
+        });
+      },
+    },
+  ];
 
   const splitPaths = getSplitPaths(currentPath);
   const itemsWithHeading = [];
 
   splitPaths.forEach(nextPath => {
     if (ROUTE_NAME_BY_PATH.hasOwnProperty(nextPath)) {
+      const text = (isPlacesPreview && t(PLACES_ROUTE_NAME_BY_PATH[nextPath])) || t(ROUTE_NAME_BY_PATH[nextPath]);
+
       itemsWithHeading.push({
-        text: t(ROUTE_NAME_BY_PATH[nextPath]),
+        text: text,
         key: ROUTE_NAME_BY_PATH[nextPath],
         onClick: () => {
+          const rule = navigationRules.find(
+            rule =>
+              (rule.from === currentPath || rule.from.includes(currentPath)) &&
+              (!rule.to || rule.to === nextPath || rule.to.includes(nextPath))
+          );
+
           if (currentPath === nextPath) return;
-          if (routesSkipAlert.includes(currentPath)) {
-            navigate(nextPath);
-          } else if (routesReset.includes(currentPath)) {
-            if (window.confirm(t('progress.will.be.lost'))) {
-              useConversionStore.getState().reset();
-              navigate(nextPath);
-            }
-          } else if (currentPath !== PATHS.CONVERSIONS && nextPath === PATHS.INDEX) {
-            if (window.confirm(t('progress.will.be.lost'))) {
-              navigate(nextPath);
-            }
-          } else {
-            navigate(nextPath);
-          }
+          if (!rule) navigate(nextPath);
+
+          rule.navigate(nextPath);
         },
       });
     }
