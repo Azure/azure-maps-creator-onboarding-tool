@@ -40,7 +40,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false })
     updateLayer,
     getLayerNameError,
     setPreviewSingleFeatureClass,
-  ] = useLayersStore(layerSelector, shallow);
+  ] = useLayersStore(layerSelector);
 
   const { failed } = useValidationStatus();
   const { isPlacesPreview } = useFeatureFlags();

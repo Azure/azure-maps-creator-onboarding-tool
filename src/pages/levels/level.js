@@ -33,7 +33,7 @@ const Level = ({ level }) => {
     setVerticalExtent,
     getVerticalExtentError,
     isOrdinalEmpty,
-  ] = useLevelsStore(levelsSelector, shallow);
+  ] = useLevelsStore(levelsSelector);
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const onOrdinalChange = useCallback(

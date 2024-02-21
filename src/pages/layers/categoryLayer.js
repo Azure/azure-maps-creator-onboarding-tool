@@ -12,7 +12,7 @@ const layerSelector = s => [s.setCategoryLayer, s.textLayerNames];
 
 export const CategoryLayer = ({ name, value }) => {
   const { t } = useTranslation();
-  const [setCategoryLayer, textLayerNames] = useLayersStore(layerSelector, shallow);
+  const [setCategoryLayer, textLayerNames] = useLayersStore(layerSelector);
   const { failed } = useValidationStatus();
 
   const filteredLayerNames = textLayerNames;

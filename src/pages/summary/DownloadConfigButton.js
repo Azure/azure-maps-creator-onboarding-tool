@@ -9,7 +9,7 @@ import { shallow } from 'zustand/shallow';
 const reviewManifestSelector = s => [s.createPackageWithJson, s.getOriginalPackageName];
 
 const DownloadConfigButton = props => {
-  const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);
+  const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector);
   const placesJson = usePlacesReviewManifestJson();
 
   const handleDownload = () => {

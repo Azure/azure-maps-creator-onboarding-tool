@@ -1,6 +1,6 @@
 import { useFeatureFlags } from 'hooks';
-import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { PATHS } from '../constants';
 import { useIMDFConversionStatus } from './conversion.store';
 import { useGeometryStore } from './geometry.store';
@@ -54,37 +54,40 @@ const getDefaultState = () => ({
   isInvalidManifestErrorShown: false,
 });
 
-export const useProgressBarStore = create(set => ({
-  ...getDefaultState(),
-  reset: () =>
-    set({
-      ...getDefaultState(),
-    }),
-  showIncorrectManifestVersionError: () =>
-    set({
-      isIncorrectManifestVersionErrorShown: true,
-    }),
-  hideIncorrectManifestVersionError: () =>
-    set({
-      isIncorrectManifestVersionErrorShown: false,
-    }),
-  showInvalidManifestError: () =>
-    set({
-      isInvalidManifestErrorShown: true,
-    }),
-  hideInvalidManifestError: () =>
-    set({
-      isInvalidManifestErrorShown: false,
-    }),
-  showMissingDataError: () =>
-    set({
-      isMissingDataErrorShown: true,
-    }),
-  hideMissingDataError: () =>
-    set({
-      isMissingDataErrorShown: false,
-    }),
-}));
+export const useProgressBarStore = createWithEqualityFn(
+  set => ({
+    ...getDefaultState(),
+    reset: () =>
+      set({
+        ...getDefaultState(),
+      }),
+    showIncorrectManifestVersionError: () =>
+      set({
+        isIncorrectManifestVersionErrorShown: true,
+      }),
+    hideIncorrectManifestVersionError: () =>
+      set({
+        isIncorrectManifestVersionErrorShown: false,
+      }),
+    showInvalidManifestError: () =>
+      set({
+        isInvalidManifestErrorShown: true,
+      }),
+    hideInvalidManifestError: () =>
+      set({
+        isInvalidManifestErrorShown: false,
+      }),
+    showMissingDataError: () =>
+      set({
+        isMissingDataErrorShown: true,
+      }),
+    hideMissingDataError: () =>
+      set({
+        isMissingDataErrorShown: false,
+      }),
+  }),
+  shallow
+);
 
 const geometrySelector = s => s.dwgLayers;
 const levelsSelector = s => [
@@ -107,7 +110,7 @@ const reviewManifestSelector = s => s.manifestReviewed;
 export const useCompletedSteps = () => {
   const dwgLayers = useGeometryStore(geometrySelector);
   const [allLayersValid, layers, layersPageVisited, categoryMappingEnabled, categoryLayer, isMappingValid] =
-    useLayersStore(layersSelector, shallow);
+    useLayersStore(layersSelector);
   const [allLevelsCompleted, levels, facilityName, isLevelNameValid, getVerticalExtentError] = useLevelsStore(
     levelsSelector,
     shallow

@@ -1,315 +1,319 @@
 import { imdfCategories } from 'common/imdf-categories';
 import Papa from 'papaparse';
 import nextId from 'react-id-generator';
-import { create } from 'zustand';
+import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
 
 const systemReservedLayerNames = ['facility', 'level'];
 const systemReservedPropNames = ['levelid', 'levelordinal', 'layername', 'id'];
 const featureClassNameAllowedSymbols = new RegExp(/^[0-9a-z_]+$/i);
 
-export const useLayersStore = create((set, get) => ({
-  ...getDefaultState(),
-  reset: () =>
-    set({
-      ...getDefaultState(),
-    }),
-  setVisited: () =>
-    set({
-      visited: true,
-    }),
-  setCategoryMappingEnabled: categoryMappingEnabled => {
-    set({
-      categoryMappingEnabled,
-    });
-  },
-  setCategoryLayer: categoryLayer => {
-    set({
-      categoryLayer,
-    });
-  },
-  setCategoryMapping: (mappingFile, errorMessage = null) => {
-    let isMappingValid = false;
-    let categoryMap = {};
-    let message = null;
-
-    if (!mappingFile)
-      return set({
-        categoryMapping: { ...getDefaultState().categoryMapping, message: errorMessage },
+export const useLayersStore = createWithEqualityFn(
+  (set, get) => ({
+    ...getDefaultState(),
+    reset: () =>
+      set({
+        ...getDefaultState(),
+      }),
+    setVisited: () =>
+      set({
+        visited: true,
+      }),
+    setCategoryMappingEnabled: categoryMappingEnabled => {
+      set({
+        categoryMappingEnabled,
       });
+    },
+    setCategoryLayer: categoryLayer => {
+      set({
+        categoryLayer,
+      });
+    },
+    setCategoryMapping: (mappingFile, errorMessage = null) => {
+      let isMappingValid = false;
+      let categoryMap = {};
+      let message = null;
 
-    Papa.parse(mappingFile, {
-      header: false,
-      skipEmptyLines: true,
-      complete: results => {
-        const { data } = results;
-        const mapping = {};
+      if (!mappingFile)
+        return set({
+          categoryMapping: { ...getDefaultState().categoryMapping, message: errorMessage },
+        });
 
-        if (data.length > 2000) {
-          message = 'Maximum number of rows is 2000.';
-        } else {
-          data.forEach((row, index) => {
-            // Check if row has 2 columns
-            if (row?.length !== 2) {
-              console.log('Invalid row', row);
-              message = `Error uploading category map. Each row must have 2 columns (row ${index + 1}).`;
-              return;
+      Papa.parse(mappingFile, {
+        header: false,
+        skipEmptyLines: true,
+        complete: results => {
+          const { data } = results;
+          const mapping = {};
+
+          if (data.length > 2000) {
+            message = 'Maximum number of rows is 2000.';
+          } else {
+            data.forEach((row, index) => {
+              // Check if row has 2 columns
+              if (row?.length !== 2) {
+                console.log('Invalid row', row);
+                message = `Error uploading category map. Each row must have 2 columns (row ${index + 1}).`;
+                return;
+              }
+              // if the key already exists
+              const key = row[0].toLowerCase().trim();
+              const value = row[1].trim();
+
+              if (mapping[key]) {
+                console.log('Duplicate key', key);
+                message = `Error uploading category map. Duplicate key found (row ${index + 1}).`;
+                return;
+              }
+
+              if (!imdfCategories.includes(value)) {
+                console.log('Invalid IMDF category', value);
+                message = `Error uploading category map. In row ${index + 1}, "${value}" is not a valid IMDF category.`;
+                return;
+              }
+              // Map the key to the value
+              mapping[key] = value;
+            });
+          }
+
+          if (!message) {
+            isMappingValid = true;
+            categoryMap = mapping;
+            message = 'Successfully imported.';
+          }
+
+          set({
+            categoryMapping: {
+              file: isMappingValid ? mappingFile : null,
+              categoryMap,
+              isMappingValid,
+              message,
+            },
+          });
+        },
+      });
+    },
+    setPreviewSingleFeatureClass: previewSingleFeatureClass =>
+      set({
+        previewSingleFeatureClass,
+      }),
+    addPolygonLayers: polygonLayers =>
+      set(state => ({
+        polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
+      })),
+    addDwgLayers: (dwgLayers, fileName) =>
+      set(state => ({
+        dwgLayers: {
+          ...state.dwgLayers,
+          [fileName]: dwgLayers,
+        },
+      })),
+    setLayerNames: (layerNames, polygonLayerNames, textLayerNames) =>
+      set(() => ({
+        layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
+        polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
+        textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
+      })),
+    setLayerFromManifestJson: (layers = []) => {
+      if (!checkIfLayersValid(layers)) {
+        return;
+      }
+
+      const convertedLayers = convertLayersFromManifestJson(layers, get().textLayerNames, get().layerNames);
+
+      const mappingData = {};
+      const categoryDwgLayer = layers?.[0]?.categoryDwgLayer;
+
+      if (categoryDwgLayer) {
+        mappingData.categoryLayer = categoryDwgLayer;
+        mappingData.categoryMappingEnabled = true;
+      }
+
+      set({
+        ...mappingData,
+        layers: convertedLayers,
+      });
+    },
+    updateLayer: (id, data) =>
+      set(state => {
+        let isUpdatingDraft;
+
+        const updatedState = {
+          layers: state.layers.map(layer => {
+            if (layer.id !== id) {
+              return layer;
             }
-            // if the key already exists
-            const key = row[0].toLowerCase().trim();
-            const value = row[1].trim();
+            isUpdatingDraft = layer.isDraft;
+            const updatedLayer = {
+              ...layer,
+              ...data,
+              isDraft: false,
+            };
 
-            if (mapping[key]) {
-              console.log('Duplicate key', key);
-              message = `Error uploading category map. Duplicate key found (row ${index + 1}).`;
-              return;
+            if (isUpdatingDraft) {
+              updatedLayer.props = [
+                {
+                  id: nextId(),
+                  name: '',
+                  isDraft: true,
+                  value: [],
+                },
+              ];
             }
 
-            if (!imdfCategories.includes(value)) {
-              console.log('Invalid IMDF category', value);
-              message = `Error uploading category map. In row ${index + 1}, "${value}" is not a valid IMDF category.`;
-              return;
-            }
-            // Map the key to the value
-            mapping[key] = value;
+            return updatedLayer;
+          }),
+        };
+
+        if (isUpdatingDraft) {
+          updatedState.layers.push({
+            id: nextId(),
+            name: '',
+            value: [],
+            props: [],
+            isDraft: true,
           });
         }
 
-        if (!message) {
-          isMappingValid = true;
-          categoryMap = mapping;
-          message = 'Successfully imported.';
-        }
-
-        set({
-          categoryMapping: {
-            file: isMappingValid ? mappingFile : null,
-            categoryMap,
-            isMappingValid,
-            message,
-          },
-        });
-      },
-    });
-  },
-  setPreviewSingleFeatureClass: previewSingleFeatureClass =>
-    set({
-      previewSingleFeatureClass,
-    }),
-  addPolygonLayers: polygonLayers =>
-    set(state => ({
-      polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
-    })),
-  addDwgLayers: (dwgLayers, fileName) =>
-    set(state => ({
-      dwgLayers: {
-        ...state.dwgLayers,
-        [fileName]: dwgLayers,
-      },
-    })),
-  setLayerNames: (layerNames, polygonLayerNames, textLayerNames) =>
-    set(() => ({
-      layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
-      polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
-      textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
-    })),
-  setLayerFromManifestJson: (layers = []) => {
-    if (!checkIfLayersValid(layers)) {
-      return;
-    }
-
-    const convertedLayers = convertLayersFromManifestJson(layers, get().textLayerNames, get().layerNames);
-
-    const mappingData = {};
-    const categoryDwgLayer = layers?.[0]?.categoryDwgLayer;
-
-    if (categoryDwgLayer) {
-      mappingData.categoryLayer = categoryDwgLayer;
-      mappingData.categoryMappingEnabled = true;
-    }
-
-    set({
-      ...mappingData,
-      layers: convertedLayers,
-    });
-  },
-  updateLayer: (id, data) =>
-    set(state => {
-      let isUpdatingDraft;
-
-      const updatedState = {
+        return updatedState;
+      }),
+    deleteLayer: id =>
+      set(state => ({
+        layers: state.layers.filter(layer => layer.id !== id),
+      })),
+    deleteProperty: (layerId, propertyId) =>
+      set(state => ({
         layers: state.layers.map(layer => {
-          if (layer.id !== id) {
+          if (layer.id !== layerId) {
             return layer;
           }
-          isUpdatingDraft = layer.isDraft;
-          const updatedLayer = {
+          return {
             ...layer,
-            ...data,
-            isDraft: false,
+            props: layer.props.filter(property => property.id !== propertyId),
           };
+        }),
+      })),
+    updateProperty: (parentId, id, data) =>
+      set(state => {
+        let isUpdatingDraft;
 
-          if (isUpdatingDraft) {
-            updatedLayer.props = [
-              {
+        return {
+          layers: state.layers.map(layer => {
+            if (layer.id !== parentId) {
+              return layer;
+            }
+            const updatedProps = layer.props.map(property => {
+              if (property.id !== id) {
+                return property;
+              }
+              isUpdatingDraft = property.isDraft;
+              return {
+                ...property,
+                ...data,
+                isDraft: false,
+              };
+            });
+
+            if (isUpdatingDraft) {
+              updatedProps.push({
                 id: nextId(),
                 name: '',
                 isDraft: true,
                 value: [],
-              },
-            ];
-          }
+              });
+            }
 
-          return updatedLayer;
-        }),
-      };
-
-      if (isUpdatingDraft) {
-        updatedState.layers.push({
-          id: nextId(),
-          name: '',
-          value: [],
-          props: [],
-          isDraft: true,
-        });
-      }
-
-      return updatedState;
-    }),
-  deleteLayer: id =>
-    set(state => ({
-      layers: state.layers.filter(layer => layer.id !== id),
-    })),
-  deleteProperty: (layerId, propertyId) =>
-    set(state => ({
-      layers: state.layers.map(layer => {
-        if (layer.id !== layerId) {
-          return layer;
-        }
-        return {
-          ...layer,
-          props: layer.props.filter(property => property.id !== propertyId),
+            return {
+              ...layer,
+              props: updatedProps,
+            };
+          }),
         };
       }),
-    })),
-  updateProperty: (parentId, id, data) =>
-    set(state => {
-      let isUpdatingDraft;
+    getLayerNameError: layerName => {
+      if (!layerName) {
+        return 'error.layer.name.cannot.be.empty';
+      }
+      if (systemReservedLayerNames.includes(layerName.toLowerCase())) {
+        return 'error.layer.name.not.allowed';
+      }
 
-      return {
-        layers: state.layers.map(layer => {
-          if (layer.id !== parentId) {
-            return layer;
-          }
-          const updatedProps = layer.props.map(property => {
-            if (property.id !== id) {
-              return property;
+      const { layers } = get();
+      let layersWithThisNameCntr = 0;
+
+      for (let i = 0; i < layers.length; i++) {
+        if (layers[i].name.toLowerCase() === layerName.toLowerCase()) {
+          layersWithThisNameCntr++;
+        }
+        if (layersWithThisNameCntr > 1) {
+          return 'error.layer.name.must.be.unique';
+        }
+      }
+
+      if (!layerName[0].match(/[a-z]/i)) {
+        return 'error.layer.name.should.begin.with.letter';
+      }
+      if (!featureClassNameAllowedSymbols.test(layerName)) {
+        return 'error.layer.name.contains.illegal.characters';
+      }
+
+      return null;
+    },
+    getPropertyNameError: (parentId, propertyName) => {
+      if (!propertyName) {
+        return 'error.prop.name.cannot.be.empty';
+      }
+      if (systemReservedPropNames.includes(propertyName.toLowerCase())) {
+        return 'error.prop.name.not.allowed';
+      }
+
+      const { layers } = get();
+      const parentLayer = layers.find(layer => layer.id === parentId);
+      let propsWithThisNameCntr = 0;
+
+      for (let i = 0; i < parentLayer.props.length; i++) {
+        if (parentLayer.props[i].name.toLowerCase() === propertyName.toLowerCase()) {
+          propsWithThisNameCntr++;
+        }
+        if (propsWithThisNameCntr > 1) {
+          return 'error.prop.name.must.be.unique';
+        }
+      }
+
+      if (!propertyName[0].match(/[a-z]/i)) {
+        return 'error.prop.name.should.begin.with.letter';
+      }
+      if (!featureClassNameAllowedSymbols.test(propertyName)) {
+        return 'error.prop.name.contains.illegal.characters';
+      }
+
+      return null;
+    },
+    allLayersValid: layers => {
+      const { getLayerNameError, getPropertyNameError } = get();
+
+      return layers.every(layer => {
+        if (layer.isDraft) {
+          return true;
+        }
+        if (getLayerNameError(layer.name) !== null) {
+          return false;
+        }
+        if (layer.props.length > 0) {
+          return layer.props.every(prop => {
+            if (prop.isDraft) {
+              return true;
             }
-            isUpdatingDraft = property.isDraft;
-            return {
-              ...property,
-              ...data,
-              isDraft: false,
-            };
+            return getPropertyNameError(layer.id, prop.name) === null;
           });
-
-          if (isUpdatingDraft) {
-            updatedProps.push({
-              id: nextId(),
-              name: '',
-              isDraft: true,
-              value: [],
-            });
-          }
-
-          return {
-            ...layer,
-            props: updatedProps,
-          };
-        }),
-      };
-    }),
-  getLayerNameError: layerName => {
-    if (!layerName) {
-      return 'error.layer.name.cannot.be.empty';
-    }
-    if (systemReservedLayerNames.includes(layerName.toLowerCase())) {
-      return 'error.layer.name.not.allowed';
-    }
-
-    const { layers } = get();
-    let layersWithThisNameCntr = 0;
-
-    for (let i = 0; i < layers.length; i++) {
-      if (layers[i].name.toLowerCase() === layerName.toLowerCase()) {
-        layersWithThisNameCntr++;
-      }
-      if (layersWithThisNameCntr > 1) {
-        return 'error.layer.name.must.be.unique';
-      }
-    }
-
-    if (!layerName[0].match(/[a-z]/i)) {
-      return 'error.layer.name.should.begin.with.letter';
-    }
-    if (!featureClassNameAllowedSymbols.test(layerName)) {
-      return 'error.layer.name.contains.illegal.characters';
-    }
-
-    return null;
-  },
-  getPropertyNameError: (parentId, propertyName) => {
-    if (!propertyName) {
-      return 'error.prop.name.cannot.be.empty';
-    }
-    if (systemReservedPropNames.includes(propertyName.toLowerCase())) {
-      return 'error.prop.name.not.allowed';
-    }
-
-    const { layers } = get();
-    const parentLayer = layers.find(layer => layer.id === parentId);
-    let propsWithThisNameCntr = 0;
-
-    for (let i = 0; i < parentLayer.props.length; i++) {
-      if (parentLayer.props[i].name.toLowerCase() === propertyName.toLowerCase()) {
-        propsWithThisNameCntr++;
-      }
-      if (propsWithThisNameCntr > 1) {
-        return 'error.prop.name.must.be.unique';
-      }
-    }
-
-    if (!propertyName[0].match(/[a-z]/i)) {
-      return 'error.prop.name.should.begin.with.letter';
-    }
-    if (!featureClassNameAllowedSymbols.test(propertyName)) {
-      return 'error.prop.name.contains.illegal.characters';
-    }
-
-    return null;
-  },
-  allLayersValid: layers => {
-    const { getLayerNameError, getPropertyNameError } = get();
-
-    return layers.every(layer => {
-      if (layer.isDraft) {
+        }
         return true;
-      }
-      if (getLayerNameError(layer.name) !== null) {
-        return false;
-      }
-      if (layer.props.length > 0) {
-        return layer.props.every(prop => {
-          if (prop.isDraft) {
-            return true;
-          }
-          return getPropertyNameError(layer.id, prop.name) === null;
-        });
-      }
-      return true;
-    });
-  },
-}));
+      });
+    },
+  }),
+  shallow
+);
 
 export function checkIfLayersValid(layers) {
   if (!Array.isArray(layers)) {

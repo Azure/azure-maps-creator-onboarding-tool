@@ -1,18 +1,16 @@
+import { useLayersStore } from 'common/store';
+import PageDescription from 'components/page-description/page-description';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
-
-import { useLayersStore } from 'common/store';
 import Layer from './layer';
-import PageDescription from 'components/page-description/page-description';
-import Preview from './preview';
 import { layersContainer, layersWithPreview } from './layers.style';
+import Preview from './preview';
 
 const layersSelector = s => [s.layers, s.setVisited];
 
 export const Layers = () => {
   const { t } = useTranslation();
-  const [layers, setVisited] = useLayersStore(layersSelector, shallow);
+  const [layers, setVisited] = useLayersStore(layersSelector);
 
   useEffect(() => {
     // this page does not have any required fields, so the only requirement is to visit it once.

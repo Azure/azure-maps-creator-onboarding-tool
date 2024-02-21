@@ -10,7 +10,7 @@ const layerSelector = s => [s.categoryMappingEnabled, s.setCategoryMappingEnable
 
 const MappingToggle = () => {
   const { t } = useTranslation();
-  const [categoryMappingEnabled, setCategoryMappingEnabled] = useLayersStore(layerSelector, shallow);
+  const [categoryMappingEnabled, setCategoryMappingEnabled] = useLayersStore(layerSelector);
 
   const handleToggleChange = (event, checked) => {
     setCategoryMappingEnabled(checked);

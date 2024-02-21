@@ -25,7 +25,7 @@ const ProcessingPage = () => {
   const [label, setLabel] = useState();
 
   const subscriptionKey = useUserStore(subKeySelector);
-  const [errorMessage, lroStatus, refreshStatus] = useResponseStore(responseStoreSelector, shallow);
+  const [errorMessage, lroStatus, refreshStatus] = useResponseStore(responseStoreSelector);
 
   useEffect(() => {
     const interval = setInterval(() => {

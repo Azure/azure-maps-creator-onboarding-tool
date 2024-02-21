@@ -42,7 +42,7 @@ const Map = props => {
   const { className, exteriorCenter, dissolvedExterior, readOnly = false } = props;
 
   const updateAnchorPointViaMapCenter = useGeometryStore(anchorPointSelector);
-  const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
+  const [geography, subscriptionKey] = useUserStore(userStoreSelector);
 
   const azureMapOptions = useMemo(
     () => ({

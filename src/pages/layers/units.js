@@ -25,7 +25,7 @@ const layersSelector = s => [
 export const Units = () => {
   const { t } = useTranslation();
   const [layers, setVisited, categoryMappingEnabled, categoryMapping, setCategoryMapping, categoryLayer] =
-    useLayersStore(layersSelector, shallow);
+    useLayersStore(layersSelector);
   const { failed } = useValidationStatus();
 
   const { file, isMappingValid, message } = categoryMapping;

@@ -8,7 +8,7 @@ import ReviewTab from './review';
 const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 
 const Review = () => {
-  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
+  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector);
   const { isPlacesPreview } = useFeatureFlags();
   const { success } = useValidationStatus();
 

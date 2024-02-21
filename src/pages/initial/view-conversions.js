@@ -38,8 +38,8 @@ const ViewConversions = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
-  const [acknowledgeApiError, apiErrorMessage] = useResponseStore(responseStoreSelector, shallow);
+  const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector);
+  const [acknowledgeApiError, apiErrorMessage] = useResponseStore(responseStoreSelector);
 
   const environmentOptions = useMemo(
     () =>

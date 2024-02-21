@@ -42,9 +42,9 @@ const SummaryEntry = props => {
 const SummaryTab = () => {
   const { t } = useTranslation();
   const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
-  const [levels, facilityName, language] = useLevelsStore(levelsSelector, shallow);
-  const [dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
-  const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector, shallow);
+  const [levels, facilityName, language] = useLevelsStore(levelsSelector);
+  const [dwgLayers] = useGeometryStore(geometryStoreSelector);
+  const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector);
   const { success } = useValidationStatus();
 
   const { file } = categoryMapping;

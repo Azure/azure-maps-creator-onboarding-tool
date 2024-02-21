@@ -19,7 +19,7 @@ const canvasSide = 500;
 
 const Preview = () => {
   const { t } = useTranslation();
-  const exteriorLayers = useGeometryStore(geometrySelector, shallow);
+  const exteriorLayers = useGeometryStore(geometrySelector);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] = useLayersStore(
     layersSelector,
