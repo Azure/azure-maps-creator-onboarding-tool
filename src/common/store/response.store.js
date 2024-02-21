@@ -34,7 +34,7 @@ export const useResponseStore = create((set, get) => ({
       errorMessage: '',
     });
   },
-  uploadFile: async (file, { isPlacesPreview }) => {
+  uploadFile: (file, { isPlacesPreview }) => {
     if (isPlacesPreview) {
       clearCloudStorageData();
     }
@@ -263,9 +263,7 @@ export const isValidManifestVersion = version => {
   const manifestVersion = parseInt(version);
 
   if (version === PLACES_PREVIEW.VERSION) return true;
-  if (!Number.isInteger(manifestVersion) || manifestVersion < 2) return false;
-
-  return true;
+  return manifestVersion >= 2;
 };
 
 export function getFirstMeaningfulError({ error = {} }) {

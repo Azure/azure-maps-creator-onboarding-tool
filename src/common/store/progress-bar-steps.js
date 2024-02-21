@@ -1,5 +1,4 @@
 import { useFeatureFlags } from 'hooks';
-import { useMemo } from 'react';
 import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
 import { PATHS } from '../constants';
@@ -21,36 +20,32 @@ export const useProgressBarSteps = () => {
 
   const { isRunningIMDFConversion } = useIMDFConversionStatus();
 
-  return useMemo(() => {
-    const tabs = [
-      {
-        key: progressBarStepsByKey.levels,
-        name: isPlacesPreview ? 'building.levels' : 'facility.levels',
-        href: PATHS.LEVELS,
-        disabled: isRunningIMDFConversion,
-      },
-      {
-        key: progressBarStepsByKey.createGeoreference,
-        name: 'georeference',
-        href: PATHS.CREATE_GEOREFERENCE,
-        disabled: isRunningIMDFConversion,
-      },
-      {
-        key: progressBarStepsByKey.layers,
-        name: isPlacesPreview ? 'dwg.units' : 'dwg.layers',
-        href: PATHS.LAYERS,
-        disabled: isRunningIMDFConversion,
-      },
-      {
-        key: progressBarStepsByKey.reviewCreate,
-        name: isPlacesPreview ? 'review.plus.convert' : 'review.plus.create',
-        href: PATHS.REVIEW_CREATE,
-        disabled: isRunningIMDFConversion,
-      },
-    ];
-
-    return tabs;
-  }, [isPlacesPreview, isRunningIMDFConversion]);
+  return [
+    {
+      key: progressBarStepsByKey.levels,
+      name: isPlacesPreview ? 'building.levels' : 'facility.levels',
+      href: PATHS.LEVELS,
+      disabled: isRunningIMDFConversion,
+    },
+    {
+      key: progressBarStepsByKey.createGeoreference,
+      name: 'georeference',
+      href: PATHS.CREATE_GEOREFERENCE,
+      disabled: isRunningIMDFConversion,
+    },
+    {
+      key: progressBarStepsByKey.layers,
+      name: isPlacesPreview ? 'dwg.units' : 'dwg.layers',
+      href: PATHS.LAYERS,
+      disabled: isRunningIMDFConversion,
+    },
+    {
+      key: progressBarStepsByKey.reviewCreate,
+      name: isPlacesPreview ? 'review.plus.convert' : 'review.plus.create',
+      href: PATHS.REVIEW_CREATE,
+      disabled: isRunningIMDFConversion,
+    },
+  ];
 };
 
 const getDefaultState = () => ({
@@ -143,7 +138,7 @@ export const useCompletedSteps = () => {
     }
   }
 
-  // Facitlity name is required for places preview
+  // Facility (Building) name is required for places preview
   if (
     (!isPlacesPreview || facilityName.length > 0) &&
     allLevelsCompleted(levels) &&

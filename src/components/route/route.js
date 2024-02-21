@@ -49,7 +49,7 @@ const Route = props => {
     }
   }, [dataRequired, lroStatus, navigate]);
 
-  const displayTitle = (isPlacesPreview && overrides.isPlacesPreview.title) || title;
+  const displayTitle = isPlacesPreview ? overrides.isPlacesPreview.title || title : title;
   const DisplayComponent = (isPlacesPreview && overrides.isPlacesPreview.component) || Component;
 
   return (

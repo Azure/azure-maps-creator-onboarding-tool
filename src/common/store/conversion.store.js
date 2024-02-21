@@ -225,7 +225,6 @@ export const useConversionStore = create((set, get) => ({
             conversionOperationLog: JSON.stringify(data, null, 4),
             conversionEndTime: Date.now(),
             diagnosticPackageLocation: `${data.properties.diagnosticPackageLocation}&subscription-key=${subscriptionKey}`,
-            // https://us.t-azmaps.azurelbs.com/mapData/84c0efd1-cb13-cb22-6ff1-ebc3ee8b4a9b?api-version=2.0
           });
 
           fetchFromLocation(res.headers.get(RESOURCE_LOCATION))

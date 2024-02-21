@@ -12,7 +12,7 @@ const getUploads = () => {
   return fetch(url);
 };
 
-export const deleteUploads = async id => {
+export const deleteUploads = id => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const url = `${
     getEnvs()[geography].URL
@@ -30,7 +30,7 @@ const getConversions = () => {
   return fetch(url);
 };
 
-export const deleteConversion = async id => {
+export const deleteConversion = id => {
   const { geography, subscriptionKey } = useUserStore.getState();
   const url = `${
     getEnvs()[geography].URL
