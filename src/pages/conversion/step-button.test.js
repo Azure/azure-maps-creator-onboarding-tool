@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-
-import StepButton from './step-button';
+import { act, render } from '@testing-library/react';
 import { useConversionStore } from 'common/store';
+import StepButton from './step-button';
 
 describe('step button', () => {
   beforeEach(() => {
@@ -29,11 +28,13 @@ describe('step button', () => {
     const view = render(
       <StepButton startTime={1684418695431} status={0} label="step-btn-label" title="step-btn-title" step={0} />
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(view).toMatchSnapshot();
   });
 
-  it('should render selected step button with time diff', () => {
+  it('should render selected step button with time diff', async () => {
     const view = render(
       <StepButton
         endTime={1684418697531}
@@ -44,7 +45,11 @@ describe('step button', () => {
         step={0}
       />
     );
-    jest.advanceTimersByTime(1000);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
     expect(view).toMatchSnapshot();
   });
 
@@ -59,7 +64,9 @@ describe('step button', () => {
         step={0}
       />
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(view).toMatchSnapshot();
   });
 
@@ -74,7 +81,9 @@ describe('step button', () => {
         step={0}
       />
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(view).toMatchSnapshot();
   });
 
@@ -89,7 +98,9 @@ describe('step button', () => {
         step={0}
       />
     );
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(view).toMatchSnapshot();
   });
 });

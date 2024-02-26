@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InitialView Component matches the snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  max-width: 45.5rem;
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 0.813rem;
+  margin-top: 1rem;
+}
+
+.emotion-1 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-2 {
+  margin: 0 0 1.5rem 0;
+}
+
+.emotion-3 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.813rem;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      style="text-align: center;"
+    >
+      <h1
+        class="emotion-1"
+      >
+        Azure Maps Creator
+      </h1>
+      <p
+        class="emotion-2"
+      >
+        initial.description
+      </p>
+    </div>
+    <div
+      style="display: flex; justify-content: space-between; margin-top: 4rem;"
+    >
+      <div>
+        <img
+          alt="card"
+          src="create.png"
+          style="border-radius: 4px; margin-bottom: 0.5rem;"
+        />
+        <h2>
+          Create
+        </h2>
+        <div>
+          <p>
+            create.description
+          </p>
+          <button
+            class="ms-Button ms-Button--primary emotion-3 root-109"
+            data-is-focusable="true"
+            data-testid="upload-button"
+            style="margin-top: 2rem;"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-110"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Button-textContainer textContainer-111"
+              >
+                <span
+                  class="ms-Button-label label-113"
+                  id="id__0"
+                >
+                  create
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <img
+          alt="card"
+          src="view.png"
+          style="border-radius: 4px; margin-bottom: 0.5rem;"
+        />
+        <h2>
+          View
+        </h2>
+        <div>
+          <p>
+            view.existing.conversions
+          </p>
+          <button
+            class="ms-Button ms-Button--primary emotion-3 root-109"
+            data-is-focusable="true"
+            data-testid="view-button"
+            style="margin-top: 2rem;"
+            type="button"
+          >
+            <span
+              class="ms-Button-flexContainer flexContainer-110"
+              data-automationid="splitbuttonprimary"
+            >
+              <span
+                class="ms-Button-textContainer textContainer-111"
+              >
+                <span
+                  class="ms-Button-label label-113"
+                  id="id__3"
+                >
+                  view
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

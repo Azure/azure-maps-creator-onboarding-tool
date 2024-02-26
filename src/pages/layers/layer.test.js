@@ -4,21 +4,21 @@ import Layer from './layer';
 
 const props = [
   {
-    id: 901,
+    id: '901',
     name: 'prop1',
     value: ['textLayer11'],
     isDraft: false,
   },
   {
-    id: 902,
+    id: '902',
     name: 'prop2',
     value: ['textLayer12'],
     isDraft: false,
   },
 ];
 
-const layer1 = { id: 1, value: ['polygonLayer21'], name: 'base layer', isDraft: false, props };
-const layer2 = { id: 2, value: ['layer32'], name: 'int', isDraft: false, props };
+const layer1 = { id: '1', value: ['polygonLayer21'], name: 'base layer', isDraft: false, props };
+const layer2 = { id: '2', value: ['layer32'], name: 'int', isDraft: false, props };
 
 jest.mock('hooks', () => ({
   useFeatureFlags: () => ({ isPlacesPreview: false }),
