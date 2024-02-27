@@ -3,14 +3,17 @@ import { css } from '@emotion/css';
 import { color, fontSize } from 'common/styles';
 
 export const container = css`
-  display: flex;
   font-size: ${fontSize.sm};
+`;
+
+export const regularContainer = css`
+  display: flex;
   flex-flow: wrap;
 `;
 
 export const mapContainerStyle = css`
-  height: 32.5rem;
-  width: 48.75rem;
+  height: 32rem;
+  width: 48rem;
 `;
 
 export const textFieldStyle = css`

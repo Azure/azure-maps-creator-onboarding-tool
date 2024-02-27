@@ -38,7 +38,7 @@ const anchorPointSelector = s => s.updateAnchorPointViaMapCenter;
 const userStoreSelector = s => [s.geography, s.subscriptionKey];
 
 const Map = props => {
-  const { className, exteriorCenter, dissolvedExterior, readOnly = false } = props;
+  const { className, style, exteriorCenter, dissolvedExterior, readOnly = false } = props;
 
   const updateAnchorPointViaMapCenter = useGeometryStore(anchorPointSelector);
   const [geography, subscriptionKey] = useUserStore(userStoreSelector);
@@ -90,7 +90,7 @@ const Map = props => {
 
   return (
     <AzureMapsProvider>
-      <div className={cx(mapContainerStyle, className)}>
+      <div className={cx(mapContainerStyle, className)} style={style}>
         <AzureMap options={azureMapOptions} {...mapProps}>
           <AzureMapDataSourceProvider id="OutlineMapDataSourceProvider">
             <AzureMapLayerProvider
