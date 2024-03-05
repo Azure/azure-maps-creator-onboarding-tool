@@ -2,13 +2,12 @@ import { Map, control } from 'azure-maps-control';
 import { indoor, control as indoorControl } from 'azure-maps-indoor';
 import { getDomain, useUserStore } from 'common/store';
 import { useEffect } from 'react';
-import { shallow } from 'zustand/shallow';
 import { mapContainer } from './style';
 
 const userStoreSelector = s => [s.geography, s.subscriptionKey];
 
 const TilesetMap = ({ mapConfigurationId, bbox }) => {
-  const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
+  const [geography, subscriptionKey] = useUserStore(userStoreSelector);
 
   useEffect(() => {
     if (mapConfigurationId === null) return;

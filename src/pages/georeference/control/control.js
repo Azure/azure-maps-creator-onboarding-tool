@@ -2,15 +2,12 @@ import { cx } from '@emotion/css';
 import { ChoiceGroup, IconButton, PrimaryButton, Slider, TextField } from '@fluentui/react';
 import { Icon } from '@fluentui/react/lib/Icon';
 import { data } from 'azure-maps-control';
-import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
-
-import FieldError from 'components/field-error';
-import NumberInput from 'components/number-input';
-
 import { fetchAddress } from 'common/api';
 import { useGeometryStore } from 'common/store';
+import FieldError from 'components/field-error';
+import NumberInput from 'components/number-input';
+import { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   angleInputStyles,
   buttonDisabledStyles,
@@ -20,8 +17,8 @@ import {
   controlCoordinatesContainer,
   controlHeader,
   controlInputStyles,
-  controls,
   controlSliderSection,
+  controls,
   hiddenControls,
   iconClass,
   radioButtonsContainer,
@@ -46,7 +43,7 @@ const radioKeys = {
 
 function Control({ map }) {
   const { t } = useTranslation();
-  const [anchorPointAngle, updateAngle] = useGeometryStore(anchorPointSelector, shallow);
+  const [anchorPointAngle, updateAngle] = useGeometryStore(anchorPointSelector);
 
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);

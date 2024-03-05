@@ -8,7 +8,6 @@ import { useFeatureFlags } from 'hooks';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import DeleteIcon from './delete-icon';
 import {
   dropdownStyles,
@@ -40,7 +39,7 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false })
     updateLayer,
     getLayerNameError,
     setPreviewSingleFeatureClass,
-  ] = useLayersStore(layerSelector, shallow);
+  ] = useLayersStore(layerSelector);
 
   const { failed } = useValidationStatus();
   const { isPlacesPreview } = useFeatureFlags();

@@ -3,7 +3,6 @@ import { useCompletedSteps, useProgressBarSteps, useProgressBarStore } from 'com
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { shallow } from 'zustand/shallow';
 import ProgressBarButton from './progress-bar-button';
 import { errorContainer, progressBarContainer } from './progress-bar.style';
 
@@ -27,7 +26,7 @@ export const ProgressBar = () => {
     hideInvalidManifestError,
     isMissingDataErrorShown,
     hideMissingDataError,
-  ] = useProgressBarStore(progressBarStoreSelector, shallow);
+  ] = useProgressBarStore(progressBarStoreSelector);
 
   const progressBarSteps = useProgressBarSteps();
 

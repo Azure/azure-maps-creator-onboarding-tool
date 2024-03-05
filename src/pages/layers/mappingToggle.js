@@ -3,14 +3,13 @@ import { useLayersStore } from 'common/store';
 import { FieldLabel } from 'components';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { categoryLayerRow, flexContainer, readOnlyFieldLabel } from './layers.style';
 
 const layerSelector = s => [s.categoryMappingEnabled, s.setCategoryMappingEnabled];
 
 const MappingToggle = () => {
   const { t } = useTranslation();
-  const [categoryMappingEnabled, setCategoryMappingEnabled] = useLayersStore(layerSelector, shallow);
+  const [categoryMappingEnabled, setCategoryMappingEnabled] = useLayersStore(layerSelector);
 
   const handleToggleChange = (event, checked) => {
     setCategoryMappingEnabled(checked);

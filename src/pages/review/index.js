@@ -2,13 +2,12 @@ import { useProgressBarStore, useValidationStatus } from 'common/store/progress-
 import { useFeatureFlags } from 'hooks';
 import SummaryTab from 'pages/summary';
 import { useEffect } from 'react';
-import { shallow } from 'zustand/shallow';
 import ReviewTab from './review';
 
 const progressBarStoreSelector = s => [s.showMissingDataError, s.hideMissingDataError];
 
 const Review = () => {
-  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector, shallow);
+  const [showMissingDataError, hideMissingDataError] = useProgressBarStore(progressBarStoreSelector);
   const { isPlacesPreview } = useFeatureFlags();
   const { success } = useValidationStatus();
 

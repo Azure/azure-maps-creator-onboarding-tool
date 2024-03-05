@@ -8,7 +8,6 @@ import { useCustomNavigate } from 'hooks';
 import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { StatusIcon } from './icon';
 import { filterInputStyles, iconsContainer, nameFilterContainer } from './style';
 import { groupItems } from './utils';
@@ -87,8 +86,8 @@ const Conversions = () => {
   const [columns, setColumns] = useState([]);
   const [descriptionFilter, setDescriptionFilter] = useState('');
 
-  const ongoingConversion = useConversionStore(conversionStoreSelector, shallow);
-  const setPastConversionData = useConversionPastStore(pastConversionStoreSelector, shallow);
+  const ongoingConversion = useConversionStore(conversionStoreSelector);
+  const setPastConversionData = useConversionPastStore(pastConversionStoreSelector);
 
   const onItemClick = useCallback(
     item => {

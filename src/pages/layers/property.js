@@ -7,7 +7,6 @@ import { useFeatureFlags } from 'hooks';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import DeleteIcon from './delete-icon';
 import {
   dropdownStyles,
@@ -23,10 +22,7 @@ const layersSelector = s => [s.layers, s.textLayerNames, s.deleteProperty, s.upd
 
 const Property = ({ name, value = [], id, parentId, isDraft, readOnlyName, singleSelect = false, isRequired }) => {
   const { t } = useTranslation();
-  const [layers, textLayerNames, deleteProperty, updateProperty, getPropertyNameError] = useLayersStore(
-    layersSelector,
-    shallow
-  );
+  const [layers, textLayerNames, deleteProperty, updateProperty, getPropertyNameError] = useLayersStore(layersSelector);
 
   const { isPlacesPreview } = useFeatureFlags();
 

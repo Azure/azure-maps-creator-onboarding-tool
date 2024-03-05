@@ -5,7 +5,6 @@ import FieldLabel from 'components/field-label';
 import { useFeatureFlags } from 'hooks';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles, readOnlyInput } from './levels.style';
 
 const levelsSelector = s => [
@@ -33,7 +32,7 @@ const Level = ({ level }) => {
     setVerticalExtent,
     getVerticalExtentError,
     isOrdinalEmpty,
-  ] = useLevelsStore(levelsSelector, shallow);
+  ] = useLevelsStore(levelsSelector);
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
 
   const onOrdinalChange = useCallback(

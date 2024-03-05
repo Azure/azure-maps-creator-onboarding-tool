@@ -1,69 +1,72 @@
 import * as zip from '@zip.js/zip.js';
 import { PLACES_PREVIEW } from 'common/constants';
-import { create } from 'zustand';
 import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { isNumeric } from '../functions';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 
-export const useReviewManifestStore = create((set, get) => ({
-  manifestReviewed: false,
-  originalPackage: null,
-  getOriginalManifestJson: async () => {
-    const { originalPackage } = get();
+export const useReviewManifestStore = createWithEqualityFn(
+  (set, get) => ({
+    manifestReviewed: false,
+    originalPackage: null,
+    getOriginalManifestJson: async () => {
+      const { originalPackage } = get();
 
-    if (originalPackage === null) {
-      return null;
-    }
-
-    try {
-      const zipFileReader = new zip.BlobReader(originalPackage);
-      const zipReader = new zip.ZipReader(zipFileReader);
-
-      const entries = await zipReader.getEntries();
-
-      for (let i = 0; i < entries.length; i++) {
-        const file = entries[i];
-        if (file.filename.toLowerCase() === 'manifest.json') {
-          const data = await file.getData(new zip.BlobWriter());
-          return JSON.parse(await data.text());
-        }
+      if (originalPackage === null) {
+        return null;
       }
-    } catch (e) {
-      console.warn('manifest.json in DWG ZIP archive was not read correctly. ', e);
-    }
-    return null;
-  },
-  createPackageWithJson: json => {
-    const { originalPackage } = get();
-    return createPackageWithJson(originalPackage, json);
-  },
-  getOriginalPackageName: () => {
-    const { originalPackage } = get();
-    if (originalPackage === null) {
-      return '';
-    }
-    return originalPackage.name?.split('.')[0] ?? '';
-  },
-  setOriginalPackage: originalPackage =>
-    set(() => ({
-      originalPackage,
-    })),
-  setManifestReviewed: manifestReviewed =>
-    set(() => ({
-      manifestReviewed,
-    })),
-}));
+
+      try {
+        const zipFileReader = new zip.BlobReader(originalPackage);
+        const zipReader = new zip.ZipReader(zipFileReader);
+
+        const entries = await zipReader.getEntries();
+
+        for (let i = 0; i < entries.length; i++) {
+          const file = entries[i];
+          if (file.filename.toLowerCase() === 'manifest.json') {
+            const data = await file.getData(new zip.BlobWriter());
+            return JSON.parse(await data.text());
+          }
+        }
+      } catch (e) {
+        console.warn('manifest.json in DWG ZIP archive was not read correctly. ', e);
+      }
+      return null;
+    },
+    createPackageWithJson: json => {
+      const { originalPackage } = get();
+      return createPackageWithJson(originalPackage, json);
+    },
+    getOriginalPackageName: () => {
+      const { originalPackage } = get();
+      if (originalPackage === null) {
+        return '';
+      }
+      return originalPackage.name?.split('.')[0] ?? '';
+    },
+    setOriginalPackage: originalPackage =>
+      set(() => ({
+        originalPackage,
+      })),
+    setManifestReviewed: manifestReviewed =>
+      set(() => ({
+        manifestReviewed,
+      })),
+  }),
+  shallow
+);
 
 const geometryStoreSelector = s => [s.anchorPoint, s.dwgLayers];
 const levelsStoreSelector = s => [s.levels, s.facilityName, s.language];
 const layersStoreSelector = s => [s.layers, s.categoryMappingEnabled, s.categoryLayer, s.categoryMapping.categoryMap];
 
 export const useReviewManifestJson = () => {
-  const [layers] = useLayersStore(layersStoreSelector, shallow);
-  const [levels, facilityName] = useLevelsStore(levelsStoreSelector, shallow);
-  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
+  const [layers] = useLayersStore(layersStoreSelector);
+  const [levels, facilityName] = useLevelsStore(levelsStoreSelector);
+  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector);
 
   const json = {
     version: '2.0',
@@ -116,9 +119,9 @@ export const useReviewManifestJson = () => {
 };
 
 export const usePlacesReviewManifestJson = () => {
-  const [layers, categoryMappingEnabled, categoryDwgLayer, categoryMap] = useLayersStore(layersStoreSelector, shallow);
-  const [levels, facilityName, language] = useLevelsStore(levelsStoreSelector, shallow);
-  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
+  const [layers, categoryMappingEnabled, categoryDwgLayer, categoryMap] = useLayersStore(layersStoreSelector);
+  const [levels, facilityName, language] = useLevelsStore(levelsStoreSelector);
+  const [anchorPoint, dwgLayers] = useGeometryStore(geometryStoreSelector);
 
   const featureLayer = layers?.[0] || {};
   const propertyLayer = featureLayer.props?.[0] || {};

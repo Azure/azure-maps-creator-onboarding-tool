@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
 import { center } from '@turf/turf';
-import { create } from 'zustand';
-import { shallow } from 'zustand/shallow';
 import { math } from 'azure-maps-control';
+import { useEffect, useRef, useState } from 'react';
+import { shallow } from 'zustand/shallow';
+import { createWithEqualityFn } from 'zustand/traditional';
 
-import { useLayersStore } from './layers.store';
-import buildWorker from './geometry.store.worker-builder';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
+import buildWorker from './geometry.store.worker-builder';
+import { useLayersStore } from './layers.store';
 
 const getDefaultState = () => ({
   anchorPoint: {
@@ -20,70 +20,73 @@ const getDefaultState = () => ({
   },
 });
 
-export const useGeometryStore = create((set, get) => ({
-  ...getDefaultState(),
-  reset: () =>
-    set({
-      ...getDefaultState(),
-    }),
-  setDwgLayers: dwgLayers =>
-    set({
-      dwgLayers,
-    }),
-  setCenterToAnchorPointDestination: centerToAnchorPointDestination =>
-    set({
-      centerToAnchorPointDestination,
-    }),
-  updateAnchorPointViaMapCenter: mapCenter => {
-    const anchorPoint = get().anchorPoint;
-    const centerToAnchor = get().centerToAnchorPointDestination;
-    const newAnchorPointCoordinates = applyDistance(
-      mapCenter,
-      fixAngle(centerToAnchor.heading + anchorPoint.angle),
-      centerToAnchor.distance
-    );
-    get().safelySetAnchorPoint({
-      coordinates: newAnchorPointCoordinates,
-      angle: anchorPoint.angle,
-    });
-  },
-  updateAngle: angle => {
-    const anchorPoint = get().anchorPoint;
-    if (angle === anchorPoint.angle) {
-      return;
-    }
-    const centerToAnchor = get().centerToAnchorPointDestination;
-    const anchorToCenterAngle = fixAngle(centerToAnchor.heading + anchorPoint.angle + 180);
-    const centerPoint = math.getDestination(
-      anchorPoint.coordinates,
-      anchorToCenterAngle,
-      centerToAnchor.distance,
-      'meters'
-    );
-    const newAnchorPointCoordinates = applyDistance(
-      centerPoint,
-      fixAngle(centerToAnchor.heading + angle),
-      centerToAnchor.distance
-    );
-    get().safelySetAnchorPoint({
-      coordinates: newAnchorPointCoordinates,
-      angle,
-    });
-  },
-  updateAnchorPoint: anchorPoint => {
-    get().safelySetAnchorPoint({
-      ...get().anchorPoint,
-      ...anchorPoint,
-    });
-  },
-  safelySetAnchorPoint: anchorPoint => {
-    if (isValidAnchorPoint(anchorPoint)) {
+export const useGeometryStore = createWithEqualityFn(
+  (set, get) => ({
+    ...getDefaultState(),
+    reset: () =>
       set({
-        anchorPoint,
+        ...getDefaultState(),
+      }),
+    setDwgLayers: dwgLayers =>
+      set({
+        dwgLayers,
+      }),
+    setCenterToAnchorPointDestination: centerToAnchorPointDestination =>
+      set({
+        centerToAnchorPointDestination,
+      }),
+    updateAnchorPointViaMapCenter: mapCenter => {
+      const anchorPoint = get().anchorPoint;
+      const centerToAnchor = get().centerToAnchorPointDestination;
+      const newAnchorPointCoordinates = applyDistance(
+        mapCenter,
+        fixAngle(centerToAnchor.heading + anchorPoint.angle),
+        centerToAnchor.distance
+      );
+      get().safelySetAnchorPoint({
+        coordinates: newAnchorPointCoordinates,
+        angle: anchorPoint.angle,
       });
-    }
-  },
-}));
+    },
+    updateAngle: angle => {
+      const anchorPoint = get().anchorPoint;
+      if (angle === anchorPoint.angle) {
+        return;
+      }
+      const centerToAnchor = get().centerToAnchorPointDestination;
+      const anchorToCenterAngle = fixAngle(centerToAnchor.heading + anchorPoint.angle + 180);
+      const centerPoint = math.getDestination(
+        anchorPoint.coordinates,
+        anchorToCenterAngle,
+        centerToAnchor.distance,
+        'meters'
+      );
+      const newAnchorPointCoordinates = applyDistance(
+        centerPoint,
+        fixAngle(centerToAnchor.heading + angle),
+        centerToAnchor.distance
+      );
+      get().safelySetAnchorPoint({
+        coordinates: newAnchorPointCoordinates,
+        angle,
+      });
+    },
+    updateAnchorPoint: anchorPoint => {
+      get().safelySetAnchorPoint({
+        ...get().anchorPoint,
+        ...anchorPoint,
+      });
+    },
+    safelySetAnchorPoint: anchorPoint => {
+      if (isValidAnchorPoint(anchorPoint)) {
+        set({
+          anchorPoint,
+        });
+      }
+    },
+  }),
+  shallow
+);
 
 const geometrySelector = s => [
   s.dwgLayers,
@@ -99,7 +102,7 @@ export const useDissolvedExterior = () => {
   const lastProcessedDwgLayers = useRef(null);
   const polygonLayers = useLayersStore(layersSelector);
   const [dwgLayers, anchorPoint, centerToAnchorPointDestination, setCenterToAnchorPointDestination, updateAnchorPoint] =
-    useGeometryStore(geometrySelector, shallow);
+    useGeometryStore(geometrySelector);
   const [output, setOutput] = useState([null, null]);
   const [worker, setWorker] = useState(null);
   const [calcInProgress, setCalcInProgress] = useState(false);

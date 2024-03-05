@@ -5,7 +5,6 @@ import { conversionSteps, useConversionStore } from 'common/store';
 import { conversionStatuses } from 'common/store/conversion.store';
 import { useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import ConversionContent from './conversion-content';
 import DatasetContent from './dataset-content';
 import MapContent from './map-content';
@@ -71,7 +70,7 @@ const Conversion = () => {
     bbox,
     setStep,
     selectedStep,
-  ] = useConversionStore(conversionStoreSelector, shallow);
+  ] = useConversionStore(conversionStoreSelector);
 
   return (
     <div className={container}>

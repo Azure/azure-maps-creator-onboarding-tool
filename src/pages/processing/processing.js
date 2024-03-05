@@ -5,7 +5,6 @@ import { LRO_STATUS } from 'common/store/response.store';
 import { useCustomNavigate } from 'hooks';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { containerStyle, progressIndicatorLabel, progressIndicatorStyles } from './processing.style';
 export const REFRESH_INTERVAL = 1;
 
@@ -25,7 +24,7 @@ const ProcessingPage = () => {
   const [label, setLabel] = useState();
 
   const subscriptionKey = useUserStore(subKeySelector);
-  const [errorMessage, lroStatus, refreshStatus] = useResponseStore(responseStoreSelector, shallow);
+  const [errorMessage, lroStatus, refreshStatus] = useResponseStore(responseStoreSelector);
 
   useEffect(() => {
     const interval = setInterval(() => {

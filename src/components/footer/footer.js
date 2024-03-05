@@ -9,7 +9,6 @@ import { saveAs } from 'file-saver';
 import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { shallow } from 'zustand/shallow';
 import ButtonText from './download-button';
 import { buttonStyle, footerContainerStyle } from './footer.style';
 
@@ -28,8 +27,8 @@ export const Footer = () => {
   const navigate = useCustomNavigate();
   const json = useReviewManifestJson();
   const placesJson = usePlacesReviewManifestJson();
-  const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector, shallow);
-  const [resetConversion, uploadConversion] = useConversionStore(conversionSelector, shallow);
+  const [createPackageWithJson, getOriginalPackageName] = useReviewManifestStore(reviewManifestSelector);
+  const [resetConversion, uploadConversion] = useConversionStore(conversionSelector);
   const progressBarSteps = useProgressBarSteps();
   const { isPlacesPreview } = useFeatureFlags();
 
@@ -72,7 +71,6 @@ export const Footer = () => {
         if (featureFlags.onboardingEnabled) {
           uploadConversion(file, { isPlacesPreview });
           navigate(flowData.redirectTo);
-          console.log('redirect now');
         }
       });
     }

@@ -9,7 +9,6 @@ import FileField from 'components/file-field/file-field';
 import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import {
   containerStyle,
   descriptionStyle,
@@ -45,8 +44,8 @@ const CreateManifestPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [file, setFile] = useState(null);
 
-  const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector, shallow);
-  const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector, shallow);
+  const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector);
+  const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector);
   const resetConversionStore = useConversionStore(conversionStoreSelector);
   const { isPlacesPreview } = useFeatureFlags();
 

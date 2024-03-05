@@ -137,7 +137,7 @@ describe('Control', () => {
   it('should show error message', async () => {
     global.fetch.mockReturnValue(Promise.reject('something really bad happened'));
     const map = { setCamera: jest.fn() };
-    const view = render(<Control map={map} />);
+    render(<Control map={map} />);
     const searchAddressInput = screen.getByPlaceholderText('search.address');
     fireEvent.change(searchAddressInput, {
       target: {

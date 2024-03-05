@@ -4,8 +4,8 @@ exports[`CheckedMap should render map 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
+  height: 32rem;
+  width: 48rem;
 }
 
 <body>
@@ -34,8 +34,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
+  height: 32rem;
+  width: 48rem;
 }
 
 <div>
@@ -119,8 +119,8 @@ exports[`CheckedMap should render nothing 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
+  height: 32rem;
+  width: 48rem;
 }
 
 <body>
@@ -149,8 +149,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  height: 32.5rem;
-  width: 48.75rem;
+  height: 32rem;
+  width: 48rem;
 }
 
 <div>

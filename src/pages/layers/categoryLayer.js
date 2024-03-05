@@ -5,14 +5,13 @@ import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import { categoryMappingPanel, dropdownStyles, flexContainer, readOnlyFieldLabel } from './layers.style';
 
 const layerSelector = s => [s.setCategoryLayer, s.textLayerNames];
 
 export const CategoryLayer = ({ name, value }) => {
   const { t } = useTranslation();
-  const [setCategoryLayer, textLayerNames] = useLayersStore(layerSelector, shallow);
+  const [setCategoryLayer, textLayerNames] = useLayersStore(layerSelector);
   const { failed } = useValidationStatus();
 
   const filteredLayerNames = textLayerNames;

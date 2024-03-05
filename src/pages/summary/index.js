@@ -7,7 +7,6 @@ import { color } from 'common/styles';
 import CheckedMap from 'pages/georeference/checked-map';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import DownloadConfigButton from './DownloadConfigButton';
 import {
   entryCell,
@@ -42,9 +41,9 @@ const SummaryEntry = props => {
 const SummaryTab = () => {
   const { t } = useTranslation();
   const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
-  const [levels, facilityName, language] = useLevelsStore(levelsSelector, shallow);
-  const [dwgLayers] = useGeometryStore(geometryStoreSelector, shallow);
-  const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector, shallow);
+  const [levels, facilityName, language] = useLevelsStore(levelsSelector);
+  const [dwgLayers] = useGeometryStore(geometryStoreSelector);
+  const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector);
   const { success } = useValidationStatus();
 
   const { file } = categoryMapping;

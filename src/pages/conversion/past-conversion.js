@@ -7,7 +7,6 @@ import { conversionStatuses } from 'common/store/conversion.store';
 import { useCustomNavigate } from 'hooks';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import ConversionContent from './conversion-content';
 import DatasetContent from './dataset-content';
 import MapContent from './map-content';
@@ -73,7 +72,7 @@ const Conversion = () => {
     bbox,
     setStep,
     selectedStep,
-  ] = useConversionPastStore(conversionStoreSelector, shallow);
+  ] = useConversionPastStore(conversionStoreSelector);
 
   const [uploadStatus = 0, conversionStatus = 0, datasetStatus = 0, tilesetStatus = 0] = useMemo(() => {
     const statuses = [uploadStepStatus, conversionStepStatus, datasetStepStatus, tilesetStepStatus];

@@ -8,7 +8,6 @@ import PageDescription from 'components/page-description/page-description';
 import { useFeatureFlags } from 'hooks';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { shallow } from 'zustand/shallow';
 import Level from './level';
 import { dropdownInputClass, fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles } from './levels.style';
 
@@ -27,10 +26,8 @@ const mappedLanguages = languagesList.map(lang => ({ key: lang.code, text: lang.
 const Levels = () => {
   const { t } = useTranslation();
   const isProgressBarErrorShown = useProgressBarStore(progressBarSelector);
-  const [levels, facilityName, setFacilityName, isLevelNameValid, language, setLanguage] = useLevelsStore(
-    levelsSelector,
-    shallow
-  );
+  const [levels, facilityName, setFacilityName, isLevelNameValid, language, setLanguage] =
+    useLevelsStore(levelsSelector);
   const { isPlacesPreview } = useFeatureFlags();
 
   const onFacilityNameChange = useCallback(
