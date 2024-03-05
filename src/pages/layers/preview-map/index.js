@@ -1,22 +1,29 @@
 import { useGeometryStore, useLayersStore } from 'common/store';
 import Dropdown, { selectAllId } from 'components/dropdown';
 import { useFeatureFlags } from 'hooks';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   dropdownContainer,
+  previewCanvas,
   previewContainerStyles,
   previewDropdownStyles,
   previewSelectContainer,
   previewSelectTitle,
   previewTitle,
-} from './preview.style';
+} from './index.style';
+import MapControls from './map-controls';
+import useTransformations from './useTransformations';
 
 const geometrySelector = s => s.dwgLayers;
 const layersSelector = s => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
 const canvasSide = 500;
+const canvasPadding = 15;
 
 const Preview = () => {
+  const canvasRef = useRef(null);
+  const drawRef = useRef(() => {});
+
   const { t } = useTranslation();
   const exteriorLayers = useGeometryStore(geometrySelector);
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
@@ -25,6 +32,8 @@ const Preview = () => {
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers));
 
   const { isPlacesPreview } = useFeatureFlags();
+
+  const { isPanning, transformations, controls } = useTransformations({ canvasRef, drawRef });
 
   const allValidFeatureClasses = useMemo(
     () =>
@@ -165,15 +174,19 @@ const Preview = () => {
     }
   };
 
-  useEffect(() => {
-    const canvas = document.getElementById('canvas');
+  const draw = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasSide, canvasSide);
     ctx.fillStyle = '#000';
+    ctx.save();
 
-    if (layers.length === 0) {
-      return;
-    }
+    ctx.translate(transformations.x, transformations.y);
+    ctx.scale(transformations.zoom, transformations.zoom);
+
+    if (layers.length === 0) return;
 
     const pointsAndMultiPoints = [];
     const geometries = [];
@@ -210,6 +223,13 @@ const Preview = () => {
       return;
     }
 
+    const applyPointPadding = (x, y) => {
+      return [
+        canvasPadding + (x * (canvasSide - 2 * canvasPadding)) / canvasSide,
+        canvasPadding + (y * (canvasSide - 2 * canvasPadding)) / canvasSide,
+      ];
+    };
+
     coordinatesFromLinesAndPolygons.forEach(points => {
       if (points.length === 0) {
         return;
@@ -221,7 +241,7 @@ const Preview = () => {
         const distanceY = midPoints.midY - point[1];
         const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
         const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
-        return [newX, newY];
+        return applyPointPadding(newX, newY);
       });
 
       ctx.beginPath();
@@ -240,9 +260,19 @@ const Preview = () => {
       const distanceY = midPoints.midY - point[1];
       const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
       const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
-      ctx.fillRect(newX, newY, 1, 1);
+      ctx.fillRect(...applyPointPadding(newX, newY), 1, 1);
     });
+
+    ctx.restore();
+  };
+
+  useEffect(() => {
+    controls.reset();
+    draw();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layers, midPoints]);
+
+  drawRef.current = draw;
 
   return (
     <div className={previewContainerStyles}>
@@ -277,12 +307,19 @@ const Preview = () => {
           </div>
         )}
       </div>
-      <canvas
-        style={{ maxWidth: '100%', display: selectedFeatureClassesIds.length ? 'block' : 'none' }}
-        id="canvas"
-        width={canvasSide}
-        height={canvasSide}
-      />
+      <div style={{ position: 'relative' }}>
+        <MapControls controls={controls} />
+        <canvas
+          ref={canvasRef}
+          className={previewCanvas}
+          width={canvasSide}
+          height={canvasSide}
+          style={{
+            display: selectedFeatureClassesIds.length ? 'block' : 'none',
+            cursor: isPanning ? 'grabbing' : 'grab',
+          }}
+        />
+      </div>
     </div>
   );
 };

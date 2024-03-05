@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Layer from './layer';
 import { layersContainer, layersWithPreview } from './layers.style';
-import Preview from './preview';
+import Preview from './preview-map';
 
 const layersSelector = s => [s.layers, s.setVisited];
 
