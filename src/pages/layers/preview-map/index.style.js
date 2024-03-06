@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 
-import { dropdownStyles } from './layers.style';
 import { fontSize, fontWeight } from 'common/styles';
+import { dropdownStyles } from '../layers.style';
 
 export const previewContainerStyles = css`
   display: flex;
@@ -35,4 +35,10 @@ export const previewTitle = css`
 
 export const previewSelectTitle = css`
   margin-bottom: 0.25rem;
+`;
+
+export const previewCanvas = css`
+  cursor: grab;
+  max-width: 100%;
+  background-color: #f7f7f7;
 `;

@@ -1,3 +1,4 @@
+import { PLACES_PREVIEW } from 'common/constants';
 import useFeatureFlags from 'hooks/useFeatureFlags';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ const useCustomNavigate = () => {
       const query = new URLSearchParams(search);
 
       if (isPlacesPreview) {
-        query.set('placespreview', 'true');
+        query.set(PLACES_PREVIEW.SEARCH_PARAMETER, 'true');
       }
 
       navigate(`${path}?${query.toString()}`, options);

@@ -9,7 +9,7 @@ import CategoryLayer from './categoryLayer';
 import Layer from './layer';
 import { dropdownStyles, layersContainer, layersWithPreview } from './layers.style';
 import MappingToggle from './mappingToggle';
-import Preview from './preview';
+import Preview from './preview-map';
 import Property from './property';
 
 const layersSelector = s => [

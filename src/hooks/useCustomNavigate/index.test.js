@@ -1,4 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
+import { PLACES_PREVIEW } from 'common/constants';
 import * as featureFlagsHook from 'hooks/useFeatureFlags';
 import * as reactRouterDom from 'react-router-dom';
 import useCustomNavigate from './index';
@@ -29,7 +30,7 @@ describe('useCustomNavigate', () => {
       result.current('/path');
     });
 
-    expect(mockNavigate).toHaveBeenCalledWith('/path?placespreview=true', undefined);
+    expect(mockNavigate).toHaveBeenCalledWith(`/path?${PLACES_PREVIEW.SEARCH_PARAMETER}=true`, undefined);
   });
 
   it('does not append placespreview to the query params if feature flag is disabled', () => {

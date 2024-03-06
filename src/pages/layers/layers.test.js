@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react';
-
 import { useLayersStore } from 'common/store';
-
 import Layers from './layers';
 
-jest.mock('./preview', () => () => 'Layer Preview');
+jest.mock('./preview-map', () => () => 'Layer Preview');
 
 const defaultLayers = [
   {
