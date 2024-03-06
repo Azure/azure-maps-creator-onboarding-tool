@@ -29,6 +29,7 @@ const Preview = () => {
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [dwgLayers, allUserCreatedFeatureClasses, getLayerNameError, previewSingleFeatureClass] =
     useLayersStore(layersSelector);
+
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers));
 
   const { isPlacesPreview } = useFeatureFlags();
@@ -42,8 +43,11 @@ const Preview = () => {
       ),
     [allUserCreatedFeatureClasses, getLayerNameError]
   );
+
   const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
+
   const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
+
   const allLayers = useMemo(
     () =>
       drawings.reduce((acc, dwgLayer) => {
@@ -60,6 +64,7 @@ const Preview = () => {
     }
     return [selectAllId, ...selectedDrawings];
   }, [dwgLayers, selectedDrawings]);
+
   const featureClasses = useMemo(
     () => [
       ...(exteriorLayers.length > 0
@@ -75,18 +80,22 @@ const Preview = () => {
     ],
     [exteriorLayers, allValidFeatureClasses]
   );
+
   const selectedFeatureClassesNames = featureClasses
     .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
     .map(fClass => fClass.name);
+
   const selectedFeatureClassesIds = featureClasses
     .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
     .map(fClass => fClass.id);
+
   const selectedFeatureClasses = useMemo(() => {
     if (selectedFeatureClassesIds.length !== featureClasses.length) {
       return selectedFeatureClassesIds;
     }
     return [selectAllId, ...selectedFeatureClassesIds];
   }, [featureClasses, selectedFeatureClassesIds]);
+
   const dwgLayersToShow = useMemo(() => {
     if (previewSingleFeatureClass) {
       return allUserCreatedFeatureClasses.find(fClass => fClass.id === previewSingleFeatureClass)?.value ?? [];
@@ -95,10 +104,12 @@ const Preview = () => {
       .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
       .reduce((acc, fClass) => acc.concat(fClass.value), []);
   }, [allUserCreatedFeatureClasses, featureClasses, previewSingleFeatureClass, unselectedFeatureClasses]);
+
   const layers = useMemo(
     () => allLayers.filter(layer => dwgLayersToShow.includes(layer.name)),
     [allLayers, dwgLayersToShow]
   );
+
   const levelDropdownOptions = useMemo(() => {
     const options = drawings.map(drawing => ({
       key: drawing,
@@ -117,6 +128,7 @@ const Preview = () => {
       options,
     ];
   }, [drawings, t]);
+
   const featureClassDropdownOptions = useMemo(() => {
     if (featureClasses.length === 0) {
       return [
@@ -162,6 +174,7 @@ const Preview = () => {
       );
     }
   };
+
   const onLevelsChange = (e, item) => {
     if (item.optionValue === selectAllId) {
       if (item.selectedOptions.includes(selectAllId)) {
@@ -180,7 +193,7 @@ const Preview = () => {
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasSide, canvasSide);
-    ctx.fillStyle = '#000';
+    ctx.strokeStyle = '#333';
     ctx.save();
 
     ctx.translate(transformations.x, transformations.y);

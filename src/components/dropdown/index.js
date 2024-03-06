@@ -96,14 +96,14 @@ const DropdownComponent = props => {
           </>
         )}
         {filteredOptions?.map(option => (
-          <Option key={option.key} value={option.key} style={dropdownOption}>
+          <Option {...option} key={option.key} value={option.key} style={dropdownOption}>
             {option.text}
           </Option>
         ))}
         {filteredGroups?.map((group, i) => (
           <OptionGroup key={i}>
             {group.map(option => (
-              <Option key={option.key} value={option.key} style={dropdownOption}>
+              <Option {...option} key={option.key} value={option.key} style={dropdownOption}>
                 {option.text}
               </Option>
             ))}

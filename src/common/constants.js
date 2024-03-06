@@ -54,4 +54,5 @@ export const PLACES_PREVIEW = {
   VERSION: 'places-1.0',
   DESCRIPTION: 'Converted by AzMapsCreatorOnboardingTool',
   STORAGE_RETENTION: 'day',
+  SEARCH_PARAMETER: 'placespreview',
 };

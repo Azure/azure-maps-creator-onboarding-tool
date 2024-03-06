@@ -1,6 +1,7 @@
 import { imdfCategories } from 'common/imdf-categories';
 import Papa from 'papaparse';
 import nextId from 'react-id-generator';
+import { getFeatureFlags } from 'utils';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { TRUNCATE_FRACTION_DIGITS } from '../constants';
@@ -232,6 +233,10 @@ export const useLayersStore = createWithEqualityFn(
         };
       }),
     getLayerNameError: layerName => {
+      const { isPlacesPreview } = getFeatureFlags();
+      // For places preview, name is automatically generated
+      if (isPlacesPreview) return null;
+
       if (!layerName) {
         return 'error.layer.name.cannot.be.empty';
       }
