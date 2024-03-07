@@ -61,7 +61,7 @@ const SummaryTab = () => {
       <div className={summaryColumn}>
         <div className={summaryPanel}>
           <div className={sectionTitle}>{t('building.levels')}</div>
-          <SummaryEntry title="Language">{languages[language]}</SummaryEntry>
+          <SummaryEntry title={t('language')}>{languages[language]}</SummaryEntry>
           <SummaryEntry title={t('building.name')}>{facilityName}</SummaryEntry>
           <table style={{ marginTop: '1rem' }}>
             <tbody>

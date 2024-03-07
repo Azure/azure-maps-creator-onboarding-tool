@@ -30,6 +30,7 @@ export const textFieldLabelStyle = css`
 export const textFieldRow = css`
   display: flex;
   margin-bottom: 1.25rem;
+  align-items: flex-start;
 `;
 
 export const textFieldColumn = css`

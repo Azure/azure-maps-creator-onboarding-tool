@@ -3,7 +3,7 @@ import { useLayersStore } from 'common/store';
 import { FieldLabel } from 'components';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { categoryLayerRow, flexContainer, readOnlyFieldLabel } from './layers.style';
+import { categoryLayerRow, flexContainer, mappingToggle, readOnlyFieldLabel } from './layers.style';
 
 const layerSelector = s => [s.categoryMappingEnabled, s.setCategoryMappingEnabled];
 
@@ -19,11 +19,9 @@ const MappingToggle = () => {
     <div className={categoryLayerRow}>
       <div className={flexContainer}>
         <div className={readOnlyFieldLabel}>
-          <FieldLabel>{t('category.mapping.enable')}</FieldLabel>
+          <FieldLabel tooltip={t('category.mapping.enable.tooltip')}>{t('category.mapping.enable')}</FieldLabel>
         </div>
-        <div>
-          <Toggle checked={categoryMappingEnabled} onChange={handleToggleChange} />
-        </div>
+        <Toggle className={mappingToggle} checked={categoryMappingEnabled} onChange={handleToggleChange} />
       </div>
     </div>
   );

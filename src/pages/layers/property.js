@@ -20,7 +20,17 @@ import {
 
 const layersSelector = s => [s.layers, s.textLayerNames, s.deleteProperty, s.updateProperty, s.getPropertyNameError];
 
-const Property = ({ name, value = [], id, parentId, isDraft, readOnlyName, singleSelect = false, isRequired }) => {
+const Property = ({
+  name,
+  tooltip,
+  value = [],
+  id,
+  parentId,
+  isDraft,
+  readOnlyName,
+  singleSelect = false,
+  isRequired,
+}) => {
   const { t } = useTranslation();
   const [layers, textLayerNames, deleteProperty, updateProperty, getPropertyNameError] = useLayersStore(layersSelector);
 
@@ -83,7 +93,9 @@ const Property = ({ name, value = [], id, parentId, isDraft, readOnlyName, singl
     <div className={isPlacesPreview ? singlePropertyRow : propertyRow} style={{}}>
       {isPlacesPreview ? (
         <div className={readOnlyFieldLabel}>
-          <FieldLabel required={isRequired}>{name}</FieldLabel>
+          <FieldLabel required={isRequired} tooltip={tooltip}>
+            {name}
+          </FieldLabel>
         </div>
       ) : (
         <TextField

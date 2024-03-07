@@ -72,6 +72,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -130,22 +136,46 @@ Object {
                 >
                   facility.name
                 </div>
+                <span
+                  class="emotion-6"
+                >
+                  <div
+                    class="ms-TooltipHost root-122"
+                    role="none"
+                  >
+                    <i
+                      aria-label="Tooltip"
+                      class="root-123"
+                      data-icon-name="Info"
+                      role="img"
+                    >
+                      
+                    </i>
+                    <div
+                      hidden=""
+                      id="tooltip1"
+                      style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                    >
+                      facility.name.tooltip
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div
-              class="ms-TextField emotion-6 root-123"
+              class="ms-TextField emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-124"
+                  class="ms-TextField-fieldGroup fieldGroup-126"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="facility.name"
-                    class="ms-TextField-field field-125"
-                    id="TextField1"
+                    class="ms-TextField-field field-127"
+                    id="TextField2"
                     type="text"
                     value=""
                   />
@@ -229,6 +259,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -286,22 +322,46 @@ Object {
               >
                 facility.name
               </div>
+              <span
+                class="emotion-6"
+              >
+                <div
+                  class="ms-TooltipHost root-122"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-123"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip1"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    facility.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-6 root-123"
+            class="ms-TextField emotion-7 root-125"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-124"
+                class="ms-TextField-fieldGroup fieldGroup-126"
               >
                 <input
                   aria-invalid="false"
                   aria-label="facility.name"
-                  class="ms-TextField-field field-125"
-                  id="TextField1"
+                  class="ms-TextField-field field-127"
+                  id="TextField2"
                   type="text"
                   value=""
                 />
@@ -441,6 +501,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -472,7 +538,7 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar6"
+                id="MessageBar7"
                 role="status"
               >
                 <span
@@ -499,22 +565,46 @@ Object {
                 >
                   facility.name
                 </div>
+                <span
+                  class="emotion-6"
+                >
+                  <div
+                    class="ms-TooltipHost root-122"
+                    role="none"
+                  >
+                    <i
+                      aria-label="Tooltip"
+                      class="root-123"
+                      data-icon-name="Info"
+                      role="img"
+                    >
+                      
+                    </i>
+                    <div
+                      hidden=""
+                      id="tooltip8"
+                      style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                    >
+                      facility.name.tooltip
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div
-              class="ms-TextField emotion-6 root-123"
+              class="ms-TextField emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-124"
+                  class="ms-TextField-fieldGroup fieldGroup-126"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="facility.name"
-                    class="ms-TextField-field field-125"
-                    id="TextField7"
+                    class="ms-TextField-field field-127"
+                    id="TextField9"
                     type="text"
                     value=""
                   />
@@ -601,6 +691,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -631,7 +727,7 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar6"
+              id="MessageBar7"
               role="status"
             >
               <span
@@ -658,22 +754,46 @@ Object {
               >
                 facility.name
               </div>
+              <span
+                class="emotion-6"
+              >
+                <div
+                  class="ms-TooltipHost root-122"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-123"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip8"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    facility.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-6 root-123"
+            class="ms-TextField emotion-7 root-125"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-124"
+                class="ms-TextField-fieldGroup fieldGroup-126"
               >
                 <input
                   aria-invalid="false"
                   aria-label="facility.name"
-                  class="ms-TextField-field field-125"
-                  id="TextField7"
+                  class="ms-TextField-field field-127"
+                  id="TextField9"
                   type="text"
                   value=""
                 />
@@ -816,6 +936,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -847,7 +973,7 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar12"
+                id="MessageBar14"
                 role="status"
               >
                 <span
@@ -874,22 +1000,46 @@ Object {
                 >
                   facility.name
                 </div>
+                <span
+                  class="emotion-6"
+                >
+                  <div
+                    class="ms-TooltipHost root-122"
+                    role="none"
+                  >
+                    <i
+                      aria-label="Tooltip"
+                      class="root-123"
+                      data-icon-name="Info"
+                      role="img"
+                    >
+                      
+                    </i>
+                    <div
+                      hidden=""
+                      id="tooltip15"
+                      style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                    >
+                      facility.name.tooltip
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div
-              class="ms-TextField emotion-6 root-123"
+              class="ms-TextField emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-124"
+                  class="ms-TextField-fieldGroup fieldGroup-126"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="facility.name"
-                    class="ms-TextField-field field-125"
-                    id="TextField13"
+                    class="ms-TextField-field field-127"
+                    id="TextField16"
                     type="text"
                     value=""
                   />
@@ -979,6 +1129,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -1009,7 +1165,7 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar12"
+              id="MessageBar14"
               role="status"
             >
               <span
@@ -1036,22 +1192,46 @@ Object {
               >
                 facility.name
               </div>
+              <span
+                class="emotion-6"
+              >
+                <div
+                  class="ms-TooltipHost root-122"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-123"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip15"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    facility.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-6 root-123"
+            class="ms-TextField emotion-7 root-125"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-124"
+                class="ms-TextField-fieldGroup fieldGroup-126"
               >
                 <input
                   aria-invalid="false"
                   aria-label="facility.name"
-                  class="ms-TextField-field field-125"
-                  id="TextField13"
+                  class="ms-TextField-field field-127"
+                  id="TextField16"
                   type="text"
                   value=""
                 />
@@ -1197,6 +1377,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -1228,7 +1414,7 @@ Object {
               <div
                 aria-live="polite"
                 class="ms-MessageBar-text text-113"
-                id="MessageBar18"
+                id="MessageBar21"
                 role="status"
               >
                 <span
@@ -1255,22 +1441,46 @@ Object {
                 >
                   facility.name
                 </div>
+                <span
+                  class="emotion-6"
+                >
+                  <div
+                    class="ms-TooltipHost root-122"
+                    role="none"
+                  >
+                    <i
+                      aria-label="Tooltip"
+                      class="root-123"
+                      data-icon-name="Info"
+                      role="img"
+                    >
+                      
+                    </i>
+                    <div
+                      hidden=""
+                      id="tooltip22"
+                      style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                    >
+                      facility.name.tooltip
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div
-              class="ms-TextField emotion-6 root-123"
+              class="ms-TextField emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
               >
                 <div
-                  class="ms-TextField-fieldGroup fieldGroup-124"
+                  class="ms-TextField-fieldGroup fieldGroup-126"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="facility.name"
-                    class="ms-TextField-field field-125"
-                    id="TextField19"
+                    class="ms-TextField-field field-127"
+                    id="TextField23"
                     type="text"
                     value=""
                   />
@@ -1363,6 +1573,12 @@ Object {
 }
 
 .emotion-6 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-7 {
   width: 100%;
   max-width: 30rem;
 }
@@ -1393,7 +1609,7 @@ Object {
             <div
               aria-live="polite"
               class="ms-MessageBar-text text-113"
-              id="MessageBar18"
+              id="MessageBar21"
               role="status"
             >
               <span
@@ -1420,22 +1636,46 @@ Object {
               >
                 facility.name
               </div>
+              <span
+                class="emotion-6"
+              >
+                <div
+                  class="ms-TooltipHost root-122"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-123"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip22"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    facility.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-6 root-123"
+            class="ms-TextField emotion-7 root-125"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-124"
+                class="ms-TextField-fieldGroup fieldGroup-126"
               >
                 <input
                   aria-invalid="false"
                   aria-label="facility.name"
-                  class="ms-TextField-field field-125"
-                  id="TextField19"
+                  class="ms-TextField-field field-127"
+                  id="TextField23"
                   type="text"
                   value=""
                 />
