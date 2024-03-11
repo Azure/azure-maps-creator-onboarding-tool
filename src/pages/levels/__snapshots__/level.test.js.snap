@@ -73,17 +73,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -119,22 +119,46 @@ Object {
               >
                 file.name
               </div>
+              <span
+                class="emotion-5"
+              >
+                <div
+                  class="ms-TooltipHost root-109"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-112"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip0"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    file.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-110"
+            class="ms-TextField is-disabled emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-111"
+                class="ms-TextField-fieldGroup fieldGroup-115"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-112"
+                  class="ms-TextField-field field-116"
                   disabled=""
-                  id="TextField0"
+                  id="TextField1"
                   readonly=""
                   type="text"
                   value="kitchen.dwg"
@@ -158,15 +182,15 @@ Object {
                 level.name
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -174,7 +198,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip5"
+                    id="tooltip6"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.level.name
@@ -184,7 +208,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -196,7 +220,7 @@ Object {
                   aria-invalid="false"
                   aria-label="level.name.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField6"
+                  id="TextField7"
                   type="text"
                   value="Kitchen"
                 />
@@ -219,15 +243,15 @@ Object {
                 ordinal
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -235,7 +259,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip11"
+                    id="tooltip12"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.ordinal
@@ -245,7 +269,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -257,7 +281,7 @@ Object {
                   aria-invalid="false"
                   aria-label="ordinal.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField12"
+                  id="TextField13"
                   type="text"
                   value="5"
                 />
@@ -275,20 +299,20 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-21"
+                class="emotion-22"
               >
                 vertical.extent
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -296,7 +320,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip17"
+                    id="tooltip18"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.vertical.extent
@@ -306,7 +330,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -315,18 +339,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription19"
+                  aria-describedby="TextFieldDescription20"
                   aria-invalid="true"
                   aria-label="vertical.extent.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField18"
+                  id="TextField19"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription19"
+              id="TextFieldDescription20"
             >
               <div
                 role="alert"
@@ -407,17 +431,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -452,22 +476,46 @@ Object {
             >
               file.name
             </div>
+            <span
+              class="emotion-5"
+            >
+              <div
+                class="ms-TooltipHost root-109"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-112"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip0"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  file.name.tooltip
+                </div>
+              </div>
+            </span>
           </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-5 root-110"
+          class="ms-TextField is-disabled emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-111"
+              class="ms-TextField-fieldGroup fieldGroup-115"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-112"
+                class="ms-TextField-field field-116"
                 disabled=""
-                id="TextField0"
+                id="TextField1"
                 readonly=""
                 type="text"
                 value="kitchen.dwg"
@@ -491,15 +539,15 @@ Object {
               level.name
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -507,7 +555,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip5"
+                  id="tooltip6"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.level.name
@@ -517,7 +565,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -529,7 +577,7 @@ Object {
                 aria-invalid="false"
                 aria-label="level.name.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField6"
+                id="TextField7"
                 type="text"
                 value="Kitchen"
               />
@@ -552,15 +600,15 @@ Object {
               ordinal
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -568,7 +616,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip11"
+                  id="tooltip12"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.ordinal
@@ -578,7 +626,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -590,7 +638,7 @@ Object {
                 aria-invalid="false"
                 aria-label="ordinal.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField12"
+                id="TextField13"
                 type="text"
                 value="5"
               />
@@ -608,20 +656,20 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-21"
+              class="emotion-22"
             >
               vertical.extent
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -629,7 +677,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip17"
+                  id="tooltip18"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.vertical.extent
@@ -639,7 +687,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -648,18 +696,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription19"
+                aria-describedby="TextFieldDescription20"
                 aria-invalid="true"
                 aria-label="vertical.extent.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField18"
+                id="TextField19"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription19"
+            id="TextFieldDescription20"
           >
             <div
               role="alert"
@@ -796,17 +844,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -842,22 +890,46 @@ Object {
               >
                 file.name
               </div>
+              <span
+                class="emotion-5"
+              >
+                <div
+                  class="ms-TooltipHost root-109"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-112"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip24"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    file.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-110"
+            class="ms-TextField is-disabled emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-111"
+                class="ms-TextField-fieldGroup fieldGroup-115"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-112"
+                  class="ms-TextField-field field-116"
                   disabled=""
-                  id="TextField23"
+                  id="TextField25"
                   readonly=""
                   type="text"
                   value="kitchen.dwg"
@@ -881,15 +953,15 @@ Object {
                 level.name
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -897,7 +969,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip28"
+                    id="tooltip30"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.level.name
@@ -907,7 +979,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -916,18 +988,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription30"
+                  aria-describedby="TextFieldDescription32"
                   aria-invalid="true"
                   aria-label="level.name.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField29"
+                  id="TextField31"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription30"
+              id="TextFieldDescription32"
             >
               <div
                 role="alert"
@@ -950,15 +1022,15 @@ Object {
                 ordinal
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -966,7 +1038,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip34"
+                    id="tooltip36"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.ordinal
@@ -976,7 +1048,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -985,18 +1057,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription36"
+                  aria-describedby="TextFieldDescription38"
                   aria-invalid="true"
                   aria-label="ordinal.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField35"
+                  id="TextField37"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription36"
+              id="TextFieldDescription38"
             >
               <div
                 role="alert"
@@ -1014,20 +1086,20 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-21"
+                class="emotion-22"
               >
                 vertical.extent
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -1035,7 +1107,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip40"
+                    id="tooltip42"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.vertical.extent
@@ -1045,7 +1117,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1054,18 +1126,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription42"
+                  aria-describedby="TextFieldDescription44"
                   aria-invalid="true"
                   aria-label="vertical.extent.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField41"
+                  id="TextField43"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription42"
+              id="TextFieldDescription44"
             >
               <div
                 role="alert"
@@ -1146,17 +1218,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1191,22 +1263,46 @@ Object {
             >
               file.name
             </div>
+            <span
+              class="emotion-5"
+            >
+              <div
+                class="ms-TooltipHost root-109"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-112"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip24"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  file.name.tooltip
+                </div>
+              </div>
+            </span>
           </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-5 root-110"
+          class="ms-TextField is-disabled emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-111"
+              class="ms-TextField-fieldGroup fieldGroup-115"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-112"
+                class="ms-TextField-field field-116"
                 disabled=""
-                id="TextField23"
+                id="TextField25"
                 readonly=""
                 type="text"
                 value="kitchen.dwg"
@@ -1230,15 +1326,15 @@ Object {
               level.name
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -1246,7 +1342,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip28"
+                  id="tooltip30"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.level.name
@@ -1256,7 +1352,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1265,18 +1361,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription30"
+                aria-describedby="TextFieldDescription32"
                 aria-invalid="true"
                 aria-label="level.name.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField29"
+                id="TextField31"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription30"
+            id="TextFieldDescription32"
           >
             <div
               role="alert"
@@ -1299,15 +1395,15 @@ Object {
               ordinal
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -1315,7 +1411,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip34"
+                  id="tooltip36"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.ordinal
@@ -1325,7 +1421,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1334,18 +1430,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription36"
+                aria-describedby="TextFieldDescription38"
                 aria-invalid="true"
                 aria-label="ordinal.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField35"
+                id="TextField37"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription36"
+            id="TextFieldDescription38"
           >
             <div
               role="alert"
@@ -1363,20 +1459,20 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-21"
+              class="emotion-22"
             >
               vertical.extent
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -1384,7 +1480,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip40"
+                  id="tooltip42"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.vertical.extent
@@ -1394,7 +1490,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -1403,18 +1499,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription42"
+                aria-describedby="TextFieldDescription44"
                 aria-invalid="true"
                 aria-label="vertical.extent.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField41"
+                id="TextField43"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription42"
+            id="TextFieldDescription44"
           >
             <div
               role="alert"
@@ -1551,17 +1647,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1597,22 +1693,46 @@ Object {
               >
                 file.name
               </div>
+              <span
+                class="emotion-5"
+              >
+                <div
+                  class="ms-TooltipHost root-109"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-112"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip120"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    file.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-110"
+            class="ms-TextField is-disabled emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-111"
+                class="ms-TextField-fieldGroup fieldGroup-115"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-112"
+                  class="ms-TextField-field field-116"
                   disabled=""
-                  id="TextField115"
+                  id="TextField121"
                   readonly=""
                   type="text"
                   value="filename"
@@ -1636,84 +1756,15 @@ Object {
                 level.name
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip120"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    tooltip.level.name
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-5 root-110"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-130"
-              >
-                <input
-                  aria-describedby="TextFieldDescription122"
-                  aria-invalid="true"
-                  aria-label="level.name.of.file"
-                  class="ms-TextField-field field-126"
-                  id="TextField121"
-                  type="text"
-                  value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
-                />
-              </div>
-            </div>
-            <span
-              id="TextFieldDescription122"
-            >
-              <div
-                role="alert"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="emotion-1"
-        >
-          <div
-            class="emotion-2"
-          >
-            <div
-              class="emotion-3"
-            >
-              <div
-                class="emotion-4"
-              >
-                ordinal
-              </div>
-              <span
-                class="emotion-10"
-              >
-                <div
-                  class="ms-TooltipHost root-121"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -1724,14 +1775,14 @@ Object {
                     id="tooltip126"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
-                    tooltip.ordinal
+                    tooltip.level.name
                   </div>
                 </div>
               </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1742,11 +1793,11 @@ Object {
                 <input
                   aria-describedby="TextFieldDescription128"
                   aria-invalid="true"
-                  aria-label="ordinal.of.file"
+                  aria-label="level.name.of.file"
                   class="ms-TextField-field field-126"
                   id="TextField127"
                   type="text"
-                  value="5"
+                  value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
                 />
               </div>
             </div>
@@ -1769,20 +1820,20 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-21"
+                class="emotion-4"
               >
-                vertical.extent
+                ordinal
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -1793,14 +1844,14 @@ Object {
                     id="tooltip132"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
-                    tooltip.vertical.extent
+                    tooltip.ordinal
                   </div>
                 </div>
               </span>
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -1811,16 +1862,85 @@ Object {
                 <input
                   aria-describedby="TextFieldDescription134"
                   aria-invalid="true"
-                  aria-label="vertical.extent.of.file"
+                  aria-label="ordinal.of.file"
                   class="ms-TextField-field field-126"
                   id="TextField133"
+                  type="text"
+                  value="5"
+                />
+              </div>
+            </div>
+            <span
+              id="TextFieldDescription134"
+            >
+              <div
+                role="alert"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="emotion-3"
+            >
+              <div
+                class="emotion-22"
+              >
+                vertical.extent
+              </div>
+              <span
+                class="emotion-5"
+              >
+                <div
+                  class="ms-TooltipHost root-109"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-112"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip138"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    tooltip.vertical.extent
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div
+            class="ms-TextField emotion-6 root-114"
+          >
+            <div
+              class="ms-TextField-wrapper"
+            >
+              <div
+                class="ms-TextField-fieldGroup fieldGroup-130"
+              >
+                <input
+                  aria-describedby="TextFieldDescription140"
+                  aria-invalid="true"
+                  aria-label="vertical.extent.of.file"
+                  class="ms-TextField-field field-126"
+                  id="TextField139"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription134"
+              id="TextFieldDescription140"
             >
               <div
                 role="alert"
@@ -1901,17 +2021,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1946,22 +2066,46 @@ Object {
             >
               file.name
             </div>
+            <span
+              class="emotion-5"
+            >
+              <div
+                class="ms-TooltipHost root-109"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-112"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip120"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  file.name.tooltip
+                </div>
+              </div>
+            </span>
           </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-5 root-110"
+          class="ms-TextField is-disabled emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-111"
+              class="ms-TextField-fieldGroup fieldGroup-115"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-112"
+                class="ms-TextField-field field-116"
                 disabled=""
-                id="TextField115"
+                id="TextField121"
                 readonly=""
                 type="text"
                 value="filename"
@@ -1985,84 +2129,15 @@ Object {
               level.name
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
-                  data-icon-name="Info"
-                  role="img"
-                >
-                  
-                </i>
-                <div
-                  hidden=""
-                  id="tooltip120"
-                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                >
-                  tooltip.level.name
-                </div>
-              </div>
-            </span>
-          </div>
-        </div>
-        <div
-          class="ms-TextField emotion-5 root-110"
-        >
-          <div
-            class="ms-TextField-wrapper"
-          >
-            <div
-              class="ms-TextField-fieldGroup fieldGroup-130"
-            >
-              <input
-                aria-describedby="TextFieldDescription122"
-                aria-invalid="true"
-                aria-label="level.name.of.file"
-                class="ms-TextField-field field-126"
-                id="TextField121"
-                type="text"
-                value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
-              />
-            </div>
-          </div>
-          <span
-            id="TextFieldDescription122"
-          >
-            <div
-              role="alert"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              ordinal
-            </div>
-            <span
-              class="emotion-10"
-            >
-              <div
-                class="ms-TooltipHost root-121"
-                role="none"
-              >
-                <i
-                  aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -2073,14 +2148,14 @@ Object {
                   id="tooltip126"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
-                  tooltip.ordinal
+                  tooltip.level.name
                 </div>
               </div>
             </span>
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2091,11 +2166,11 @@ Object {
               <input
                 aria-describedby="TextFieldDescription128"
                 aria-invalid="true"
-                aria-label="ordinal.of.file"
+                aria-label="level.name.of.file"
                 class="ms-TextField-field field-126"
                 id="TextField127"
                 type="text"
-                value="5"
+                value="asdfjhclsadfhbcalskjdfhcblksdfhcbalksdfhjcbalskdfjhcbalskdfhcblaskfdjhcblaskfjhcbalskfhjcbalskfhjcblaskjfhcbasdlfkhjcb"
               />
             </div>
           </div>
@@ -2118,20 +2193,20 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-21"
+              class="emotion-4"
             >
-              vertical.extent
+              ordinal
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -2142,14 +2217,14 @@ Object {
                   id="tooltip132"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
-                  tooltip.vertical.extent
+                  tooltip.ordinal
                 </div>
               </div>
             </span>
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2160,16 +2235,85 @@ Object {
               <input
                 aria-describedby="TextFieldDescription134"
                 aria-invalid="true"
-                aria-label="vertical.extent.of.file"
+                aria-label="ordinal.of.file"
                 class="ms-TextField-field field-126"
                 id="TextField133"
+                type="text"
+                value="5"
+              />
+            </div>
+          </div>
+          <span
+            id="TextFieldDescription134"
+          >
+            <div
+              role="alert"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-22"
+            >
+              vertical.extent
+            </div>
+            <span
+              class="emotion-5"
+            >
+              <div
+                class="ms-TooltipHost root-109"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-112"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip138"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  tooltip.vertical.extent
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ms-TextField emotion-6 root-114"
+        >
+          <div
+            class="ms-TextField-wrapper"
+          >
+            <div
+              class="ms-TextField-fieldGroup fieldGroup-130"
+            >
+              <input
+                aria-describedby="TextFieldDescription140"
+                aria-invalid="true"
+                aria-label="vertical.extent.of.file"
+                class="ms-TextField-field field-126"
+                id="TextField139"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription134"
+            id="TextFieldDescription140"
           >
             <div
               role="alert"
@@ -2306,17 +2450,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -2352,22 +2496,46 @@ Object {
               >
                 file.name
               </div>
+              <span
+                class="emotion-5"
+              >
+                <div
+                  class="ms-TooltipHost root-109"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-112"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip96"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    file.name.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
           </div>
           <div
-            class="ms-TextField is-disabled emotion-5 root-110"
+            class="ms-TextField is-disabled emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
             >
               <div
-                class="ms-TextField-fieldGroup fieldGroup-111"
+                class="ms-TextField-fieldGroup fieldGroup-115"
               >
                 <input
                   aria-invalid="false"
-                  class="ms-TextField-field field-112"
+                  class="ms-TextField-field field-116"
                   disabled=""
-                  id="TextField92"
+                  id="TextField97"
                   readonly=""
                   type="text"
                   value="kitchen.dwg"
@@ -2391,15 +2559,15 @@ Object {
                 level.name
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -2407,7 +2575,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip97"
+                    id="tooltip102"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.level.name
@@ -2417,7 +2585,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2429,7 +2597,7 @@ Object {
                   aria-invalid="false"
                   aria-label="level.name.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField98"
+                  id="TextField103"
                   type="text"
                   value="Kitchen"
                 />
@@ -2452,15 +2620,15 @@ Object {
                 ordinal
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -2468,7 +2636,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip103"
+                    id="tooltip108"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.ordinal
@@ -2478,7 +2646,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2487,18 +2655,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription105"
+                  aria-describedby="TextFieldDescription110"
                   aria-invalid="true"
                   aria-label="ordinal.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField104"
+                  id="TextField109"
                   type="text"
                   value="5"
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription105"
+              id="TextFieldDescription110"
             >
               <div
                 role="alert"
@@ -2516,20 +2684,20 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-21"
+                class="emotion-22"
               >
                 vertical.extent
               </div>
               <span
-                class="emotion-10"
+                class="emotion-5"
               >
                 <div
-                  class="ms-TooltipHost root-121"
+                  class="ms-TooltipHost root-109"
                   role="none"
                 >
                   <i
                     aria-label="Tooltip"
-                    class="root-124"
+                    class="root-112"
                     data-icon-name="Info"
                     role="img"
                   >
@@ -2537,7 +2705,7 @@ Object {
                   </i>
                   <div
                     hidden=""
-                    id="tooltip109"
+                    id="tooltip114"
                     style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                   >
                     tooltip.vertical.extent
@@ -2547,7 +2715,7 @@ Object {
             </div>
           </div>
           <div
-            class="ms-TextField emotion-5 root-110"
+            class="ms-TextField emotion-6 root-114"
           >
             <div
               class="ms-TextField-wrapper"
@@ -2556,18 +2724,18 @@ Object {
                 class="ms-TextField-fieldGroup fieldGroup-130"
               >
                 <input
-                  aria-describedby="TextFieldDescription111"
+                  aria-describedby="TextFieldDescription116"
                   aria-invalid="true"
                   aria-label="vertical.extent.of.file"
                   class="ms-TextField-field field-126"
-                  id="TextField110"
+                  id="TextField115"
                   type="text"
                   value=""
                 />
               </div>
             </div>
             <span
-              id="TextFieldDescription111"
+              id="TextFieldDescription116"
             >
               <div
                 role="alert"
@@ -2648,17 +2816,17 @@ Object {
 }
 
 .emotion-5 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-.emotion-10 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-21 {
+.emotion-6 {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.emotion-22 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -2693,22 +2861,46 @@ Object {
             >
               file.name
             </div>
+            <span
+              class="emotion-5"
+            >
+              <div
+                class="ms-TooltipHost root-109"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-112"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip96"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  file.name.tooltip
+                </div>
+              </div>
+            </span>
           </div>
         </div>
         <div
-          class="ms-TextField is-disabled emotion-5 root-110"
+          class="ms-TextField is-disabled emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
           >
             <div
-              class="ms-TextField-fieldGroup fieldGroup-111"
+              class="ms-TextField-fieldGroup fieldGroup-115"
             >
               <input
                 aria-invalid="false"
-                class="ms-TextField-field field-112"
+                class="ms-TextField-field field-116"
                 disabled=""
-                id="TextField92"
+                id="TextField97"
                 readonly=""
                 type="text"
                 value="kitchen.dwg"
@@ -2732,15 +2924,15 @@ Object {
               level.name
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -2748,7 +2940,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip97"
+                  id="tooltip102"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.level.name
@@ -2758,7 +2950,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2770,7 +2962,7 @@ Object {
                 aria-invalid="false"
                 aria-label="level.name.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField98"
+                id="TextField103"
                 type="text"
                 value="Kitchen"
               />
@@ -2793,15 +2985,15 @@ Object {
               ordinal
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -2809,7 +3001,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip103"
+                  id="tooltip108"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.ordinal
@@ -2819,7 +3011,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2828,18 +3020,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription105"
+                aria-describedby="TextFieldDescription110"
                 aria-invalid="true"
                 aria-label="ordinal.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField104"
+                id="TextField109"
                 type="text"
                 value="5"
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription105"
+            id="TextFieldDescription110"
           >
             <div
               role="alert"
@@ -2857,20 +3049,20 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-21"
+              class="emotion-22"
             >
               vertical.extent
             </div>
             <span
-              class="emotion-10"
+              class="emotion-5"
             >
               <div
-                class="ms-TooltipHost root-121"
+                class="ms-TooltipHost root-109"
                 role="none"
               >
                 <i
                   aria-label="Tooltip"
-                  class="root-124"
+                  class="root-112"
                   data-icon-name="Info"
                   role="img"
                 >
@@ -2878,7 +3070,7 @@ Object {
                 </i>
                 <div
                   hidden=""
-                  id="tooltip109"
+                  id="tooltip114"
                   style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
                 >
                   tooltip.vertical.extent
@@ -2888,7 +3080,7 @@ Object {
           </div>
         </div>
         <div
-          class="ms-TextField emotion-5 root-110"
+          class="ms-TextField emotion-6 root-114"
         >
           <div
             class="ms-TextField-wrapper"
@@ -2897,18 +3089,18 @@ Object {
               class="ms-TextField-fieldGroup fieldGroup-130"
             >
               <input
-                aria-describedby="TextFieldDescription111"
+                aria-describedby="TextFieldDescription116"
                 aria-invalid="true"
                 aria-label="vertical.extent.of.file"
                 class="ms-TextField-field field-126"
-                id="TextField110"
+                id="TextField115"
                 type="text"
                 value=""
               />
             </div>
           </div>
           <span
-            id="TextFieldDescription111"
+            id="TextFieldDescription116"
           >
             <div
               role="alert"

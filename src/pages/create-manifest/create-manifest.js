@@ -104,7 +104,9 @@ const CreateManifestPage = () => {
         {errorMessage}
       </MessageBar>
       <h2 className={headerStyle}>{t('process.file')}</h2>
-      <p className={descriptionStyle}>{t('create.new.manifest.page.description')}</p>
+      <p className={descriptionStyle}>
+        {isPlacesPreview ? t('create.new.manifest.page.description.places') : t('create.new.manifest.page.description')}
+      </p>
       <div className={formRowStyle}>
         <FieldLabel tooltip={t('tooltip.geography')}>{t('geography')}</FieldLabel>
         <div className={fieldStyle}>
@@ -143,7 +145,7 @@ const CreateManifestPage = () => {
         onFileSelect={setFile}
         fileType="zip"
         onError={setErrorMessage}
-        tooltip={t('tooltip.dwg.zip.package')}
+        tooltip={isPlacesPreview ? t('tooltip.dwg.zip.package.places') : t('tooltip.dwg.zip.package')}
       />
       <PrimaryButton
         disabled={!allFieldsFilled}

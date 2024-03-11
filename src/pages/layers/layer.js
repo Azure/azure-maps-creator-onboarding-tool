@@ -29,7 +29,7 @@ const layerSelector = s => [
   s.setPreviewSingleFeatureClass,
 ];
 
-export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false }) => {
+export const Layer = ({ id, name, tooltip, value, props, isDraft, readOnlyName = false }) => {
   const { t } = useTranslation();
   const [
     layers,
@@ -117,7 +117,9 @@ export const Layer = ({ id, name, value, props, isDraft, readOnlyName = false })
       <div className={flexContainer}>
         {isPlacesPreview ? (
           <div className={readOnlyFieldLabel}>
-            <FieldLabel required>{name}</FieldLabel>
+            <FieldLabel required tooltip={tooltip}>
+              {name}
+            </FieldLabel>
           </div>
         ) : (
           <TextField

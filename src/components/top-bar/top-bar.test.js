@@ -2,6 +2,10 @@ import { render, screen } from '@testing-library/react';
 
 import TopBar from './top-bar';
 
+jest.mock('hooks', () => ({
+  useFeatureFlags: () => ({ isPlacesPreview: false }),
+}));
+
 describe('TopBar', () => {
   it('should match snapshot', () => {
     expect(render(<TopBar />)).toMatchSnapshot();

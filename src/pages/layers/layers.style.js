@@ -46,6 +46,7 @@ export const singlePropertyRow = css`
 export const flexContainer = css`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const newPropContainer = css`
@@ -70,6 +71,10 @@ export const fieldLabel = css`
 export const readOnlyFieldLabel = css`
   width: 50%;
   margin-right: 1.25rem;
+`;
+
+export const mappingToggle = css`
+  margin: 0;
 `;
 
 export const propertyFieldLabel = css`

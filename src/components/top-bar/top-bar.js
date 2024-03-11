@@ -1,5 +1,5 @@
+import { useFeatureFlags } from 'hooks';
 import { useTranslation } from 'react-i18next';
-
 import {
   azMapsCreatorTextStyle,
   barStyle,
@@ -16,6 +16,7 @@ const feedbackLink =
 
 const TopBar = () => {
   const { t } = useTranslation();
+  const { isPlacesPreview } = useFeatureFlags();
 
   return (
     <div className={barStyle}>
@@ -25,9 +26,11 @@ const TopBar = () => {
         <span className={azMapsCreatorTextStyle}>Azure Maps Creator</span>
       </div>
       <div className={linksContainer}>
-        <a className={docLink} href={docsLink} target="_blank" rel="noreferrer" aria-label={t('docs.link')}>
-          {t('docs')}
-        </a>
+        {!isPlacesPreview && (
+          <a className={docLink} href={docsLink} target="_blank" rel="noreferrer" aria-label={t('docs.link')}>
+            {t('docs')}
+          </a>
+        )}
         <a className={docLink} href={feedbackLink} target="_blank" rel="noreferrer" aria-label={t('feedback.link')}>
           {t('feedback')}
         </a>

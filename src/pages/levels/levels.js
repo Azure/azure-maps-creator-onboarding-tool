@@ -57,6 +57,7 @@ const Levels = () => {
   );
 
   const labelName = isPlacesPreview ? t('building.name') : t('facility.name');
+  const labelTooltip = isPlacesPreview ? t('building.name.tooltip') : t('facility.name.tooltip');
 
   return (
     <div>
@@ -66,7 +67,7 @@ const Levels = () => {
         {isPlacesPreview && (
           <div className={fieldsRow}>
             <div className={fieldLabel}>
-              <FieldLabel>Language</FieldLabel>
+              <FieldLabel tooltip={t('language.tooltip')}>{t('language')}</FieldLabel>
             </div>
             <Dropdown
               onOptionSelect={handleLanguageChange}
@@ -81,7 +82,9 @@ const Levels = () => {
         )}
         <div className={fieldsRow}>
           <div className={fieldLabel}>
-            <FieldLabel required={isPlacesPreview}>{labelName}</FieldLabel>
+            <FieldLabel required={isPlacesPreview} tooltip={labelTooltip}>
+              {labelName}
+            </FieldLabel>
           </div>
           <TextField
             ariaLabel={labelName}

@@ -7,6 +7,7 @@ import FieldLabel from 'components/field-label';
 import FillScreenContainer from 'components/fill-screen-container';
 import PageDescription from 'components/page-description/page-description';
 import { useFeatureFlags } from 'hooks';
+import { fieldLabel } from 'pages/levels/levels.style';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import CheckedMap from './checked-map';
@@ -61,8 +62,8 @@ function Georeference() {
         <div className={textFieldColumn}>
           <PageDescription description={t('page.description.georeference')} />
           <div className={textFieldRow}>
-            <div>
-              <FieldLabel className={textFieldLabelStyle} required>
+            <div className={fieldLabel}>
+              <FieldLabel tooltip={isPlacesPreview ? t('footprint.tooltip') : t('exterior.tooltip')} required>
                 {isPlacesPreview ? t('footprint') : t('exterior')}
               </FieldLabel>
             </div>
