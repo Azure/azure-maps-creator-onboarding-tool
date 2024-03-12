@@ -466,21 +466,20 @@ export const useIMDFConversionStatus = () => {
     useMemo(() => {
       const json = JSON.parse(conversionOperationLog);
 
+      const generateErrorObject = (message = 'Unknown error') => ({
+        key: nextId(),
+        message,
+      });
+
       return (
         json?.details
           ?.map(item => {
             return (
               item?.details?.map(detailItem => {
-                return {
-                  key: nextId(),
-                  message: detailItem?.message || detailItem?.innererror?.exceptionText || 'Unknown error. Type 1',
-                };
-              }) || [
-                {
-                  key: nextId(),
-                  message: item?.message || 'Unknown error. Type 2',
-                },
-              ]
+                return generateErrorObject(
+                  detailItem?.message || detailItem?.innererror?.exceptionText || 'Unknown error. Type 1'
+                );
+              }) || [generateErrorObject(item?.message || 'Unknown error. Type 2')]
             );
           })
           .flat() || []
