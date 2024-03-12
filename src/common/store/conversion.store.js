@@ -465,15 +465,23 @@ export const useIMDFConversionStatus = () => {
   const errorList =
     useMemo(() => {
       const json = JSON.parse(conversionOperationLog);
+
       return (
         json?.details
           ?.map(item => {
-            return item?.details?.map(detailItem => {
-              return {
-                key: nextId(),
-                message: detailItem?.message || detailItem?.innererror?.exceptionText,
-              };
-            });
+            return (
+              item?.details?.map(detailItem => {
+                return {
+                  key: nextId(),
+                  message: detailItem?.message || detailItem?.innererror?.exceptionText || 'Unknown error. Type 1',
+                };
+              }) || [
+                {
+                  key: nextId(),
+                  message: item?.message || 'Unknown error. Type 2',
+                },
+              ]
+            );
           })
           .flat() || []
       );
