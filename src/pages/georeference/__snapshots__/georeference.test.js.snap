@@ -4,25 +4,36 @@ exports[`Georeference should render georeference page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  font-size: 0.813rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex-flow: wrap;
-  -webkit-flex-flow: wrap;
-  -ms-flex-flow: wrap;
-  flex-flow: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 .emotion-1 {
-  margin-right: 1.25rem;
-  max-width: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
 }
 
 .emotion-2 {
   margin-bottom: 1rem;
-  max-width: 31.25rem;
 }
 
 .emotion-3 {
@@ -38,14 +49,6 @@ Object {
 }
 
 .emotion-4 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,9 +58,13 @@ Object {
   -ms-flex-align: center;
   align-items: center;
   font-size: 0.813rem;
+  width: 13rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
 }
 
-.emotion-6 {
+.emotion-5 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -74,27 +81,26 @@ Object {
   align-items: center;
 }
 
-.emotion-6:after {
+.emotion-5:after {
   content: ' *';
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-6 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-8 {
-  max-width: 18.25rem;
+.emotion-7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-9 {
+.emotion-8 {
   font-size: 0.813rem;
   color: black;
   text-overflow: ellipsis;
@@ -102,7 +108,7 @@ Object {
   overflow: hidden;
 }
 
-.emotion-12 {
+.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -117,14 +123,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 13rem;
-  max-width: none;
-  line-height: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-13 {
-  width: 18.25rem;
 }
 
 <body>
@@ -178,39 +176,35 @@ Object {
               <div
                 class="emotion-5"
               >
-                <div
-                  class="emotion-6"
-                >
-                  exterior
-                </div>
-                <span
-                  class="emotion-7"
-                >
-                  <div
-                    class="ms-TooltipHost root-122"
-                    role="none"
-                  >
-                    <i
-                      aria-label="Tooltip"
-                      class="root-123"
-                      data-icon-name="Info"
-                      role="img"
-                    >
-                      
-                    </i>
-                    <div
-                      hidden=""
-                      id="tooltip1"
-                      style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                    >
-                      exterior.tooltip
-                    </div>
-                  </div>
-                </span>
+                exterior
               </div>
+              <span
+                class="emotion-6"
+              >
+                <div
+                  class="ms-TooltipHost root-122"
+                  role="none"
+                >
+                  <i
+                    aria-label="Tooltip"
+                    class="root-123"
+                    data-icon-name="Info"
+                    role="img"
+                  >
+                    
+                  </i>
+                  <div
+                    hidden=""
+                    id="tooltip1"
+                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                  >
+                    exterior.tooltip
+                  </div>
+                </div>
+              </span>
             </div>
             <div
-              class="emotion-8"
+              class="emotion-7"
             >
               <div
                 class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -223,7 +217,7 @@ Object {
                   type="button"
                 >
                   <div
-                    class="emotion-9"
+                    class="emotion-8"
                   >
                     select.layers
                   </div>
@@ -254,16 +248,16 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-5"
+                class="emotion-4"
               >
                 <div
-                  class="emotion-12"
+                  class="emotion-11"
                 >
                   anchor.point.longitude
                 </div>
               </div>
               <div
-                class="ms-TextField is-disabled emotion-13 root-125"
+                class="ms-TextField is-disabled emotion-7 root-125"
               >
                 <div
                   class="ms-TextField-wrapper"
@@ -289,16 +283,16 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-5"
+                class="emotion-4"
               >
                 <div
-                  class="emotion-12"
+                  class="emotion-11"
                 >
                   anchor.point.latitude
                 </div>
               </div>
               <div
-                class="ms-TextField is-disabled emotion-13 root-125"
+                class="ms-TextField is-disabled emotion-7 root-125"
               >
                 <div
                   class="ms-TextField-wrapper"
@@ -324,16 +318,16 @@ Object {
               class="emotion-3"
             >
               <div
-                class="emotion-5"
+                class="emotion-4"
               >
                 <div
-                  class="emotion-12"
+                  class="emotion-11"
                 >
                   anchor.point.angle
                 </div>
               </div>
               <div
-                class="ms-TextField is-disabled emotion-13 root-125"
+                class="ms-TextField is-disabled emotion-7 root-125"
               >
                 <div
                   class="ms-TextField-wrapper"
@@ -371,25 +365,36 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  font-size: 0.813rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex-flow: wrap;
-  -webkit-flex-flow: wrap;
-  -ms-flex-flow: wrap;
-  flex-flow: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 .emotion-1 {
-  margin-right: 1.25rem;
-  max-width: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
 }
 
 .emotion-2 {
   margin-bottom: 1rem;
-  max-width: 31.25rem;
 }
 
 .emotion-3 {
@@ -405,14 +410,6 @@ Object {
 }
 
 .emotion-4 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -422,9 +419,13 @@ Object {
   -ms-flex-align: center;
   align-items: center;
   font-size: 0.813rem;
+  width: 13rem;
+  max-width: none;
+  line-height: 1.5rem;
+  height: 1.5rem;
 }
 
-.emotion-6 {
+.emotion-5 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -441,27 +442,26 @@ Object {
   align-items: center;
 }
 
-.emotion-6:after {
+.emotion-5:after {
   content: ' *';
   color: #A4262C;
   white-space: pre;
 }
 
-.emotion-7 {
+.emotion-6 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-8 {
-  max-width: 18.25rem;
+.emotion-7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-9 {
+.emotion-8 {
   font-size: 0.813rem;
   color: black;
   text-overflow: ellipsis;
@@ -469,7 +469,7 @@ Object {
   overflow: hidden;
 }
 
-.emotion-12 {
+.emotion-11 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -484,14 +484,6 @@ Object {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 13rem;
-  max-width: none;
-  line-height: 1.5rem;
-  height: 1.5rem;
-}
-
-.emotion-13 {
-  width: 18.25rem;
 }
 
 <div>
@@ -544,39 +536,35 @@ Object {
             <div
               class="emotion-5"
             >
-              <div
-                class="emotion-6"
-              >
-                exterior
-              </div>
-              <span
-                class="emotion-7"
-              >
-                <div
-                  class="ms-TooltipHost root-122"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-123"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip1"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    exterior.tooltip
-                  </div>
-                </div>
-              </span>
+              exterior
             </div>
+            <span
+              class="emotion-6"
+            >
+              <div
+                class="ms-TooltipHost root-122"
+                role="none"
+              >
+                <i
+                  aria-label="Tooltip"
+                  class="root-123"
+                  data-icon-name="Info"
+                  role="img"
+                >
+                  
+                </i>
+                <div
+                  hidden=""
+                  id="tooltip1"
+                  style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                >
+                  exterior.tooltip
+                </div>
+              </div>
+            </span>
           </div>
           <div
-            class="emotion-8"
+            class="emotion-7"
           >
             <div
               class="fui-Dropdown ___88nkp20_1nwmw84 f1aa9q02 f16jpd5f f1jar5jt fyu767a f1ewtqcl f14t3ns0 f1exfvgq f10pi13n f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f14pi962 f1lh990p f1jc6hxc f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fv8e3ye ftb5wc6 fjw5xc1 f1xdyd5c fatpbeo fb7uyps f1cmft4k f1x58t8o f1ibeo51 fxugw4r f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fj3muxo f1akhkt f1c1zstj f1lxtadh fvcxoqz f1ub3y4t flmw63s f1m52nbi fvs00aa f1assf6x fqhmt4z f4ruux4"
@@ -589,7 +577,7 @@ Object {
                 type="button"
               >
                 <div
-                  class="emotion-9"
+                  class="emotion-8"
                 >
                   select.layers
                 </div>
@@ -620,16 +608,16 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-5"
+              class="emotion-4"
             >
               <div
-                class="emotion-12"
+                class="emotion-11"
               >
                 anchor.point.longitude
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-13 root-125"
+              class="ms-TextField is-disabled emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -655,16 +643,16 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-5"
+              class="emotion-4"
             >
               <div
-                class="emotion-12"
+                class="emotion-11"
               >
                 anchor.point.latitude
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-13 root-125"
+              class="ms-TextField is-disabled emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -690,16 +678,16 @@ Object {
             class="emotion-3"
           >
             <div
-              class="emotion-5"
+              class="emotion-4"
             >
               <div
-                class="emotion-12"
+                class="emotion-11"
               >
                 anchor.point.angle
               </div>
             </div>
             <div
-              class="ms-TextField is-disabled emotion-13 root-125"
+              class="ms-TextField is-disabled emotion-7 root-125"
             >
               <div
                 class="ms-TextField-wrapper"

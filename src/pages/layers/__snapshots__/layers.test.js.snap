@@ -4,25 +4,36 @@ exports[`Layers should render Layers component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex-flow: wrap;
-  -webkit-flex-flow: wrap;
-  -ms-flex-flow: wrap;
-  flex-flow: wrap;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
 }
 
 .emotion-2 {
-  width: 47rem;
-  max-width: 100%;
+  margin-bottom: 1rem;
 }
 
 <body>
@@ -31,41 +42,136 @@ Object {
         class="emotion-0"
       >
         <div
-          class="ms-MessageBar ms-MessageBar-multiline root-109"
+          class="emotion-1"
         >
           <div
-            class="ms-MessageBar-content content-110"
+            class="emotion-2"
           >
             <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
+              class="ms-MessageBar ms-MessageBar-multiline root-109"
             >
-              <i
-                aria-hidden="true"
-                class="icon-121"
-                data-icon-name="Info"
+              <div
+                class="ms-MessageBar-content content-110"
               >
-                
-              </i>
+                <div
+                  aria-hidden="true"
+                  class="ms-MessageBar-icon iconContainer-111"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="icon-121"
+                    data-icon-name="Info"
+                  >
+                    
+                  </i>
+                </div>
+                <div
+                  aria-live="polite"
+                  class="ms-MessageBar-text text-113"
+                  id="MessageBar0"
+                  role="status"
+                >
+                  <span
+                    class="ms-MessageBar-innerText innerText-114"
+                  />
+                </div>
+              </div>
             </div>
-            <div
-              aria-live="polite"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar0"
-              role="status"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-              />
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div>
+              {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
+            </div>
+            <div>
+              {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
+            </div>
+            <div>
+              {"id":3,"name":"","props":[],"value":[],"isDraft":true}
             </div>
           </div>
         </div>
+        Layer Preview
       </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
       <div
         class="emotion-1"
       >
         <div
           class="emotion-2"
+        >
+          <div
+            class="ms-MessageBar ms-MessageBar-multiline root-109"
+          >
+            <div
+              class="ms-MessageBar-content content-110"
+            >
+              <div
+                aria-hidden="true"
+                class="ms-MessageBar-icon iconContainer-111"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-121"
+                  data-icon-name="Info"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="polite"
+                class="ms-MessageBar-text text-113"
+                id="MessageBar0"
+                role="status"
+              >
+                <span
+                  class="ms-MessageBar-innerText innerText-114"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-3"
         >
           <div>
             {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
@@ -76,82 +182,6 @@ Object {
           <div>
             {"id":3,"name":"","props":[],"value":[],"isDraft":true}
           </div>
-        </div>
-        Layer Preview
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex-flow: wrap;
-  -webkit-flex-flow: wrap;
-  -ms-flex-flow: wrap;
-  flex-flow: wrap;
-  gap: 3rem;
-}
-
-.emotion-2 {
-  width: 47rem;
-  max-width: 100%;
-}
-
-<div>
-    <div
-      class="emotion-0"
-    >
-      <div
-        class="ms-MessageBar ms-MessageBar-multiline root-109"
-      >
-        <div
-          class="ms-MessageBar-content content-110"
-        >
-          <div
-            aria-hidden="true"
-            class="ms-MessageBar-icon iconContainer-111"
-          >
-            <i
-              aria-hidden="true"
-              class="icon-121"
-              data-icon-name="Info"
-            >
-              
-            </i>
-          </div>
-          <div
-            aria-live="polite"
-            class="ms-MessageBar-text text-113"
-            id="MessageBar0"
-            role="status"
-          >
-            <span
-              class="ms-MessageBar-innerText innerText-114"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="emotion-2"
-      >
-        <div>
-          {"id":0,"name":"base layer","props":[{"id":2,"name":"","isDraft":false,"value":[]}],"value":["this","is","my","fav","layer"],"isDraft":false}
-        </div>
-        <div>
-          {"id":1,"name":"interior","props":[{"id":4,"name":"","isDraft":true,"value":[]}],"value":["walls","ratatata"],"isDraft":false}
-        </div>
-        <div>
-          {"id":3,"name":"","props":[],"value":[],"isDraft":true}
         </div>
       </div>
       Layer Preview

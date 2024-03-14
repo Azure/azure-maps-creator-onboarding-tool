@@ -4,8 +4,8 @@ import { Icon } from '@fluentui/react/lib/Icon';
 
 import { fieldLabelContainer, labelStyle, requiredField, toolTipContainer } from './field-label.style';
 
-export const FieldLabel = ({ children, className, required, tooltip }) => (
-  <div className={cx(fieldLabelContainer, className)}>
+export const FieldLabel = ({ children, className, required, tooltip, ...rest }) => (
+  <div className={cx(fieldLabelContainer, className)} {...rest}>
     <div className={cx(labelStyle, { [requiredField]: required })}>{children}</div>
     {tooltip && (
       <span className={toolTipContainer}>

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
 import { css } from '@emotion/css';
+import { render, screen } from '@testing-library/react';
 
 import FieldLabel from './field-label';
 
@@ -16,8 +16,12 @@ describe('FieldLabel', () => {
   });
 
   it('should attach passed classname', () => {
-    render(<FieldLabel className={myClassName}>Cherophobia is the irrational fear of fun or happiness.</FieldLabel>);
-    const elem = screen.getByText('Cherophobia is the irrational fear of fun or happiness.');
+    render(
+      <FieldLabel data-testid="field-label" className={myClassName}>
+        Cherophobia is the irrational fear of fun or happiness.
+      </FieldLabel>
+    );
+    const elem = screen.getByTestId('field-label');
     expect(elem).toHaveStyle('color: red;');
   });
 });

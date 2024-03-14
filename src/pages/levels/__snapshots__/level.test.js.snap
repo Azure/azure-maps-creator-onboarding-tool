@@ -4,13 +4,8 @@ exports[`Level component should render component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -22,7 +17,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -80,7 +75,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -362,13 +356,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -380,7 +369,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -438,7 +427,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -775,13 +763,8 @@ exports[`Level component should show error 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -793,7 +776,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -851,7 +834,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -1149,13 +1131,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -1167,7 +1144,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -1225,7 +1202,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -1578,13 +1554,8 @@ exports[`Level component should show error message when level name contains inva
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -1596,7 +1567,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -1654,7 +1625,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -1952,13 +1922,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -1970,7 +1935,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -2028,7 +1993,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -2381,13 +2345,8 @@ exports[`Level component should show error message when ordinal is not unique 1`
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -2399,7 +2358,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -2457,7 +2416,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {
@@ -2747,13 +2705,8 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  max-width: 45rem;
   border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-0:first-child {
-  padding-top: 0;
+  margin-bottom: 1rem;
 }
 
 .emotion-0:last-child {
@@ -2765,7 +2718,7 @@ Object {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -2823,7 +2776,6 @@ Object {
 
 .emotion-6 {
   width: 100%;
-  max-width: 30rem;
 }
 
 .emotion-22 {

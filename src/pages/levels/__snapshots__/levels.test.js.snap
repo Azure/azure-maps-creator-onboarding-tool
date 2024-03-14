@@ -4,37 +4,60 @@ exports[`Levels component should render component with 1 level 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-.emotion-3 {
+.emotion-5 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -42,7 +65,7 @@ Object {
   display: flex;
 }
 
-.emotion-4 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -54,7 +77,7 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-5 {
+.emotion-7 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -71,22 +94,240 @@ Object {
   align-items: center;
 }
 
-.emotion-6 {
+.emotion-8 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
-  max-width: 30rem;
 }
 
 <body>
     <div>
-      <div>
+      <div
+        class="emotion-0"
+      >
         <div
-          class="emotion-0"
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="ms-MessageBar ms-MessageBar-multiline root-109"
+            >
+              <div
+                class="ms-MessageBar-content content-110"
+              >
+                <div
+                  aria-hidden="true"
+                  class="ms-MessageBar-icon iconContainer-111"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="icon-121"
+                    data-icon-name="Info"
+                  >
+                    
+                  </i>
+                </div>
+                <div
+                  aria-live="polite"
+                  class="ms-MessageBar-text text-113"
+                  id="MessageBar0"
+                  role="status"
+                >
+                  <span
+                    class="ms-MessageBar-innerText innerText-114"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              <div
+                class="emotion-5"
+              >
+                <div
+                  class="emotion-6"
+                >
+                  <div
+                    class="emotion-7"
+                  >
+                    facility.name
+                  </div>
+                  <span
+                    class="emotion-8"
+                  >
+                    <div
+                      class="ms-TooltipHost root-122"
+                      role="none"
+                    >
+                      <i
+                        aria-label="Tooltip"
+                        class="root-123"
+                        data-icon-name="Info"
+                        role="img"
+                      >
+                        
+                      </i>
+                      <div
+                        hidden=""
+                        id="tooltip1"
+                        style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                      >
+                        facility.name.tooltip
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-9 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-126"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="facility.name"
+                      class="ms-TextField-field field-127"
+                      id="TextField2"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-7 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 100%;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
         >
           <div
             class="ms-MessageBar ms-MessageBar-multiline root-109"
@@ -120,24 +361,24 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-1"
+          class="emotion-3"
         >
           <div
-            class="emotion-2"
+            class="emotion-4"
           >
             <div
-              class="emotion-3"
+              class="emotion-5"
             >
               <div
-                class="emotion-4"
+                class="emotion-6"
               >
                 <div
-                  class="emotion-5"
+                  class="emotion-7"
                 >
                   facility.name
                 </div>
                 <span
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
                     class="ms-TooltipHost root-122"
@@ -163,7 +404,7 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-7 root-125"
+              class="ms-TextField emotion-9 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -187,191 +428,6 @@ Object {
         <div>
           {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-7 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-<div>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          class="ms-MessageBar ms-MessageBar-multiline root-109"
-        >
-          <div
-            class="ms-MessageBar-content content-110"
-          >
-            <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
-            >
-              <i
-                aria-hidden="true"
-                class="icon-121"
-                data-icon-name="Info"
-              >
-                
-              </i>
-            </div>
-            <div
-              aria-live="polite"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar0"
-              role="status"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-              <span
-                class="emotion-6"
-              >
-                <div
-                  class="ms-TooltipHost root-122"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-123"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip1"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    facility.name.tooltip
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-7 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-126"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-127"
-                  id="TextField2"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
       </div>
     </div>
   </div>,
@@ -433,37 +489,60 @@ exports[`Levels component should render component with 2 levels 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-.emotion-3 {
+.emotion-5 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -471,7 +550,7 @@ Object {
   display: flex;
 }
 
-.emotion-4 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -483,7 +562,7 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-5 {
+.emotion-7 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -500,22 +579,243 @@ Object {
   align-items: center;
 }
 
-.emotion-6 {
+.emotion-8 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
-  max-width: 30rem;
 }
 
 <body>
     <div>
-      <div>
+      <div
+        class="emotion-0"
+      >
         <div
-          class="emotion-0"
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="ms-MessageBar ms-MessageBar-multiline root-109"
+            >
+              <div
+                class="ms-MessageBar-content content-110"
+              >
+                <div
+                  aria-hidden="true"
+                  class="ms-MessageBar-icon iconContainer-111"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="icon-121"
+                    data-icon-name="Info"
+                  >
+                    
+                  </i>
+                </div>
+                <div
+                  aria-live="polite"
+                  class="ms-MessageBar-text text-113"
+                  id="MessageBar7"
+                  role="status"
+                >
+                  <span
+                    class="ms-MessageBar-innerText innerText-114"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              <div
+                class="emotion-5"
+              >
+                <div
+                  class="emotion-6"
+                >
+                  <div
+                    class="emotion-7"
+                  >
+                    facility.name
+                  </div>
+                  <span
+                    class="emotion-8"
+                  >
+                    <div
+                      class="ms-TooltipHost root-122"
+                      role="none"
+                    >
+                      <i
+                        aria-label="Tooltip"
+                        class="root-123"
+                        data-icon-name="Info"
+                        role="img"
+                      >
+                        
+                      </i>
+                      <div
+                        hidden=""
+                        id="tooltip8"
+                        style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                      >
+                        facility.name.tooltip
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-9 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-126"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="facility.name"
+                      class="ms-TextField-field field-127"
+                      id="TextField9"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+          </div>
+          <div>
+            {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-7 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 100%;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
         >
           <div
             class="ms-MessageBar ms-MessageBar-multiline root-109"
@@ -549,24 +849,24 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-1"
+          class="emotion-3"
         >
           <div
-            class="emotion-2"
+            class="emotion-4"
           >
             <div
-              class="emotion-3"
+              class="emotion-5"
             >
               <div
-                class="emotion-4"
+                class="emotion-6"
               >
                 <div
-                  class="emotion-5"
+                  class="emotion-7"
                 >
                   facility.name
                 </div>
                 <span
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
                     class="ms-TooltipHost root-122"
@@ -592,7 +892,7 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-7 root-125"
+              class="ms-TextField emotion-9 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -619,194 +919,6 @@ Object {
         <div>
           {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-7 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-<div>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          class="ms-MessageBar ms-MessageBar-multiline root-109"
-        >
-          <div
-            class="ms-MessageBar-content content-110"
-          >
-            <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
-            >
-              <i
-                aria-hidden="true"
-                class="icon-121"
-                data-icon-name="Info"
-              >
-                
-              </i>
-            </div>
-            <div
-              aria-live="polite"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar7"
-              role="status"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-              <span
-                class="emotion-6"
-              >
-                <div
-                  class="ms-TooltipHost root-122"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-123"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip8"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    facility.name.tooltip
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-7 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-126"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-127"
-                  id="TextField9"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
-      </div>
-      <div>
-        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
       </div>
     </div>
   </div>,
@@ -868,37 +980,60 @@ exports[`Levels component should render component with 3 levels 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-.emotion-3 {
+.emotion-5 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -906,7 +1041,7 @@ Object {
   display: flex;
 }
 
-.emotion-4 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -918,7 +1053,7 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-5 {
+.emotion-7 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -935,22 +1070,246 @@ Object {
   align-items: center;
 }
 
-.emotion-6 {
+.emotion-8 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
-  max-width: 30rem;
 }
 
 <body>
     <div>
-      <div>
+      <div
+        class="emotion-0"
+      >
         <div
-          class="emotion-0"
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="ms-MessageBar ms-MessageBar-multiline root-109"
+            >
+              <div
+                class="ms-MessageBar-content content-110"
+              >
+                <div
+                  aria-hidden="true"
+                  class="ms-MessageBar-icon iconContainer-111"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="icon-121"
+                    data-icon-name="Info"
+                  >
+                    
+                  </i>
+                </div>
+                <div
+                  aria-live="polite"
+                  class="ms-MessageBar-text text-113"
+                  id="MessageBar14"
+                  role="status"
+                >
+                  <span
+                    class="ms-MessageBar-innerText innerText-114"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              <div
+                class="emotion-5"
+              >
+                <div
+                  class="emotion-6"
+                >
+                  <div
+                    class="emotion-7"
+                  >
+                    facility.name
+                  </div>
+                  <span
+                    class="emotion-8"
+                  >
+                    <div
+                      class="ms-TooltipHost root-122"
+                      role="none"
+                    >
+                      <i
+                        aria-label="Tooltip"
+                        class="root-123"
+                        data-icon-name="Info"
+                        role="img"
+                      >
+                        
+                      </i>
+                      <div
+                        hidden=""
+                        id="tooltip15"
+                        style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                      >
+                        facility.name.tooltip
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-9 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-126"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="facility.name"
+                      class="ms-TextField-field field-127"
+                      id="TextField16"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+          </div>
+          <div>
+            {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+          </div>
+          <div>
+            {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-7 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 100%;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
         >
           <div
             class="ms-MessageBar ms-MessageBar-multiline root-109"
@@ -984,24 +1343,24 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-1"
+          class="emotion-3"
         >
           <div
-            class="emotion-2"
+            class="emotion-4"
           >
             <div
-              class="emotion-3"
+              class="emotion-5"
             >
               <div
-                class="emotion-4"
+                class="emotion-6"
               >
                 <div
-                  class="emotion-5"
+                  class="emotion-7"
                 >
                   facility.name
                 </div>
                 <span
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
                     class="ms-TooltipHost root-122"
@@ -1027,7 +1386,7 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-7 root-125"
+              class="ms-TextField emotion-9 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -1057,197 +1416,6 @@ Object {
         <div>
           {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-7 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-<div>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          class="ms-MessageBar ms-MessageBar-multiline root-109"
-        >
-          <div
-            class="ms-MessageBar-content content-110"
-          >
-            <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
-            >
-              <i
-                aria-hidden="true"
-                class="icon-121"
-                data-icon-name="Info"
-              >
-                
-              </i>
-            </div>
-            <div
-              aria-live="polite"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar14"
-              role="status"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-              <span
-                class="emotion-6"
-              >
-                <div
-                  class="ms-TooltipHost root-122"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-123"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip15"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    facility.name.tooltip
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-7 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-126"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-127"
-                  id="TextField16"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
-      </div>
-      <div>
-        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
-      </div>
-      <div>
-        {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
       </div>
     </div>
   </div>,
@@ -1309,37 +1477,60 @@ exports[`Levels component should render component with 4 levels 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-.emotion-3 {
+.emotion-5 {
   width: 15.625rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1347,7 +1538,7 @@ Object {
   display: flex;
 }
 
-.emotion-4 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1359,7 +1550,7 @@ Object {
   font-size: 0.813rem;
 }
 
-.emotion-5 {
+.emotion-7 {
   height: 1.5rem;
   line-height: 1.5rem;
   max-width: 15rem;
@@ -1376,22 +1567,249 @@ Object {
   align-items: center;
 }
 
-.emotion-6 {
+.emotion-8 {
   cursor: pointer;
   margin-left: 5px;
   margin-top: 3px;
 }
 
-.emotion-7 {
+.emotion-9 {
   width: 100%;
-  max-width: 30rem;
 }
 
 <body>
     <div>
-      <div>
+      <div
+        class="emotion-0"
+      >
         <div
-          class="emotion-0"
+          class="emotion-1"
+        >
+          <div
+            class="emotion-2"
+          >
+            <div
+              class="ms-MessageBar ms-MessageBar-multiline root-109"
+            >
+              <div
+                class="ms-MessageBar-content content-110"
+              >
+                <div
+                  aria-hidden="true"
+                  class="ms-MessageBar-icon iconContainer-111"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="icon-121"
+                    data-icon-name="Info"
+                  >
+                    
+                  </i>
+                </div>
+                <div
+                  aria-live="polite"
+                  class="ms-MessageBar-text text-113"
+                  id="MessageBar21"
+                  role="status"
+                >
+                  <span
+                    class="ms-MessageBar-innerText innerText-114"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              <div
+                class="emotion-5"
+              >
+                <div
+                  class="emotion-6"
+                >
+                  <div
+                    class="emotion-7"
+                  >
+                    facility.name
+                  </div>
+                  <span
+                    class="emotion-8"
+                  >
+                    <div
+                      class="ms-TooltipHost root-122"
+                      role="none"
+                    >
+                      <i
+                        aria-label="Tooltip"
+                        class="root-123"
+                        data-icon-name="Info"
+                        role="img"
+                      >
+                        
+                      </i>
+                      <div
+                        hidden=""
+                        id="tooltip22"
+                        style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
+                      >
+                        facility.name.tooltip
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ms-TextField emotion-9 root-125"
+              >
+                <div
+                  class="ms-TextField-wrapper"
+                >
+                  <div
+                    class="ms-TextField-fieldGroup fieldGroup-126"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="facility.name"
+                      class="ms-TextField-field field-127"
+                      id="TextField23"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
+          </div>
+          <div>
+            {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
+          </div>
+          <div>
+            {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
+          </div>
+          <div>
+            {"level":{"filename":"level_2.dwg","levelName":"Level 2","ordinal":21}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 40rem;
+}
+
+@media (max-width: 1200px) {
+  .emotion-1 {
+    max-width: unset;
+  }
+}
+
+.emotion-2 {
+  margin-bottom: 1rem;
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.emotion-3:last-child {
+  border-bottom: none;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.emotion-5 {
+  width: 15.625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.813rem;
+}
+
+.emotion-7 {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  max-width: 15rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-8 {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.emotion-9 {
+  width: 100%;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
         >
           <div
             class="ms-MessageBar ms-MessageBar-multiline root-109"
@@ -1425,24 +1843,24 @@ Object {
           </div>
         </div>
         <div
-          class="emotion-1"
+          class="emotion-3"
         >
           <div
-            class="emotion-2"
+            class="emotion-4"
           >
             <div
-              class="emotion-3"
+              class="emotion-5"
             >
               <div
-                class="emotion-4"
+                class="emotion-6"
               >
                 <div
-                  class="emotion-5"
+                  class="emotion-7"
                 >
                   facility.name
                 </div>
                 <span
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
                     class="ms-TooltipHost root-122"
@@ -1468,7 +1886,7 @@ Object {
               </div>
             </div>
             <div
-              class="ms-TextField emotion-7 root-125"
+              class="ms-TextField emotion-9 root-125"
             >
               <div
                 class="ms-TextField-wrapper"
@@ -1501,200 +1919,6 @@ Object {
         <div>
           {"level":{"filename":"level_2.dwg","levelName":"Level 2","ordinal":21}}
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": .emotion-0 {
-  margin-bottom: 1rem;
-  max-width: 31.25rem;
-}
-
-.emotion-1 {
-  max-width: 45rem;
-  border-bottom: 1px solid #ccc;
-  padding-top: 1.25rem;
-}
-
-.emotion-1:first-child {
-  padding-top: 0;
-}
-
-.emotion-1:last-child {
-  border-bottom: none;
-}
-
-.emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.emotion-3 {
-  width: 15.625rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.813rem;
-}
-
-.emotion-5 {
-  height: 1.5rem;
-  line-height: 1.5rem;
-  max-width: 15rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-6 {
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-}
-
-.emotion-7 {
-  width: 100%;
-  max-width: 30rem;
-}
-
-<div>
-    <div>
-      <div
-        class="emotion-0"
-      >
-        <div
-          class="ms-MessageBar ms-MessageBar-multiline root-109"
-        >
-          <div
-            class="ms-MessageBar-content content-110"
-          >
-            <div
-              aria-hidden="true"
-              class="ms-MessageBar-icon iconContainer-111"
-            >
-              <i
-                aria-hidden="true"
-                class="icon-121"
-                data-icon-name="Info"
-              >
-                
-              </i>
-            </div>
-            <div
-              aria-live="polite"
-              class="ms-MessageBar-text text-113"
-              id="MessageBar21"
-              role="status"
-            >
-              <span
-                class="ms-MessageBar-innerText innerText-114"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-2"
-        >
-          <div
-            class="emotion-3"
-          >
-            <div
-              class="emotion-4"
-            >
-              <div
-                class="emotion-5"
-              >
-                facility.name
-              </div>
-              <span
-                class="emotion-6"
-              >
-                <div
-                  class="ms-TooltipHost root-122"
-                  role="none"
-                >
-                  <i
-                    aria-label="Tooltip"
-                    class="root-123"
-                    data-icon-name="Info"
-                    role="img"
-                  >
-                    
-                  </i>
-                  <div
-                    hidden=""
-                    id="tooltip22"
-                    style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0px; border: 0px; overflow: hidden; white-space: nowrap;"
-                  >
-                    facility.name.tooltip
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="ms-TextField emotion-7 root-125"
-          >
-            <div
-              class="ms-TextField-wrapper"
-            >
-              <div
-                class="ms-TextField-fieldGroup fieldGroup-126"
-              >
-                <input
-                  aria-invalid="false"
-                  aria-label="facility.name"
-                  class="ms-TextField-field field-127"
-                  id="TextField23"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        {"level":{"filename":"kitchen.dwg","levelName":"Kitchen","ordinal":15}}
-      </div>
-      <div>
-        {"level":{"filename":"ground.dwg","levelName":"Ground","ordinal":0}}
-      </div>
-      <div>
-        {"level":{"filename":"basement.dwg","levelName":"Basement","ordinal":-1}}
-      </div>
-      <div>
-        {"level":{"filename":"level_2.dwg","levelName":"Level 2","ordinal":21}}
       </div>
     </div>
   </div>,
