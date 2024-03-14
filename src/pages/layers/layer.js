@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next';
 import DeleteIcon from './delete-icon';
 import {
   dropdownStyles,
+  featureClassRow,
   fieldLabel,
-  flexContainer,
   layerNameInputStyles,
   layerRow,
   readOnlyFieldLabel,
@@ -114,7 +114,7 @@ export const Layer = ({ id, name, tooltip, value, props, isDraft, readOnlyName =
 
   return (
     <div className={layerRow}>
-      <div className={flexContainer}>
+      <div className={featureClassRow}>
         {isPlacesPreview ? (
           <div className={readOnlyFieldLabel}>
             <FieldLabel required tooltip={tooltip}>

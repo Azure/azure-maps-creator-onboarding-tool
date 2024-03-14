@@ -1,15 +1,5 @@
 import { css } from '@emotion/css';
-
 import { color, fontSize } from 'common/styles';
-
-export const container = css`
-  font-size: ${fontSize.sm};
-`;
-
-export const regularContainer = css`
-  display: flex;
-  flex-flow: wrap;
-`;
 
 export const mapContainerStyle = css`
   height: 32rem;
@@ -17,7 +7,7 @@ export const mapContainerStyle = css`
 `;
 
 export const textFieldStyle = css`
-  width: 18.25rem;
+  flex-grow: 1;
 `;
 
 export const textFieldLabelStyle = css`
@@ -31,11 +21,6 @@ export const textFieldRow = css`
   display: flex;
   margin-bottom: 1.25rem;
   align-items: flex-start;
-`;
-
-export const textFieldColumn = css`
-  margin-right: 1.25rem;
-  max-width: 100%;
 `;
 
 export const textInputStyles = {
@@ -52,9 +37,4 @@ export const errorContainer = css`
   width: 100%;
   max-width: 31.25rem;
   margin-bottom: 1rem;
-`;
-
-export const dropdownStyles = css`
-  max-width: 18.25rem;
-  flex-grow: 1;
 `;

@@ -16,6 +16,7 @@ export const color = {
   grayBorder: '#A19F9D',
   lightRed: '#f37474',
   granite: '#605e5c',
+  grayBg: '#f7f7f7',
 };
 
 export const fontSize = {

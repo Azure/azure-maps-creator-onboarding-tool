@@ -1,3 +1,4 @@
+import { cx } from '@emotion/css';
 import { useGeometryStore, useLayersStore } from 'common/store';
 import Dropdown, { selectAllId } from 'components/dropdown';
 import { useFeatureFlags } from 'hooks';
@@ -5,19 +6,24 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   dropdownContainer,
+  inlineSelectContainer,
   previewCanvas,
   previewContainerStyles,
+  previewDescription,
   previewDropdownStyles,
-  previewSelectContainer,
   previewSelectTitle,
   previewTitle,
+  previewTitleWrapper,
+  selectContainer,
 } from './index.style';
 import MapControls from './map-controls';
 import useTransformations from './useTransformations';
 
+const betaFeature = false;
+
 const geometrySelector = s => s.dwgLayers;
 const layersSelector = s => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
-const canvasSide = 500;
+const canvasSide = 516;
 const canvasPadding = 15;
 
 const Preview = () => {
@@ -289,9 +295,13 @@ const Preview = () => {
 
   return (
     <div className={previewContainerStyles}>
-      <div className={previewTitle}>Preview</div>
+      <div className={previewTitleWrapper}>
+        <span className={previewTitle}>Preview</span>
+        {betaFeature && <span className={previewDescription}>displays polygonal entities only</span>}
+      </div>
+
       <div className={dropdownContainer}>
-        <div className={previewSelectContainer}>
+        <div className={cx(selectContainer, { [inlineSelectContainer]: isPlacesPreview })}>
           <div className={previewSelectTitle}>Level</div>
           <Dropdown
             onOptionSelect={onLevelsChange}
@@ -304,7 +314,7 @@ const Preview = () => {
           </Dropdown>
         </div>
         {!isPlacesPreview && (
-          <div className={previewSelectContainer}>
+          <div className={selectContainer}>
             <div className={previewSelectTitle}>Feature Class</div>
             <Dropdown
               onOptionSelect={onLayerDropdownChange}
@@ -320,7 +330,7 @@ const Preview = () => {
           </div>
         )}
       </div>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', width: canvasSide, height: canvasSide }}>
         <MapControls controls={controls} />
         <canvas
           ref={canvasRef}
@@ -328,7 +338,6 @@ const Preview = () => {
           width={canvasSide}
           height={canvasSide}
           style={{
-            display: selectedFeatureClassesIds.length ? 'block' : 'none',
             cursor: isPanning ? 'grabbing' : 'grab',
           }}
         />

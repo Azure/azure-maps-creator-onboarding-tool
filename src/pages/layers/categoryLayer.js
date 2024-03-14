@@ -5,7 +5,7 @@ import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { categoryMappingPanel, dropdownStyles, flexContainer, readOnlyFieldLabel } from './layers.style';
+import { categoryMappingPanel, dropdownStyles, featureClassRow, readOnlyFieldLabel } from './layers.style';
 
 const layerSelector = s => [s.setCategoryLayer, s.textLayerNames];
 
@@ -44,7 +44,7 @@ export const CategoryLayer = ({ name, value }) => {
 
   return (
     <div className={categoryMappingPanel}>
-      <div className={flexContainer}>
+      <div className={featureClassRow}>
         <div className={readOnlyFieldLabel}>
           <FieldLabel required tooltip="Property layer from drawing files used to map IMDF category">
             {name}

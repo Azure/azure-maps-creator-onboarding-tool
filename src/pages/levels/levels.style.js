@@ -1,14 +1,9 @@
 import { css } from '@emotion/css';
-
 import { color, fontSize } from 'common/styles';
 
 export const fileContainer = css`
-  max-width: 45rem;
   border-bottom: 1px solid ${color.darkGray};
-  padding-top: 1.25rem;
-  &:first-child {
-    padding-top: 0;
-  }
+  margin-bottom: 1rem;
   &:last-child {
     border-bottom: none;
   }
@@ -16,7 +11,7 @@ export const fileContainer = css`
 
 export const fieldsRow = css`
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   align-items: flex-start;
 `;
 
@@ -27,12 +22,6 @@ export const fieldLabel = css`
 
 export const inputClass = css`
   width: 100%;
-  max-width: 30rem;
-`;
-
-export const dropdownInputClass = css`
-  width: 100%;
-  max-width: 30rem;
 `;
 
 export const inputStyles = {
