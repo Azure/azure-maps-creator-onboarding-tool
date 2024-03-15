@@ -31,6 +31,10 @@ export const useAssistantStore = createWithEqualityFn(
       useGeometryStore.getState().setDwgLayers(suggestedExterior);
       toast.success('Suggested exterior layers applied', { position: 'top-center' });
 
+      const polygonLayerNames = useLayersStore.getState().polygonLayerNames;
+
+      console.log(polygonLayerNames);
+
       // Save suggestion
       set({
         exteriorLayers: suggestedExterior,
@@ -80,6 +84,21 @@ export const useAssistantStore = createWithEqualityFn(
         }
 
         console.log('Assistant suggestions fetched', res);
+
+        const polygonLayerNames = useLayersStore.getState().polygonLayerNames;
+
+        res.layerMappings.forEach(item => {
+          const { layers } = item;
+          const filtered = layers.filter(layer => polygonLayerNames.includes(layer));
+          item.layers = filtered;
+        });
+
+        res.layerDescriptions = res.layerDescriptions.filter(item => {
+          const found = polygonLayerNames.includes(item.layerName);
+
+          if (!found) console.log('Skipping layer', item.layerName, "because it's not in the polygonLayerNames");
+          return found;
+        });
 
         set({
           fetchedData: res,
