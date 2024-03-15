@@ -31,10 +31,6 @@ export const useAssistantStore = createWithEqualityFn(
       useGeometryStore.getState().setDwgLayers(suggestedExterior);
       toast.success('Suggested exterior layers applied', { position: 'top-center' });
 
-      const polygonLayerNames = useLayersStore.getState().polygonLayerNames;
-
-      console.log(polygonLayerNames);
-
       // Save suggestion
       set({
         exteriorLayers: suggestedExterior,
@@ -136,14 +132,14 @@ export function getDefaultState() {
     loading: false,
     classes: [
       AiConfig.exteriorLayerName,
-      'rooms',
-      'walls',
-      'elevator',
-      'stairs',
-      'glass',
-      'windows',
-      'sills',
-      'shelves',
+      'Rooms',
+      'Walls',
+      'Elevator',
+      'Stairs',
+      'Glass',
+      'Windows',
+      'Sills',
+      'Shelves',
     ],
     fetchedData: null,
     layerDescriptions: [],
