@@ -113,7 +113,7 @@ export const useSuggestedLayers = featureClassName => {
 export function getDefaultState() {
   return {
     loading: false,
-    classes: ['rooms', 'walls', 'elevator', 'stairs', 'glass', 'windows', 'sills', 'shelves'],
+    classes: ['floorOutline', 'rooms', 'walls', 'elevator', 'stairs', 'glass', 'windows', 'sills', 'shelves'],
     fetchedData: null,
     layerDescriptions: [],
     assistantEnabled: true,

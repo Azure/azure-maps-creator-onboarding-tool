@@ -1,10 +1,10 @@
 import { AiConfig } from './config';
 
-export const fetchSuggestionsFromAPI = async (geojson, userRequirements = []) => {
+export const fetchSuggestionsFromAPI = async (dwgDrawings, userRequirements = []) => {
   const url = AiConfig.backendURL;
 
   const body = {
-    geojson,
+    dwgDrawings,
     userRequirements,
   };
 
