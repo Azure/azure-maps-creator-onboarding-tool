@@ -1,18 +1,21 @@
 import { PrimaryButton, TextField } from '@fluentui/react';
 import { InteractionTag, InteractionTagPrimary, InteractionTagSecondary, TagGroup } from '@fluentui/react-components';
+import { useUserStore } from 'common/store';
 import { inputStyles, primaryButtonStyle, textFieldStyle } from 'pages/create-manifest/create-manifest.style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAssistantStore } from '../assistant.store';
 import AiIcon from '../components/ai-icon';
 import AiToggle from '../components/ai-toggle';
 import { addInput, classPanel, mutedText, panelHeader, panelTitle, previewTag } from './index.style';
 
 const AiClassPanel = () => {
-  const [assistantEnabled, classes, setClasses] = useAssistantStore(state => [
+  const [assistantEnabled, classes, setClasses, toggleAssistant] = useAssistantStore(state => [
     state.assistantEnabled,
     state.classes,
     state.setClasses,
+    state.toggleAssistant,
   ]);
+  const [geography] = useUserStore(store => [store.geography]);
 
   const handleRemoveClass = (event, target) => {
     setClasses(classes.filter(c => c !== target.value));
@@ -37,6 +40,15 @@ const AiClassPanel = () => {
       addNewClass();
     }
   };
+
+  const validGeography = geography === 'US_TEST';
+
+  useEffect(() => {
+    toggleAssistant(validGeography);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [validGeography]);
+
+  if (!validGeography) return null;
 
   return (
     <div className={classPanel}>
