@@ -54,6 +54,8 @@ export const useAssistantStore = createWithEqualityFn(
       });
     },
     fetchSuggestions: async geojson => {
+      console.log(geojson);
+
       if (!get().assistantEnabled) {
         console.log('Assistant is disabled, skipping fetchSuggestions');
         return;
@@ -113,7 +115,17 @@ export const useSuggestedLayers = featureClassName => {
 export function getDefaultState() {
   return {
     loading: false,
-    classes: ['floorOutline', 'rooms', 'walls', 'elevator', 'stairs', 'glass', 'windows', 'sills', 'shelves'],
+    classes: [
+      AiConfig.exteriorLayerName,
+      'rooms',
+      'walls',
+      'elevator',
+      'stairs',
+      'glass',
+      'windows',
+      'sills',
+      'shelves',
+    ],
     fetchedData: null,
     layerDescriptions: [],
     assistantEnabled: true,
