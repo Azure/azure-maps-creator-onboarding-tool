@@ -3,6 +3,7 @@ import { PATHS } from 'common';
 import { useCustomNavigate } from 'hooks';
 import { useState } from 'react';
 import { useAssistantStore } from './assistant.store';
+import AiFeedbackSimple from './components/ai-feedback-simple';
 import AiToggle from './components/ai-toggle';
 import { actionWrapper } from './drawer.style';
 
@@ -51,6 +52,9 @@ const DrawerContent = () => {
             <PrimaryButton onClick={handleLayersClick} disabled={!assistantEnabled}>
               Layers
             </PrimaryButton>
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <AiFeedbackSimple text="How was the layer suggestion?" />
           </div>
         </Section>
         <Section title="Explanation">

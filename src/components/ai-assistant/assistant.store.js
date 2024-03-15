@@ -23,6 +23,9 @@ export const useAssistantStore = createWithEqualityFn(
         classes,
       });
     },
+    setFeedbackGiven: () => {
+      set({ feedbackGiven: true });
+    },
     suggestExterior: () => {
       const suggestedExterior =
         get().fetchedData?.layerMappings.find(item => item.featureClass === AiConfig.exteriorLayerName)?.layers ?? [];
@@ -34,6 +37,7 @@ export const useAssistantStore = createWithEqualityFn(
       // Save suggestion
       set({
         exteriorLayers: suggestedExterior,
+        shouldDisplayFeedback: true,
       });
     },
     suggestLayers: () => {
@@ -51,6 +55,7 @@ export const useAssistantStore = createWithEqualityFn(
 
       set({
         layers: suggestedFeatureClasses,
+        shouldDisplayFeedback: true,
       });
     },
     fetchSuggestions: async geojson => {
@@ -136,5 +141,7 @@ export function getDefaultState() {
     assistantEnabled: true,
     exteriorLayers: [],
     layers: [],
+    feedbackGiven: false,
+    shouldDisplayFeedback: false,
   };
 }
