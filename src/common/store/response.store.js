@@ -2,6 +2,7 @@ import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } f
 import { clearCloudStorageData } from 'common/api/conversions';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
+import { useAssistantStore } from 'components/ai-assistant/assistant.store';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { useGeometryStore } from './geometry.store';
@@ -209,6 +210,8 @@ export const useResponseStore = createWithEqualityFn(
               });
             }
           }
+
+          await useAssistantStore.getState().fetchSuggestions(data);
 
           set(() => ({
             lroStatus: LRO_STATUS.SUCCEEDED,

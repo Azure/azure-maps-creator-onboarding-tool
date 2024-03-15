@@ -1,6 +1,8 @@
 import { TextField } from '@fluentui/react';
 import { useGeometryStore, useLayersStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { useSuggestedExteriorLayers } from 'components/ai-assistant/assistant.store';
+import AiIcon from 'components/ai-assistant/components/ai-icon';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
@@ -21,6 +23,8 @@ function Georeference() {
   const polygonLayers = useLayersStore(layersSelector);
   const { isPlacesPreview } = useFeatureFlags();
   const { failed } = useValidationStatus();
+  const suggestedLayers = useSuggestedExteriorLayers();
+
   const options = useMemo(() => {
     if (polygonLayers.length === 0) {
       return [
@@ -33,8 +37,9 @@ function Georeference() {
     return polygonLayers.map(layer => ({
       key: layer,
       text: layer,
+      prefix: suggestedLayers.includes(layer) ? <AiIcon size="small" /> : null,
     }));
-  }, [t, polygonLayers]);
+  }, [t, polygonLayers, suggestedLayers]);
 
   const onExteriorLayersSelect = useCallback(
     (e, item) => {
