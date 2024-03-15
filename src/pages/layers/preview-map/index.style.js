@@ -15,9 +15,7 @@ export const dropdownContainer = css`
 `;
 
 export const previewDropdownStyles = css`
-  // align-self: baseline;
-  // width: calc(50% - 1.5rem);
-  // max-width: 15rem;
+  width: calc((516px - 1rem) / 2);
 `;
 
 export const selectContainer = css`
