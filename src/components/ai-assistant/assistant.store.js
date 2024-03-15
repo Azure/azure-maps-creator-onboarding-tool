@@ -75,7 +75,7 @@ export const useAssistantStore = createWithEqualityFn(
           await new Promise(resolve => setTimeout(resolve, 3000));
         } else {
           const classes = get().classes;
-          const rawRes = await fetchSuggestionsFromAPI(geojson, classes);
+          const rawRes = await fetchSuggestionsFromAPI(geojson, [...classes, AiConfig.exteriorLayerName]);
           res = await rawRes.json();
         }
 
@@ -130,17 +130,7 @@ export const useSuggestedLayers = featureClassName => {
 export function getDefaultState() {
   return {
     loading: false,
-    classes: [
-      AiConfig.exteriorLayerName,
-      'Rooms',
-      'Walls',
-      'Elevator',
-      'Stairs',
-      'Glass',
-      'Windows',
-      'Sills',
-      'Shelves',
-    ],
+    classes: ['Rooms', 'Walls', 'Elevator', 'Stairs', 'Glass', 'Windows', 'Sills', 'Shelves'],
     fetchedData: null,
     layerDescriptions: [],
     assistantEnabled: true,
