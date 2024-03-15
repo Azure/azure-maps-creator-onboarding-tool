@@ -33,3 +33,8 @@ export const addInput = css`
   display: flex;
   gap: 4px;
 `;
+
+export const mutedText = css`
+  color: #777;
+  margin-top: 1rem;
+`;

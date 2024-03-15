@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useAssistantStore } from '../assistant.store';
 import AiIcon from '../components/ai-icon';
 import AiToggle from '../components/ai-toggle';
-import { addInput, classPanel, panelHeader, panelTitle, previewTag } from './index.style';
+import { addInput, classPanel, mutedText, panelHeader, panelTitle, previewTag } from './index.style';
 
 const AiClassPanel = () => {
   const [assistantEnabled, classes, setClasses] = useAssistantStore(state => [
@@ -78,6 +78,11 @@ const AiClassPanel = () => {
                 </InteractionTag>
               ))}
             </TagGroup>
+
+            <div className={mutedText}>
+              *Displaying predefined list of class names you might be interested in. Feel free to add additional classes
+              or remove predefined ones.
+            </div>
           </div>
         </div>
       )}
