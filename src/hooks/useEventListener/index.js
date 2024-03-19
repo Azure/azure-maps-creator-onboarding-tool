@@ -32,6 +32,7 @@ const EVENTS = {
   MOUSE_MOVE: 'mousemove',
   MOUSE_UP: 'mouseup',
   WHEEL: 'wheel',
+  RESIZE: 'resize',
 };
 
 export { EVENTS };

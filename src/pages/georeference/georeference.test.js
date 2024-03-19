@@ -6,6 +6,7 @@ import Georeference from './georeference';
 jest.mock('./checked-map', () => () => <div>it's map</div>);
 jest.mock('hooks', () => ({
   useFeatureFlags: () => ({ isPlacesPreview: false }),
+  useEventListener: () => {},
 }));
 
 describe('Georeference', () => {
