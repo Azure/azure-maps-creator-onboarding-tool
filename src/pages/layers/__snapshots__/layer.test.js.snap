@@ -424,7 +424,9 @@ Object {
             aria-hidden="true"
             class="fui-Option__checkIcon ___12nzoej_6q04f40 f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fq0vr37 f1byw159 f1c1zstj f11cr0be f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7"
           />
-          layer31
+          <span>
+            layer31
+          </span>
         </div>
         <div
           aria-checked="true"
@@ -452,7 +454,9 @@ Object {
               />
             </svg>
           </span>
-          layer32
+          <span>
+            layer32
+          </span>
         </div>
       </div>
     </div>
@@ -1305,7 +1309,9 @@ Object {
             aria-hidden="true"
             class="fui-Option__checkIcon ___12nzoej_6q04f40 f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fq0vr37 f1byw159 f1c1zstj f11cr0be f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7"
           />
-          layer31
+          <span>
+            layer31
+          </span>
         </div>
         <div
           aria-checked="false"
@@ -1318,7 +1324,9 @@ Object {
             aria-hidden="true"
             class="fui-Option__checkIcon ___12nzoej_6q04f40 f1ugzwwg f18b9hdq f1xk557c f1022m68 fvc9v3g f192inf7 f5tn483 f1vxd6vx f1ojsxk5 fzkkow9 fcdblym fg706s2 fjik90z fq0vr37 f1byw159 f1c1zstj f11cr0be f1g3puop fi2rrw2 f1rstyi9 f1s4nn1u f1ewtqcl f22iagw f122n59 f4d9j23 f1w9h62z fd461yt fjw5fx7"
           />
-          layer32
+          <span>
+            layer32
+          </span>
         </div>
       </div>
     </div>
