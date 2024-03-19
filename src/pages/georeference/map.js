@@ -84,14 +84,13 @@ const Map = props => {
     ? {}
     : {
         customControls,
-        controls,
         events: { move },
       };
 
   return (
     <AzureMapsProvider>
       <div className={cx(mapContainerStyle, className)} style={style}>
-        <AzureMap options={azureMapOptions} {...mapProps}>
+        <AzureMap options={azureMapOptions} controls={controls} {...mapProps}>
           <AzureMapDataSourceProvider id="OutlineMapDataSourceProvider">
             <AzureMapLayerProvider
               id="OutlineLayerProvider"
