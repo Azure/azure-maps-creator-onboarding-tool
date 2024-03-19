@@ -22,10 +22,15 @@ const betaFeature = false;
 
 const geometrySelector = s => s.dwgLayers;
 const layersSelector = s => [s.dwgLayers, s.layers, s.getLayerNameError, s.previewSingleFeatureClass];
-const canvasSide = 516;
+
+const defaultCanvasWidth = 516;
+const defaultCanvasHeight = 516;
+
 const canvasPadding = 15;
 
-const Preview = () => {
+const Preview = props => {
+  const { width = defaultCanvasWidth, height = defaultCanvasHeight } = props;
+
   const canvasRef = useRef(null);
   const drawRef = useRef(() => {});
 
@@ -51,7 +56,7 @@ const Preview = () => {
 
   const drawings = useMemo(() => Object.keys(dwgLayers), [dwgLayers]);
 
-  const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers), [dwgLayers]);
+  const midPoints = useMemo(() => getMidPointsFromLayers(dwgLayers, width, height), [dwgLayers, width, height]);
 
   const allLayers = useMemo(
     () =>
@@ -197,7 +202,7 @@ const Preview = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvasSide, canvasSide);
+    ctx.clearRect(0, 0, width, height);
     ctx.strokeStyle = '#333';
     ctx.save();
 
@@ -243,8 +248,8 @@ const Preview = () => {
 
     const applyPointPadding = (x, y) => {
       return [
-        canvasPadding + (x * (canvasSide - 2 * canvasPadding)) / canvasSide,
-        canvasPadding + (y * (canvasSide - 2 * canvasPadding)) / canvasSide,
+        canvasPadding + (x * (width - 2 * canvasPadding)) / width,
+        canvasPadding + (y * (height - 2 * canvasPadding)) / height,
       ];
     };
 
@@ -257,8 +262,8 @@ const Preview = () => {
         const distanceX = point[0] - midPoints.midX;
         // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
         const distanceY = midPoints.midY - point[1];
-        const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
-        const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
+        const newX = width / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
+        const newY = height / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
         return applyPointPadding(newX, newY);
       });
 
@@ -276,8 +281,8 @@ const Preview = () => {
     pointsAndMultiPoints.forEach(point => {
       const distanceX = point[0] - midPoints.midX;
       const distanceY = midPoints.midY - point[1];
-      const newX = canvasSide / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
-      const newY = canvasSide / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
+      const newX = width / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
+      const newY = height / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
       ctx.fillRect(...applyPointPadding(newX, newY), 1, 1);
     });
 
@@ -288,7 +293,7 @@ const Preview = () => {
     controls.reset();
     draw();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [layers, midPoints]);
+  }, [layers, midPoints, width, height]);
 
   drawRef.current = draw;
 
@@ -329,13 +334,13 @@ const Preview = () => {
           </div>
         )}
       </div>
-      <div style={{ position: 'relative', width: canvasSide, height: canvasSide }}>
+      <div style={{ position: 'relative', width, height }}>
         <MapControls controls={controls} />
         <canvas
           ref={canvasRef}
           className={previewCanvas}
-          width={canvasSide}
-          height={canvasSide}
+          width={width}
+          height={height}
           style={{
             cursor: isPanning ? 'grabbing' : 'grab',
           }}
@@ -347,7 +352,7 @@ const Preview = () => {
 
 export default Preview;
 
-function getMidPointsFromLayers(dwgLayers) {
+function getMidPointsFromLayers(dwgLayers, width, height) {
   const allLayers = Object.keys(dwgLayers).reduce((acc, dwgLayer) => acc.concat(dwgLayers[dwgLayer]), []);
   let minX = null;
   let maxX = null;
@@ -405,9 +410,9 @@ function getMidPointsFromLayers(dwgLayers) {
   const diffX = maxX - minX;
   const diffY = maxY - minY;
   const diff = diffX > diffY ? diffX : diffY;
-  const multiplier = canvasSide / diff;
-  const offsetY = diffX > diffY ? (canvasSide - multiplier * diffY) / 3 : 0;
-  const offsetX = diffX < diffY ? 0 : (canvasSide - multiplier * diffX) / 3;
+  const multiplier = Math.min(width, height) / diff;
+  const offsetY = diffX > diffY ? (width - multiplier * diffY) / 3 : 0;
+  const offsetX = diffX < diffY ? 0 : (height - multiplier * diffX) / 3;
 
   return {
     multiplier,
