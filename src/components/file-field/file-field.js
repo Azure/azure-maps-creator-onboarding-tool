@@ -4,7 +4,7 @@ import FieldError from 'components/field-error';
 import FieldLabel from 'components/field-label';
 import DeleteIcon from 'pages/layers/delete-icon';
 import PropTypes from 'prop-types';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TEST_ID } from '../../pages/create-manifest/create-manifest';
 import {
@@ -45,6 +45,8 @@ const FileField = props => {
   } = props;
 
   const { t } = useTranslation();
+
+  const fileInputRef = useRef(null);
   const [filename, setFilename] = useState('');
 
   const onTextFieldClick = useCallback(() => {
@@ -59,6 +61,12 @@ const FileField = props => {
     [id]
   );
 
+  const clearFile = useCallback(() => {
+    setFilename('');
+    if (fileInputRef.current) fileInputRef.current.value = '';
+    onFileSelect(null);
+  }, [onFileSelect]);
+
   const pickFile = useCallback(
     e => {
       const { files } = e.target;
@@ -71,14 +79,12 @@ const FileField = props => {
       const { name, size, type } = files[0];
 
       if (size > maxFileSize) {
-        setFilename('');
-        onFileSelect(null);
+        clearFile();
         onError(t(errors.fileSizeExceeded));
         return;
       }
       if (!fileTypes[fileType].includes(type)) {
-        setFilename('');
-        onFileSelect(null);
+        clearFile();
         onError(t(errors.fileTypeIncorrect, { type: fileType.toUpperCase() }));
         return;
       }
@@ -86,7 +92,7 @@ const FileField = props => {
       setFilename(name);
       onFileSelect(files[0]);
     },
-    [fileType, onError, onFileSelect, setFilename, t]
+    [fileType, onError, onFileSelect, setFilename, clearFile, t]
   );
 
   useEffect(() => {
@@ -100,11 +106,6 @@ const FileField = props => {
     if (typeof errorMessage === 'string') return errorMessage;
     if (typeof errorMessage === 'function') return errorMessage();
   }, [errorMessage]);
-
-  const handleRemoveFile = () => {
-    setFilename('');
-    onFileSelect(null);
-  };
 
   return (
     <div className={formRowStyle}>
@@ -126,11 +127,11 @@ const FileField = props => {
           onKeyPress={onTextFieldKeyPress}
           errorMessage={showError && message && <FieldError text={message} />}
         />
-        {allowClear && filename && <DeleteIcon onDelete={handleRemoveFile} />}
+        {allowClear && filename && <DeleteIcon onDelete={clearFile} />}
         <label htmlFor={id} className={browseButtonStyle}>
           <span className={browseButtonContentStyle}>{t('browse')}</span>
         </label>
-        <input className={fileInputStyle} id={id} data-testid={id} onChange={pickFile} type="file" />
+        <input className={fileInputStyle} id={id} data-testid={id} onChange={pickFile} type="file" ref={fileInputRef} />
       </div>
     </div>
   );
