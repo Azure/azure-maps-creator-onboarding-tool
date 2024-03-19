@@ -4,6 +4,7 @@ import { languages } from 'common/languages';
 import { useGeometryStore, useLayersStore, useLevelsStore, useReviewManifestStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { color } from 'common/styles';
+import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import CheckedMap from 'pages/georeference/checked-map';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,13 +14,11 @@ import {
   layerPill,
   noBorder,
   sectionTitle,
-  summaryColumn,
   summaryEntry,
   summaryEntryTitle,
   summaryMap,
   summaryMapWrapper,
   summaryPanel,
-  summaryRow,
 } from './summary.style';
 
 const reviewManifestSelector = s => s.setManifestReviewed;
@@ -57,8 +56,8 @@ const SummaryTab = () => {
   if (!success) return null;
 
   return (
-    <div className={summaryRow}>
-      <div className={summaryColumn}>
+    <ColumnLayout>
+      <ColumnLayoutItem>
         <div className={summaryPanel}>
           <div className={sectionTitle}>{t('building.levels')}</div>
           <SummaryEntry title={t('language')}>{languages[language]}</SummaryEntry>
@@ -131,12 +130,12 @@ const SummaryTab = () => {
           </MessageBar>
           <DownloadConfigButton style={{ marginTop: '1rem' }} />
         </div>
-      </div>
-      <div className={cx(summaryColumn, summaryMapWrapper)}>
+      </ColumnLayoutItem>
+      <div className={summaryMapWrapper}>
         <div className={sectionTitle}>Map Preview</div>
         <CheckedMap className={summaryMap} readOnly />
       </div>
-    </div>
+    </ColumnLayout>
   );
 };
 

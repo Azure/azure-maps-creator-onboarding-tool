@@ -1,6 +1,7 @@
 import { TextField } from '@fluentui/react';
 import { languages, languagesList } from 'common/languages';
 import { useLevelsStore, useProgressBarStore } from 'common/store';
+import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
 import FieldLabel from 'components/field-label';
@@ -9,7 +10,7 @@ import { useFeatureFlags } from 'hooks';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Level from './level';
-import { dropdownInputClass, fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles } from './levels.style';
+import { fieldLabel, fieldsRow, fileContainer, inputClass, inputStyles } from './levels.style';
 
 const levelsSelector = s => [
   s.levels,
@@ -60,46 +61,47 @@ const Levels = () => {
   const labelTooltip = isPlacesPreview ? t('building.name.tooltip') : t('facility.name.tooltip');
 
   return (
-    <div>
-      <PageDescription description={t('page.description.levels')} />
-
-      <div className={fileContainer}>
-        {isPlacesPreview && (
+    <ColumnLayout>
+      <ColumnLayoutItem>
+        <PageDescription description={t('page.description.levels')} />
+        <div className={fileContainer}>
+          {isPlacesPreview && (
+            <div className={fieldsRow}>
+              <div className={fieldLabel}>
+                <FieldLabel tooltip={t('language.tooltip')}>{t('language')}</FieldLabel>
+              </div>
+              <Dropdown
+                onOptionSelect={handleLanguageChange}
+                showFilter
+                options={mappedLanguages}
+                selectedKey={language}
+                className={inputClass}
+              >
+                {languages[language]}
+              </Dropdown>
+            </div>
+          )}
           <div className={fieldsRow}>
             <div className={fieldLabel}>
-              <FieldLabel tooltip={t('language.tooltip')}>{t('language')}</FieldLabel>
+              <FieldLabel required={isPlacesPreview} tooltip={labelTooltip}>
+                {labelName}
+              </FieldLabel>
             </div>
-            <Dropdown
-              onOptionSelect={handleLanguageChange}
-              showFilter
-              options={mappedLanguages}
-              selectedKey={language}
-              className={dropdownInputClass}
-            >
-              {languages[language]}
-            </Dropdown>
+            <TextField
+              ariaLabel={labelName}
+              onChange={onFacilityNameChange}
+              styles={inputStyles}
+              className={inputClass}
+              value={facilityName}
+              errorMessage={facilityNameErrorMsg}
+            />
           </div>
-        )}
-        <div className={fieldsRow}>
-          <div className={fieldLabel}>
-            <FieldLabel required={isPlacesPreview} tooltip={labelTooltip}>
-              {labelName}
-            </FieldLabel>
-          </div>
-          <TextField
-            ariaLabel={labelName}
-            onChange={onFacilityNameChange}
-            styles={inputStyles}
-            className={inputClass}
-            value={facilityName}
-            errorMessage={facilityNameErrorMsg}
-          />
         </div>
-      </div>
-      {levels.map((level, id) => (
-        <Level key={`${level.filename}${id}`} level={level} />
-      ))}
-    </div>
+        {levels.map((level, id) => (
+          <Level key={`${level.filename}${id}`} level={level} />
+        ))}
+      </ColumnLayoutItem>
+    </ColumnLayout>
   );
 };
 

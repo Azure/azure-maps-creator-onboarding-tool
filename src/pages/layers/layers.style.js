@@ -1,22 +1,17 @@
 import { css } from '@emotion/css';
-
 import { fontSize } from 'common/styles';
 
-export const layersWithPreview = css`
-  display: flex;
-  flex-flow: wrap;
-  gap: 3rem;
-`;
-
-export const layersContainer = css`
-  width: 47rem;
-  max-width: 100%;
-`;
+export const layersWrapper = css``;
 
 export const layerRow = css`
   width: 100%;
   padding: 1rem 0;
   border-top: 1px solid #bbb;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 `;
 
 export const categoryLayerRow = css`
@@ -43,10 +38,10 @@ export const singlePropertyRow = css`
   width: 100%;
 `;
 
-export const flexContainer = css`
+export const featureClassRow = css`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const newPropContainer = css`

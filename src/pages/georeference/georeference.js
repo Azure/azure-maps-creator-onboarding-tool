@@ -1,26 +1,16 @@
-import { cx } from '@emotion/css';
 import { TextField } from '@fluentui/react';
 import { useGeometryStore, useLayersStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import FillScreenContainer from 'components/fill-screen-container';
 import PageDescription from 'components/page-description/page-description';
 import { useFeatureFlags } from 'hooks';
-import { fieldLabel } from 'pages/levels/levels.style';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import CheckedMap from './checked-map';
-import {
-  container,
-  dropdownStyles,
-  regularContainer,
-  textFieldColumn,
-  textFieldLabelStyle,
-  textFieldRow,
-  textFieldStyle,
-  textInputStyles,
-} from './georeference.style';
+import { textFieldLabelStyle, textFieldRow, textFieldStyle, textInputStyles } from './georeference.style';
 
 const geometryStoreSelector = s => [s.dwgLayers, s.setDwgLayers, s.anchorPoint.coordinates, s.anchorPoint.angle];
 const layersSelector = s => s.polygonLayerNames;
@@ -57,73 +47,73 @@ function Georeference() {
   );
 
   return (
-    <>
-      <div className={cx(container, { [regularContainer]: !isPlacesPreview })}>
-        <div className={textFieldColumn}>
-          <PageDescription description={t('page.description.georeference')} />
-          <div className={textFieldRow}>
-            <div className={fieldLabel}>
-              <FieldLabel tooltip={isPlacesPreview ? t('footprint.tooltip') : t('exterior.tooltip')} required>
-                {isPlacesPreview ? t('footprint') : t('exterior')}
-              </FieldLabel>
-            </div>
-            <Dropdown
-              placeholder={t('geography')}
-              onOptionSelect={onExteriorLayersSelect}
-              className={dropdownStyles}
-              options={options}
-              multiselect={polygonLayers.length !== 0 && !isPlacesPreview}
-              selectedOptions={dwgLayers}
-              showFilter
-              showError={failed}
-              errorMessage={() => (dwgLayers.length === 0 ? t('error.field.is.required') : '')}
-            >
-              {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
-            </Dropdown>
-          </div>
-          {!isPlacesPreview && (
-            <div>
-              <div className={textFieldRow}>
-                <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.longitude')}</FieldLabel>
-                <TextField
-                  disabled
-                  readOnly
-                  value={anchorPointCoordinates[0].toString()}
-                  className={textFieldStyle}
-                  ariaLabel={t('anchor.point.longitude')}
-                  styles={textInputStyles}
-                />
-              </div>
-              <div className={textFieldRow}>
-                <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.latitude')}</FieldLabel>
-                <TextField
-                  disabled
-                  readOnly
-                  value={anchorPointCoordinates[1].toString()}
-                  className={textFieldStyle}
-                  ariaLabel={t('anchor.point.latitude')}
-                  styles={textInputStyles}
-                />
-              </div>
-              <div className={textFieldRow}>
-                <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.angle')}</FieldLabel>
-                <TextField
-                  disabled
-                  readOnly
-                  value={anchorPointAngle.toString()}
-                  className={textFieldStyle}
-                  ariaLabel={t('anchor.point.angle')}
-                  styles={textInputStyles}
-                />
-              </div>
-            </div>
-          )}
+    <ColumnLayout forceRows={isPlacesPreview}>
+      <ColumnLayoutItem>
+        <PageDescription description={t('page.description.georeference')} />
+        <div className={textFieldRow}>
+          <FieldLabel
+            className={textFieldLabelStyle}
+            tooltip={isPlacesPreview ? t('footprint.tooltip') : t('exterior.tooltip')}
+            required
+          >
+            {isPlacesPreview ? t('footprint') : t('exterior')}
+          </FieldLabel>
+          <Dropdown
+            placeholder={t('geography')}
+            onOptionSelect={onExteriorLayersSelect}
+            className={textFieldStyle}
+            options={options}
+            multiselect={polygonLayers.length !== 0 && !isPlacesPreview}
+            selectedOptions={dwgLayers}
+            showFilter
+            showError={failed}
+            errorMessage={() => (dwgLayers.length === 0 ? t('error.field.is.required') : '')}
+          >
+            {dwgLayers.length ? dwgLayers.join(', ') : t('select.layers')}
+          </Dropdown>
         </div>
-        <FillScreenContainer offsetBottom="6rem" offsetRight="2.5rem">
-          {({ height, width }) => <CheckedMap style={{ minHeight: height, minWidth: width }} />}
-        </FillScreenContainer>
-      </div>
-    </>
+        {!isPlacesPreview && (
+          <div>
+            <div className={textFieldRow}>
+              <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.longitude')}</FieldLabel>
+              <TextField
+                disabled
+                readOnly
+                value={anchorPointCoordinates[0].toString()}
+                className={textFieldStyle}
+                ariaLabel={t('anchor.point.longitude')}
+                styles={textInputStyles}
+              />
+            </div>
+            <div className={textFieldRow}>
+              <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.latitude')}</FieldLabel>
+              <TextField
+                disabled
+                readOnly
+                value={anchorPointCoordinates[1].toString()}
+                className={textFieldStyle}
+                ariaLabel={t('anchor.point.latitude')}
+                styles={textInputStyles}
+              />
+            </div>
+            <div className={textFieldRow}>
+              <FieldLabel className={textFieldLabelStyle}>{t('anchor.point.angle')}</FieldLabel>
+              <TextField
+                disabled
+                readOnly
+                value={anchorPointAngle.toString()}
+                className={textFieldStyle}
+                ariaLabel={t('anchor.point.angle')}
+                styles={textInputStyles}
+              />
+            </div>
+          </div>
+        )}
+      </ColumnLayoutItem>
+      <FillScreenContainer offsetBottom="6rem" offsetRight="2.5rem">
+        {({ height, width }) => <CheckedMap style={{ minHeight: height, minWidth: width }} />}
+      </FillScreenContainer>
+    </ColumnLayout>
   );
 }
 

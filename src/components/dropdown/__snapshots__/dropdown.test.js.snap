@@ -92,7 +92,9 @@ Object {
               />
             </svg>
           </span>
-          text1
+          <span>
+            text1
+          </span>
         </div>
         <div
           aria-selected="false"
@@ -120,7 +122,9 @@ Object {
               />
             </svg>
           </span>
-          text2
+          <span>
+            text2
+          </span>
         </div>
         <div
           aria-selected="false"
@@ -148,7 +152,9 @@ Object {
               />
             </svg>
           </span>
-          text3
+          <span>
+            text3
+          </span>
         </div>
       </div>
     </div>
@@ -355,7 +361,9 @@ Object {
                 />
               </svg>
             </span>
-            text1
+            <span>
+              text1
+            </span>
           </div>
         </div>
         <div
@@ -388,7 +396,9 @@ Object {
                 />
               </svg>
             </span>
-            text2
+            <span>
+              text2
+            </span>
           </div>
           <div
             aria-selected="false"
@@ -416,7 +426,9 @@ Object {
                 />
               </svg>
             </span>
-            text3
+            <span>
+              text3
+            </span>
           </div>
         </div>
       </div>
