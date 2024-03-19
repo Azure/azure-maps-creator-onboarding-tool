@@ -1,3 +1,5 @@
+import { useEventListener } from 'hooks';
+import { EVENTS } from 'hooks/useEventListener';
 import React, { useEffect, useRef, useState } from 'react';
 
 const FillScreenContainer = props => {
@@ -15,7 +17,7 @@ const FillScreenContainer = props => {
 
   const mixedClassName = `fill-height-wrapper ${className}`;
 
-  useEffect(() => {
+  const calulateStyle = () => {
     const top = ref.current?.getBoundingClientRect().top;
     const left = ref.current?.getBoundingClientRect().left;
 
@@ -31,6 +33,12 @@ const FillScreenContainer = props => {
       height: `calc(100vh - ${top}px - ${offsetBottom}px)`,
       width: `calc(100vw - ${left}px - ${offsetRight}px)`,
     });
+  };
+
+  useEventListener(calulateStyle, [EVENTS.RESIZE]);
+
+  useEffect(() => {
+    calulateStyle();
     // eslint-disable-next-line
   }, [ref.current]);
 
