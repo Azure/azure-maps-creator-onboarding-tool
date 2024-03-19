@@ -11,7 +11,6 @@ import {
   previewContainerStyles,
   previewDescription,
   previewDropdownStyles,
-  previewSelectTitle,
   previewTitle,
   previewTitleWrapper,
   selectContainer,
@@ -302,7 +301,7 @@ const Preview = () => {
 
       <div className={dropdownContainer}>
         <div className={cx(selectContainer, { [inlineSelectContainer]: isPlacesPreview })}>
-          <div className={previewSelectTitle}>Level</div>
+          <div>Level</div>
           <Dropdown
             onOptionSelect={onLevelsChange}
             className={previewDropdownStyles}
@@ -315,7 +314,7 @@ const Preview = () => {
         </div>
         {!isPlacesPreview && (
           <div className={selectContainer}>
-            <div className={previewSelectTitle}>Feature Class</div>
+            <div>Feature Class</div>
             <Dropdown
               onOptionSelect={onLayerDropdownChange}
               className={previewDropdownStyles}
