@@ -75,9 +75,9 @@ const CreateManifestPage = () => {
       return;
     }
 
-    uploadFile(file, { isPlacesPreview });
+    uploadFile(file);
     navigate(PATHS.PROCESSING);
-  }, [file, navigate, subKey, uploadFile, isPlacesPreview]);
+  }, [file, navigate, subKey, uploadFile]);
 
   const updateSubKey = useCallback(e => setSubKey(e.target.value), [setSubKey]);
   const updateGeo = useCallback(

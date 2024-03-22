@@ -2,6 +2,9 @@ import { useEventListener } from 'hooks';
 import { EVENTS } from 'hooks/useEventListener';
 import { useRef, useState } from 'react';
 
+const MIN_ZOOM = 0.2;
+const MAX_ZOOM = 25;
+
 const useTransformations = attrs => {
   const { canvasRef, drawRef } = attrs;
 
@@ -48,7 +51,7 @@ const useTransformations = attrs => {
 
     // Calculate the zoom factor
     const sensitivity = currentZoom / 5;
-    const newZoom = Math.max(0.1, Math.min(currentZoom + zoomDirection * sensitivity, 10));
+    const newZoom = Math.max(MIN_ZOOM, Math.min(currentZoom + zoomDirection * sensitivity, MAX_ZOOM));
 
     // Calculate how much we need to scale the translation
     const scale = newZoom / currentZoom;
