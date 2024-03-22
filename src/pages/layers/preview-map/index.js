@@ -294,14 +294,14 @@ const Preview = props => {
     });
 
     mergedTextLayer.forEach(layer => {
-      const [x, y] = layer.displayPoint;
+      const [x, y] = toRelativePoint(...layer.displayPoint);
 
       ctx.font = '2px Arial';
       ctx.fillStyle = '#0068b7';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      ctx.fillText(layer.value, toRelativePoint(x, y));
+      ctx.fillText(layer.value, x, y);
     });
 
     ctx.restore();
