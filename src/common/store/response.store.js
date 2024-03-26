@@ -162,7 +162,14 @@ export const useResponseStore = create((set, get) => ({
             });
           });
           useLayersStore.getState().addPolygonLayers(polygonLayers);
-          drawing.textLayers.forEach(name => textLayerNames.add(name));
+          drawing.textLayers.forEach(layer => {
+            // check if layer is just string or object - to support old and new format
+            if (layer.name) {
+              textLayerNames.add(layer.name);
+            } else {
+              textLayerNames.add(layer);
+            }
+          });
         });
 
         if (polygonLayerNames.size === 0) {
