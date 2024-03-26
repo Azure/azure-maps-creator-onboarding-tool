@@ -2,6 +2,8 @@ import { TextField } from '@fluentui/react';
 import { useLayersStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { FieldLabel } from 'components';
+import { useSuggestedLayers } from 'components/ai-assistant/assistant.store';
+import AiIcon from 'components/ai-assistant/components/ai-icon';
 import Dropdown from 'components/dropdown';
 import FieldError from 'components/field-error';
 import { useFeatureFlags } from 'hooks';
@@ -45,6 +47,8 @@ export const Layer = ({ id, name, tooltip, value, props, isDraft, readOnlyName =
   const { isPlacesPreview } = useFeatureFlags();
   const filteredLayerNames = isPlacesPreview ? polygonLayerNames : layerNames;
 
+  const suggestedLayers = useSuggestedLayers(name);
+
   const options = useMemo(() => {
     if (filteredLayerNames.length === 0) {
       return [
@@ -57,8 +61,9 @@ export const Layer = ({ id, name, tooltip, value, props, isDraft, readOnlyName =
     return filteredLayerNames.map(layer => ({
       key: layer,
       text: layer,
+      prefix: suggestedLayers.includes(layer) ? <AiIcon size="small" /> : null,
     }));
-  }, [t, filteredLayerNames]);
+  }, [t, filteredLayerNames, suggestedLayers]);
 
   const deleteThisLayer = useCallback(() => {
     deleteLayer(id);
