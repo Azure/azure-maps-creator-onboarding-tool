@@ -289,7 +289,7 @@ export const mockData = {
     },
     {
       featureClass: 'Rooms',
-      layers: ['RM', 'RM$', 'A-BOMA'],
+      layers: ['RM$', 'A-BOMA'],
     },
     {
       featureClass: 'Walls',
