@@ -55,6 +55,7 @@ describe('layers store', () => {
       polygonLayers: [],
       polygonLayerNames: [],
       previewSingleFeatureClass: null,
+      textLayers: [],
       textLayerNames: [],
       visited: false,
       layers: [

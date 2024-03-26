@@ -3,6 +3,7 @@ import { useLayersStore } from 'common/store';
 import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import FileField from 'components/file-field/file-field';
+import FillScreenContainer from 'components/fill-screen-container';
 import PageDescription from 'components/page-description/page-description';
 import { useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -100,7 +101,9 @@ export const Units = () => {
           </div>
         )}
       </ColumnLayoutItem>
-      <Preview />
+      <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={150} offsetRight={20}>
+        {({ height, width }) => <Preview height={height} width={width} />}
+      </FillScreenContainer>
     </ColumnLayout>
   );
 };

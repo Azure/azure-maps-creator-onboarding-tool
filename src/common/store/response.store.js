@@ -3,6 +3,7 @@ import { clearCloudStorageData } from 'common/api/conversions';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
 import { useAssistantStore } from 'components/ai-assistant/assistant.store';
+import { getFeatureFlags } from 'utils';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { useGeometryStore } from './geometry.store';
@@ -37,7 +38,8 @@ export const useResponseStore = createWithEqualityFn(
         errorMessage: '',
       });
     },
-    uploadFile: (file, { isPlacesPreview }) => {
+    uploadFile: file => {
+      const { isPlacesPreview } = getFeatureFlags();
       if (isPlacesPreview) {
         clearCloudStorageData();
       }
@@ -169,7 +171,21 @@ export const useResponseStore = createWithEqualityFn(
               });
             });
             useLayersStore.getState().addPolygonLayers(polygonLayers);
-            drawing.textLayers.forEach(name => textLayerNames.add(name));
+            const textLayers = [];
+            drawing.textLayers.forEach(layer => {
+              // check if layer is just string or object - to support old and new format
+              if (layer.name) {
+                textLayerNames.add(layer.name);
+                textLayers.push({
+                  drawing: drawing.fileName,
+                  name: layer.name,
+                  textList: layer.textList,
+                });
+              } else {
+                textLayerNames.add(layer);
+              }
+            });
+            useLayersStore.getState().addTextLayers(textLayers);
           });
 
           if (polygonLayerNames.size === 0) {

@@ -1,5 +1,6 @@
 import { useLayersStore } from 'common/store';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
+import FillScreenContainer from 'components/fill-screen-container';
 import PageDescription from 'components/page-description/page-description';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +29,9 @@ export const Layers = () => {
           ))}
         </div>
       </ColumnLayoutItem>
-      <Preview />
+      <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={150} offsetRight={20}>
+        {({ height, width }) => <Preview height={height} width={width} />}
+      </FillScreenContainer>
     </ColumnLayout>
   );
 };

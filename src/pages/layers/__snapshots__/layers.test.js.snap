@@ -92,7 +92,14 @@ Object {
             </div>
           </div>
         </div>
-        Layer Preview
+        <div>
+          <div
+            class="fill-height-wrapper "
+            style="overflow-y: unset;"
+          >
+            Layer Preview
+          </div>
+        </div>
       </div>
     </div>
   </body>,
@@ -184,7 +191,14 @@ Object {
           </div>
         </div>
       </div>
-      Layer Preview
+      <div>
+        <div
+          class="fill-height-wrapper "
+          style="overflow-y: unset;"
+        >
+          Layer Preview
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

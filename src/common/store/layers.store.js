@@ -103,6 +103,10 @@ export const useLayersStore = createWithEqualityFn(
       set(state => ({
         polygonLayers: state.polygonLayers.concat(truncateCoordinates(polygonLayers)),
       })),
+    addTextLayers: textLayers =>
+      set(state => ({
+        textLayers: state.textLayers.concat(textLayers),
+      })),
     addDwgLayers: (dwgLayers, fileName) =>
       set(state => ({
         dwgLayers: {
@@ -110,12 +114,13 @@ export const useLayersStore = createWithEqualityFn(
           [fileName]: dwgLayers,
         },
       })),
-    setLayerNames: (layerNames, polygonLayerNames, textLayerNames) =>
+    setLayerNames: (layerNames, polygonLayerNames, textLayerNames) => {
       set(() => ({
         layerNames: layerNames.sort((a, b) => a.localeCompare(b)),
         polygonLayerNames: polygonLayerNames.sort((a, b) => a.localeCompare(b)),
         textLayerNames: textLayerNames.sort((a, b) => a.localeCompare(b)),
-      })),
+      }));
+    },
     setLayerFromManifestJson: (layers = []) => {
       if (!checkIfLayersValid(layers)) {
         return;
@@ -357,6 +362,7 @@ export function getDefaultState() {
     layerNames: [],
     polygonLayers: [],
     polygonLayerNames: [],
+    textLayers: [],
     textLayerNames: [],
     previewSingleFeatureClass: null,
     visited: false,

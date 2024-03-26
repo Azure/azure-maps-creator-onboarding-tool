@@ -48,10 +48,6 @@ export const previewDescription = css`
   font-size: 0.8rem;
 `;
 
-export const previewSelectTitle = css`
-  // margin-bottom: 0.25rem;
-`;
-
 export const previewCanvas = css`
   cursor: grab;
   max-width: 100%;

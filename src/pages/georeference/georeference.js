@@ -115,7 +115,7 @@ function Georeference() {
           </div>
         )}
       </ColumnLayoutItem>
-      <FillScreenContainer offsetBottom="6rem" offsetRight="2.5rem">
+      <FillScreenContainer offsetBottom={120} offsetRight={20}>
         {({ height, width }) => <CheckedMap style={{ minHeight: height, minWidth: width }} />}
       </FillScreenContainer>
     </ColumnLayout>

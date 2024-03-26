@@ -63,7 +63,7 @@ describe('CreateManifestPage', () => {
     });
     fireEvent.click(uploadButton);
 
-    expect(uploadFileSpy).toBeCalledWith(file, { isPlacesPreview: false });
+    expect(uploadFileSpy).toBeCalledWith(file);
   });
 
   it('should show an error when the file is too big', async () => {
