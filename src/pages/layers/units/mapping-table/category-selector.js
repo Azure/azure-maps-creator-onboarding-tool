@@ -19,8 +19,13 @@ const ImdfCategorySelector = props => {
     onBlur();
   }, [comboboxRef, listRef]);
 
+  const handleOptionSelect = (...args) => {
+    onOptionSelect(...args);
+    onBlur();
+  };
+
   return (
-    <Combobox ref={comboboxRef} onOptionSelect={onOptionSelect} open {...rest}>
+    <Combobox ref={comboboxRef} onOptionSelect={handleOptionSelect} open {...rest}>
       <div ref={listRef} style={{ maxHeight: 400 }}>
         {imdfCategories.map(option => (
           <Option key={option} value={option}>
