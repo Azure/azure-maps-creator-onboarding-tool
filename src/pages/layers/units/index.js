@@ -25,8 +25,6 @@ export const Units = () => {
     s.textLayers,
   ]);
 
-  console.log('CAT', categoryLayer);
-
   const texts = useMemo(() => {
     return textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value) || [];
   }, [categoryLayer, textLayers]);
@@ -94,7 +92,7 @@ export const Units = () => {
             </MessageBar>
           </div>
         )}
-        <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={80} offsetRight={20}>
+        <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={112} offsetRight={20}>
           {({ height }) => <MappingTable texts={texts} height={height} />}
         </FillScreenContainer>
       </ColumnLayoutItem>
