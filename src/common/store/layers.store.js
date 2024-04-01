@@ -26,14 +26,42 @@ export const useLayersStore = createWithEqualityFn(
         categoryMappingEnabled,
       });
     },
-    setCategoryLayer: categoryLayer => {
-      set({
-        categoryLayer,
+    setCategoryLayerValueOnly: categoryLayer => {
+      set(() => {
+        return {
+          categoryLayer,
+        };
       });
     },
-    setCategoryMapping: (mappingFile, errorMessage = null) => {
+    setCategoryLayer: categoryLayer => {
+      set(prev => {
+        const dwgLabels =
+          prev.textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value.toLowerCase().trim()) || [];
+        const dwgMap = {};
+        dwgLabels.forEach(label => (dwgMap[label] = 'unspecified'));
+        return {
+          categoryLayer,
+          categoryMapping: {
+            ...prev.categoryMapping,
+            categoryMap: { ...dwgMap, ...prev.categoryMapping.fileCategoryMap },
+          },
+        };
+      });
+    },
+    updateCategoryMapping: (newMappings = {}) => {
+      set(prev => {
+        const newCategoryMap = { ...prev.categoryMapping.categoryMap, ...newMappings };
+        return {
+          categoryMapping: {
+            ...prev.categoryMapping,
+            categoryMap: newCategoryMap,
+          },
+        };
+      });
+    },
+    uploadCategoryMapping: (mappingFile, errorMessage = null) => {
       let isMappingValid = false;
-      let categoryMap = {};
+      let fileCategoryMap = {};
       let message = null;
 
       if (!mappingFile)
@@ -80,18 +108,20 @@ export const useLayersStore = createWithEqualityFn(
 
           if (!message) {
             isMappingValid = true;
-            categoryMap = mapping;
+            fileCategoryMap = mapping;
             message = 'Successfully imported.';
           }
 
-          set({
+          set(prev => ({
             categoryMapping: {
+              ...prev.categoryMapping,
               file: isMappingValid ? mappingFile : null,
-              categoryMap,
+              fileCategoryMap,
+              categoryMap: { ...prev.categoryMapping.categoryMap, ...fileCategoryMap },
               isMappingValid,
               message,
             },
-          });
+          }));
         },
       });
     },
@@ -350,10 +380,11 @@ export function checkIfLayersValid(layers) {
 
 export function getDefaultState() {
   return {
-    categoryMappingEnabled: false,
+    categoryMappingEnabled: true,
     categoryLayer: undefined,
     categoryMapping: {
       file: null,
+      fileCategoryMap: {},
       categoryMap: {},
       isMappingValid: undefined,
       message: null,

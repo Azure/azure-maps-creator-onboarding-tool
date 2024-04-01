@@ -105,6 +105,8 @@ describe('parseManifestJson', () => {
 
   it('should return true when json is valid', () => {
     expect(parseManifestJson(validJson)).toEqual({
+      categoryDwgLayer: null,
+      categoryMap: {},
       dwgLayers: [],
       facilityName: '',
       featureClasses: [],

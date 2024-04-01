@@ -216,6 +216,8 @@ export const useResponseStore = createWithEqualityFn(
               useLevelsStore.getState().setLanguage(jsonData.language);
               useLayersStore.getState().setLayerFromManifestJson(jsonData.featureClasses);
               useLayersStore.getState().setVisited();
+              useLayersStore.getState().setCategoryLayerValueOnly(jsonData.categoryDwgLayer);
+              useLayersStore.getState().updateCategoryMapping(jsonData.categoryMap);
               useGeometryStore.setState({
                 dwgLayers: jsonData.dwgLayers.filter(layer => polygonLayerNames.has(layer)),
               });
@@ -276,6 +278,8 @@ export function parseManifestJson(json) {
     levels: json.buildingLevels.levels,
     georeference: json.georeference,
     language: json.language ?? PLACES_PREVIEW.DEFAULT_LANGUAGE,
+    categoryDwgLayer: json.featureClasses[0]?.categoryDwgLayer ?? null,
+    categoryMap: json.featureClasses[0]?.categoryMap ?? {},
   };
 }
 
