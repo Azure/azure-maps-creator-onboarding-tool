@@ -42,10 +42,11 @@ describe('layers store', () => {
 
   it('should return default state', () => {
     expect(getDefaultState()).toEqual({
-      categoryMappingEnabled: false,
+      categoryMappingEnabled: true,
       categoryLayer: undefined,
       categoryMapping: {
         file: null,
+        fileCategoryMap: {},
         categoryMap: {},
         isMappingValid: undefined,
         message: null,

@@ -97,24 +97,15 @@ const levelsSelector = s => [
   s.isLevelNameValid,
   s.getVerticalExtentError,
 ];
-const layersSelector = s => [
-  s.allLayersValid,
-  s.layers,
-  s.visited,
-  s.categoryMappingEnabled,
-  s.categoryLayer,
-  s.categoryMapping.isMappingValid,
-];
+const layersSelector = s => [s.allLayersValid, s.layers, s.visited, s.categoryMappingEnabled, s.categoryLayer];
 const reviewManifestSelector = s => s.manifestReviewed;
 
 export const useCompletedSteps = () => {
   const dwgLayers = useGeometryStore(geometrySelector);
-  const [allLayersValid, layers, layersPageVisited, categoryMappingEnabled, categoryLayer, isMappingValid] =
+  const [allLayersValid, layers, layersPageVisited, categoryMappingEnabled, categoryLayer] =
     useLayersStore(layersSelector);
-  const [allLevelsCompleted, levels, facilityName, isLevelNameValid, getVerticalExtentError] = useLevelsStore(
-    levelsSelector,
-    shallow
-  );
+  const [allLevelsCompleted, levels, facilityName, isLevelNameValid, getVerticalExtentError] =
+    useLevelsStore(levelsSelector);
   const manifestReviewed = useReviewManifestStore(reviewManifestSelector);
   const { isPlacesPreview } = useFeatureFlags();
 
@@ -130,7 +121,7 @@ export const useCompletedSteps = () => {
     if (value.length > 0) {
       // Check mapping
       if (categoryMappingEnabled) {
-        if (categoryLayer && isMappingValid) completedSteps.push(progressBarStepsByKey.layers);
+        if (categoryLayer) completedSteps.push(progressBarStepsByKey.layers);
       } else {
         completedSteps.push(progressBarStepsByKey.layers);
       }

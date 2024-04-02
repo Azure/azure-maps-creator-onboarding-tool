@@ -6,7 +6,7 @@ import { useValidationStatus } from 'common/store/progress-bar-steps';
 import { color } from 'common/styles';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import CheckedMap from 'pages/georeference/checked-map';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import DownloadConfigButton from './DownloadConfigButton';
 import {
@@ -24,7 +24,7 @@ import {
 const reviewManifestSelector = s => s.setManifestReviewed;
 const levelsSelector = s => [s.levels, s.facilityName, s.language];
 const geometryStoreSelector = s => [s.dwgLayers];
-const layersSelector = s => [s.layers, s.categoryMappingEnabled, s.categoryLayer, s.categoryMapping];
+const layersSelector = s => [s.layers, s.categoryLayer, s.categoryMapping.categoryMap];
 
 const SummaryEntry = props => {
   const { title, children } = props;
@@ -42,10 +42,10 @@ const SummaryTab = () => {
   const setManifestReviewed = useReviewManifestStore(reviewManifestSelector);
   const [levels, facilityName, language] = useLevelsStore(levelsSelector);
   const [dwgLayers] = useGeometryStore(geometryStoreSelector);
-  const [layers, categoryMappingEnabled, categoryLayer, categoryMapping] = useLayersStore(layersSelector);
+  const [layers, categoryLayer, categoryMap] = useLayersStore(layersSelector);
   const { success } = useValidationStatus();
 
-  const { file } = categoryMapping;
+  const mappingCount = useMemo(() => Object.keys(categoryMap).length, [categoryMap]);
 
   const { props, value } = layers[0] || {};
 
@@ -112,16 +112,12 @@ const SummaryTab = () => {
               </span>
             ))}
           </SummaryEntry>
-          {categoryMappingEnabled && (
-            <>
-              <SummaryEntry title={t('unit.category.layer')}>
-                {categoryLayer && <span className={layerPill}>{categoryLayer}</span>}
-              </SummaryEntry>
-              <SummaryEntry title={t('category.mapping.file')}>
-                <i style={{ color: color.granite }}>{file?.name}</i>
-              </SummaryEntry>
-            </>
-          )}
+          <SummaryEntry title={t('unit.category.layer')}>
+            {categoryLayer && <span className={layerPill}>{categoryLayer}</span>}
+          </SummaryEntry>
+          <SummaryEntry title={t('category.mapping.file')}>
+            <i style={{ color: color.granite }}>{`${mappingCount} entries mapped`}</i>
+          </SummaryEntry>
         </div>
         <div className={cx(summaryPanel, noBorder)} style={{ maxWidth: '40rem' }}>
           <MessageBar messageBarType={MessageBarType.info} isMultiline>
