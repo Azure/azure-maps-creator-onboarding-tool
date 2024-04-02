@@ -213,6 +213,8 @@ const Preview = props => {
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, width, height);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
     ctx.strokeStyle = '#333';
     ctx.save();
 
@@ -308,7 +310,6 @@ const Preview = props => {
   };
 
   useEffect(() => {
-    controls.reset();
     draw();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layers, midPoints, width, height, mergedTextLayer]);
