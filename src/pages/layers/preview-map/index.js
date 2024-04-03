@@ -298,7 +298,7 @@ const Preview = props => {
     mergedTextLayer.forEach(layer => {
       const [x, y] = toRelativePoint(...layer.displayPoint);
 
-      ctx.font = '2px Arial';
+      ctx.font = '1.6px Arial';
       ctx.fillStyle = '#0068b7';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
