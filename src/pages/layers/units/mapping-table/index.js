@@ -54,13 +54,13 @@ const MappingTable = props => {
   const columns = [
     createTableColumn({
       columnId: 'fileCategory',
-      compare: (a, b) => b.fileCategory.localeCompare(a.fileCategory),
+      compare: (a, b) => a.fileCategory.localeCompare(b.fileCategory),
       renderHeaderCell: () => 'DWG Category',
       renderCell: item => item.fileCategory,
     }),
     createTableColumn({
       columnId: 'count',
-      compare: (a, b) => b.count - a.count,
+      compare: (a, b) => a.count - b.count,
       renderHeaderCell: () => 'Count',
       renderCell: item => (
         <CounterBadge
@@ -73,7 +73,7 @@ const MappingTable = props => {
     }),
     createTableColumn({
       columnId: 'imdfCategory',
-      compare: (a, b) => b.imdfCategory.localeCompare(a.imdfCategory),
+      compare: (a, b) => a.imdfCategory.localeCompare(b.imdfCategory),
       renderHeaderCell: () => 'IMDF Category',
       renderCell: item => {
         return editingItemId === item.id ? (
@@ -104,7 +104,7 @@ const MappingTable = props => {
       items={tableItems}
       getRowId={item => item.id.toString()}
       sortable
-      defaultSortState={{ sortDirection: 'descending', sortColumn: 'fileCategory' }}
+      defaultSortState={{ sortDirection: 'ascending', sortColumn: 'fileCategory' }}
       columnSizingOptions={columnSizingOptions}
       resizableColumns
     >
