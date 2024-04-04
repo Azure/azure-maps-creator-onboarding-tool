@@ -12,8 +12,11 @@ const fileTypes = {
   csv: ['text/csv'],
 };
 
+const fileType = 'csv';
+const id = 'upload-mapping';
+
 const UploadMapping = props => {
-  const { fieldClassName, id, onFileSelect, fileType, onError, file } = props;
+  const { fieldClassName, onFileSelect, onError, file } = props;
 
   const { t } = useTranslation();
 
@@ -47,7 +50,7 @@ const UploadMapping = props => {
 
       onFileSelect(files[0]);
     },
-    [fileType, onError, onFileSelect, clearFile, t]
+    [onError, onFileSelect, clearFile, t]
   );
 
   useEffect(() => {

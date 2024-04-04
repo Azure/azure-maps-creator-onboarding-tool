@@ -11,6 +11,7 @@ import CategoryLayer from '../categoryLayer';
 import Layer from '../layer';
 import Preview from '../preview-map';
 import Property from '../property';
+import ActionDialog from './actions-dialog';
 import { tableActions } from './index.style';
 import UploadMapping from './upload-mapping';
 
@@ -79,11 +80,10 @@ export const Units = () => {
         <div className={tableActions}>
           <UploadMapping
             file={file}
-            id="imdf-category-mapping"
             onFileSelect={uploadCategoryMapping}
-            fileType="csv"
             onError={msg => uploadCategoryMapping(null, msg)}
           />
+          <ActionDialog />
         </div>
         {message && (
           <div style={{ marginBottom: '1rem' }}>
