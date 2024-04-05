@@ -11,6 +11,7 @@ import Layer from '../layer';
 import Preview from '../preview-map';
 import Property from '../property';
 import ActionDialog from './actions-dialog';
+import DownloadMapping from './download-mapping';
 import { tableActions } from './index.style';
 import UploadMapping from './upload-mapping';
 
@@ -75,6 +76,7 @@ export const Units = () => {
             onFileSelect={uploadCategoryMapping}
             onError={msg => uploadCategoryMapping(null, msg)}
           />
+          <DownloadMapping />
           <ActionDialog />
         </div>
         <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={112} offsetRight={20}>
