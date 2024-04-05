@@ -1,4 +1,3 @@
-import { MessageBar, MessageBarType } from '@fluentui/react';
 import { useLayersStore } from 'common/store';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import DataEntryDivider from 'components/data-entry-divider';
@@ -17,20 +16,13 @@ import UploadMapping from './upload-mapping';
 
 export const Units = () => {
   const { t } = useTranslation();
-  const [layers, setVisited, categoryMapping, uploadCategoryMapping, categoryLayer, textLayers] = useLayersStore(s => [
-    s.layers,
-    s.setVisited,
-    s.categoryMapping,
-    s.uploadCategoryMapping,
-    s.categoryLayer,
-    s.textLayers,
-  ]);
+  const [layers, setVisited, categoryMappingFile, uploadCategoryMapping, categoryLayer, textLayers] = useLayersStore(
+    s => [s.layers, s.setVisited, s.categoryMapping.file, s.uploadCategoryMapping, s.categoryLayer, s.textLayers]
+  );
 
   const texts = useMemo(() => {
     return textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value) || [];
   }, [categoryLayer, textLayers]);
-
-  const { file, isMappingValid, message } = categoryMapping;
 
   useEffect(() => {
     setVisited();
@@ -79,19 +71,12 @@ export const Units = () => {
         <CategoryLayer name={t('unit.category.layer')} value={categoryLayer} />
         <div className={tableActions}>
           <UploadMapping
-            file={file}
+            file={categoryMappingFile}
             onFileSelect={uploadCategoryMapping}
             onError={msg => uploadCategoryMapping(null, msg)}
           />
           <ActionDialog />
         </div>
-        {message && (
-          <div style={{ marginBottom: '1rem' }}>
-            <MessageBar messageBarType={isMappingValid ? MessageBarType.success : MessageBarType.error}>
-              {message}
-            </MessageBar>
-          </div>
-        )}
         <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={112} offsetRight={20}>
           {({ height }) => <MappingTable texts={texts} height={height} />}
         </FillScreenContainer>
