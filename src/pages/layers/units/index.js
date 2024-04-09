@@ -17,9 +17,13 @@ import UploadMapping from './upload-mapping';
 
 export const Units = () => {
   const { t } = useTranslation();
-  const [layers, setVisited, categoryMappingFile, uploadCategoryMapping, categoryLayer, textLayers] = useLayersStore(
-    s => [s.layers, s.setVisited, s.categoryMapping.file, s.uploadCategoryMapping, s.categoryLayer, s.textLayers]
-  );
+  const [layers, setVisited, uploadCategoryMapping, categoryLayer, textLayers] = useLayersStore(s => [
+    s.layers,
+    s.setVisited,
+    s.uploadCategoryMapping,
+    s.categoryLayer,
+    s.textLayers,
+  ]);
 
   const texts = useMemo(() => {
     return textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value) || [];
@@ -71,11 +75,7 @@ export const Units = () => {
         <div>{t('category.mapping.file')}</div>
         <CategoryLayer name={t('unit.category.layer')} value={categoryLayer} />
         <div className={tableActions}>
-          <UploadMapping
-            file={categoryMappingFile}
-            onFileSelect={uploadCategoryMapping}
-            onError={msg => uploadCategoryMapping(null, msg)}
-          />
+          <UploadMapping onFileSelect={uploadCategoryMapping} onError={msg => uploadCategoryMapping(null, msg)} />
           <DownloadMapping />
           <ActionDialog />
         </div>

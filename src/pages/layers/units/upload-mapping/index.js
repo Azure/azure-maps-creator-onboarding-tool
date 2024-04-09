@@ -1,5 +1,5 @@
 import { Icon } from '@fluentui/react';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { browseButtonContentStyle, browseButtonStyle, fileInputStyle } from '../index.style';
 
@@ -16,7 +16,7 @@ const fileType = 'csv';
 const id = 'upload-mapping';
 
 const UploadMapping = props => {
-  const { fieldClassName, onFileSelect, onError, file } = props;
+  const { fieldClassName, onFileSelect, onError } = props;
 
   const { t } = useTranslation();
 
@@ -52,13 +52,6 @@ const UploadMapping = props => {
     },
     [onError, onFileSelect, clearFile, t]
   );
-
-  useEffect(() => {
-    if (file?.name) {
-      pickFile({ target: { files: [file] } });
-    }
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div className={fieldClassName}>
