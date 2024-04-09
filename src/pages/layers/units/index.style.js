@@ -4,7 +4,8 @@ import { fontSize, fontWeight } from 'common/styles';
 export const tableActions = css`
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: flex-end;
   margin-bottom: 1rem;
   gap: 0.5rem;
 `;

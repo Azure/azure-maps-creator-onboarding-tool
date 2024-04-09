@@ -12,7 +12,9 @@ import {
 import { useLayersStore } from 'common/store';
 import { useElementSize } from 'hooks';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ImdfCategorySelector from './category-selector';
+import { emptyTableContent, emptyTableIcon } from './index.style';
 
 const columnSizingOptions = {
   imdfCategory: {
@@ -22,6 +24,8 @@ const columnSizingOptions = {
 
 const MappingTable = props => {
   const { texts, height = 600 } = props;
+
+  const { t } = useTranslation();
 
   const [editingItemId, setEditingItemId] = useState(null);
   const [headerRef, { height: headerHeight }] = useElementSize();
@@ -113,11 +117,19 @@ const MappingTable = props => {
           {({ renderHeaderCell }) => <DataGridHeaderCell>{renderHeaderCell()}</DataGridHeaderCell>}
         </DataGridRow>
       </DataGridHeader>
-      <DataGridBody style={{ height: height - headerHeight, overflowY: 'auto' }}>
-        {({ item, rowId }) => (
-          <DataGridRow key={rowId}>{({ renderCell }) => <DataGridCell>{renderCell(item)}</DataGridCell>}</DataGridRow>
-        )}
-      </DataGridBody>
+      {tableItems.length === 0 ? (
+        <div className={emptyTableContent}>
+          <Icon className={emptyTableIcon} iconName="SearchData" />
+          <div style={{ fontSize: '1.1rem' }}>No data</div>
+          <div>{`Please select a layer from the ${t('unit.category.layer')} dropdown above`}</div>
+        </div>
+      ) : (
+        <DataGridBody style={{ height: height - headerHeight, overflowY: 'auto' }}>
+          {({ item, rowId }) => (
+            <DataGridRow key={rowId}>{({ renderCell }) => <DataGridCell>{renderCell(item)}</DataGridCell>}</DataGridRow>
+          )}
+        </DataGridBody>
+      )}
     </DataGrid>
   );
 };

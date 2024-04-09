@@ -1,5 +1,6 @@
 import { imdfCategories } from 'common/imdf-categories';
 import Papa from 'papaparse';
+import toast from 'react-hot-toast';
 import nextId from 'react-id-generator';
 import { getFeatureFlags } from 'utils';
 import { shallow } from 'zustand/shallow';
@@ -64,10 +65,12 @@ export const useLayersStore = createWithEqualityFn(
       let fileCategoryMap = {};
       let message = null;
 
-      if (!mappingFile)
+      if (!mappingFile) {
+        toast.error(errorMessage);
         return set({
           categoryMapping: { ...getDefaultState().categoryMapping, message: errorMessage },
         });
+      }
 
       Papa.parse(mappingFile, {
         header: false,
@@ -109,7 +112,10 @@ export const useLayersStore = createWithEqualityFn(
           if (!message) {
             isMappingValid = true;
             fileCategoryMap = mapping;
-            message = 'Successfully imported.';
+            message = 'Mapping file successfully imported.';
+            toast.success(message);
+          } else {
+            toast.error(message);
           }
 
           set(prev => ({
@@ -118,7 +124,6 @@ export const useLayersStore = createWithEqualityFn(
               file: isMappingValid ? mappingFile : null,
               fileCategoryMap,
               categoryMap: { ...prev.categoryMapping.categoryMap, ...fileCategoryMap },
-              isMappingValid,
               message,
             },
           }));
@@ -386,7 +391,6 @@ export function getDefaultState() {
       file: null,
       fileCategoryMap: {},
       categoryMap: {},
-      isMappingValid: undefined,
       message: null,
     },
     dwgLayers: {},

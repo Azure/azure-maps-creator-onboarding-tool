@@ -48,7 +48,6 @@ describe('layers store', () => {
         file: null,
         fileCategoryMap: {},
         categoryMap: {},
-        isMappingValid: undefined,
         message: null,
       },
       dwgLayers: {},
