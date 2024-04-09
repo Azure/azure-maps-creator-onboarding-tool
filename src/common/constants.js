@@ -55,4 +55,5 @@ export const PLACES_PREVIEW = {
   DESCRIPTION: 'Converted by AzMapsCreatorOnboardingTool',
   STORAGE_RETENTION: 'day',
   SEARCH_PARAMETER: 'placespreview',
+  DEFAULT_IMDF_CATEGORY: 'unspecified',
 };

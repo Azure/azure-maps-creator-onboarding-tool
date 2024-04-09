@@ -1,4 +1,6 @@
 import { cx } from '@emotion/css';
+import { Switch } from '@fluentui/react-components';
+import { PLACES_PREVIEW } from 'common/constants';
 import { useGeometryStore, useLayersStore } from 'common/store';
 import Dropdown, { selectAllId } from 'components/dropdown';
 import { useFeatureFlags } from 'hooks';
@@ -26,13 +28,31 @@ const canvasPadding = 15;
 const Preview = props => {
   const { width = 516, height = 516 } = props;
 
+  const { t } = useTranslation();
   const canvasRef = useRef(null);
   const drawRef = useRef(() => {});
 
-  const { t } = useTranslation();
+  const [displayMappedCategories, setDisplayMappedCategories] = useState(false);
+  const handleSwitchChange = () => setDisplayMappedCategories(prev => !prev);
+
   const exteriorLayers = useGeometryStore(s => s.dwgLayers);
-  const [dwgLayers, allUserCreatedFeatureClasses, textLayers, getLayerNameError, previewSingleFeatureClass] =
-    useLayersStore(s => [s.dwgLayers, s.layers, s.textLayers, s.getLayerNameError, s.previewSingleFeatureClass]);
+  const [
+    dwgLayers,
+    allUserCreatedFeatureClasses,
+    textLayers,
+    getLayerNameError,
+    previewSingleFeatureClass,
+    categoryMap,
+    categoryLayer,
+  ] = useLayersStore(s => [
+    s.dwgLayers,
+    s.layers,
+    s.textLayers,
+    s.getLayerNameError,
+    s.previewSingleFeatureClass,
+    s.categoryMapping.categoryMap,
+    s.categoryLayer,
+  ]);
 
   const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
   const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers).slice(0, 1));
@@ -118,12 +138,13 @@ const Preview = props => {
   }, [allValidFeatureClasses, unselectedFeatureClasses]);
 
   const mergedTextLayer = useMemo(() => {
-    const matchedLayers = textLayers.filter(
-      layer => allUserCreatedPropertyLayers.includes(layer.name) && selectedDrawings.includes(layer.drawing)
-    );
+    const matchedLayers = textLayers.filter(layer => {
+      const labelLayers = displayMappedCategories ? [categoryLayer] : allUserCreatedPropertyLayers;
+      return labelLayers.includes(layer.name) && selectedDrawings.includes(layer.drawing);
+    });
 
     return matchedLayers.map(layer => layer.textList).flat();
-  }, [allUserCreatedPropertyLayers, textLayers, selectedDrawings]);
+  }, [allUserCreatedPropertyLayers, textLayers, selectedDrawings, displayMappedCategories, categoryLayer]);
 
   const layers = useMemo(
     () => allLayers.filter(layer => dwgLayersToShow.includes(layer.name)),
@@ -303,7 +324,16 @@ const Preview = props => {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      ctx.fillText(layer.value, x, y);
+      let value = layer.value;
+
+      if (displayMappedCategories) {
+        value = categoryMap[layer.value.toLowerCase().trim()] || PLACES_PREVIEW.DEFAULT_IMDF_CATEGORY;
+
+        ctx.fillStyle = '#F5AC72';
+        ctx.font = 'italic 1.6px Arial';
+      }
+
+      ctx.fillText(value, x, y);
     });
 
     ctx.restore();
@@ -312,7 +342,7 @@ const Preview = props => {
   useEffect(() => {
     draw();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [layers, midPoints, width, height, mergedTextLayer]);
+  }, [layers, midPoints, width, height, mergedTextLayer, displayMappedCategories, categoryMap]);
 
   drawRef.current = draw;
 
@@ -336,7 +366,11 @@ const Preview = props => {
             {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
           </Dropdown>
         </div>
-        {!isPlacesPreview && (
+        {isPlacesPreview ? (
+          categoryLayer && (
+            <Switch label={`IMDF mapping preview`} checked={displayMappedCategories} onChange={handleSwitchChange} />
+          )
+        ) : (
           <div className={selectContainer}>
             <div>Feature Class</div>
             <Dropdown

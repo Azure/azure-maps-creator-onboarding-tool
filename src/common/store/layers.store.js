@@ -5,7 +5,7 @@ import nextId from 'react-id-generator';
 import { getFeatureFlags } from 'utils';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import { TRUNCATE_FRACTION_DIGITS } from '../constants';
+import { PLACES_PREVIEW, TRUNCATE_FRACTION_DIGITS } from '../constants';
 
 const systemReservedLayerNames = ['facility', 'level'];
 const systemReservedPropNames = ['levelid', 'levelordinal', 'layername', 'id'];
@@ -39,7 +39,7 @@ export const useLayersStore = createWithEqualityFn(
         const dwgLabels =
           prev.textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value.toLowerCase().trim()) || [];
         const dwgMap = {};
-        dwgLabels.forEach(label => (dwgMap[label] = 'unspecified'));
+        dwgLabels.forEach(label => (dwgMap[label] = PLACES_PREVIEW.DEFAULT_IMDF_CATEGORY));
         return {
           categoryLayer,
           categoryMapping: {
