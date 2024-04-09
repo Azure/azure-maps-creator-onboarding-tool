@@ -1,6 +1,7 @@
 import { cx } from '@emotion/css';
 import { PATHS } from 'common';
 import { LRO_STATUS, useProgressBarSteps, useResponseStore, useUserStore } from 'common/store';
+import AiAssistantDrawer from 'components/ai-assistant/drawer';
 import { useCustomNavigate, useFeatureFlags } from 'hooks';
 import PropTypes from 'prop-types';
 import { useEffect, useMemo } from 'react';
@@ -74,6 +75,7 @@ const Route = props => {
         <DisplayComponent />
       </div>
       <Footer />
+      <AiAssistantDrawer />
     </>
   );
 };

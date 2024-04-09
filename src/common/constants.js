@@ -47,7 +47,7 @@ export const HTTP_STATUS_CODE = {
   TOO_MANY_REQUESTS: 429,
 };
 
-export const isStagingEnv = process.env.REACT_APP_STAGING_ENV === 'true';
+export const isStagingEnv = true;
 
 export const PLACES_PREVIEW = {
   DEFAULT_LANGUAGE: 'en',

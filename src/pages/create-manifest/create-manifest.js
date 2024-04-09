@@ -3,6 +3,7 @@ import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
 import { resetStores, useConversionStore, useResponseStore, useUserStore } from 'common/store';
+import AiClassPanel from 'components/ai-assistant/class-panel';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import FileField from 'components/file-field/file-field';
@@ -147,6 +148,7 @@ const CreateManifestPage = () => {
         onError={setErrorMessage}
         tooltip={isPlacesPreview ? t('tooltip.dwg.zip.package.places') : t('tooltip.dwg.zip.package')}
       />
+      <AiClassPanel />
       <PrimaryButton
         disabled={!allFieldsFilled}
         onClick={uploadButtonOnClick}
