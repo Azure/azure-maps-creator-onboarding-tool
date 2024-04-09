@@ -1,6 +1,5 @@
 import { Icon } from '@fluentui/react';
 import {
-  CounterBadge,
   DataGrid,
   DataGridBody,
   DataGridCell,
@@ -9,7 +8,9 @@ import {
   DataGridRow,
   createTableColumn,
 } from '@fluentui/react-components';
+import { PLACES_PREVIEW } from 'common/constants';
 import { useLayersStore } from 'common/store';
+import NumericBadge from 'components/numeric-badge';
 import { useElementSize } from 'hooks';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -66,14 +67,7 @@ const MappingTable = props => {
       columnId: 'count',
       compare: (a, b) => a.count - b.count,
       renderHeaderCell: () => 'Count',
-      renderCell: item => (
-        <CounterBadge
-          count={item.count}
-          appearance="filled"
-          color={item.count > 0 ? 'informative' : 'danger'}
-          showZero
-        />
-      ),
+      renderCell: item => <NumericBadge value={item.count} color={item.count === 0 ? '#fff7db' : '#ebebeb'} />,
     }),
     createTableColumn({
       columnId: 'imdfCategory',
@@ -91,7 +85,9 @@ const MappingTable = props => {
             onClick={() => setEditingItemId(item.id)}
             style={{ cursor: 'pointer', paddingLeft: 12, width: 250, height: 22, color: '#005ea5' }}
           >
-            <span style={{ fontStyle: item.imdfCategory === 'unspecified' ? 'italic' : 'normal' }}>
+            <span
+              style={{ fontStyle: item.imdfCategory === PLACES_PREVIEW.DEFAULT_IMDF_CATEGORY ? 'italic' : 'normal' }}
+            >
               {item.imdfCategory}
             </span>
             <Icon iconName="CaretDownSolid8" style={{ fontSize: 10, color: '#0078d4', paddingLeft: 5 }} />
