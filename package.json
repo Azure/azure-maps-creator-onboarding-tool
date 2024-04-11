@@ -8,13 +8,13 @@
     "@fluentui/react-components": "^9.23.1",
     "@turf/turf": "^6.5.0",
     "@zip.js/zip.js": "^2.7.9",
-    "azure-maps-control": "^2.2.7",
-    "azure-maps-indoor": "^0.2.2",
+    "azure-maps-control": "^3.1.2",
+    "azure-maps-indoor": "^0.2.3",
     "file-saver": "^2.0.5",
     "i18next": "^21.9.2",
     "i18next-browser-languagedetector": "^6.1.5",
     "react": "^17.0.2",
-    "react-azure-maps": "^0.4.4",
+    "react-azure-maps": "^1.0.0",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.18.6",
     "react-id-generator": "^3.0.2",
@@ -73,7 +73,8 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "not android 4.4.3-4.4.4"
     ]
   }
 }
