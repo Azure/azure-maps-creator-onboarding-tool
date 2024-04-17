@@ -1,39 +1,32 @@
-import { cx } from '@emotion/css';
-import { Switch } from '@fluentui/react-components';
 import { PLACES_PREVIEW } from 'common/constants';
 import { useGeometryStore, useLayersStore } from 'common/store';
-import Dropdown, { selectAllId } from 'components/dropdown';
-import { useFeatureFlags } from 'hooks';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import {
-  dropdownContainer,
-  inlineSelectContainer,
-  previewCanvas,
-  previewContainerStyles,
-  previewDescription,
-  previewDropdownStyles,
-  previewTitle,
-  previewTitleWrapper,
-  selectContainer,
-} from './index.style';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { previewCanvas, previewContainerStyles } from './index.style';
 import MapControls from './map-controls';
+import MapFilters from './map-filters';
+import MapPlaceholder from './map-placeholder';
 import useTransformations from './useTransformations';
 import { getMidPointsFromLayers, getPointsRecursively } from './utils';
 
-const betaFeature = false;
+const GeometryTypes = {
+  POINT: 'Point',
+  MULTI_POINT: 'MultiPoint',
+  MULTI_LINE_STRING: 'MultiLineString',
+  GEOMETRY_COLLECTION: 'GeometryCollection',
+};
+
+const CustomGeometryTypes = {
+  LINE: 'line',
+  POLYGON: 'polygon',
+};
 
 const canvasPadding = 15;
 
-const Preview = props => {
+const PreviewMap = props => {
   const { width = 516, height = 516 } = props;
 
-  const { t } = useTranslation();
   const canvasRef = useRef(null);
   const drawRef = useRef(() => {});
-
-  const [displayMappedCategories, setDisplayMappedCategories] = useState(false);
-  const handleSwitchChange = () => setDisplayMappedCategories(prev => !prev);
 
   const exteriorLayers = useGeometryStore(s => s.dwgLayers);
   const [
@@ -54,10 +47,13 @@ const Preview = props => {
     s.categoryLayer,
   ]);
 
-  const [unselectedFeatureClasses, setUnselectedFeatureClasses] = useState([]);
-  const [selectedDrawings, setSelectedDrawings] = useState(Object.keys(dwgLayers).slice(0, 1));
+  const [filters, setFilters] = useState({
+    displayMappedCategories: false,
+    unselectedFeatureClasses: [],
+    selectedDrawings: Object.keys(dwgLayers).slice(0, 1),
+  });
 
-  const { isPlacesPreview } = useFeatureFlags();
+  const { displayMappedCategories, unselectedFeatureClasses, selectedDrawings } = filters;
 
   const { isPanning, transformations, controls } = useTransformations({ canvasRef, drawRef });
 
@@ -79,10 +75,6 @@ const Preview = props => {
       }, []),
     [drawings, dwgLayers, selectedDrawings]
   );
-  const selectedDrawingsOptions = useMemo(() => {
-    if (selectedDrawings.length !== Object.keys(dwgLayers).length) return selectedDrawings;
-    return [selectAllId, ...selectedDrawings];
-  }, [dwgLayers, selectedDrawings]);
 
   const featureClasses = useMemo(
     () => [
@@ -99,21 +91,6 @@ const Preview = props => {
     ],
     [exteriorLayers, allValidFeatureClasses]
   );
-
-  const selectedFeatureClassesNames = featureClasses
-    .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
-    .map(fClass => fClass.name);
-
-  const selectedFeatureClassesIds = featureClasses
-    .filter(fClass => !unselectedFeatureClasses.includes(fClass.id))
-    .map(fClass => fClass.id);
-
-  const selectedFeatureClassesOptions = useMemo(() => {
-    if (selectedFeatureClassesIds.length !== featureClasses.length) {
-      return selectedFeatureClassesIds;
-    }
-    return [selectAllId, ...selectedFeatureClassesIds];
-  }, [featureClasses, selectedFeatureClassesIds]);
 
   const dwgLayersToShow = useMemo(() => {
     if (previewSingleFeatureClass) {
@@ -151,85 +128,65 @@ const Preview = props => {
     [allLayers, dwgLayersToShow]
   );
 
-  const levelDropdownOptions = useMemo(() => {
-    const options = drawings.map(drawing => ({
-      key: drawing,
-      text: drawing,
-    }));
-    if (options.length === 1) {
-      return [options];
-    }
-    return [
-      [
-        {
-          key: selectAllId,
-          text: t('select.all'),
-        },
-      ],
-      options,
-    ];
-  }, [drawings, t]);
+  const toRelativePoint = useCallback(
+    ([x, y]) => {
+      const distanceX = x - midPoints.midX;
+      // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
+      const distanceY = midPoints.midY - y;
+      const newX = width / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
+      const newY = height / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
 
-  const featureClassDropdownOptions = useMemo(() => {
-    if (featureClasses.length === 0) {
-      return [
-        [
-          {
-            key: null,
-            text: t('error.empty.feature.class.dropdown'),
-          },
-        ],
-      ];
-    }
-    const options = featureClasses.map(ffClass => ({
-      key: ffClass.id,
-      text: ffClass.name,
-    }));
-    if (options.length === 1) {
-      return [options];
-    }
-    return [
-      [
-        {
-          key: selectAllId,
-          text: t('select.all'),
-        },
-      ],
-      options,
-    ];
-  }, [featureClasses, t]);
+      const paddedX = canvasPadding + (newX * (width - 2 * canvasPadding)) / width;
+      const paddedY = canvasPadding + (newY * (height - 2 * canvasPadding)) / height;
+      return [paddedX, paddedY];
+    },
+    [height, midPoints, width]
+  );
 
-  const onLayerDropdownChange = (e, item) => {
-    if (featureClasses.length === 0) {
-      return;
-    }
-    if (item.optionValue === selectAllId) {
-      if (item.selectedOptions.includes(selectAllId)) {
-        setUnselectedFeatureClasses([]);
-      } else {
-        setUnselectedFeatureClasses(featureClasses.map(fClass => fClass.id));
+  const [pointsAndMultiPoints, coordinatesFromLinesAndPolygons] = useMemo(() => {
+    const pointsAndMultiPoints = [];
+    const geometries = [];
+
+    layers.forEach(layer => {
+      if (layer.geometry === undefined) {
+        return;
       }
-    } else {
-      setUnselectedFeatureClasses(
-        featureClasses.filter(fClass => !item.selectedOptions.includes(fClass.id)).map(fClass => fClass.id)
-      );
-    }
-  };
-
-  const onLevelsDropdownChange = (e, item) => {
-    if (item.optionValue === selectAllId) {
-      if (item.selectedOptions.includes(selectAllId)) {
-        setSelectedDrawings(Object.keys(dwgLayers));
+      if (layer.geometry.type !== GeometryTypes.GEOMETRY_COLLECTION) {
+        geometries.push(layer.geometry);
       } else {
-        setSelectedDrawings([]);
+        layer.geometry.geometries.forEach(geometry => {
+          geometries.push(geometry);
+        });
       }
-    } else {
-      setSelectedDrawings(item.selectedOptions.filter(option => option !== selectAllId));
-    }
-  };
+    });
+
+    const coordinatesFromLinesAndPolygons = geometries
+      .filter(geometry => {
+        if (geometry.type === GeometryTypes.POINT) {
+          pointsAndMultiPoints.push(geometry.coordinates);
+          return false;
+        }
+        if (geometry.type === GeometryTypes.MULTI_POINT) {
+          pointsAndMultiPoints.push(...geometry.coordinates);
+          return false;
+        }
+        return true;
+      })
+      .map(geometry => ({
+        type:
+          geometry.type === GeometryTypes.MULTI_LINE_STRING ? CustomGeometryTypes.LINE : CustomGeometryTypes.POLYGON,
+        geometry: getPointsRecursively(geometry.coordinates),
+      }));
+
+    return [pointsAndMultiPoints, coordinatesFromLinesAndPolygons];
+  }, [layers]);
+
+  const hasData =
+    coordinatesFromLinesAndPolygons.length > 0 || pointsAndMultiPoints.length > 0 || mergedTextLayer.length > 0;
 
   const draw = () => {
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
@@ -242,82 +199,32 @@ const Preview = props => {
     ctx.translate(transformations.x, transformations.y);
     ctx.scale(transformations.zoom, transformations.zoom);
 
-    if (layers.length === 0) return;
+    coordinatesFromLinesAndPolygons.forEach(({ type, geometry }) => {
+      geometry.forEach(points => {
+        if (points.length === 0) return;
 
-    const pointsAndMultiPoints = [];
-    const geometries = [];
+        const newPoints = points.map(point => toRelativePoint(point));
 
-    layers.forEach(layer => {
-      if (layer.geometry === undefined) {
-        return;
-      }
-      if (layer.geometry.type !== 'GeometryCollection') {
-        geometries.push(layer.geometry);
-      } else {
-        layer.geometry.geometries.forEach(geometry => {
-          geometries.push(geometry);
-        });
-      }
-    });
+        ctx.beginPath();
+        ctx.moveTo(newPoints[0][0], newPoints[0][1]);
 
-    const coordinatesFromLinesAndPolygons = geometries
-      .filter(geometry => {
-        if (geometry.type === 'Point') {
-          pointsAndMultiPoints.push(geometry.coordinates);
-          return false;
+        for (let i = 1; i < newPoints.length; i++) {
+          ctx.lineTo(newPoints[i][0], newPoints[i][1]);
         }
-        if (geometry.type === 'MultiPoint') {
-          pointsAndMultiPoints.push(...geometry.coordinates);
-          return false;
-        }
-        return true;
-      })
-      .map(geometry => getPointsRecursively(geometry.coordinates))
-      .flat();
 
-    if (coordinatesFromLinesAndPolygons.length === 0 && pointsAndMultiPoints.length === 0) {
-      return;
-    }
+        if (type === CustomGeometryTypes.POLYGON) ctx.closePath();
 
-    const toRelativePoint = (x, y) => {
-      const distanceX = x - midPoints.midX;
-      // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
-      const distanceY = midPoints.midY - y;
-      const newX = width / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
-      const newY = height / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
-
-      const paddedX = canvasPadding + (newX * (width - 2 * canvasPadding)) / width;
-      const paddedY = canvasPadding + (newY * (height - 2 * canvasPadding)) / height;
-      return [paddedX, paddedY];
-    };
-
-    coordinatesFromLinesAndPolygons.forEach(points => {
-      if (points.length === 0) {
-        return;
-      }
-
-      const newPoints = points.map(point => {
-        return toRelativePoint(...point);
+        ctx.stroke();
       });
-
-      ctx.beginPath();
-      ctx.moveTo(newPoints[0][0], newPoints[0][1]);
-
-      for (let i = 1; i < newPoints.length; i++) {
-        ctx.lineTo(newPoints[i][0], newPoints[i][1]);
-      }
-
-      ctx.closePath();
-      ctx.stroke();
     });
 
     pointsAndMultiPoints.forEach(point => {
-      const [x, y] = toRelativePoint(...point);
+      const [x, y] = toRelativePoint(point);
       ctx.fillRect(x, y, 1, 1);
     });
 
     mergedTextLayer.forEach(layer => {
-      const [x, y] = toRelativePoint(...layer.displayPoint);
+      const [x, y] = toRelativePoint(layer.displayPoint);
 
       ctx.font = '1.6px Arial';
       ctx.fillStyle = '#0068b7';
@@ -342,52 +249,24 @@ const Preview = props => {
   useEffect(() => {
     draw();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [layers, midPoints, width, height, mergedTextLayer, displayMappedCategories, categoryMap]);
+  }, [
+    pointsAndMultiPoints,
+    coordinatesFromLinesAndPolygons,
+    mergedTextLayer,
+    toRelativePoint,
+    width,
+    height,
+    displayMappedCategories,
+    categoryMap,
+  ]);
 
   drawRef.current = draw;
 
   return (
     <div className={previewContainerStyles}>
-      <div className={previewTitleWrapper}>
-        <span className={previewTitle}>Preview</span>
-        {betaFeature && <span className={previewDescription}>displays polygonal entities only</span>}
-      </div>
-
-      <div className={dropdownContainer}>
-        <div className={cx(selectContainer, { [inlineSelectContainer]: isPlacesPreview })}>
-          <div>Level</div>
-          <Dropdown
-            onOptionSelect={onLevelsDropdownChange}
-            className={previewDropdownStyles}
-            optionGroups={levelDropdownOptions}
-            multiselect
-            selectedOptions={selectedDrawingsOptions}
-          >
-            {selectedDrawings.length ? selectedDrawings.join(', ') : t('select.levels.preview')}
-          </Dropdown>
-        </div>
-        {isPlacesPreview ? (
-          categoryLayer && (
-            <Switch label={`IMDF mapping preview`} checked={displayMappedCategories} onChange={handleSwitchChange} />
-          )
-        ) : (
-          <div className={selectContainer}>
-            <div>Feature Class</div>
-            <Dropdown
-              onOptionSelect={onLayerDropdownChange}
-              className={previewDropdownStyles}
-              selectedOptions={selectedFeatureClassesOptions}
-              optionGroups={featureClassDropdownOptions}
-              multiselect={featureClasses.length !== 0}
-            >
-              {selectedFeatureClassesNames.length
-                ? selectedFeatureClassesNames.join(', ')
-                : t('select.feature.class.preview')}
-            </Dropdown>
-          </div>
-        )}
-      </div>
+      <MapFilters featureClasses={featureClasses} filters={filters} setFilters={setFilters} />
       <div style={{ position: 'relative', width, height }}>
+        {exteriorLayers.length === 0 && !hasData && <MapPlaceholder />}
         <MapControls controls={controls} />
         <canvas
           ref={canvasRef}
@@ -403,4 +282,4 @@ const Preview = props => {
   );
 };
 
-export default Preview;
+export default PreviewMap;
