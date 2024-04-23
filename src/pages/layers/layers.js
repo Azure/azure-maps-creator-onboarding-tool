@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Layer from './layer';
 import { layersWrapper } from './layers.style';
-import Preview from './preview-map';
+import PreviewMap from './preview-map';
 
 const layersSelector = s => [s.layers, s.setVisited];
 
@@ -30,7 +30,7 @@ export const Layers = () => {
         </div>
       </ColumnLayoutItem>
       <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={150} offsetRight={20}>
-        {({ height, width }) => <Preview height={height} width={width} />}
+        {({ height, width }) => <PreviewMap height={height} width={width} />}
       </FillScreenContainer>
     </ColumnLayout>
   );

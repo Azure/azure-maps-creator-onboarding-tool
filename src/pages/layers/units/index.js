@@ -8,7 +8,7 @@ import { useEffect, useMemo } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import CategoryLayer from '../categoryLayer';
 import Layer from '../layer';
-import Preview from '../preview-map';
+import PreviewMap from '../preview-map';
 import Property from '../property';
 import ActionDialog from './actions-dialog';
 import DownloadMapping from './download-mapping';
@@ -84,7 +84,7 @@ export const Units = () => {
         </FillScreenContainer>
       </ColumnLayoutItem>
       <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={150} offsetRight={20}>
-        {({ height, width }) => <Preview height={height} width={width} />}
+        {({ height, width }) => <PreviewMap height={height} width={width} />}
       </FillScreenContainer>
     </ColumnLayout>
   );
