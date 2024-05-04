@@ -285,9 +285,12 @@ export function parseManifestJson(json) {
 
 export const isValidManifestVersion = version => {
   const manifestVersion = parseInt(version);
+  const { isPlacesPreview } = getFeatureFlags();
 
   if (version === PLACES_PREVIEW.VERSION) return true;
-  return manifestVersion >= 2;
+  if (!isPlacesPreview) return manifestVersion >= 2;
+  
+  return false;
 };
 
 export function getFirstMeaningfulError({ error = {} }) {

@@ -71,6 +71,8 @@ const en = {
       'Feature class name must begin with an upper case or lower case character.',
     'error.manifest.incorrect.version':
       'Existing manifest provided is not supported. Only manifest version 2.0 or later is supported.',
+    'error.manifest.places.incorrect.version':
+      'The provided manifest is ignored due to invalid manifest version. Only manifest version "places-1.0" is supported.',
     'error.manifest.invalid': 'Existing manifest provided is invalid.',
     'error.network.issue.cors':
       'Unable to process your request due to a network issue or CORS is enabled for your Azure Maps account and a rule needs to be added for this tool.',

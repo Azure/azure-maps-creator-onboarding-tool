@@ -26,7 +26,7 @@ export const Units = () => {
   ]);
 
   const texts = useMemo(() => {
-    return textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value) || [];
+    return textLayers.filter(t => t.name === categoryLayer).flatMap(t => t?.textList?.map(t => t.value.toLowerCase().trim())).filter(t => t !== undefined) || [];
   }, [categoryLayer, textLayers]);
 
   useEffect(() => {

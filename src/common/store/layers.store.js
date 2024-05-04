@@ -37,7 +37,7 @@ export const useLayersStore = createWithEqualityFn(
     setCategoryLayer: categoryLayer => {
       set(prev => {
         const dwgLabels =
-          prev.textLayers.find(t => t.name === categoryLayer)?.textList?.map(t => t.value.toLowerCase().trim()) || [];
+          prev.textLayers.filter(t => t.name === categoryLayer).flatMap(t => t?.textList?.map(t => t.value.toLowerCase().trim())).filter(hasValueAndUnique) || [];
         const dwgMap = {};
         dwgLabels.forEach(label => (dwgMap[label] = PLACES_PREVIEW.DEFAULT_IMDF_CATEGORY));
         return {
@@ -465,4 +465,8 @@ export function convertLayersFromManifestJson(layers, allowedTextLayerNames, all
       props: [],
       isDraft: true,
     });
+}
+
+function hasValueAndUnique(value, index, array) {
+  return value !== undefined && array.indexOf(value) === index;
 }
