@@ -26,7 +26,12 @@ export const Units = () => {
   ]);
 
   const texts = useMemo(() => {
-    return textLayers.filter(t => t.name === categoryLayer).flatMap(t => t?.textList?.map(t => t.value.toLowerCase().trim())).filter(t => t !== undefined) || [];
+    return (
+      textLayers
+        .filter(t => t.name === categoryLayer)
+        .flatMap(t => t?.textList?.map(t => t.value.toLowerCase().trim()))
+        .filter(t => t !== undefined) || []
+    );
   }, [categoryLayer, textLayers]);
 
   useEffect(() => {
@@ -84,7 +89,7 @@ export const Units = () => {
         </FillScreenContainer>
       </ColumnLayoutItem>
       <FillScreenContainer style={{ overflowY: 'unset' }} offsetBottom={150} offsetRight={20}>
-        {({ height, width }) => <PreviewMap height={height} width={width} />}
+        {({ height, width }) => <PreviewMap height={Math.max(height, 512)} width={width} />}
       </FillScreenContainer>
     </ColumnLayout>
   );
