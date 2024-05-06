@@ -1,6 +1,7 @@
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { useCompletedSteps, useProgressBarSteps, useProgressBarStore } from 'common/store';
 import { useEffect, useMemo } from 'react';
+import { getFeatureFlags } from 'utils';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import ProgressBarButton from './progress-bar-button';
@@ -18,6 +19,7 @@ const progressBarStoreSelector = s => [
 export const ProgressBar = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const { isPlacesPreview } = getFeatureFlags();
   const completedSteps = useCompletedSteps();
   const [
     isIncorrectManifestVersionErrorShown,
@@ -48,9 +50,14 @@ export const ProgressBar = () => {
   return (
     <>
       <div className={errorContainer}>
-        {isIncorrectManifestVersionErrorShown && (
+        {isIncorrectManifestVersionErrorShown && !isPlacesPreview &&(
           <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideIncorrectManifestVersionError}>
             {t('error.manifest.incorrect.version')}
+          </MessageBar>
+        )}
+        {isIncorrectManifestVersionErrorShown && isPlacesPreview &&(
+          <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideIncorrectManifestVersionError}>
+            {t('error.manifest.places.incorrect.version')}
           </MessageBar>
         )}
         {isInvalidManifestErrorShown && (
