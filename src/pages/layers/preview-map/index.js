@@ -133,8 +133,8 @@ const PreviewMap = props => {
       const distanceX = x - midPoints.midX;
       // starting point of canvas is left top corner, therefore Y coordinate needs to be negated. Same for offset.
       const distanceY = midPoints.midY - y;
-      const newX = width / 2 + distanceX * midPoints.multiplier + midPoints.offsetX;
-      const newY = height / 2 + distanceY * midPoints.multiplier - midPoints.offsetY;
+      const newX = width / 2 + distanceX * midPoints.multiplier;
+      const newY = height / 2 + distanceY * midPoints.multiplier;
 
       const paddedX = canvasPadding + (newX * (width - 2 * canvasPadding)) / width;
       const paddedY = canvasPadding + (newY * (height - 2 * canvasPadding)) / height;
@@ -194,6 +194,7 @@ const PreviewMap = props => {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
 
     ctx.strokeStyle = '#333';
+    ctx.lineWidth = midPoints.multiplier * 0.1;
     ctx.save();
 
     ctx.translate(transformations.x, transformations.y);
@@ -226,7 +227,7 @@ const PreviewMap = props => {
     mergedTextLayer.forEach(layer => {
       const [x, y] = toRelativePoint(layer.displayPoint);
 
-      ctx.font = '1.6px Arial';
+      ctx.font = `${midPoints.multiplier * 0.2}px Arial`;
       ctx.fillStyle = '#0068b7';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -237,7 +238,7 @@ const PreviewMap = props => {
         value = categoryMap[layer.value.toLowerCase().trim()] || PLACES_PREVIEW.DEFAULT_IMDF_CATEGORY;
 
         ctx.fillStyle = '#F5AC72';
-        ctx.font = 'italic 1.6px Arial';
+        ctx.font = `italic ${midPoints.multiplier * 0.2}px Arial`;
       }
 
       ctx.fillText(value, x, y);
