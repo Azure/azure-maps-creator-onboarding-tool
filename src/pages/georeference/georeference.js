@@ -1,6 +1,6 @@
 import { TextField } from '@fluentui/react';
 import { useGeometryStore, useLayersStore } from 'common/store';
-import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { useValidationStatus } from 'common/store/progress-bar-steps.store';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';

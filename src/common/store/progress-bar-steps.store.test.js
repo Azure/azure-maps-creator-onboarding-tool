@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
-import { useCompletedSteps } from './progress-bar-steps';
+import { useCompletedSteps } from './progress-bar-steps.store';
 import { useReviewManifestStore } from './review-manifest.store';
 
 jest.mock('hooks', () => ({

@@ -8,8 +8,7 @@ import { createWithEqualityFn } from 'zustand/traditional';
 import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
-import { useProgressBarStore } from './progress-bar-steps';
-import { resetStores } from './reset';
+import { useProgressBarStore } from './progress-bar-steps.store';
 import { useReviewManifestStore } from './review-manifest.store';
 
 const OPERATION_LOCATION = 'Operation-Location';
@@ -145,8 +144,6 @@ export const useResponseStore = createWithEqualityFn(
     fetchManifestData: async fetchUrl => {
       return fetchWithRetries(fetchUrl)
         .then(async data => {
-          resetStores();
-
           // Compute and store useful response data
           const layerNames = new Set();
           const polygonLayerNames = new Set();
@@ -289,7 +286,7 @@ export const isValidManifestVersion = version => {
 
   if (version === PLACES_PREVIEW.VERSION) return true;
   if (!isPlacesPreview) return manifestVersion >= 2;
-  
+
   return false;
 };
 

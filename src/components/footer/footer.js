@@ -2,7 +2,7 @@ import { DefaultButton, PrimaryButton } from '@fluentui/react';
 import { PATHS } from 'common';
 import featureFlags from 'common/feature-flags';
 import { useConversionStore, useProgressBarSteps, useReviewManifestJson, useReviewManifestStore } from 'common/store';
-import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { useValidationStatus } from 'common/store/progress-bar-steps.store';
 import { usePlacesReviewManifestJson } from 'common/store/review-manifest.store';
 import dayjs from 'dayjs';
 import { saveAs } from 'file-saver';

@@ -2,7 +2,7 @@ import { cx } from '@emotion/css';
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { languages } from 'common/languages';
 import { useGeometryStore, useLayersStore, useLevelsStore, useReviewManifestStore } from 'common/store';
-import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { useValidationStatus } from 'common/store/progress-bar-steps.store';
 import { color } from 'common/styles';
 import { ColumnLayout, ColumnLayoutItem } from 'components/column-layout';
 import CheckedMap from 'pages/georeference/checked-map';
