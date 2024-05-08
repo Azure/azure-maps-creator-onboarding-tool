@@ -25,12 +25,19 @@ export const LRO_STATUS = {
   FAILED: 'Failed',
 };
 
+const getDefaultState = () => ({
+  operationLocation: '',
+  lroStatus: '',
+  errorMessage: '',
+  refreshRunning: false,
+});
+
 export const useResponseStore = createWithEqualityFn(
   (set, get) => ({
-    operationLocation: '',
-    lroStatus: '',
-    errorMessage: '',
-    refreshRunning: false,
+    ...getDefaultState(),
+    reset: () => {
+      set({ ...getDefaultState() });
+    },
     acknowledgeError: () => {
       set({
         errorMessage: '',
