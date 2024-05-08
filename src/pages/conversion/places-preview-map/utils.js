@@ -170,3 +170,7 @@ export async function processZip(url) {
     }
   });
 }
+
+export const getFeatureLabel = (feature, language) => {
+  return feature?.properties?.name?.[language];
+};

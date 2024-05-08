@@ -1,16 +1,16 @@
 import { Map, control, layer, source } from 'azure-maps-control';
 // import { indoor, control as indoorControl } from 'azure-maps-indoor';
-import { getDomain, useConversionStore, useUserStore } from 'common/store';
+import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
 import LevelSelector from './level-selector';
-import { calculateBoundingBox, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
+import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
 
 import 'azure-maps-control/dist/atlas.min.css';
 
 const PlacesPreviewMap = ({ style }) => {
   const [geography, subscriptionKey] = useUserStore(s => [s.geography, s.subscriptionKey]);
-
   const [imdfPackageLocation] = useConversionStore(s => [s.imdfPackageLocation]);
+  const [language] = useLevelsStore(s => [s.language]);
 
   const [units, setUnits] = useState({ features: [] });
   const [levels, setLevels] = useState({ features: [] });
@@ -61,7 +61,7 @@ const PlacesPreviewMap = ({ style }) => {
           if (!groupedFeatures[category]) groupedFeatures[category] = { features: [] };
           groupedFeatures[category].features.push({
             ...feature,
-            properties: { ...feature.properties, label: feature.properties.name.en },
+            properties: { ...feature.properties, label: getFeatureLabel(feature, language) },
           });
         });
 
@@ -120,7 +120,7 @@ const PlacesPreviewMap = ({ style }) => {
     return () => {
       map.dispose();
     };
-  }, [units, levels, selectedLevel, subscriptionKey, geography]);
+  }, [units, levels, selectedLevel, subscriptionKey, geography, language]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);
@@ -131,7 +131,7 @@ const PlacesPreviewMap = ({ style }) => {
       <LevelSelector
         selectedKey={selectedLevelId}
         onChange={handleLevelChange}
-        options={levels.features.map(level => ({ key: level.id, text: level.properties.name.en }))}
+        options={levels.features.map(level => ({ key: level.id, text: getFeatureLabel(level, language) }))}
       />
       <div id="azure-maps-container" style={{ width: '100%', height: '500px', ...style }} />
     </div>
