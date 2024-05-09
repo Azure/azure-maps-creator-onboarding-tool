@@ -125,11 +125,10 @@ const CreateManifestPage = () => {
           <TextField
             className={textFieldStyle}
             ariaLabel={t('subscription.key')}
-            value={subKey}
-            type={'password'}
+            type="password"
             data-testid={TEST_ID.SUBSCRIPTION_KEY_FIELD}
             aria-required
-            canRevealPassword={true}
+            canRevealPassword
             onChange={updateSubKey}
             styles={inputStyles}
           />
