@@ -152,16 +152,16 @@ const PreviewMap = props => {
         return;
       }
       if (layer.geometry.type !== GeometryTypes.GEOMETRY_COLLECTION) {
-        geometries.push(layer.geometry);
+        geometries.push({ geometry: layer.geometry, name: layer.name });
       } else {
         layer.geometry.geometries.forEach(geometry => {
-          geometries.push(geometry);
+          geometries.push({ geometry, name: layer.name });
         });
       }
     });
 
     const coordinatesFromLinesAndPolygons = geometries
-      .filter(geometry => {
+      .filter(({ geometry }) => {
         if (geometry.type === GeometryTypes.POINT) {
           pointsAndMultiPoints.push(geometry.coordinates);
           return false;
@@ -172,14 +172,15 @@ const PreviewMap = props => {
         }
         return true;
       })
-      .map(geometry => ({
+      .map(({ geometry, name }) => ({
         type:
           geometry.type === GeometryTypes.MULTI_LINE_STRING ? CustomGeometryTypes.LINE : CustomGeometryTypes.POLYGON,
         geometry: getPointsRecursively(geometry.coordinates),
+        isExterior: exteriorLayers.includes(name),
       }));
 
     return [pointsAndMultiPoints, coordinatesFromLinesAndPolygons];
-  }, [layers]);
+  }, [layers, exteriorLayers]);
 
   const hasData =
     coordinatesFromLinesAndPolygons.length > 0 || pointsAndMultiPoints.length > 0 || mergedTextLayer.length > 0;
@@ -200,9 +201,12 @@ const PreviewMap = props => {
     ctx.translate(transformations.x, transformations.y);
     ctx.scale(transformations.zoom, transformations.zoom);
 
-    coordinatesFromLinesAndPolygons.forEach(({ type, geometry }) => {
+    coordinatesFromLinesAndPolygons.forEach(({ type, geometry, isExterior }) => {
       geometry.forEach(points => {
         if (points.length === 0) return;
+
+        if (isExterior) ctx.strokeStyle = '#0068b7';
+        else ctx.strokeStyle = '#333';
 
         const newPoints = points.map(point => toRelativePoint(point));
 
