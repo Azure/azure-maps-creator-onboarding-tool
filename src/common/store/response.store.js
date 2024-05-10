@@ -215,6 +215,7 @@ export const useResponseStore = createWithEqualityFn(
             } else if (jsonData === null) {
               useProgressBarStore.getState().showInvalidManifestError();
             } else {
+              useReviewManifestStore.getState().setManifestImported(true);
               useLevelsStore.getState().updateLevels(jsonData.levels);
               useLevelsStore.getState().setFacilityName(jsonData.facilityName);
               useLevelsStore.getState().setLanguage(jsonData.language);

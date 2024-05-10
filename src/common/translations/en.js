@@ -91,6 +91,8 @@ const en = {
     'error.upload.file.processing': 'Processing your package has failed. Please try again.',
     'error.validation.failed.missing.info': 'Validation failed. Required information is missing or not valid.',
     'error.vertical.extent.not.valid': 'Vertical extent must be a valid number greater than 0 and less than 100.',
+    'success.manifest.uploaded':
+      'Successfully imported the manifest file found in the uploaded drawing package. Please review the information.',
     'exterior.layer.not.selected.error': "Please select 'Exterior' layer(s) to georeference your Facility",
     'footprint.layer.not.selected.error': "Please select 'Footprint' layer to georeference your Building",
     exterior: 'Exterior',
