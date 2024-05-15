@@ -55,17 +55,15 @@ export function getMidPointsFromLayers(dwgLayers, width, height) {
 
   const diffX = maxX - minX;
   const diffY = maxY - minY;
-  const diff = diffX > diffY ? diffX : diffY;
-  const multiplier = Math.min(width, height) / diff;
-  const offsetY = diffX > diffY ? (width - multiplier * diffY) / 3 : 0;
-  const offsetX = diffX < diffY ? 0 : (height - multiplier * diffX) / 3;
+  const multiplier = Math.min(width / diffX, height / diffY);
+
+  const midX = (minX + maxX) / 2;
+  const midY = (minY + maxY) / 2;
 
   return {
     multiplier,
-    midX: (minX + maxX) / 2,
-    midY: (minY + maxY) / 2,
-    offsetY,
-    offsetX,
+    midX,
+    midY,
   };
 }
 

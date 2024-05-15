@@ -1,4 +1,4 @@
-import { useProgressBarStore, useValidationStatus } from 'common/store/progress-bar-steps';
+import { useProgressBarStore, useValidationStatus } from 'common/store/progress-bar-steps.store';
 import { useFeatureFlags } from 'hooks';
 import SummaryTab from 'pages/summary';
 import { useEffect } from 'react';

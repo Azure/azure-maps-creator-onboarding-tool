@@ -2,7 +2,7 @@ import { cx } from '@emotion/css';
 import { MessageBar, MessageBarType, PrimaryButton, TextField } from '@fluentui/react';
 import { PATHS } from 'common';
 import { getEnvs } from 'common/functions';
-import { resetStores, useConversionStore, useResponseStore, useUserStore } from 'common/store';
+import { resetAllStores, useResponseStore, useUserStore } from 'common/store';
 import Dropdown from 'components/dropdown';
 import FieldLabel from 'components/field-label';
 import FileField from 'components/file-field/file-field';
@@ -34,8 +34,7 @@ export const TEST_ID = {
 };
 
 const userStoreSelector = s => [s.setGeography, s.geography, s.setSubscriptionKey, s.subscriptionKey];
-const responseStoreSelector = s => [s.acknowledgeError, s.errorMessage, s.uploadFile];
-const conversionStoreSelector = s => s.reset;
+const responseStoreSelector = s => [s.errorMessage, s.uploadFile];
 
 const CreateManifestPage = () => {
   const { t } = useTranslation();
@@ -45,8 +44,7 @@ const CreateManifestPage = () => {
   const [file, setFile] = useState(null);
 
   const [setGeo, geo, setSubKey, subKey] = useUserStore(userStoreSelector);
-  const [acknowledgeApiError, apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector);
-  const resetConversionStore = useConversionStore(conversionStoreSelector);
+  const [apiErrorMessage, uploadFile] = useResponseStore(responseStoreSelector);
   const { isPlacesPreview } = useFeatureFlags();
 
   const environmentOptions = useMemo(
@@ -59,9 +57,7 @@ const CreateManifestPage = () => {
   );
 
   useEffect(() => {
-    resetStores();
-    resetConversionStore();
-    acknowledgeApiError();
+    resetAllStores();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -129,11 +125,10 @@ const CreateManifestPage = () => {
           <TextField
             className={textFieldStyle}
             ariaLabel={t('subscription.key')}
-            value={subKey}
-            type={'password'}
+            type="password"
             data-testid={TEST_ID.SUBSCRIPTION_KEY_FIELD}
             aria-required
-            canRevealPassword={true}
+            canRevealPassword
             onChange={updateSubKey}
             styles={inputStyles}
           />

@@ -7,8 +7,8 @@ jest.mock('hooks', () => ({
   useFeatureFlags: () => ({ isPlacesPreview: false }),
 }));
 
-jest.mock('common/store/progress-bar-steps', () => ({
-  ...jest.requireActual('common/store/progress-bar-steps'),
+jest.mock('common/store/progress-bar-steps.store', () => ({
+  ...jest.requireActual('common/store/progress-bar-steps.store'),
   useCompletedSteps: () => mockCompletedSteps,
 }));
 

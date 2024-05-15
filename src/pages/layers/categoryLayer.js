@@ -1,5 +1,5 @@
 import { useLayersStore } from 'common/store';
-import { useValidationStatus } from 'common/store/progress-bar-steps';
+import { useValidationStatus } from 'common/store/progress-bar-steps.store';
 import { FieldLabel } from 'components';
 import Dropdown from 'components/dropdown';
 import PropTypes from 'prop-types';

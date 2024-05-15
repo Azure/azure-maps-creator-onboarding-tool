@@ -38,7 +38,6 @@ const FileField = props => {
     onError,
     tooltip,
     required = true,
-    file,
     allowClear,
     showError = true,
     errorMessage,
@@ -50,22 +49,25 @@ const FileField = props => {
   const [filename, setFilename] = useState('');
 
   const onTextFieldClick = useCallback(() => {
-    document.getElementById(id).click();
-  }, [id]);
-  const onTextFieldKeyPress = useCallback(
-    e => {
-      if (e.key === 'Enter') {
-        document.getElementById(id).click();
-      }
-    },
-    [id]
-  );
+    fileInputRef.current.click();
+  }, []);
+
+  const onTextFieldKeyPress = useCallback(e => {
+    if (e.key === 'Enter') {
+      fileInputRef.current.click();
+    }
+  }, []);
 
   const clearFile = useCallback(() => {
     setFilename('');
     if (fileInputRef.current) fileInputRef.current.value = '';
     onFileSelect(null);
   }, [onFileSelect]);
+
+  useEffect(() => {
+    clearFile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const pickFile = useCallback(
     e => {
@@ -83,6 +85,7 @@ const FileField = props => {
         onError(t(errors.fileSizeExceeded));
         return;
       }
+
       if (!fileTypes[fileType].includes(type)) {
         clearFile();
         onError(t(errors.fileTypeIncorrect, { type: fileType.toUpperCase() }));
@@ -94,13 +97,6 @@ const FileField = props => {
     },
     [fileType, onError, onFileSelect, setFilename, clearFile, t]
   );
-
-  useEffect(() => {
-    if (file?.name) {
-      pickFile({ target: { files: [file] } });
-    }
-    // eslint-disable-next-line
-  }, []);
 
   const message = useMemo(() => {
     if (typeof errorMessage === 'string') return errorMessage;

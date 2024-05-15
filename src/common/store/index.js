@@ -7,8 +7,8 @@ export {
   useCompletedSteps,
   useProgressBarSteps,
   useProgressBarStore,
-} from './progress-bar-steps';
-export { resetStores } from './reset';
+} from './progress-bar-steps.store';
+export { resetAllStores } from './reset';
 export { LRO_STATUS, useResponseStore } from './response.store';
 export { useReviewManifestJson, useReviewManifestStore } from './review-manifest.store';
 export { getDomain, useUserStore } from './user.store';

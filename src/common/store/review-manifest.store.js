@@ -7,10 +7,18 @@ import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 
+const getDefaultState = () => ({
+  manifestReviewed: false,
+  originalPackage: null,
+});
+
 export const useReviewManifestStore = createWithEqualityFn(
   (set, get) => ({
-    manifestReviewed: false,
-    originalPackage: null,
+    ...getDefaultState(),
+    reset: () =>
+      set({
+        ...getDefaultState(),
+      }),
     getOriginalManifestJson: async () => {
       const { originalPackage } = get();
 
@@ -152,14 +160,11 @@ export const usePlacesReviewManifestJson = () => {
       dwgLayers,
       levels: levels.map(level => {
         const formattedLevel = {
-          ...level,
+          filename: level.filename,
+          levelName: level.levelName,
           ordinal: Number(level.ordinal),
         };
-        if (isNumeric(formattedLevel.verticalExtent)) {
-          formattedLevel.verticalExtent = Number(formattedLevel.verticalExtent);
-        } else {
-          delete formattedLevel.verticalExtent;
-        }
+
         return formattedLevel;
       }),
     },
