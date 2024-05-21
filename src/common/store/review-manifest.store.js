@@ -10,6 +10,7 @@ import { useLevelsStore } from './levels.store';
 const getDefaultState = () => ({
   manifestReviewed: false,
   originalPackage: null,
+  manifestImported: false,
 });
 
 export const useReviewManifestStore = createWithEqualityFn(
@@ -62,6 +63,10 @@ export const useReviewManifestStore = createWithEqualityFn(
     setManifestReviewed: manifestReviewed =>
       set(() => ({
         manifestReviewed,
+      })),
+    setManifestImported: manifestImported =>
+      set(() => ({
+        manifestImported,
       })),
   }),
   shallow
