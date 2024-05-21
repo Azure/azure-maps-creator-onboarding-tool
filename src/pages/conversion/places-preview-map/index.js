@@ -1,5 +1,4 @@
 import { Map, control, layer, source } from 'azure-maps-control';
-// import { indoor, control as indoorControl } from 'azure-maps-indoor';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
 import LevelSelector from './level-selector';
@@ -90,30 +89,6 @@ const PlacesPreviewMap = ({ style }) => {
         dataSource.add(features);
         map.layers.add(new layer.SymbolLayer(dataSource, null, getTextStyle(category)), 'roomLabels');
       });
-
-      /*
-			const levelControl = new indoorControl.LevelControl({ position: 'top-left', levelLabel: 'ordinal' })			
-      const indoorManager = new indoor.IndoorManager(map, {
-        style: 'blank',
-        levelControl: levelControl,
-      });
-
-			map.controls.add([levelControl], {
-				position: 'top-left',
-			});		
-
-			map.events.add('levelchanged', indoorManager, (eventData) => {
-
-				//code that you want to run after a level has been changed
-				console.log('The level has changed: ', eventData);
-			});
-			
-			map.events.add('facilitychanged', indoorManager, (eventData) => {
-			
-				//code that you want to run after a facility has been changed
-				console.log('The facility has changed: ', eventData);
-			});
-			*/
     });
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes
