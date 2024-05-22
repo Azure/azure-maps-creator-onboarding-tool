@@ -77,7 +77,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.3%",
       "not dead",
       "not op_mini all",
       "not android 4.4.3-4.4.4"
