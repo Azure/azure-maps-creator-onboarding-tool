@@ -8,23 +8,23 @@ import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { DownloadIMDF } from './download-imdf';
 import { actionButtonsContainer, messageWrapper } from './imdf-conversion.style';
+import { ImdfDiagnostics } from './imdf-diagnostics';
 import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
-
-const conversionStoreSelector = s => [
-  s.uploadStartTime,
-  s.conversionEndTime,
-  s.setStep,
-  s.selectedStep,
-  s.imdfPackageLocation,
-];
 
 const ImdfConversion = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
-  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation] =
-    useConversionStore(conversionStoreSelector);
+  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation, diagnosticPackageLocation] =
+    useConversionStore(s => [
+      s.uploadStartTime,
+      s.conversionEndTime,
+      s.setStep,
+      s.selectedStep,
+      s.imdfPackageLocation,
+      s.diagnosticPackageLocation,
+    ]);
 
   const { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList } =
     useIMDFConversionStatus();
@@ -72,8 +72,9 @@ const ImdfConversion = () => {
             ))}
             <div className={actionButtonsContainer}>
               {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
-                <DownloadIMDF type="conversion" link={imdfPackageLocation} />
+                <DownloadIMDF link={imdfPackageLocation} />
               )}
+              <ImdfDiagnostics link={diagnosticPackageLocation} />
             </div>
           </div>
         )}
