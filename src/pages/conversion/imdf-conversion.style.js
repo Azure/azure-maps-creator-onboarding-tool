@@ -2,7 +2,6 @@ import { css } from '@emotion/css';
 
 export const actionButtonsContainer = css`
   display: flex;
-  justify-content: space-between;
   gap: 1rem;
 `;
 
