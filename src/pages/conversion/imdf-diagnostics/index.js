@@ -33,7 +33,7 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
   }, [link]);
 
   const handleDownload = () => {
-    if (link) {
+    if (!link) {
       toast.error('No diagnostics available');
       return;
     }
