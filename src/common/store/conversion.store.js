@@ -205,12 +205,14 @@ export const useConversionStore = createWithEqualityFn(
           }
 
           const data = await res.json();
+          const { subscriptionKey } = useUserStore.getState();
 
           if (data.status === LRO_STATUS.FAILED) {
             set({
               conversionStepStatus: conversionStatuses.failed,
               conversionOperationLog: data.error ? JSON.stringify(data.error, null, 4) : defaultErrorMessage,
               conversionEndTime: Date.now(),
+              diagnosticPackageLocation: `${data.properties.diagnosticPackageLocation}&subscription-key=${subscriptionKey}`,
             });
           } else if (data.status === LRO_STATUS.RUNNING) {
             set(() => ({
@@ -220,7 +222,6 @@ export const useConversionStore = createWithEqualityFn(
               get().fetchConversionStatus(operationLocation);
             }, fetchTimeout);
           } else if (data.status === LRO_STATUS.SUCCEEDED) {
-            const { subscriptionKey } = useUserStore.getState();
             set({
               conversionStepStatus: conversionStatuses.finishedSuccessfully,
               conversionOperationLog: JSON.stringify(data, null, 4),
