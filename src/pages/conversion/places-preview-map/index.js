@@ -1,7 +1,9 @@
 import { Map, control, layer, source } from 'azure-maps-control';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
+import { imdfPreviewMap, imdfPreviewMapWrapper } from './indes.style';
 import LevelSelector from './level-selector';
+import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
 
 import 'azure-maps-control/dist/atlas.min.css';
@@ -102,13 +104,14 @@ const PlacesPreviewMap = ({ style }) => {
   };
 
   return (
-    <div>
+    <div className={imdfPreviewMapWrapper}>
       <LevelSelector
         selectedKey={selectedLevelId}
         onChange={handleLevelChange}
         options={levels.features.map(level => ({ key: level.id, text: getFeatureLabel(level, language) }))}
       />
-      <div id="azure-maps-container" style={{ width: '100%', height: '500px', ...style }} />
+      <MapNotification>Zoom in to see labels and icons.</MapNotification>
+      <div id="azure-maps-container" className={imdfPreviewMap} style={style} />
     </div>
   );
 };
