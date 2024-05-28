@@ -78,9 +78,11 @@ const ImdfConversion = () => {
               )}
               <ImdfDiagnostics link={diagnosticPackageLocation} />
             </div>
-            <FillScreenContainer offsetBottom={110}>
-              {({ height }) => <PlacesPreviewMap style={{ height: Math.max(500, height) }} />}
-            </FillScreenContainer>
+            {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
+              <FillScreenContainer offsetBottom={110}>
+                {({ height }) => <PlacesPreviewMap style={{ height }} />}
+              </FillScreenContainer>
+            )}
           </div>
         )}
       </div>
