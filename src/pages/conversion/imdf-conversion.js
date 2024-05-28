@@ -7,9 +7,9 @@ import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conver
 import FillScreenContainer from 'components/fill-screen-container';
 import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
-import PlacesPreviewMap from './places-preview-map';
 import { DownloadIMDF } from './download-imdf';
 import { actionButtonsContainer, messageWrapper } from './imdf-conversion.style';
+import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
 
@@ -74,9 +74,11 @@ const ImdfConversion = () => {
                 <DownloadIMDF type="conversion" link={imdfPackageLocation} />
               )}
             </div>
-            <FillScreenContainer offsetBottom={110}>
-              {({ height }) => <PlacesPreviewMap style={{ height }} />}
-            </FillScreenContainer>
+            {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
+              <FillScreenContainer offsetBottom={110}>
+                {({ height }) => <PlacesPreviewMap style={{ height }} />}
+              </FillScreenContainer>
+            )}
           </div>
         )}
       </div>
