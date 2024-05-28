@@ -54,30 +54,38 @@ export async function processZip(url) {
 }
 
 export function extractMessages(obj) {
-  let messages = [];
+  let groupedMessages = {
+    other: [],
+    errors: [],
+    warnings: [],
+  };
 
-  // Recursive function to traverse the object
-  function traverse(current) {
-    // Check if current is an object or array
+  function traverse(current, context) {
     if (typeof current === 'object' && current !== null) {
-      // If it's an array, iterate through its elements
       if (Array.isArray(current)) {
-        for (const element of current) {
-          traverse(element);
-        }
+        current.forEach(element => traverse(element, context));
       } else {
-        // If it's an object, check for 'message' field and recurse for each property
         for (const key in current) {
           if (key === 'message') {
-            messages.push(current[key]);
+            if (context === 'error') {
+              groupedMessages.errors.push(current[key]);
+            } else if (context === 'warning') {
+              groupedMessages.warnings.push(current[key]);
+            } else {
+              groupedMessages.other.push(current[key]);
+            }
           } else {
-            traverse(current[key]);
+            let newContext = context;
+            if (key === 'error') newContext = 'error';
+            else if (key === 'warning') newContext = 'warning';
+
+            traverse(current[key], newContext);
           }
         }
       }
     }
   }
 
-  traverse(obj);
-  return messages;
+  traverse(obj, 'other');
+  return groupedMessages;
 }

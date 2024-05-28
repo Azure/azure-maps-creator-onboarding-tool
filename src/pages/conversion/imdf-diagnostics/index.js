@@ -16,7 +16,7 @@ import { failedLogsButton, logsButton } from '../style';
 import { extractMessages, processZip } from './utils';
 
 export const ImdfDiagnostics = ({ isFailed, link }) => {
-  const [diagnosticsMessages, setDiagnosticsMessages] = useState([]);
+  const [diagnosticsMessages, setDiagnosticsMessages] = useState({ errors: [], warnings: [] });
 
   useEffect(() => {
     if (!link) return;
@@ -28,7 +28,13 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
 
       const { content } = diagnosticsFile;
       const messages = extractMessages(content);
-      setDiagnosticsMessages(messages.map(message => ({ id: nextId(), message })));
+
+      const messageGroups = {
+        errors: messages.errors.map(message => ({ id: nextId(), message })),
+        warnings: messages.warnings.map(message => ({ id: nextId(), message })),
+      };
+
+      setDiagnosticsMessages(messageGroups);
     });
   }, [link]);
 
@@ -53,18 +59,27 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
       </DialogTrigger>
       <DialogSurface style={{ borderRadius: 2 }}>
         <DialogBody style={{ maxHeight: 600 }}>
-          <DialogTitle>Conversion Warnings</DialogTitle>
+          <DialogTitle>Conversion Issues</DialogTitle>
           <DialogContent style={{ margin: '1rem 0' }}>
-            {diagnosticsMessages.length === 0 ? (
+            {diagnosticsMessages.errors.length === 0 && diagnosticsMessages.warnings.length === 0 ? (
               <i>No messages</i>
             ) : (
-              diagnosticsMessages.map(message => (
-                <div key={message.id} style={{ marginBottom: '0.5rem' }}>
-                  <MessageBar messageBarType={MessageBarType.warning} isMultiline>
-                    {message.message}
-                  </MessageBar>
-                </div>
-              ))
+              <>
+                {diagnosticsMessages.errors.map(message => (
+                  <div key={message.id} style={{ marginBottom: '0.5rem' }}>
+                    <MessageBar messageBarType={MessageBarType.error} isMultiline>
+                      {message.message}
+                    </MessageBar>
+                  </div>
+                ))}
+                {diagnosticsMessages.warnings.map(message => (
+                  <div key={message.id} style={{ marginBottom: '0.5rem' }}>
+                    <MessageBar messageBarType={MessageBarType.warning} isMultiline>
+                      {message.message}
+                    </MessageBar>
+                  </div>
+                ))}
+              </>
             )}
           </DialogContent>
           <DialogActions>
