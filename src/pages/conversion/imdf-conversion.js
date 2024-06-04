@@ -4,11 +4,13 @@ import { Icon } from '@fluentui/react/lib/Icon';
 import { PATHS } from 'common';
 import { useConversionStore } from 'common/store';
 import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conversion.store';
+import FillScreenContainer from 'components/fill-screen-container';
 import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { DownloadIMDF } from './download-imdf';
 import { actionButtonsContainer, messageWrapper } from './imdf-conversion.style';
 import { ImdfDiagnostics } from './imdf-diagnostics';
+import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
 
@@ -16,7 +18,7 @@ const ImdfConversion = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
-  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation, diagnosticPackageLocation] =
+const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation, diagnosticPackageLocation] =
     useConversionStore(s => [
       s.uploadStartTime,
       s.conversionEndTime,
@@ -76,6 +78,11 @@ const ImdfConversion = () => {
               )}
               <ImdfDiagnostics link={diagnosticPackageLocation} />
             </div>
+            {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
+              <FillScreenContainer offsetBottom={110}>
+                {({ height }) => <PlacesPreviewMap style={{ height }} />}
+              </FillScreenContainer>
+            )}
           </div>
         )}
       </div>

@@ -1,20 +1,11 @@
 import { MessageBar, MessageBarType } from '@fluentui/react';
-import { useCompletedSteps, useProgressBarSteps, useProgressBarStore } from 'common/store';
+import { useCompletedSteps, useProgressBarSteps, useProgressBarStore, useReviewManifestStore } from 'common/store';
 import { useEffect, useMemo } from 'react';
-import { getFeatureFlags } from 'utils';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { getFeatureFlags } from 'utils';
 import ProgressBarButton from './progress-bar-button';
 import { errorContainer, progressBarContainer } from './progress-bar.style';
-
-const progressBarStoreSelector = s => [
-  s.isIncorrectManifestVersionErrorShown,
-  s.hideIncorrectManifestVersionError,
-  s.isInvalidManifestErrorShown,
-  s.hideInvalidManifestError,
-  s.isMissingDataErrorShown,
-  s.hideMissingDataError,
-];
 
 export const ProgressBar = () => {
   const { t } = useTranslation();
@@ -28,7 +19,16 @@ export const ProgressBar = () => {
     hideInvalidManifestError,
     isMissingDataErrorShown,
     hideMissingDataError,
-  ] = useProgressBarStore(progressBarStoreSelector);
+  ] = useProgressBarStore(s => [
+    s.isIncorrectManifestVersionErrorShown,
+    s.hideIncorrectManifestVersionError,
+    s.isInvalidManifestErrorShown,
+    s.hideInvalidManifestError,
+    s.isMissingDataErrorShown,
+    s.hideMissingDataError,
+  ]);
+
+  const [manifestImported] = useReviewManifestStore(s => [s.manifestImported]);
 
   const progressBarSteps = useProgressBarSteps();
 
@@ -50,12 +50,17 @@ export const ProgressBar = () => {
   return (
     <>
       <div className={errorContainer}>
-        {isIncorrectManifestVersionErrorShown && !isPlacesPreview &&(
+        {manifestImported && (
+          <MessageBar messageBarType={MessageBarType.success} isMultiline onDismiss={hideIncorrectManifestVersionError}>
+            {t('success.manifest.uploaded')}
+          </MessageBar>
+        )}
+        {isIncorrectManifestVersionErrorShown && !isPlacesPreview && (
           <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideIncorrectManifestVersionError}>
             {t('error.manifest.incorrect.version')}
           </MessageBar>
         )}
-        {isIncorrectManifestVersionErrorShown && isPlacesPreview &&(
+        {isIncorrectManifestVersionErrorShown && isPlacesPreview && (
           <MessageBar messageBarType={MessageBarType.warning} isMultiline onDismiss={hideIncorrectManifestVersionError}>
             {t('error.manifest.places.incorrect.version')}
           </MessageBar>
