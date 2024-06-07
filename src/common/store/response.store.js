@@ -9,7 +9,7 @@ import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useProgressBarStore } from './progress-bar-steps.store';
-import { useReviewManifestStore } from './review-manifest.store';
+import { repackPackage, useReviewManifestStore } from './review-manifest.store';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
@@ -56,27 +56,29 @@ export const useResponseStore = createWithEqualityFn(
 
       useReviewManifestStore.getState().setOriginalPackage(file);
 
-      uploadFile(file)
-        .then(async r => {
-          if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
-            const data = await r.json();
-            const errorMessage = data?.error?.message;
-            if (errorMessage) {
-              throw new Error(errorMessage);
+      repackPackage(file).then(repackedFile =>
+        uploadFile(repackedFile)
+          .then(async r => {
+            if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
+              const data = await r.json();
+              const errorMessage = data?.error?.message;
+              if (errorMessage) {
+                throw new Error(errorMessage);
+              }
+              throw new Error(i18next.t('error.upload.file'));
             }
-            throw new Error(i18next.t('error.upload.file'));
-          }
 
-          // Once accepted by the backend, the response will contain the location of the operation
-          set(() => ({
-            lroStatus: LRO_STATUS.UPLOADED,
-            operationLocation: r.headers.get(OPERATION_LOCATION),
-          }));
-        })
-        .catch(({ message }) => {
-          const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
-          set(() => ({ errorMessage: errorMsg }));
-        });
+            // Once accepted by the backend, the response will contain the location of the operation
+            set(() => ({
+              lroStatus: LRO_STATUS.UPLOADED,
+              operationLocation: r.headers.get(OPERATION_LOCATION),
+            }));
+          })
+          .catch(({ message }) => {
+            const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+            set(() => ({ errorMessage: errorMsg }));
+          })
+      );
     },
 
     // Poll the backend for the status of the upload operation
