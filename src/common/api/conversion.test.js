@@ -1,4 +1,4 @@
-import { uploadConversion, startConversion, startDataset, startTileset } from './conversion';
+import { startConversion, startDataset, startTileset, uploadConversion } from './conversion';
 
 jest.mock('../store/user.store', () => ({
   useUserStore: {
@@ -13,7 +13,7 @@ describe('conversion api', () => {
   it('should call uploadConversion request', () => {
     uploadConversion('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://eu.atlas.microsoft.com/mapData?dataFormat=dwgzippackage&api-version=2.0&subscription-key=subKeeeeeeey&description=',
+      'https://eu.atlas.microsoft.com/mapData?dataFormat=dwgzippackage&api-version=2.0&subscription-key=subKeeeeeeey&description=&placespreview=false',
       { body: 'myFile', headers: { 'Content-Type': 'application/octet-stream' }, method: 'POST' }
     );
   });

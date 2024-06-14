@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => ({
 }));
 jest.mock('common/api', () => ({
   ...jest.requireActual('common/api'),
-  uploadFile: jest.fn(),
+  uploadPackage: jest.fn(),
 }));
 
 describe('CreateManifestPage', () => {

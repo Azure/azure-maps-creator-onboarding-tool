@@ -12,7 +12,7 @@ describe('api', () => {
   it('should call uploadFile request', () => {
     uploadPackage('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey',
+      'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey&placespreview=false',
       { body: 'myFile', headers: { 'Content-Type': 'application/zip' }, method: 'POST' }
     );
   });
