@@ -28,7 +28,7 @@ export const uploadPackage = file => {
 
 export const deletePackage = () => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  fetch(`${getEnvs()[geography].URL}/manifest&subscription-key=${subscriptionKey}`, {
+  fetch(`${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`, {
     method: 'DELETE',
   });
 };
