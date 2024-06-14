@@ -9,11 +9,16 @@ export const uploadPackage = file => {
 
   const { isPlacesPreview } = getFeatureFlags();
 
-  const queryParams = new URLSearchParams({
+  const params = {
     'api-version': '2.0',
     'subscription-key': subscriptionKey,
-    [PLACES_PREVIEW.SEARCH_PARAMETER]: isPlacesPreview,
-  });
+  };
+
+  if (isPlacesPreview) {
+    params[PLACES_PREVIEW.SEARCH_PARAMETER] = true;
+  }
+
+  const queryParams = new URLSearchParams(params);
 
   const url = `${getEnvs()[geography].URL}/manifest?${queryParams.toString()}`;
 
