@@ -247,7 +247,8 @@ export async function repackPackage(originalPackage) {
     for (let i = 0; i < entries.length; i++) {
       const file = entries[i];
       const fileName = file.filename.toLowerCase();
-      if (!isHiddenFile(fileName) && fileName.endsWith('.dwg')) {
+      // File name is absolute path in the zip root, that is why we are using .endsWith()
+      if (!isHiddenFile(fileName) && (fileName.endsWith('.dwg') || fileName.endsWith('manifest.json'))) {
         const data = await file.getData(new zip.BlobWriter());
         await writer.add(file.filename, new zip.BlobReader(data));
       }
