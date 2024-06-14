@@ -1,6 +1,6 @@
 import { PLACES_PREVIEW } from 'common/constants';
 import { getEnvs } from 'common/functions';
-import { deletePackage } from '.';
+import { deleteManifestPackage } from '.';
 import { useUserStore } from '../store/user.store';
 
 const uploadApiVersion = '2.0';
@@ -89,7 +89,7 @@ export const clearCloudStorageData = async () => {
       .map(conversion => conversion.conversionId);
 
     return await Promise.allSettled([
-      deletePackage(),
+      deleteManifestPackage(),
       ...uploadIDs.map(deleteUploads),
       ...conversionIDs.map(deleteConversion),
     ]);

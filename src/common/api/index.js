@@ -31,7 +31,7 @@ export const uploadManifestPackage = file => {
   });
 };
 
-export const deletePackage = () => {
+export const deleteManifestPackage = () => {
   const { geography, subscriptionKey } = useUserStore.getState();
   fetch(`${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`, {
     method: 'DELETE',
