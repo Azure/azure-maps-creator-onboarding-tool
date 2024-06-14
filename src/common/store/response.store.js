@@ -1,4 +1,4 @@
-import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } from 'common/api';
+import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadManifestPackage } from 'common/api';
 import { clearCloudStorageData } from 'common/api/conversions';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
@@ -9,7 +9,7 @@ import { useGeometryStore } from './geometry.store';
 import { useLayersStore } from './layers.store';
 import { useLevelsStore } from './levels.store';
 import { useProgressBarStore } from './progress-bar-steps.store';
-import { useReviewManifestStore } from './review-manifest.store';
+import { repackPackage, useReviewManifestStore } from './review-manifest.store';
 
 const OPERATION_LOCATION = 'Operation-Location';
 const RESOURCE_LOCATION = 'Resource-Location';
@@ -43,40 +43,43 @@ export const useResponseStore = createWithEqualityFn(
         errorMessage: '',
       });
     },
-    uploadFile: file => {
+    uploadFile: async file => {
       const { isPlacesPreview } = getFeatureFlags();
-      if (isPlacesPreview) {
-        clearCloudStorageData();
-      }
 
       set(() => ({
         errorMessage: '',
         lroStatus: LRO_STATUS.UPLOADING,
       }));
 
+      if (isPlacesPreview) {
+        await clearCloudStorageData();
+      }
+
       useReviewManifestStore.getState().setOriginalPackage(file);
 
-      uploadFile(file)
-        .then(async r => {
-          if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
-            const data = await r.json();
-            const errorMessage = data?.error?.message;
-            if (errorMessage) {
-              throw new Error(errorMessage);
+      repackPackage(file).then(repackedFile =>
+        uploadManifestPackage(repackedFile)
+          .then(async r => {
+            if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
+              const data = await r.json();
+              const errorMessage = data?.error?.message;
+              if (errorMessage) {
+                throw new Error(errorMessage);
+              }
+              throw new Error(i18next.t('error.upload.file'));
             }
-            throw new Error(i18next.t('error.upload.file'));
-          }
 
-          // Once accepted by the backend, the response will contain the location of the operation
-          set(() => ({
-            lroStatus: LRO_STATUS.UPLOADED,
-            operationLocation: r.headers.get(OPERATION_LOCATION),
-          }));
-        })
-        .catch(({ message }) => {
-          const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
-          set(() => ({ errorMessage: errorMsg }));
-        });
+            // Once accepted by the backend, the response will contain the location of the operation
+            set(() => ({
+              lroStatus: LRO_STATUS.UPLOADED,
+              operationLocation: r.headers.get(OPERATION_LOCATION),
+            }));
+          })
+          .catch(({ message }) => {
+            const errorMsg = message === 'Failed to fetch' ? i18next.t('error.network.issue.cors') : message;
+            set(() => ({ errorMessage: errorMsg }));
+          })
+      );
     },
 
     // Poll the backend for the status of the upload operation

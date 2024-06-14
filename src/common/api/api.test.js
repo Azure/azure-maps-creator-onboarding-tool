@@ -1,5 +1,5 @@
-import { fetchAddress, fetchFromLocation, uploadFile, deleteFromLocation } from './index';
 import { useUserStore } from '../store';
+import { deleteFromLocation, fetchAddress, fetchFromLocation, uploadManifestPackage } from './index';
 
 describe('api', () => {
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('api', () => {
   });
 
   it('should call uploadFile request', () => {
-    uploadFile('myFile');
+    uploadManifestPackage('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
       'https://eu.atlas.microsoft.com/manifest?api-version=2.0&subscription-key=subKeeeeeeey',
       { body: 'myFile', headers: { 'Content-Type': 'application/zip' }, method: 'POST' }

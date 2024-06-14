@@ -195,6 +195,18 @@ export const fixAngleForManifest = angle => {
   return angle;
 };
 
+const isHiddenFile = fileName => {
+  const parts = fileName.split('/');
+
+  for (let part of parts) {
+    if (part.startsWith('.')) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 export async function createPackageWithJson(originalPackage, json) {
   const zipFileReader = new zip.BlobReader(originalPackage);
   const zipReader = new zip.ZipReader(zipFileReader);
@@ -212,11 +224,37 @@ export async function createPackageWithJson(originalPackage, json) {
 
   for (let i = 0; i < entries.length; i++) {
     const file = entries[i];
-    if (file.filename.toLowerCase().endsWith('.dwg')) {
+    const fileName = file.filename.toLowerCase();
+    if (!isHiddenFile(fileName) && fileName.endsWith('.dwg')) {
       const data = await file.getData(new zip.BlobWriter());
       await writer.add(file.filename, new zip.BlobReader(data));
     }
   }
 
   return await writer.close();
+}
+
+export async function repackPackage(originalPackage) {
+  return new Promise(async resolve => {
+    const zipFileReader = new zip.BlobReader(originalPackage);
+    const zipReader = new zip.ZipReader(zipFileReader);
+
+    const blobWriter = new zip.BlobWriter('application/zip');
+    const writer = new zip.ZipWriter(blobWriter);
+
+    const entries = await zipReader.getEntries();
+
+    for (let i = 0; i < entries.length; i++) {
+      const file = entries[i];
+      const fileName = file.filename.toLowerCase();
+      // File name is absolute path in the zip root, that is why we are using .endsWith()
+      if (!isHiddenFile(fileName) && (fileName.endsWith('.dwg') || fileName.endsWith('manifest.json'))) {
+        const data = await file.getData(new zip.BlobWriter());
+        await writer.add(file.filename, new zip.BlobReader(data));
+      }
+    }
+
+    const fileContent = await writer.close();
+    resolve(fileContent);
+  });
 }

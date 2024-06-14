@@ -1,4 +1,4 @@
-import { uploadConversion, startConversion, startDataset, startTileset } from './conversion';
+import { startConversion, startDataset, startTileset, uploadConversion } from './conversion';
 
 jest.mock('../store/user.store', () => ({
   useUserStore: {

@@ -1,11 +1,26 @@
 // The following API is designed to be used only by the onboarding tool and is not supported for any other use.
 import { getEnvs } from 'common/functions';
+import { getFeatureFlags } from 'utils';
+import { HTTP_STATUS_CODE, PLACES_PREVIEW } from '../constants';
 import { useUserStore } from '../store/user.store';
-import { HTTP_STATUS_CODE } from '../constants';
 
-export const uploadFile = file => {
+export const uploadManifestPackage = file => {
   const { geography, subscriptionKey } = useUserStore.getState();
-  const url = `${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`;
+
+  const { isPlacesPreview } = getFeatureFlags();
+
+  const params = {
+    'api-version': '2.0',
+    'subscription-key': subscriptionKey,
+  };
+
+  if (isPlacesPreview) {
+    params[PLACES_PREVIEW.SEARCH_PARAMETER] = true;
+  }
+
+  const queryParams = new URLSearchParams(params);
+
+  const url = `${getEnvs()[geography].URL}/manifest?${queryParams.toString()}`;
 
   return fetch(url, {
     method: 'POST',
@@ -13,6 +28,13 @@ export const uploadFile = file => {
       'Content-Type': 'application/zip',
     },
     body: file,
+  });
+};
+
+export const deleteManifestPackage = () => {
+  const { geography, subscriptionKey } = useUserStore.getState();
+  fetch(`${getEnvs()[geography].URL}/manifest?api-version=2.0&subscription-key=${subscriptionKey}`, {
+    method: 'DELETE',
   });
 };
 

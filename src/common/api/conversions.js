@@ -1,6 +1,6 @@
 import { PLACES_PREVIEW } from 'common/constants';
 import { getEnvs } from 'common/functions';
-import dayjs from 'dayjs';
+import { deleteManifestPackage } from '.';
 import { useUserStore } from '../store/user.store';
 
 const uploadApiVersion = '2.0';
@@ -81,18 +81,18 @@ export const clearCloudStorageData = async () => {
     const [uploads, conversions] = await Promise.all(responses.map(res => res.json()));
 
     const uploadIDs = uploads.mapDataList
-      .filter(upload => {
-        const updatedAt = dayjs(upload.updated);
-        const isOldEnough = dayjs().diff(updatedAt, PLACES_PREVIEW.STORAGE_RETENTION, true) > 1;
-        return upload.description === PLACES_PREVIEW.DESCRIPTION && isOldEnough;
-      })
+      .filter(upload => upload.description === PLACES_PREVIEW.DESCRIPTION)
       .map(upload => upload.udid);
 
     const conversionIDs = conversions.conversions
       .filter(conversion => uploadIDs.includes(conversion.udid))
       .map(conversion => conversion.conversionId);
 
-    await Promise.all([...uploadIDs.map(deleteUploads), ...conversionIDs.map(deleteConversion)]);
+    return await Promise.allSettled([
+      deleteManifestPackage(),
+      ...uploadIDs.map(deleteUploads),
+      ...conversionIDs.map(deleteConversion),
+    ]);
   } catch (e) {
     console.log('Error running automatic storage cleanup');
     console.log(e);
