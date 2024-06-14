@@ -13,7 +13,7 @@ describe('conversion api', () => {
   it('should call uploadConversion request', () => {
     uploadConversion('myFile');
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://eu.atlas.microsoft.com/mapData?dataFormat=dwgzippackage&api-version=2.0&subscription-key=subKeeeeeeey&description=&placespreview=false',
+      'https://eu.atlas.microsoft.com/mapData?dataFormat=dwgzippackage&api-version=2.0&subscription-key=subKeeeeeeey&description=',
       { body: 'myFile', headers: { 'Content-Type': 'application/octet-stream' }, method: 'POST' }
     );
   });

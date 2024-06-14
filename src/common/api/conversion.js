@@ -1,6 +1,4 @@
-import { PLACES_PREVIEW } from 'common/constants';
 import { getEnvs } from 'common/functions';
-import { getFeatureFlags } from 'utils';
 import { useReviewManifestStore } from '../store/review-manifest.store';
 import { useUserStore } from '../store/user.store';
 
@@ -20,12 +18,9 @@ export const uploadConversion = (file, options = {}) => {
     ...options,
   };
   const { geography, subscriptionKey } = useUserStore.getState();
-  const { isPlacesPreview } = getFeatureFlags();
   const url = `${
     getEnvs()[geography].URL
-  }/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${description}&${
-    PLACES_PREVIEW.SEARCH_PARAMETER
-  }=${isPlacesPreview}`;
+  }/mapData?dataFormat=${dataFormat}&api-version=${apiVersion}&subscription-key=${subscriptionKey}&description=${description}`;
   return fetch(url, {
     method: 'POST',
     headers: {
