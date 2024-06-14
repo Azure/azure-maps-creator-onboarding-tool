@@ -4,7 +4,7 @@ import { getFeatureFlags } from 'utils';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from '../constants';
 import { useUserStore } from '../store/user.store';
 
-export const uploadPackage = file => {
+export const uploadManifestPackage = file => {
   const { geography, subscriptionKey } = useUserStore.getState();
 
   const { isPlacesPreview } = getFeatureFlags();

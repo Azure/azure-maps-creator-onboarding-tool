@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { uploadPackage } from 'common/api';
+import { uploadManifestPackage } from 'common/api';
 import { useResponseStore } from 'common/store';
 import flushPromises from 'flush-promises';
 import CreateManifestPage, { TEST_ID } from './create-manifest';
@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => ({
 }));
 jest.mock('common/api', () => ({
   ...jest.requireActual('common/api'),
-  uploadPackage: jest.fn(),
+  uploadManifestPackage: jest.fn(),
 }));
 
 describe('CreateManifestPage', () => {
@@ -24,7 +24,7 @@ describe('CreateManifestPage', () => {
   const uploadFileSpy = jest.spyOn(state, 'uploadFile');
 
   beforeEach(() => {
-    uploadPackage.mockReturnValue(Promise.resolve({}));
+    uploadManifestPackage.mockReturnValue(Promise.resolve({}));
     file = {
       name: 'my zip archive.zip',
       size: 1024 * 1024 * 10,
