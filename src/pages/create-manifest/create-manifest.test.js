@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { uploadFile } from 'common/api';
+import { uploadPackage } from 'common/api';
 import { useResponseStore } from 'common/store';
 import flushPromises from 'flush-promises';
 import CreateManifestPage, { TEST_ID } from './create-manifest';
@@ -24,7 +24,7 @@ describe('CreateManifestPage', () => {
   const uploadFileSpy = jest.spyOn(state, 'uploadFile');
 
   beforeEach(() => {
-    uploadFile.mockReturnValue(Promise.resolve({}));
+    uploadPackage.mockReturnValue(Promise.resolve({}));
     file = {
       name: 'my zip archive.zip',
       size: 1024 * 1024 * 10,

@@ -7,8 +7,9 @@ import { conversionStatuses, useIMDFConversionStatus } from 'common/store/conver
 import FillScreenContainer from 'components/fill-screen-container';
 import { useAlert, useCustomNavigate } from 'hooks';
 import { useTranslation } from 'react-i18next';
+import { ClearPreviousConversions } from './clear-previous-conversions';
 import { DownloadIMDF } from './download-imdf';
-import { actionButtonsContainer, messageWrapper } from './imdf-conversion.style';
+import { actionButtonsLeft, actionButtonsWrapper, messageWrapper } from './imdf-conversion.style';
 import { ImdfDiagnostics } from './imdf-diagnostics';
 import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
@@ -18,7 +19,7 @@ const ImdfConversion = () => {
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
-const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation, diagnosticPackageLocation] =
+  const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLocation, diagnosticPackageLocation] =
     useConversionStore(s => [
       s.uploadStartTime,
       s.conversionEndTime,
@@ -72,11 +73,14 @@ const [uploadStartTime, conversionEndTime, setStep, selectedStep, imdfPackageLoc
                 </MessageBar>
               </div>
             ))}
-            <div className={actionButtonsContainer}>
-              {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
-                <DownloadIMDF link={imdfPackageLocation} />
-              )}
-              <ImdfDiagnostics link={diagnosticPackageLocation} />
+            <div className={actionButtonsWrapper}>
+              <div className={actionButtonsLeft}>
+                {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
+                  <DownloadIMDF link={imdfPackageLocation} />
+                )}
+                <ImdfDiagnostics link={diagnosticPackageLocation} />
+              </div>
+              <ClearPreviousConversions />
             </div>
             {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
               <FillScreenContainer offsetBottom={110}>

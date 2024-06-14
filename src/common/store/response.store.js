@@ -1,4 +1,4 @@
-import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadFile } from 'common/api';
+import { deleteFromLocation, fetchFromLocation, fetchWithRetries, uploadPackage } from 'common/api';
 import { clearCloudStorageData } from 'common/api/conversions';
 import { HTTP_STATUS_CODE, PLACES_PREVIEW } from 'common/constants';
 import i18next from 'common/translations/i18n';
@@ -43,21 +43,22 @@ export const useResponseStore = createWithEqualityFn(
         errorMessage: '',
       });
     },
-    uploadFile: file => {
+    uploadFile: async file => {
       const { isPlacesPreview } = getFeatureFlags();
-      if (isPlacesPreview) {
-        clearCloudStorageData();
-      }
 
       set(() => ({
         errorMessage: '',
         lroStatus: LRO_STATUS.UPLOADING,
       }));
 
+      if (isPlacesPreview) {
+        await clearCloudStorageData();
+      }
+
       useReviewManifestStore.getState().setOriginalPackage(file);
 
       repackPackage(file).then(repackedFile =>
-        uploadFile(repackedFile)
+        uploadPackage(repackedFile)
           .then(async r => {
             if (r.status !== HTTP_STATUS_CODE.ACCEPTED) {
               const data = await r.json();
