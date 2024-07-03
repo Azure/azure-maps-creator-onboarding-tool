@@ -109,6 +109,11 @@ function isValidLongitude(lon) {
   return lon >= -180 && lon <= 180;
 }
 
+export const getCoordinatesArray = arr => {
+  if (typeof arr[0][0] === 'number') return arr;
+  return getCoordinatesArray(arr[0]);
+};
+
 export function calculateBoundingBox(levels) {
   let minLat = 90;
   let maxLat = -90;
@@ -119,7 +124,7 @@ export function calculateBoundingBox(levels) {
   levels.features.forEach(feature => {
     const { coordinates } = feature.geometry;
 
-    coordinates[0].forEach(([lon, lat]) => {
+    getCoordinatesArray(coordinates).forEach(([lon, lat]) => {
       if (!isValidLongitude(lon) || !isValidLatitude(lat)) return;
 
       minLat = Math.min(minLat, lat);
