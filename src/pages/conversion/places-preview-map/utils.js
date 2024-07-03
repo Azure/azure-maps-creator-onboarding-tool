@@ -101,25 +101,52 @@ export function getTextStyle(category) {
   return style;
 }
 
+function isValidLatitude(lat) {
+  return lat >= -90 && lat <= 90;
+}
+
+function isValidLongitude(lon) {
+  return lon >= -180 && lon <= 180;
+}
+
+export const flattenCoordinates = arr => {
+  if (!Array.isArray(arr)) return [];
+
+  const flattened = [];
+  arr.forEach(item => {
+    if (typeof item[0] === 'number') {
+      flattened.push(item);
+      return;
+    }
+    flattened.push(...flattenCoordinates(item));
+  });
+
+  return flattened;
+};
+
 export function calculateBoundingBox(levels) {
-  let minLat = Infinity;
-  let maxLat = -Infinity;
-  let minLon = Infinity;
-  let maxLon = -Infinity;
-  let hasCalulated = false;
+  let minLat = 90;
+  let maxLat = -90;
+  let minLon = 180;
+  let maxLon = -180;
+  let hasCalculated = false;
 
   levels.features.forEach(feature => {
     const { coordinates } = feature.geometry;
-    coordinates[0].forEach(([lon, lat]) => {
+    const flattenedCoordinates = flattenCoordinates(coordinates);
+
+    flattenedCoordinates.forEach(([lon, lat]) => {
+      if (!isValidLongitude(lon) || !isValidLatitude(lat)) return;
+
       minLat = Math.min(minLat, lat);
       maxLat = Math.max(maxLat, lat);
       minLon = Math.min(minLon, lon);
       maxLon = Math.max(maxLon, lon);
-      hasCalulated = true;
+      hasCalculated = true;
     });
   });
 
-  if (!hasCalulated) return undefined;
+  if (!hasCalculated) return undefined;
 
   return [minLon, minLat, maxLon, maxLat];
 }
