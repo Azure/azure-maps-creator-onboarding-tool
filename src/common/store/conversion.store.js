@@ -57,6 +57,7 @@ const getDefaultState = () => ({
   tilesetId: null,
   mapConfigurationId: null,
   bbox: null,
+  diagnosticData: null,
 });
 
 const defaultErrorMessage = 'Operation failed.';
@@ -423,6 +424,11 @@ export const useConversionStore = createWithEqualityFn(
             tilesetEndTime: Date.now(),
           });
         });
+    },
+    setDiagnosticData: data => {
+      set({
+        diagnosticData: data,
+      });
     },
   }),
   shallow

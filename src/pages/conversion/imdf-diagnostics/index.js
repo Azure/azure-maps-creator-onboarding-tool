@@ -9,6 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@fluentui/react-components';
+import { useConversionStore } from 'common/store';
+import DiagnosticsVisualization from 'components/diagnostics-visualization';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import nextId from 'react-id-generator';
@@ -17,6 +19,7 @@ import { extractMessages, processZip } from './utils';
 
 export const ImdfDiagnostics = ({ isFailed, link }) => {
   const [diagnosticsMessages, setDiagnosticsMessages] = useState({ errors: [], warnings: [] });
+  const [setDiagnosticData] = useConversionStore(s => [s.setDiagnosticData]);
 
   useEffect(() => {
     if (!link) return;
@@ -28,6 +31,7 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
 
       const { content } = diagnosticsFile;
       const messages = extractMessages(content);
+      setDiagnosticData(content);
 
       const messageGroups = {
         errors: messages.errors.map(message => ({ id: nextId(), message })),
@@ -36,7 +40,7 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
 
       setDiagnosticsMessages(messageGroups);
     });
-  }, [link]);
+  }, [link, setDiagnosticData]);
 
   const handleDownload = () => {
     if (!link) {
@@ -57,30 +61,11 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
       <DialogTrigger disableButtonEnhancement>
         <DefaultButton className={cx(logsButton, { [failedLogsButton]: isFailed })}>Show Diagnostics</DefaultButton>
       </DialogTrigger>
-      <DialogSurface style={{ borderRadius: 2 }}>
-        <DialogBody style={{ maxHeight: 600 }}>
+      <DialogSurface style={{ borderRadius: 2, maxWidth: 'calc(100vw - 20px)' }}>
+        <DialogBody style={{ maxHeight: 'calc(100vh - 100px)', height: 'calc(100vh - 100px)' }}>
           <DialogTitle>Conversion Issues</DialogTitle>
           <DialogContent style={{ margin: '1rem 0' }}>
-            {diagnosticsMessages.errors.length === 0 && diagnosticsMessages.warnings.length === 0 ? (
-              <i>No messages</i>
-            ) : (
-              <>
-                {diagnosticsMessages.errors.map(message => (
-                  <div key={message.id} style={{ marginBottom: '0.5rem' }}>
-                    <MessageBar messageBarType={MessageBarType.error} isMultiline>
-                      {message.message}
-                    </MessageBar>
-                  </div>
-                ))}
-                {diagnosticsMessages.warnings.map(message => (
-                  <div key={message.id} style={{ marginBottom: '0.5rem' }}>
-                    <MessageBar messageBarType={MessageBarType.warning} isMultiline>
-                      {message.message}
-                    </MessageBar>
-                  </div>
-                ))}
-              </>
-            )}
+            <DiagnosticsVisualization />
           </DialogContent>
           <DialogActions>
             <DialogTrigger disableButtonEnhancement>
