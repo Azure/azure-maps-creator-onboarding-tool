@@ -1,13 +1,13 @@
 /* Map styles */
 #map {
-	flex: 0 0 50%;
+	flex: 1 1 50%;
 	height: 100%;
 	background: #e9ebee;
 }
 
 /* Pane styles */
 #pane {
-	flex: 1 1 auto;
+	flex: 1 1 50%;
 }
 
 .pane-filter {
@@ -142,25 +142,4 @@ body:not(.using-mouse) input[type='radio']:focus~span {
 	height: 4px;
 	cursor: row-resize;
 	border-bottom: 3px solid white;
-}
-
-.hf-links {
-	color: #ffffff;
-	font-size: 16px;
-	margin-right: 20px;
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-.hf-links>a {
-	color: inherit;
-	margin-left: 36px;
-	text-decoration: inherit;
-}
-
-.hf-links>a:not(.using-mouse):focus,
-.hf-links>a:hover {
-	border-bottom: 1px solid #ffffff;
 }
