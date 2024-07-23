@@ -9,6 +9,7 @@
     "@turf/turf": "^6.5.0",
     "@zip.js/zip.js": "^2.7.31",
     "azure-maps-control": "^3.1.2",
+    "azure-maps-drawing-tools": "^1.0.3",
     "azure-maps-indoor": "^0.2.3",
     "cross-env": "^7.0.3",
     "file-saver": "^2.0.5",
@@ -31,6 +32,7 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
+    "css-loader": "^7.1.2",
     "cypress": "^13.6.0",
     "eslint-plugin-cypress": "^2.15.1",
     "flush-promises": "^1.0.2",
@@ -40,6 +42,7 @@
     "proj4": "^2.8.0",
     "prop-types": "^15.8.1",
     "react-scripts": "^5.0.1",
+    "style-loader": "^4.0.0",
     "webpack-bundle-analyzer": "^4.10.1"
   },
   "overrides": {

@@ -4,7 +4,7 @@ import deskpool from './assets/deskpool.svg';
 import elevator from './assets/elevator.svg';
 import restroom from './assets/restroom.svg';
 import stairs from './assets/stairs.svg';
-import { categoryToFillColor, defaultFillColor, levelStyles, textStyles, unitStyles } from './theme/floorPlanStyles';
+import { categoryToFillColor, defaultFillColor, levelStyles, levelOnlyStyles, textStyles, footprintStyles, unitStyles } from './theme/floorPlanStyles';
 
 export function getFillStyles(featureType, category) {
   if (featureType !== 'unit') {
@@ -39,6 +39,24 @@ export function getLineStyles(featureType, category) {
     paintStyle = {
       strokeColor: levelStyles.lineColor,
       strokeWidth: levelStyles.lineWidth,
+      lineJoin: 'round',
+      lineCap: 'round',
+    };
+  }
+
+  if (featureType === 'levelOnly') {
+    paintStyle = {
+      strokeColor: levelOnlyStyles.lineColor,
+      strokeWidth: levelOnlyStyles.lineWidth,
+      lineJoin: 'round',
+      lineCap: 'round',
+    };
+  }
+
+  if (featureType === 'footprint') {
+    paintStyle = {
+      strokeColor: footprintStyles.lineColor,
+      strokeWidth: footprintStyles.lineWidth,
       lineJoin: 'round',
       lineCap: 'round',
     };
