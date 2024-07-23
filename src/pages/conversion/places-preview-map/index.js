@@ -1,5 +1,5 @@
-import { Map, control, layer, source } from 'azure-maps-control';
-import {control as draw_control, drawing} from 'azure-maps-drawing-tools';
+import { Map, layer, source, control } from 'azure-maps-control';
+import * as azdraw from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
 import { DefaultButton } from '@fluentui/react';
@@ -54,6 +54,7 @@ const PlacesPreviewMap = ({ style }) => {
 
   useEffect(() => {
     var drawingManager;
+
     const map = new Map('azure-maps-container', {
       bounds: calculateBoundingBox(levels),
       subscriptionKey: subscriptionKey,
@@ -68,14 +69,14 @@ const PlacesPreviewMap = ({ style }) => {
     });
 
     map.events.add('ready', () => {
-      var drawingToolbar = new draw_control.DrawingToolbar({ 
+      var drawingToolbar = new azdraw.control.DrawingToolbar({ 
         position: 'bottom-right', 
         style: 'light', 
         buttons: ['edit-geometry', 'erase-geometry', 'draw-polygon'] 
       });    
 
       if(selectedLayerId === 'unitButton') {
-        drawingManager = new drawing.DrawingManager(map, {
+        drawingManager = new azdraw.drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
         unitInteractions(units, drawingManager, map);
