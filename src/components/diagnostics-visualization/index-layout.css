@@ -1,0 +1,57 @@
+.splitter-layout {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: calc(100% - 48px);
+}
+
+.splitter-layout .layout-pane {
+	position: relative;
+	flex: 0 0 auto;
+	overflow: auto;
+}
+
+.splitter-layout .layout-pane.layout-pane-primary {
+	flex: 1 1 auto;
+}
+
+.splitter-layout>.layout-splitter {
+	background-color: #ccc;
+	border-right: 3px solid white;
+	box-shadow: -2px 0 2px -1px rgba(166, 166, 166);
+	cursor: col-resize;
+	flex: 0 0 auto;
+	height: 100%;
+	width: 1px;
+	z-index: 1;
+}
+
+.splitter-layout .layout-splitter:hover,
+.splitter-layout.splitter-layout-vertical>.layout-splitter:hover {
+	border-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.splitter-layout.layout-changing {
+	cursor: col-resize;
+}
+
+.splitter-layout.layout-changing>.layout-splitter {
+	background-color: #aaa;
+}
+
+.splitter-layout.splitter-layout-vertical {
+	flex-direction: column;
+}
+
+.splitter-layout.splitter-layout-vertical.layout-changing {
+	cursor: row-resize;
+}
+
+.splitter-layout.splitter-layout-vertical>.layout-splitter {
+	width: 100%;
+	height: 4px;
+	cursor: row-resize;
+	border-bottom: 3px solid white;
+}
