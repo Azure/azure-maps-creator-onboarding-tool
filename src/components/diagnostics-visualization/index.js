@@ -1,21 +1,17 @@
-// import { initializeIcons } from '@uifabric/icons';
-import { Selection } from '@fluentui/react/lib/DetailsList';
-import { initializeIcons } from '@fluentui/react/lib/Icons';
-import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { Selection, SelectionMode } from '@fluentui/react/lib/DetailsList';
 import { useConversionStore } from 'common/store';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import SplitterLayout from 'react-splitter-layout-react-v18';
-import { parseDiagnosticData } from './components/Content/Pane/List/FileUploader/helpers';
 import DetailedView from './components/DetailedView';
+import Filter from './components/Filter';
+import List from './components/List/List';
 import Map from './components/Map/Map';
+import { parseDiagnosticData } from './components/helpers';
+import { contentWrapper, diagnosticVisualizationWrapper } from './index.style';
+
 import './index-layout.css';
-// import Filter from './Filter/Filter';
-import List from './components/Content/Pane/List/List';
 
-initializeIcons();
-
-const DiagnosticsVisualization = props => {
-  const { map } = props;
+const DiagnosticsVisualization = () => {
   const [diagnosticData] = useConversionStore(s => [s.diagnosticData]);
 
   const [excludedIds, setExcludedIds] = useState({
@@ -34,13 +30,16 @@ const DiagnosticsVisualization = props => {
   }, [diagnosticData]);
 
   const lastActiveItemKey = useRef(undefined);
-  const selection = useRef(
-    new Selection({
+
+  const selection = useMemo(() => {
+    return new Selection({
       onSelectionChanged: () => {
-        setSelectedItems(selection.current.getSelection());
+        setSelectedItems(selection.getSelection());
       },
-    })
-  );
+      selectionMode: SelectionMode.multiple,
+      getKey: item => item.key,
+    });
+  }, []);
 
   const onActiveListItemChanged = linkItem => {
     if (lastActiveItemKey.current === linkItem.key) {
@@ -70,51 +69,26 @@ const DiagnosticsVisualization = props => {
 
   const errors = resultItems ? resultItems.errors || [] : undefined;
 
-  const onPaneDragEnd = () => {
-    if (!map) {
-      return;
-    }
-    map.invalidateSize();
-  };
-
   return (
-    <div
-      onDragEnd={onPaneDragEnd}
-      secondaryInitialSize={800}
-      secondaryMinSize={550}
-      style={{
-        zIndex: 1,
-        display: 'flex',
-        height: '100%',
-        width: '100%',
-      }}
-    >
+    <div className={diagnosticVisualizationWrapper}>
       <Map
         excludedIds={excludedIds}
         resultItems={resultItems}
-        selection={selection.current}
+        selection={selection}
         selectedItems={selectedItems}
         onActiveItemChanged={onActiveMapItemChanged}
       />
-      <div id="pane">
+      <div className={contentWrapper}>
+        <Filter excludedIds={excludedIds} resultItems={resultItems} setExcludedIds={setExcludedIds} />
         <SplitterLayout vertical primaryMinSize={200} secondaryMinSize={200} secondaryInitialSize={400}>
-          <ScrollablePane
-            scrollbarVisibility={ScrollbarVisibility.auto}
-            styles={{ root: { overflowY: 'hidden' }, stickyBelowItems: { height: 'inherit' } }}
-          >
-            {/* Rendered Components */}
-            {/*
-            <Filter excludedIds={excludedIds} resultItems={resultItems} setExcludedIds={setExcludedIds} />
-           */}
-            <List
-              excludedErrorIds={excludedIds.errors}
-              errors={errors}
-              selection={selection.current}
-              onActiveItemChanged={onActiveListItemChanged}
-              onDetailsClick={onDetailsClick}
-              setResultItems={setResultItems}
-            />
-          </ScrollablePane>
+          <List
+            excludedErrorIds={excludedIds.errors}
+            errors={errors}
+            selection={selection}
+            onActiveItemChanged={onActiveListItemChanged}
+            onDetailsClick={onDetailsClick}
+            setResultItems={setResultItems}
+          />
           {showDetailedView && (
             <DetailedView
               json={linkItem.rawDetail}

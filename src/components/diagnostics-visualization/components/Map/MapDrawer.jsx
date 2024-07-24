@@ -10,6 +10,7 @@ const SELECTED_GEOMETRY_OPACITY = 1;
 const LEVELOUTLINE_GEOMETRY_COLOR = '#007FFF';
 
 const MapDrawer = props => {
+  const { excludedIds, resultItems, selection, selectedItems, onActiveItemChanged } = props;
   const isDataPopulated = useRef(false);
   const polyMapping = useRef({ errors: {}, levelOutlines: {} });
   const prevExcludedIds = useRef({ errors: new Set(), levelOutlines: new Set() });
@@ -18,7 +19,7 @@ const MapDrawer = props => {
   const mapRef = useRef(map);
 
   useEffect(() => {
-    if (!mapRef.current || !props.resultItems) return;
+    if (!mapRef.current || !resultItems) return;
 
     if (!isDataPopulated.current) {
       processResultItems();
@@ -26,24 +27,23 @@ const MapDrawer = props => {
     }
 
     const excludedOrSelectedChange =
-      prevExcludedIds.current !== props.excludedIds || prevSelectedItems.current !== props.selectedItems;
+      prevExcludedIds.current !== excludedIds || prevSelectedItems.current !== selectedItems;
 
-    if (prevExcludedIds.current !== props.excludedIds) {
+    if (prevExcludedIds.current !== excludedIds) {
       handleExclusionChange();
     }
 
-    if (prevSelectedItems.current !== props.selectedItems) {
+    if (prevSelectedItems.current !== selectedItems) {
       handleSelectionChange();
     }
 
     if (excludedOrSelectedChange) {
       adjustMapBounds();
     }
-  }, [props.excludedIds, props.resultItems, props.selectedItems]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [excludedIds, resultItems, selectedItems]);
 
   const handleExclusionChange = () => {
-    const { excludedIds } = props;
-
     for (const [idType, ids] of Object.entries(prevExcludedIds.current || {})) {
       ids.forEach(id => {
         const poly = polyMapping.current[idType][id];
@@ -63,7 +63,6 @@ const MapDrawer = props => {
 
   const handleSelectionChange = () => {
     const { errors: errorPolyMapping } = polyMapping.current;
-    const { selectedItems } = props;
 
     prevSelectedItems.current.forEach(item => {
       const poly = errorPolyMapping[item.key];
@@ -90,7 +89,6 @@ const MapDrawer = props => {
 
   const adjustMapBounds = () => {
     const { errors: errorPolyMapping, levelOutlines: levelPolyMapping } = polyMapping.current;
-    const { excludedIds, selectedItems } = props;
 
     const allErrorsPoly = Object.keys(errorPolyMapping)
       .filter(key => !(excludedIds.errors || new Set()).has(Number(key)))
@@ -124,7 +122,6 @@ const MapDrawer = props => {
   };
 
   const processResultItems = () => {
-    const { resultItems } = props;
     polyMapping.current = { errors: {}, levelOutlines: {} };
 
     for (const [itemType, items] of Object.entries(resultItems || {})) {
@@ -154,7 +151,7 @@ const MapDrawer = props => {
         }
         if (itemType === 'errors' || itemType === 'warnings') {
           polyMapping.current[itemType][key].on('click', () => {
-            props.selection.toggleKeySelected(key);
+            selection.toggleKeySelected(key);
             onActiveItemChanged(item);
             console.log(item);
           });
@@ -180,8 +177,6 @@ const MapDrawer = props => {
 
     return bounds;
   };
-
-  const onActiveItemChanged = item => props.onActiveItemChanged(item);
 
   return null;
 };

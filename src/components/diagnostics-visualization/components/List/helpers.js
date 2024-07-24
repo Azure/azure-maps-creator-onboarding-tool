@@ -17,6 +17,9 @@ export const areItemKeysEqual = (a, b) => {
   return true;
 };
 
-export const copyAndSort = (items, key, isSortedDescending) => items
-  .slice(0)
-  .sort((a, b) => ((isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1));
+export const copyAndSort = (items, key, isSortedDescending) => {
+  const newItems = [...items];
+  console.log('newItems', newItems);
+  newItems.sort((a, b) => ((isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1));
+  return newItems;
+};
