@@ -82,3 +82,45 @@ export const parseDiagnosticData = data => {
 
   return { parseError, items };
 };
+
+export const genericCompare = (a, b) => {
+  if (Number.isNaN(a) && Number.isNaN(b)) {
+    if (typeof a === 'string' && b === 'string') {
+      return a.localeCompare(b);
+    }
+    return a - b;
+  }
+
+  if (Number.isNaN(a)) {
+    return 1;
+  }
+  if (Number.isNaN(b)) {
+    return -1;
+  }
+  return a - b;
+};
+
+export const areItemKeysEqual = (a, b) => {
+  if (a === b) {
+    return true;
+  }
+  if (!Array.isArray(a) || !Array.isArray(b)) {
+    return false;
+  }
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i].key !== b[i].key) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const copyAndSort = (items, key, isSortedDescending) => {
+  const newItems = [...items];
+  newItems.sort((a, b) => ((isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1));
+  return newItems;
+};

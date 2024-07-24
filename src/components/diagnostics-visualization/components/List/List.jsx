@@ -1,8 +1,8 @@
 import { ColumnActionsMode, DetailsList } from '@fluentui/react';
 import { ScrollToMode } from '@fluentui/react/lib/List';
 import React, { useEffect, useRef, useState } from 'react';
+import { areItemKeysEqual, copyAndSort } from '../helpers';
 import { DetailedViewLink, RenderDetailsHeader } from './ListSupportRenders';
-import { areItemKeysEqual, copyAndSort } from './helpers';
 
 const List = props => {
   const { excludedErrorIds, errors, onActiveItemChanged, onDetailsClick, selection } = props;

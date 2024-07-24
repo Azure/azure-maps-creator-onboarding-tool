@@ -1,34 +1,9 @@
 import { SearchBox } from '@fluentui/react/lib/SearchBox';
 import Dropdown from 'components/dropdown';
 import React, { useEffect, useState } from 'react';
-import { dropdownStyle, filterBarStyle, placeholderStyle, textBoxStyle } from './index.style';
-
-const DropdownText = props => {
-  const { selectedOptions, placeholder } = props;
-  if (selectedOptions.length === 1) {
-    return selectedOptions;
-  } else if (selectedOptions.length > 1) {
-    return `${selectedOptions[0]} (+${selectedOptions.length - 1})`;
-  }
-  return <span className={placeholderStyle}>{placeholder}</span>;
-};
-
-const genericCompare = (a, b) => {
-  if (Number.isNaN(a) && Number.isNaN(b)) {
-    if (typeof a === 'string' && b === 'string') {
-      return a.localeCompare(b);
-    }
-    return a - b;
-  }
-
-  if (Number.isNaN(a)) {
-    return 1;
-  }
-  if (Number.isNaN(b)) {
-    return -1;
-  }
-  return a - b;
-};
+import { genericCompare } from '../helpers';
+import DropdownText from './DropdownText';
+import { dropdownStyle, filterBarStyle, textBoxStyle } from './index.style';
 
 const Filter = ({ resultItems, setExcludedIds }) => {
   const [keyword, setKeyword] = useState('');
