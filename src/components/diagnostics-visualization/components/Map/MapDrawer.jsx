@@ -153,7 +153,6 @@ const MapDrawer = props => {
           polyMapping.current[itemType][key].on('click', () => {
             selection.toggleKeySelected(key);
             onActiveItemChanged(item);
-            console.log(item);
           });
         }
       });
