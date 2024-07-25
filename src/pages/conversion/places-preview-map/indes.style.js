@@ -2,18 +2,18 @@ import { css } from '@emotion/css';
 
 export const mapTextWrapper = css `
   display: flex;
-  gap: 10px;
+  gap: 2rem;
 `
 
 export const imdfPreviewMapWrapper = css`
   position: relative;
   width: 100%;
-  flex: 5 1 70px;                              
+  flex: 5 1 4rem;                              
 `;
 
 export const imdfPreviewMap = css`
   width: 100%;
-  height: 500px;
+  height: 30rem;
 `;
 
 export const layerSelect = css `
@@ -22,7 +22,7 @@ export const layerSelect = css `
 `;
 
 export const textWrapper = css `
-  flex: 1 1 70px; 
+  flex: 1 1 4rem; 
   position: relative;
   display: inline;
   margin-top: 1%;

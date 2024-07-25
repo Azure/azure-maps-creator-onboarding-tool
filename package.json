@@ -61,7 +61,8 @@
     "moduleNameMapper": {
       "react-azure-maps": "<rootDir>/src/common/mocks/react-azure-maps.js",
       "azure-maps-control": "<rootDir>/src/common/mocks/azure-maps-control.js",
-      "azure-maps-indoor": "<rootDir>/src/common/mocks/azure-maps-indoor.js"
+      "azure-maps-indoor": "<rootDir>/src/common/mocks/azure-maps-indoor.js",
+      "azure-maps-drawing-tools": "<rootDir>/src/common/mocks/azure-maps-drawing-tools.js"
     }
   },
   "scripts": {

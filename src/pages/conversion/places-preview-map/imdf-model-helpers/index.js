@@ -1,8 +1,5 @@
 import { getFeatureLabel } from '../utils';
 
-import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
-import 'azure-maps-control/dist/atlas.min.css';
-
 // Sets polygon, line, and symbol layers to invisible
 function drawingModeChanged(allLayers) {
     allLayers.forEach(layer => {

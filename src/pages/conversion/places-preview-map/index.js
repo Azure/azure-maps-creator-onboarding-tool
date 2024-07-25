@@ -1,5 +1,5 @@
 import { Map, layer, source, control } from 'azure-maps-control';
-import * as azdraw from 'azure-maps-drawing-tools';
+import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
 import { DefaultButton } from '@fluentui/react';
@@ -69,35 +69,22 @@ const PlacesPreviewMap = ({ style }) => {
     });
 
     map.events.add('ready', () => {
-      var drawingToolbar = new azdraw.control.DrawingToolbar({ 
+      var drawingToolbar = new draw_control.DrawingToolbar({ 
         position: 'bottom-right', 
         style: 'light', 
         buttons: ['edit-geometry', 'erase-geometry', 'draw-polygon'] 
       });    
 
       if(selectedLayerId === 'unitButton') {
-        drawingManager = new azdraw.drawing.DrawingManager(map, {
+        drawingManager = new drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
         unitInteractions(units, drawingManager, map);
       } else if(selectedLayerId === 'levelButton') {
-        // Retrieve information about the level currently chosen by user
-        const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
-
-        const dataSource = new source.DataSource();
-        map.sources.add(dataSource);
-        dataSource.add(selectedLevelDetails);
-        
-        // Displays outline of level + change in color when cursor is hovering
-        var lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
-        var lineHoverLayer = new layer.LineLayer(dataSource, null, {
-          fillColor: 'rgba(150, 50, 255, 0.2)',
-          filter: ['==', ['get', '_azureMapsShapeId'], '']
+        drawingManager = new drawing.DrawingManager(map, {
+          toolbar: drawingToolbar
         });
-
-        map.layers.add([lineLayer, lineHoverLayer], 'walkwayPolygons');
-        grabToPointer([lineLayer, lineHoverLayer], map);
-        featureHover(lineLayer, lineHoverLayer);
+        levelInteractions(levels, drawingManager, map);
       } else if(selectedLayerId === 'footprintButton') {
         const groupedFeatures = {};
         const keys = Object.keys(groupedFeatures);
@@ -148,8 +135,8 @@ const PlacesPreviewMap = ({ style }) => {
         map.sources.add(dataSource);
         dataSource.add(levels);
 
-        lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
-        lineHoverLayer = new layer.LineLayer(dataSource, null, {
+        var lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
+        var lineHoverLayer = new layer.LineLayer(dataSource, null, {
           fillColor: 'rgba(150, 50, 255, 0.2)',
           filter: ['==', ['get', '_azureMapsShapeId'], '']
         });
@@ -254,6 +241,26 @@ const PlacesPreviewMap = ({ style }) => {
   
         currentEditData(map, drawingManager);
       });
+    }
+
+    function levelInteractions(levels, drawingManager, map) {
+      // Retrieve information about the level currently chosen by user
+      const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
+
+      const dataSource = new source.DataSource();
+      map.sources.add(dataSource);
+      dataSource.add(selectedLevelDetails);
+      
+      // Displays outline of level + change in color when cursor is hovering
+      var lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
+      var lineHoverLayer = new layer.LineLayer(dataSource, null, {
+        fillColor: 'rgba(150, 50, 255, 0.2)',
+        filter: ['==', ['get', '_azureMapsShapeId'], '']
+      });
+
+      map.layers.add([lineLayer, lineHoverLayer], 'walkwayPolygons');
+      grabToPointer([lineLayer, lineHoverLayer], map);
+      featureHover(lineLayer, lineHoverLayer);
     }
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes

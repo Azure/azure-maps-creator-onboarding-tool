@@ -4,7 +4,8 @@ export const layerSelectorWrapper = css`
   position: absolute;
   top: 0;
   left: 0;
-  padding: 10px;
+  padding-left: 0.5rem;
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   z-index: 100;
