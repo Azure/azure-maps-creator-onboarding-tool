@@ -81,6 +81,11 @@ const PlacesPreviewMap = ({ style }) => {
         });
         unitInteractions(units, drawingManager, map);
       } else if(selectedLayerId === 'levelButton') {
+        var drawingToolbar = new draw_control.DrawingToolbar({ 
+          position: 'bottom-right', 
+          style: 'light', 
+          buttons: ['edit-geometry'] 
+        });    
         drawingManager = new drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
@@ -209,6 +214,7 @@ const PlacesPreviewMap = ({ style }) => {
         var dmLayers = drawingManager.getLayers();
         dmLayers.polygonLayer.setOptions({ visible: false });
         dmLayers.polygonOutlineLayer.setOptions({ visible: false });
+        layersAdded = [unitLayer, unitLines, polygonHoverLayer];
   
         map.events.add('drawingmodechanged', drawingManager, (e) => {
           var dmLayers = drawingManager.getLayers();
@@ -246,21 +252,53 @@ const PlacesPreviewMap = ({ style }) => {
     function levelInteractions(levels, drawingManager, map) {
       // Retrieve information about the level currently chosen by user
       const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
+      var lineLayer, lineHoverLayer;
+      var layersAdded = [lineLayer, lineHoverLayer];
 
       const dataSource = new source.DataSource();
       map.sources.add(dataSource);
       dataSource.add(selectedLevelDetails);
       
       // Displays outline of level + change in color when cursor is hovering
-      var lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
-      var lineHoverLayer = new layer.LineLayer(dataSource, null, {
+      lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
+      lineHoverLayer = new layer.LineLayer(dataSource, null, {
         fillColor: 'rgba(150, 50, 255, 0.2)',
         filter: ['==', ['get', '_azureMapsShapeId'], '']
       });
 
       map.layers.add([lineLayer, lineHoverLayer], 'walkwayPolygons');
       grabToPointer([lineLayer, lineHoverLayer], map);
+      layersAdded = [lineLayer, lineHoverLayer];
       featureHover(lineLayer, lineHoverLayer);
+
+      var drawingSource = drawingManager.getSource();
+      drawingSource.add(selectedLevelDetails);
+
+      var dmLayers = drawingManager.getLayers();
+      dmLayers.polygonLayer.setOptions({ visible: false });
+      dmLayers.polygonOutlineLayer.setOptions({visible: false});
+
+      map.events.add('drawingmodechanged', drawingManager, (e) => {
+        var dmLayers = drawingManager.getLayers();
+        if (e === 'idle') {
+          dmLayers.polygonOutlineLayer.setOptions({ visible: false });
+
+          var lineLayer = new layer.LineLayer(drawingManager.getSource(), 'levelClick', getLineStyles('level', 'walkway'));
+          lineHoverLayer = new layer.LineLayer(drawingManager.getSource(), null, {
+            fillColor: 'rgba(150, 50, 255, 0.2)',
+            filter: ['==', ['get', '_azureMapsShapeId'], '']
+          });
+
+          map.layers.add([lineLayer, lineHoverLayer], 'walkwayPolygons');
+          grabToPointer([lineLayer, lineHoverLayer], map);
+          layersAdded = [lineLayer, lineHoverLayer];
+          featureHover(lineLayer, lineHoverLayer);
+        }
+        else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
+          drawingModeChanged(layersAdded);  
+          dmLayers.polygonOutlineLayer.setOptions({ visible: true });
+        }
+      }); 
     }
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes
