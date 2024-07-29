@@ -10,7 +10,7 @@ function drawingModeChanged(allLayers) {
 // Displays information of a feature that is being drawn/edited, at time of click
 function currentEditData(map, drawingManager) {
     map.events.add('drawingstarted', drawingManager, (f) => {
-        if(f && f.data) {
+        if(f?.data) {
         var shapeId = f.data.id;
         var geojsonData = drawingManager.getSource().getShapeById(shapeId).data;
         document.getElementById('infoPanel-json').value = JSON.stringify(geojsonData, null, 2);

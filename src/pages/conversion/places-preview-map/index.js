@@ -79,76 +79,43 @@ const PlacesPreviewMap = ({ style }) => {
         drawingManager = new drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
+
         unitInteractions(units, drawingManager, map);
-      } else if(selectedLayerId === 'levelButton') {
-        var drawingToolbar = new draw_control.DrawingToolbar({ 
+      } else if(selectedLayerId === 'levelButton') {  
+        drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
           style: 'light', 
           buttons: ['edit-geometry'] 
-        });    
+        });   
         drawingManager = new drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
+        
         levelInteractions(levels, drawingManager, map);
       } else if(selectedLayerId === 'footprintButton') {
-        const groupedFeatures = {};
-        const keys = Object.keys(groupedFeatures);
+        drawingToolbar = new draw_control.DrawingToolbar({ 
+          position: 'bottom-right', 
+          style: 'light', 
+          buttons: ['edit-geometry'] 
+        });   
 
-        const dataSource = new source.DataSource();
-        map.sources.add(dataSource);
-        dataSource.add(footprint);
-
-        // Displays outline of footprint + change in color when cursor is hovering
-        var footprintLines = new layer.LineLayer(dataSource, null, getLineStyles('footprint', 'walkway'));
-        var footprintLayer = new layer.PolygonLayer(dataSource, 'footprintClick', getFillStyles('footprint', keys.category));
-        var footprintHoverLayer = new layer.PolygonLayer(dataSource, null, {
-          fillColor: 'rgba(150, 50, 255, 0.2)',
-          filter: ['==', ['get', '_azureMapsShapeId'], '']
+        drawingManager = new drawing.DrawingManager(map, {
+          toolbar: drawingToolbar
         });
 
-        map.layers.add([footprintLayer, footprintHoverLayer, footprintLines], 'roomPolygons');
-        grabToPointer([footprintLayer, footprintHoverLayer], map);
-        featureHover(footprintLayer, footprintHoverLayer);
+        footprintInteractions(footprint, drawingManager, map);
       } else {
-        // Displays levels + units
-        const groupedFeatures = groupAndSort(units, language, selectedLevel);
-        const keys = Object.keys(groupedFeatures); 
+        drawingToolbar = new draw_control.DrawingToolbar({ 
+          position: 'bottom-right', 
+          style: 'light', 
+          buttons: ['edit-geometry'] 
+        });   
 
-        keys.forEach(category => {
-          const features = groupedFeatures[category].features;
-
-          const dataSource = new source.DataSource();
-          map.sources.add(dataSource);
-          dataSource.add(features);
-
-          // Displays outline of unit(s), the fill color of unit(s), + change in color when cursor is hovering
-          var unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category));
-          var unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category));
-          var polygonHoverLayer = new layer.PolygonLayer(dataSource, null, {
-            fillColor: 'rgba(150, 50, 255, 0.2)',
-            filter: ['==', ['get', '_azureMapsShapeId'], '']
-          });
-
-          map.layers.add([unitLayer, polygonHoverLayer, unitLines], 'roomPolygons');
-          map.layers.add(new layer.SymbolLayer(dataSource, null, getTextStyle(category)), 'roomLabels');
-          grabToPointer([unitLayer, polygonHoverLayer], map);
-          featureHover(unitLayer, polygonHoverLayer);
+        drawingManager = new drawing.DrawingManager(map, {
+          toolbar: drawingToolbar
         });
 
-        // Level display information below
-        const dataSource = new source.DataSource();
-        map.sources.add(dataSource);
-        dataSource.add(levels);
-
-        var lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
-        var lineHoverLayer = new layer.LineLayer(dataSource, null, {
-          fillColor: 'rgba(150, 50, 255, 0.2)',
-          filter: ['==', ['get', '_azureMapsShapeId'], '']
-        });
-
-        map.layers.add([lineLayer, lineHoverLayer], 'walkwayPolygons');
-        grabToPointer([lineLayer, lineHoverLayer], map);
-        featureHover(lineLayer, lineHoverLayer);
+        fullViewInteractions(units, levels, drawingManager, map);
       }
     });
 
@@ -211,13 +178,13 @@ const PlacesPreviewMap = ({ style }) => {
         var drawingSource = drawingManager.getSource();
         drawingSource.add(features);
   
-        var dmLayers = drawingManager.getLayers();
+        let dmLayers = drawingManager.getLayers();
         dmLayers.polygonLayer.setOptions({ visible: false });
         dmLayers.polygonOutlineLayer.setOptions({ visible: false });
         layersAdded = [unitLayer, unitLines, polygonHoverLayer];
   
         map.events.add('drawingmodechanged', drawingManager, (e) => {
-          var dmLayers = drawingManager.getLayers();
+          let dmLayers = drawingManager.getLayers();
           layersAdded = [unitLayer, unitLines, polygonHoverLayer];
   
           if (e === 'idle') {
@@ -243,12 +210,17 @@ const PlacesPreviewMap = ({ style }) => {
             dmLayers.polygonLayer.setOptions({ visible: true });
             dmLayers.polygonOutlineLayer.setOptions({ visible: true });
           }
+          else {
+            // This will eventually be a visible pop-up
+            console.log('Not a valid drawing toolbar option.');
+          }
         });   
   
         currentEditData(map, drawingManager);
       });
     }
 
+    // Entry point when "level.geojson" is pressed; the following code should be refactored due to redundancy
     function levelInteractions(levels, drawingManager, map) {
       // Retrieve information about the level currently chosen by user
       const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
@@ -274,13 +246,14 @@ const PlacesPreviewMap = ({ style }) => {
       var drawingSource = drawingManager.getSource();
       drawingSource.add(selectedLevelDetails);
 
-      var dmLayers = drawingManager.getLayers();
+      let dmLayers = drawingManager.getLayers();
       dmLayers.polygonLayer.setOptions({ visible: false });
       dmLayers.polygonOutlineLayer.setOptions({visible: false});
 
       map.events.add('drawingmodechanged', drawingManager, (e) => {
-        var dmLayers = drawingManager.getLayers();
+        let dmLayers = drawingManager.getLayers();
         if (e === 'idle') {
+          dmLayers.polygonLayer.setOptions({ visible: false });
           dmLayers.polygonOutlineLayer.setOptions({ visible: false });
 
           var lineLayer = new layer.LineLayer(drawingManager.getSource(), 'levelClick', getLineStyles('level', 'walkway'));
@@ -297,8 +270,83 @@ const PlacesPreviewMap = ({ style }) => {
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
           drawingModeChanged(layersAdded);  
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
+          dmLayers.polygonLayer.setOptions({ visible: false });
+        }
+        else {
+          // This will eventually be a visible pop-up
+          console.log('Not a valid drawing toolbar option.');
         }
       }); 
+    }
+
+    // Entry point when "footprint.geojson" is pressed; the following code should be refactored due to redundancy
+    function footprintInteractions(footprint, drawingManager, map) {
+      var footprintLayer, footprintLines, footprintHoverLayer; 
+      var layersAdded = [footprintLayer, footprintLines, footprintHoverLayer];
+
+      const groupedFeatures = {};
+      const keys = Object.keys(groupedFeatures);
+
+      const dataSource = new source.DataSource();
+      map.sources.add(dataSource);
+      dataSource.add(footprint);
+
+      // Displays outline of footprint + change in color when cursor is hovering
+      footprintLines = new layer.LineLayer(dataSource, null, getLineStyles('footprint', 'walkway'));
+      footprintLayer = new layer.PolygonLayer(dataSource, 'footprintClick', getFillStyles('footprint', keys.category));
+      footprintHoverLayer = new layer.PolygonLayer(dataSource, null, {
+        fillColor: 'rgba(150, 50, 255, 0.2)',
+        filter: ['==', ['get', '_azureMapsShapeId'], '']
+      });
+
+      map.layers.add([footprintLayer, footprintHoverLayer, footprintLines], 'roomPolygons');
+      grabToPointer([footprintLayer, footprintHoverLayer], map);
+      featureHover(footprintLayer, footprintHoverLayer);
+      layersAdded = [footprintLayer, footprintLines, footprintHoverLayer];
+
+      
+      var drawingSource = drawingManager.getSource();
+      drawingSource.add(footprint);
+
+      let dmLayers = drawingManager.getLayers();
+      dmLayers.polygonLayer.setOptions({ visible: false });
+      dmLayers.polygonOutlineLayer.setOptions({visible: false});
+
+      map.events.add('drawingmodechanged', drawingManager, (e) => {
+        let dmLayers = drawingManager.getLayers();
+        if (e === 'idle') {
+          dmLayers.polygonLayer.setOptions({ visible: false });
+          dmLayers.polygonOutlineLayer.setOptions({ visible: false });
+
+          footprintLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('footprint', 'walkway'));
+          footprintLayer = new layer.PolygonLayer(drawingManager.getSource(), 'footprintClick', getFillStyles('footprint', keys.category));
+          footprintHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, {
+            fillColor: 'rgba(150, 50, 255, 0.2)',
+            filter: ['==', ['get', '_azureMapsShapeId'], '']
+          });
+
+          map.layers.add([footprintLayer, footprintHoverLayer, footprintLines], 'roomPolygons');
+          grabToPointer([footprintLayer, footprintHoverLayer], map);
+          featureHover(footprintLayer, footprintHoverLayer);
+          layersAdded = [footprintLayer, footprintLines, footprintHoverLayer];
+        }
+        else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
+          drawingModeChanged(layersAdded);  
+          dmLayers.polygonLayer.setOptions({ visible: true });
+          dmLayers.polygonOutlineLayer.setOptions({ visible: true });
+        }
+        else {
+          // This will eventually be a visible pop-up
+          console.log('Not a valid drawing toolbar option.');
+        }
+      }); 
+    }
+
+    // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
+    // Needs to be given edit properties
+    function fullViewInteractions(units, levels, drawingManager, map) {
+      unitInteractions(units, drawingManager, map);
+      levelInteractions(levels, drawingManager, map);
     }
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes
