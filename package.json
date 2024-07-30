@@ -24,6 +24,7 @@
     "react-id-generator": "^3.0.2",
     "react-json-view": "^1.21.3",
     "react-router-dom": "^6.20.0",
+    "styled-components": "^6.1.12",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

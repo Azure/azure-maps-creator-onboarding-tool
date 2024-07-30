@@ -69,29 +69,29 @@ const PlacesPreviewMap = ({ style }) => {
     });
 
     map.events.add('ready', () => {
-      var drawingToolbar = new draw_control.DrawingToolbar({ 
-        position: 'bottom-right', 
-        style: 'light', 
-        buttons: ['edit-geometry', 'erase-geometry', 'draw-polygon'] 
-      });    
-
+      var drawingToolbar;
       if(selectedLayerId === 'unitButton') {
+        drawingToolbar = new draw_control.DrawingToolbar({ 
+          position: 'bottom-right', 
+          style: 'light', 
+          buttons: ['edit-geometry', 'erase-geometry', 'draw-polygon'] 
+        });  
         drawingManager = new drawing.DrawingManager(map, {
           toolbar: drawingToolbar
         });
 
         unitInteractions(units, drawingManager, map);
       } else if(selectedLayerId === 'levelButton') {  
-        drawingToolbar = new draw_control.DrawingToolbar({ 
-          position: 'bottom-right', 
-          style: 'light', 
-          buttons: ['edit-geometry'] 
-        });   
-        drawingManager = new drawing.DrawingManager(map, {
-          toolbar: drawingToolbar
-        });
-        
-        levelInteractions(levels, drawingManager, map);
+          drawingToolbar = new draw_control.DrawingToolbar({ 
+            position: 'bottom-right', 
+            style: 'light', 
+            buttons: ['edit-geometry'] 
+          });   
+          drawingManager = new drawing.DrawingManager(map, {
+            toolbar: drawingToolbar
+          });
+          
+          levelInteractions(levels, drawingManager, map);
       } else if(selectedLayerId === 'footprintButton') {
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
@@ -372,6 +372,7 @@ const PlacesPreviewMap = ({ style }) => {
             onChange={handleLevelChange}
             options={levels.features.map(level => ({ key: level.id, text: getFeatureLabel(level, language) }))}
           />
+          
 
           <div className={layerSelect}>
             <LayerSelector
