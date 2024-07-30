@@ -149,8 +149,8 @@ const PlacesPreviewMap = ({ style }) => {
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) { 
-      var unitLayer, unitLines, polygonHoverLayer; 
-      var layersAdded = [unitLayer, unitLines, polygonHoverLayer];
+      var unitLayer, unitLines, polygonHoverLayer, unitSymbols; 
+      var layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
       const groupedFeatures = groupAndSort(units, language, selectedLevel);
       const keys = Object.keys(groupedFeatures);
         
@@ -167,13 +167,15 @@ const PlacesPreviewMap = ({ style }) => {
           fillColor: 'rgba(150, 50, 255, 0.2)',
           filter: ['==', ['get', 'id'], '']
         });
+
+        unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category));
   
-        map.layers.add([unitLayer, polygonHoverLayer, unitLines], 'roomPolygons');
+        map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons');
   
         grabToPointer([unitLayer, polygonHoverLayer], map);
         featureHover(unitLayer, polygonHoverLayer);
   
-        map.layers.add(new layer.SymbolLayer(dataSource, null, getTextStyle(category)), 'roomLabels');
+        // map.layers.add(new layer.SymbolLayer(dataSource, null, getTextStyle(category)), 'roomLabels');
   
         var drawingSource = drawingManager.getSource();
         drawingSource.add(features);
@@ -181,11 +183,11 @@ const PlacesPreviewMap = ({ style }) => {
         let dmLayers = drawingManager.getLayers();
         dmLayers.polygonLayer.setOptions({ visible: false });
         dmLayers.polygonOutlineLayer.setOptions({ visible: false });
-        layersAdded = [unitLayer, unitLines, polygonHoverLayer];
+        layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
   
         map.events.add('drawingmodechanged', drawingManager, (e) => {
           let dmLayers = drawingManager.getLayers();
-          layersAdded = [unitLayer, unitLines, polygonHoverLayer];
+          layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
   
           if (e === 'idle') {
             dmLayers.polygonLayer.setOptions({ visible: false });
@@ -198,12 +200,13 @@ const PlacesPreviewMap = ({ style }) => {
               fillColor: 'rgba(150, 50, 255, 0.2)',
               filter: ['==', ['get', 'id'], '']
             });
+            unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category));
   
-            map.layers.add([unitLayer, polygonHoverLayer, unitLines], 'roomPolygons');
+            map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons');
   
             grabToPointer([unitLayer, polygonHoverLayer], map);
             featureHover(unitLayer, polygonHoverLayer);
-            layersAdded = [unitLayer, unitLines, polygonHoverLayer];
+            layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
           }
           else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {      
             drawingModeChanged(layersAdded); 
