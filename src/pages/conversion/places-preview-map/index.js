@@ -2,14 +2,14 @@ import { Map, layer, source, control } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
-import { DefaultButton } from '@fluentui/react';
-import { logsButton } from '../style';
 import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, textArea, mapTextWrapper, saveButtonWrapper } from './indes.style';
 import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
 import { currentEditData, groupAndSort, drawingModeChanged, writeToInfoPanel, grabToPointer } from './imdf-model-helpers';
+// import { JsonEditor } from 'json-edit-react'
+import { YourComponent } from './download-edits-button';
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
@@ -70,6 +70,7 @@ const PlacesPreviewMap = ({ style }) => {
 
     map.events.add('ready', () => {
       var drawingToolbar;
+      document.getElementById('infoPanel-json').value = '';
       if(selectedLayerId === 'unitButton') {
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
@@ -148,80 +149,84 @@ const PlacesPreviewMap = ({ style }) => {
     }
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
-    function unitInteractions(units, drawingManager, map) { 
-      var unitLayer, unitLines, polygonHoverLayer, unitSymbols; 
-      var layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
-      const groupedFeatures = groupAndSort(units, language, selectedLevel);
-      const keys = Object.keys(groupedFeatures);
-        
-      keys.forEach(category => {
-        const features = groupedFeatures[category].features;
-  
-        const dataSource = new source.DataSource();
-        map.sources.add(dataSource);
-        dataSource.add(features);
-  
-        unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category));
-        unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category));
-        polygonHoverLayer = new layer.PolygonLayer(dataSource, null, {
-          fillColor: 'rgba(150, 50, 255, 0.2)',
-          filter: ['==', ['get', 'id'], '']
-        });
+    function unitInteractions(units, drawingManager, map) {  
+      var unitLayer, unitLines, polygonHoverLayer, unitSymbols;  
+      var layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols]; 
+      const groupedFeatures = groupAndSort(units, language, selectedLevel); 
+      const keys = Object.keys(groupedFeatures); 
 
-        unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category));
-  
-        map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons');
-  
-        grabToPointer([unitLayer, polygonHoverLayer], map);
-        featureHover(unitLayer, polygonHoverLayer);
-  
-        // map.layers.add(new layer.SymbolLayer(dataSource, null, getTextStyle(category)), 'roomLabels');
-  
-        var drawingSource = drawingManager.getSource();
-        drawingSource.add(features);
-  
-        let dmLayers = drawingManager.getLayers();
-        dmLayers.polygonLayer.setOptions({ visible: false });
-        dmLayers.polygonOutlineLayer.setOptions({ visible: false });
-        layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
-  
-        map.events.add('drawingmodechanged', drawingManager, (e) => {
-          let dmLayers = drawingManager.getLayers();
-          layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
-  
-          if (e === 'idle') {
-            dmLayers.polygonLayer.setOptions({ visible: false });
-            dmLayers.polygonOutlineLayer.setOptions({ visible: false });
-            map.layers.remove([unitLayer, unitLines, polygonHoverLayer]);
-  
-            unitLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClick', getFillStyles('unit', category));
-            unitLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('unit', category));
-            polygonHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, {
-              fillColor: 'rgba(150, 50, 255, 0.2)',
-              filter: ['==', ['get', 'id'], '']
+      keys.forEach(category => { 
+        var features = groupedFeatures[category].features; 
+        const dataSource = new source.DataSource(); 
+        map.sources.add(dataSource); 
+        dataSource.add(features); 
+
+        unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category)); 
+        unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category)); 
+        polygonHoverLayer = new layer.PolygonLayer(dataSource, null, { 
+          fillColor: 'rgba(150, 50, 255, 0.2)', 
+          filter: ['==', ['get', 'id'], ''] 
+        }); 
+
+        unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
+        map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons'); 
+        grabToPointer([unitLayer, polygonHoverLayer], map); 
+        featureHover(unitLayer, polygonHoverLayer); 
+
+        var drawingSource = drawingManager.getSource(); 
+        drawingSource.add(features); 
+
+        let dmLayers = drawingManager.getLayers(); 
+        dmLayers.polygonLayer.setOptions({ visible: false }); 
+        dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
+        layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols]; 
+   
+        map.events.add('drawingmodechanged', drawingManager, (e) => { 
+          let dmLayers = drawingManager.getLayers(); 
+          layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols]; 
+
+          if (e === 'idle') { 
+            let updatedFeatures = drawingManager.getSource().shapes; 
+
+            deleteUnitPrevEdits(units, selectedLevel);
+            updatedFeatures.forEach((feature, index) => { 
+              if(isNaN(feature.data.properties.ordinal)) {
+                setFields(feature);
+                units.features.push(feature.data);
+              }
             });
-            unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category));
-  
-            map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons');
-  
-            grabToPointer([unitLayer, polygonHoverLayer], map);
-            featureHover(unitLayer, polygonHoverLayer);
-            layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];
-          }
-          else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {      
-            drawingModeChanged(layersAdded); 
-            dmLayers.polygonLayer.setOptions({ visible: true });
-            dmLayers.polygonOutlineLayer.setOptions({ visible: true });
-          }
-          else {
-            // This will eventually be a visible pop-up
-            console.log('Not a valid drawing toolbar option.');
-          }
-        });   
-  
-        currentEditData(map, drawingManager);
-      });
-    }
+
+            dmLayers.polygonLayer.setOptions({ visible: false }); 
+            dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
+            map.layers.remove([unitLayer, unitLines, polygonHoverLayer]); 
+
+            unitLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClick', getFillStyles('unit', category)); 
+            unitLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('unit', category)); 
+            polygonHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
+              fillColor: 'rgba(150, 50, 255, 0.2)', 
+              filter: ['==', ['get', 'id'], ''] 
+            }); 
+            unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category)); 
+
+            map.layers.add([unitLayer, polygonHoverLayer, unitLines, unitSymbols], 'roomPolygons'); 
+            grabToPointer([unitLayer, polygonHoverLayer], map); 
+            featureHover(unitLayer, polygonHoverLayer); 
+            layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols];  
+          } 
+          else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {       
+            drawingModeChanged(layersAdded);  
+            dmLayers.polygonLayer.setOptions({ visible: true }); 
+            dmLayers.polygonOutlineLayer.setOptions({ visible: true }); 
+          } 
+          else { 
+            // This will eventually be a visible pop-up 
+            console.log('Not a valid drawing toolbar option.'); 
+          } 
+
+        });    
+        currentEditData(map, drawingManager); 
+      }); 
+    } 
 
     // Entry point when "level.geojson" is pressed; the following code should be refactored due to redundancy
     function levelInteractions(levels, drawingManager, map) {
@@ -269,6 +274,10 @@ const PlacesPreviewMap = ({ style }) => {
           grabToPointer([lineLayer, lineHoverLayer], map);
           layersAdded = [lineLayer, lineHoverLayer];
           featureHover(lineLayer, lineHoverLayer);
+
+          let updatedFeatures = drawingManager.getSource().shapes;
+
+          setLevels(prevLevels => updateLevels(prevLevels, selectedLevel, (updatedFeatures[0]).data));
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
           drawingModeChanged(layersAdded);  
@@ -279,7 +288,9 @@ const PlacesPreviewMap = ({ style }) => {
           // This will eventually be a visible pop-up
           console.log('Not a valid drawing toolbar option.');
         }
-      }); 
+      });
+      
+      currentEditData(map, drawingManager);
     }
 
     // Entry point when "footprint.geojson" is pressed; the following code should be refactored due to redundancy
@@ -332,6 +343,9 @@ const PlacesPreviewMap = ({ style }) => {
           grabToPointer([footprintLayer, footprintHoverLayer], map);
           featureHover(footprintLayer, footprintHoverLayer);
           layersAdded = [footprintLayer, footprintLines, footprintHoverLayer];
+
+          let updatedFeatures = drawingManager.getSource().shapes;
+          footprint.features[0] = updatedFeatures[0].data;
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
           drawingModeChanged(layersAdded);  
@@ -342,21 +356,60 @@ const PlacesPreviewMap = ({ style }) => {
           // This will eventually be a visible pop-up
           console.log('Not a valid drawing toolbar option.');
         }
-      }); 
+      });
+      
+      currentEditData(map, drawingManager);
     }
 
     // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
-    // Needs to be given edit properties
     function fullViewInteractions(units, levels, drawingManager, map) {
-      unitInteractions(units, drawingManager, map);
       levelInteractions(levels, drawingManager, map);
+      unitInteractions(units, drawingManager, map);
+    }
+
+    function updateLevels(levels, selectedLevel, newValue) {
+      levels.features = levels.features.map(item => 
+        item.id === selectedLevel.id ? newValue : item
+      );
+    
+      return levels;
+    }
+
+    function setFields(feature) {
+      if (!feature.data.properties.name) { 
+        feature.data.properties.name = {}; 
+        feature.data.properties.name.en = ''; 
+      } 
+
+      if(!feature.data.properties.category) { 
+        feature.data.properties.category = 'unspecified'; 
+      } 
+
+      if(!feature.data.properties.level_id) { 
+        feature.data.properties.level_id = selectedLevel.id; 
+      } 
+
+      if(!feature.data.properties.display_point) { 
+        feature.data.properties.display_point = {}; 
+        feature.data.properties.display_point.type = 'Point'; 
+        feature.data.properties.display_point.coordinates = []; 
+      } 
+
+      if(!feature.data.properties.label) { 
+        feature.data.properties.label = ''; 
+      } 
+    }
+
+    function deleteUnitPrevEdits(units, selectedLevel) {
+      // let new_features = units.features.filter(item => item.properties.level_id === selectedLevel.id);
+      units.features = units.features.filter(item => item.properties.level_id !== selectedLevel.id);
     }
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes
     return () => {
       map.dispose();
     };
-  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language]);
+  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);
@@ -376,7 +429,6 @@ const PlacesPreviewMap = ({ style }) => {
             options={levels.features.map(level => ({ key: level.id, text: getFeatureLabel(level, language) }))}
           />
           
-
           <div className={layerSelect}>
             <LayerSelector
               selectedKey={selectedLayerId}
@@ -391,14 +443,12 @@ const PlacesPreviewMap = ({ style }) => {
         <div id="panel" className={textWrapper}>
           <textarea id="infoPanel-json" className={textArea}></textarea>
         </div>
-
       </div>
 
       <div className={saveButtonWrapper}>
-        <DefaultButton className={logsButton}>Save Changes</DefaultButton>
+        <YourComponent imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} />
       </div>
-      
-    </div>
+    </div>  
   );
 };
 
