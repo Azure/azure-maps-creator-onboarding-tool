@@ -7,9 +7,9 @@ import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
-import { currentEditData, groupAndSort, drawingModeChanged, writeToInfoPanel, grabToPointer } from './imdf-model-helpers';
+import { currentEditData, groupAndSort, drawingModeChanged, writeToInfoPanel, grabToPointer, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
 // import { JsonEditor } from 'json-edit-react'
-import { YourComponent } from './download-edits-button';
+import { DownloadEditsButton } from './download-edits-button';
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
@@ -191,7 +191,7 @@ const PlacesPreviewMap = ({ style }) => {
             deleteUnitPrevEdits(units, selectedLevel);
             updatedFeatures.forEach((feature, index) => { 
               if(isNaN(feature.data.properties.ordinal)) {
-                setFields(feature);
+                setFields(feature, selectedLevel);
                 units.features.push(feature.data);
               }
             });
@@ -367,44 +367,6 @@ const PlacesPreviewMap = ({ style }) => {
       unitInteractions(units, drawingManager, map);
     }
 
-    function updateLevels(levels, selectedLevel, newValue) {
-      levels.features = levels.features.map(item => 
-        item.id === selectedLevel.id ? newValue : item
-      );
-    
-      return levels;
-    }
-
-    function setFields(feature) {
-      if (!feature.data.properties.name) { 
-        feature.data.properties.name = {}; 
-        feature.data.properties.name.en = ''; 
-      } 
-
-      if(!feature.data.properties.category) { 
-        feature.data.properties.category = 'unspecified'; 
-      } 
-
-      if(!feature.data.properties.level_id) { 
-        feature.data.properties.level_id = selectedLevel.id; 
-      } 
-
-      if(!feature.data.properties.display_point) { 
-        feature.data.properties.display_point = {}; 
-        feature.data.properties.display_point.type = 'Point'; 
-        feature.data.properties.display_point.coordinates = []; 
-      } 
-
-      if(!feature.data.properties.label) { 
-        feature.data.properties.label = ''; 
-      } 
-    }
-
-    function deleteUnitPrevEdits(units, selectedLevel) {
-      // let new_features = units.features.filter(item => item.properties.level_id === selectedLevel.id);
-      units.features = units.features.filter(item => item.properties.level_id !== selectedLevel.id);
-    }
-
     // Cleanup function to remove the map instance when component unmounts or reinitializes
     return () => {
       map.dispose();
@@ -446,7 +408,7 @@ const PlacesPreviewMap = ({ style }) => {
       </div>
 
       <div className={saveButtonWrapper}>
-        <YourComponent imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} />
+        <DownloadEditsButton imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} />
       </div>
     </div>  
   );
