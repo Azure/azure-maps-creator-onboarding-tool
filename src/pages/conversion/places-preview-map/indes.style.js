@@ -18,7 +18,7 @@ export const imdfPreviewMap = css`
 
 export const layerSelect = css `
   position: relative;
-  top: 65%;
+  top: 48%;
 `;
 
 export const textWrapper = css `
@@ -35,10 +35,5 @@ export const textArea = css `
   resize: none;
 `;
 
-export const saveButtonWrapper = css `
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
 
 

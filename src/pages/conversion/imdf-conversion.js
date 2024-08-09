@@ -1,4 +1,5 @@
 import { cx } from '@emotion/css';
+import { useState } from 'react';
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { Icon } from '@fluentui/react/lib/Icon';
 import { PATHS } from 'common';
@@ -16,6 +17,22 @@ import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
 
 const ImdfConversion = () => {
+  const [units, setUnits] = useState({ features: [] });
+  const [levels, setLevels] = useState({ features: [] });
+  const [footprint, setFootprint] = useState({ features: [] });
+
+  const handleUnitsChange = (editedUnits) => {
+      setUnits(editedUnits);
+  };
+
+  const handleLevelsChange = (editedLevels) => {
+      setLevels(editedLevels);
+  };
+
+  const handleFootprintChange = (editedFootprint) => {
+    setFootprint(editedFootprint);
+  };
+
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
@@ -76,7 +93,7 @@ const ImdfConversion = () => {
             <div className={actionButtonsWrapper}>
               <div className={actionButtonsLeft}>
                 {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
-                  <DownloadIMDF link={imdfPackageLocation} />
+                  <DownloadIMDF imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} /> 
                 )}
                 <ImdfDiagnostics link={diagnosticPackageLocation} />
               </div>
@@ -84,7 +101,7 @@ const ImdfConversion = () => {
             </div>
             {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
               <FillScreenContainer offsetBottom={110}>
-                {({ height }) => <PlacesPreviewMap style={{ height }} />}
+                {({ height }) => <PlacesPreviewMap style={{ height }} unitsChanged={handleUnitsChange} levelsChanged={handleLevelsChange} footprintChanged={handleFootprintChange}/>}
               </FillScreenContainer>
             )}
           </div>

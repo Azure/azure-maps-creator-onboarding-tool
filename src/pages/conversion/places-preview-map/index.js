@@ -2,18 +2,17 @@ import { Map, layer, source, control } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
-import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, textArea, mapTextWrapper, saveButtonWrapper } from './indes.style';
+import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, textArea, mapTextWrapper } from './indes.style';
 import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
 import { currentEditData, groupAndSort, drawingModeChanged, writeToInfoPanel, grabToPointer, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
 // import { JsonEditor } from 'json-edit-react'
-import { DownloadEditsButton } from './download-edits-button';
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
-const PlacesPreviewMap = ({ style }) => {
+const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged }) => {
   const [geography, subscriptionKey] = useUserStore(s => [s.geography, s.subscriptionKey]);
   const [imdfPackageLocation] = useConversionStore(s => [s.imdfPackageLocation]);
   const [language] = useLevelsStore(s => [s.language]);
@@ -196,6 +195,8 @@ const PlacesPreviewMap = ({ style }) => {
               }
             });
 
+            unitsChanged(units);
+
             dmLayers.polygonLayer.setOptions({ visible: false }); 
             dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
             map.layers.remove([unitLayer, unitLines, polygonHoverLayer]); 
@@ -278,6 +279,7 @@ const PlacesPreviewMap = ({ style }) => {
           let updatedFeatures = drawingManager.getSource().shapes;
 
           setLevels(prevLevels => updateLevels(prevLevels, selectedLevel, (updatedFeatures[0]).data));
+          levelsChanged(levels);
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
           drawingModeChanged(layersAdded);  
@@ -346,6 +348,7 @@ const PlacesPreviewMap = ({ style }) => {
 
           let updatedFeatures = drawingManager.getSource().shapes;
           footprint.features[0] = updatedFeatures[0].data;
+          footprintChanged(footprint);
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
           drawingModeChanged(layersAdded);  
@@ -371,7 +374,7 @@ const PlacesPreviewMap = ({ style }) => {
     return () => {
       map.dispose();
     };
-  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation]);
+  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);
@@ -405,10 +408,6 @@ const PlacesPreviewMap = ({ style }) => {
         <div id="panel" className={textWrapper}>
           <textarea id="infoPanel-json" className={textArea}></textarea>
         </div>
-      </div>
-
-      <div className={saveButtonWrapper}>
-        <DownloadEditsButton imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} />
       </div>
     </div>  
   );
