@@ -5,9 +5,11 @@ import React, { useState } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
+// This component downloads the updated IMDF zip file and is triggered by users clicking "Download IMDF" button
 export const DownloadIMDF = ({ imdfPackageLocation, units, levels, footprint }) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  // Fetches current zip file, updates the geojson files and downloads the updated zip
   const handleUpdateZip = () => {
     setIsLoading(true);
     fetch(imdfPackageLocation)

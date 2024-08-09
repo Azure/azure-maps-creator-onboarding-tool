@@ -69,6 +69,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     map.events.add('ready', () => {
       var drawingToolbar;
+
+      // Resets text area when a different layer is selected
       document.getElementById('infoPanel-json').value = '';
       if(selectedLayerId === 'unitButton') {
         drawingToolbar = new draw_control.DrawingToolbar({ 
@@ -195,6 +197,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               }
             });
 
+            // Update the units state with the edited features (for updating zip)
             unitsChanged(units);
 
             dmLayers.polygonLayer.setOptions({ visible: false }); 
@@ -277,8 +280,9 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           featureHover(lineLayer, lineHoverLayer);
 
           let updatedFeatures = drawingManager.getSource().shapes;
-
           setLevels(prevLevels => updateLevels(prevLevels, selectedLevel, (updatedFeatures[0]).data));
+
+          // Update the levels state with the edited features (for updating zip)
           levelsChanged(levels);
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
@@ -348,6 +352,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
           let updatedFeatures = drawingManager.getSource().shapes;
           footprint.features[0] = updatedFeatures[0].data;
+
+          // Update the footprint state with the edited features (for updating zip)
           footprintChanged(footprint);
         }
         else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    

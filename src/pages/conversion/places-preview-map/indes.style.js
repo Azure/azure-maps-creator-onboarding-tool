@@ -34,6 +34,3 @@ export const textArea = css `
   white-space: nowrap;
   resize: none;
 `;
-
-
-
