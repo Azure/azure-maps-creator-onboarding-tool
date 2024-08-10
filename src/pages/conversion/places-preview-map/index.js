@@ -51,6 +51,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const [selectedLayerId, setSelectedLayerId] = useState(null);
 
+  const [drawNotif, setDrawNotif] = useState(false);
+
   useEffect(() => {
     var drawingManager;
 
@@ -187,6 +189,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols]; 
 
           if (e === 'idle') { 
+            setDrawNotif(false);
             let updatedFeatures = drawingManager.getSource().shapes; 
 
             deleteUnitPrevEdits(units, selectedLevel);
@@ -221,6 +224,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             drawingModeChanged(layersAdded);  
             dmLayers.polygonLayer.setOptions({ visible: true }); 
             dmLayers.polygonOutlineLayer.setOptions({ visible: true }); 
+
+            if(e === 'draw-polygon') {
+              setDrawNotif(true);
+            }
           } 
           else { 
             // This will eventually be a visible pop-up 
@@ -408,6 +415,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           </div>
 
           <MapNotification>Zoom in to see labels and icons.</MapNotification>
+          {drawNotif && <MapNotification>To connect the final lines of current drawing, press 'c'.</MapNotification>}
           <div id="azure-maps-container" className={imdfPreviewMap} style={style}/>
         </div>
 

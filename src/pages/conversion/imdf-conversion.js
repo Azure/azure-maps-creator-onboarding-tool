@@ -15,6 +15,7 @@ import { ImdfDiagnostics } from './imdf-diagnostics';
 import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
+// import { JsonEditor } from 'json-edit-react';
 
 const ImdfConversion = () => {
   const [units, setUnits] = useState({ features: [] });
@@ -104,6 +105,7 @@ const ImdfConversion = () => {
                 {({ height }) => <PlacesPreviewMap style={{ height }} unitsChanged={handleUnitsChange} levelsChanged={handleLevelsChange} footprintChanged={handleFootprintChange}/>}
               </FillScreenContainer>
             )}
+            {/* <JsonEditor data={units} setData={setData}></JsonEditor> */}
           </div>
         )}
       </div>
