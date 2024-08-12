@@ -2,13 +2,13 @@ import { Map, layer, source, control } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState } from 'react';
-import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, textArea, mapTextWrapper } from './indes.style';
+import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, mapTextWrapper } from './indes.style';
 import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
-import { currentEditData, groupAndSort, drawingModeChanged, writeToInfoPanel, grabToPointer, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
-// import { JsonEditor } from 'json-edit-react'
+import { currentEditData, groupAndSort, drawingModeChanged, grabToPointer, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
+import { JsonEditor } from 'json-edit-react'
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
@@ -19,6 +19,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const [units, setUnits] = useState({ features: [] });
   const [levels, setLevels] = useState({ features: [] });
+
+  const [jsonData, setJsonData] = useState({});
 
   // const [building, setBuilding] = useState({ features: [] }); // building will be used eventually
   const [footprint, setFootprint] = useState({ features: [] });
@@ -50,10 +52,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
   }, [levels, selectedLevelId]);
 
   const [selectedLayerId, setSelectedLayerId] = useState(null);
-
   const [drawNotif, setDrawNotif] = useState(false);
 
   useEffect(() => {
+
     var drawingManager;
 
     const map = new Map('azure-maps-container', {
@@ -73,7 +75,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       var drawingToolbar;
 
       // Resets text area when a different layer is selected
-      document.getElementById('infoPanel-json').value = '';
+      // document.getElementById('infoPanel-json').value = '';
       if(selectedLayerId === 'unitButton') {
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
@@ -136,7 +138,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
 
       features.forEach(function (feature) {
-          writeToInfoPanel(feature.data);
+          // writeToInfoPanel(feature.data);
+          setJsonData(feature.data);
       }); 
     });
 
@@ -387,7 +390,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     return () => {
       map.dispose();
     };
-  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged]);
+  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged ]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);
@@ -395,6 +398,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const handleLayerChange = layerId => {
     setSelectedLayerId(layerId);
+  };
+
+  const updateJsonData = (newData) => {
+    setJsonData(newData);
   };
 
   return (
@@ -419,8 +426,19 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           <div id="azure-maps-container" className={imdfPreviewMap} style={style}/>
         </div>
 
-        <div id="panel" className={textWrapper}>
-          <textarea id="infoPanel-json" className={textArea}></textarea>
+        <div id="panel" className={textWrapper} style={{ maxHeight: '35rem', overflowY: 'auto' }}>
+        <JsonEditor 
+            data={jsonData}          
+            setData={updateJsonData} 
+            rootName="" 
+            showCollectionCount={false}
+            restrictDelete={true}
+            restrictAdd={true}
+            restrictEdit={true}
+            rootFontSize={12}
+            indent={2}
+            theme="githubLight"
+        />
         </div>
       </div>
     </div>  

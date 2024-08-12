@@ -105,7 +105,6 @@ const ImdfConversion = () => {
                 {({ height }) => <PlacesPreviewMap style={{ height }} unitsChanged={handleUnitsChange} levelsChanged={handleLevelsChange} footprintChanged={handleFootprintChange}/>}
               </FillScreenContainer>
             )}
-            {/* <JsonEditor data={units} setData={setData}></JsonEditor> */}
           </div>
         )}
       </div>

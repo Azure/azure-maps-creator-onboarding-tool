@@ -22,10 +22,9 @@ export const layerSelect = css `
 `;
 
 export const textWrapper = css `
-  flex: 1 1 4rem; 
+  flex: 1 1 5rem; 
   position: relative;
   display: inline;
-  margin-top: 1%;
 `;
 
 export const textArea = css `
