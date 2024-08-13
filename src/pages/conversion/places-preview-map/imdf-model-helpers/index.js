@@ -13,7 +13,7 @@ function currentEditData(map, drawingManager) {
         if(f?.data) {
         var shapeId = f.data.id;
         var geojsonData = drawingManager.getSource().getShapeById(shapeId).data;
-        document.getElementById('infoPanel-json').value = JSON.stringify(geojsonData, null, 2);
+        return geojsonData;
         }
     });
 }
@@ -33,11 +33,6 @@ function groupAndSort(units, language, selectedLevel) {
     });
 
     return groupedFeatures;
-}
-
-function writeToInfoPanel(geojsonData) {
-    const { map, ...obj } = geojsonData;
-    document.getElementById('infoPanel-json').value = JSON.stringify(obj, null, 2);
 }
 
 // Changes the cursor to be a pointer when a clickable feature is hovered over
@@ -82,6 +77,16 @@ function setFields(feature, selectedLevel) {
     if(!feature.data.properties.label) { 
         feature.data.properties.label = ''; 
     } 
+
+    if(feature.data.properties._azureMapsShapeId) { 
+        let savedAzureId = feature.data.properties._azureMapsShapeId;
+        delete feature.data.properties._azureMapsShapeId;
+        feature.data.properties._azureMapsShapeId = savedAzureId;
+    }
+
+    if ('bbox' in feature.data.geometry) {
+        delete feature.data.geometry.bbox;
+    }
 }
 
 function deleteUnitPrevEdits(units, selectedLevel) {
@@ -92,7 +97,6 @@ export {
     currentEditData,
     groupAndSort,
     drawingModeChanged,
-    writeToInfoPanel,
     grabToPointer,
     updateLevels,
     setFields,

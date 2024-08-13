@@ -55,7 +55,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
   const [drawNotif, setDrawNotif] = useState(false);
 
   useEffect(() => {
-
     var drawingManager;
 
     const map = new Map('azure-maps-container', {
@@ -73,9 +72,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     map.events.add('ready', () => {
       var drawingToolbar;
+      setJsonData({});
 
-      // Resets text area when a different layer is selected
-      // document.getElementById('infoPanel-json').value = '';
       if(selectedLayerId === 'unitButton') {
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
@@ -138,8 +136,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
 
       features.forEach(function (feature) {
-          // writeToInfoPanel(feature.data);
-          setJsonData(feature.data);
+          const newData = feature.data || {};
+          setJsonData(newData);
       }); 
     });
 
@@ -238,7 +236,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           } 
 
         });    
-        currentEditData(map, drawingManager); 
+        let editData = currentEditData(map, drawingManager) || {}; 
+        setJsonData(editData);
       }); 
     } 
 
@@ -426,7 +425,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           <div id="azure-maps-container" className={imdfPreviewMap} style={style}/>
         </div>
 
-        <div id="panel" className={textWrapper} style={{ maxHeight: '35rem', overflowY: 'auto' }}>
+        <div id="panel" className={textWrapper} style={{ maxHeight: '30rem', overflowY: 'auto' }}>
         <JsonEditor 
             data={jsonData}          
             setData={updateJsonData} 
@@ -434,7 +433,17 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             showCollectionCount={false}
             restrictDelete={true}
             restrictAdd={true}
-            restrictEdit={true}
+            restrictEdit={({ path }) => {
+              const allowedFields = [
+                'properties.name.en',
+                'properties.label'
+              ];
+              return !allowedFields.includes(path.join('.'))
+            }}
+            restrictTypeSelection={ ({ path, type }) => {
+              if (typeof type === 'string') return ['string']
+              return ['string', 'number', 'boolean', 'array', 'object'];
+            }}
             rootFontSize={12}
             indent={2}
             theme="githubLight"

@@ -18,7 +18,7 @@ export const imdfPreviewMap = css`
 
 export const layerSelect = css `
   position: relative;
-  top: 48%;
+  top: 60%;
 `;
 
 export const textWrapper = css `
@@ -27,9 +27,3 @@ export const textWrapper = css `
   display: inline;
 `;
 
-export const textArea = css `
-  width: 95%;
-  height: 95%;
-  white-space: nowrap;
-  resize: none;
-`;
