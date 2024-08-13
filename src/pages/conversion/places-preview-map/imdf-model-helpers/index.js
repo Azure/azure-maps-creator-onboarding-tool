@@ -8,12 +8,12 @@ function drawingModeChanged(allLayers) {
 }
 
 // Displays information of a feature that is being drawn/edited, at time of click
-function currentEditData(map, drawingManager) {
+function currentEditData(map, drawingManager, setJsonData) {
     map.events.add('drawingstarted', drawingManager, (f) => {
         if(f?.data) {
-        var shapeId = f.data.id;
-        var geojsonData = drawingManager.getSource().getShapeById(shapeId).data;
-        return geojsonData;
+            var shapeId = f.data.id;
+            var geojsonData = drawingManager.getSource().getShapeById(shapeId).data;
+            setJsonData(geojsonData);
         }
     });
 }

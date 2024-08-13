@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { Icon } from '@fluentui/react/lib/Icon';
 import { PATHS } from 'common';
@@ -14,8 +14,8 @@ import { actionButtonsLeft, actionButtonsWrapper, messageWrapper } from './imdf-
 import { ImdfDiagnostics } from './imdf-diagnostics';
 import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
+import { processZip } from './places-preview-map/utils';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
-// import { JsonEditor } from 'json-edit-react';
 
 const ImdfConversion = () => {
   const [units, setUnits] = useState({ features: [] });
@@ -46,7 +46,25 @@ const ImdfConversion = () => {
       s.imdfPackageLocation,
       s.diagnosticPackageLocation,
     ]);
+  
+  useEffect(() => {
+    if (!imdfPackageLocation) return;
 
+    processZip(imdfPackageLocation).then(files => {
+      const unitFile = files.find(file => file.filename === 'unit.geojson');
+      const levelFile = files.find(file => file.filename === 'level.geojson');
+      // const buildingFile = files.find(file => file.filename === 'building.geojson');
+      const footprintFile = files.find(file => file.filename === 'footprint.geojson');
+
+      if (unitFile && levelFile && footprintFile) {
+        setUnits(unitFile.content);
+        setLevels(levelFile.content);
+        // setBuilding(buildingFile.content);
+        setFootprint(footprintFile.content);
+      }
+    });
+  }, [imdfPackageLocation]);
+  
   const { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList } =
     useIMDFConversionStatus();
 

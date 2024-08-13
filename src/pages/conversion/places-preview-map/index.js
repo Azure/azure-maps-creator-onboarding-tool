@@ -143,6 +143,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     // Shows change in corresponding feature color when mouse hovers over that feature
     function featureHover(layerName, polygonHoverLayer) {
+      // let selectedFeatureId = null;
       map.events.add('mousemove', layerName, function (e) {
         polygonHoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
       });
@@ -229,6 +230,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             if(e === 'draw-polygon') {
               setDrawNotif(true);
             }
+
+            if(e === 'edit-geometry') {
+              currentEditData(map, drawingManager, setJsonData);
+            }
           } 
           else { 
             // This will eventually be a visible pop-up 
@@ -236,8 +241,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           } 
 
         });    
-        let editData = currentEditData(map, drawingManager) || {}; 
-        setJsonData(editData);
       }); 
     } 
 
@@ -294,18 +297,18 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           // Update the levels state with the edited features (for updating zip)
           levelsChanged(levels);
         }
-        else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
+        else if (e === 'edit-geometry') {    
           drawingModeChanged(layersAdded);  
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
           dmLayers.polygonLayer.setOptions({ visible: false });
+
+          currentEditData(map, drawingManager, setJsonData);
         }
         else {
           // This will eventually be a visible pop-up
           console.log('Not a valid drawing toolbar option.');
         }
       });
-      
-      currentEditData(map, drawingManager);
     }
 
     // Entry point when "footprint.geojson" is pressed; the following code should be refactored due to redundancy
@@ -365,18 +368,18 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           // Update the footprint state with the edited features (for updating zip)
           footprintChanged(footprint);
         }
-        else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {    
+        else if (e === 'edit-geometry') {    
           drawingModeChanged(layersAdded);  
           dmLayers.polygonLayer.setOptions({ visible: true });
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
+
+          currentEditData(map, drawingManager, setJsonData);
         }
         else {
           // This will eventually be a visible pop-up
           console.log('Not a valid drawing toolbar option.');
         }
       });
-      
-      currentEditData(map, drawingManager);
     }
 
     // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
@@ -401,6 +404,26 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const updateJsonData = (newData) => {
     setJsonData(newData);
+  };
+
+  const handleUpdate = ({ newData, currentData, newValue, currentValue, name, path }) => {
+    if (newData.properties.name && isNaN(newData.properties.ordinal)) { 
+      // if name and NO ordinal -> unit
+      let editedIndex = units.features.findIndex(unit => unit.id === currentData.id);
+      if (editedIndex !== -1) {
+        units.features[editedIndex] = newData;
+        unitsChanged(units);
+      }
+      else {
+        console.log('Invalid property change.');
+      }
+    } 
+    else if (newData.properties.name) { 
+      // if name and ordinal -> level
+      console.log('Level');
+    }
+    
+    return true;
   };
 
   return (
@@ -436,17 +459,20 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             restrictEdit={({ path }) => {
               const allowedFields = [
                 'properties.name.en',
-                'properties.label'
+                'properties.category'
               ];
-              return !allowedFields.includes(path.join('.'))
+              return !allowedFields.includes(path.join('.'));
             }}
-            restrictTypeSelection={ ({ path, type }) => {
-              if (typeof type === 'string') return ['string']
-              return ['string', 'number', 'boolean', 'array', 'object'];
+            restrictTypeSelection={ ({ path, value }) => {
+              if (typeof value === 'string') 
+                return ['string'];
+              else
+                return ['string', 'number', 'boolean', 'array', 'object'];
             }}
             rootFontSize={12}
             indent={2}
             theme="githubLight"
+            onUpdate={handleUpdate}
         />
         </div>
       </div>
