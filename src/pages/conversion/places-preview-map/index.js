@@ -161,6 +161,13 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               filter: ['==', ['get', '_azureMapsShapeId'], featureId]
           });
         }
+        else {
+          selectedFeatureId = null;
+          clickLayer.setOptions({
+            filter: ['==', ['get', '_azureMapsShapeId'], '']
+          });
+          setJsonData({});
+        }
       });
     }
 
