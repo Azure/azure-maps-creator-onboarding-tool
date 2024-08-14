@@ -406,11 +406,13 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     setJsonData(newData);
   };
 
+  // Handles updates when a property is changed in the JSON editor
   const handleUpdate = ({ newData, currentData, newValue, currentValue, name, path }) => {
     if (newData.properties.name && isNaN(newData.properties.ordinal)) { 
-      // if name and NO ordinal -> unit
+      // Unit
       let editedIndex = units.features.findIndex(unit => unit.id === currentData.id);
       if (editedIndex !== -1) {
+        // Replace the old data with the new data for specific feature, then save to zip
         units.features[editedIndex] = newData;
         unitsChanged(units);
       }
@@ -419,8 +421,16 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }
     } 
     else if (newData.properties.name) { 
-      // if name and ordinal -> level
-      console.log('Level');
+      // Level
+      let editedIndex = levels.features.findIndex(level => level.id === currentData.id);
+      if (editedIndex !== -1) {
+        // Replace the old data with the new data for specific feature, then save to zip
+        levels.features[editedIndex] = newData;
+        levelsChanged(levels);
+      }
+      else {
+        console.log('Invalid property change.');
+      }
     }
     
     return true;
@@ -444,7 +454,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           </div>
 
           <MapNotification>Zoom in to see labels and icons.</MapNotification>
-          {drawNotif && <MapNotification>To connect the final lines of current drawing, press 'c'.</MapNotification>}
+          {drawNotif && <MapNotification>Click to draw a point. To connect the final lines of current drawing, press 'c'.</MapNotification>}
           <div id="azure-maps-container" className={imdfPreviewMap} style={style}/>
         </div>
 
