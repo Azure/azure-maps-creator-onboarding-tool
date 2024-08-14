@@ -1,7 +1,7 @@
 import { Map, layer, source, control } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, mapTextWrapper } from './indes.style';
 import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
@@ -24,6 +24,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   // const [building, setBuilding] = useState({ features: [] }); // building will be used eventually
   const [footprint, setFootprint] = useState({ features: [] });
+
+  const newDataRef = useRef(false);
 
   useEffect(() => {
     if (!imdfPackageLocation) return;
@@ -142,8 +144,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     });
 
     // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
-    function featureHoverClick(layerName, hoverLayer, clickLayer) {
-      let selectedFeatureId = null;
+    let selectedFeatureId = null;
+    function featureHoverClick(layerName, hoverLayer, clickLayer, unitSelected=false) {
       map.events.add('mousemove', layerName, function (e) {
         hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
       });
@@ -161,9 +163,22 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           clickLayer.setOptions({
               filter: ['==', ['get', '_azureMapsShapeId'], featureId]
           });
+          
+          // Handles the change in color of the feature when clicked (for full view)
+          if(unitSelected) {
+            const lineLayer = map.layers.getLayerById('lineClickLayer');
+            lineLayer.setOptions({strokeColor: 'hsla(0, 0%, 0%, 0)'});
+            const unitLayer = map.layers.getLayerById('unitClickChange');
+            unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
+          } else {
+            const polygonLayer = map.layers.getLayerById('lineClickLayer');
+            polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'});
+            const unitLayer = map.layers.getLayerById('unitClickChange');
+            unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
+          }
         }
         else {
-          // If feature clicked is currently chosen, change color of feature back to original
+          // If feature clicked is currently chosen OR it is another feature, change color of feature back to original
           selectedFeatureId = null;
           clickLayer.setOptions({
             filter: ['==', ['get', '_azureMapsShapeId'], '']
@@ -175,7 +190,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
-      unitsChanged(units);
       var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols;  
       var layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
       const groupedFeatures = groupAndSort(units, language, selectedLevel); 
@@ -194,16 +208,15 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           filter: ['==', ['get', 'id'], ''] 
         }); 
 
-        polygonClickLayer = new layer.PolygonLayer(dataSource, null, { 
+        polygonClickLayer = new layer.PolygonLayer(dataSource, 'unitClickChange', { 
           fillColor: 'rgba(75, 146, 210, 0.8)', 
           filter: ['==', ['get', 'id'], ''] 
         }); 
 
-
         unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
         map.layers.add([unitLayer, polygonHoverLayer, unitLines, polygonClickLayer, unitSymbols], 'roomPolygons'); 
         grabToPointer([unitLayer, polygonHoverLayer], map); 
-        featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer); 
+        featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
 
         var drawingSource = drawingManager.getSource(); 
         drawingSource.add(features); 
@@ -242,7 +255,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               fillColor: 'rgba(135, 206, 250, 0.8)', 
               filter: ['==', ['get', 'id'], ''] 
             }); 
-            polygonClickLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
+            polygonClickLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClickChange', { 
               fillColor: 'rgba(75, 146, 210, 0.8)', 
               filter: ['==', ['get', 'id'], ''] 
             }); 
@@ -250,7 +263,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
             map.layers.add([unitLayer, polygonHoverLayer, polygonClickLayer, unitLines, unitSymbols], 'roomPolygons'); 
             grabToPointer([unitLayer, polygonHoverLayer], map); 
-            featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer); 
+            featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
             layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols];  
           } 
           else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {       
@@ -293,7 +306,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         filter: ['==', ['get', '_azureMapsShapeId'], '']
       });
 
-      lineClickLayer = new layer.LineLayer(dataSource, null, { 
+      lineClickLayer = new layer.LineLayer(dataSource, 'lineClickLayer', { 
         fillColor: 'rgba(75, 146, 210, 0.8)', 
         filter: ['==', ['get', 'id'], ''] 
       }); 
@@ -321,7 +334,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             fillColor: 'rgba(135, 206, 250, 1)',
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
-          lineClickLayer = new layer.LineLayer(drawingManager.getSource(), null, { 
+          lineClickLayer = new layer.LineLayer(drawingManager.getSource(), 'lineClickLayer', { 
             fillColor: 'rgba(75, 146, 210, 0.7)', 
             filter: ['==', ['get', 'id'], ''] 
           }); 
@@ -465,6 +478,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         units.features[editedIndex] = newData;
         units.features[editedIndex].properties.label = newData.properties.name.en;
         unitsChanged(units);
+        newDataRef.current = true;
       }
       else {
         console.log('Invalid property change.');
