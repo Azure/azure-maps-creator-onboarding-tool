@@ -141,8 +141,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }); 
     });
 
-    // Shows change in corresponding feature color when mouse hovers over that feature
-    function featureHover(layerName, hoverLayer, clickLayer) {
+    // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
+    function featureHoverClick(layerName, hoverLayer, clickLayer) {
       let selectedFeatureId = null;
       map.events.add('mousemove', layerName, function (e) {
         hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
@@ -156,12 +156,14 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         const featureId = e.shapes[0].getProperties()['_azureMapsShapeId'];
 
         if (selectedFeatureId !== featureId) {
+          // If feature is clicked, change color of feature
           selectedFeatureId = featureId;
           clickLayer.setOptions({
               filter: ['==', ['get', '_azureMapsShapeId'], featureId]
           });
         }
         else {
+          // If feature clicked is currently chosen, change color of feature back to original
           selectedFeatureId = null;
           clickLayer.setOptions({
             filter: ['==', ['get', '_azureMapsShapeId'], '']
@@ -173,6 +175,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
+      unitsChanged(units);
       var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols;  
       var layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
       const groupedFeatures = groupAndSort(units, language, selectedLevel); 
@@ -200,7 +203,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
         map.layers.add([unitLayer, polygonHoverLayer, unitLines, polygonClickLayer, unitSymbols], 'roomPolygons'); 
         grabToPointer([unitLayer, polygonHoverLayer], map); 
-        featureHover(unitLayer, polygonHoverLayer, polygonClickLayer); 
+        featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer); 
 
         var drawingSource = drawingManager.getSource(); 
         drawingSource.add(features); 
@@ -208,7 +211,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         let dmLayers = drawingManager.getLayers(); 
         dmLayers.polygonLayer.setOptions({ visible: false }); 
         dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
-        layersAdded = [unitLayer, unitLines, polygonHoverLayer, unitSymbols]; 
+        layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
    
         map.events.add('drawingmodechanged', drawingManager, (e) => { 
           let dmLayers = drawingManager.getLayers(); 
@@ -236,18 +239,18 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             unitLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClick', getFillStyles('unit', category)); 
             unitLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('unit', category)); 
             polygonHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
-              fillColor: 'rgba(150, 50, 255, 0.2)', 
+              fillColor: 'rgba(135, 206, 250, 0.8)', 
               filter: ['==', ['get', 'id'], ''] 
             }); 
-            polygonClickLayer = new layer.PolygonLayer(dataSource, null, { 
-              fillColor: 'rgba(150, 90, 255, 0.2)', 
+            polygonClickLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
+              fillColor: 'rgba(75, 146, 210, 0.8)', 
               filter: ['==', ['get', 'id'], ''] 
             }); 
             unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category)); 
 
             map.layers.add([unitLayer, polygonHoverLayer, polygonClickLayer, unitLines, unitSymbols], 'roomPolygons'); 
             grabToPointer([unitLayer, polygonHoverLayer], map); 
-            featureHover(unitLayer, polygonHoverLayer, polygonClickLayer); 
+            featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer); 
             layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols];  
           } 
           else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {       
@@ -298,7 +301,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
       grabToPointer([lineLayer, lineHoverLayer, lineClickLayer], map);
       layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
-      featureHover(lineLayer, lineHoverLayer, lineClickLayer);
+      featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
 
       var drawingSource = drawingManager.getSource();
       drawingSource.add(selectedLevelDetails);
@@ -318,7 +321,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             fillColor: 'rgba(135, 206, 250, 1)',
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
-          lineClickLayer = new layer.LineLayer(dataSource, null, { 
+          lineClickLayer = new layer.LineLayer(drawingManager.getSource(), null, { 
             fillColor: 'rgba(75, 146, 210, 0.7)', 
             filter: ['==', ['get', 'id'], ''] 
           }); 
@@ -326,7 +329,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
           grabToPointer([lineLayer, lineHoverLayer, lineClickLayer], map);
           layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
-          featureHover(lineLayer, lineHoverLayer, lineClickLayer);
+          featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
 
           let updatedFeatures = drawingManager.getSource().shapes;
           setLevels(prevLevels => updateLevels(prevLevels, selectedLevel, (updatedFeatures[0]).data));
@@ -375,7 +378,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
       map.layers.add([footprintLayer, footprintHoverLayer, footprintLines, footprintClickLayer], 'roomPolygons');
       grabToPointer([footprintLayer, footprintHoverLayer], map);
-      featureHover(footprintLayer, footprintHoverLayer, footprintClickLayer);
+      featureHoverClick(footprintLayer, footprintHoverLayer, footprintClickLayer);
       layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
 
       
@@ -398,14 +401,14 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             fillColor: 'rgba(135, 206, 250, 0.8)',
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
-          footprintClickLayer = new layer.PolygonLayer(dataSource, null, { 
+          footprintClickLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
             fillColor: 'rgba(75, 146, 210, 0.8)', 
             filter: ['==', ['get', 'id'], ''] 
           }); 
 
           map.layers.add([footprintLayer, footprintHoverLayer, footprintLines, footprintClickLayer], 'roomPolygons');
           grabToPointer([footprintLayer, footprintHoverLayer], map);
-          featureHover(footprintLayer, footprintHoverLayer, footprintClickLayer);
+          featureHoverClick(footprintLayer, footprintHoverLayer, footprintClickLayer);
           layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
 
           let updatedFeatures = drawingManager.getSource().shapes;
@@ -460,6 +463,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       if (editedIndex !== -1) {
         // Replace the old data with the new data for specific feature, then save to zip
         units.features[editedIndex] = newData;
+        units.features[editedIndex].properties.label = newData.properties.name.en;
         unitsChanged(units);
       }
       else {
