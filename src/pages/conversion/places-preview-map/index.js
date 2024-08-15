@@ -234,6 +234,9 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
+      // Update the units state with the edited features (for updating zip)
+      unitsChanged(units);
+
       var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols;  
       var layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
       const groupedFeatures = groupAndSort(units, language, selectedLevel); 
@@ -346,6 +349,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     // Entry point when "level.geojson" is pressed; the following code should be refactored due to redundancy
     function levelInteractions(levels, drawingManager, map) {
       // Retrieve information about the level currently chosen by user
+      levelsChanged(levels);
       const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
       var lineLayer, lineHoverLayer, lineClickLayer;
       var layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
@@ -421,6 +425,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     // Entry point when "footprint.geojson" is pressed; the following code should be refactored due to redundancy
     function footprintInteractions(footprint, drawingManager, map) {
+      footprintChanged(footprint);
       var footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer; 
       var layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
 

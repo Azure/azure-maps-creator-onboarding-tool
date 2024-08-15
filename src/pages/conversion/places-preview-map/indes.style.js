@@ -18,8 +18,9 @@ export const imdfPreviewMap = css`
 
 export const layerSelect = css `
   position: relative;
-  top: 60%;
+  bottom: -60%;
 `;
+
 
 export const textWrapper = css `
   flex: 1 1 5rem; 
