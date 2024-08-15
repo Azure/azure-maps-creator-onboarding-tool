@@ -269,22 +269,33 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         dmLayers.polygonLayer.setOptions({ visible: false }); 
         dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
         layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
+
+        console.log('hi');
    
         map.events.add('drawingmodechanged', drawingManager, (e) => { 
           let dmLayers = drawingManager.getLayers(); 
           layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
 
           if (e === 'idle') { 
+            console.log('hey');
             setDrawNotif(false);
             let updatedFeatures = drawingManager.getSource().shapes; 
 
             deleteUnitPrevEdits(units, selectedLevel);
-            updatedFeatures.forEach((feature, index) => { 
-              if(isNaN(feature.data.properties.ordinal)) {
-                setFields(feature, selectedLevel);
-                units.features.push(feature.data);
+
+            const newFeatures = updatedFeatures.reduce((acc, feature) => {
+              if (isNaN(feature.data.properties.ordinal)) {
+                  setFields(feature, selectedLevel);
+                  acc.push(feature.data); 
               }
-            });
+              return acc;
+            }, []);
+
+            setUnits(prevUnits => ({
+              ...prevUnits,
+              features: [...prevUnits.features, ...newFeatures],
+            }));
+
 
             // Update the units state with the edited features (for updating zip)
             unitsChanged(units);
