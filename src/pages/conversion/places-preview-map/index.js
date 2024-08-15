@@ -126,6 +126,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
       var layers = drawingManager.getLayers();
       map.events.add('mousedown', layers.polygonLayer, handleDeletion);
+      map.events.add('touchstart', layers.polygonLayer, handleDeletion);
+      map.events.add('click', layers.polygonLayer, handleDeletion);
     });
 
     // Recognizes which layer button is clicked and sets features data to display accordingly
