@@ -123,6 +123,9 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
         fullViewInteractions(units, levels, drawingManager, map);
       }
+
+      var layers = drawingManager.getLayers();
+      map.events.add('mousedown', layers.polygonLayer, handleDeletion);
     });
 
     // Recognizes which layer button is clicked and sets features data to display accordingly
@@ -144,7 +147,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     });
 
     // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
-    let selectedFeatureId = null;
+    let selectedFeatureID = null;
     function featureHoverClick(layerName, hoverLayer, clickLayer, unitSelected=false) {
       map.events.add('mousemove', layerName, function (e) {
         hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
@@ -155,13 +158,13 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       });
 
       map.events.add('click', layerName, function (e) {
-        const featureId = e.shapes[0].getProperties()['_azureMapsShapeId'];
+        const clickedFeatureID = e.shapes[0].getProperties()['_azureMapsShapeId'];
 
-        if (selectedFeatureId !== featureId) {
+        if (selectedFeatureID !== clickedFeatureID) {
           // If feature is clicked, change color of feature
-          selectedFeatureId = featureId;
+          selectedFeatureID = clickedFeatureID;
           clickLayer.setOptions({
-              filter: ['==', ['get', '_azureMapsShapeId'], featureId]
+              filter: ['==', ['get', '_azureMapsShapeId'], clickedFeatureID]
           });
           
           // Handles the change in color of the feature when clicked (for full view)
@@ -172,14 +175,29 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
           } else {
             const polygonLayer = map.layers.getLayerById('lineClickLayer');
-            polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'});
+            polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'})
             const unitLayer = map.layers.getLayerById('unitClickChange');
             unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
           }
+
+          var features;
+          if(selectedLayerId === 'unitButton')
+            features = map.layers.getRenderedShapes(e.position, 'unitClick');
+          else if(selectedLayerId === 'levelButton')
+            features = map.layers.getRenderedShapes(e.position, 'levelClick');
+          else if(selectedLayerId === 'footprintButton')
+            features = map.layers.getRenderedShapes(e.position, 'footprintClick');
+          else
+            features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
+    
+          features.forEach(function (feature) {
+              const newData = feature.data || {};
+              setJsonData(newData);
+          }); 
         }
         else {
           // If feature clicked is currently chosen OR it is another feature, change color of feature back to original
-          selectedFeatureId = null;
+          selectedFeatureID = null;
           clickLayer.setOptions({
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
@@ -187,6 +205,14 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         }
       });
     }
+
+    function handleDeletion(e) {
+      if (drawingManager.getOptions().mode === 'erase-geometry') {
+          if (window.confirm('Do you want to proceed with removing this feature?')) {
+              drawingManager.getSource().remove(e.shapes[0]);
+          } 
+      }
+  }
 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
@@ -264,7 +290,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             map.layers.add([unitLayer, polygonHoverLayer, polygonClickLayer, unitLines, unitSymbols], 'roomPolygons'); 
             grabToPointer([unitLayer, polygonHoverLayer], map); 
             featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
-            layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols];  
+            layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
           } 
           else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {       
             drawingModeChanged(layersAdded);  
@@ -302,12 +328,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       // Displays outline of level + change in color when cursor is hovering
       lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
       lineHoverLayer = new layer.LineLayer(dataSource, null, {
-        fillColor: 'rgba(135, 206, 250, 0.8)',
+        strokeColor: 'rgba(135, 206, 250, 0.8)',
         filter: ['==', ['get', '_azureMapsShapeId'], '']
       });
 
       lineClickLayer = new layer.LineLayer(dataSource, 'lineClickLayer', { 
-        fillColor: 'rgba(75, 146, 210, 0.8)', 
+        strokeColor: 'rgba(75, 146, 210, 0.8)', 
         filter: ['==', ['get', 'id'], ''] 
       }); 
 
@@ -331,11 +357,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
           var lineLayer = new layer.LineLayer(drawingManager.getSource(), 'levelClick', getLineStyles('level', 'walkway'));
           lineHoverLayer = new layer.LineLayer(drawingManager.getSource(), null, {
-            fillColor: 'rgba(135, 206, 250, 1)',
+            strokeColor: 'rgba(135, 206, 250, 1)',
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
           lineClickLayer = new layer.LineLayer(drawingManager.getSource(), 'lineClickLayer', { 
-            fillColor: 'rgba(75, 146, 210, 0.7)', 
+            strokeColor: 'rgba(75, 146, 210, 0.7)', 
             filter: ['==', ['get', 'id'], ''] 
           }); 
 

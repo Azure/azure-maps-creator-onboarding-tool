@@ -4,10 +4,10 @@ import { buttonStyle, layerSelectorWrapper, selectedButtonStyle } from './index.
 
 const layerButtons = [
   // will need to add a "buildingButton" once basemap is loaded
-  {id: 'fullViewButton', text: 'full view'}, 
-  {id: 'footprintButton', text: 'footprint.geojson'},
-  {id: 'levelButton', text: 'level.geojson'},
   {id: 'unitButton', text: 'unit.geojson'},
+  {id: 'levelButton', text: 'level.geojson'},
+  {id: 'footprintButton', text: 'footprint.geojson'},
+  {id: 'fullViewButton', text: 'full view'}, 
 ];
 
 const LayerSelector = props => {

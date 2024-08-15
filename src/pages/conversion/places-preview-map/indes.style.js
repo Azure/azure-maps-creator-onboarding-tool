@@ -27,3 +27,11 @@ export const textWrapper = css `
   display: inline;
 `;
 
+export const toolbar = css `
+  backgroundColor: #f0f0f0,
+  border: 2px solid #0078d4,
+  color: #0078d4,
+  cursor: not-allowed,
+  pointerEvents: none
+`;
+

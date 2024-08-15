@@ -37,6 +37,7 @@ export function getLineStyles(featureType, category) {
       strokeWidth: levelStyles.lineWidth,
       lineJoin: 'round',
       lineCap: 'round',
+      fillColor: 'hsla(0, 0%, 0%, 0)',
     };
   }
 
