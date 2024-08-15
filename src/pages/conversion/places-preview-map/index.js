@@ -272,15 +272,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         dmLayers.polygonLayer.setOptions({ visible: false }); 
         dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
         layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
-
-        console.log('hi');
    
         map.events.add('drawingmodechanged', drawingManager, (e) => { 
           let dmLayers = drawingManager.getLayers(); 
           layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
 
           if (e === 'idle') { 
-            console.log('hey');
             setDrawNotif(false);
             let updatedFeatures = drawingManager.getSource().shapes; 
 
@@ -535,9 +532,17 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       let editedIndex = units.features.findIndex(unit => unit.id === currentData.id);
       if (editedIndex !== -1) {
         // Replace the old data with the new data for specific feature, then save to zip
-        units.features[editedIndex] = newData;
-        units.features[editedIndex].properties.label = newData.properties.name.en;
-        unitsChanged(units);
+        const updatedFeatures = [...units.features];
+        updatedFeatures[editedIndex] = {
+          ...newData,
+          properties: {
+            ...newData.properties,
+            label: newData.properties.name.en,
+          },
+        };
+
+        setUnits({ features: updatedFeatures }); // To update state to trigger map refresh
+        unitsChanged(units); // To update zip
         newDataRef.current = true;
       }
       else {
