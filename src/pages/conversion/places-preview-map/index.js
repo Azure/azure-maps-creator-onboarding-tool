@@ -170,14 +170,30 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           // Handles the change in color of the feature when clicked (for full view)
           if(unitSelected) {
             const lineLayer = map.layers.getLayerById('lineClickLayer');
-            lineLayer.setOptions({strokeColor: 'hsla(0, 0%, 0%, 0)'});
+            try {
+              lineLayer.setOptions({strokeColor: 'hsla(0, 0%, 0%, 0)'});
+            } catch {
+              console.log('No line layer to change color of.')
+            }
             const unitLayer = map.layers.getLayerById('unitClickChange');
-            unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
+            try {
+              unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
+            } catch {
+              console.log('No unit layer to change color of.')
+            }
           } else {
             const polygonLayer = map.layers.getLayerById('lineClickLayer');
-            polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'})
+            try {
+              polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'});
+            } catch {
+              console.log('No unit layer to change color of.')
+            }
             const unitLayer = map.layers.getLayerById('unitClickChange');
-            unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
+            try {
+              unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
+            } catch {
+              console.log('No unit layer to change color of.')
+            }
           }
 
           var features;
