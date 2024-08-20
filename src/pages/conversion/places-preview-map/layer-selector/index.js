@@ -7,6 +7,7 @@ const layerButtons = [
   {id: 'unitButton', text: 'unit.geojson'},
   {id: 'levelButton', text: 'level.geojson'},
   {id: 'footprintButton', text: 'footprint.geojson'},
+  {id: 'buildingButton', text: 'building.geojson'},
   {id: 'fullViewButton', text: 'full view'}, 
 ];
 

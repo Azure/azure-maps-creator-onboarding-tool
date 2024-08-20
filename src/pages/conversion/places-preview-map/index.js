@@ -1,4 +1,4 @@
-import { Map, layer, source, control } from 'azure-maps-control';
+import { Map, layer, source, control, HtmlMarker } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState, useRef } from 'react';
@@ -7,7 +7,7 @@ import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
-import { currentEditData, groupAndSort, drawingModeChanged, grabToPointer, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
+import { currentEditData, groupAndSort, drawingModeChanged, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
 import { JsonEditor } from 'json-edit-react'
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
@@ -22,7 +22,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const [jsonData, setJsonData] = useState({});
 
-  // const [building, setBuilding] = useState({ features: [] }); // building will be used eventually
+  const [building, setBuilding] = useState({ features: [] }); // building will be used eventually
   const [footprint, setFootprint] = useState({ features: [] });
 
   const newDataRef = useRef(false);
@@ -39,7 +39,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       if (unitFile && levelFile && buildingFile && footprintFile) {
         setUnits(unitFile.content);
         setLevels(levelFile.content);
-        // setBuilding(buildingFile.content);
+        setBuilding(buildingFile.content);
         setFootprint(footprintFile.content);
       }
     });
@@ -65,7 +65,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       language: 'en-US', 
       domain: getDomain(geography),
       staticAssetsDomain: getDomain(geography),
-      style: 'blank',
+      style: 'dark',
     });
 
     map.controls.add([new control.ZoomControl()], {
@@ -73,6 +73,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     });
 
     map.events.add('ready', () => {
+      map.getCanvasContainer().style.setProperty('cursor', 'pointer', '!important');
       var drawingToolbar;
       setJsonData({});
 
@@ -110,6 +111,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         });
 
         footprintInteractions(footprint, drawingManager, map);
+      } else if(selectedLayerId === 'buildingButton') {
+        buildingInteractions(building, map);
       } else {
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
@@ -124,10 +127,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         fullViewInteractions(units, levels, drawingManager, map);
       }
 
-      var layers = drawingManager.getLayers();
-      map.events.add('mousedown', layers.polygonLayer, handleDeletion);
-      map.events.add('touchstart', layers.polygonLayer, handleDeletion);
-      map.events.add('click', layers.polygonLayer, handleDeletion);
+      if(selectedLayerId !== 'buildingButton') {
+        var layers = drawingManager.getLayers();
+        map.events.add('mousedown', layers.polygonLayer, handleDeletion);
+        map.events.add('touchstart', layers.polygonLayer, handleDeletion);
+        map.events.add('click', layers.polygonLayer, handleDeletion);
+      }
     });
 
     // Recognizes which layer button is clicked and sets features data to display accordingly
@@ -139,13 +144,26 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         features = map.layers.getRenderedShapes(e.position, 'levelClick');
       else if(selectedLayerId === 'footprintButton')
         features = map.layers.getRenderedShapes(e.position, 'footprintClick');
+      else if(selectedLayerId === 'buildingButton') {
+
+      }
       else
         features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
 
-      features.forEach(function (feature) {
-          const newData = feature.data || {};
-          setJsonData(newData);
-      }); 
+      if(selectedLayerId !== 'buildingButton') {
+        features.forEach(function (feature) {
+            const newData = feature.data || {};
+            setJsonData(newData);
+        }); 
+      }
+    });
+
+    map.events.add('mousedown', function (e) {
+      map.getCanvas().style.cursor = 'grabbing';
+    });
+
+    map.events.add('mouseup', function (e) {
+      map.getCanvas().style.cursor = 'grab';
     });
 
     // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
@@ -153,14 +171,21 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     function featureHoverClick(layerName, hoverLayer, clickLayer, unitSelected=false) {
       map.events.add('mousemove', layerName, function (e) {
         hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
+        map.getCanvas().style.cursor = 'pointer';
       });
 
       map.events.add('mouseleave', layerName, function (e) {
           hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], ''] });
+          map.getCanvas().style.cursor = 'grab';
+      });
+
+      map.events.add(['mousedown', 'mouseup'], layerName, function (e) {
+        map.getCanvas().style.cursor = 'pointer';
       });
 
       map.events.add('click', layerName, function (e) {
         const clickedFeatureID = e.shapes[0].getProperties()['_azureMapsShapeId'];
+        map.getCanvas().style.cursor = 'pointer';
 
         if (selectedFeatureID !== clickedFeatureID) {
           // If feature is clicked, change color of feature
@@ -231,7 +256,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           } 
       }
   }
-
+ 
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
       // Update the units state with the edited features (for updating zip)
@@ -252,17 +277,18 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category)); 
         polygonHoverLayer = new layer.PolygonLayer(dataSource, null, { 
           fillColor: 'rgba(135, 206, 250, 0.8)', 
-          filter: ['==', ['get', 'id'], ''] 
+          filter: ['==', ['get', 'id'], ''],
+          cursor: 'pointer !important', 
         }); 
 
         polygonClickLayer = new layer.PolygonLayer(dataSource, 'unitClickChange', { 
           fillColor: 'rgba(75, 146, 210, 0.8)', 
-          filter: ['==', ['get', 'id'], ''] 
+          filter: ['==', ['get', 'id'], ''] ,
+          cursor: 'pointer !important',
         }); 
 
         unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
         map.layers.add([unitLayer, polygonHoverLayer, unitLines, polygonClickLayer, unitSymbols], 'roomPolygons'); 
-        grabToPointer([unitLayer, polygonHoverLayer], map); 
         featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
 
         var drawingSource = drawingManager.getSource(); 
@@ -291,6 +317,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               return acc;
             }, []);
 
+            // double check units state (restructuring accident)
             setUnits(prevUnits => ({
               ...prevUnits,
               features: [...prevUnits.features, ...newFeatures],
@@ -308,16 +335,17 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             unitLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('unit', category)); 
             polygonHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
               fillColor: 'rgba(135, 206, 250, 0.8)', 
-              filter: ['==', ['get', 'id'], ''] 
+              filter: ['==', ['get', 'id'], ''],
+              cursor: 'pointer',
             }); 
             polygonClickLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClickChange', { 
               fillColor: 'rgba(75, 146, 210, 0.8)', 
-              filter: ['==', ['get', 'id'], ''] 
+              filter: ['==', ['get', 'id'], ''],
+              cursor: 'pointer',
             }); 
             unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category)); 
 
             map.layers.add([unitLayer, polygonHoverLayer, polygonClickLayer, unitLines, unitSymbols], 'roomPolygons'); 
-            grabToPointer([unitLayer, polygonHoverLayer], map); 
             featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
             layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
           } 
@@ -368,7 +396,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }); 
 
       map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
-      grabToPointer([lineLayer, lineHoverLayer, lineClickLayer], map);
       layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
       featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
 
@@ -396,7 +423,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           }); 
 
           map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
-          grabToPointer([lineLayer, lineHoverLayer, lineClickLayer], map);
           layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
           featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
 
@@ -410,6 +436,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           drawingModeChanged(layersAdded);  
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
           dmLayers.polygonLayer.setOptions({ visible: false });
+
+          // handleKeyDown = (event) => {
+          //   if (event.key === 'Delete') {
+          //     event.preventDefault();
+          //   }
+          // };
 
           currentEditData(map, drawingManager, setJsonData);
         }
@@ -447,7 +479,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }); 
 
       map.layers.add([footprintLayer, footprintHoverLayer, footprintLines, footprintClickLayer], 'roomPolygons');
-      grabToPointer([footprintLayer, footprintHoverLayer], map);
       featureHoverClick(footprintLayer, footprintHoverLayer, footprintClickLayer);
       layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
 
@@ -477,7 +508,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           }); 
 
           map.layers.add([footprintLayer, footprintHoverLayer, footprintLines, footprintClickLayer], 'roomPolygons');
-          grabToPointer([footprintLayer, footprintHoverLayer], map);
           featureHoverClick(footprintLayer, footprintHoverLayer, footprintClickLayer);
           layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
 
@@ -501,6 +531,26 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       });
     }
 
+    function buildingInteractions(building, map) {
+      var buildingLayer = new HtmlMarker({ position: building.features[0].properties.display_point.coordinates });
+      map.markers.add(buildingLayer);
+      map.events.add('click', buildingLayer, highlight);
+      map.events.add('mouseover', buildingLayer, () => {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+      // map.events.add('mouseout', buildingLayer, () => {
+      //   map.getCanvas().style.cursor = 'grab';
+      // });
+
+      function highlight(e) {
+        setJsonData(building.features[0]);
+      }
+
+      map.setCamera({
+        zoom: 12
+      });
+    }
+
     // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
     function fullViewInteractions(units, levels, drawingManager, map) {
       levelInteractions(levels, drawingManager, map);
@@ -511,7 +561,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     return () => {
       map.dispose();
     };
-  }, [units, levels, footprint, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged ]);
+  }, [ units, levels, footprint, building, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged ]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);

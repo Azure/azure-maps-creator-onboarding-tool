@@ -36,13 +36,14 @@ function groupAndSort(units, language, selectedLevel) {
 }
 
 // Changes the cursor to be a pointer when a clickable feature is hovered over
-function grabToPointer(layerName, map) {
-    map.events.add('mouseover', layerName, function () {
-        map.getCanvasContainer().style.cursor = 'pointer';
+function grabToPointer(layer, map) {
+    console.log(layer);
+    map.events.add('mouseover', layer, () => {
+        map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.events.add('mouseout', layerName, function () {
-        map.getCanvasContainer().style.cursor = 'grab';
+    map.events.add('mouseout', layer, () => {
+        map.getCanvas().style.cursor = '';
     });
 }
 

@@ -10,6 +10,7 @@ export function getFillStyles(featureType, category) {
   var fillStyle = {
     fillColor: categoryToFillColor.has(category) ? categoryToFillColor.get(category) : defaultFillColor,
     fillOpacity: 1,
+    cursor: 'pointer !important',
   };
 
   return fillStyle;

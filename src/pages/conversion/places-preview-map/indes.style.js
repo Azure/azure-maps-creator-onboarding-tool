@@ -18,7 +18,7 @@ export const imdfPreviewMap = css`
 
 export const layerSelect = css `
   position: relative;
-  bottom: -60%;
+  bottom: -55%;
 `;
 
 
