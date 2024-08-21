@@ -19,12 +19,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   const [units, setUnits] = useState({ features: [] });
   const [levels, setLevels] = useState({ features: [] });
-
-  const [jsonData, setJsonData] = useState({});
-
-  const [building, setBuilding] = useState({ features: [] }); // building will be used eventually
+  const [building, setBuilding] = useState({ features: [] });
   const [footprint, setFootprint] = useState({ features: [] });
 
+  const [jsonData, setJsonData] = useState({});
   const newDataRef = useRef(false);
 
   useEffect(() => {
@@ -114,17 +112,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       } else if(selectedLayerId === 'buildingButton') {
         buildingInteractions(building, map);
       } else {
-        drawingToolbar = new draw_control.DrawingToolbar({ 
-          position: 'bottom-right', 
-          style: 'light', 
-          buttons: ['edit-geometry'] 
-        });   
-
-        drawingManager = new drawing.DrawingManager(map, {
-          toolbar: drawingToolbar
-        });
-
-        fullViewInteractions(units, levels, drawingManager, map);
+        fullViewInteractions(units, levels, map);
       }
 
       if(selectedLayerId !== 'buildingButton') {
@@ -323,9 +311,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               features: [...prevUnits.features, ...newFeatures],
             }));
 
-
             // Update the units state with the edited features (for updating zip)
-            unitsChanged(units);
+            // unitsChanged(units);
 
             dmLayers.polygonLayer.setOptions({ visible: false }); 
             dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
@@ -366,7 +353,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             // This will eventually be a visible pop-up 
             console.log('Not a valid drawing toolbar option.'); 
           } 
-
         });    
       }); 
     } 
@@ -436,12 +422,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           drawingModeChanged(layersAdded);  
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
           dmLayers.polygonLayer.setOptions({ visible: false });
-
-          // handleKeyDown = (event) => {
-          //   if (event.key === 'Delete') {
-          //     event.preventDefault();
-          //   }
-          // };
 
           currentEditData(map, drawingManager, setJsonData);
         }
@@ -532,15 +512,13 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     }
 
     function buildingInteractions(building, map) {
-      var buildingLayer = new HtmlMarker({ position: building.features[0].properties.display_point.coordinates });
-      map.markers.add(buildingLayer);
-      map.events.add('click', buildingLayer, highlight);
-      map.events.add('mouseover', buildingLayer, () => {
-        map.getCanvas().style.cursor = 'pointer';
+      console.log(building);
+      var buildingLayer = new HtmlMarker({ 
+        position: building.features[0].properties.display_point.coordinates, 
       });
-      // map.events.add('mouseout', buildingLayer, () => {
-      //   map.getCanvas().style.cursor = 'grab';
-      // });
+      map.events.add('click', buildingLayer, highlight);
+      map.markers.add(buildingLayer);
+
 
       function highlight(e) {
         setJsonData(building.features[0]);
@@ -552,9 +530,58 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     }
 
     // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
-    function fullViewInteractions(units, levels, drawingManager, map) {
-      levelInteractions(levels, drawingManager, map);
-      unitInteractions(units, drawingManager, map);
+    function fullViewInteractions(units, levels, map) {
+      unitsChanged(units);
+      levelsChanged(levels);
+
+      var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols, lineLayer, lineHoverLayer, lineClickLayer;  
+      // var layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols, lineLayer, lineHoverLayer, lineClickLayer]; 
+      const groupedFeatures = groupAndSort(units, language, selectedLevel); 
+      const keys = Object.keys(groupedFeatures); 
+
+      keys.forEach(category => { 
+        var features = groupedFeatures[category].features; 
+        const dataSource = new source.DataSource(); 
+        map.sources.add(dataSource); 
+        dataSource.add(features); 
+
+        unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category)); 
+        unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category)); 
+        polygonHoverLayer = new layer.PolygonLayer(dataSource, null, { 
+          fillColor: 'rgba(135, 206, 250, 0.8)', 
+          filter: ['==', ['get', 'id'], ''],
+          cursor: 'pointer !important', 
+        }); 
+
+        polygonClickLayer = new layer.PolygonLayer(dataSource, 'unitClickChange', { 
+          fillColor: 'rgba(75, 146, 210, 0.8)', 
+          filter: ['==', ['get', 'id'], ''] ,
+          cursor: 'pointer !important',
+        }); 
+
+        unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
+        map.layers.add([unitLayer, polygonHoverLayer, unitLines, polygonClickLayer, unitSymbols], 'roomPolygons'); 
+        featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
+      });
+
+      const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
+      const dataSource = new source.DataSource();
+      map.sources.add(dataSource);
+      dataSource.add(selectedLevelDetails);
+      
+      // Displays outline of level + change in color when cursor is hovering
+      lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
+      lineHoverLayer = new layer.LineLayer(dataSource, null, {
+        strokeColor: 'rgba(135, 206, 250, 0.8)',
+        filter: ['==', ['get', '_azureMapsShapeId'], '']
+      });
+      lineClickLayer = new layer.LineLayer(dataSource, 'lineClickLayer', { 
+        strokeColor: 'rgba(75, 146, 210, 0.8)', 
+        filter: ['==', ['get', 'id'], ''] 
+      }); 
+
+      map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
+      featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer, false);
     }
 
     // Cleanup function to remove the map instance when component unmounts or reinitializes

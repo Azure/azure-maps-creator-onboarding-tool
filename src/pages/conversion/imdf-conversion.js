@@ -23,6 +23,10 @@ const ImdfConversion = () => {
   const [footprint, setFootprint] = useState({ features: [] });
 
   const handleUnitsChange = (editedUnits) => {
+      if(!editedUnits.type) {
+        editedUnits.type = 'FeatureCollection';
+      }
+      console.log(editedUnits);
       setUnits(editedUnits);
   };
 
