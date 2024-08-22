@@ -36,6 +36,16 @@ export const levelStyles = {
   lineWidth: 3,
 };
 
+export const levelOnlyStyles = {
+  lineColor: getPaletteAsRawColors().placesWall,
+  lineWidth: 2,
+};
+
+export const footprintStyles = {
+  lineColor: getPaletteAsRawColors().placesWall,
+  lineWidth: 2,
+};
+
 const defaultIconMinZoom = 17;
 const textMinZoom = 19.8;
 
