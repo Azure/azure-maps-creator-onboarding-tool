@@ -7,23 +7,25 @@ import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
-import { currentEditData, groupAndSort, drawingModeChanged, updateLevels, setFields, deleteUnitPrevEdits } from './imdf-model-helpers';
+import { currentEditData, groupAndSort, drawingModeChanged, updateLevels, setFields, deleteUnitPrevEdits, grabAndGrabbing, grabToPointer, updateSelectedColor } from './imdf-model-helpers';
 import { JsonEditor } from 'json-edit-react'
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
-const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged }) => {
+const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged, buildingChanged }) => {
   const [geography, subscriptionKey] = useUserStore(s => [s.geography, s.subscriptionKey]);
   const [imdfPackageLocation] = useConversionStore(s => [s.imdfPackageLocation]);
   const [language] = useLevelsStore(s => [s.language]);
 
-  const [units, setUnits] = useState({ features: [] });
+  const [units, setUnits] = useState({ features: [], type: 'FeatureCollection' });
   const [levels, setLevels] = useState({ features: [] });
   const [building, setBuilding] = useState({ features: [] });
   const [footprint, setFootprint] = useState({ features: [] });
 
   const [jsonData, setJsonData] = useState({});
   const newDataRef = useRef(false);
+
+  // const [prevStates, setPrevStates] = useState([]); // Tracking previous changes for Undo feature
 
   useEffect(() => {
     if (!imdfPackageLocation) return;
@@ -44,15 +46,14 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
   }, [imdfPackageLocation]);
 
   const [selectedLevelId, setSelectedLevelId] = useState(null);
+  const [selectedLayerId, setSelectedLayerId] = useState(null);
+  const [drawNotif, setDrawNotif] = useState(false); // Triggers drawing tip if true
 
   const selectedLevel = useMemo(() => {
     const level = levels.features.find(item => item.id === selectedLevelId) || levels.features[0] || {};
     setSelectedLevelId(level.id);
     return level;
   }, [levels, selectedLevelId]);
-
-  const [selectedLayerId, setSelectedLayerId] = useState(null);
-  const [drawNotif, setDrawNotif] = useState(false);
 
   useEffect(() => {
     var drawingManager;
@@ -71,7 +72,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     });
 
     map.events.add('ready', () => {
-      map.getCanvasContainer().style.setProperty('cursor', 'pointer', '!important');
       var drawingToolbar;
       setJsonData({});
 
@@ -146,30 +146,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }
     });
 
-    map.events.add('mousedown', function (e) {
-      map.getCanvas().style.cursor = 'grabbing';
-    });
-
-    map.events.add('mouseup', function (e) {
-      map.getCanvas().style.cursor = 'grab';
-    });
+    grabAndGrabbing(map);
 
     // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
     let selectedFeatureID = null;
     function featureHoverClick(layerName, hoverLayer, clickLayer, unitSelected=false) {
-      map.events.add('mousemove', layerName, function (e) {
-        hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
-        map.getCanvas().style.cursor = 'pointer';
-      });
-
-      map.events.add('mouseleave', layerName, function (e) {
-          hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], ''] });
-          map.getCanvas().style.cursor = 'grab';
-      });
-
-      map.events.add(['mousedown', 'mouseup'], layerName, function (e) {
-        map.getCanvas().style.cursor = 'pointer';
-      });
+      grabToPointer(layerName, hoverLayer, map);
 
       map.events.add('click', layerName, function (e) {
         const clickedFeatureID = e.shapes[0].getProperties()['_azureMapsShapeId'];
@@ -183,33 +165,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           });
           
           // Handles the change in color of the feature when clicked (for full view)
-          if(unitSelected) {
-            const lineLayer = map.layers.getLayerById('lineClickLayer');
-            try {
-              lineLayer.setOptions({strokeColor: 'hsla(0, 0%, 0%, 0)'});
-            } catch {
-              console.log('No line layer to change color of.')
-            }
-            const unitLayer = map.layers.getLayerById('unitClickChange');
-            try {
-              unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
-            } catch {
-              console.log('No unit layer to change color of.')
-            }
-          } else {
-            const polygonLayer = map.layers.getLayerById('lineClickLayer');
-            try {
-              polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'});
-            } catch {
-              console.log('No unit layer to change color of.')
-            }
-            const unitLayer = map.layers.getLayerById('unitClickChange');
-            try {
-              unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
-            } catch {
-              console.log('No unit layer to change color of.')
-            }
-          }
+          updateSelectedColor(map, unitSelected)
 
           var features;
           if(selectedLayerId === 'unitButton')
@@ -239,11 +195,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     function handleDeletion(e) {
       if (drawingManager.getOptions().mode === 'erase-geometry') {
-          if (window.confirm('Do you want to proceed with removing this feature?')) {
-              drawingManager.getSource().remove(e.shapes[0]);
-          } 
+        if (window.confirm('Do you want to proceed with removing this feature?')) {
+            drawingManager.getSource().remove(e.shapes[0]);
+        } 
       }
-  }
+    }
  
     // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
     function unitInteractions(units, drawingManager, map) {  
@@ -286,6 +242,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         dmLayers.polygonLayer.setOptions({ visible: false }); 
         dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
         layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
+
+        // Saving previous states for undo functionality
+        // if(prevStates.length === 0 || units.features !== prevStates[prevStates.length - 1].features) {
+        //   setPrevStates(prev => [...prev, {...units}]);
+        // }
    
         map.events.add('drawingmodechanged', drawingManager, (e) => { 
           let dmLayers = drawingManager.getLayers(); 
@@ -305,36 +266,9 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
               return acc;
             }, []);
 
-            // double check units state (restructuring accident)
             setUnits(prevUnits => ({
-              ...prevUnits,
               features: [...prevUnits.features, ...newFeatures],
             }));
-
-            // Update the units state with the edited features (for updating zip)
-            // unitsChanged(units);
-
-            dmLayers.polygonLayer.setOptions({ visible: false }); 
-            dmLayers.polygonOutlineLayer.setOptions({ visible: false }); 
-            map.layers.remove([unitLayer, unitLines, polygonHoverLayer]); 
-
-            unitLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClick', getFillStyles('unit', category)); 
-            unitLines = new layer.LineLayer(drawingManager.getSource(), null, getLineStyles('unit', category)); 
-            polygonHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, { 
-              fillColor: 'rgba(135, 206, 250, 0.8)', 
-              filter: ['==', ['get', 'id'], ''],
-              cursor: 'pointer',
-            }); 
-            polygonClickLayer = new layer.PolygonLayer(drawingManager.getSource(), 'unitClickChange', { 
-              fillColor: 'rgba(75, 146, 210, 0.8)', 
-              filter: ['==', ['get', 'id'], ''],
-              cursor: 'pointer',
-            }); 
-            unitSymbols = new layer.SymbolLayer(drawingManager.getSource(), null, getTextStyle(category)); 
-
-            map.layers.add([unitLayer, polygonHoverLayer, polygonClickLayer, unitLines, unitSymbols], 'roomPolygons'); 
-            featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
-            layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
           } 
           else if (e === 'edit-geometry' || e === 'erase-geometry' || e === 'draw-polygon') {       
             drawingModeChanged(layersAdded);  
@@ -343,8 +277,14 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
             if(e === 'draw-polygon') {
               setDrawNotif(true);
+              map.events.add('mousedown', function (e) {
+                map.getCanvas().style.cursor = 'crosshair';
+              });
+          
+              map.events.add('mouseup', function (e) {
+                map.getCanvas().style.cursor = 'crosshair';
+              });
             }
-
             if(e === 'edit-geometry') {
               currentEditData(map, drawingManager, setJsonData);
             }
@@ -512,13 +452,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     }
 
     function buildingInteractions(building, map) {
-      console.log(building);
       var buildingLayer = new HtmlMarker({ 
         position: building.features[0].properties.display_point.coordinates, 
       });
       map.events.add('click', buildingLayer, highlight);
       map.markers.add(buildingLayer);
-
 
       function highlight(e) {
         setJsonData(building.features[0]);
@@ -535,7 +473,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       levelsChanged(levels);
 
       var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols, lineLayer, lineHoverLayer, lineClickLayer;  
-      // var layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols, lineLayer, lineHoverLayer, lineClickLayer]; 
       const groupedFeatures = groupAndSort(units, language, selectedLevel); 
       const keys = Object.keys(groupedFeatures); 
 
@@ -604,7 +541,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
   // Handles updates when a property is changed in the JSON editor
   const handleUpdate = ({ newData, currentData, newValue, currentValue, name, path }) => {
-    if (newData.properties.name && isNaN(newData.properties.ordinal)) { 
+    if(newData.feature_type === 'building') {
+      // Building
+      building.features = [newData];
+      buildingChanged(building);
+    }
+    else if (newData.properties.name && isNaN(newData.properties.ordinal)) { 
       // Unit
       let editedIndex = units.features.findIndex(unit => unit.id === currentData.id);
       if (editedIndex !== -1) {
@@ -641,6 +583,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     
     return true;
   };
+  
 
   return (
     <div>
@@ -665,7 +608,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         </div>
 
         <div id="panel" className={textWrapper} style={{ maxHeight: '30rem', overflowY: 'auto' }}>
-        <JsonEditor 
+          <JsonEditor 
             data={jsonData}          
             setData={updateJsonData} 
             rootName="" 
@@ -689,7 +632,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             indent={2}
             theme="githubLight"
             onUpdate={handleUpdate}
-        />
+          />
         </div>
       </div>
     </div>  

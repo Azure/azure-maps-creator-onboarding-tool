@@ -6,7 +6,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 // This component downloads the updated IMDF zip file and is triggered by users clicking "Download IMDF" button
-export const DownloadIMDF = ({ imdfPackageLocation, units, levels, footprint }) => {
+export const DownloadIMDF = ({ imdfPackageLocation, units, levels, footprint, building }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Fetches current zip file, updates the geojson files and downloads the updated zip
@@ -22,6 +22,7 @@ export const DownloadIMDF = ({ imdfPackageLocation, units, levels, footprint }) 
         zip.file('unit.geojson', JSON.stringify(units, null, 2));
         zip.file('level.geojson', JSON.stringify(levels, null, 2));
         zip.file('footprint.geojson', JSON.stringify(footprint, null, 2));
+        zip.file('building.geojson', JSON.stringify(building, null, 2));
         return zip.generateAsync({ type: 'blob' });
       })
       .then(updatedZip => {

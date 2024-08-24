@@ -36,15 +36,61 @@ function groupAndSort(units, language, selectedLevel) {
 }
 
 // Changes the cursor to be a pointer when a clickable feature is hovered over
-function grabToPointer(layer, map) {
-    console.log(layer);
-    map.events.add('mouseover', layer, () => {
+function grabToPointer(layerName, hoverLayer, map) {
+    map.events.add('mousemove', layerName, function (e) {
+        hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], e.shapes[0].getProperties()['_azureMapsShapeId']] });
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.events.add('mouseout', layer, () => {
-        map.getCanvas().style.cursor = '';
+    map.events.add('mouseleave', layerName, function (e) {
+        hoverLayer.setOptions({ filter: ['==', ['get', '_azureMapsShapeId'], ''] });
+        map.getCanvas().style.cursor = 'grab';
     });
+
+    map.events.add(['mousedown', 'mouseup'], layerName, function (e) {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+}
+
+// Changes cursor between grabbing and grabbing when map is clicked and dragged
+function grabAndGrabbing(map) {
+    map.events.add('mousedown', () => {
+        map.getCanvas().style.cursor = 'grabbing';
+    });
+
+    map.events.add('mouseup', () => {
+        map.getCanvas().style.cursor = 'grab';
+    });
+}
+
+function updateSelectedColor(map, unitSelected) {
+    if(unitSelected) {
+        const lineLayer = map.layers.getLayerById('lineClickLayer');
+        try {
+            lineLayer.setOptions({strokeColor: 'hsla(0, 0%, 0%, 0)'});
+        } catch {
+            console.log('No line layer to change color of.')
+        }
+        const unitLayer = map.layers.getLayerById('unitClickChange');
+        try {
+            unitLayer.setOptions({fillColor: 'rgba(75, 146, 210, 0.8)'});
+        } catch {
+            console.log('No unit layer to change color of.')
+        }
+        } else {
+        const polygonLayer = map.layers.getLayerById('lineClickLayer');
+        try {
+            polygonLayer.setOptions({strokeColor: 'rgba(75, 146, 210, 0.8)'});
+        } catch {
+            console.log('No unit layer to change color of.')
+        }
+        const unitLayer = map.layers.getLayerById('unitClickChange');
+        try {
+            unitLayer.setOptions({fillColor: 'hsla(0, 0%, 0%, 0)'});
+        } catch {
+            console.log('No unit layer to change color of.')
+        }
+    }
 }
 
 function updateLevels(levels, selectedLevel, newValue) {
@@ -101,5 +147,7 @@ export {
     grabToPointer,
     updateLevels,
     setFields,
-    deleteUnitPrevEdits
+    deleteUnitPrevEdits,
+    grabAndGrabbing,
+    updateSelectedColor
 };
