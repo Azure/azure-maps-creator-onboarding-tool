@@ -171,7 +171,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           if(selectedLayerId === 'unitButton')
             features = map.layers.getRenderedShapes(e.position, 'unitClick');
           else if(selectedLayerId === 'levelButton')
-            features = map.layers.getRenderedShapes(e.position, 'levelClick');
+            features = map.layers.getRenderedShapes(e.position, 'levelFill');
           else if(selectedLayerId === 'footprintButton')
             features = map.layers.getRenderedShapes(e.position, 'footprintClick');
           else
@@ -302,8 +302,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       // Retrieve information about the level currently chosen by user
       levelsChanged(levels);
       const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
-      var lineLayer, lineHoverLayer, lineClickLayer;
-      var layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
+      var lineLayer, lineHoverLayer, lineClickLayer, linePolygonLayer;
+      var layersAdded = [lineLayer, lineHoverLayer, lineClickLayer, linePolygonLayer];
 
       const dataSource = new source.DataSource();
       map.sources.add(dataSource);
@@ -311,19 +311,20 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       
       // Displays outline of level + change in color when cursor is hovering
       lineLayer = new layer.LineLayer(dataSource, 'levelClick', getLineStyles('level', 'walkway'));
-      lineHoverLayer = new layer.LineLayer(dataSource, null, {
-        strokeColor: 'rgba(135, 206, 250, 0.8)',
+      linePolygonLayer = new layer.PolygonLayer(dataSource, 'levelFill', getFillStyles('level', 'unspecified'));
+      lineHoverLayer = new layer.PolygonLayer(dataSource, null, {
+        fillColor: 'rgba(135, 206, 250, 0.8)',
         filter: ['==', ['get', '_azureMapsShapeId'], '']
       });
 
-      lineClickLayer = new layer.LineLayer(dataSource, 'lineClickLayer', { 
-        strokeColor: 'rgba(75, 146, 210, 0.8)', 
+      lineClickLayer = new layer.PolygonLayer(dataSource, 'lineClickLayer', { 
+        fillColor: 'rgba(75, 146, 210, 0.8)', 
         filter: ['==', ['get', 'id'], ''] 
       }); 
-
-      map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
-      layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
-      featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
+    
+      map.layers.add([lineLayer, linePolygonLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
+      layersAdded = [lineLayer, lineHoverLayer, lineClickLayer, linePolygonLayer];
+      featureHoverClick(linePolygonLayer, lineHoverLayer, lineClickLayer);
 
       var drawingSource = drawingManager.getSource();
       drawingSource.add(selectedLevelDetails);
@@ -339,18 +340,20 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           dmLayers.polygonOutlineLayer.setOptions({ visible: false });
 
           var lineLayer = new layer.LineLayer(drawingManager.getSource(), 'levelClick', getLineStyles('level', 'walkway'));
-          lineHoverLayer = new layer.LineLayer(drawingManager.getSource(), null, {
-            strokeColor: 'rgba(135, 206, 250, 1)',
+          linePolygonLayer = new layer.PolygonLayer(drawingManager.getSource(), 'levelFill', getFillStyles('level', 'unspecified'));
+          lineHoverLayer = new layer.PolygonLayer(drawingManager.getSource(), null, {
+            fillColor: 'rgba(135, 206, 250, 0.8)',
             filter: ['==', ['get', '_azureMapsShapeId'], '']
           });
-          lineClickLayer = new layer.LineLayer(drawingManager.getSource(), 'lineClickLayer', { 
-            strokeColor: 'rgba(75, 146, 210, 0.7)', 
+    
+          lineClickLayer = new layer.PolygonLayer(drawingManager.getSource(), 'lineClickLayer', { 
+            fillColor: 'rgba(75, 146, 210, 0.8)', 
             filter: ['==', ['get', 'id'], ''] 
           }); 
-
-          map.layers.add([lineLayer, lineHoverLayer, lineClickLayer], 'walkwayPolygons');
-          layersAdded = [lineLayer, lineHoverLayer, lineClickLayer];
-          featureHoverClick(lineLayer, lineHoverLayer, lineClickLayer);
+        
+          map.layers.add([lineLayer, lineHoverLayer, lineClickLayer, linePolygonLayer], 'walkwayPolygons');
+          layersAdded = [lineLayer, lineHoverLayer, lineClickLayer, linePolygonLayer];
+          featureHoverClick(linePolygonLayer, lineHoverLayer, lineClickLayer);
 
           let updatedFeatures = drawingManager.getSource().shapes;
           setLevels(prevLevels => updateLevels(prevLevels, selectedLevel, (updatedFeatures[0]).data));
@@ -361,9 +364,16 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         else if (e === 'edit-geometry') {    
           drawingModeChanged(layersAdded);  
           dmLayers.polygonOutlineLayer.setOptions({ visible: true });
-          dmLayers.polygonLayer.setOptions({ visible: false });
+          dmLayers.polygonLayer.setOptions({ visible: true });
 
           currentEditData(map, drawingManager, setJsonData);
+
+          document.addEventListener('keydown', function (e) {
+            // Check if the delete or backspace key is pressed
+            if (e.key === 'Delete' || e.key === 'Backspace') {
+              drawingManager.setOptions({ mode: 'idle' });
+            }
+        });
         }
         else {
           // This will eventually be a visible pop-up
