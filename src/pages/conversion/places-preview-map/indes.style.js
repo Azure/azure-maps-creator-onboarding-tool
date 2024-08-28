@@ -36,3 +36,44 @@ export const toolbar = css `
   pointerEvents: none
 `;
 
+export const buttonStyle = css `
+  color: #323130;
+  fill: #323130;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 0 4px;
+  background-size: 12px 12px;
+  position: relative;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-collapse: collapse;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &:hover {
+    color: #31acce;
+  }
+
+  &:disabled,
+  buttonStyle[disabled]{
+  background-color: #e5e5e5;
+  color: #6c757d;
+  cursor: not-allowed;
+  }
+`;
+
+export const idk = css `
+  position: absolute;
+  right: 1%;
+  bottom: 20%;
+  z-index: 2;
+`;
+
