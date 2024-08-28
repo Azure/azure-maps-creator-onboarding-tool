@@ -7,13 +7,10 @@ import stairs from './assets/stairs.svg';
 import { categoryToFillColor, defaultFillColor, levelStyles, levelOnlyStyles, textStyles, footprintStyles, unitStyles } from './theme/floorPlanStyles';
 
 export function getFillStyles(featureType, category) {
-  if (featureType !== 'unit') {
-    return {};
-  }
-
   var fillStyle = {
     fillColor: categoryToFillColor.has(category) ? categoryToFillColor.get(category) : defaultFillColor,
     fillOpacity: 1,
+    cursor: 'pointer !important',
   };
 
   return fillStyle;
@@ -41,6 +38,7 @@ export function getLineStyles(featureType, category) {
       strokeWidth: levelStyles.lineWidth,
       lineJoin: 'round',
       lineCap: 'round',
+      fillColor: 'hsla(0, 0%, 0%, 0)',
     };
   }
 

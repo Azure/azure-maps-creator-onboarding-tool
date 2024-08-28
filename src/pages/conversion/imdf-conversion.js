@@ -1,4 +1,5 @@
 import { cx } from '@emotion/css';
+import { useEffect, useState } from 'react';
 import { MessageBar, MessageBarType } from '@fluentui/react';
 import { Icon } from '@fluentui/react/lib/Icon';
 import { PATHS } from 'common';
@@ -13,9 +14,34 @@ import { actionButtonsLeft, actionButtonsWrapper, messageWrapper } from './imdf-
 import { ImdfDiagnostics } from './imdf-diagnostics';
 import PlacesPreviewMap from './places-preview-map';
 import StepButton from './step-button';
+import { processZip } from './places-preview-map/utils';
 import { container, content, enabledStep, step as stepStyle, stepTitle, stepsContainer } from './style';
 
 const ImdfConversion = () => {
+  const [units, setUnits] = useState({ features: [] });
+  const [levels, setLevels] = useState({ features: [] });
+  const [footprint, setFootprint] = useState({ features: [] });
+  const [building, setBuilding] = useState({ features: [] });
+
+  const handleUnitsChange = (editedUnits) => {
+      if(!editedUnits.type) {
+        editedUnits.type = 'FeatureCollection';
+      }
+      setUnits(editedUnits);
+  };
+
+  const handleLevelsChange = (editedLevels) => {
+      setLevels(editedLevels);
+  };
+
+  const handleFootprintChange = (editedFootprint) => {
+    setFootprint(editedFootprint);
+  };
+
+  const handleBuildingChange = (editedBuilding) => {
+    setBuilding(editedBuilding);
+  };
+
   const { t } = useTranslation();
   const navigate = useCustomNavigate();
 
@@ -28,7 +54,25 @@ const ImdfConversion = () => {
       s.imdfPackageLocation,
       s.diagnosticPackageLocation,
     ]);
+  
+  useEffect(() => {
+    if (!imdfPackageLocation) return;
 
+    processZip(imdfPackageLocation).then(files => {
+      const unitFile = files.find(file => file.filename === 'unit.geojson');
+      const levelFile = files.find(file => file.filename === 'level.geojson');
+      const buildingFile = files.find(file => file.filename === 'building.geojson');
+      const footprintFile = files.find(file => file.filename === 'footprint.geojson');
+
+      if (unitFile && levelFile && footprintFile) {
+        setUnits(unitFile.content);
+        setLevels(levelFile.content);
+        setBuilding(buildingFile.content);
+        setFootprint(footprintFile.content);
+      }
+    });
+  }, [imdfPackageLocation]);
+  
   const { isRunningIMDFConversion, hasCompletedIMDFConversion, imdfConversionStatus, errorList } =
     useIMDFConversionStatus();
 
@@ -76,7 +120,7 @@ const ImdfConversion = () => {
             <div className={actionButtonsWrapper}>
               <div className={actionButtonsLeft}>
                 {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
-                  <DownloadIMDF link={imdfPackageLocation} />
+                  <DownloadIMDF imdfPackageLocation={imdfPackageLocation} units={units} levels={levels} footprint={footprint} building={building} /> 
                 )}
                 <ImdfDiagnostics link={diagnosticPackageLocation} />
               </div>
@@ -84,7 +128,7 @@ const ImdfConversion = () => {
             </div>
             {imdfConversionStatus === conversionStatuses.finishedSuccessfully && (
               <FillScreenContainer offsetBottom={110}>
-                {({ height }) => <PlacesPreviewMap style={{ height }} />}
+                {({ height }) => <PlacesPreviewMap style={{ height }} unitsChanged={handleUnitsChange} levelsChanged={handleLevelsChange} footprintChanged={handleFootprintChange} buildingChanged={handleBuildingChange}/>}
               </FillScreenContainer>
             )}
           </div>

@@ -18,27 +18,21 @@ export const imdfPreviewMap = css`
 
 export const layerSelect = css `
   position: relative;
-  top: 65%;
+  bottom: -55%;
 `;
+
 
 export const textWrapper = css `
-  flex: 1 1 4rem; 
+  flex: 1 1 5rem; 
   position: relative;
   display: inline;
-  margin-top: 1%;
 `;
 
-export const textArea = css `
-  width: 95%;
-  height: 95%;
-  white-space: nowrap;
-  resize: none;
+export const toolbar = css `
+  backgroundColor: #f0f0f0,
+  border: 2px solid #0078d4,
+  color: #0078d4,
+  cursor: not-allowed,
+  pointerEvents: none
 `;
-
-export const saveButtonWrapper = css `
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-
 
