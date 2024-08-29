@@ -21,6 +21,9 @@ describe('Tileset map', () => {
       controls: {
         add: () => {},
       },
+      events: {
+        add: () => {},
+      },
     }));
   });
   it('should render map', () => {
