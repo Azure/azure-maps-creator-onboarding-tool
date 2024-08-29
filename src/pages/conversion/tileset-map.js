@@ -5,17 +5,13 @@ import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 import { mapContainer } from './style';
 
-const conversionStoreSelector = s => [s.mapConfigurationId, s.bbox];
-const userStoreSelector = s => [s.geography, s.subscriptionKey];
-
 const TilesetMap = () => {
-  const [mapConfigurationId, bbox] = useConversionStore(conversionStoreSelector, shallow);
-  const [geography, subscriptionKey] = useUserStore(userStoreSelector, shallow);
+  const [mapConfigurationId, bbox] = useConversionStore(s => [s.mapConfigurationId, s.bbox], shallow);
+  const [geography, subscriptionKey] = useUserStore(s => [s.geography, s.subscriptionKey], shallow);
 
   useEffect(() => {
-    if (mapConfigurationId === null) {
-      return;
-    }
+    if (mapConfigurationId === null) return;
+
     const map = new Map('azure-maps-container', {
       bounds: bbox,
       subscriptionKey: subscriptionKey,
@@ -25,11 +21,17 @@ const TilesetMap = () => {
       mapConfiguration: mapConfigurationId,
       styleAPIVersion: '2023-03-01-preview',
     });
-    map.controls.add(new control.ZoomControl(), { position: 'top-right' });
-    new indoor.IndoorManager(map, {
-      levelControl: new indoorControl.LevelControl({ position: 'top-left' }),
+
+    map.controls.add([new control.ZoomControl(), new control.StyleControl({ mapStyles: 'all' })], {
+      position: 'top-right',
     });
-    map.controls.add(new control.StyleControl({ mapStyles: 'all' }), { position: 'top-right' });
+
+    map.events.add('ready', () => {
+      new indoor.IndoorManager(map, {
+        levelControl: new indoorControl.LevelControl({ position: 'top-left' }),
+      });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapConfigurationId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <div id='azure-maps-container' className={mapContainer} />;
