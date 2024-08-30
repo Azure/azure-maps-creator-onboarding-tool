@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add drawing toolbar to map - Azure Maps Web SDK Samples</title>
+
+    <meta charset="utf-8" />
+	<link rel="shortcut icon" href="/favicon.ico"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="This sample shows how to use the Drawing Tools module and display the drawing toolbar on the map." />
+    <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, drawing tools, circle, rectangle, polygon, linestring, point, marker, paint" />
+    <meta name="author" content="Microsoft Azure Maps" /><meta name="version" content="1.0" />
+    <meta name="screenshot" content="screenshot.jpg" />
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+
+    <!-- Add references to the Azure Maps Map Drawing Tools JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
+    
+    <script>
+        var map, drawingManager;
+
+        function getMap() {
+            //Initialize a map instance.
+            map = new atlas.Map('myMap', {
+                center: [-122.33, 47.6],
+                zoom: 12,
+                view: 'Auto',
+
+                //Add authentication details for connecting to Azure Maps.
+                authOptions: {
+                    //Use Microsoft Entra ID authentication.
+                    // authType: 'anonymous',
+                    // clientId: 'e6b6ab59-eb5d-4d25-aa57-581135b927f0', //Your Azure Maps client id for accessing your Azure Maps account.
+                    // getToken: function (resolve, reject, map) {
+                    //     //URL to your authentication service that retrieves an Microsoft Entra ID Token.
+                    //     var tokenServiceUrl = 'https://samples.azuremaps.com/api/GetAzureMapsToken';
+
+                    //     fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
+                    // }
+
+                    //Alternatively, use an Azure Maps key. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
+                    authType: 'subscriptionKey',
+                    subscriptionKey: '8I2k2oD87sFA75Rxo64bdsOwDSRrCYbnkS80GvXRRQ4pmzpf0LmYJQQJ99AFACYeBjFAArohAAAgAZMPMqkny'
+                }
+            });
+
+            //Wait until the map resources are ready.
+            map.events.add('ready', function () {
+
+                //Create an instance of the drawing manager and display the drawing toolbar.
+                drawingManager = new atlas.drawing.DrawingManager(map, {
+                    toolbar: new atlas.control.DrawingToolbar({ position: 'top-right', style: 'light' })
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="getMap()">
+    <div  style="display: flex">
+        <div id="myMap" style="position:relative;width:60%;min-width:290px;height:600px;"></div>
+        <input style="height:600px; margin-left: 5px; width:40%"></input>
+    </div>
+    <button>Upload IMDF</button>
+    <button>Download IMDF</button>
+</body>
+</html>
