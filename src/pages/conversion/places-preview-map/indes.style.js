@@ -70,7 +70,7 @@ export const buttonStyle = css `
   }
 `;
 
-export const idk = css `
+export const undoStyle = css `
   position: absolute;
   right: 1%;
   bottom: 20%;

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { buttonStyle, layerSelectorWrapper, selectedButtonStyle } from './index.style';
 
 const layerButtons = [
-  // will need to add a "buildingButton" once basemap is loaded
   {id: 'unitButton', text: 'unit.geojson'},
   {id: 'levelButton', text: 'level.geojson'},
   {id: 'footprintButton', text: 'footprint.geojson'},
