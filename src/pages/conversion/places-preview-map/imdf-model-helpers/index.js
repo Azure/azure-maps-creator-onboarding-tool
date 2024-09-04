@@ -1,4 +1,5 @@
-import { getFeatureLabel } from '../utils';
+import { getFeatureLabel, getFillStyles, getLineStyles, getTextStyle } from '../utils';
+import { layer } from 'azure-maps-control';
 
 // Sets polygon, line, and symbol layers to invisible
 function drawingModeChanged(allLayers) {
@@ -52,7 +53,7 @@ function grabToPointer(layerName, hoverLayer, map) {
     });
 }
 
-// Changes cursor between grabbing and grabbing when map is clicked and dragged
+// Changes cursor between grab and grabbing when map is clicked and dragged
 function grabAndGrabbing(map) {
     map.events.add('mousedown', () => {
         map.getCanvas().style.cursor = 'grabbing';
@@ -63,6 +64,7 @@ function grabAndGrabbing(map) {
     });
 }
 
+// Changes color of clicked feature, changes color of previously clicked feature back to original color
 function updateSelectedColor(map, unitSelected) {
     if(unitSelected) {
         const lineLayer = map.layers.getLayerById('lineClickLayer');
@@ -101,6 +103,7 @@ function updateLevels(levels, selectedLevel, newValue) {
     return levels;
 }
 
+// Set GeoJSON fields for a new feature
 function setFields(feature, selectedLevel) {
     if (!feature.data.properties.name) { 
         feature.data.properties.name = {}; 
@@ -136,8 +139,45 @@ function setFields(feature, selectedLevel) {
     }
 }
 
+// Deletes all units on level that is currently being changed, so only most recent changes are displayed
 function deleteUnitPrevEdits(units, selectedLevel) {
     units.features = units.features.filter(item => item.properties.level_id !== selectedLevel.id);
+}
+
+// Sets features to be clicked on
+function setFeatures(map, e, selectedLayerId) {
+    var features;
+    if(selectedLayerId === 'unitButton')
+        features = map.layers.getRenderedShapes(e.position, 'unitClick');
+    else if(selectedLayerId === 'levelButton')
+        features = map.layers.getRenderedShapes(e.position, 'levelFill');
+    else if(selectedLayerId === 'footprintButton')
+        features = map.layers.getRenderedShapes(e.position, 'footprintClick');
+    else
+        features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
+
+    return features;
+}
+
+// Creates layers for units
+function unitLayers(dataSource, category) {
+    var unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category)); 
+    var unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category)); 
+    var polygonHoverLayer = new layer.PolygonLayer(dataSource, null, { 
+        fillColor: 'rgba(135, 206, 250, 0.8)', 
+        filter: ['==', ['get', 'id'], ''],
+        cursor: 'pointer !important', 
+    }); 
+
+    var polygonClickLayer = new layer.PolygonLayer(dataSource, 'unitClickChange', { 
+        fillColor: 'rgba(75, 146, 210, 0.8)', 
+        filter: ['==', ['get', 'id'], ''] ,
+        cursor: 'pointer !important',
+    }); 
+
+    var unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
+
+    return [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols];
 }
 
 export {
@@ -149,5 +189,7 @@ export {
     setFields,
     deleteUnitPrevEdits,
     grabAndGrabbing,
-    updateSelectedColor
+    updateSelectedColor,
+    setFeatures,
+    unitLayers
 };
