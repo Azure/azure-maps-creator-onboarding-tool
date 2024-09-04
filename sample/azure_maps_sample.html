@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add drawing toolbar to map - Azure Maps Web SDK Samples</title>
+    <title>IMDF Editor - Azure Maps Web SDK Samples</title>
 
     <meta charset="utf-8" />
 	<link rel="shortcut icon" href="/favicon.ico"/>
@@ -22,6 +22,7 @@
     
     <script>
         var map, drawingManager;
+        var units, levels, buildings, footprints = { features: [] };
 
         function getMap() {
             //Initialize a map instance.
@@ -44,25 +45,73 @@
 
                     //Alternatively, use an Azure Maps key. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
                     authType: 'subscriptionKey',
-                    subscriptionKey: '8I2k2oD87sFA75Rxo64bdsOwDSRrCYbnkS80GvXRRQ4pmzpf0LmYJQQJ99AFACYeBjFAArohAAAgAZMPMqkny'
+                    subscriptionKey: '8I2k2oD87sFA75Rxo64bdsOwDSRrCYbnkS80GvXRRQ4pmzpf0LmYJQQJ99AFACYeBjFAArohAAAgAZMPMqkn'
                 }
             });
 
             //Wait until the map resources are ready.
             map.events.add('ready', function () {
-
-                //Create an instance of the drawing manager and display the drawing toolbar.
+                // Create an instance of the drawing manager and display the drawing toolbar.
+                drawingToolbar = new atlas.control.DrawingToolbar({ 
+                    position: 'bottom-right', 
+                    style: 'light', 
+                    buttons: [] 
+                });  
                 drawingManager = new atlas.drawing.DrawingManager(map, {
-                    toolbar: new atlas.control.DrawingToolbar({ position: 'top-right', style: 'light' })
+                    toolbar: drawingToolbar
                 });
+
+                buttonListeners();
             });
+
+            function buttonListeners() {
+                document.getElementById('unit').addEventListener('click', function() {
+                    drawingToolbar.setOptions({ 
+                        buttons: ['edit-geometry', 'erase-geometry', 'draw-polygon']
+                    });
+
+                    unitInteractions();
+                });
+                document.getElementById('level').addEventListener('click', function() {
+                    drawingToolbar.setOptions({ 
+                        buttons: ['edit-geometry']
+                    });
+                });
+                document.getElementById('footprint').addEventListener('click', function() {
+                    drawingToolbar.setOptions({ 
+                        buttons: ['edit-geometry']
+                    });
+                });
+                document.getElementById('building').addEventListener('click', function() {
+                    drawingToolbar.setOptions({ 
+                        buttons: ['edit-geometry']
+                    });
+                });
+            }
+
+            function unitInteractions(units) {
+                map.events.add('drawingmodechanged', drawingManager, (e) => { 
+                    if (e === 'idle') {
+                        // set new units
+                    }
+                });
+            }
         }
     </script>
 </head>
+
 <body onload="getMap()">
     <div  style="display: flex">
-        <div id="myMap" style="position:relative;width:60%;min-width:290px;height:600px;"></div>
-        <input style="height:600px; margin-left: 5px; width:40%"></input>
+        <div id="myMap" style="position:relative;width:60%;min-width:290px;height:550px;"></div>
+        <div style="display: flex; flex-direction: column; width: 40%;">
+            <input style="height:550px; margin-left: 5px;"></input>
+            <div style="display: flex; justify-content: center; margin-top: 2px;">
+                <button id="unit">unit.geojson</button>
+                <button id="level">level.geojson</button>
+                <button id="building">building.geojson</button>
+                <button id="footprint">footprint.geojson</button>
+            </div>
+        </div>
     </div>
     <button>Upload IMDF</button>
     <button>Download IMDF</button>
