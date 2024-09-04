@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add drawing toolbar to map - Azure Maps Web SDK Samples</title>
+    <title>Edit IMDF drawing files - Azure Maps Web SDK Samples</title>
 
     <meta charset="utf-8" />
-	<link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="This sample shows how to use the Drawing Tools module and display the drawing toolbar on the map." />
     <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, drawing tools, circle, rectangle, polygon, linestring, point, marker, paint" />
-    <meta name="author" content="Microsoft Azure Maps" /><meta name="version" content="1.0" />
+    <meta name="author" content="Microsoft Azure Maps" />
+    <meta name="version" content="1.0" />
     <meta name="screenshot" content="screenshot.jpg" />
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
@@ -20,12 +21,17 @@
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
     <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
     
+    <!-- Include JSZip for unzipping files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
     <script>
         var map, drawingManager;
+        var unit, level, building, footprint;
+				var originalZip;
 
         function getMap() {
-            //Initialize a map instance.
-            map = new atlas.Map('myMap', {
+						//Initialize a map instance.
+						map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],
                 zoom: 12,
                 view: 'Auto',
@@ -48,23 +54,90 @@
                 }
             });
 
-            //Wait until the map resources are ready.
+            // Wait until the map resources are ready.
             map.events.add('ready', function () {
-
-                //Create an instance of the drawing manager and display the drawing toolbar.
+                // Create an instance of the drawing manager and display the drawing toolbar.
                 drawingManager = new atlas.drawing.DrawingManager(map, {
                     toolbar: new atlas.control.DrawingToolbar({ position: 'top-right', style: 'light' })
                 });
             });
         }
+				function handleFileUpload(event) {
+					var file = event.target.files[0];
+					if (file && file.name.endsWith(".zip")) {
+							var reader = new FileReader();
+							reader.onload = function(e) {
+									JSZip.loadAsync(e.target.result).then(async function(zip) {
+											originalZip = zip;
+											async function readFile(fileName) {
+													var zipEntry = zip.file(fileName);
+													return zipEntry.async('text').then(function(content) {
+															return JSON.parse(content);
+													});
+											}
+
+											try {
+													unit = await readFile('unit.geojson');
+													level = await readFile('level.geojson');
+													building = await readFile('building.geojson');
+													footprint = await readFile('footprint.geojson');
+
+													if (!unit || !level || !building || !footprint) {
+															throw new Error("One or more required files are missing.");
+													}
+
+													getMap();
+											} catch (err) {
+													console.error("Error processing files: ", err.message);
+											}
+
+									}, function(err) {
+											console.error("Error reading zip file: ", err);
+									});
+							};
+							reader.readAsArrayBuffer(file);
+					} else {
+							alert("Please upload a valid ZIP file.");
+					}
+				}
+
+        function triggerFileInput() {
+            document.getElementById('fileInput').click();
+        }
+
+				function downloadIMDF() {
+            if (!originalZip) {
+                alert("Please upload and process a ZIP file first.");
+                return;
+            }
+
+            originalZip.file('unit.geojson', JSON.stringify(unit, null, 2)); 
+            originalZip.file('level.geojson', JSON.stringify(level, null, 2)); 
+            originalZip.file('building.geojson', JSON.stringify(building, null, 2));
+            originalZip.file('footprint.geojson', JSON.stringify(footprint, null, 2));
+
+            originalZip.generateAsync({type: 'blob'}).then(function(content) {
+                var link = document.createElement("a");
+                link.href = URL.createObjectURL(content);
+                link.download = "updated_imdf.zip";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        }
     </script>
 </head>
 <body onload="getMap()">
-    <div  style="display: flex">
+    <div style="display: flex">
         <div id="myMap" style="position:relative;width:60%;min-width:290px;height:600px;"></div>
         <input style="height:600px; margin-left: 5px; width:40%"></input>
     </div>
-    <button>Upload IMDF</button>
-    <button>Download IMDF</button>
+    
+    <!-- Hidden file input to select the ZIP file -->
+    <input type="file" id="fileInput" accept=".zip" style="display:none" onchange="handleFileUpload(event)"/>
+
+    <!-- Button to trigger the upload dialog -->
+    <button onclick="triggerFileInput()">Upload IMDF</button>
+    <button onclick="downloadIMDF()">Download IMDF</button>
 </body>
 </html>
