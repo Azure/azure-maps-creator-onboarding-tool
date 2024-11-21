@@ -3,12 +3,17 @@ import { useTranslation } from 'react-i18next';
 import {
   azMapsCreatorTextStyle,
   barStyle,
+  deprecationBarStyle,
+  deprecationTextStyle,
+  deprecationLinkStyle,
   docLink,
   linksContainer,
   logoContainer,
   msftAzureTextStyle,
   splitterStyle,
 } from './top-bar.style';
+
+import { Icon } from '@fluentui/react/lib/Icon';
 
 const docsLink = 'https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2';
 const feedbackLink =
@@ -19,6 +24,7 @@ const TopBar = () => {
   const { isPlacesPreview } = useFeatureFlags();
 
   return (
+    <div>
     <div className={barStyle}>
       <div className={logoContainer}>
         <span className={msftAzureTextStyle}>Microsoft Azure</span>
@@ -35,6 +41,20 @@ const TopBar = () => {
           {t('feedback')}
         </a>
       </div>
+    </div>
+    <div style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div className={deprecationBarStyle}>
+        <Icon iconName='error'/>&nbsp;
+        <span className={deprecationTextStyle}>
+          {t('deprecation.text')}&nbsp;
+        <a className={deprecationLinkStyle} href={t('deprecation.link')} target='_blank' rel='noreferrer' aria-label={t('deprecation.link')}>
+          {t('deprecation.link.text')}
+        </a>
+        </span>
+        
+      </div>
+    </div>
+    
     </div>
   );
 };

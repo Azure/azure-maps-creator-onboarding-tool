@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 
 export const containerStyle = css`
-  position: fixed;
+  // position: fixed;
   width: 100%;
   align-self: center;
   height: 100%;

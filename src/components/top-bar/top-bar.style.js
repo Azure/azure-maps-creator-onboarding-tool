@@ -12,6 +12,29 @@ export const barStyle = css`
   box-shadow: 0px 0px 0.625rem ${color.shadow};
 `;
 
+export const deprecationBarStyle = css`
+  background: #efd9fd;
+  color: red;
+  height: 2rem;
+  border-radius: 0.625rem;
+  margin: 0.625rem;
+  padding: 0.125rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const deprecationTextStyle = css`
+  font-size: ${fontSize.xl};
+`;
+
+export const deprecationLinkStyle = css`
+  color: red;
+`;
+
 export const msftAzureTextStyle = css`
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.lg};
