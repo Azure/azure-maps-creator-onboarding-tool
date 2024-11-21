@@ -70,49 +70,114 @@ Object {
   text-decoration: underline;
 }
 
+.emotion-8 {
+  background: #efd9fd;
+  color: red;
+  height: 2rem;
+  border-radius: 0.625rem;
+  margin: 0.625rem;
+  padding: 0.125rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-9 {
+  font-size: 1rem;
+}
+
+.emotion-10 {
+  color: red;
+}
+
 <body>
     <div>
-      <div
-        class="emotion-0"
-      >
+      <div>
         <div
-          class="emotion-1"
+          class="emotion-0"
         >
-          <span
-            class="emotion-2"
+          <div
+            class="emotion-1"
           >
-            Microsoft Azure
-          </span>
-          <span
-            class="emotion-3"
-          />
-          <span
-            class="emotion-4"
+            <span
+              class="emotion-2"
+            >
+              Microsoft Azure
+            </span>
+            <span
+              class="emotion-3"
+            />
+            <span
+              class="emotion-4"
+            >
+              Azure Maps Creator
+            </span>
+          </div>
+          <div
+            class="emotion-5"
           >
-            Azure Maps Creator
-          </span>
+            <a
+              aria-label="docs.link"
+              class="emotion-6"
+              href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+              rel="noreferrer"
+              target="_blank"
+            >
+              docs
+            </a>
+            <a
+              aria-label="feedback.link"
+              class="emotion-6"
+              href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
+              rel="noreferrer"
+              target="_blank"
+            >
+              feedback
+            </a>
+          </div>
         </div>
         <div
-          class="emotion-5"
+          style="display: flex; justify-content: center; align-items: center;"
         >
-          <a
-            aria-label="docs.link"
-            class="emotion-6"
-            href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
-            rel="noreferrer"
-            target="_blank"
+          <div
+            class="emotion-8"
           >
-            docs
-          </a>
-          <a
-            aria-label="feedback.link"
-            class="emotion-6"
-            href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
-            rel="noreferrer"
-            target="_blank"
-          >
-            feedback
-          </a>
+            <i
+              aria-hidden="true"
+              class="root-106"
+              data-icon-name="error"
+            >
+              
+            </i>
+             
+            <span
+              class="emotion-9"
+            >
+              deprecation.text
+               
+              <a
+                aria-label="deprecation.link"
+                class="emotion-10"
+                href="deprecation.link"
+                rel="noreferrer"
+                target="_blank"
+              >
+                deprecation.link.text
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -184,48 +249,113 @@ Object {
   text-decoration: underline;
 }
 
+.emotion-8 {
+  background: #efd9fd;
+  color: red;
+  height: 2rem;
+  border-radius: 0.625rem;
+  margin: 0.625rem;
+  padding: 0.125rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-9 {
+  font-size: 1rem;
+}
+
+.emotion-10 {
+  color: red;
+}
+
 <div>
-    <div
-      class="emotion-0"
-    >
+    <div>
       <div
-        class="emotion-1"
+        class="emotion-0"
       >
-        <span
-          class="emotion-2"
+        <div
+          class="emotion-1"
         >
-          Microsoft Azure
-        </span>
-        <span
-          class="emotion-3"
-        />
-        <span
-          class="emotion-4"
+          <span
+            class="emotion-2"
+          >
+            Microsoft Azure
+          </span>
+          <span
+            class="emotion-3"
+          />
+          <span
+            class="emotion-4"
+          >
+            Azure Maps Creator
+          </span>
+        </div>
+        <div
+          class="emotion-5"
         >
-          Azure Maps Creator
-        </span>
+          <a
+            aria-label="docs.link"
+            class="emotion-6"
+            href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
+            rel="noreferrer"
+            target="_blank"
+          >
+            docs
+          </a>
+          <a
+            aria-label="feedback.link"
+            class="emotion-6"
+            href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
+            rel="noreferrer"
+            target="_blank"
+          >
+            feedback
+          </a>
+        </div>
       </div>
       <div
-        class="emotion-5"
+        style="display: flex; justify-content: center; align-items: center;"
       >
-        <a
-          aria-label="docs.link"
-          class="emotion-6"
-          href="https://learn.microsoft.com/en-us/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2"
-          rel="noreferrer"
-          target="_blank"
+        <div
+          class="emotion-8"
         >
-          docs
-        </a>
-        <a
-          aria-label="feedback.link"
-          class="emotion-6"
-          href="https://feedback.azure.com/d365community/post/fc834083-0925-ec11-b6e6-000d3a4f09d0?page=1&sort=newest"
-          rel="noreferrer"
-          target="_blank"
-        >
-          feedback
-        </a>
+          <i
+            aria-hidden="true"
+            class="root-106"
+            data-icon-name="error"
+          >
+            
+          </i>
+           
+          <span
+            class="emotion-9"
+          >
+            deprecation.text
+             
+            <a
+              aria-label="deprecation.link"
+              class="emotion-10"
+              href="deprecation.link"
+              rel="noreferrer"
+              target="_blank"
+            >
+              deprecation.link.text
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   </div>,
