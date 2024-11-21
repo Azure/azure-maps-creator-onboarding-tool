@@ -44,10 +44,10 @@ const TopBar = () => {
     </div>
     <div style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
       <div className={deprecationBarStyle}>
-        <Icon iconName='error'/>&nbsp;
+        <Icon iconName="error"/>&nbsp;
         <span className={deprecationTextStyle}>
           {t('deprecation.text')}&nbsp;
-        <a className={deprecationLinkStyle} href={t('deprecation.link')} target='_blank' rel='noreferrer' aria-label={t('deprecation.link')}>
+        <a className={deprecationLinkStyle} href={t('deprecation.link')} target="_blank" rel="noreferrer" aria-label={t('deprecation.link')}>
           {t('deprecation.link.text')}
         </a>
         </span>
