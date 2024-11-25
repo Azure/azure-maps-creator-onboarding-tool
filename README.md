@@ -1,6 +1,6 @@
 # Azure Maps Manifest Tool
 
-The Azure Maps Manifest Tool allows to interactively generate manifest files required for using the Creator Conversion Service.
+The Azure Maps Manifest Tool allows to interactively generate manifest files required for using the Creator Conversion Service. TEST DEPLOY
 
 ## Getting Started
 
