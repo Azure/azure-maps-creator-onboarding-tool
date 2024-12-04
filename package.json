@@ -39,6 +39,7 @@
     "cypress": "^13.6.0",
     "eslint-plugin-cypress": "^2.15.1",
     "flush-promises": "^1.0.2",
+    "gh-pages": "^6.2.0",
     "jest-junit": "^16.0.0",
     "madge": "^6.1.0",
     "prettier": "^3.1.0",
