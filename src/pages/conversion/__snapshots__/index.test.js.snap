@@ -4,7 +4,6 @@ exports[`Conversion should render component 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  position: fixed;
   top: 5.5rem;
   height: calc(100% - 5.5rem - 2px);
   width: calc(100% - 2.5rem);
@@ -307,7 +306,6 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  position: fixed;
   top: 5.5rem;
   height: calc(100% - 5.5rem - 2px);
   width: calc(100% - 2.5rem);

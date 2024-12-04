@@ -4,7 +4,6 @@ exports[`ProcessingPage should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .emotion-0 {
-  position: fixed;
   width: 100%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -54,7 +53,6 @@ Object {
     </div>
   </body>,
   "container": .emotion-0 {
-  position: fixed;
   width: 100%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;

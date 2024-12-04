@@ -3,7 +3,7 @@ import { css, keyframes } from '@emotion/css';
 import { color, fontSize, fontWeight } from 'common/styles';
 
 export const container = css`
-  position: fixed;
+  // position: fixed;
   top: 5.5rem;
   height: calc(100% - 5.5rem - 2px);
   width: calc(100% - 2.5rem);
