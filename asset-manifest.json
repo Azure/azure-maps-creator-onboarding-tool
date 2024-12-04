@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/azure-maps-creator-onboarding-tool/static/css/main.65bba988.css",
-    "main.js": "/azure-maps-creator-onboarding-tool/static/js/main.51dc9172.js",
-    "static/js/585.1ad2578d.chunk.js": "/azure-maps-creator-onboarding-tool/static/js/585.1ad2578d.chunk.js",
+    "main.css": "/azure-maps-creator-onboarding-tool/static/css/main.8f72dcdf.css",
+    "main.js": "/azure-maps-creator-onboarding-tool/static/js/main.89c4dd3c.js",
+    "static/js/585.ad2d49ea.chunk.js": "/azure-maps-creator-onboarding-tool/static/js/585.ad2d49ea.chunk.js",
     "static/js/322.513328f7.chunk.js": "/azure-maps-creator-onboarding-tool/static/js/322.513328f7.chunk.js",
+    "static/media/view.png": "/azure-maps-creator-onboarding-tool/static/media/view.f25aff9b31d968e3df90.png",
+    "static/media/restroom.svg": "/azure-maps-creator-onboarding-tool/static/media/restroom.8ab5403ff534861a731c367c94fe28f4.svg",
+    "static/media/elevator.svg": "/azure-maps-creator-onboarding-tool/static/media/elevator.5b168e168e662f306a2638e86c4f5d31.svg",
+    "static/media/conferenceroom.svg": "/azure-maps-creator-onboarding-tool/static/media/conferenceroom.e27a2ba866a7144b87a200728b3ad749.svg",
     "index.html": "/azure-maps-creator-onboarding-tool/index.html",
-    "main.65bba988.css.map": "/azure-maps-creator-onboarding-tool/static/css/main.65bba988.css.map",
-    "main.51dc9172.js.map": "/azure-maps-creator-onboarding-tool/static/js/main.51dc9172.js.map",
-    "585.1ad2578d.chunk.js.map": "/azure-maps-creator-onboarding-tool/static/js/585.1ad2578d.chunk.js.map",
+    "static/media/deskpool.svg": "/azure-maps-creator-onboarding-tool/static/media/deskpool.e915daea795d2ea3c1c57408ea8dfef1.svg",
+    "static/media/stairs.svg": "/azure-maps-creator-onboarding-tool/static/media/stairs.2c579e9b512eaed439743c4c8802f83c.svg",
+    "main.8f72dcdf.css.map": "/azure-maps-creator-onboarding-tool/static/css/main.8f72dcdf.css.map",
+    "main.89c4dd3c.js.map": "/azure-maps-creator-onboarding-tool/static/js/main.89c4dd3c.js.map",
+    "585.ad2d49ea.chunk.js.map": "/azure-maps-creator-onboarding-tool/static/js/585.ad2d49ea.chunk.js.map",
     "322.513328f7.chunk.js.map": "/azure-maps-creator-onboarding-tool/static/js/322.513328f7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65bba988.css",
-    "static/js/main.51dc9172.js"
+    "static/css/main.8f72dcdf.css",
+    "static/js/main.89c4dd3c.js"
   ]
 }
