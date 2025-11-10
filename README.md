@@ -1,5 +1,10 @@
 # Azure Maps Manifest Tool
 
+## DEPRECATED
+This plugin is now deprecated with the deprecation of Azure Maps Creator Services. See [Azure Creator Services EOL Annoucement](https://azure.microsoft.com/en-us/updates?id=azure-maps-creator-services-retirement-on-30-september-2025)
+
+---
+
 The Azure Maps Manifest Tool allows to interactively generate manifest files required for using the Creator Conversion Service.
 
 ## Getting Started
