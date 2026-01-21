@@ -2,13 +2,14 @@ import { Map, layer, source, control, HtmlMarker } from 'azure-maps-control';
 import { control as draw_control, drawing } from 'azure-maps-drawing-tools';
 import { getDomain, useConversionStore, useLevelsStore, useUserStore } from 'common/store';
 import { useEffect, useMemo, useState, useRef } from 'react';
-import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, mapTextWrapper } from './indes.style';
+import { imdfPreviewMap, imdfPreviewMapWrapper, layerSelect, textWrapper, mapTextWrapper, buttonStyle, undoStyle } from './indes.style';
 import LevelSelector from './level-selector';
 import LayerSelector from './layer-selector';
 import MapNotification from './map-notification';
 import { calculateBoundingBox, getFeatureLabel, getFillStyles, getLineStyles, getTextStyle, processZip } from './utils';
-import { currentEditData, groupAndSort, drawingModeChanged, updateLevels, setFields, deleteUnitPrevEdits, grabAndGrabbing, grabToPointer, updateSelectedColor } from './imdf-model-helpers';
+import { currentEditData, groupAndSort, drawingModeChanged, updateLevels, setFields, deleteUnitPrevEdits, grabAndGrabbing, grabToPointer, updateSelectedColor, setFeatures, unitLayers } from './imdf-model-helpers';
 import { JsonEditor } from 'json-edit-react'
+import { SlActionUndo } from 'react-icons/sl';
 import 'azure-maps-drawing-tools/dist/atlas-drawing.min.css';
 import 'azure-maps-control/dist/atlas.min.css';
 
@@ -25,7 +26,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
   const [jsonData, setJsonData] = useState({});
   const newDataRef = useRef(false);
 
-  // const [prevStates, setPrevStates] = useState([]); // Tracking previous changes for Undo feature
+  const [prevStates, setPrevStates] = useState([]); // Tracking previous changes for undo feature (units)
 
   useEffect(() => {
     if (!imdfPackageLocation) return;
@@ -101,7 +102,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         drawingToolbar = new draw_control.DrawingToolbar({ 
           position: 'bottom-right', 
           style: 'light', 
-          buttons: ['edit-geometry'] 
+          buttons: ['edit-geometry']  
         });   
 
         drawingManager = new drawing.DrawingManager(map, {
@@ -148,6 +149,13 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
 
     grabAndGrabbing(map);
 
+    if(prevStates.length < 2) {
+      document.getElementById('undoButton').disabled = true; 
+    }
+    else {
+      document.getElementById('undoButton').disabled = false;
+    }
+
     // Shows change in corresponding feature color when mouse hovers over OR clicks on that feature
     let selectedFeatureID = null;
     function featureHoverClick(layerName, hoverLayer, clickLayer, unitSelected=false) {
@@ -167,15 +175,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           // Handles the change in color of the feature when clicked (for full view)
           updateSelectedColor(map, unitSelected)
 
-          var features;
-          if(selectedLayerId === 'unitButton')
-            features = map.layers.getRenderedShapes(e.position, 'unitClick');
-          else if(selectedLayerId === 'levelButton')
-            features = map.layers.getRenderedShapes(e.position, 'levelFill');
-          else if(selectedLayerId === 'footprintButton')
-            features = map.layers.getRenderedShapes(e.position, 'footprintClick');
-          else
-            features = map.layers.getRenderedShapes(e.position, ['unitClick', 'levelClick']);
+          var features = setFeatures(map, e, selectedLayerId);
     
           features.forEach(function (feature) {
               const newData = feature.data || {};
@@ -194,16 +194,20 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     }
 
     function handleDeletion(e) {
+      let window_msg = 'Do you want to proceed with removing feature '
+      let feature_name = `${e.shapes[0].data.properties.name.en}`;
       if (drawingManager.getOptions().mode === 'erase-geometry') {
-        if (window.confirm('Do you want to proceed with removing this feature?')) {
+        if (window.confirm(window_msg + feature_name + '?')) {
             drawingManager.getSource().remove(e.shapes[0]);
         } 
       }
     }
  
-    // Entry point when "unit.geojson" is pressed; the following code should be refactored due to redundancy
+    // Entry point when "unit.geojson" is pressed
     function unitInteractions(units, drawingManager, map) {  
       // Update the units state with the edited features (for updating zip)
+      let element = document.getElementById('undoButton');
+      element.removeAttribute('hidden');
       unitsChanged(units);
 
       var unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols;  
@@ -217,22 +221,8 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         map.sources.add(dataSource); 
         dataSource.add(features); 
 
-        unitLayer = new layer.PolygonLayer(dataSource, 'unitClick', getFillStyles('unit', category)); 
-        unitLines = new layer.LineLayer(dataSource, null, getLineStyles('unit', category)); 
-        polygonHoverLayer = new layer.PolygonLayer(dataSource, null, { 
-          fillColor: 'rgba(135, 206, 250, 0.8)', 
-          filter: ['==', ['get', 'id'], ''],
-          cursor: 'pointer !important', 
-        }); 
-
-        polygonClickLayer = new layer.PolygonLayer(dataSource, 'unitClickChange', { 
-          fillColor: 'rgba(75, 146, 210, 0.8)', 
-          filter: ['==', ['get', 'id'], ''] ,
-          cursor: 'pointer !important',
-        }); 
-
-        unitSymbols = new layer.SymbolLayer(dataSource, null, getTextStyle(category)); 
-        map.layers.add([unitLayer, polygonHoverLayer, unitLines, polygonClickLayer, unitSymbols], 'roomPolygons'); 
+        var [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols] = unitLayers(dataSource, category);
+        map.layers.add([unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols], 'roomPolygons'); 
         featureHoverClick(unitLayer, polygonHoverLayer, polygonClickLayer, true); 
 
         var drawingSource = drawingManager.getSource(); 
@@ -244,15 +234,17 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
         layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
 
         // Saving previous states for undo functionality
-        // if(prevStates.length === 0 || units.features !== prevStates[prevStates.length - 1].features) {
-        //   setPrevStates(prev => [...prev, {...units}]);
-        // }
+        if(prevStates.length === 0 || JSON.stringify(units.features) !== JSON.stringify(prevStates[prevStates.length - 1].features)) {
+          setPrevStates(prev => [...prev, {...units}]);
+        }
    
         map.events.add('drawingmodechanged', drawingManager, (e) => { 
           let dmLayers = drawingManager.getLayers(); 
           layersAdded = [unitLayer, unitLines, polygonHoverLayer, polygonClickLayer, unitSymbols]; 
 
           if (e === 'idle') { 
+            let element = document.getElementById('undoButton');
+            element.removeAttribute('hidden');
             setDrawNotif(false);
             let updatedFeatures = drawingManager.getSource().shapes; 
 
@@ -274,6 +266,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             drawingModeChanged(layersAdded);  
             dmLayers.polygonLayer.setOptions({ visible: true }); 
             dmLayers.polygonOutlineLayer.setOptions({ visible: true }); 
+            
+            let element = document.getElementById('undoButton');
+            element.setAttribute('hidden', 'hidden');
+          
 
             if(e === 'draw-polygon') {
               setDrawNotif(true);
@@ -297,8 +293,10 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       }); 
     } 
 
-    // Entry point when "level.geojson" is pressed; the following code should be refactored due to redundancy
+    // Entry point when "level.geojson" is pressed
     function levelInteractions(levels, drawingManager, map) {
+      let element = document.getElementById('undoButton');
+      element.setAttribute('hidden', 'hidden');
       // Retrieve information about the level currently chosen by user
       levelsChanged(levels);
       const selectedLevelDetails = levels.features.filter(item => item.id === selectedLevel.id);
@@ -367,13 +365,6 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
           dmLayers.polygonLayer.setOptions({ visible: true });
 
           currentEditData(map, drawingManager, setJsonData);
-
-          document.addEventListener('keydown', function (e) {
-            // Check if the delete or backspace key is pressed
-            if (e.key === 'Delete' || e.key === 'Backspace') {
-              drawingManager.setOptions({ mode: 'idle' });
-            }
-        });
         }
         else {
           // This will eventually be a visible pop-up
@@ -382,8 +373,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       });
     }
 
-    // Entry point when "footprint.geojson" is pressed; the following code should be refactored due to redundancy
+    // Entry point when "footprint.geojson" is pressed
     function footprintInteractions(footprint, drawingManager, map) {
+      let element = document.getElementById('undoButton');
+      element.setAttribute('hidden', 'hidden');
+
       footprintChanged(footprint);
       var footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer; 
       var layersAdded = [footprintLayer, footprintLines, footprintHoverLayer, footprintClickLayer];
@@ -461,7 +455,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       });
     }
 
+    // Entry point when "building.geojson" is pressed
     function buildingInteractions(building, map) {
+      let element = document.getElementById('undoButton');
+      element.setAttribute('hidden', 'hidden');
+      
       var buildingLayer = new HtmlMarker({ 
         position: building.features[0].properties.display_point.coordinates, 
       });
@@ -477,7 +475,7 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
       });
     }
 
-    // Entry point when "full view" is pressed; the following code may need to be changed to allow fill color of units while editing
+    // Entry point when "full view" is pressed
     function fullViewInteractions(units, levels, map) {
       unitsChanged(units);
       levelsChanged(levels);
@@ -535,11 +533,11 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     return () => {
       map.dispose();
     };
-  }, [ units, levels, footprint, building, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged ]);
+  }, [ units, levels, footprint, building, selectedLevel, selectedLayerId, subscriptionKey, geography, language, imdfPackageLocation, unitsChanged, levelsChanged, footprintChanged, prevStates ]);
 
   const handleLevelChange = levelId => {
     setSelectedLevelId(levelId);
-  };
+  }
 
   const handleLayerChange = layerId => {
     setSelectedLayerId(layerId);
@@ -593,6 +591,28 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
     
     return true;
   };
+
+  // Triggered when Undo button is pressed 
+  const handleUndo = () => { 
+    if (prevStates.length > 0) { 
+      // Get the last state
+      const newArray = prevStates.slice(0, -1);
+      setPrevStates(newArray); // Update the prevStates state
+      
+      const lastState = newArray[newArray.length - 1]; 
+      
+      // Revert to the last state
+      units.features = [...lastState.features];
+      setUnits(prevUnits => ({ 
+        features: [...lastState.features], 
+      })); 
+    } 
+  }; 
+
+  useEffect(() => {
+    // Perform actions based on the updated state
+  }, [prevStates]);
+  
   
 
   return (
@@ -612,9 +632,12 @@ const PlacesPreviewMap = ({ style, unitsChanged, levelsChanged, footprintChanged
             />
           </div>
 
+          <div className={undoStyle}><button id="undoButton" onClick={handleUndo} className={buttonStyle}><SlActionUndo/></button></div>
+
           <MapNotification>Zoom in to see labels and icons.</MapNotification>
           {drawNotif && <MapNotification>Click to draw a point. To connect the final lines of current drawing, press 'c'.</MapNotification>}
           <div id="azure-maps-container" className={imdfPreviewMap} style={style}/>
+
         </div>
 
         <div id="panel" className={textWrapper} style={{ maxHeight: '30rem', overflowY: 'auto' }}>
