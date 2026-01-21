@@ -9,6 +9,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@fluentui/react-components';
+import { useReviewManifestStore } from 'common/store';
+import dayjs from 'dayjs';
+import { saveAs } from 'file-saver';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import nextId from 'react-id-generator';
@@ -16,6 +19,7 @@ import { failedLogsButton, logsButton } from '../style';
 import { extractMessages, processZip } from './utils';
 
 export const ImdfDiagnostics = ({ isFailed, link }) => {
+  const [getOriginalPackageName] = useReviewManifestStore(s => [s.getOriginalPackageName]);
   const [diagnosticsMessages, setDiagnosticsMessages] = useState({ errors: [], warnings: [] });
 
   useEffect(() => {
@@ -38,18 +42,26 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
     });
   }, [link]);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!link) {
       toast.error('No diagnostics available');
       return;
     }
 
-    const linkUrl = link;
-    const anchor = document.createElement('a');
-    anchor.href = linkUrl;
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
+    try {
+      const response = await fetch(link);
+      if (!response.ok) {
+        throw new Error('Bad Network Response');
+      }
+      const blob = await response.blob();
+
+      const fileName = `conversionDiagnostics_${getOriginalPackageName()}_${dayjs().format('YYYY-MM-DD_HH-mm-ss')}.zip`;
+      saveAs(blob, fileName);
+      toast.success('The download has started');
+    } catch (error) {
+      toast.error('Failed to download file');
+      console.error('Download error:', error);
+    }
   };
 
   return (
@@ -86,7 +98,9 @@ export const ImdfDiagnostics = ({ isFailed, link }) => {
             <DialogTrigger disableButtonEnhancement>
               <DefaultButton>Close</DefaultButton>
             </DialogTrigger>
-            <PrimaryButton onClick={handleDownload}>Download Full Report</PrimaryButton>
+            <DialogTrigger disableButtonEnhancement>
+              <PrimaryButton onClick={handleDownload}>Download Full Report</PrimaryButton>
+            </DialogTrigger>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
